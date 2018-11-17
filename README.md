@@ -1,4 +1,4 @@
-<img src="https://github.com/vinceliuice/Sierra-gtk-theme/blob/imgs/logo.png" alt="Logo" align="right" /> Sierra Gtk Theme
+<img src="https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/logo.png" alt="Logo" align="right" /> Mojave Gtk Theme
 ======
 
 Mojave is a Mac OSX like theme for GTK 3, GTK 2 and Gnome-Shell which supports GTK 3 and GTK 2 based desktop environments like Gnome, Pantheon, XFCE, Mate, etc.
@@ -44,7 +44,7 @@ Usage:  `./Install`  **[OPTIONS...]**
 |  OPTIONS:           | |
 |:--------------------|:-------------|
 |-d, --dest           | Specify theme destination directory (Default: $HOME/.themes)|
-|-n, --name           | Specify theme name (Default: Sierra)|
+|-n, --name           | Specify theme name (Default: Mojave)|
 |-c, --color          | Specify theme color variant(s) **[light/dark]** (Default: All variants)|
 |-o, --opacity        | Specify theme opacity variant(s) **[standard/solid]** (Default: All variants)|
 |-g, --gdm            | Install GDM theme|
@@ -54,9 +54,9 @@ Usage:  `./Install`  **[OPTIONS...]**
 
 ### GNOME Shell
 
-#### Sierra
-![01](https://github.com/vinceliuice/Sierra-gtk-theme/blob/imgs/screenshot1.jpeg?raw=true)
-![02](https://github.com/vinceliuice/Sierra-gtk-theme/blob/imgs/screenshot2.jpeg?raw=true)
-![03](https://github.com/vinceliuice/Sierra-gtk-theme/blob/imgs/screenshot3.jpeg?raw=true)
-![04](https://github.com/vinceliuice/Sierra-gtk-theme/blob/imgs/screenshot4.jpeg?raw=true)
-![05](https://github.com/vinceliuice/Sierra-gtk-theme/blob/imgs/screenshot5.jpeg?raw=true)
+#### Mojave
+![01](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/screenshot01.jpeg?raw=true)
+![02](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/screenshot02.jpeg?raw=true)
+![03](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/screenshot03.jpeg?raw=true)
+![04](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/screenshot04.jpeg?raw=true)
+![05](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/screenshot05.jpeg?raw=true)
