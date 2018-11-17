@@ -1323,6 +1323,12 @@ combobox button.combo {
 }
 
 combobox arrow {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  min-height: 16px;
+  min-width: 16px;
+}
+
+.background combobox button.combo arrow {
   -gtk-icon-source: -gtk-scaled(url("assets/combobox-arrow.png"), url("assets/combobox-arrow@2.png"));
   min-height: 16px;
   min-width: 16px;
@@ -2543,6 +2549,7 @@ menuitem check:dir(rtl), menuitem radio:dir(rtl) {
   margin-right: 2px;
 }
 
+
 menu > arrow,
 .menu > arrow {
   min-width: 16px;
@@ -2555,6 +2562,7 @@ menu > arrow,
   color: #dedede;
 }
 
+
 menu > arrow.top,
 .menu > arrow.top {
   margin: -8px 0 0 0;
@@ -2562,6 +2570,7 @@ menu > arrow.top,
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
+
 
 menu > arrow.bottom,
 .menu > arrow.bottom {
@@ -2571,10 +2580,12 @@ menu > arrow.bottom,
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
+
 menu > arrow:hover,
 .menu > arrow:hover {
   background-color: rgba(222, 222, 222, 0.08);
 }
+
 
 menu > arrow:disabled,
 .menu > arrow:disabled {
@@ -6711,7 +6722,7 @@ window.background.chromium > textview.view {
  * Libre-Office *
  ****************/
 window.background:not(.csd):not(.solid-csd) > grid.horizontal > grid.horizontal {
-  background-image: none;
+  background-image: linear-gradient(180deg, #3e3e3e 0%, #383838 100%);
   background-color: transparent;
   box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
 }

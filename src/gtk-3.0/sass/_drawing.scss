@@ -16,6 +16,9 @@ $shadow_transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
 $button_transition: all 100ms $ease-out-quad;
 $backdrop_transition: 200ms ease-out;
 
+// Images
+$button_active_image: linear-gradient( 180deg, $button_active_top 0%, $button_active_bottom 100%);
+
 // Animations
 $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
 

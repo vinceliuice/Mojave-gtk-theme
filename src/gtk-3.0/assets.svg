@@ -20,6 +20,26 @@
   <defs
      id="mojave_theme">
     <linearGradient
+       id="theme_darker_color"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#4d4d4d;stop-opacity:1;"
+         offset="0"
+         id="stop5416" />
+    </linearGradient>
+    <linearGradient
+       id="button_active"
+       osb:paint="gradient">
+      <stop
+         style="stop-color:#3d6ffc;stop-opacity:1"
+         offset="0"
+         id="stop5384" />
+      <stop
+         style="stop-color:#7ba3f7;stop-opacity:1"
+         offset="1"
+         id="stop5386" />
+    </linearGradient>
+    <linearGradient
        id="unchecked_highlight"
        osb:paint="solid">
       <stop
@@ -831,15 +851,6 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#selected_bg_color"
-       id="linearGradient1717"
-       x1="79.25"
-       y1="-208.57698"
-       x2="106.75"
-       y2="-208.57698"
-       gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#selected_bg_color"
        id="linearGradient1719"
        x1="466"
        y1="199.36218"
@@ -873,6 +884,106 @@
        x2="498"
        y2="199.36218"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#button_active"
+       id="linearGradient5408"
+       gradientUnits="userSpaceOnUse"
+       x1="92"
+       y1="-195.63782"
+       x2="92"
+       y2="-223.63782"
+       gradientTransform="translate(0,0.99999868)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5420"
+       x1="-9.3621826"
+       y1="142.99999"
+       x2="-7.3621826"
+       y2="142.99999"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5422"
+       x1="122"
+       y1="8.3621826"
+       x2="126"
+       y2="8.3621826"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5424"
+       x1="-738.80396"
+       y1="-721.95472"
+       x2="-736.80396"
+       y2="-721.95472"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5426"
+       x1="8"
+       y1="1034.3622"
+       x2="13"
+       y2="1034.3622"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5428"
+       x1="11"
+       y1="1031.3622"
+       x2="13"
+       y2="1031.3622"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5430"
+       x1="8"
+       y1="1034.3622"
+       x2="13"
+       y2="1034.3622"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5432"
+       x1="11"
+       y1="1031.3622"
+       x2="13"
+       y2="1031.3622"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5434"
+       x1="-738.80396"
+       y1="-721.95472"
+       x2="-736.80396"
+       y2="-721.95472"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5436"
+       x1="122"
+       y1="8.3621826"
+       x2="126"
+       y2="8.3621826"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#theme_darker_color"
+       id="linearGradient5438"
+       x1="-9.3621826"
+       y1="142.99999"
+       x2="-7.3621826"
+       y2="142.99999"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -881,17 +992,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="155.56998"
-     inkscape:cy="116.95755"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="171.22513"
+     inkscape:cy="183.03955"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      showborder="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1047"
+     inkscape:window-height="1026"
      inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:window-y="28"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
      inkscape:snap-bbox="true"
@@ -938,7 +1049,8 @@
      id="layer3"
      inkscape:label="superbackdrop"
      style="display:inline"
-     transform="translate(8.000005,279.63782)">
+     transform="translate(8.000005,279.63782)"
+     sodipodi:insensitive="true">
     <rect
        transform="scale(1,-1)"
        style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#f9f9f9;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.0947361;marker:none;enable-background:accumulate"
@@ -3096,15 +3208,6 @@
         </g>
       </g>
     </g>
-    <rect
-       style="display:inline;opacity:1;fill:url(#linearGradient1717);fill-opacity:1;stroke:none;stroke-width:0.88817805;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
-       id="rect1633"
-       width="27.5"
-       height="30"
-       x="79.25"
-       y="-223.57698"
-       rx="0"
-       ry="2.9999974" />
     <g
        transform="translate(5e-7,1e-5)"
        style="display:inline"
@@ -3915,7 +4018,7 @@
                  height="1.9999826"
                  width="5"
                  id="rect3977-39-9"
-                 style="fill:#0e6bff;fill-opacity:1;stroke:none" />
+                 style="fill:url(#linearGradient5430);fill-opacity:1;stroke:none" />
               <rect
                  ry="1"
                  y="1027.3622"
@@ -3923,7 +4026,7 @@
                  height="7.9999828"
                  width="2"
                  id="rect3979-7-65"
-                 style="fill:#0e6bff;fill-opacity:1;stroke:none" />
+                 style="fill:url(#linearGradient5432);fill-opacity:1;stroke:none" />
             </g>
             <rect
                style="fill:#eeeeee;fill-opacity:0;stroke:none"
@@ -4014,7 +4117,7 @@
                  height="7.9999828"
                  width="2"
                  id="rect3979-7-3-2"
-                 style="fill:#0e6bff;fill-opacity:1;stroke:none"
+                 style="fill:url(#linearGradient5434);fill-opacity:1;stroke:none"
                  transform="rotate(-135)" />
             </g>
             <rect
@@ -4096,7 +4199,7 @@
          height="4"
          width="4"
          id="use15101-5-7-51"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#0e6bff;fill-opacity:1;stroke:none;stroke-width:2.08838987;marker:none;enable-background:accumulate"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5436);fill-opacity:1;stroke:none;stroke-width:2.08838987;marker:none;enable-background:accumulate"
          ry="2" />
     </g>
     <g
@@ -4161,7 +4264,7 @@
            height="7.9999828"
            width="2"
            id="rect3979-7-3-9-08"
-           style="display:inline;fill:#0e6bff;fill-opacity:1;stroke:none"
+           style="display:inline;fill:url(#linearGradient5438);fill-opacity:1;stroke:none"
            transform="rotate(-90)" />
       </g>
     </g>
@@ -4331,7 +4434,7 @@
                  height="1.9999826"
                  width="5"
                  id="rect3977-39-0-1"
-                 style="fill:#0e6bff;fill-opacity:1;stroke:none" />
+                 style="fill:url(#linearGradient5426);fill-opacity:1;stroke:none" />
               <rect
                  ry="1"
                  y="1027.3622"
@@ -4339,7 +4442,7 @@
                  height="7.9999828"
                  width="2"
                  id="rect3979-7-6-7"
-                 style="fill:#0e6bff;fill-opacity:1;stroke:none" />
+                 style="fill:url(#linearGradient5428);fill-opacity:1;stroke:none" />
             </g>
             <rect
                style="fill:#eeeeee;fill-opacity:0;stroke:none"
@@ -4430,7 +4533,7 @@
                  height="7.9999828"
                  width="2"
                  id="rect3979-7-3-91-3"
-                 style="fill:#0e6bff;fill-opacity:1;stroke:none"
+                 style="fill:url(#linearGradient5424);fill-opacity:1;stroke:none"
                  transform="rotate(-135)" />
             </g>
             <rect
@@ -4512,7 +4615,7 @@
          height="4"
          width="4"
          id="use15101-5-7-2-84"
-         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#0e6bff;fill-opacity:1;stroke:none;stroke-width:2.08838987;marker:none;enable-background:accumulate"
+         style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:url(#linearGradient5422);fill-opacity:1;stroke:none;stroke-width:2.08838987;marker:none;enable-background:accumulate"
          ry="2" />
     </g>
     <g
@@ -4577,7 +4680,7 @@
            height="7.9999828"
            width="2"
            id="rect3979-7-3-9-3-4"
-           style="display:inline;fill:#0e6bff;fill-opacity:1;stroke:none"
+           style="display:inline;fill:url(#linearGradient5420);fill-opacity:1;stroke:none"
            transform="rotate(-90)" />
       </g>
     </g>
@@ -4669,11 +4772,20 @@
         </g>
       </g>
     </g>
+    <rect
+       style="display:inline;opacity:1;fill:url(#linearGradient5408);fill-opacity:1;stroke:none;stroke-width:0.73175734;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1633"
+       width="20"
+       height="28"
+       x="82"
+       y="-222.63782"
+       rx="0"
+       ry="0" />
     <g
-       transform="translate(5e-7,1e-5)"
+       transform="translate(-1,-0.69305812)"
        style="display:inline"
        id="combobox-arrow"
-       inkscape:label="#g5351">
+       inkscape:label="#combobox-arrow">
       <rect
          y="-221.94476"
          x="83"

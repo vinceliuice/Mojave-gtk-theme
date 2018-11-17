@@ -976,7 +976,14 @@ combobox {
     padding-left: 12px;
     padding-right: 12px;
   }
+
   arrow {
+    -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+    min-height: 16px;
+    min-width: 16px;
+  }
+
+  .background & button.combo arrow {
     -gtk-icon-source: -gtk-scaled(
                        url("assets/combobox-arrow.png"),
                        url("assets/combobox-arrow@2.png"));
@@ -990,13 +997,17 @@ combobox {
     @include button(active);
   }
 
+  // .background & menu arrow { // Reset menu overflow arrow
+  //   @extend %menu_overflow_arrow;
+  // }
+
   &:drop(active) button.combo { @extend button:drop(active); }
 
   .linked:not(.vertical) > & > box > button.combo {
     // the combobox is a composite widget so the way we do button linking doesn't
     // work, special case needed.
 
-  arrow { border-radius: 0; }
+    arrow { border-radius: 0; }
 
     &:dir(ltr),
     &:dir(rtl) { @extend %linked_middle; } // specificity bump
@@ -1975,7 +1986,9 @@ menu,
       }
     }
   }
+
   // overflow buttons
+  %menu_overflow_arrow,
   > arrow {
     min-width: 16px;
     min-height: 16px;
