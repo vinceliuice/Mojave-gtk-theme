@@ -57,7 +57,6 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}
   cp -ur ${REPO_DIR}/COPYING                                                            ${THEME_DIR}
 
-  # Install index.theme
   echo "[Desktop Entry]" >>                                                             ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme" >>                                                      ${THEME_DIR}/index.theme
   echo "Name=${name}${color}${opacity}" >>                                              ${THEME_DIR}/index.theme
@@ -70,7 +69,6 @@ install() {
   echo "IconTheme=Adwaita" >>                                                           ${THEME_DIR}/index.theme
   echo "CursorTheme=Adwaita" >>                                                         ${THEME_DIR}/index.theme
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                   ${THEME_DIR}/index.theme
-  # Install index.theme
 
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell
   cp -ur ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
@@ -101,14 +99,9 @@ install() {
   cp -ur ${SRC_DIR}/metacity-1/metacity-theme-3.xml                                     ${THEME_DIR}/metacity-1
   cp -ur ${SRC_DIR}/metacity-1/assets/*.png                                             ${THEME_DIR}/metacity-1
 
-  mkdir -p                                                                              ${THEME_DIR}/unity
-  cp -ur ${SRC_DIR}/unity                                                               ${THEME_DIR}
-
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/xfwm4/assets${color}/*.png                                          ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
-
-  cp -ur ${SRC_DIR}/plank                                                               ${THEME_DIR}
 }
 
 install_gdm() {
