@@ -1,0 +1,16 @@
+$variant: 'dark';
+$darker: 'false';
+$compact: 'false';
+$transparency: 'false';
+$titlebutton: 'norm';
+
+@import 'sass/colors';
+@import 'sass/drawing';
+@import 'sass/common';
+@import 'sass/applications';
+@import 'sass/unity';
+@import 'sass/granite';
+@import 'sass/lightdm';
+@import 'sass/transparent_widgets';
+@import 'sass/budgie.scss';
+@import 'sass/colors-public';
