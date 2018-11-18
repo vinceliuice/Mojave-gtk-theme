@@ -605,24 +605,28 @@ button.osd:active, button.osd:checked {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  box-shadow: none;
 }
 
 button.osd:disabled {
   color: #bcbcbc;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 }
 
 .osd button {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: none;
 }
 
 .osd button:hover {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
 }
 
 .osd button:active, .osd button:checked {
@@ -630,12 +634,14 @@ button.osd:disabled {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  box-shadow: none;
 }
 
 .osd button:disabled {
   color: #bcbcbc;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 }
 
 .osd button.flat, .osd button.budgie-menu-launcher, .osd .budgie-panel button.flat.launcher, .budgie-panel .osd button.flat.launcher {
@@ -650,12 +656,14 @@ button.osd:disabled {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
 }
 
 .osd button.flat:disabled, .osd button.budgie-menu-launcher:disabled {
   color: #bcbcbc;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
   background-image: none;
 }
 
@@ -663,6 +671,7 @@ button.osd:disabled {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  box-shadow: none;
 }
 
 .osd .linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child),
@@ -6230,20 +6239,28 @@ flowboxchild.bookmark-tag-widget-selected {
   color: #ffffff;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal scrolledwindow.frame {
-  border: none;
+.documents-scrolledwin {
+  background-color: transparent;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal scrolledwindow.frame viewport.frame {
-  border: none;
-}
-
-dialog.background.csd box.dialog-vbox grid.horizontal scrolledwindow.frame viewport.frame list {
+.documents-scrolledwin iconview.view.content-view {
   border-radius: 0 0 6px 6px;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal stack scrolledwindow.frame {
-  border: 1px solid rgba(0, 0, 0, 0.15);
+dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame {
+  border: none;
+}
+
+dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame > viewport.frame {
+  border: none;
+}
+
+dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame > viewport.frame list:first-child {
+  border-radius: 0 0 0 6px;
+}
+
+dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame > viewport.frame list:last-child {
+  border-radius: 0 0 6px 0;
 }
 
 dialog.background.csd box.dialog-vbox notebook > stack {
@@ -7385,24 +7402,28 @@ GtkListBox .h4 {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.35);
+  box-shadow: none;
 }
 
 #buttonbox_frame button:hover {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
 }
 
 #buttonbox_frame button:active, #buttonbox_frame button:checked {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  box-shadow: none;
 }
 
 #buttonbox_frame button:disabled {
   color: #bcbcbc;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 }
 
 #login_window #user_combobox {

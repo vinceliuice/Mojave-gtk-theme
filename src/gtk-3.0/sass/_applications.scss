@@ -1189,24 +1189,37 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Totem
+//
+.documents-scrolledwin {
+  background-color: transparent;
+
+  iconview.view.content-view {
+    border-radius: 0 0 $wm_radius $wm_radius;
+  }
+}
+
+
+//
 // Dialogs
 //
 dialog.background.csd {
   box.dialog-vbox {
     grid.horizontal {
-      scrolledwindow.frame { //removed ugly boders for nautilus batch renaming dialog
+      > scrolledwindow.frame { //removed ugly boders for nautilus batch renaming dialog
         border: none;
 
-        viewport.frame {
+        > viewport.frame {
           border: none;
 
-          list { border-radius: 0 0 $wm_radius $wm_radius; }
+          list:first-child { border-radius: 0 0 0 $wm_radius; }
+          list:last-child { border-radius: 0 0 $wm_radius 0; }
         }
       }
 
       stack {
         scrolledwindow.frame { // reset border for totem setting dialog
-          border: 1px solid $borders_color;
+          // border: 1px solid $borders_color;
         }
       }
     }

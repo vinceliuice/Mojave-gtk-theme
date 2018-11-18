@@ -380,6 +380,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $osd_fg_color;
     border-color: $osd_button_border;
     background-color: $osd_button_bg;
+    box-shadow: none;
   }
 
   @else if $t==osd-hover {
@@ -389,6 +390,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $osd_fg_color;
     border-color: $osd_button_border;
     background-color: opacify(lighten($osd_button_bg, 7%), 0.1);
+    box-shadow: none;
   }
 
   @else if $t==osd-active {
@@ -398,6 +400,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $selected_fg_color;
     border-color: $osd_button_border;
     background-color: $selected_bg_color;
+    box-shadow: none;
   }
 
   @else if $t==osd-insensitive {
@@ -407,6 +410,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $osd_insensitive_fg_color;
     border-color: $osd_button_border;
     background-color: transparentize($osd_button_bg, 0.15);
+    box-shadow: none;
   }
 
   @else if $t==suggested_destructive {
