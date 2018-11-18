@@ -78,14 +78,22 @@ $raven_button_active_color: #AFAFAF;
 
 .budgie-container { background-color: transparent; }
 
-.budgie-settings-window buttonbox.inline-toolbar {
-  border-style: none none solid;
+.budgie-settings-window {
+  buttonbox.inline-toolbar {
+    border-style: none none solid;
 
-  button {
-    border-radius: $bt_radius;
-    -gtk-outline-radius: $bt_radius;
+    button {
+      border-radius: $bt_radius;
+      -gtk-outline-radius: $bt_radius;
 
-    @extend %budgie_button;
+      @extend %budgie_button;
+    }
+  }
+
+  list.sidebar {
+    background-color: $base_color;
+    border-radius: 0 0 0 $wm_radius;
+    border-color: if($variant =='light', $solid_borders_color, $header_border);
   }
 }
 
@@ -96,7 +104,7 @@ $raven_button_active_color: #AFAFAF;
   border-radius: $wm_radius;
   box-shadow: 0 1px 2px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
               0 2px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
-              0 0 0 1px $borders_color;
+              0 0 0 1px if($variant=='light', $borders_color, rgba($dark_borders_color, 0.55));
 
   background-color: if($transparency == 'true', rgba($bg_color, 0.95), $bg_color);
 
@@ -621,7 +629,7 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
 
   button {
     @extend %raven_button;
-    &.image-button { @extend %circle_button; }
+    &.image-button { @extend %circular_button; }
   }
 
   stackswitcher { padding: 0 8px 12px 8px; }
@@ -805,7 +813,7 @@ box.vertical > stack > box.vertical {
       image { padding-left: 8px; }
 
       button.image-button { // 'dismiss'
-        @extend %circle_button;
+        @extend %circular_button;
         margin: 8px;
         padding: 2px;
         image { padding: 0; }

@@ -4,7 +4,6 @@
 
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
 $darker_asset_suffix: if($darker=='true', '-dark', $asset_suffix);
-$thin_suffix: if($titlebutton=='thin', '-thin', ''); // use thin assets in thin titlebutton version
 $bt_radius: 5px;
 $wm_radius: 6px;
 
@@ -39,7 +38,7 @@ $wm_radius: 6px;
 //  border-radius: 0 0 $wm_radius $wm_radius;
   color: $fg_color;
   // without this headerbar transparency doesn't seem to work
-  background-color: if($transparency == 'true', transparentize($bg_color, 0.001), $bg_color);
+  background-color: if($transparency == 'true', rgba($bg_color, 1), $bg_color);
 
   &.csd,
   &.ssd, &.osd { border-radius: 0 0 $wm_radius $wm_radius; } // Set csd windows botttom border radius
@@ -82,15 +81,16 @@ $wm_radius: 6px;
   &:hover { background-color: if($variant=='light', darken($base_color, 3%), lighten($base_color, 3%)); }
 
   &:selected {
-    &, &:focus {
-      transition: all 350ms $ease-out-quad;
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    transition: all 350ms $ease-out-quad;
+
+    &:focus {
       @extend %selected_items;
-      border-radius: $bt_radius;
     }
   }
 }
 
-.view,
 textview {
   text {
     @extend %view;
@@ -100,7 +100,7 @@ textview {
 
 textview border { background-color: mix($bg_color, $base_color, 50%); }
 
-iconview { @extend .view; }
+iconview { @extend %view; border-radius: $bt_radius; }
 
 rubberband,
 .rubberband {
@@ -399,7 +399,7 @@ button {
   separator { margin: 4px 1px; }
 
   @at-root %outline_dashed,
-  &.flat, &.osd, &.sidebar-button, &.circular-button {
+  &.flat, &.osd, &.sidebar-button, &.circular {
     outline-color: gtkalpha(currentColor, 0.3);
     outline-style: dashed;
     outline-offset: -3px;
@@ -485,6 +485,10 @@ button {
     }
 
     &.popup { padding-right: 8px; padding-left: 8px; }
+  }
+
+  &.close { // The Bloody Circul Button
+    @extend %circular_button;
   }
 
   &:drop(active) {
@@ -1123,23 +1127,18 @@ actionbar {
 
 $_header_radius: if($darker=='false' and $variant=='light', $wm_radius, $wm_radius);
 
-$_header_image: linear-gradient(0deg, $header_bottom 0%,
-                                      $header_middle 50%,
-                                      $header_top 95%,
-                                      $header_highlight 100%);
-
 headerbar,
 %titlebar {
   min-height: 34px;
   padding: 0 8px;
-  background-image: $_header_image;
+  background-image: $headerbar_bg_image;
 
   color: $header_fg;
   background-color: $header_bg;
   border-bottom: 1px solid $header_border;
 
   .csd & {  // Transparent header-bars only in csd windows
-    background-image: $_header_image;
+    background-image: $headerbar_bg_image;
     background-color: $header_bg;
     border-bottom: 1px solid $header_border;
   }
@@ -1224,7 +1223,7 @@ headerbar,
     min-height: 26px;
     padding: 0 6px;
     background-color: $header_bg;
-    background-image: linear-gradient(0deg, $header_middle 0%, $header_highlight 100%);
+    background-image: $headerbar_top_image;
 
     .tiled &,
     .maximized &,
@@ -1310,12 +1309,14 @@ headerbar {
 }
 
 %header_separator {
-  min-width: 0;
-  min-height: 0;
-  background-color: transparent;
-  background-image: none;
+  min-width: 1px;
+  min-height: 1px;
+  background-image: $headerbar_bg_image;
+  background-color: $header_bg;
   border: none;
+  box-shadow: none;
 
+border: none;
   &:backdrop { opacity: 0.6; }
 }
 
@@ -1374,7 +1375,7 @@ headerbar {
     min-width: 22px;
     @include button(header-normal);
 
-    &.circular-button { @extend button.circular; }
+    // &.circular { @extend %circular_button; }
 
     &:backdrop { opacity: 0.5; background-image: none; }
     &:hover {
@@ -1706,6 +1707,7 @@ headerbar {
 //
 // Tree Views
 //
+
 treeview.view {
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;
@@ -1716,8 +1718,8 @@ treeview.view {
     -GtkTreeView-expander-size: 16;
   }
 
-  border-left-color: transparentize($fg_color, 0.85);   // this is actually the tree lines color,
-  border-top-color: transparentize(black, 0.9);         // while this is the grid lines color, better then nothing
+  border-left-color: rgba($fg_color, 0.15);   // this is actually the tree lines color,
+  border-top-color: $borders_color;         // while this is the grid lines color, better then nothing
 
   rubberband { @extend rubberband; }                    // to avoid borders being overridden by the previously set props
 
@@ -1727,7 +1729,7 @@ treeview.view {
     &, &:focus {
       border-radius: 0;
       border-left-color: mix($selected_fg_color, $selected_bg_color, 50%);
-      border-top-color: transparentize($fg_color, 0.9);   // doesn't work unfortunately
+      border-top-color: rgba($fg_color, 0.15);   // doesn't work unfortunately
 
       @extend %selected_items;
     }
@@ -1743,7 +1745,7 @@ treeview.view {
 
   &.separator {
     min-height: 2px;
-    color: transparentize(black, 0.9);
+    color: $borders_color;
   }
 
   &:drop(active) {
@@ -1860,7 +1862,7 @@ menubar,
   -GtkWidget-window-dragging: true;
   padding: 0;
   background-color: $header_bg;
-  background-image: linear-gradient(180deg, $header_middle 0%, $header_bottom 100%);
+  background-image: $menubar_bg_image;
   color: $header_fg;
   box-shadow: inset 0 -1px $borders_color;
 
@@ -1889,6 +1891,7 @@ menubar,
       color: $selected_fg_color;
 //      text-shadow: $text_shadow;
     }
+
     &:disabled {
       color: transparentize($header_fg, 0.6);
       border-color: transparent;
@@ -1907,7 +1910,8 @@ menu,
 
   .csd & {
 //    background-color: $_menu_bg;
-    border: none;
+    @if $variant == 'light' { border: none; }
+    @if $variant == 'dark' { border: 1px solid lighten($_menu_bg, 10%); }
   }
 
   separator,
@@ -2037,11 +2041,12 @@ popover.background {
   background-clip: border-box;
   background-color: $_popover_bg;
 
-  box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85));
+  box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
+              0 0 0 1px if($variant=='light', rgba($borders_color, 0.03), rgba($dark_borders_color, 0.55));
 
   .csd &, & {
     border-radius: $wm_radius;
-    border: 1px solid if($variant=='light', darken($borders_color, 5%), rgba($dark_borders_color, 0.55));
+    border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($_popover_bg, 10%));
   }
 
   button { @extend %outline_dashed; }
@@ -3035,7 +3040,7 @@ scrolledwindow {
 
 //vbox and hbox separators
 separator {
-  background-color: transparentize(black, 0.9);
+  background-color: $borders_color;
   min-width: 1px;
   min-height: 1px;
 }
@@ -3054,7 +3059,7 @@ list {
 row {
   &:not(:hover) { transition: all 300ms $ease-out-quad; }
 
-  button.circular-button { @extend button.circular; }
+  button.circular { @extend %circular_button; }
 
   &:selected {
     @extend %selected_items;
@@ -3675,21 +3680,42 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 //
 // Shortcuts Help
 //
-button.circular,
-button.circular-button {
-  padding: 0;
-  margin: 0 2px;
-  min-width: 28px;
-  min-height: 28px;
+%circular_button,
+button.circular {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
+  padding: 0 0 0 0;
+  min-height: 28px;
+  min-width: 28px;
   border: none;
-  @if $variant=='light' { box-shadow: $shadow_3, 0 0 0 1px $borders_color, inset 0 0 0 1px rgba($borders_color, 0.01); }
 
-  &:active { @include button(flat-active); border: none; }
-  &:checked { @include button(flat-checked); border: none; }
+  @if $variant=='light' {
+    box-shadow: $shadow_3, 0 0 0 1px $borders_color;
 
-  label { padding: 0; }
+    &:active, &:checked {
+      box-shadow: 0 0 0 1px rgba($borders_color, 0.65);
+    }
+  }
+
+  @if $variant=='dark' {
+    box-shadow: inset 0 1px #747474, 0 0 0 1px $dark_borders_color;
+
+    // &:active, &:checked {
+    //   box-shadow: inset 0 1px $borders_color;
+    // }
+  }
+
+  &:active {
+    @include button(flat-active);
+    border: none;
+  }
+
+  &:checked {
+    @include button(flat-checked);
+    border: none;
+  }
+
+  // label { padding: 0; }
 }
 
 .keycap {
@@ -3709,14 +3735,9 @@ stackswitcher button {
   &.text-button { min-width: 80px; }
 }
 
-@at-root %circle_button,
 stackswitcher button.circular,
 stackswitcher button.text-button.circular { // FIXME aggregate with buttons
-  min-width: 28px;
-  min-height: 28px;
-  border-radius: 100px;
-  -gtk-outline-radius: 100px;
-  padding: 0;
+  @extend %circular_button;
 }
 
 //
@@ -3838,8 +3859,8 @@ headerbar,
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
-        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}#{$thin_suffix}.png'),
-                                                        url('assets/titlebutton-#{$k}#{$m}#{$thin_suffix}@2.png')); }
+        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}.png'),
+                                                        url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png')); }
       }
     }
   }
@@ -3848,8 +3869,8 @@ headerbar,
   .maximized & {
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-restore#{$m}#{$thin_suffix}.png'),
-                                                      url('assets/titlebutton-restore#{$m}#{$thin_suffix}@2.png')); }
+      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-restore#{$m}#{$asset_suffix}.png'),
+                                                      url('assets/titlebutton-restore#{$m}#{$asset_suffix}@2.png')); }
       }
     }
   }

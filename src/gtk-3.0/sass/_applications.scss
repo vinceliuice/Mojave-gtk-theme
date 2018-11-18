@@ -63,56 +63,67 @@ terminal-window,
 }
 
 .nautilus-canvas-item {
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 .nautilus-desktop.nautilus-canvas-item {
-    color: white;
-    text-shadow: 1px 1px transparentize(black, 0.4);
+  color: white;
+  text-shadow: 1px 1px transparentize(black, 0.4);
 
-    &:active {
-        color: $fg_color;
-    }
+  &:active {
+    color: $fg_color;
+  }
 
-    &:selected {
-        color: $selected_fg_color;
-        text-shadow: none;
-    }
+  &:selected {
+    color: $selected_fg_color;
+    text-shadow: none;
+  }
 }
 
 .nautilus-canvas-item.dim-label,
 .nautilus-list-dim-label {
-    color: mix($fg_color, $bg_color, 50%);
+  color: mix($fg_color, $bg_color, 50%);
 
-    &:selected,
-    &:selected:focus {
-        color: mix($selected_fg_color, $selected_bg_color, 80%);
-    }
+  &:selected,
+  &:selected:focus {
+    color: mix($selected_fg_color, $selected_bg_color, 80%);
+  }
 }
 
 .nautilus-window {
-    // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
-    searchbar {
-        border-top: 1px solid $borders_color;
-    }
-    .searchbar-container {
-        margin-top: -1px;
-    }
+  // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
+  searchbar {
+    border-top: 1px solid $borders_color;
+  }
+  .searchbar-container {
+    margin-top: -1px;
+  }
 }
 
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
-    border-radius: 0 0 $wm_radius $wm_radius;
+  border-radius: 0 0 $wm_radius $wm_radius;
 }
 
 .nautilus-window.maximized notebook,
 .nautilus-window.maximized notebook > stack {
-    border-radius: 0 0 0 0;
+  border-radius: 0 0 0 0;
 }
 
 .nautilus-window notebook,
 .nautilus-window notebook > stack:not(:only-child) searchbar {
-    background-color: $base_color;
+  background-color: $base_color;
+}
+
+.nautilus-list-view {
+  background-color: $base_color;
+  border-radius: 0 0 $wm_radius $wm_radius;
+
+  treeview.view {
+    background-color: transparent;
+    border-radius: 0;
+    @extend %view;
+  }
 }
 
 button.nautilus-circular-button.image-button {
@@ -405,10 +416,22 @@ $disk_space_free: darken($bg_color, 3%);
       box-shadow: $shadow_5;
     }
   }
+  // 'files' pane
+  stack {
+    scrolledwindow {
+      viewport.frame {
+        list.gedit-document-panel {
+          background: none;
+        }
+      }
+    }
+  }
 }
 
 paned.titlebar.horizontal {
   headerbar {
+    box-shadow: inset 0 1px $highlight;
+
     button.flat.toggle.popup:not(.image-button) { // left-pane header button
       @extend %headerbar_buttons;
 
@@ -1166,6 +1189,35 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Dialogs
+//
+dialog.background.csd {
+  box.dialog-vbox {
+    grid.horizontal {
+      scrolledwindow.frame { //removed ugly boders for nautilus batch renaming dialog
+        border: none;
+
+        viewport.frame {
+          border: none;
+
+          list { border-radius: 0 0 $wm_radius $wm_radius; }
+        }
+      }
+
+      stack {
+        scrolledwindow.frame { // reset border for totem setting dialog
+          border: 1px solid $borders_color;
+        }
+      }
+    }
+
+    notebook > stack {
+      border-radius: 0 0 $wm_radius $wm_radius;
+    }
+  }
+}
+
+//
 // Mate OSD Window
 //
 
@@ -1434,6 +1486,10 @@ window.thunar {
   }
 }
 
+.geary-composer-box {
+  entry { margin: 0 2px 2px 2px; }
+}
+
 //
 // * Firefox and Thunderbird *
 //
@@ -1530,17 +1586,18 @@ window.background:not(.csd) {
   .background,
   frame,
   separator,
-  scrolledwindow { background-color: $bg_color; }
+  scrolledwindow { background-color: $base_color; }
 
   scrollbar {
     background-color: transparent;
+
     slider {
       background-color: mix($fg_color, $bg_color, 45%);
       &:hover { background-color: mix($fg_color, $bg_color, 60%); }
       &:hover:active { background-color: mix($fg_color, $bg_color, 75%); }
       &:disabled { background-color: transparent; }
-      }
     }
+  }
 
   *:not(menuitem):hover, // exclude menuitem node
   *:focus,
@@ -1550,7 +1607,7 @@ window.background:not(.csd) {
   }
 
   > window.background > menu { // context-menus
-    background-color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
+    background-color: if($variant == 'light', $base_color, $bg_color);
     border-radius: 0;
     border-color: $borders_color;
 
@@ -1566,7 +1623,7 @@ window.background:not(.csd) {
     // FIXME: this affected to popover widget as well,
     // so we can not set $lighter_bg_color to search-bar...
     > scrolledwindow > textview {
-      background-color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
+      background-color: if($variant == 'light', $base_color, $bg_color);
 
       text {
         background-color: transparent;
@@ -1636,7 +1693,7 @@ window.background.chromium {
 window.background:not(.csd):not(.solid-csd) {
     // reserved area at the most-right side of GtkMenuBar
     > grid.horizontal > grid.horizontal {
-        background-image: linear-gradient(180deg, $header_middle 0%, $header_bottom 100%);
+        background-image: $menubar_bg_image;
         background-color: transparent;
         box-shadow: inset 0 -1px $borders_color;
 
