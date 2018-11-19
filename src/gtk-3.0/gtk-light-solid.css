@@ -7698,6 +7698,14 @@ filechooser placessidebar.sidebar separator,
 }
 
 
+filechooser paned > separator,
+.nautilus-window paned > separator {
+  background-image: image(#ffffff);
+  background-size: 8px 8px;
+  background-position: left bottom;
+}
+
+
 filechooser.maximized placessidebar,
 .nautilus-window.maximized placessidebar {
   border-radius: 0;

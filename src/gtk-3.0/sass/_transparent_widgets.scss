@@ -64,6 +64,13 @@ filechooser,
     scrollbar { @extend %dark_sidebar_scrollbar }
   }
 
+  paned > separator { // Use paned separator to hide stack border-bottom-left-radius
+    // background-color: transparent;
+    background-image: image($base_color);
+    background-size: 8px 8px;
+    background-position: left bottom;
+  }
+
   &.maximized placessidebar { border-radius: 0; }
   &.maximized placessidebar.sidebar { background-color: opacify($dark_sidebar_bg, 1); }
 }
