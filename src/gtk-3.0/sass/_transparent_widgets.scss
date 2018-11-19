@@ -1,16 +1,21 @@
 //.nemo-window GtkEventBox { background-color: $bg_color; } // fixes nemo statusbar
 
 //.nemo-window,
+filechooser,
 .nautilus-window {
-  paned > separator {
-    background-image: _solid($dark_sidebar_border);
+  paned > separator { // Use paned separator to hide stack border-bottom-left-radius
+    // background-color: transparent;
+    border: none;
+    background-image: image($base_color);
+    background-size: 8px 8px;
+    background-position: left bottom;
 
-    &:dir(ltr) { margin-left: -1px; }
-    &:dir(rtl) { margin-right: -1px; }
+    // &:dir(ltr) { margin-left: -1px; }
+    // &:dir(rtl) { margin-right: -1px; }
   }
 }
 
-filechooser paned > separator { background-image: _solid($dark_sidebar_border); }
+filechooser placessidebar.sidebar.frame { border-right: 1px solid if($variant=='light', $borders_color, $header_border); }
 
 // Dark transparent sidebars
 %placessidebar,
@@ -64,15 +69,12 @@ filechooser,
     scrollbar { @extend %dark_sidebar_scrollbar }
   }
 
-  paned > separator { // Use paned separator to hide stack border-bottom-left-radius
-    // background-color: transparent;
-    background-image: image($base_color);
-    background-size: 8px 8px;
-    background-position: left bottom;
-  }
-
   &.maximized placessidebar { border-radius: 0; }
   &.maximized placessidebar.sidebar { background-color: opacify($dark_sidebar_bg, 1); }
+
+  placesview {
+    actionbar.background { border-radius: 0 0 $wm_radius 0; }
+  }
 }
 
 .nemo-window {

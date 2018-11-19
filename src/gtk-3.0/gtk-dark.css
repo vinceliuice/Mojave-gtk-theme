@@ -7543,20 +7543,16 @@ GtkListBox .h4 {
   font-weight: bold;
 }
 
+filechooser paned > separator,
 .nautilus-window paned > separator {
-  background-image: linear-gradient(to bottom, #484848, #484848);
+  border: none;
+  background-image: image(#242424);
+  background-size: 8px 8px;
+  background-position: left bottom;
 }
 
-.nautilus-window paned > separator:dir(ltr) {
-  margin-left: -1px;
-}
-
-.nautilus-window paned > separator:dir(rtl) {
-  margin-right: -1px;
-}
-
-filechooser paned > separator {
-  background-image: linear-gradient(to bottom, #484848, #484848);
+filechooser placessidebar.sidebar.frame {
+  border-right: 1px solid #101010;
 }
 
 
@@ -7703,14 +7699,6 @@ filechooser placessidebar.sidebar separator,
 }
 
 
-filechooser paned > separator,
-.nautilus-window paned > separator {
-  background-image: image(#242424);
-  background-size: 8px 8px;
-  background-position: left bottom;
-}
-
-
 filechooser.maximized placessidebar,
 .nautilus-window.maximized placessidebar {
   border-radius: 0;
@@ -7720,6 +7708,12 @@ filechooser.maximized placessidebar,
 filechooser.maximized placessidebar.sidebar,
 .nautilus-window.maximized placessidebar.sidebar {
   background-color: #3b3b3b;
+}
+
+
+filechooser placesview actionbar.background,
+.nautilus-window placesview actionbar.background {
+  border-radius: 0 0 6px 0;
 }
 
 .nemo-window .sidebar {
