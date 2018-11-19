@@ -1325,7 +1325,7 @@ headerbar {
   background-color: transparent;
   border: none;
 
-  &:backdrop { opacity: 0.6; }
+  &:backdrop { opacity: 0.65; }
 }
 
 %header_widgets {
@@ -1335,7 +1335,7 @@ headerbar {
 //    min-height: if($variant == 'light', 20px, 22px);
     @include entry(header-normal);
 
-    &:backdrop { opacity: 0.85; background-image: none; @if $compact == 'false' { box-shadow: none; } }
+    &:backdrop { opacity: 0.65; background-image: none; }
 
     &:focus {
       @include entry(header-focus);
@@ -1386,23 +1386,23 @@ headerbar {
 
     // &.circular { @extend %circular_button; }
 
-    &:backdrop { opacity: 0.5; background-image: none; }
+    &:backdrop { opacity: 0.65; background-image: none; }
     &:hover {
       @include button(header-hover);
       transition: $button_transition;
-    }
-    &:checked {
-      @include button(header-checked);
-      background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
-      transition: $button_transition;
-      transition-duration: 300ms;
-      @if $variant=='light' and $compact == 'true' { box-shadow: none; }
     }
     &:active {
       @include button(header-active);
       transition: $button_transition;
       transition-duration: 300ms;
       background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+      @if $variant=='light' and $compact == 'true' { box-shadow: none; }
+    }
+    &:checked {
+      @include button(header-checked);
+      background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+      transition: $button_transition;
+      transition-duration: 300ms;
       @if $variant=='light' and $compact == 'true' { box-shadow: none; }
     }
     &:disabled { @include button(header-insensitive); }
