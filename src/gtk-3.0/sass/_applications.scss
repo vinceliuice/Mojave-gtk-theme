@@ -1189,13 +1189,20 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
-// Totem
+// documents-scrolledwi (Totem, Documents, EvView)
 //
 .documents-scrolledwin {
   background-color: transparent;
 
-  iconview.view.content-view {
+  .content-view {
     border-radius: 0 0 $wm_radius $wm_radius;
+  }
+
+  viewport.frame { // Documents
+    background-color: transparent;
+    widget > frame.content-view {
+      border-radius: 0 0 $wm_radius $wm_radius;
+    }
   }
 }
 
@@ -1219,7 +1226,7 @@ dialog.background.csd {
 
       stack {
         scrolledwindow.frame { // reset border for totem setting dialog
-          // border: 1px solid $borders_color;
+          border: 1px solid $borders_color;
         }
       }
     }
@@ -1228,6 +1235,15 @@ dialog.background.csd {
       border-radius: 0 0 $wm_radius $wm_radius;
     }
   }
+
+  stack {
+    entry { margin: 2px; }
+
+    spinbutton entry,
+    .linked entry { margin: 0; }
+  }
+
+  entry.search { margin: 2px; }
 }
 
 //

@@ -29,10 +29,25 @@ $wm_radius: 6px;
   -gtk-outline-radius: $bt_radius;
 }
 
-
 //
 // Base States
 //
+
+%outline_dashed {
+  outline-color: gtkalpha(currentColor, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px;
+  outline-width: 1px;
+  -gtk-outline-radius: $bt_radius;
+}
+
+%outline_solid {
+  outline-color: $entry_highlight;
+  outline-style: solid;
+  outline-offset: -1px;
+  outline-width: 3px;
+  -gtk-outline-radius: $bt_radius + 1px;
+}
 
 .background {
 //  border-radius: 0 0 $wm_radius $wm_radius;
@@ -92,13 +107,15 @@ $wm_radius: 6px;
 }
 
 textview {
+  background-color: $base_color; // This will get overridden by .view, needed by gedit line numbers
+
   text {
     @extend %view;
     selection { &:focus, & { @extend %selected_items; } }
   }
-}
 
-textview border { background-color: mix($bg_color, $base_color, 50%); }
+  border { background-color: mix($bg_color, $base_color, 50%); }
+}
 
 iconview { @extend %view; border-radius: $bt_radius; }
 
@@ -163,10 +180,6 @@ assistant {
     background-color: $selected_bg_color;
     color: $selected_fg_color;
   }
-}
-
-textview { // This will get overridden by .view, needed by gedit line numbers
-  background-color: $base_color;
 }
 
 %osd, .osd {
@@ -379,14 +392,6 @@ $_dot_color: $selected_bg_color;
   }
 }
 
-@at-root %outline_solid, button {
-  outline-color: $entry_highlight;
-  outline-style: solid;
-  outline-offset: -1px;
-  outline-width: 3px;
-  -gtk-outline-radius: $bt_radius + 1px;
-}
-
 button {
   min-height: if($variant =='light', 24px, 26px);
   min-width: 16px;
@@ -398,13 +403,9 @@ button {
 
   separator { margin: 4px 1px; }
 
-  @at-root %outline_dashed,
-  &.flat, &.osd, &.sidebar-button, &.circular {
-    outline-color: gtkalpha(currentColor, 0.3);
-    outline-style: dashed;
-    outline-offset: -3px;
-    outline-width: 1px;
-  }
+  // &.flat, &.osd, &.sidebar-button, &.circular {
+  //   @extend %outline_dashed;
+  // }
 
   &.flat {
     @include button(flat-normal);
@@ -640,9 +641,9 @@ button {
   .linked.vertical > &:active,
   .linked.vertical > &:checked { @extend %linked_vertical; }
 
-  // reset some linked buttons outline style
-  .linked:not(.vertical) > &,
-  .linked.vertical > & { @extend %outline_dashed; }
+  // // reset some linked buttons outline style
+  // .linked:not(.vertical) > &,
+  // .linked.vertical > & { @extend %outline_dashed; }
 }
 
 // all the following is for the +|- buttons on inline toolbars, that way
@@ -972,7 +973,6 @@ spinbutton {
 // Comboboxes
 //
 combobox {
-  @extend %outline_dashed;
   button.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
     min-height: 0;
@@ -1080,7 +1080,7 @@ toolbar {
   box-shadow: none;
   border-width: 0 0 1px 0;
   border-style: solid;
-  border-image: linear-gradient(to bottom, $solid_borders_color, $solid_borders_color) 1 0 1 0; //temporary hack for rhythmbox 3.1
+  border-image: linear-gradient(to bottom, $borders_color, $borders_color) 1 0 1 0; //temporary hack for rhythmbox 3.1
 
   //&:backdrop { background-color: opacify($header_bg_backdrop, 1); }
 
@@ -1094,15 +1094,17 @@ toolbar {
   border-color: $borders_color;
   border-width: 0 1px 1px;
   padding: 3px;
-  border-radius: 0 0 $bt_radius $bt_radius;
+
+  .background.csd & {
+    border-radius: 0 0 $bt_radius $bt_radius;
+  }
 }
 
 searchbar {
   background-color: $bg_color;
-  border-style: solid;
-  border-color: $solid_borders_color;
-  border-width: 0 0 1px;
-  padding: 3px;
+  border: none;
+  box-shadow: inset 0 -1 $borders_color;
+  padding: 3px 3px 4px 3px;
 
   // Close button on searchbar
   button.flat {
@@ -1118,7 +1120,10 @@ actionbar {
   padding: 6px;
   border-top: 1px solid $borders_color;
   background-color: darken($bg_color, 3%);
-  border-radius: 0 0 $wm_radius $wm_radius;
+
+  .background.csd & {
+    border-radius: 0 0 $wm_radius $wm_radius;
+  }
 }
 
 //
@@ -1377,6 +1382,7 @@ headerbar {
   button {
     min-width: 22px;
     @include button(header-normal);
+    @extend %outline_solid;
 
     // &.circular { @extend %circular_button; }
 
@@ -1503,6 +1509,7 @@ headerbar {
   .linked:not(.vertical).path-bar {
 
     > button {
+      @extend %outline_dashed;
       @include button(header-normal);
       &:hover { @include button(header-hover); }
       &:active { @include button(header-active); }
@@ -1518,21 +1525,13 @@ headerbar {
     @include pathbar_linking_rules($button_rules: 'header');
   }
 
-  .linked:not(.vertical).path-bar {
-
-    // fixed ugly border color
-    > button {
-      &:active { @if $variant=='light' and $compact == 'false' { box-shadow: 1px 0 $header_button_active_bg; } }
-      &:checked { @if $variant=='light' and $compact == 'false' { box-shadow: 1px 0 $header_button_checked_bg; } }
-    }
-  }
-
+  .linked:not(.vertical).path-bar,
   .linked:not(.vertical):not(.path-bar).stack-switcher {
 
     // fixed ugly border color
     > button:not(:last-child) {
-      &:active { @if $variant=='light' and $compact == 'false' { box-shadow: 1px 0 $header_button_active_bg; } }
-      &:checked { @if $variant=='light' and $compact == 'false' { box-shadow: 1px 0 $header_button_checked_bg; } }
+      &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
+      &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
     }
   }
 
@@ -1670,17 +1669,20 @@ headerbar {
 // Pathbars
 //
 .path-bar button {
-    min-width: 12px;
+  min-width: 12px;
+
   &.text-button, &.image-button, & {
     padding-left: 6px;
     padding-right: 6px;
   }
 
   &:hover { box-shadow: none; }
+
   &:active, &:checked {
     @include button(flat-checked);
     border-color: $button_border;
     border-top-color: if($variant == 'light', $button_border, #999999);
+    @if $variant=='light' { box-shadow: 1px 0 #4c4c4c; }
   }
 
   &:disabled {
@@ -1814,6 +1816,7 @@ treeview.view {
       color: $_column_header_color;
       background-color: $base_color;
       background-image: none;
+      box-shadow: none;
       border-style: none solid none none;
       border-radius: 0;
       border-image: linear-gradient(to bottom,
@@ -2052,8 +2055,12 @@ popover.background {
     border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($_popover_bg, 10%));
   }
 
-  button { @extend %outline_dashed; }
+  // button { @extend %outline_dashed; }
+
   entry { margin: 2px; }
+
+  spinbutton entry,
+  .linked entry { margin: 0; }
 
   separator,
   & separator,
@@ -3256,6 +3263,20 @@ messagedialog { // Message Dialog styling
 //
 filechooser {
   #pathbarbox { border-bottom: 1px solid transparentize($borders_color, 0.5); }
+
+  stack.view {
+    background-color: transparent;
+
+    scrolledwindow {
+      background-color: $base_color;
+      border-radius: 0 0 $wm_radius $wm_radius;
+
+      treeview.view {
+        @extend %view;
+        background-color: transparent;
+      }
+    }
+  }
 }
 
 filechooserbutton:drop(active) {
@@ -3274,14 +3295,14 @@ filechooserbutton:drop(active) {
   &:dir(ltr),
   &.left,
   &.left:dir(rtl) {
-    border-right: 1px solid $solid_borders_color;
+    border-right: 1px solid $borders_color;
     border-left-style: none;
   }
 
   @at-root %sidebar_right,
   &:dir(rtl),
   &.right {
-    border-left: 1px solid $solid_borders_color;
+    border-left: 1px solid $borders_color;
     border-right-style: none;
   }
 
