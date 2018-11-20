@@ -1240,6 +1240,8 @@ headerbar,
       min-height: if($titlebutton == 'thin', 17px, 16px);
       margin: 0;
       padding: 0;
+
+      &:backdrop { opacify: 0.65; }
     }
   }
 
@@ -3925,10 +3927,17 @@ popover.emoji-picker {
     box-shadow: none;
     border-width: 0 0 1px 0;
     padding: 4px 12px;
-//    margin: 2px 0 0 0;
+    background: none;
+    margin: -1px;
   }
 
-  scrolledwindow { border-bottom: 1px solid $borders_color; }
+  scrolledwindow {
+    border-bottom: 1px solid $borders_color;
+
+    &.view {
+      background: none;
+    }
+  }
 }
 
 // mimic tab style

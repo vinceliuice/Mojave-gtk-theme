@@ -4,14 +4,14 @@
 filechooser,
 .nautilus-window {
   paned > separator { // Use paned separator to hide stack border-bottom-left-radius
-    // background-color: transparent;
     border: none;
+    background-color: transparent;
     background-image: image($base_color);
     background-size: 8px 8px;
     background-position: left bottom;
 
-    // &:dir(ltr) { margin-left: -1px; }
-    // &:dir(rtl) { margin-right: -1px; }
+    &:dir(ltr) { margin-left: -1px; }
+    &:dir(rtl) { margin-right: -1px; }
   }
 }
 

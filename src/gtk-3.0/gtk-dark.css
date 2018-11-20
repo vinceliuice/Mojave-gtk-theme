@@ -1615,6 +1615,11 @@ headerbar.default-decoration button.titlebutton,
   padding: 0;
 }
 
+headerbar.default-decoration button.titlebutton:backdrop,
+.default-decoration.titlebar:not(headerbar) button.titlebutton:backdrop {
+  opacify: 0.65;
+}
+
 headerbar.default-decoration,
 .csd headerbar.default-decoration, headerbar.default-decoration:backdrop,
 .csd headerbar.default-decoration:backdrop,
@@ -5142,10 +5147,16 @@ popover.emoji-picker entry {
   box-shadow: none;
   border-width: 0 0 1px 0;
   padding: 4px 12px;
+  background: none;
+  margin: -1px;
 }
 
 popover.emoji-picker scrolledwindow {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+popover.emoji-picker scrolledwindow.view {
+  background: none;
 }
 
 button.emoji-section {
@@ -7546,9 +7557,20 @@ GtkListBox .h4 {
 filechooser paned > separator,
 .nautilus-window paned > separator {
   border: none;
+  background-color: transparent;
   background-image: image(#242424);
   background-size: 8px 8px;
   background-position: left bottom;
+}
+
+filechooser paned > separator:dir(ltr),
+.nautilus-window paned > separator:dir(ltr) {
+  margin-left: -1px;
+}
+
+filechooser paned > separator:dir(rtl),
+.nautilus-window paned > separator:dir(rtl) {
+  margin-right: -1px;
 }
 
 filechooser placessidebar.sidebar.frame {
