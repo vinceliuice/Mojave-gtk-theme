@@ -100,6 +100,13 @@ terminal-window,
   }
 }
 
+.nautilus-window notebook {
+  margin-left: -1px;
+  margin-right: -1px;
+
+  tab { margin-left: -1px; }
+}
+
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
   border-radius: 0 0 $wm_radius $wm_radius;
@@ -859,18 +866,35 @@ dialog.background.csd {
 }
 
 //
+//  Gnome system monitor
+//
+window#gnome-system-monitor.background.csd {
+  stack {
+    background-color: $base_color;
+    border-radius: 0 0 $wm_radius $wm_radius;
+
+    scrolledwindow {
+      treeview.view {
+        background: none;
+        @extend %view;
+      }
+    }
+  }
+}
+
+//
 // Transmission
 //
 .tr-workarea undershoot,
 .tr-workarea overshoot {
-    border-color: transparent; // Remove black border on over- and undershoot
+  border-color: transparent; // Remove black border on over- and undershoot
 }
 
 //
 // Atril (MATE pdf viewer)
 //
 .atril-window .primary-toolbar toolbar {
-    background: none;
+  background: none;
 }
 
 //

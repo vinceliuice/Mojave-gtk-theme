@@ -103,7 +103,8 @@ headerbar button,
 textview text,
 iconview,
 filechooser stack.view scrolledwindow treeview.view,
-.nautilus-list-view treeview.view {
+.nautilus-list-view treeview.view,
+window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
   color: #dedede;
   background-color: #242424;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -113,7 +114,8 @@ filechooser stack.view scrolledwindow treeview.view,
 textview text:hover,
 iconview:hover,
 filechooser stack.view scrolledwindow treeview.view:hover,
-.nautilus-list-view treeview.view:hover {
+.nautilus-list-view treeview.view:hover,
+window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:hover {
   background-color: #2c2c2c;
 }
 
@@ -121,7 +123,8 @@ filechooser stack.view scrolledwindow treeview.view:hover,
 textview text:selected,
 iconview:selected,
 filechooser stack.view scrolledwindow treeview.view:selected,
-.nautilus-list-view treeview.view:selected {
+.nautilus-list-view treeview.view:selected,
+window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected {
   color: #ffffff;
   background-color: #315bef;
   transition: all 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -1129,7 +1132,7 @@ headerbar .linked:not(.vertical).path-bar > button:only-child:disabled, .nemo-wi
 }
 
 menuitem.button.flat,
-modelbutton.flat, button:link, button:visited, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, notebook > header > tabs > tab button.flat:hover, notebook > header > tabs > tab button.budgie-menu-launcher:hover, notebook > header > tabs > tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header > tabs > tab button.flat.launcher:hover, notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.budgie-menu-launcher:active, notebook > header > tabs > tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header > tabs > tab button.flat.launcher:active, notebook > header > tabs > tab button.flat:active:hover, notebook > header > tabs > tab button.budgie-menu-launcher:active:hover, .app-notification button,
+modelbutton.flat, button:link, button:visited, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, notebook > header tab button.flat:hover, notebook > header tab button.budgie-menu-launcher:hover, notebook > header tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header tab button.flat.launcher:hover, notebook > header tab button.flat:active, notebook > header tab button.budgie-menu-launcher:active, notebook > header tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header tab button.flat.launcher:active, notebook > header tab button.flat:active:hover, notebook > header tab button.budgie-menu-launcher:active:hover, .app-notification button,
 calendar.button, calendar.raven-calendar.button {
   border-color: transparent;
   background-color: transparent;
@@ -2746,7 +2749,7 @@ notebook > header.top {
   padding: 0;
 }
 
-notebook > header.top > tabs > tab {
+notebook > header.top tab {
   padding: 2px 10px;
   min-width: 20px;
   min-height: 20px;
@@ -2754,7 +2757,7 @@ notebook > header.top > tabs > tab {
   outline-offset: -4px;
 }
 
-notebook > header.top > tabs > tab + tab {
+notebook > header.top tab + tab {
   margin-left: -1px;
 }
 
@@ -2762,7 +2765,7 @@ notebook > header.bottom {
   padding: 0;
 }
 
-notebook > header.bottom > tabs > tab {
+notebook > header.bottom tab {
   padding: 2px 10px;
   min-width: 20px;
   min-height: 20px;
@@ -2770,7 +2773,7 @@ notebook > header.bottom > tabs > tab {
   outline-offset: -4px;
 }
 
-notebook > header.bottom > tabs > tab + tab {
+notebook > header.bottom tab + tab {
   margin-left: -1px;
 }
 
@@ -2778,7 +2781,7 @@ notebook > header.right {
   padding: 0;
 }
 
-notebook > header.right > tabs > tab {
+notebook > header.right tab {
   padding: 2px 10px;
   min-width: 20px;
   min-height: 20px;
@@ -2786,7 +2789,7 @@ notebook > header.right > tabs > tab {
   outline-offset: -4px;
 }
 
-notebook > header.right > tabs > tab + tab {
+notebook > header.right tab + tab {
   margin-top: -1px;
 }
 
@@ -2794,7 +2797,7 @@ notebook > header.left {
   padding: 0;
 }
 
-notebook > header.left > tabs > tab {
+notebook > header.left tab {
   padding: 2px 10px;
   min-width: 20px;
   min-height: 20px;
@@ -2802,7 +2805,7 @@ notebook > header.left > tabs > tab {
   outline-offset: -4px;
 }
 
-notebook > header.left > tabs > tab + tab {
+notebook > header.left tab + tab {
   margin-top: -1px;
 }
 
@@ -2854,25 +2857,33 @@ notebook > header > tabs > arrow:disabled {
   color: rgba(222, 222, 222, 0.15);
 }
 
-notebook > header > tabs > tab {
+notebook > header.top tabs > tab:not(:only-child):first-child, notebook > header.bottom tabs > tab:not(:only-child):first-child {
+  border-left: none;
+}
+
+notebook > header.left tabs > tab:not(:only-child):first-child, notebook > header.right tabs > tab:not(:only-child):first-child {
+  border-top: none;
+}
+
+notebook > header tab {
   color: rgba(222, 222, 222, 0.45);
   background-color: rgba(36, 36, 36, 0);
   border: 1px solid transparent;
 }
 
-notebook > header > tabs > tab:hover:not(:checked) {
+notebook > header tab:hover:not(:checked) {
   color: rgba(222, 222, 222, 0.725);
   background-color: rgba(255, 255, 255, 0.05);
   border-color: #444444;
 }
 
-notebook > header > tabs > tab:checked {
+notebook > header tab:checked {
   color: #dedede;
   background-color: #373737;
   border-color: #444444;
 }
 
-notebook > header > tabs > tab button.flat, notebook > header > tabs > tab button.budgie-menu-launcher, notebook > header > tabs > tab .budgie-panel button.flat.launcher, .budgie-panel notebook > header > tabs > tab button.flat.launcher {
+notebook > header tab button.flat, notebook > header tab button.budgie-menu-launcher, notebook > header tab .budgie-panel button.flat.launcher, .budgie-panel notebook > header tab button.flat.launcher {
   min-height: 16px;
   min-width: 16px;
   border-radius: 3px;
@@ -2881,14 +2892,14 @@ notebook > header > tabs > tab button.flat, notebook > header > tabs > tab butto
   color: #a2a2a2;
 }
 
-notebook > header > tabs > tab button.flat:hover, notebook > header > tabs > tab button.budgie-menu-launcher:hover, notebook > header > tabs > tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header > tabs > tab button.flat.launcher:hover {
-  color: rgba(255, 0, 0, 0.5);
-  background-color: rgba(222, 222, 222, 0.1);
+notebook > header tab button.flat:hover, notebook > header tab button.budgie-menu-launcher:hover, notebook > header tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header tab button.flat.launcher:hover {
+  color: rgba(248, 70, 76, 0.5);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.budgie-menu-launcher:active, notebook > header > tabs > tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header > tabs > tab button.flat.launcher:active, notebook > header > tabs > tab button.flat:active:hover, notebook > header > tabs > tab button.budgie-menu-launcher:active:hover, .budgie-panel notebook > header > tabs > tab button.flat.launcher:active:hover {
-  color: rgba(204, 0, 0, 0.5);
-  background-color: rgba(222, 222, 222, 0.2);
+notebook > header tab button.flat:active, notebook > header tab button.budgie-menu-launcher:active, notebook > header tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header tab button.flat.launcher:active, notebook > header tab button.flat:active:hover, notebook > header tab button.budgie-menu-launcher:active:hover, .budgie-panel notebook > header tab button.flat.launcher:active:hover {
+  color: rgba(246, 21, 28, 0.5);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 scrollbar {
@@ -4989,11 +5000,11 @@ headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, heade
   box-shadow: none;
 }
 
-headerbar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop,
-.titlebar button.titlebutton.close:backdrop,
-.titlebar button.titlebutton.maximize:backdrop,
-.titlebar button.titlebutton.minimize:backdrop,
-.titlebar button.titlebutton.restore:backdrop {
+headerbar button.titlebutton.close:backdrop:not(:hover):not(:active), headerbar button.titlebutton.maximize:backdrop:not(:hover):not(:active), headerbar button.titlebutton.minimize:backdrop:not(:hover):not(:active), headerbar button.titlebutton.restore:backdrop:not(:hover):not(:active),
+.titlebar button.titlebutton.close:backdrop:not(:hover):not(:active),
+.titlebar button.titlebutton.maximize:backdrop:not(:hover):not(:active),
+.titlebar button.titlebutton.minimize:backdrop:not(:hover):not(:active),
+.titlebar button.titlebutton.restore:backdrop:not(:hover):not(:active) {
   opacity: 0.25;
 }
 
@@ -5109,19 +5120,19 @@ headerbar button.titlebutton.restore:active,
   background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark.png"), url("assets/titlebutton-restore-active-dark@2.png"));
 }
 
-.view:selected:focus, textview text:selected:focus, iconview:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
+.view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
 calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .budgie-menu button:checked {
   background-color: #315bef;
 }
 
-row:selected label, label:selected, .view:selected:focus, textview text:selected:focus, iconview:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
+row:selected label, label:selected, .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
 calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .budgie-menu button:checked {
   color: #ffffff;
 }
 
-row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, textview text:disabled:selected:focus, iconview:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, treeview.view:disabled:selected, row:disabled:selected,
+row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, textview text:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, treeview.view:disabled:selected, row:disabled:selected,
 calendar:disabled:selected, .nemo-window .nemo-window-pane widget.entry:disabled:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled, .budgie-menu button:disabled:checked {
   color: #98adf7;
@@ -5244,6 +5255,15 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 
 .nautilus-window .searchbar-container {
   margin-top: -1px;
+}
+
+.nautilus-window notebook {
+  margin-left: -1px;
+  margin-right: -1px;
+}
+
+.nautilus-window notebook tab {
+  margin-left: -1px;
 }
 
 .nautilus-window notebook,
@@ -5911,6 +5931,15 @@ box.horizontal.titlebar > headerbar > stack > box.vertical > .subtitle {
 
 dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
   font-weight: 700;
+}
+
+window#gnome-system-monitor.background.csd stack {
+  background-color: #242424;
+  border-radius: 0 0 6px 6px;
+}
+
+window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
+  background: none;
 }
 
 .tr-workarea undershoot,

@@ -1444,15 +1444,18 @@ headerbar {
 
   %linked_header {
     @extend %linked_header_middle;
+
     &:first-child {
       border-top-left-radius: $bt_radius;
       border-bottom-left-radius: $bt_radius;
     }
+
     &:last-child {
       border-top-right-radius: $bt_radius;
       border-bottom-right-radius: $bt_radius;
       border-right-style: none;
     }
+
     &:only-child {
       border-radius: $bt_radius;
       border-style: none;
@@ -1546,17 +1549,20 @@ headerbar {
         @include button(undecorated);
         color: $b_color;
       }
+
       &:hover {
         @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
       }
+
       &:active, &:checked {
         @include button(suggested_destructive, darken($b_color, 10%), $b_fg);
         box-shadow: none;
       }
+
       &.flat:disabled,
       &:disabled { @include button(insensitive); }
     }
-    button.#{$b_type}:backdrop,
+
     button.#{$b_type}:backdrop {
       opacity: 0.8;
     }
@@ -1587,7 +1593,7 @@ headerbar {
     > button:first-child:hover:not(:active),
     > entry + button:not(:active):hover { box-shadow: none; }
 
-    > entry:focus + button { border-left-color: if($variant=='light' and $darker=='false', $entry_highlight, $entry_highlight); }
+    > entry:focus + button { border-left-color: $entry_highlight; }
   }
 
   // Headerbar ComboBoxes
@@ -1648,15 +1654,18 @@ headerbar {
         background-color: lighten($_slider_bg, 5%);
         border-color: $_slider_border;
       }
+
       &:active {
         background-color: $_slider_bg;
         border-color: $_slider_border;
       }
+
       &:disabled {
         background-color: mix($_slider_bg, $header_bg, 70%);
         border-color: $_slider_border;
       }
     }
+
     trough {
       background-color: $_trough_bg;
 
@@ -2125,9 +2134,10 @@ notebook {
           box-shadow: inset 0 1px $borders_color,
                       inset 0 -1px $borders_color,
                             1px 0 $borders_color,
-                            -1px 0 $borders_color; }
-
-      margin-top: -1px; }
+                            -1px 0 $borders_color;
+      }
+      margin-top: -1px;
+    }
 
     &.bottom {
       box-shadow: inset 0 1px $borders_color, inset 0 -1px $borders_color;
@@ -2135,9 +2145,10 @@ notebook {
           box-shadow: inset 0 1px $borders_color,
                       inset 0 -1px $borders_color,
                       1px 0 $borders_color,
-                      -1px 0 $borders_color; }
-
-      margin-bottom: -1px; }
+                      -1px 0 $borders_color;
+      }
+      margin-bottom: -1px;
+    }
 
     &.right {
       box-shadow: inset 1px 0 $borders_color, inset -1px 0 $borders_color;
@@ -2145,9 +2156,10 @@ notebook {
           box-shadow: inset 1px 0 $borders_color,
                       inset -1px 0 $borders_color,
                       0 1px $borders_color,
-                      0 -1px $borders_color; }
-
-      margin-right: -1px; }
+                      0 -1px $borders_color;
+      }
+      margin-right: -1px;
+    }
 
     &.left {
       box-shadow: inset 1px 0 $borders_color, inset -1px 0 $borders_color;
@@ -2155,25 +2167,26 @@ notebook {
           box-shadow: inset 1px 0 $borders_color,
                       inset -1px 0 $borders_color,
                       0 1px $borders_color,
-                      0 -1px $borders_color; }
-
-      margin-left: -1px; }
-
-      button.flat {
-        min-height: 24px;
-        min-width: 24px;
-        padding: 0;
-        border: none;
-        box-shadow: none;
-        margin: 2px;
+                      0 -1px $borders_color;
       }
+      margin-left: -1px;
+    }
 
-  @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
+    button.flat {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      margin: 2px;
+    }
+
+    @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
       // sizing and borders
       &.#{$_pos} {
         padding: 0;
 
-        > tabs > tab {
+        tab {
           padding: 2px 10px;
           min-width: 20px;
           min-height: 20px;
@@ -2196,21 +2209,25 @@ notebook {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
         &:last-child { margin-left: 2px; }
       }
+
       > tabs > arrow.down {
         -gtk-icon-source: -gtk-icontheme('pan-start-symbolic');
         &:first-child { margin-right: 2px; }
       }
     }
+
     &.left, &.right {
       > tabs > arrow.up {
         -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
         &:last-child { margin-top: 2px; }
       }
+
       > tabs > arrow.down {
         -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
         &:first-child { margin-bottom: 2px; }
       }
     }
+
     > tabs > arrow {
       color: $insensitive_fg_color;
 
@@ -2219,7 +2236,27 @@ notebook {
       &:disabled { color: transparentize($insensitive_fg_color,0.3); }
     }
 
-    > tabs > tab {
+    &.top,
+    &.bottom {
+      tabs > tab {
+        &:not(:only-child) {
+          &:first-child { border-left: none; }
+          // &:last-child { border-right: none; }
+        }
+      }
+    }
+
+    &.left,
+    &.right {
+      tabs > tab {
+        &:not(:only-child) {
+          &:first-child { border-top: none; }
+          // &:last-child { border-bottom: none; }
+        }
+      }
+    }
+
+    tab {
       color: $insensitive_fg_color;
       background-color: transparentize($base_color, 1);
       border: 1px solid transparent;
@@ -2247,13 +2284,14 @@ notebook {
 
         &:hover {
           @extend %undecorated_button;
-          color: rgba(red, 0.5);
-          background-color: rgba($fg_color, 0.1);
+          color: rgba($destructive_color, 0.5);
+          background-color: rgba($dark_borders_color, 0.1);
         }
+
         &:active, &:active:hover {
           @extend %undecorated_button;
-          color: rgba(darken(red, 10%), 0.5);
-          background-color: rgba($fg_color, 0.2);
+          color: rgba(darken($destructive_color, 10%), 0.5);
+          background-color: rgba($dark_borders_color, 0.2);
         }
       }
     }
@@ -3872,7 +3910,7 @@ headerbar,
       border-width: 0;
       box-shadow: none;
 
-      &:backdrop { opacity: if($variant =='light', 1, 0.25); }
+      &:backdrop:not(:hover):not(:active) { opacity: if($variant =='light', 1, 0.25); }
     }
 
     // Load png assets for each button, Fix the Chrome window restore button bug
