@@ -1615,11 +1615,6 @@ headerbar.default-decoration button.titlebutton,
   padding: 0;
 }
 
-headerbar.default-decoration button.titlebutton:backdrop,
-.default-decoration.titlebar:not(headerbar) button.titlebutton:backdrop {
-  opacify: 0.65;
-}
-
 headerbar.default-decoration,
 .csd headerbar.default-decoration, headerbar.default-decoration:backdrop,
 .csd headerbar.default-decoration:backdrop,
@@ -5902,9 +5897,18 @@ dialog.csd > headerbar.titlebar > switch {
   margin: 8px 0;
 }
 
-/************************
- * Gnome Control Center *
- ************************/
+stack.background {
+  background: none;
+}
+
+scrolledwindow.view {
+  border-radius: 0 0 0 6px;
+}
+
+scrolledwindow.view > viewport.frame > stack > list {
+  border-radius: 0 0 0 6px;
+}
+
 box.horizontal.titlebar > headerbar > stack > box.vertical > .title {
   margin: 0;
 }

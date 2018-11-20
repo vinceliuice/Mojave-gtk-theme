@@ -1236,12 +1236,10 @@ headerbar,
 
     button.titlebutton {
       border: none;
-      min-width: if($titlebutton == 'thin', 17px, 16px);
-      min-height: if($titlebutton == 'thin', 17px, 16px);
+      min-width: 16px;
+      min-height: 16px;
       margin: 0;
       padding: 0;
-
-      &:backdrop { opacify: 0.65; }
     }
   }
 
@@ -3850,7 +3848,6 @@ decoration {
 //
 headerbar,
 .titlebar {
-
   button.titlebutton {
     min-width: 24px;
     min-height: 24px;
@@ -3860,15 +3857,12 @@ headerbar,
     @include button(undecorated);
     background-color: transparentize($header_bg, 1);
 
-    &:hover {
-      @include button(header-hover);
-    }
-    &:active, &:checked {
-      @include button(header-active);
-    }
+    &:hover { @include button(header-hover); }
+    &:active, &:checked { @include button(header-active); }
+
     &.close, &.maximize, &.minimize, &.restore {
-      min-width: if($titlebutton == 'thin', 17px, 16px);
-      min-height: if($titlebutton == 'thin', 17px, 16px);
+      min-width: 16px;
+      min-height: 16px;
       margin: 0;
       color: transparent;
       background-color: transparent;
@@ -3886,7 +3880,7 @@ headerbar,
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
         &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}.png'),
-                                                        url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png')); }
+                                                     url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png')); }
       }
     }
   }

@@ -650,7 +650,7 @@ configurationview {
 }
 
 //
-//  * Gnome-Logs *
+//  Gnome-Logs
 //
 
 window.background > box.vertical box.horizontal {
@@ -824,19 +824,24 @@ button.documents-favorite:active:hover {
 .tweak-titlebar-right,
 dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }
 
-/************************
- * Gnome Control Center *
- ************************/
+//
+//  Gnome Control Center
+//
+
+stack.background { background: none; }
 
 // users section
-
 stack > box.vertical > widget > overlay grid.horizontal > stack {
   > button.toggle { }
 }
 
 // > 3.25.90
-scrolledwindow.view > viewport.frame > stack > list { // left-pane
-  > row.activatable { }
+scrolledwindow.view {
+  border-radius: 0 0 0 $wm_radius;
+  > viewport.frame > stack > list { // left-pane
+    border-radius: 0 0 0 $wm_radius;
+    // > row.activatable { }
+  }
 }
 
 box.horizontal.titlebar > headerbar > stack > box.vertical {
