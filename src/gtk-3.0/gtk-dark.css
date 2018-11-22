@@ -2041,7 +2041,7 @@ headerbar button.suggested-action.flat:disabled label, .nemo-window .primary-too
   color: rgba(222, 222, 222, 0.45);
 }
 
-headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button.suggested-action:backdrop, headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button.suggested-action:backdrop {
+headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button.suggested-action:backdrop {
   opacity: 0.8;
 }
 
@@ -2089,7 +2089,7 @@ headerbar button.destructive-action.flat:disabled label, .nemo-window .primary-t
   color: rgba(222, 222, 222, 0.45);
 }
 
-headerbar button.destructive-action:backdrop, .nemo-window .primary-toolbar button.destructive-action:backdrop, headerbar button.destructive-action:backdrop, .nemo-window .primary-toolbar button.destructive-action:backdrop {
+headerbar button.destructive-action:backdrop, .nemo-window .primary-toolbar button.destructive-action:backdrop {
   opacity: 0.8;
 }
 
@@ -2484,6 +2484,8 @@ menubar > menuitem:disabled,
   border-color: transparent;
 }
 
+.context-menu, popover.touch-selection, .csd popover.touch-selection,
+popover.background.touch-selection, .csd popover.background.touch-selection,
 menu,
 .menu {
   padding: 6px 0;
@@ -2492,13 +2494,19 @@ menu,
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.csd menu, .csd
+.csd .context-menu, .csd popover.touch-selection, .csd popover.background.touch-selection, .csd
+menu, .csd
 .menu {
   border: 1px solid rgba(77, 77, 77, 0.98);
 }
 
+.context-menu separator, popover.touch-selection separator, .csd popover.touch-selection separator, popover.background.touch-selection separator, .csd popover.background.touch-selection separator,
+.csd .context-menu separator,
+.csd popover.touch-selection separator,
+.csd popover.background.touch-selection separator,
 menu separator,
-.csd menu separator,
+.csd
+menu separator,
 .menu separator,
 .csd
 .menu separator {
@@ -2508,26 +2516,32 @@ menu separator,
   background-color: transparent;
 }
 
+.context-menu menuitem, popover.touch-selection menuitem, .csd popover.touch-selection menuitem, popover.background.touch-selection menuitem, .csd popover.background.touch-selection menuitem,
 menu menuitem,
 .menu menuitem {
+  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
   min-height: 12px;
   min-width: 40px;
   padding: 2px 6px;
   text-shadow: none;
 }
 
+.context-menu menuitem:hover, popover.touch-selection menuitem:hover, .csd popover.background.touch-selection menuitem:hover,
 menu menuitem:hover,
 .menu menuitem:hover {
+  transition: none;
   color: #ffffff;
   background-color: #315bef;
 }
 
+.context-menu menuitem:hover arrow, popover.touch-selection menuitem:hover arrow, .csd popover.background.touch-selection menuitem:hover arrow,
 menu menuitem:hover arrow,
 .menu menuitem:hover arrow {
   transition: none;
   color: #ffffff;
 }
 
+.context-menu menuitem:hover menu arrow, popover.touch-selection menuitem:hover menu arrow, .csd popover.background.touch-selection menuitem:hover menu arrow,
 menu menuitem:hover menu arrow,
 .menu menuitem:hover menu arrow {
   color: #dedede;
@@ -2535,16 +2549,19 @@ menu menuitem:hover menu arrow,
   -gtk-icon-shadow: none;
 }
 
+.context-menu menuitem:hover menu menuitem:hover arrow, popover.touch-selection menuitem:hover menu menuitem:hover arrow,
 menu menuitem:hover menu menuitem:hover arrow,
 .menu menuitem:hover menu menuitem:hover arrow {
   color: #ffffff;
 }
 
+.context-menu menuitem:disabled, popover.touch-selection menuitem:disabled, .csd popover.background.touch-selection menuitem:disabled,
 menu menuitem:disabled,
 .menu menuitem:disabled {
   color: rgba(222, 222, 222, 0.45);
 }
 
+.context-menu menuitem arrow, popover.touch-selection menuitem arrow, .csd popover.touch-selection menuitem arrow, popover.background.touch-selection menuitem arrow, .csd popover.background.touch-selection menuitem arrow,
 menu menuitem arrow,
 .menu menuitem arrow {
   min-height: 16px;
@@ -2555,12 +2572,14 @@ menu menuitem arrow,
   color: #dedede;
 }
 
+.context-menu menuitem arrow:dir(ltr), popover.touch-selection menuitem arrow:dir(ltr), .csd popover.touch-selection menuitem arrow:dir(ltr), popover.background.touch-selection menuitem arrow:dir(ltr), .csd popover.background.touch-selection menuitem arrow:dir(ltr),
 menu menuitem arrow:dir(ltr),
 .menu menuitem arrow:dir(ltr) {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
   margin-right: 0;
 }
 
+.context-menu menuitem arrow:dir(rtl), popover.touch-selection menuitem arrow:dir(rtl), .csd popover.touch-selection menuitem arrow:dir(rtl), popover.background.touch-selection menuitem arrow:dir(rtl), .csd popover.background.touch-selection menuitem arrow:dir(rtl),
 menu menuitem arrow:dir(rtl),
 .menu menuitem arrow:dir(rtl) {
   -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
@@ -2587,6 +2606,11 @@ menuitem check:dir(rtl), menuitem radio:dir(rtl) {
 }
 
 
+.context-menu > arrow,
+popover.touch-selection > arrow,
+.csd popover.touch-selection > arrow,
+popover.background.touch-selection > arrow,
+.csd popover.background.touch-selection > arrow,
 menu > arrow,
 .menu > arrow {
   min-width: 16px;
@@ -2600,6 +2624,9 @@ menu > arrow,
 }
 
 
+.context-menu > arrow.top,
+popover.touch-selection > arrow.top,
+.csd popover.touch-selection > arrow.top,
 menu > arrow.top,
 .menu > arrow.top {
   margin: -8px 0 0 0;
@@ -2609,6 +2636,9 @@ menu > arrow.top,
 }
 
 
+.context-menu > arrow.bottom,
+popover.touch-selection > arrow.bottom,
+.csd popover.touch-selection > arrow.bottom,
 menu > arrow.bottom,
 .menu > arrow.bottom {
   margin: 0 0 -18px 0;
@@ -2618,12 +2648,18 @@ menu > arrow.bottom,
 }
 
 
+.context-menu > arrow:hover,
+popover.touch-selection > arrow:hover,
+.csd popover.touch-selection > arrow:hover,
 menu > arrow:hover,
 .menu > arrow:hover {
   background-color: rgba(222, 222, 222, 0.08);
 }
 
 
+.context-menu > arrow:disabled,
+popover.touch-selection > arrow:disabled,
+.csd popover.touch-selection > arrow:disabled,
 menu > arrow:disabled,
 .menu > arrow:disabled {
   color: transparent;
@@ -6691,17 +6727,13 @@ window.background:not(.csd) > widget > button > button label {
   padding: 4px 6px;
 }
 
-window.background:not(.csd) > menu,
 window.background:not(.csd) .menu {
   background-color: #404040;
   border-radius: 0;
 }
 
-window.background:not(.csd) > menu .separator:not(label),
-.csd window.background:not(.csd) > menu .separator:not(label),
 window.background:not(.csd) .menu .separator:not(label),
-.csd
-window.background:not(.csd) .menu .separator:not(label) {
+.csd window.background:not(.csd) .menu .separator:not(label) {
   color: rgba(255, 255, 255, 0.12);
 }
 
@@ -6716,6 +6748,11 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
 window.background:not(.csd) > menu > menuitem > radio,
 window.background:not(.csd) > menu > menuitem > check {
   padding: 0 2px 0 4px;
+}
+
+window.background:not(.csd) > window > menu menuitem,
+window.background:not(.csd) > menu > menu menuitem {
+  transition: none;
 }
 
 #MozillaGtkWidget.background {

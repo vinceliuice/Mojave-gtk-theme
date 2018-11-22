@@ -1052,7 +1052,6 @@ window.background > box.vertical > toolbar.primary-toolbar {
  /********************
   * Gnome Calculator *
   ********************/
-
 window.background {
   > headerbar.titlebar { // mode-selector button
     > button.flat.popup.toggle.text-button.title {
@@ -1103,22 +1102,6 @@ headerbar.titlebar.incognito-mode {
     &:focus { @include entry(header-focus); }
     &:disabled { @include entry(header-insensitive); }
   }
-
-//  button:not(.destructive-action):not(.suggested-action) {
-//    // these classes are specificity bump to override titlebuttons
-//    &:not(.appmenu):not(.icon):not(:indeterminate) {
-//      &,
-//      &:hover,
-//      &:active,
-//      &:checked {
-//        * { }
-//      }
-//      &:disabled,
-//      &:checked:disabled {
-//        * { }
-//      }
-//    }
-//  }
 }
 
 // reset inverted foreground colour
@@ -1613,7 +1596,6 @@ window.background:not(.csd) {
     }
   }
 
-  > menu,
   .menu { // context-menus
     background-color: if($variant == 'light', $base_color, lighten($bg_color, 5%));
     border-radius: 0;
@@ -1622,10 +1604,18 @@ window.background:not(.csd) {
     .separator:not(label),
     .csd & .separator:not(label) { color: $borders_color; }
   }
+
   > menu > menuitem { padding: 4px 6px; }
   > menu > menuitem > label:disabled { color: $insensitive_fg_color; }
   > menu > menuitem > radio,
   > menu > menuitem > check { padding: 0 2px 0 4px; }
+
+  > window > menu,
+  > menu > menu {
+    menuitem {
+      transition: none; // Fixed plank menu background issue
+    }
+  }
 }
 
 // /*******************
@@ -1748,7 +1738,7 @@ window.background.chromium {
  * Libre-Office *
  ****************/
 
-window.background:not(.csd):not(.solid-csd) {
+window.background:not(.solid-csd) {
     // reserved area at the most-right side of GtkMenuBar
     > grid.horizontal > grid.horizontal {
         background-image: $menubar_bg_image;
