@@ -826,7 +826,7 @@ button.documents-favorite:active:hover {
 }
 
 //
-// Gnome Tweak Tool
+// Gnome Tweak Tool ( Gnome tweaks )
 //
 
 .tweak-categories,
@@ -835,7 +835,9 @@ button.documents-favorite:active:hover {
 }
 
 // sidebar on gnome tweak
-.tweak-categories { border-radius: 0 0 0 $wm_radius; }
+.tweak-categories {
+  border-radius: 0 0 0 $wm_radius;
+}
 
 .tweak-titlebar-right,
 dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }

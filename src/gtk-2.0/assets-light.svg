@@ -111,7 +111,7 @@
        id="selected_bg_color"
        osb:paint="solid">
       <stop
-         style="stop-color:#0046DB;stop-opacity:1;"
+         style="stop-color:#315bef;stop-opacity:1;"
          offset="0"
          id="stop5012" />
     </linearGradient>
@@ -6360,7 +6360,7 @@
          inkscape:label="#g5032"
          id="g950">
         <rect
-           style="opacity:1;fill:#0046db;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           style="opacity:1;fill:#315bef;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect948"
            width="25"
            height="15"
@@ -6399,7 +6399,7 @@
            height="15"
            width="25"
            id="rect5490"
-           style="opacity:1;fill:#0046db;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+           style="opacity:1;fill:#315bef;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       </g>
     </g>
   </g>

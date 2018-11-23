@@ -3095,6 +3095,10 @@ separator {
   background-color: $borders_color;
   min-width: 1px;
   min-height: 1px;
+
+  &.vertical {
+    background-color: if($variant=='light', $borders_color, $header_border);
+  }
 }
 
 //

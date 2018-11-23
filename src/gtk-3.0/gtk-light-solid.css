@@ -4226,6 +4226,10 @@ separator {
   min-height: 1px;
 }
 
+separator.vertical {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
 list {
   background-color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
