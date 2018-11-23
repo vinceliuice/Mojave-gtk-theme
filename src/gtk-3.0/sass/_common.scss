@@ -4,6 +4,7 @@
 
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
 $darker_asset_suffix: if($darker=='true', '-dark', $asset_suffix);
+$alt_suffix: if($titlebutton=='alt', '-alt', '');
 $bt_radius: 5px;
 $wm_radius: 6px;
 
@@ -3913,15 +3914,15 @@ headerbar,
       border-width: 0;
       box-shadow: none;
 
-      &:backdrop:not(:hover):not(:active) { opacity: if($variant =='light', 1, 0.25); }
+      &:backdrop:not(:hover):not(:active) { opacity: 1; }
     }
 
     // Load png assets for each button, Fix the Chrome window restore button bug
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
-        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}.png'),
-                                                     url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png')); }
+        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}#{$alt_suffix}.png'),
+                                                     url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}#{$alt_suffix}@2.png')); }
       }
     }
   }
@@ -3930,8 +3931,8 @@ headerbar,
   .maximized & {
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-restore#{$m}#{$asset_suffix}.png'),
-                                                      url('assets/titlebutton-restore#{$m}#{$asset_suffix}@2.png')); }
+      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-restore#{$m}#{$asset_suffix}#{$alt_suffix}.png'),
+                                                      url('assets/titlebutton-restore#{$m}#{$asset_suffix}#{$alt_suffix}@2.png')); }
       }
     }
   }

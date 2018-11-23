@@ -2493,14 +2493,14 @@ menu,
 .menu {
   padding: 6px 0;
   border-radius: 6px;
-  background-color: rgba(51, 51, 51, 0.98);
+  background-color: #333333;
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .csd .context-menu, .csd popover.touch-selection, .csd popover.background.touch-selection, .csd
 menu, .csd
 .menu {
-  border: 1px solid rgba(77, 77, 77, 0.98);
+  border: 1px solid #4d4d4d;
 }
 
 .context-menu separator, popover.touch-selection separator, .csd popover.touch-selection separator, popover.background.touch-selection separator, .csd popover.background.touch-selection separator,
@@ -2675,7 +2675,7 @@ popover.background {
   padding: 0;
   border-radius: 6px;
   background-clip: border-box;
-  background-color: rgba(51, 51, 51, 0.98);
+  background-color: #333333;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.55);
 }
 
@@ -2683,7 +2683,7 @@ popover.background {
 popover.background,
 popover.background {
   border-radius: 6px;
-  border: 1px solid rgba(77, 77, 77, 0.98);
+  border: 1px solid #4d4d4d;
 }
 
 popover entry,
@@ -5049,82 +5049,82 @@ headerbar button.titlebutton.close:backdrop:not(:hover):not(:active), headerbar 
 
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-dark.png"), url("assets/titlebutton-close-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-close-dark-alt.png"), url("assets/titlebutton-close-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.close:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop-dark.png"), url("assets/titlebutton-close-backdrop-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop-dark-alt.png"), url("assets/titlebutton-close-backdrop-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.close:hover,
 .titlebar button.titlebutton.close:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-hover-dark.png"), url("assets/titlebutton-close-hover-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-close-hover-dark-alt.png"), url("assets/titlebutton-close-hover-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.close:active,
 .titlebar button.titlebutton.close:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-active-dark.png"), url("assets/titlebutton-close-active-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-close-active-dark-alt.png"), url("assets/titlebutton-close-active-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark.png"), url("assets/titlebutton-maximize-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-dark-alt.png"), url("assets/titlebutton-maximize-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.maximize:backdrop,
 .titlebar button.titlebutton.maximize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark.png"), url("assets/titlebutton-maximize-backdrop-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop-dark-alt.png"), url("assets/titlebutton-maximize-backdrop-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover-dark.png"), url("assets/titlebutton-maximize-hover-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover-dark-alt.png"), url("assets/titlebutton-maximize-hover-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.maximize:active,
 .titlebar button.titlebutton.maximize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-active-dark.png"), url("assets/titlebutton-maximize-active-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-maximize-active-dark-alt.png"), url("assets/titlebutton-maximize-active-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark.png"), url("assets/titlebutton-minimize-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-dark-alt.png"), url("assets/titlebutton-minimize-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.minimize:backdrop,
 .titlebar button.titlebutton.minimize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark.png"), url("assets/titlebutton-minimize-backdrop-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop-dark-alt.png"), url("assets/titlebutton-minimize-backdrop-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover-dark.png"), url("assets/titlebutton-minimize-hover-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover-dark-alt.png"), url("assets/titlebutton-minimize-hover-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.minimize:active,
 .titlebar button.titlebutton.minimize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-active-dark.png"), url("assets/titlebutton-minimize-active-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-minimize-active-dark-alt.png"), url("assets/titlebutton-minimize-active-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.restore,
 .titlebar button.titlebutton.restore {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-dark.png"), url("assets/titlebutton-restore-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-dark-alt.png"), url("assets/titlebutton-restore-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.restore:backdrop,
 .titlebar button.titlebutton.restore:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark.png"), url("assets/titlebutton-restore-backdrop-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark-alt.png"), url("assets/titlebutton-restore-backdrop-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.restore:hover,
 .titlebar button.titlebutton.restore:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark.png"), url("assets/titlebutton-restore-hover-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark-alt.png"), url("assets/titlebutton-restore-hover-dark-alt@2.png"));
 }
 
 headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.restore:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark.png"), url("assets/titlebutton-restore-active-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark-alt.png"), url("assets/titlebutton-restore-active-dark-alt@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize,
@@ -5132,7 +5132,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize,
 .maximized
 .titlebar button.titlebutton.maximize {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-dark.png"), url("assets/titlebutton-restore-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-dark-alt.png"), url("assets/titlebutton-restore-dark-alt@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:backdrop,
@@ -5140,7 +5140,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize:backdrop,
 .maximized
 .titlebar button.titlebutton.maximize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark.png"), url("assets/titlebutton-restore-backdrop-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop-dark-alt.png"), url("assets/titlebutton-restore-backdrop-dark-alt@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:hover,
@@ -5148,7 +5148,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize:hover,
 .maximized
 .titlebar button.titlebutton.maximize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark.png"), url("assets/titlebutton-restore-hover-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover-dark-alt.png"), url("assets/titlebutton-restore-hover-dark-alt@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:active,
@@ -5156,7 +5156,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize:active,
 .maximized
 .titlebar button.titlebutton.maximize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark.png"), url("assets/titlebutton-restore-active-dark@2.png"));
+  background-image: -gtk-scaled(url("assets/titlebutton-restore-active-dark-alt.png"), url("assets/titlebutton-restore-active-dark-alt@2.png"));
 }
 
 .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
@@ -6453,12 +6453,12 @@ panel-toplevel.background #tasklist-button image {
 .mate-panel-menu-bar .wnck-pager,
 panel-toplevel.background .wnck-pager {
   color: #6f6f6f;
-  background-color: rgba(11, 11, 11, 0.95);
+  background-color: #0b0b0b;
 }
 
 .mate-panel-menu-bar .wnck-pager:hover,
 panel-toplevel.background .wnck-pager:hover {
-  background-color: rgba(49, 49, 49, 0.95);
+  background-color: #313131;
 }
 
 .mate-panel-menu-bar .wnck-pager:selected,
@@ -6508,7 +6508,7 @@ panel-toplevel.background button:active:not(#tasklist-button), .xfce4-panel butt
 }
 
 .xfce4-panel.panel {
-  background-color: rgba(36, 36, 36, 0.95);
+  background-color: #242424;
   text-shadow: none;
   -gtk-icon-shadow: none;
   border: none;
@@ -6521,7 +6521,7 @@ panel-toplevel.background button:active:not(#tasklist-button), .xfce4-panel butt
 }
 
 .xfce4-panel {
-  background-color: rgba(36, 36, 36, 0.95);
+  background-color: #242424;
   color: #dedede;
   font-weight: 700;
   text-shadow: none;
@@ -6609,7 +6609,7 @@ window#whiskermenu-window scrolledwindow treeview.view:selected:hover {
 }
 
 window.thunar treeview.view {
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: #3B3B3B;
 }
 
 window.thunar treeview.view:hover {
@@ -7440,10 +7440,10 @@ GtkListBox .h4 {
 }
 
 #panel_window {
-  background-color: rgba(36, 36, 36, 0.95);
+  background-color: #242424;
   color: #dedede;
   font-weight: bold;
-  box-shadow: inset 0 -1px rgba(18, 18, 18, 0.95);
+  box-shadow: inset 0 -1px #121212;
 }
 
 #panel_window menubar {
@@ -7667,7 +7667,7 @@ filechooser.csd.background,
 filechooser placessidebar,
 .nautilus-window.csd.background,
 .nautilus-window placessidebar {
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: #3B3B3B;
   border-radius: 0 0 6px 6px;
 }
 
@@ -7817,7 +7817,7 @@ filechooser placesview actionbar.background,
 
 .nemo-window .sidebar {
   color: #dedede;
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: #3B3B3B;
 }
 
 .nemo-window .sidebar .view, .nemo-window .sidebar row {
@@ -7831,7 +7831,7 @@ filechooser placesview actionbar.background,
 }
 
 .nemo-window .sidebar .view.expander, .nemo-window .sidebar row.expander {
-  color: rgba(145, 145, 145, 0.97);
+  color: #8d8d8d;
 }
 
 .nemo-window .sidebar .view.expander:hover, .nemo-window .sidebar row.expander:hover {
@@ -7860,12 +7860,12 @@ filechooser placesview actionbar.background,
 }
 
 .caja-side-pane junction {
-  background-color: rgba(46, 46, 46, 0.94);
+  background-color: #2e2e2e;
 }
 
 filechooser actionbar {
   color: #dedede;
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: #3B3B3B;
   border-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -7886,7 +7886,7 @@ filechooser actionbar label, filechooser actionbar combobox {
 }
 
 .gedit-document-panel {
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: #3B3B3B;
 }
 
 .maximized .gedit-document-panel {
@@ -8137,7 +8137,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
   border-color: rgba(255, 255, 255, 0.12);
   border-radius: 6px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55);
-  background-color: rgba(51, 51, 51, 0.95);
+  background-color: #333333;
 }
 
 .budgie-popover .container {
@@ -8775,7 +8775,7 @@ frame.raven-frame > border {
 }
 
 .raven {
-  background-color: rgba(42, 42, 42, 0.95);
+  background-color: #2A2A2A;
   color: #dedede;
 }
 
@@ -9120,7 +9120,7 @@ window.budgie-switcher-window flowboxchild {
   padding: 8px;
   border-radius: 6px;
   box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.2);
-  background-color: rgba(36, 36, 36, 0.95);
+  background-color: #242424;
   background-image: none;
 }
 
@@ -9263,5 +9263,5 @@ window.budgie-switcher-window flowboxchild {
 @define-color titlebar_gradient_b #3e3e3e;
 @define-color budgie_tasklist_indicator_color #315bef;
 @define-color budgie_tasklist_indicator_color_active #315bef;
-@define-color budgie_tasklist_indicator_color_active_window rgba(43, 67, 151, 0.977);
+@define-color budgie_tasklist_indicator_color_active_window #2b4292;
 @define-color budgie_tasklist_indicator_color_attention #F27835;

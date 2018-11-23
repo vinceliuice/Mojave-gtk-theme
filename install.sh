@@ -18,6 +18,7 @@ fi
 THEME_NAME=Mojave
 COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
+ALT_VARIANTS=('' '-alt')
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -26,6 +27,7 @@ usage() {
   printf "  %-25s%s\n" "-n, --name NAME" "Specify theme name (Default: ${THEME_NAME})"
   printf "  %-25s%s\n" "-o, --opacity VARIANTS" "Specify theme opacity variant(s) [standard|solid] (Default: All variants)"
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [light|dark] (Default: All variants)"
+  printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
   printf "\n%s\n" "INSTALLATION EXAMPLES:"
@@ -44,11 +46,12 @@ install() {
   local name=${2}
   local color=${3}
   local opacity=${4}
+  local alt=${5}
 
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
 
-  local THEME_DIR=${dest}/${name}${color}${opacity}
+  local THEME_DIR=${dest}/${name}${color}${opacity}${alt}
 
   [[ -d ${THEME_DIR} ]] && rm -rf ${THEME_DIR}
 
@@ -59,13 +62,13 @@ install() {
 
   echo "[Desktop Entry]" >>                                                             ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme" >>                                                      ${THEME_DIR}/index.theme
-  echo "Name=${name}${color}${opacity}" >>                                              ${THEME_DIR}/index.theme
+  echo "Name=${name}${color}${opacity}${alt}" >>                                        ${THEME_DIR}/index.theme
   echo "Comment=An Stylish Gtk+ theme based on Elegant Design" >>                       ${THEME_DIR}/index.theme
   echo "Encoding=UTF-8" >>                                                              ${THEME_DIR}/index.theme
   echo "" >>                                                                            ${THEME_DIR}/index.theme
   echo "[X-GNOME-Metatheme]" >>                                                         ${THEME_DIR}/index.theme
-  echo "GtkTheme=${name}${color}${opacity}" >>                                          ${THEME_DIR}/index.theme
-  echo "MetacityTheme=${name}${color}${opacity}" >>                                     ${THEME_DIR}/index.theme
+  echo "GtkTheme=${name}${color}${opacity}${alt}" >>                                    ${THEME_DIR}/index.theme
+  echo "MetacityTheme=${name}${color}${opacity}${alt}" >>                               ${THEME_DIR}/index.theme
   echo "IconTheme=Adwaita" >>                                                           ${THEME_DIR}/index.theme
   echo "CursorTheme=Adwaita" >>                                                         ${THEME_DIR}/index.theme
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                   ${THEME_DIR}/index.theme
@@ -89,9 +92,9 @@ install() {
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/gtk-3.0/assets                                                      ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/gtk-3.0/thumbnail${color}.png                                       ${THEME_DIR}/gtk-3.0/thumbnail.png
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}.css                                   ${THEME_DIR}/gtk-3.0/gtk.css
+  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}.css                             ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}.css                                      ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}${alt}.css                                ${THEME_DIR}/gtk-3.0/gtk-dark.css
 
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
   cp -ur ${SRC_DIR}/metacity-1/metacity-theme${color}.xml                               ${THEME_DIR}/metacity-1/metacity-theme-1.xml
@@ -105,7 +108,7 @@ install() {
 }
 
 install_gdm() {
-    local THEME_DIR=${1}/${2}${3}${4}
+    local THEME_DIR=${1}/${2}${3}${4}${5}
       # bakup and install files related to gdm theme
       if [[ ! -f /usr/share/gnome-shell/gnome-shell-theme.gresource.bak ]]; then
           mv -f /usr/share/gnome-shell/gnome-shell-theme.gresource \
@@ -190,6 +193,29 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
+    -a|--alt)
+      shift
+      for alt in "${@}"; do
+        case "${alt}" in
+          standard)
+            alts+=("${ALT_VARIANTS[0]}")
+            shift
+            ;;
+          alt)
+            alts+=("${ALT_VARIANTS[1]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized alt variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -h|--help)
       usage
       exit 0
@@ -204,12 +230,14 @@ done
 
 for opacity in "${opacitys[@]:-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-    install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}"
+    for alt in "${alts[@]:-${ALT_VARIANTS[@]}}"; do
+      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}"
+    done
   done
 done
 
 if [[ "${gdm:-}" == 'true' ]]; then
-  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}"
+  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}"
 fi
 
 echo

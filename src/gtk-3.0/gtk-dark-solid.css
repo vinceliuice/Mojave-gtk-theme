@@ -5044,7 +5044,7 @@ headerbar button.titlebutton.close:backdrop:not(:hover):not(:active), headerbar 
 .titlebar button.titlebutton.maximize:backdrop:not(:hover):not(:active),
 .titlebar button.titlebutton.minimize:backdrop:not(:hover):not(:active),
 .titlebar button.titlebutton.restore:backdrop:not(:hover):not(:active) {
-  opacity: 0.25;
+  opacity: 1;
 }
 
 headerbar button.titlebutton.close,
