@@ -533,7 +533,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
                                     $_undershoot_color_light 50%,
                                     $_undershoot_color_dark 50%);
 
-  padding-#{$p}: 1px;
+  padding-#{$p}: 0;
   background-size: $_dash_bg_size;
   background-repeat: $_gradient_repeat;
   background-origin: content-box;

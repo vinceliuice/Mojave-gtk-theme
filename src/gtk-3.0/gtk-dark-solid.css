@@ -4167,7 +4167,7 @@ scrolledwindow overshoot.right {
 scrolledwindow undershoot.top {
   background-color: transparent;
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
-  padding-top: 1px;
+  padding-top: 0;
   background-size: 10px 1px;
   background-repeat: repeat-x;
   background-origin: content-box;
@@ -4178,7 +4178,7 @@ scrolledwindow undershoot.top {
 scrolledwindow undershoot.bottom {
   background-color: transparent;
   background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
-  padding-bottom: 1px;
+  padding-bottom: 0;
   background-size: 10px 1px;
   background-repeat: repeat-x;
   background-origin: content-box;
@@ -4189,7 +4189,7 @@ scrolledwindow undershoot.bottom {
 scrolledwindow undershoot.left {
   background-color: transparent;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
-  padding-left: 1px;
+  padding-left: 0;
   background-size: 1px 10px;
   background-repeat: repeat-y;
   background-origin: content-box;
@@ -4200,7 +4200,7 @@ scrolledwindow undershoot.left {
 scrolledwindow undershoot.right {
   background-color: transparent;
   background-image: linear-gradient(to top, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
-  padding-right: 1px;
+  padding-right: 0;
   background-size: 1px 10px;
   background-repeat: repeat-y;
   background-origin: content-box;
@@ -5965,9 +5965,21 @@ stack.background {
 
 scrolledwindow.view {
   border-radius: 0 0 0 6px;
+  background: none;
 }
 
-scrolledwindow.view > viewport.frame > stack > list {
+scrolledwindow.view > viewport.frame > stack {
+  background-color: #242424;
+  border-radius: 0 0 0 6px;
+}
+
+scrolledwindow.view > viewport.frame > stack list {
+  border-radius: 0 0 0 6px;
+  background: none;
+}
+
+scrolledwindow.view > viewport.frame > stack list row.activatable:not(:hover):not(:selected), scrolledwindow.view > viewport.frame > stack list .budgie-menu button:not(:hover):not(:selected), .budgie-menu scrolledwindow.view > viewport.frame > stack list button:not(:hover):not(:selected) {
+  background: none;
   border-radius: 0 0 0 6px;
 }
 
@@ -6395,6 +6407,15 @@ dialog.background.csd box.dialog-vbox grid.horizontal stack scrolledwindow.frame
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+dialog.background.csd box.dialog-vbox > stack > scrolledwindow {
+  border-radius: 0 0 6px 6px;
+  background-color: #242424;
+}
+
+dialog.background.csd box.dialog-vbox > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active) {
+  background-color: transparent;
+}
+
 dialog.background.csd box.dialog-vbox notebook > stack {
   border-radius: 0 0 6px 6px;
 }
@@ -6672,6 +6693,22 @@ window.thunar notebook header.top tab.reorderable-page > box > label {
   margin: 0 2px 2px 2px;
 }
 
+window#GearyMainWindow.background.csd box.vertical > paned.horizontal > box.sidebar.vertical {
+  border-bottom-left-radius: 6px;
+}
+
+window#GearyMainWindow.background.csd box.vertical > paned.horizontal > box.sidebar.vertical statusbar {
+  border-bottom-left-radius: 6px;
+}
+
+window#GearyMainWindow.background.csd stack#conversation_viewer {
+  border-bottom-right-radius: 6px;
+}
+
+window#GearyMainWindow.background.csd stack#conversation_viewer scrolledwindow.geary-conversation-scroller viewport.frame list.conversation-listbox {
+  border-bottom-right-radius: 6px;
+}
+
 window.background:not(.csd) > widget > separator {
   padding-top: 1px;
   margin-top: 1px;
@@ -6922,6 +6959,44 @@ window.background:not(.solid-csd) > notebook:not(.frame) {
 window.background:not(.solid-csd) > notebook:not(.frame) > stack {
   border: none;
   box-shadow: none;
+}
+
+window.background.csd > box.vertical > separator.horizontal {
+  min-height: 0;
+  background: none;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > box.vertical > stack {
+  background-color: #242424;
+  border-radius: 0 0 6px 0;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > box.vertical > stack > scrolledwindow.frame {
+  border: none;
+  background: none;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > box.vertical > stack > scrolledwindow.frame treeview.view:not(:hover):not(:selected) {
+  background: none;
+  border-radius: 0 0 6px 0;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list {
+  background-color: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-left-radius: 6px;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list {
+  background-color: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-left-radius: 6px;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list row.activatable:not(:hover):not(:selected), window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list .budgie-menu button:not(:hover):not(:selected), .budgie-menu window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list button:not(:hover):not(:selected) {
+  background-color: transparent;
+  background-image: none;
+  border-bottom-left-radius: 6px;
 }
 
 window > box.vertical > box.horizontal > toolbar, window > box.vertical > box.horizontal > .inline-toolbar {

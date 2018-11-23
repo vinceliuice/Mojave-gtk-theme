@@ -313,110 +313,110 @@ $disk_space_free: darken($bg_color, 3%);
 // Gedit
 //
 .open-document-selector-treeview.view {
-    padding: 3px 6px 3px 6px;
-    border-color: $base_color; // disable borders, making them transparent doesn't work for some reason
-    &:hover {
-        background-color: mix($fg_color, $base_color, 7%);
+  padding: 3px 6px 3px 6px;
+  border-color: $base_color; // disable borders, making them transparent doesn't work for some reason
+  &:hover {
+    background-color: mix($fg_color, $base_color, 7%);
 
-        &:selected {
-            color: $selected_fg_color;
-            background-color: $selected_bg_color;
-        }
+    &:selected {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
     }
+  }
 }
 
 .open-document-selector-name-label {
-    color: $fg_color;
+  color: $fg_color;
 }
 
 .open-document-selector-path-label {
-    color: mix($fg_color, $base_color, 50%);
-    font-size: smaller;
+  color: mix($fg_color, $base_color, 50%);
+  font-size: smaller;
 
-    &:selected {
-        color: transparentize($selected_fg_color, 0.1);
-    }
+  &:selected {
+    color: transparentize($selected_fg_color, 0.1);
+  }
 }
 
 .gedit-document-panel { // 'documents' pane
 
-    row.activatable { padding: 6px 0; }
+  row.activatable { padding: 6px 0; }
 
-    row button { // 'close' button
-        min-width: 22px;
-        min-height: 22px;
-        padding: 0;
-        margin: 0 6px;
-        border-radius: 100px;
-        -gtk-outline-radius: 100px;
+  row button { // 'close' button
+    min-width: 22px;
+    min-height: 22px;
+    padding: 0;
+    margin: 0 6px;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
 
-        image {
-            color: inherit;
-        }
+    image {
+      color: inherit;
     }
+  }
 
-    row:hover:not(:selected) button {
-        color: mix($bg_color, $fg_color, 35%);
+  row:hover:not(:selected) button {
+    color: mix($bg_color, $fg_color, 35%);
 
-        &:hover {
-            color: lighten(red, 15%);
-        }
-        &:active {
-            color: $fg_color;
-        }
+    &:hover {
+      color: lighten(red, 15%);
     }
-
-    row:hover:selected button:hover {
-        color: lighten(red, 20%);
-
-        &:active {
-            color: $selected_fg_color;
-        }
+    &:active {
+      color: $fg_color;
     }
+  }
+
+  row:hover:selected button:hover {
+    color: lighten(red, 20%);
+
+    &:active {
+      color: $selected_fg_color;
+    }
+  }
 }
 
 .gedit-document-panel-dragged-row {
-    border: 1px solid $borders_color;
-    background-color: darken($bg_color, 10%);
-    color: $fg_color;
+  border: 1px solid $borders_color;
+  background-color: darken($bg_color, 10%);
+  color: $fg_color;
 }
 
 .gedit-side-panel-paned statusbar {
-    border-top: 1px solid $borders_color;
-    background-color: $bg_color;
-    border-radius: 0 0 $wm_radius $wm_radius;
+  border-top: 1px solid $borders_color;
+  background-color: $bg_color;
+  border-radius: 0 0 $wm_radius $wm_radius;
 }
 
 .gedit-search-slider {
-    background-color: lighten($bg_color, 2%);
-    padding: 6px;
-    border-color: $borders_color;
-    border-radius: 0 0 $bt_radius $bt_radius;
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
+  background-color: lighten($bg_color, 2%);
+  padding: 6px;
+  border-color: $borders_color;
+  border-radius: 0 0 $bt_radius $bt_radius;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
 }
 
 .gedit-search-entry-occurrences-tag {
-    color: transparentize($fg_color, 0.4);
-    border: none;
-    margin: 2px;
-    padding: 2px;
+  color: transparentize($fg_color, 0.4);
+  border: none;
+  margin: 2px;
+  padding: 2px;
 }
 
 .gedit-map-frame {
-    border {
-        @if $variant=='light' {
-            border-color: transparentize(black, 0.7);
-        }
-        border-width: 0;
-
-        &:dir(ltr) {
-            border-left-width: 1px;
-        }
-        &:dir(rtl) {
-            border-right-width: 1px;
-        }
+  border {
+    @if $variant=='light' {
+      border-color: transparentize(black, 0.7);
     }
+    border-width: 0;
+
+    &:dir(ltr) {
+      border-left-width: 1px;
+    }
+    &:dir(rtl) {
+      border-right-width: 1px;
+    }
+  }
 }
 
 .gedit-side-panel-paned.horizontal {
@@ -856,9 +856,21 @@ stack > box.vertical > widget > overlay grid.horizontal > stack {
 // > 3.25.90
 scrolledwindow.view {
   border-radius: 0 0 0 $wm_radius;
-  > viewport.frame > stack > list { // left-pane
+  background: none;
+
+  > viewport.frame > stack {
+    background-color: $base_color;
     border-radius: 0 0 0 $wm_radius;
-    // > row.activatable { }
+
+    list { // left-pane
+      border-radius: 0 0 0 $wm_radius;
+      background: none;
+
+      row.activatable:not(:hover):not(:selected) {
+        background: none;
+        border-radius: 0 0 0 $wm_radius;
+      }
+    }
   }
 }
 
@@ -1254,6 +1266,18 @@ dialog.background.csd {
       }
     }
 
+    > stack {
+      > scrolledwindow {
+        border-radius: 0 0 $wm_radius $wm_radius;
+        background-color: $base_color;
+
+        iconview.view:not(:hover):not(:selected):not(:active) {
+          // @extend %view;
+          background-color: transparent;
+        }
+      }
+    }
+
     notebook > stack {
       border-radius: 0 0 $wm_radius $wm_radius;
     }
@@ -1542,6 +1566,28 @@ window.thunar {
   entry { margin: 0 2px 2px 2px; }
 }
 
+window#GearyMainWindow.background.csd {
+  box.vertical > paned.horizontal > box.sidebar.vertical {
+    border-bottom-left-radius: $wm_radius;
+
+    statusbar {
+      border-bottom-left-radius: $wm_radius;
+    }
+  }
+
+  stack#conversation_viewer {
+    border-bottom-right-radius: $wm_radius;
+
+    scrolledwindow.geary-conversation-scroller {
+      viewport.frame {
+        list.conversation-listbox {
+          border-bottom-right-radius: $wm_radius;
+        }
+      }
+    }
+  }
+}
+
 //
 // * Firefox and Thunderbird *
 //
@@ -1748,7 +1794,6 @@ window.background.chromium {
 /****************
  * Libre-Office *
  ****************/
-
 window.background:not(.solid-csd) {
     // reserved area at the most-right side of GtkMenuBar
     > grid.horizontal > grid.horizontal {
@@ -1791,10 +1836,65 @@ window.background:not(.solid-csd) {
   }
 }
 
+//
+// Pamac
+//
+window.background.csd {
+  > box.vertical > separator.horizontal { min-height: 0; background: none; }
+
+  > box.vertical > stack {
+    > box.horizontal {
+      > box.vertical > stack {
+        background-color: $base_color;
+        border-radius: 0 0 $wm_radius 0;
+
+        > scrolledwindow.frame {
+          border: none;
+          background: none;
+
+          treeview.view:not(:hover):not(:selected) {
+            background: none;
+            border-radius: 0 0 $wm_radius 0;
+          }
+        }
+      }
+
+      > revealer > stack {
+        > scrolledwindow {
+          > viewport.frame {
+            list {
+              background-color: transparent;
+              border-right: 1px solid $borders_color;
+              border-bottom-left-radius: $wm_radius;
+            }
+          }
+        }
+      }
+    }
+
+    > box.horizontal > revealer > stack {
+      > scrolledwindow {
+        > viewport.frame {
+          list {
+            background-color: transparent;
+            border-right: 1px solid $borders_color;
+            border-bottom-left-radius: $wm_radius;
+
+            row.activatable:not(:hover):not(:selected) {
+              background-color: transparent;
+              background-image: none;
+              border-bottom-left-radius: $wm_radius;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 // /************
 //  * Synaptic *
 //  ************/
-
 window > box.vertical > box.horizontal {
   > toolbar {
     background-color: transparent;
