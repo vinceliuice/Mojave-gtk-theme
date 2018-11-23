@@ -52,11 +52,9 @@ $wm_radius: 6px;
 .background {
 //  border-radius: 0 0 $wm_radius $wm_radius;
   color: $fg_color;
-  // without this headerbar transparency doesn't seem to work
-  background-color: if($transparency == 'true', rgba($bg_color, 1), $bg_color);
+  background-color: $bg_color;
 
-  &.csd,
-  &.ssd, &.osd { border-radius: 0 0 $wm_radius $wm_radius; } // Set csd windows botttom border radius
+  &.csd { border-radius: 0 0 $wm_radius $wm_radius; } // Set csd windows botttom border radius
   &.maximized, &.solid-csd { border-radius: 0; } // No radius when windows maximized
 }
 
@@ -117,7 +115,11 @@ textview {
   border { background-color: mix($bg_color, $base_color, 50%); }
 }
 
-iconview { @extend %view; border-radius: $bt_radius; }
+iconview {
+  @extend %view;
+
+  &:hover, &:selected { border-radius: $bt_radius; }
+}
 
 rubberband,
 .rubberband {
@@ -2116,7 +2118,7 @@ notebook {
 //  margin-top: -1px;
 
   &.frame {
-    border: 1px solid $borders_color;
+    border: 1px solid $solid_borders_color;
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
@@ -2130,7 +2132,7 @@ notebook {
     // Set box-shadow to make the header frame color more easy to see
     // Set margin to hide the ugly borders around the header
     &.top {
-      box-shadow: inset 0 1px $borders_color, inset 0 -1px $borders_color;
+      box-shadow: inset 0 1px $solid_borders_color, inset 0 -1px $borders_color;
       @if $variant=='light' {
           box-shadow: inset 0 1px $borders_color,
                       inset 0 -1px $borders_color,
@@ -2141,7 +2143,7 @@ notebook {
     }
 
     &.bottom {
-      box-shadow: inset 0 1px $borders_color, inset 0 -1px $borders_color;
+      box-shadow: inset 0 1px $borders_color, inset 0 -1px $solid_borders_color;
       @if $variant=='light' {
           box-shadow: inset 0 1px $borders_color,
                       inset 0 -1px $borders_color,
@@ -2152,7 +2154,7 @@ notebook {
     }
 
     &.right {
-      box-shadow: inset 1px 0 $borders_color, inset -1px 0 $borders_color;
+      box-shadow: inset 1px 0 $borders_color, inset -1px 0 $solid_borders_color;
       @if $variant=='light' {
           box-shadow: inset 1px 0 $borders_color,
                       inset -1px 0 $borders_color,
@@ -2163,7 +2165,7 @@ notebook {
     }
 
     &.left {
-      box-shadow: inset 1px 0 $borders_color, inset -1px 0 $borders_color;
+      box-shadow: inset 1px 0 $solid_borders_color, inset -1px 0 $borders_color;
       @if $variant=='light' {
           box-shadow: inset 1px 0 $borders_color,
                       inset -1px 0 $borders_color,
@@ -3874,7 +3876,7 @@ decoration {
     border-radius: $wm_radius;
   }
   .solid-csd & {
-    border: 1px solid $solid_borders_color;
+    border: 1px solid $dark_solid_borders_color;
     border-radius: 0;
     margin: 0;
     background-color: $header_bg;

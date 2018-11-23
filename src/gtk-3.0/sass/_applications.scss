@@ -107,6 +107,15 @@ terminal-window,
   tab { margin-left: -1px; }
 }
 
+.nautilus-window notebook {
+  scrolledwindow {
+    .view {
+      background-color: transparent;
+      @extend %view;
+    }
+  }
+}
+
 .nautilus-window notebook,
 .nautilus-window notebook > stack {
   border-radius: 0 0 $wm_radius $wm_radius;
