@@ -2123,6 +2123,24 @@ notebook {
 
   &.frame {
     border: 1px solid $solid_borders_color;
+
+    > header {
+      &.top,
+      &.bottom {
+        tabs > tab {
+          &:first-child { border-left-style: none; }
+          &:last-child { border-right-style: solid; }
+        }
+      }
+
+      &.left,
+      &.right {
+        tabs > tab {
+          &:first-child { border-top-style: none; }
+          &:last-child { border-bottom-style: solid; }
+        }
+      }
+    }
   }
 
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
@@ -2246,24 +2264,20 @@ notebook {
     &.top,
     &.bottom {
       tabs > tab {
-        &:not(:only-child) {
-          &:first-child { border-left: none; }
-          // &:last-child { border-right: none; }
-        }
+        &:first-child { border-left-style: none; }
+        &:last-child { border-right-style: none; }
       }
     }
 
     &.left,
     &.right {
       tabs > tab {
-        &:not(:only-child) {
-          &:first-child { border-top: none; }
-          // &:last-child { border-bottom: none; }
-        }
+        &:first-child { border-top-style: none; }
+        &:last-child { border-bottom-style: none; }
       }
     }
 
-    tab {
+    tabs > tab {
       color: $insensitive_fg_color;
       background-color: transparentize($base_color, 1);
       border: 1px solid transparent;

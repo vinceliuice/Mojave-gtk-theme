@@ -1129,7 +1129,7 @@ headerbar .linked:not(.vertical).path-bar > button:only-child:disabled, .nemo-wi
 }
 
 menuitem.button.flat,
-modelbutton.flat, button:link, button:visited, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, notebook > header tab button.flat:hover, notebook > header tab button.budgie-menu-launcher:hover, notebook > header tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header tab button.flat.launcher:hover, notebook > header tab button.flat:active, notebook > header tab button.budgie-menu-launcher:active, notebook > header tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header tab button.flat.launcher:active, notebook > header tab button.flat:active:hover, notebook > header tab button.budgie-menu-launcher:active:hover, .app-notification button,
+modelbutton.flat, button:link, button:visited, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab button.budgie-menu-launcher:hover, notebook > header tabs > tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header tabs > tab button.flat.launcher:hover, notebook > header tabs > tab button.flat:active, notebook > header tabs > tab button.budgie-menu-launcher:active, notebook > header tabs > tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header tabs > tab button.flat.launcher:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.budgie-menu-launcher:active:hover, .app-notification button,
 calendar.button, calendar.raven-calendar.button {
   border-color: transparent;
   background-color: transparent;
@@ -2746,6 +2746,22 @@ notebook.frame {
   border: 1px solid #474747;
 }
 
+notebook.frame > header.top tabs > tab:first-child, notebook.frame > header.bottom tabs > tab:first-child {
+  border-left-style: none;
+}
+
+notebook.frame > header.top tabs > tab:last-child, notebook.frame > header.bottom tabs > tab:last-child {
+  border-right-style: solid;
+}
+
+notebook.frame > header.left tabs > tab:first-child, notebook.frame > header.right tabs > tab:first-child {
+  border-top-style: none;
+}
+
+notebook.frame > header.left tabs > tab:last-child, notebook.frame > header.right tabs > tab:last-child {
+  border-bottom-style: solid;
+}
+
 notebook > stack:not(:only-child) {
   background-color: #242424;
 }
@@ -2896,33 +2912,41 @@ notebook > header > tabs > arrow:disabled {
   color: rgba(222, 222, 222, 0.15);
 }
 
-notebook > header.top tabs > tab:not(:only-child):first-child, notebook > header.bottom tabs > tab:not(:only-child):first-child {
-  border-left: none;
+notebook > header.top tabs > tab:first-child, notebook > header.bottom tabs > tab:first-child {
+  border-left-style: none;
 }
 
-notebook > header.left tabs > tab:not(:only-child):first-child, notebook > header.right tabs > tab:not(:only-child):first-child {
-  border-top: none;
+notebook > header.top tabs > tab:last-child, notebook > header.bottom tabs > tab:last-child {
+  border-right-style: none;
 }
 
-notebook > header tab {
+notebook > header.left tabs > tab:first-child, notebook > header.right tabs > tab:first-child {
+  border-top-style: none;
+}
+
+notebook > header.left tabs > tab:last-child, notebook > header.right tabs > tab:last-child {
+  border-bottom-style: none;
+}
+
+notebook > header tabs > tab {
   color: rgba(222, 222, 222, 0.45);
   background-color: rgba(36, 36, 36, 0);
   border: 1px solid transparent;
 }
 
-notebook > header tab:hover:not(:checked) {
+notebook > header tabs > tab:hover:not(:checked) {
   color: rgba(222, 222, 222, 0.725);
   background-color: rgba(255, 255, 255, 0.05);
   border-color: #444444;
 }
 
-notebook > header tab:checked {
+notebook > header tabs > tab:checked {
   color: #dedede;
   background-color: #373737;
   border-color: #444444;
 }
 
-notebook > header tab button.flat, notebook > header tab button.budgie-menu-launcher, notebook > header tab .budgie-panel button.flat.launcher, .budgie-panel notebook > header tab button.flat.launcher {
+notebook > header tabs > tab button.flat, notebook > header tabs > tab button.budgie-menu-launcher, notebook > header tabs > tab .budgie-panel button.flat.launcher, .budgie-panel notebook > header tabs > tab button.flat.launcher {
   min-height: 16px;
   min-width: 16px;
   border-radius: 3px;
@@ -2931,12 +2955,12 @@ notebook > header tab button.flat, notebook > header tab button.budgie-menu-laun
   color: #a2a2a2;
 }
 
-notebook > header tab button.flat:hover, notebook > header tab button.budgie-menu-launcher:hover, notebook > header tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header tab button.flat.launcher:hover {
+notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab button.budgie-menu-launcher:hover, notebook > header tabs > tab .budgie-panel button.flat.launcher:hover, .budgie-panel notebook > header tabs > tab button.flat.launcher:hover {
   color: rgba(248, 70, 76, 0.5);
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-notebook > header tab button.flat:active, notebook > header tab button.budgie-menu-launcher:active, notebook > header tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header tab button.flat.launcher:active, notebook > header tab button.flat:active:hover, notebook > header tab button.budgie-menu-launcher:active:hover, .budgie-panel notebook > header tab button.flat.launcher:active:hover {
+notebook > header tabs > tab button.flat:active, notebook > header tabs > tab button.budgie-menu-launcher:active, notebook > header tabs > tab .budgie-panel button.flat.launcher:active, .budgie-panel notebook > header tabs > tab button.flat.launcher:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.budgie-menu-launcher:active:hover, .budgie-panel notebook > header tabs > tab button.flat.launcher:active:hover {
   color: rgba(246, 21, 28, 0.5);
   background-color: rgba(0, 0, 0, 0.2);
 }
