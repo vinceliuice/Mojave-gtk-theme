@@ -5975,6 +5975,12 @@ button.documents-favorite:active:hover {
   border-radius: 0 0 0 6px;
 }
 
+.tweak-categories > separator {
+  min-width: 0;
+  min-height: 0;
+  background: none;
+}
+
 .tweak-titlebar-right > switch,
 dialog.csd > headerbar.titlebar > switch {
   margin: 8px 0;
@@ -5988,24 +5994,21 @@ stack.background {
   background: none;
 }
 
-scrolledwindow.view {
-  border-radius: 0 0 0 6px;
-  background: none;
-}
-
-scrolledwindow.view > viewport.frame > stack {
+.background.csd scrolledwindow.view {
   background-color: #242424;
-  border-radius: 0 0 0 6px;
+  border-bottom-left-radius: 7px;
 }
 
-scrolledwindow.view > viewport.frame > stack list {
-  border-radius: 0 0 0 6px;
-  background: none;
+.background.csd scrolledwindow.view > viewport.frame > stack {
+  background-color: transparent;
 }
 
-scrolledwindow.view > viewport.frame > stack list row.activatable:not(:hover):not(:selected), scrolledwindow.view > viewport.frame > stack list .budgie-menu button:not(:hover):not(:selected), .budgie-menu scrolledwindow.view > viewport.frame > stack list button:not(:hover):not(:selected) {
-  background: none;
-  border-radius: 0 0 0 6px;
+.background.csd scrolledwindow.view > viewport.frame > stack > list {
+  background-color: transparent;
+}
+
+.background.csd scrolledwindow.view > viewport.frame > stack > list > row.activatable:not(:hover):not(:active):not(:selected), .background.csd .budgie-menu scrolledwindow.view > viewport.frame > stack > list > button:not(:hover):not(:active):not(:selected), .budgie-menu .background.csd scrolledwindow.view > viewport.frame > stack > list > button:not(:hover):not(:active):not(:selected) {
+  background-color: transparent;
 }
 
 box.horizontal.titlebar > headerbar > stack > box.vertical > .title {
@@ -6444,12 +6447,14 @@ dialog.background.csd box.dialog-vbox grid.horizontal stack scrolledwindow.frame
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-dialog.background.csd box.dialog-vbox > stack > scrolledwindow {
+dialog.background.csd box.dialog-vbox > stack > scrolledwindow,
+dialog.background.csd box.dialog-vbox > stack > stack > scrolledwindow {
   border-radius: 0 0 6px 6px;
   background-color: #242424;
 }
 
-dialog.background.csd box.dialog-vbox > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active) {
+dialog.background.csd box.dialog-vbox > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active),
+dialog.background.csd box.dialog-vbox > stack > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active) {
   background-color: transparent;
 }
 
