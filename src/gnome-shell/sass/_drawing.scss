@@ -104,11 +104,10 @@
 
   @if $t == focus {
     border: 1px solid lighten($primary_color, 15%);
-    box-shadow: 0 0 0 2px lighten($primary_color, 15%);
+    box-shadow: 0 0 0 1px lighten($primary_color, 15%);
   }
 
-  @if $t == hover {
-  }
+  @if $t == hover { }
 
   @if $t == insensitive {
     color: $disabled_fg_color;

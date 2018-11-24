@@ -1276,12 +1276,17 @@ flowboxchild.bookmark-tag-widget {
   background-color: transparent;
 
   .content-view {
+    background-color: transparent;
     border-radius: 0 0 $wm_radius $wm_radius;
   }
 
   viewport.frame { // Documents
     background-color: transparent;
+
     widget > frame.content-view {
+      border { border: none; }
+
+      background-color: transparent;
       border-radius: 0 0 $wm_radius $wm_radius;
     }
   }

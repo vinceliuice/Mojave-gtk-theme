@@ -6420,6 +6420,7 @@ flowboxchild.bookmark-tag-widget-selected {
 }
 
 .documents-scrolledwin .content-view {
+  background-color: transparent;
   border-radius: 0 0 6px 6px;
 }
 
@@ -6428,7 +6429,12 @@ flowboxchild.bookmark-tag-widget-selected {
 }
 
 .documents-scrolledwin viewport.frame widget > frame.content-view {
+  background-color: transparent;
   border-radius: 0 0 6px 6px;
+}
+
+.documents-scrolledwin viewport.frame widget > frame.content-view border {
+  border: none;
 }
 
 dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame {
