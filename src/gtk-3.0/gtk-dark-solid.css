@@ -6972,6 +6972,68 @@ window.background:not(.solid-csd) > notebook:not(.frame) > stack {
   box-shadow: none;
 }
 
+widget > box.terminal-titlebar {
+  padding: 0 6px;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle, widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher, .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher {
+  border: none;
+  border-radius: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:dir(ltr), widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:dir(ltr), .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:dir(ltr) {
+  padding-right: 6px;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:dir(rtl), widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:dir(rtl), .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:dir(rtl) {
+  padding-left: 6px;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:hover, widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:hover, .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:hover, widget > box.terminal-titlebar > button.flat.popup.toggle:checked, widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:checked, .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:checked, widget > box.terminal-titlebar > button.flat.popup.toggle:active, widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:active, .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:active {
+  border-radius: 0;
+}
+
+widget > box.terminal-titlebar > button.flat.popup.toggle:checked, widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:checked, .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:checked, widget > box.terminal-titlebar > button.flat.popup.toggle:active, widget > box.terminal-titlebar > button.popup.toggle.budgie-menu-launcher:active, .budgie-panel widget > box.terminal-titlebar > button.popup.toggle.flat.launcher:active {
+  background-color: rgba(222, 222, 222, 0.05);
+  color: #dedede;
+}
+
+widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titlebar > button.image-button.toggle {
+  margin: 2px 0;
+  padding: 0;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 5px;
+  -gtk-outline-radius: 5px;
+}
+
+list.tilix-session-sidebar {
+  background-image: image(#3B3B3B);
+}
+
+list.tilix-session-sidebar button.tilix-sidebar-close-button {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
+  background-color: #f8464c;
+}
+
+list.tilix-session-sidebar button.tilix-sidebar-close-button, list.tilix-session-sidebar button.tilix-sidebar-close-button:hover, list.tilix-session-sidebar button.tilix-sidebar-close-button:active, list.tilix-session-sidebar button.tilix-sidebar-close-button:checked {
+  color: white;
+}
+
+list.tilix-session-sidebar button.tilix-sidebar-close-button:hover {
+  background-color: #fa777c;
+}
+
+list.tilix-session-sidebar button.tilix-sidebar-close-button:active, list.tilix-session-sidebar button.tilix-sidebar-close-button:checked {
+  background-image: image(#f6151c);
+}
+
 window.background.csd > box.vertical > separator.horizontal {
   min-height: 0;
   background: none;

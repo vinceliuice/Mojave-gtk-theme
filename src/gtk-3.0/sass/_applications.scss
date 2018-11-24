@@ -1856,6 +1856,65 @@ window.background:not(.solid-csd) {
   }
 }
 
+// /*********
+//  * Tilix *
+//  *********/
+
+// in-line titlebars
+widget > box.terminal-titlebar {
+  padding: 0 6px;
+
+  > button.flat.popup.toggle {
+    border: none;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &:dir(ltr) { padding-right: 6px; }
+    &:dir(rtl) { padding-left: 6px; }
+
+    &:hover, &:checked, &:active {
+      border-radius: 0;
+    }
+
+    &:checked, &:active {
+      background-color: rgba($fg_color, 0.05);
+      color: $fg_color;
+    }
+  }
+
+  > button.image-button { // 'plus' and 'close'
+    &, &.toggle {
+      margin: 2px 0;
+      padding: 0;
+      min-height: 24px;
+      min-width: 24px;
+      border-radius: $bt_radius;
+      -gtk-outline-radius: $bt_radius;
+    }
+  }
+}
+
+list.tilix-session-sidebar {
+  // use -image property instead
+  background-image: image($dark_sidebar_bg);
+
+  button.tilix-sidebar-close-button {
+    min-height: 20px;
+    min-width: 20px;
+    padding: 0;
+    border-radius: 100px;
+    -gtk-outline-radius: 100px;
+    background-color: $destructive_color;
+    &, &:hover, &:active, &:checked { color: white; }
+
+    &:hover { background-color: lighten($destructive_color, 10%); }
+
+    &:active,
+    &:checked { background-image: image(darken($destructive_color, 10%)); }
+  }
+}
+
 //
 // Pamac
 //
