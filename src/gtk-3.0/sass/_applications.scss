@@ -433,6 +433,7 @@ $disk_space_free: darken($bg_color, 3%);
       box-shadow: $shadow_5;
     }
   }
+
   // 'files' pane
   stack {
     scrolledwindow {
@@ -1863,6 +1864,12 @@ window.background.csd {
 
   > box.vertical > stack {
     > box.horizontal {
+      > list {
+        background-color: transparent;
+        border-right: 1px solid $borders_color;
+        border-bottom-left-radius: $wm_radius;
+      }
+
       > box.vertical > stack {
         background-color: $base_color;
         border-radius: 0 0 $wm_radius 0;
@@ -1879,6 +1886,12 @@ window.background.csd {
       }
 
       > revealer > stack {
+        > list {
+          background-color: transparent;
+          border-right: 1px solid $borders_color;
+          border-bottom-left-radius: $wm_radius;
+        }
+
         > scrolledwindow {
           > viewport.frame {
             list {

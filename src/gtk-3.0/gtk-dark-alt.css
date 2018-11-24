@@ -6977,6 +6977,12 @@ window.background.csd > box.vertical > separator.horizontal {
   background: none;
 }
 
+window.background.csd > box.vertical > stack > box.horizontal > list {
+  background-color: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-left-radius: 6px;
+}
+
 window.background.csd > box.vertical > stack > box.horizontal > box.vertical > stack {
   background-color: #242424;
   border-radius: 0 0 6px 0;
@@ -6990,6 +6996,12 @@ window.background.csd > box.vertical > stack > box.horizontal > box.vertical > s
 window.background.csd > box.vertical > stack > box.horizontal > box.vertical > stack > scrolledwindow.frame treeview.view:not(:hover):not(:selected) {
   background: none;
   border-radius: 0 0 6px 0;
+}
+
+window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > list {
+  background-color: transparent;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom-left-radius: 6px;
 }
 
 window.background.csd > box.vertical > stack > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list {
