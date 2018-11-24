@@ -4436,7 +4436,7 @@ messagedialog .dialog-action-area button {
   box-shadow: none;
 }
 
-messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover {
+messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover {
   color: #c5c5c5;
   background-color: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.15);
@@ -4444,7 +4444,7 @@ messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-acti
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
+messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.25);

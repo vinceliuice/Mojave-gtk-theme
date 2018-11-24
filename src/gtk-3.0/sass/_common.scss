@@ -3281,7 +3281,7 @@ messagedialog { // Message Dialog styling
       box-shadow: none;
     }
 
-    .dialog-action-area button:not(.suggested-action):not(.destructive-action) {
+    button:not(.suggested-action):not(.destructive-action) {
 
       &:hover {
         @include button(flat-hover);
@@ -3292,7 +3292,6 @@ messagedialog { // Message Dialog styling
       &:active, &:checked {
         @include button(flat-active);
         border-color: if($variant == 'light', $borders_bottom_color, #747474);
-//        text-shadow: $text_shadow;
       }
     }
   }
