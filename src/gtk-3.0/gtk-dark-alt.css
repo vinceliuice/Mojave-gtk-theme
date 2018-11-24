@@ -6044,6 +6044,16 @@ stack > grid.vertical scrolledwindow.frame.emptyGrid {
   border: none;
 }
 
+window.background.csd > overlay > grid.horizontal > frame:dir(ltr) > border {
+  border-top-width: 0;
+  border-left-width: 0;
+  border-bottom-width: 0;
+}
+
+window.background.csd > overlay > grid.horizontal > overlay > stack > box.horizontal > grid.horizontal > scrolledwindow.contacts-contact-form {
+  border-bottom-right-radius: 7px;
+}
+
 .tr-workarea undershoot,
 .tr-workarea overshoot {
   border-color: transparent;

@@ -933,6 +933,25 @@ stack {
 }
 
 //
+// Gnome Contacts
+//
+window.background.csd {
+  > overlay > grid.horizontal {
+    > frame:dir(ltr) > border { // Removed ugly borders
+      border-top-width: 0;
+      border-left-width: 0;
+      border-bottom-width: 0;
+    }
+
+    > overlay > stack > box.horizontal > grid.horizontal {
+      > scrolledwindow.contacts-contact-form {
+        border-bottom-right-radius: $wm_radius + 1px;
+      }
+    }
+  }
+}
+
+//
 // Transmission
 //
 .tr-workarea undershoot,
