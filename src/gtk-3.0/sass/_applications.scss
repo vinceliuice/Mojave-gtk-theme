@@ -66,12 +66,13 @@ terminal-window,
   border-radius: 2px;
 }
 
+// .view.nautilus-desktop,
 .nautilus-desktop.nautilus-canvas-item {
   color: white;
   text-shadow: 1px 1px transparentize(black, 0.4);
 
   &:active {
-    color: $fg_color;
+    color: white;
   }
 
   &:selected {
@@ -109,9 +110,9 @@ terminal-window,
 
 .nautilus-window notebook {
   scrolledwindow {
-    .view {
+    .view:not(:hover):not(:active):not(:selected) {
       background-color: transparent;
-      @extend %view;
+      // @extend %view;
     }
   }
 }
@@ -135,15 +136,15 @@ terminal-window,
   background-color: $base_color;
   border-radius: 0 0 $wm_radius $wm_radius;
 
-  treeview.view {
+  treeview.view:not(:hover):not(:active):not(:selected) {
     background-color: transparent;
     border-radius: 0;
-    @extend %view;
+    // @extend %view;
   }
 }
 
 button.nautilus-circular-button.image-button {
-    @extend button.circular;
+  @extend button.circular;
 }
 
 $disk_space_unknown: transparentize($fg_color, 0.5);
@@ -151,83 +152,83 @@ $disk_space_used: transparentize($selected_bg_color, 0.2);
 $disk_space_free: darken($bg_color, 3%);
 
 .disk-space-display {
-    border-style: solid;
-    border-width: 1px;
+  border-style: solid;
+  border-width: 1px;
 
-    &.unknown {
-        background-color: $disk_space_unknown;
-        border-color: darken($disk_space_unknown, 10%);
-    }
-    &.used {
-        background-color: $disk_space_used;
-        border-color: darken($disk_space_used, 10%);
-    }
-    &.free {
-        background-color: $disk_space_free;
-        border-color: darken($disk_space_free, 10%);
-    }
+  &.unknown {
+    background-color: $disk_space_unknown;
+    border-color: darken($disk_space_unknown, 10%);
+  }
+  &.used {
+    background-color: $disk_space_used;
+    border-color: darken($disk_space_used, 10%);
+  }
+  &.free {
+    background-color: $disk_space_free;
+    border-color: darken($disk_space_free, 10%);
+  }
 }
 
 @keyframes needs_attention_keyframes {
-    0% {
-        @include button(header-hover);
-    }
-    100% {
-        @include button(header-active)
-    }
+  0% {
+    @include button(header-hover);
+  }
+  100% {
+    @include button(header-active)
+  }
 }
 
 .nautilus-operations-button-needs-attention {
-    animation: needs_attention_keyframes 2s ease-in-out;
+  animation: needs_attention_keyframes 2s ease-in-out;
 }
 
 .nautilus-operations-button-needs-attention-multiple {
-    animation: needs_attention_keyframes 3s ease-in-out;
-    animation-iteration-count: 3;
+  animation: needs_attention_keyframes 3s ease-in-out;
+  animation-iteration-count: 3;
 }
 
 // Batch renaming dialog
 .conflict-row.activatable {
-    &,
-    &:active {
-        color: $error_fg_color;
-        background-color: $error_color;
-    }
+  &,
+  &:active {
+    color: $error_fg_color;
+    background-color: $error_color;
+  }
 
-    &:hover {
-        background-color: lighten($error_color, 10%);
-    }
+  &:hover {
+    background-color: lighten($error_color, 10%);
+  }
 
-    &:selected {
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
-    }
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
 }
 
 // Floating Bar
 .nautilus-window .floating-bar {
-    padding: 1px;
-    background-color: $selected_bg_color;
-    color: $selected_fg_color;
-    border-radius: 3px 0 $wm_radius - 2px 0;
+  padding: 1px;
+  background-color: $selected_bg_color;
+  color: $selected_fg_color;
+  border-radius: 3px 0 $wm_radius - 2px 0;
 
-    &.bottom.left {
-        border-top-left-radius: 0;
-    }
-    &.bottom.right {
-        border-top-right-radius: 0;
-    }
+  &.bottom.left {
+    border-top-left-radius: 0;
+  }
+  &.bottom.right {
+    border-top-right-radius: 0;
+  }
 
-    button {
-        border: none;
-        border-radius: 100px;
-        min-height: 0;
-        min-width: 0;
-        padding: 0;
-        margin-right: 6px;
-        -gtk-icon-shadow: none;
-        @extend %selected-button;
-    }
+  button {
+    border: none;
+    border-radius: 100px;
+    min-height: 0;
+    min-width: 0;
+    padding: 0;
+    margin-right: 6px;
+    -gtk-icon-shadow: none;
+    @extend %selected-button;
+  }
 }
 
 // Reset maximized nautilus-window floating-bar border-radius
@@ -237,56 +238,56 @@ $disk_space_free: darken($bg_color, 3%);
 // Nemo
 //
 .nemo-desktop.nemo-canvas-item {
-    @extend .nautilus-desktop.nautilus-canvas-item;
+  @extend .nautilus-desktop.nautilus-canvas-item;
 }
 
 .nemo-window {
 
-    .nemo-places-sidebar.frame {
-        border-width: 0;
+  .nemo-places-sidebar.frame {
+    border-width: 0;
+  }
+  notebook {
+    background-color: $base_color;
+  } // Rename entry
+  .nemo-window-pane widget.entry {
+    border: 1px solid;
+    border-radius: 3px;
+
+    @include entry(focus);
+
+    &:selected {
+      &:focus,
+      & {
+        @extend %selected_items;
+      }
     }
-    notebook {
-        background-color: $base_color;
-    } // Rename entry
-    .nemo-window-pane widget.entry {
-        border: 1px solid;
-        border-radius: 3px;
+  }
 
-        @include entry(focus);
+  .primary-toolbar {
+    @extend %header_widgets;
+    border: none;
+    color: $header_fg;
+    background-color: opacify($header_bg, 1);
+    box-shadow: inset 0 -1px $borders_color;
+  } // Pathbar
 
-        &:selected {
-            &:focus,
-            & {
-                @extend %selected_items;
-            }
-        }
+  .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) {
+
+    > button {
+      @include button(header-normal);
+      &:hover { @include button(header-hover); }
+      &:active { @include button(header-active); }
+      &:checked { @include button(header-checked); }
+      &:disabled { color: transparentize($header_fg, 0.4); }
+      &:backdrop { opacity: 0.7; background-image: none; @if $compact == 'false' { box-shadow: none; } }
+      &, &:hover, &:active, &:checked, &:disabled {
+        @extend %linked;
+        @if $compact == 'true' { border-right: 1px solid $header_button_border; }
+      }
     }
 
-    .primary-toolbar {
-        @extend %header_widgets;
-        border: none;
-        color: $header_fg;
-        background-color: opacify($header_bg, 1);
-        box-shadow: inset 0 -1px $borders_color;
-    } // Pathbar
-
-    .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) {
-
-        > button {
-          @include button(header-normal);
-          &:hover { @include button(header-hover); }
-          &:active { @include button(header-active); }
-          &:checked { @include button(header-checked); }
-          &:disabled { color: transparentize($header_fg, 0.4); }
-          &:backdrop { opacity: 0.7; background-image: none; @if $compact == 'false' { box-shadow: none; } }
-          &, &:hover, &:active, &:checked, &:disabled {
-            @extend %linked;
-            @if $compact == 'true' { border-right: 1px solid $header_button_border; }
-          }
-        }
-
-        // @include pathbar_linking_rules($sep_color:$header_button_border);
-    }
+  // @include pathbar_linking_rules($sep_color:$header_button_border);
+  }
 }
 
 
@@ -294,19 +295,19 @@ $disk_space_free: darken($bg_color, 3%);
 // Caja
 //
 .caja-desktop {
-    @extend .nautilus-desktop.nautilus-canvas-item;
+  @extend .nautilus-desktop.nautilus-canvas-item;
 }
 
 .caja-notebook {
-    border-top: 1px solid $borders_color;
+  border-top: 1px solid $borders_color;
 }
 
 .caja-side-pane .frame {
-    border-width: 1px 0 0;
+  border-width: 1px 0 0;
 }
 
 .caja-notebook .frame {
-    border-width: 0 0 1px;
+  border-width: 0 0 1px;
 }
 
 //
@@ -845,6 +846,9 @@ dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }
 //
 //  Gnome Control Center
 //
+window.background.csd > stack {
+  border-radius: 0 0 $wm_radius $wm_radius;
+}
 
 stack.background { background: none; }
 
@@ -902,6 +906,25 @@ window#gnome-system-monitor.background.csd {
         @extend %view;
       }
     }
+  }
+}
+
+//
+// gnome-sound-recorder
+//
+stack {
+  > grid.vertical {
+    > scrolledwindow.frame {
+      border: none;
+
+      > viewport.frame {
+        list {
+          border-radius: 0 0 $wm_radius $wm_radius;
+        }
+      }
+    }
+
+    scrolledwindow.frame.emptyGrid { border: none; } // Removed ugly borders
   }
 }
 
@@ -1241,7 +1264,6 @@ flowboxchild.bookmark-tag-widget {
   }
 }
 
-
 //
 // Dialogs
 //
@@ -1271,7 +1293,7 @@ dialog.background.csd {
         border-radius: 0 0 $wm_radius $wm_radius;
         background-color: $base_color;
 
-        iconview.view:not(:hover):not(:selected):not(:active) {
+        iconview.view:not(:hover):not(:selected):not(:active) { // Wallpaper setting window
           // @extend %view;
           background-color: transparent;
         }
@@ -1296,22 +1318,21 @@ dialog.background.csd {
 //
 // Mate OSD Window
 //
-
 MsdOsdWindow.background.osd {
-    border-radius: 2px;
-    border: 1px solid darken($osd_bg_color, 8%);
+  border-radius: 2px;
+  border: 1px solid darken($osd_bg_color, 8%);
 
-    .progressbar {
-        background-color: $selected_bg_color;
-        border: none;
-        border-color: red;
-        border-radius: 5px;
-    }
-    .trough {
-        background-color: darken($osd_bg_color, 5%);
-        border: none;
-        border-radius: 5px;
-    }
+  .progressbar {
+    background-color: $selected_bg_color;
+    border: none;
+    border-color: red;
+    border-radius: 5px;
+  }
+  .trough {
+    background-color: darken($osd_bg_color, 5%);
+    border: none;
+    border-radius: 5px;
+  }
 }
 
 //
@@ -1321,46 +1342,44 @@ MsdOsdWindow.background.osd {
 .mate-panel-menu-bar,
 panel-toplevel.background {
 
-    &,
-    menubar {
-        background-color: opacify($panel_bg, 1);
+  &, menubar {
+    background-color: opacify($panel_bg, 1);
+  }
+
+  menubar,
+  #PanelApplet label,
+  #PanelApplet image {
+    color: $panel_fg;
+  } // Panel buttons
+  button:not(#tasklist-button) {
+    @extend %panelbutton;
+  }
+
+  button,
+  #tasklist-button {
+    label, image {
+      color: inherit;
+    }
+  }
+
+  .wnck-pager {
+    color: mix($panel_fg, black, 50%);
+    background-color: darken($panel_bg, 10%);
+
+    &:hover {
+      background-color: lighten($panel_bg, 5%);
     }
 
-    menubar,
-    #PanelApplet label,
-    #PanelApplet image {
-        color: $panel_fg;
-    } // Panel buttons
-    button:not(#tasklist-button) {
-        @extend %panelbutton;
+    &:selected {
+      color: lighten($selected_bg_color, 20%);
+      background-color: $selected_bg_color;
     }
+  }
 
-    button,
-    #tasklist-button {
-        label,
-        image {
-            color: inherit;
-        }
-    }
-
-    .wnck-pager {
-        color: mix($panel_fg, black, 50%);
-        background-color: darken($panel_bg, 10%);
-
-        &:hover {
-            background-color: lighten($panel_bg, 5%);
-        }
-
-        &:selected {
-            color: lighten($selected_bg_color, 20%);
-            background-color: $selected_bg_color;
-        }
-    }
-
-    na-tray-applet {
-        -NaTrayApplet-icon-padding: 0;
-        -NaTrayApplet-icon-size: 16px;
-    }
+  na-tray-applet {
+    -NaTrayApplet-icon-padding: 0;
+    -NaTrayApplet-icon-size: 16px;
+  }
 }
 
 //
@@ -1795,32 +1814,32 @@ window.background.chromium {
  * Libre-Office *
  ****************/
 window.background:not(.solid-csd) {
-    // reserved area at the most-right side of GtkMenuBar
-    > grid.horizontal > grid.horizontal {
-        background-image: $menubar_bg_image;
-        background-color: transparent;
-        box-shadow: inset 0 -1px $borders_color;
+  // reserved area at the most-right side of GtkMenuBar
+  > grid.horizontal > grid.horizontal {
+    background-image: $menubar_bg_image;
+    background-color: transparent;
+    box-shadow: inset 0 -1px $borders_color;
 
-        > button.flat.small-button {
-            // 'close' button
-            color: $header_fg;
-            border: none;
-            border-radius: 50px;
-            background-image: none;
-            &:hover {
-                background-color: lighten($header_bg, 15%);
-                color: lighten($header_fg, 5%);
-            }
-            &:active,
-            &:checked {
-                background-color: rgba(red, 0.65);
-                color: white;
-            }
-            &:disabled {
-                color: rgba($header_fg, 0.6);
-            }
-        }
+    > button.flat.small-button {
+      // 'close' button
+      color: $header_fg;
+      border: none;
+      border-radius: 50px;
+      background-image: none;
+      &:hover {
+        background-color: lighten($header_bg, 15%);
+        color: lighten($header_fg, 5%);
+      }
+      &:active,
+      &:checked {
+        background-color: rgba(red, 0.65);
+        color: white;
+      }
+      &:disabled {
+        color: rgba($header_fg, 0.6);
+      }
     }
+  }
 }
 
 window.background:not(.solid-csd) {
@@ -1921,7 +1940,6 @@ window > box.vertical > box.horizontal {
 //
 // Wingpanel
 //
-
 .panel {
   background-color: rgba(black, 0.0);
   transition: all 100ms ease-in-out;

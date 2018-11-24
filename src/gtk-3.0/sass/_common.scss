@@ -644,7 +644,7 @@ button {
   .linked.vertical > &:active,
   .linked.vertical > &:checked { @extend %linked_vertical; }
 
-  // // reset some linked buttons outline style
+  // reset some linked buttons outline style
   // .linked:not(.vertical) > &,
   // .linked.vertical > & { @extend %outline_dashed; }
 }
@@ -1037,8 +1037,9 @@ toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
   background-color: $header_bg;
-  border-bottom: 1px solid $borders_color;
 //  border-radius: $wm_radius;
+
+  &.horizontal { border-bottom: 1px solid $borders_color; }
 
   separator { background: none; }
   &.horizontal separator { margin: 0 6px; }
@@ -1727,7 +1728,6 @@ headerbar {
 //
 // Tree Views
 //
-
 treeview.view {
   @at-root * {
     -GtkTreeView-horizontal-separator: 4;

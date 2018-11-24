@@ -103,8 +103,6 @@ headerbar button,
 textview text,
 iconview,
 filechooser stack.view scrolledwindow treeview.view,
-.nautilus-window notebook scrolledwindow .view,
-.nautilus-list-view treeview.view,
 window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
   color: #363636;
   background-color: #ffffff;
@@ -115,8 +113,6 @@ window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
 textview text:hover,
 iconview:hover,
 filechooser stack.view scrolledwindow treeview.view:hover,
-.nautilus-window notebook scrolledwindow .view:hover,
-.nautilus-list-view treeview.view:hover,
 window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:hover {
   background-color: #f7f7f7;
 }
@@ -125,8 +121,6 @@ window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:ho
 textview text:selected,
 iconview:selected,
 filechooser stack.view scrolledwindow treeview.view:selected,
-.nautilus-window notebook scrolledwindow .view:selected,
-.nautilus-list-view treeview.view:selected,
 window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected {
   color: #ffffff;
   background-color: #315bef;
@@ -1380,6 +1374,9 @@ toolbar, .inline-toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
   background-color: #e5e5e5;
+}
+
+toolbar.horizontal, .horizontal.inline-toolbar {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
@@ -5284,7 +5281,7 @@ terminal-window notebook > header.top button,
 }
 
 .nautilus-desktop.nautilus-canvas-item:active, .nemo-desktop.nemo-canvas-item:active, .caja-desktop:active {
-  color: #242424;
+  color: white;
 }
 
 .nautilus-desktop.nautilus-canvas-item:selected, .nemo-desktop.nemo-canvas-item:selected, .caja-desktop:selected {
@@ -5324,7 +5321,7 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   margin-left: -1px;
 }
 
-.nautilus-window notebook scrolledwindow .view {
+.nautilus-window notebook scrolledwindow .view:not(:hover):not(:active):not(:selected) {
   background-color: transparent;
 }
 
@@ -5348,7 +5345,7 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   border-radius: 0 0 6px 6px;
 }
 
-.nautilus-list-view treeview.view {
+.nautilus-list-view treeview.view:not(:hover):not(:active):not(:selected) {
   background-color: transparent;
   border-radius: 0;
 }
@@ -5967,6 +5964,10 @@ dialog.csd > headerbar.titlebar > switch {
   margin: 8px 0;
 }
 
+window.background.csd > stack {
+  border-radius: 0 0 6px 6px;
+}
+
 stack.background {
   background: none;
 }
@@ -6010,6 +6011,18 @@ window#gnome-system-monitor.background.csd stack {
 
 window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
   background: none;
+}
+
+stack > grid.vertical > scrolledwindow.frame {
+  border: none;
+}
+
+stack > grid.vertical > scrolledwindow.frame > viewport.frame list {
+  border-radius: 0 0 6px 6px;
+}
+
+stack > grid.vertical scrolledwindow.frame.emptyGrid {
+  border: none;
 }
 
 .tr-workarea undershoot,
@@ -6445,8 +6458,7 @@ MsdOsdWindow.background.osd .trough {
   border-radius: 5px;
 }
 
-.mate-panel-menu-bar,
-.mate-panel-menu-bar menubar,
+.mate-panel-menu-bar, .mate-panel-menu-bar menubar,
 panel-toplevel.background,
 panel-toplevel.background menubar {
   background-color: #fefefe;
@@ -6461,8 +6473,7 @@ panel-toplevel.background #PanelApplet image {
   color: #363636;
 }
 
-.mate-panel-menu-bar button label,
-.mate-panel-menu-bar button image,
+.mate-panel-menu-bar button label, .mate-panel-menu-bar button image,
 .mate-panel-menu-bar #tasklist-button label,
 .mate-panel-menu-bar #tasklist-button image,
 panel-toplevel.background button label,
