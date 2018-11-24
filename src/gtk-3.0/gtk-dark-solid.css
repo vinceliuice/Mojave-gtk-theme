@@ -688,7 +688,7 @@ button.suggested-action {
   background-clip: border-box;
   color: white;
   background-color: #3484e2;
-  border-color: #1c6bc7;
+  border-color: #1f74d8;
   background-image: none;
 }
 
@@ -704,7 +704,7 @@ button.suggested-action:hover {
   background-clip: border-box;
   color: white;
   background-color: #619fe8;
-  border-color: #3484e2;
+  border-color: #468fe5;
   background-image: none;
 }
 
@@ -712,7 +712,7 @@ button.suggested-action:active, button.suggested-action:checked {
   background-clip: border-box;
   color: white;
   background-color: #1c6bc7;
-  border-color: #16539a;
+  border-color: #195cac;
   background-image: none;
   box-shadow: none;
 }
@@ -739,7 +739,7 @@ button.destructive-action {
   background-clip: border-box;
   color: white;
   background-color: #f8464c;
-  border-color: #f6151c;
+  border-color: #f7292f;
   background-image: none;
 }
 
@@ -755,7 +755,7 @@ button.destructive-action:hover {
   background-clip: border-box;
   color: white;
   background-color: #fa777c;
-  border-color: #f8464c;
+  border-color: #f95a5f;
   background-image: none;
 }
 
@@ -763,7 +763,7 @@ button.destructive-action:active, button.destructive-action:checked {
   background-clip: border-box;
   color: white;
   background-color: #f6151c;
-  border-color: #d0080f;
+  border-color: #e40910;
   background-image: none;
   box-shadow: none;
 }
@@ -2005,7 +2005,7 @@ headerbar button.suggested-action, .nemo-window .primary-toolbar button.suggeste
   background-clip: border-box;
   color: white;
   background-color: #3484e2;
-  border-color: #1c6bc7;
+  border-color: #1f74d8;
   background-image: none;
 }
 
@@ -2021,7 +2021,7 @@ headerbar button.suggested-action:hover, .nemo-window .primary-toolbar button.su
   background-clip: border-box;
   color: white;
   background-color: #619fe8;
-  border-color: #3484e2;
+  border-color: #468fe5;
   background-image: none;
 }
 
@@ -2029,7 +2029,7 @@ headerbar button.suggested-action:active, .nemo-window .primary-toolbar button.s
   background-clip: border-box;
   color: white;
   background-color: #1c6bc7;
-  border-color: #16539a;
+  border-color: #195cac;
   background-image: none;
   box-shadow: none;
 }
@@ -2053,7 +2053,7 @@ headerbar button.destructive-action, .nemo-window .primary-toolbar button.destru
   background-clip: border-box;
   color: white;
   background-color: #f8464c;
-  border-color: #f6151c;
+  border-color: #f7292f;
   background-image: none;
 }
 
@@ -2069,7 +2069,7 @@ headerbar button.destructive-action:hover, .nemo-window .primary-toolbar button.
   background-clip: border-box;
   color: white;
   background-color: #fa777c;
-  border-color: #f8464c;
+  border-color: #f95a5f;
   background-image: none;
 }
 
@@ -2077,7 +2077,7 @@ headerbar button.destructive-action:active, .nemo-window .primary-toolbar button
   background-clip: border-box;
   color: white;
   background-color: #f6151c;
-  border-color: #d0080f;
+  border-color: #e40910;
   background-image: none;
   box-shadow: none;
 }
@@ -4375,54 +4375,6 @@ calendar.highlight {
   font-weight: 500;
 }
 
-messagedialog .titlebar {
-  min-height: 20px;
-  background-color: #373737;
-  border-bottom: 1px solid #101010;
-}
-
-messagedialog .dialog-action-area {
-  padding: 6px;
-}
-
-messagedialog .dialog-action-area button {
-  min-height: 16px;
-  padding: 2px 8px;
-  box-shadow: none;
-}
-
-messagedialog.csd.background {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border: none;
-}
-
-messagedialog.csd .dialog-action-area {
-  padding: 0;
-}
-
-messagedialog.csd .dialog-action-area button {
-  min-height: 16px;
-  padding: 6px 12px;
-  border-bottom: none;
-  background-image: none;
-}
-
-messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover {
-  color: #c5c5c5;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.15);
-  border-color: #747474;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog.csd .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
-  background-image: none;
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.25);
-  border-color: #747474;
-}
-
 messagedialog.csd .dialog-action-area button {
   border-radius: 0;
   border-right-style: none;
@@ -4442,6 +4394,54 @@ messagedialog.csd .dialog-action-area button:only-child {
   border-radius: 0 0 6px 6px;
   border-left-style: none;
   border-right-style: none;
+}
+
+messagedialog .titlebar {
+  min-height: 20px;
+  background-color: #373737;
+  border-bottom: 1px solid #101010;
+}
+
+messagedialog .dialog-action-area {
+  padding: 6px;
+}
+
+messagedialog .dialog-action-area button {
+  min-height: 16px;
+  padding: 2px 8px;
+  box-shadow: none;
+}
+
+messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover {
+  color: #c5c5c5;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
+  border-color: #747474;
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog .dialog-action-area .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
+  background-image: none;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: #747474;
+}
+
+messagedialog.csd.background {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: none;
+}
+
+messagedialog.csd .dialog-action-area {
+  padding: 0;
+}
+
+messagedialog.csd .dialog-action-area button {
+  min-height: 16px;
+  padding: 6px 12px;
+  border-bottom: none;
+  background-image: none;
 }
 
 filechooser #pathbarbox {
@@ -7749,7 +7749,7 @@ GtkListBox .h4 {
   background-clip: border-box;
   color: green;
   background-color: #f8464c;
-  border-color: #f6151c;
+  border-color: #f7292f;
   background-image: none;
 }
 
@@ -7757,7 +7757,7 @@ GtkListBox .h4 {
   background-clip: border-box;
   color: green;
   background-color: #fa777c;
-  border-color: #f8464c;
+  border-color: #f95a5f;
   background-image: none;
 }
 
@@ -7765,7 +7765,7 @@ GtkListBox .h4 {
   background-clip: border-box;
   color: green;
   background-color: #f6151c;
-  border-color: #d0080f;
+  border-color: #e40910;
   background-image: none;
 }
 
@@ -7773,7 +7773,7 @@ GtkListBox .h4 {
   background-clip: border-box;
   color: green;
   background-color: #3484e2;
-  border-color: #1c6bc7;
+  border-color: #1f74d8;
   background-image: none;
 }
 
@@ -7781,7 +7781,7 @@ GtkListBox .h4 {
   background-clip: border-box;
   color: green;
   background-color: #619fe8;
-  border-color: #3484e2;
+  border-color: #468fe5;
   background-image: none;
 }
 
@@ -7789,7 +7789,7 @@ GtkListBox .h4 {
   background-clip: border-box;
   color: green;
   background-color: #1c6bc7;
-  border-color: #16539a;
+  border-color: #195cac;
   background-image: none;
 }
 

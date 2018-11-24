@@ -3231,6 +3231,25 @@ calendar {
 //
 // Dialogs
 //
+
+%middle_button {
+  border-radius: 0;
+  border-right-style: none;
+}
+%last_button {
+  border-radius: 0 0 $wm_radius 0;
+  border-right-style: none;
+}
+%first_button {
+  border-radius: 0 0 0 $wm_radius;
+  border-left-style: none;
+}
+%single_button {
+  border-radius: 0 0 $wm_radius $wm_radius;
+  border-left-style: none;
+  border-right-style: none;
+}
+
 messagedialog { // Message Dialog styling
 
   .titlebar {
@@ -3246,6 +3265,21 @@ messagedialog { // Message Dialog styling
       min-height: 16px;
       padding: 2px 8px;
       box-shadow: none;
+    }
+
+    .dialog-action-area button:not(.suggested-action):not(.destructive-action) {
+
+      &:hover {
+        @include button(flat-hover);
+        border-color: if($variant == 'light', $borders_bottom_color, #747474);
+        transition: $button_transition;
+       }
+
+      &:active, &:checked {
+        @include button(flat-active);
+        border-color: if($variant == 'light', $borders_bottom_color, #747474);
+//        text-shadow: $text_shadow;
+      }
     }
   }
 
@@ -3270,39 +3304,6 @@ messagedialog { // Message Dialog styling
         &:last-child { @extend %last_button; }
         &:only-child { @extend %single_button; }
       }
-    }
-
-    .dialog-action-area button:not(.suggested-action):not(.destructive-action) {
-
-      &:hover {
-        @include button(flat-hover);
-        border-color: if($variant == 'light', $borders_bottom_color, #747474);
-        transition: $button_transition;
-       }
-
-      &:active, &:checked {
-        @include button(flat-active);
-        border-color: if($variant == 'light', $borders_bottom_color, #747474);
-//        text-shadow: $text_shadow;
-      }
-    }
-
-    %middle_button {
-      border-radius: 0;
-      border-right-style: none;
-    }
-    %last_button {
-      border-radius: 0 0 $wm_radius 0;
-      border-right-style: none;
-    }
-    %first_button {
-      border-radius: 0 0 0 $wm_radius;
-      border-left-style: none;
-    }
-    %single_button {
-      border-radius: 0 0 $wm_radius $wm_radius;
-      border-left-style: none;
-      border-right-style: none;
     }
   }
 }

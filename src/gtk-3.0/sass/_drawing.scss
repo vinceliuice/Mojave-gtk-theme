@@ -441,7 +441,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
 
     color: $actionb_fg;
     background-color: $actionb_bg;
-    border-color: darken($actionb_bg, 10%);
+    border-color: darken($actionb_bg, 6%);
     background-image: none;
 //    box-shadow: none;
   }
