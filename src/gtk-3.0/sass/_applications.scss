@@ -1293,6 +1293,33 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Archive Manager
+//
+.background.csd {
+  > grid.horizontal > paned.horizontal {
+    > scrolledwindow {
+      border-radius: 0 0 $wm_radius $wm_radius;
+      background-color: $base_color;
+
+      treeview.view:not(:hover):not(:selected) {
+        background-color: transparent;
+      }
+    }
+
+    > box.vertical {
+      > scrolledwindow {
+        border-radius: 0 0 0 $wm_radius;
+        background-color: $bg_color;
+
+        treeview.view:not(:hover):not(:selected) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+//
 // Dialogs
 //
 dialog.background.csd {

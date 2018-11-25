@@ -219,7 +219,7 @@ spinner {
 // Text Entries
 //
 entry {
-  min-height: if($variant =='light', 20px, 22px);
+  min-height: if($variant =='light', 16px, 18px);
   border: 1px solid;
   padding: 2px 8px;
 
@@ -396,7 +396,7 @@ $_dot_color: $selected_bg_color;
 }
 
 button {
-  min-height: if($variant =='light', 24px, 26px);
+  min-height: 20px;
   min-width: 16px;
   transition: $button_transition;
   border: 1px solid;
@@ -411,6 +411,7 @@ button {
   // }
 
   &.flat {
+    min-height: if($variant =='light', 24px, 24px);
     @include button(flat-normal);
     // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
     // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
@@ -445,6 +446,8 @@ button {
     &:not(:disabled) label:disabled { color: inherit; opacity: 0.6; }
   }
 
+  &:checked:hover { background-image: $button_active_hover_image; }
+
   //Webkitgtk workaround start
   &:active { color: $fg_color; }
   &:active:hover, &:checked { color: $selected_fg_color; }
@@ -459,17 +462,19 @@ button {
   }
 
   &.image-button {
-    min-width: 28px;
+    min-height: 24px;
     padding-left: 5px;
     padding-right: 5px;
   }
 
   &.text-button {
+    min-height: 20px;
     padding-left: 12px;
     padding-right: 12px;
   }
 
   &.text-button.image-button {
+    min-height: 24px;
     padding-left: 5px;
     padding-right: 5px;
 
@@ -488,7 +493,7 @@ button {
       }
     }
 
-    &.popup { padding-right: 8px; padding-left: 8px; }
+    &.popup { padding-right: 6px; padding-left: 6px; }
   }
 
   &.close { // The Bloody Circul Button
@@ -581,8 +586,6 @@ button {
     > image {
       padding-left: 6px;
       padding-right: 6px;
-      padding-top: 3px;
-      padding-bottom: 3px;
     }
     &.text-button {
       padding-left: 10px;
@@ -695,8 +698,8 @@ toolbar.inline-toolbar toolbutton {
                                ('.error:focus', $error_color) {
 
       > entry#{$e_type}:not(:only-child) {
-        @if $variant == 'dark' { box-shadow: inset 0 0 0 2px $e_color; }
-        @if $variant == 'light' { box-shadow: 0 1px 1px 0px transparent, inset 0 0 0 2px $e_color; }
+        @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $e_color; }
+        @if $variant == 'light' { box-shadow: 0 1px 1px 0px transparent, inset 0 0 0 1px $e_color; }
       }
 
       > entry + entry#{$e_type}:not(:last-child),
@@ -711,6 +714,7 @@ toolbar.inline-toolbar toolbutton {
     > button:active + entry,
     > button:checked + entry { border-#{$_border}-color: $button_active_border; }
   }
+
   @if $button_rules=='true' {
     $_uncolored_button: 'button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action)';
 
@@ -749,6 +753,7 @@ toolbar.inline-toolbar toolbutton {
   }
 
   @if $button_rules=='header' {
+    > button:first-child { border-left-style: if($variant == 'light', solid, none); }
     > button + button { border-left-style: solid; }
   }
 }
@@ -913,13 +918,13 @@ spinbutton {
   &:disabled { color: $insensitive_fg_color; }
 
   > entry:focus {
-    @if $variant == 'dark' { box-shadow: inset 0 0 0 2px $entry_highlight; }
-    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 2px $entry_highlight; }
+    @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $entry_highlight; }
+    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $entry_highlight; }
   }
 
   > entry:drop(active) {
-    @if $variant == 'dark' { box-shadow: inset 0 0 0 2px $drop_target_color; }
-    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 2px $drop_target_color; }
+    @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $drop_target_color; }
+    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $drop_target_color; }
   }
 
   &:not(.vertical) {
@@ -1001,6 +1006,7 @@ combobox {
     border-radius: 0 $bt_radius $bt_radius 0;
     border-width: 1px;
     border-style: solid;
+    border-left-style: none;
     @include button(active);
   }
 
@@ -1387,6 +1393,7 @@ headerbar {
   // Headerbar Buttons
   %headerbar_buttons,
   button {
+    min-height: if($variant == 'light', 24px, 26px);
     min-width: 22px;
     @include button(header-normal);
     @extend %outline_solid;
@@ -1403,14 +1410,14 @@ headerbar {
       transition: $button_transition;
       transition-duration: 300ms;
       background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
-      @if $variant=='light' and $compact == 'true' { box-shadow: none; }
+      &:hover { background-image: none; }
     }
     &:checked {
       @include button(header-checked);
       background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
       transition: $button_transition;
       transition-duration: 300ms;
-      @if $variant=='light' and $compact == 'true' { box-shadow: none; }
+      &:hover { background-image: none; }
     }
     &:disabled { @include button(header-insensitive); }
     &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
@@ -1494,10 +1501,10 @@ headerbar {
       border-radius: $bt_radius;
       margin-right: 4px;
       margin-left: 3px;
-      @if $variant == 'light' and $compact == 'false' { border: 1px solid $borders_color; }
+      border: 1px solid $borders_color;
     }
 
-    &:focus { @if $variant == 'light' and $compact == 'false' { border: 1px solid $entry_highlight; } }
+    &:focus { border: 1px solid $entry_highlight; }
   }
 
   // use linking rules for entries only
@@ -1519,13 +1526,14 @@ headerbar {
   .linked:not(.vertical).path-bar {
 
     > button {
+      min-height: if($variant == 'light', 24px, 26px);
       @extend %outline_dashed;
       @include button(header-normal);
       &:hover { @include button(header-hover); }
       &:active { @include button(header-active); }
       &:checked { @include button(header-checked); }
       &:disabled { color: transparentize($header_fg, 0.4); }
-      &:backdrop { opacity: 0.7; background-image: none; @if $compact == 'false' { box-shadow: none; }}
+      &:backdrop { opacity: 0.7; background-image: none; box-shadow: none; }
       &, &:hover, &:active, &:checked, &:disabled {
         @extend %linked;
         border-left: 1px solid $header_button_border;
@@ -2305,14 +2313,14 @@ notebook {
 
         &:hover {
           @extend %undecorated_button;
-          color: rgba($destructive_color, 0.5);
-          background-color: rgba($dark_borders_color, 0.1);
+          color: $fg_color;
+          background-color: rgba($borders_color, 0.1);
         }
 
         &:active, &:active:hover {
           @extend %undecorated_button;
-          color: rgba(darken($destructive_color, 10%), 0.5);
-          background-color: rgba($dark_borders_color, 0.2);
+          color: if($variant == 'light', darken($fg_color, 10%), lighten($fg_color, 10%));
+          background-color: rgba($borders_color, 0.2);
         }
       }
     }
@@ -3176,17 +3184,19 @@ row {
 
   button {
     @extend %undecorated_button;
-    padding: 0;
-    margin: 0 0 0 0;
-    min-height: 24px;
-    min-width: 24px;
-    border-radius: 100px;
-    -gtk-outline-radius: 100px;
+
+    &:not(.text-button).image-button {
+      padding: 0;
+      margin: 0 0 0 0;
+      min-height: 24px;
+      min-width: 24px;
+      border-radius: 100px;
+      -gtk-outline-radius: 100px;
+    }
 
     &:hover { @include button(flat-hover); }
     &:active, &:checked { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive);
-    }
+    &:disabled { @include button(flat-insensitive); }
   }
 }
 
@@ -3282,16 +3292,17 @@ messagedialog { // Message Dialog styling
     }
 
     button:not(.suggested-action):not(.destructive-action) {
+      background-color: lighten($bg_color, 5%);
 
       &:hover {
         @include button(flat-hover);
-        border-color: if($variant == 'light', $borders_bottom_color, #747474);
+        border-color: $button_borders;
         transition: $button_transition;
        }
 
       &:active, &:checked {
         @include button(flat-active);
-        border-color: if($variant == 'light', $borders_bottom_color, #747474);
+        border-color: $button_borders;
       }
     }
   }
@@ -3501,7 +3512,7 @@ paned {
       min-width: 5px;
       min-height: 5px;
       background-color: $bg_color;
-      background-image: _solid($borders_color), _solid($borders_color);
+      background-image: _solid($solid_borders_color), _solid($solid_borders_color);
       background-size: 1px 1px, 1px 1px;
     }
   }
@@ -3557,7 +3568,10 @@ infobar {
     color: $selected_fg_color;
     caret-color: currentColor;
 
-    button { @extend %selected-button }
+    button {
+      min-height: 28px;
+      @extend %selected-button;
+    }
 
     selection {
       color: $selected_bg_color;
@@ -3912,21 +3926,42 @@ decoration {
 headerbar,
 .titlebar {
   button.titlebutton {
-    min-width: 24px;
-    min-height: 24px;
-    margin: 0;
-    padding: 0;
 
-    @include button(undecorated);
-    background-color: transparentize($header_bg, 1);
+    // @include button(undecorated);
+    // background-color: transparentize($header_bg, 1);
 
-    &:hover { @include button(header-hover); }
-    &:active, &:checked { @include button(header-active); }
+    // &:hover { @include button(header-hover); }
+    // &:active, &:checked { @include button(header-active); }
+
+    &.appmenu {
+      transition: background-color 0.1s $ease-out-quad,
+                  box-shadow 0.1s $ease-out-quad,
+                  background-image 0,
+                  background-size 0;
+
+      color: transparent;
+      background-image: -gtk-scaled(url("assets/setting#{$asset_suffix}.png"),
+                                    url("assets/setting#{$asset_suffix}@2.png"));
+      background-repeat: no-repeat;
+      background-position: center;
+
+      image { opacity: 0; } // Make menu button default icon invisible
+
+      &:active, &:checked {
+        transition: background-color 0.3s $ease-out-quad,
+                    box-shadow 0.3s $ease-out-quad,
+                    background-image 0,
+                    background-size 0;
+        background-image: -gtk-scaled(url("assets/setting-icon#{$asset_suffix}.png"),
+                                      url("assets/setting-icon#{$asset_suffix}@2.png"));
+      }
+    }
 
     &.close, &.maximize, &.minimize, &.restore {
       min-width: 16px;
       min-height: 16px;
       margin: 0;
+      padding: 0;
       color: transparent;
       background-color: transparent;
       background-position: center;

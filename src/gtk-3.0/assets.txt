@@ -132,3 +132,9 @@ titlebutton-restore-backdrop-dark-alt
 titlebutton-restore-hover-dark-alt
 titlebutton-restore-active-dark-alt
 
+setting
+setting-dark
+
+setting-icon
+setting-icon-dark
+

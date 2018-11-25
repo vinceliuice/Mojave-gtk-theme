@@ -18,6 +18,7 @@ $backdrop_transition: 200ms ease-out;
 
 // Images
 $button_active_image: linear-gradient(0deg, $button_active_bottom 0%, $button_active_top 100%);
+$button_active_hover_image: linear-gradient(0deg, $button_active_hover_bottom 0%, $button_active_hover_top 100%);
 
 $headerbar_bg_image: linear-gradient(0deg, $header_bottom 0%, $header_middle 50%, $header_top 98%, $header_highlight 100%);
 $headerbar_top_image: linear-gradient(0deg, $header_middle 0%, $header_top 98%, $header_highlight 100%);
@@ -204,20 +205,26 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-bottom-color: $button_borders_bottom;
     background-color: $button_bg;
     @if $variant=='light' { box-shadow: $shadow_3; }
-    @if $variant=='dark' { box-shadow: 0 0 0 1px $dark_borders_color; }
+    @if $variant=='dark' {
+      box-shadow: inset 0 1px $button_highlight, $shadow_3;
+      // background-clip: border-box;
+    }
   }
 
   @else if $t==hover {
   //
   // hovered button
   //
-    color: darken($fg_color, 10%);
+    color: if($variant == 'light', darken($fg_color, 10%), lighten($fg_color, 10%));
     border-color: $button_borders_hover;
     border-top-color: $button_borders_hover_top;
     border-bottom-color: $button_borders_hover_bottom;
-    background-color: if($variant=='light', darken($button_bg, 3%), lighten($button_bg, 8%));
+    background-color: if($variant=='light', darken($button_bg, 3%), lighten($button_bg, 3%));
     @if $variant=='light' { box-shadow: none; }
-    @if $variant=='dark' { box-shadow: 0 0 0 1px $dark_borders_color; }
+    @if $variant=='dark' {
+      box-shadow: inset 0 1px rgba($button_highlight, 0.12), $shadow_3;
+      // background-clip: border-box;
+    }
   }
 
   @else if $t==active {
@@ -231,7 +238,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-bottom-color: $button_borders_active_bottom;
     background-image: $button_active_image;
     @if $variant=='light' { box-shadow: none; }
-    @if $variant=='dark' { box-shadow: 0 0 0 1px $dark_borders_color; }
   }
 
   @else if $t==insensitive {
@@ -240,10 +246,9 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
     label, & { color: $insensitive_fg_color; }
 
-    border-color: if($variant == 'light', $button_border, rgba($button_bg, 0.55));
+    border-color: if($variant == 'light', $button_border, $dark_borders_color);
     background-color: rgba($button_bg, 0.55);
     @if $variant=='light' { box-shadow: $shadow_3; }
-    @if $variant=='dark' { box-shadow: 0 0 0 1px $dark_borders_color; }
   }
 
   @else if $t==insensitive-active {
@@ -252,10 +257,9 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
     label, & { color: transparentize($selected_fg_color, 0.2); }
 
-    border-color: transparentize($selected_bg_color, 0.25);
+    border-color: if($variant == 'light', transparentize($selected_bg_color, 0.25), $dark_borders_color);
     background-color: transparentize($selected_bg_color, 0.25);
     @if $variant=='light' { box-shadow: none; }
-    @if $variant=='dark' { box-shadow: 0 0 0 1px $dark_borders_color; }
 
     opacity: 0.6;
   }
@@ -267,6 +271,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border: none;
     background-color: transparent;
     box-shadow: none;
+    background-clip: if($variant=='light', border-box, padding-box);
   }
 
   @else if $t==flat-hover {
@@ -275,7 +280,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
     color: darken($fg_color, 10%);
     background-color: if($variant=='light', rgba(black, 0.15), rgba(white, 0.15));
-    border-color: if($variant=='light', rgba(black, 0.15), rgba(white, 0.15));
+    // border-color: if($variant=='light', rgba(black, 0.15), rgba(white, 0.15));
   }
 
   @else if $t==flat-active {
@@ -317,7 +322,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     label, & { color: transparentize($selected_fg_color, 0.2); }
 
     background-color: lighten($fg_color, 20%);
-    border-color: lighten($fg_color, 20%);
+    // border-color: lighten($fg_color, 20%);
     opacity: 0.6;
   }
 
@@ -437,11 +442,11 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
   // suggested or destructive action buttons
   //
-    background-clip: border-box;
+    @if $variant == 'light' { background-clip: border-box; }
 
     color: $actionb_fg;
     background-color: $actionb_bg;
-    border-color: darken($actionb_bg, 6%);
+    border-color: if($variant == 'light', darken($actionb_bg, 6%), $dark_borders_color);
     background-image: none;
 //    box-shadow: none;
   }
@@ -533,7 +538,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
                                     $_undershoot_color_light 50%,
                                     $_undershoot_color_dark 50%);
 
-  padding-#{$p}: 0;
+  padding-#{$p}: 1px;
   background-size: $_dash_bg_size;
   background-repeat: $_gradient_repeat;
   background-origin: content-box;
