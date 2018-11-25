@@ -968,7 +968,7 @@ button.font separator, button.file separator {
 }
 
 .linked:not(.vertical).path-bar > button + button {
-  border-left-style: solid;
+  border-left-style: none;
 }
 
 .linked.vertical > entry + entry {
@@ -1167,8 +1167,6 @@ modelbutton.flat:selected arrow {
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
   transition: none;
   animation: none;
 }
@@ -1812,10 +1810,10 @@ headerbar button:hover,
 paned.titlebar.horizontal headerbar button.flat.toggle.popup:active:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:active:not(.image-button),
 headerbar button:active,
 .nemo-window .primary-toolbar button:active {
-  border-color: rgba(0, 0, 0, 0.15);
   color: #ffffff;
   background-color: #888888;
   background-image: none;
+  border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-duration: 300ms;
   background-clip: border-box;
@@ -1834,8 +1832,6 @@ headerbar button:checked,
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
   background-clip: border-box;
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-duration: 300ms;
@@ -1962,10 +1958,10 @@ headerbar .linked:not(.vertical).path-bar > button:hover,
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active,
 headerbar .linked:not(.vertical).path-bar > button:active,
 .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active {
-  border-color: rgba(0, 0, 0, 0.15);
   color: #ffffff;
   background-color: #888888;
   background-image: none;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
@@ -1975,8 +1971,6 @@ headerbar .linked:not(.vertical).path-bar > button:checked,
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
@@ -2144,10 +2138,10 @@ headerbar spinbutton:not(.vertical) button:hover, .nemo-window .primary-toolbar 
 }
 
 headerbar spinbutton:not(.vertical) button:active, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:active, headerbar spinbutton:not(.vertical) button:checked, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:checked {
-  border-color: rgba(0, 0, 0, 0.15);
   color: #ffffff;
   background-color: #888888;
   background-image: none;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 headerbar spinbutton:not(.vertical) button:disabled, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:disabled {
@@ -2279,17 +2273,15 @@ headerbar scale trough:disabled, .nemo-window .primary-toolbar scale trough:disa
 }
 
 .path-bar button:active, .path-bar button:checked {
-  background-image: none;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: #686868;
+  background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  box-shadow: 1px 0 #4c4c4c;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .path-bar button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
 }
 
 .path-bar button.text-button.image-button label {
@@ -5431,10 +5423,10 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
     background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
   }
   100% {
-    border-color: rgba(0, 0, 0, 0.15);
     color: #ffffff;
     background-color: #888888;
     background-image: none;
+    border-color: rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -5529,10 +5521,10 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 }
 
 .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:active {
-  border-color: rgba(0, 0, 0, 0.15);
   color: #ffffff;
   background-color: #888888;
   background-image: none;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:checked {
@@ -5540,8 +5532,6 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
 .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:disabled {

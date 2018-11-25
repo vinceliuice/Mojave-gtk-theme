@@ -749,7 +749,7 @@ toolbar.inline-toolbar toolbutton {
 
   @if $button_rules=='true' {
     > button + button {
-      border-left-style: solid;
+      border-left-style: none;
     }
   }
 
@@ -1704,15 +1704,12 @@ headerbar {
   &:hover { box-shadow: none; }
 
   &:active, &:checked {
-    @include button(flat-checked);
-    border-color: $button_border;
-    border-top-color: if($variant == 'light', $button_border, #999999);
-    @if $variant=='light' { box-shadow: 1px 0 #4c4c4c; }
+    @include button(header-checked);
+    border-color: $button_borders;
   }
 
   &:disabled {
-    border-color: $button_border;
-    border-top-color: if($variant == 'light', $button_border, #565656);
+    border-color: $button_borders;
   }
 
   &.text-button.image-button label { padding-left: 0; padding-right: 0; }

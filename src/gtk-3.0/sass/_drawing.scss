@@ -356,10 +356,10 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
   // pushed header-bar button
   //
-    border-color: $borders_color;
     color: $selected_fg_color;
     background-color: $header_button_active_bg;
     background-image: none;
+    border-color: $borders_color;
 //    text-shadow: if($variant=='light', $text_shadow, none);
 //    -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
 //    box-shadow: none;
@@ -373,8 +373,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-color: $header_button_checked_bg;
     background-image: $header_button_checked_image;
     border-color: $borders_color;
-    border-top-color: if($variant=='light', lighten($borders_color, 0%), $borders_color);
-    border-bottom-color: if($variant=='light', lighten($borders_color, 0%), $borders_color);
 //    text-shadow: if($variant=='light', $text_shadow, none);
 //    -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
     @if $variant == 'dark' { box-shadow: inset 0 1px $header_button_checked_highlight; }
