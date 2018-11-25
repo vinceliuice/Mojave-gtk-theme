@@ -3,6 +3,7 @@
 }
 
 $asset_suffix: if($variant=='dark', '-dark', ''); // use dark assets in dark variant
+$con_asset_suffix: if($variant=='dark', '', '-dark');
 $darker_asset_suffix: if($darker=='true', '-dark', $asset_suffix);
 $alt_suffix: if($titlebutton=='alt', '-alt', '');
 $bt_radius: 5px;
@@ -3954,6 +3955,11 @@ headerbar,
                     background-size 0;
         background-image: -gtk-scaled(url("assets/setting-icon#{$asset_suffix}.png"),
                                       url("assets/setting-icon#{$asset_suffix}@2.png"));
+      }
+
+      &:backdrop {
+        background-image: -gtk-scaled(url("assets/setting-icon#{$con_asset_suffix}.png"),
+                                      url("assets/setting-icon#{$con_asset_suffix}@2.png"));
       }
     }
 

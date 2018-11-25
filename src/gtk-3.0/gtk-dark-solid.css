@@ -5057,6 +5057,11 @@ headerbar button.titlebutton.appmenu:active, headerbar button.titlebutton.appmen
   background-image: -gtk-scaled(url("assets/setting-icon-dark.png"), url("assets/setting-icon-dark@2.png"));
 }
 
+headerbar button.titlebutton.appmenu:backdrop,
+.titlebar button.titlebutton.appmenu:backdrop {
+  background-image: -gtk-scaled(url("assets/setting-icon.png"), url("assets/setting-icon@2.png"));
+}
+
 headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize, headerbar button.titlebutton.restore,
 .titlebar button.titlebutton.close,
 .titlebar button.titlebutton.maximize,
