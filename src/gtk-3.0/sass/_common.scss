@@ -1345,7 +1345,7 @@ headerbar {
 
   // Headerbar Entries
   entry {
-//    min-height: if($variant == 'light', 20px, 22px);
+    min-height: 20px;
     @include entry(header-normal);
 
     &:backdrop { opacity: 0.65; background-image: none; }

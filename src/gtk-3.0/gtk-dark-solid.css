@@ -1695,6 +1695,7 @@ window.csd > .titlebar:not(headerbar):backdrop {
 }
 
 headerbar entry, .nemo-window .primary-toolbar entry {
+  min-height: 20px;
   color: #FDFDFD;
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
