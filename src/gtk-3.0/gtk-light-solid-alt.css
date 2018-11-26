@@ -1891,6 +1891,10 @@ headerbar .budgie-panel button.flat.launcher,
   box-shadow: none;
 }
 
+headerbar button.toggle.popup, .nemo-window .primary-toolbar button.toggle.popup {
+  margin-right: 3px;
+}
+
 headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar button, headerbar.selection-mode button.flat, .nemo-window .selection-mode.primary-toolbar button.flat, headerbar.selection-mode button.budgie-menu-launcher, .nemo-window .selection-mode.primary-toolbar button.budgie-menu-launcher, headerbar.selection-mode .budgie-panel button.flat.launcher, .budgie-panel headerbar.selection-mode button.flat.launcher {
   border-color: transparent;
   background-color: transparent;
@@ -7984,28 +7988,20 @@ filechooser placessidebar.sidebar row.sidebar-row:active:hover,
 
 filechooser placessidebar.sidebar row.sidebar-row:selected.has-open-popup,
 filechooser placessidebar.sidebar row.sidebar-row:selected.has-open-popup label,
-filechooser placessidebar.sidebar row.sidebar-row:selected.has-open-popup image,
 filechooser placessidebar.sidebar row.sidebar-row:selected,
 filechooser placessidebar.sidebar row.sidebar-row:selected label,
-filechooser placessidebar.sidebar row.sidebar-row:selected image,
 filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
 filechooser placessidebar.sidebar row.sidebar-row:selected:hover label,
-filechooser placessidebar.sidebar row.sidebar-row:selected:hover image,
 filechooser placessidebar.sidebar row.sidebar-row:active:hover,
 filechooser placessidebar.sidebar row.sidebar-row:active:hover label,
-filechooser placessidebar.sidebar row.sidebar-row:active:hover image,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected.has-open-popup,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected.has-open-popup label,
-.nautilus-window placessidebar.sidebar row.sidebar-row:selected.has-open-popup image,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected label,
-.nautilus-window placessidebar.sidebar row.sidebar-row:selected image,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected:hover,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected:hover label,
-.nautilus-window placessidebar.sidebar row.sidebar-row:selected:hover image,
 .nautilus-window placessidebar.sidebar row.sidebar-row:active:hover,
-.nautilus-window placessidebar.sidebar row.sidebar-row:active:hover label,
-.nautilus-window placessidebar.sidebar row.sidebar-row:active:hover image {
+.nautilus-window placessidebar.sidebar row.sidebar-row:active:hover label {
   color: #242424;
 }
 

@@ -1432,10 +1432,9 @@ headerbar {
     }
   }
 
-//  button.flat.toggle.popup { @if $variant == 'light' and $compact == 'false' { border: 1px solid $borders_color; } }
+  button.toggle.popup { margin-right: 3px; } // Nautilus 3.30 popup button
 
   &.selection-mode button {
-
     &, &.flat {
       @include button(undecorated);
       color: $selection_mode_fg;
@@ -1502,10 +1501,17 @@ headerbar {
   // Reset entrys
   .linked:not(.vertical):not(.path-bar) > entry {
     &, &:disabled {
+
+      @if $variant == 'dark' {
+        min-height: 22px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+
       border-radius: $bt_radius;
       margin-right: 4px;
       margin-left: 3px;
-      border: 1px solid $borders_color;
+      border: 1px solid if($variant == 'light', $borders_color, transparent);
     }
 
     &:focus { border: 1px solid $entry_highlight; }

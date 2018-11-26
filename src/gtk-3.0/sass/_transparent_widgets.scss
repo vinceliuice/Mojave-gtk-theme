@@ -45,7 +45,7 @@ filechooser,
       &:selected, &:selected:hover, &:active:hover {
         color: $fg_color;
         background-color: $sidebar_theme_color;
-        &, label, image { color: $fg_color; }
+        &, label { color: $fg_color; }
       }
 
       &.sidebar-new-bookmark-row {
