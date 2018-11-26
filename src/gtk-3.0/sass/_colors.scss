@@ -51,7 +51,7 @@ $header_middle: if($variant == 'dark', #3e3e3e, #e2e2e2);
 $header_bottom: if($variant == 'dark', #383838, #d2d2d2);
 
 $header_bg_backdrop: if($variant == 'light', #F6F6F6, #313131);
-$header_border: if($variant=='light', #a9a9a9, #101010);
+$header_border: if($variant=='light', #a1a1a1, #101010);
 
 $header_fg: if($variant=='light', #575757, #FDFDFD);
 

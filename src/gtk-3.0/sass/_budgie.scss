@@ -285,6 +285,7 @@ window.budgie-popover:not(.csd) {
     color: $fg_color;
     font-weight: normal;
     border: none;
+    box-shadow: none;
 
     &:disabled { color: $insensitive_fg_color; }
 

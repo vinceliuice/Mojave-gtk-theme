@@ -1625,6 +1625,16 @@ headerbar.default-decoration,
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
+.titlebar button,
+.titlebar.background button {
+  min-height: 26px;
+}
+
+.titlebar entry,
+.titlebar.background entry {
+  min-height: 20px;
+}
+
 headerbar button, headerbar separator {
   margin-top: 6px;
   margin-bottom: 6px;
@@ -6952,7 +6962,7 @@ window.background:not(.csd) > menu > menu menuitem {
 
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text {
   background-color: transparent;
-  color: #aaaaaa;
+  color: #dedede;
 }
 
 /***************
@@ -8574,6 +8584,7 @@ window.budgie-popover:not(.csd) > frame.container > border {
   color: #dedede;
   font-weight: normal;
   border: none;
+  box-shadow: none;
 }
 
 .budgie-menu button:disabled {

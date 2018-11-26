@@ -1807,7 +1807,7 @@ window.background:not(.csd) {
 
       text {
         background-color: transparent;
-        color: if($variant =='light', #242424, #aaaaaa);
+        color: if($variant =='light', $text_color, $text_color);
         &:selected,
         &:selected:focus,
         selection { @extend %selected_items; }
