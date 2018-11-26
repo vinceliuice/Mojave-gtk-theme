@@ -1384,14 +1384,14 @@ toolbar.vertical separator, .vertical.inline-toolbar separator {
 }
 
 .osd toolbar, .osd .inline-toolbar {
-  background-color: transparent;
+  background-color: rgba(36, 36, 36, 0.9);
 }
 
 toolbar.osd, .osd.inline-toolbar {
   padding: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 5px;
-  background-color: rgba(36, 36, 36, 0.85);
+  background-color: rgba(36, 36, 36, 0.9);
 }
 
 toolbar.osd.left, .osd.left.inline-toolbar, toolbar.osd.right, .osd.right.inline-toolbar, toolbar.osd.top, .osd.top.inline-toolbar, toolbar.osd.bottom, .osd.bottom.inline-toolbar {
@@ -4529,6 +4529,12 @@ stacksidebar.sidebar.right list, .sidebar:dir(rtl), .sidebar.right {
   background-color: transparent;
 }
 
+.sidebar list > separator {
+  min-height: 0;
+  background: none;
+  border: none;
+}
+
 paned .sidebar.left, paned .sidebar.right, paned .sidebar.left:dir(rtl), paned .sidebar:dir(rtl), paned .sidebar:dir(ltr), paned .sidebar {
   border-style: none;
 }
@@ -4581,13 +4587,12 @@ button.sidebar-button {
   margin-top: 2px;
   margin-bottom: 2px;
   padding: 0;
-  border-top-color: #656565;
   border-radius: 100px;
   -gtk-outline-radius: 100px;
 }
 
-button.sidebar-button:hover {
-  border-top-color: #797979;
+button.sidebar-button > image {
+  opacity: 0.85;
 }
 
 button.sidebar-button:active, button.sidebar-button:checked {
@@ -4598,7 +4603,23 @@ button.sidebar-button:active, button.sidebar-button:checked {
 }
 
 button.sidebar-button:not(:hover):not(:active) > image {
-  opacity: 0.5;
+  opacity: 0.65;
+}
+
+placessidebar row:selected button.sidebar-button {
+  color: #dedede;
+  border-color: rgba(0, 0, 0, 0.12);
+  border-top-color: rgba(0, 0, 0, 0.12);
+  border-bottom-color: rgba(0, 0, 0, 0.12);
+  background-color: #656565;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(16, 16, 16, 0.03);
+}
+
+placessidebar row:selected button.sidebar-button:active, placessidebar row:selected button.sidebar-button:checked {
+  background-image: none;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 placessidebar row.sidebar-placeholder-row {
@@ -4944,26 +4965,6 @@ button.nautilus-circular-button.image-button {
   padding: 0 0 0 0;
   min-height: 28px;
   min-width: 28px;
-  border: none;
-  box-shadow: inset 0 1px #747474, 0 0 0 1px rgba(0, 0, 0, 0.12);
-}
-
-button.close:active, row button.circular:active, row button.nautilus-circular-button.image-button:active, stackswitcher button.circular:active, stackswitcher button.nautilus-circular-button.image-button:active, .raven button.image-button:active, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:active, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:active,
-button.circular:active,
-button.nautilus-circular-button.image-button:active {
-  background-image: none;
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.25);
-  border: none;
-}
-
-button.close:checked, row button.circular:checked, row button.nautilus-circular-button.image-button:checked, stackswitcher button.circular:checked, stackswitcher button.nautilus-circular-button.image-button:checked, .raven button.image-button:checked, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:checked, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:checked,
-button.circular:checked,
-button.nautilus-circular-button.image-button:checked {
-  background-image: none;
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.35);
-  border: none;
 }
 
 .keycap {

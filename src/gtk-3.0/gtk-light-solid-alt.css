@@ -1396,14 +1396,14 @@ toolbar.vertical separator, .vertical.inline-toolbar separator {
 }
 
 .osd toolbar, .osd .inline-toolbar {
-  background-color: transparent;
+  background-color: rgba(245, 245, 245, 0.9);
 }
 
 toolbar.osd, .osd.inline-toolbar {
   padding: 8px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  background-color: rgba(245, 245, 245, 0.85);
+  background-color: rgba(245, 245, 245, 0.9);
 }
 
 toolbar.osd.left, .osd.left.inline-toolbar, toolbar.osd.right, .osd.right.inline-toolbar, toolbar.osd.top, .osd.top.inline-toolbar, toolbar.osd.bottom, .osd.bottom.inline-toolbar {
@@ -1498,13 +1498,13 @@ headerbar,
   background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 50%, #e9e9e9 98%, #f5f5f5 100%);
   color: #575757;
   background-color: #e5e5e5;
-  border-bottom: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a1a1a1;
 }
 
 .csd headerbar, .csd .titlebar:not(headerbar) {
   background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 50%, #e9e9e9 98%, #f5f5f5 100%);
   background-color: #e5e5e5;
-  border-bottom: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a1a1a1;
 }
 
 headerbar:backdrop,
@@ -1513,22 +1513,22 @@ headerbar:backdrop,
   color: rgba(87, 87, 87, 0.7);
   background-image: none;
   background-color: #F6F6F6;
-  border-color: #cfcfcf;
+  border-color: #c7c7c7;
 }
 
 .csd headerbar:backdrop, .csd .titlebar:backdrop:not(headerbar) {
   background-color: #F6F6F6;
-  border-color: #cfcfcf;
+  border-color: #c7c7c7;
 }
 
 .maximized headerbar, .maximized .titlebar:not(headerbar) {
   background-color: #e5e5e5;
-  border-bottom: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a1a1a1;
 }
 
 .maximized headerbar:backdrop, .maximized .titlebar:backdrop:not(headerbar) {
   background-color: #F6F6F6;
-  border-color: #cfcfcf;
+  border-color: #c7c7c7;
 }
 
 headerbar .title,
@@ -1589,7 +1589,7 @@ headerbar.selection-mode .selection-menu .arrow,
 
 .maximized headerbar, .maximized .titlebar:not(headerbar) {
   background-color: #e5e5e5;
-  border-color: darkgray;
+  border-color: #a1a1a1;
 }
 
 .maximized headerbar:backdrop, .maximized .titlebar:backdrop:not(headerbar) {
@@ -1693,7 +1693,7 @@ window.csd > .titlebar:not(headerbar):backdrop {
   min-height: 1px;
   background-color: #e5e5e5;
   background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 50%, #e9e9e9 98%, #f5f5f5 100%);
-  box-shadow: inset 0 -1px #a9a9a9, inset 0 1px rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0 -1px #a1a1a1, inset 0 1px rgba(255, 255, 255, 0.65);
 }
 
 .titlebar:not(headerbar) > separator:backdrop {
@@ -4455,7 +4455,7 @@ messagedialog.csd .dialog-action-area button:only-child {
 messagedialog .titlebar {
   min-height: 20px;
   background-color: #e5e5e5;
-  border-bottom: 1px solid #a9a9a9;
+  border-bottom: 1px solid #a1a1a1;
 }
 
 messagedialog .dialog-action-area {
@@ -4547,6 +4547,12 @@ stacksidebar.sidebar.right list, .sidebar:dir(rtl), .sidebar.right {
   background-color: transparent;
 }
 
+.sidebar list > separator {
+  min-height: 0;
+  background: none;
+  border: none;
+}
+
 paned .sidebar.left, paned .sidebar.right, paned .sidebar.left:dir(rtl), paned .sidebar:dir(rtl), paned .sidebar:dir(ltr), paned .sidebar {
   border-style: none;
 }
@@ -4599,24 +4605,39 @@ button.sidebar-button {
   margin-top: 2px;
   margin-bottom: 2px;
   padding: 0;
-  border-top-color: rgba(0, 0, 0, 0.15);
   border-radius: 100px;
   -gtk-outline-radius: 100px;
 }
 
-button.sidebar-button:hover {
-  border-top-color: rgba(0, 0, 0, 0.15);
+button.sidebar-button > image {
+  opacity: 0.85;
 }
 
 button.sidebar-button:active, button.sidebar-button:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
 }
 
 button.sidebar-button:not(:hover):not(:active) > image {
-  opacity: 0.5;
+  opacity: 0.65;
+}
+
+placessidebar row:selected button.sidebar-button {
+  color: #242424;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.27);
+  background-color: white;
+  box-shadow: 0 1px 1px 0 rgba(16, 16, 16, 0.03);
+}
+
+placessidebar row:selected button.sidebar-button:active, placessidebar row:selected button.sidebar-button:checked {
+  background-image: none;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.35);
 }
 
 placessidebar row.sidebar-placeholder-row {
@@ -4962,8 +4983,6 @@ button.nautilus-circular-button.image-button {
   padding: 0 0 0 0;
   min-height: 28px;
   min-width: 28px;
-  border: none;
-  box-shadow: 0 1px 1px 0 rgba(16, 16, 16, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
 button.close:active, row button.circular:active, row button.nautilus-circular-button.image-button:active, stackswitcher button.circular:active, stackswitcher button.nautilus-circular-button.image-button:active, .raven button.image-button:active, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:active, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:active, button.close:checked, row button.circular:checked, row button.nautilus-circular-button.image-button:checked, stackswitcher button.circular:checked, stackswitcher button.nautilus-circular-button.image-button:checked, .raven button.image-button:checked, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:checked, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:checked,
@@ -4971,25 +4990,10 @@ button.circular:active,
 button.nautilus-circular-button.image-button:active,
 button.circular:checked,
 button.nautilus-circular-button.image-button:checked {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.65);
-}
-
-button.close:active, row button.circular:active, row button.nautilus-circular-button.image-button:active, stackswitcher button.circular:active, stackswitcher button.nautilus-circular-button.image-button:active, .raven button.image-button:active, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:active, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:active,
-button.circular:active,
-button.nautilus-circular-button.image-button:active {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-}
-
-button.close:checked, row button.circular:checked, row button.nautilus-circular-button.image-button:checked, stackswitcher button.circular:checked, stackswitcher button.nautilus-circular-button.image-button:checked, .raven button.image-button:checked, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:checked, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:checked,
-button.circular:checked,
-button.nautilus-circular-button.image-button:checked {
-  background-image: none;
-  color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.65);
-  border: none;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .keycap {
