@@ -984,7 +984,7 @@ spinbutton {
 combobox {
   button.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
-    min-height: 0;
+    min-height: 20px;
 //    margin: 0;
     padding-left: 12px;
     padding-right: 12px;

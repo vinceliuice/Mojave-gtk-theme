@@ -880,7 +880,7 @@ button.font separator, button.file separator {
 }
 
 .linked:not(.vertical):not(.path-bar) > entry + entry {
-  border-left-color: rgba(0, 0, 0, 0);
+  border-left-color: transparent;
 }
 
 .linked:not(.vertical):not(.path-bar) > entry.error + entry,
@@ -972,7 +972,7 @@ button.font separator, button.file separator {
 }
 
 .linked.vertical > entry + entry {
-  border-top-color: rgba(0, 0, 0, 0);
+  border-top-color: transparent;
 }
 
 .linked.vertical > entry.error + entry,
@@ -1283,7 +1283,7 @@ spinbutton:not(.vertical) > button:hover + button {
 
 spinbutton:not(.vertical) > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
 spinbutton:not(.vertical) > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {
-  box-shadow: inset 1px 0 rgba(0, 0, 0, 0);
+  box-shadow: inset 1px 0 transparent;
 }
 
 spinbutton:not(.vertical) > button:first-child:hover:not(:active),
@@ -1335,7 +1335,7 @@ spinbutton.vertical > entry:drop(active) + button {
 
 combobox button.combo {
   min-width: 0;
-  min-height: 0;
+  min-height: 20px;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -4508,7 +4508,7 @@ messagedialog.csd .dialog-action-area button {
 }
 
 filechooser #pathbarbox {
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  border-bottom: 1px solid transparent;
 }
 
 filechooser stack.view {
@@ -7200,7 +7200,7 @@ window > box.vertical > box.horizontal > widget {
 }
 
 .panel {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   transition: all 100ms ease-in-out;
   color: white;
 }

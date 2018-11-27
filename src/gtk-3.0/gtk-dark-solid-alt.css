@@ -1324,7 +1324,7 @@ spinbutton.vertical > entry:drop(active) + button {
 
 combobox button.combo {
   min-width: 0;
-  min-height: 0;
+  min-height: 20px;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -7192,7 +7192,7 @@ window > box.vertical > box.horizontal > widget {
 }
 
 .panel {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   transition: all 100ms ease-in-out;
   color: white;
 }
