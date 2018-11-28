@@ -1693,26 +1693,24 @@ window.background:not(.csd) {
     > frame > border { border-color: $borders_color; }
 
     > entry,
-    > button > button {
-      border: 1px solid $borders_color;
-      border-radius: $bt_radius;
-      box-shadow: inset 0 0 0 1px rgba($borders_color, 0.02);
-    }
-
-    > entry,
     .entry { // Set for linked entrys
 //      min-height: 26px;
       border-radius: $bt_radius;
       background-image: image($base_color);
       border: 1px solid $borders_color;
 
-      &:focus { border-color: $entry_highlight; box-shadow: inset 0 0 0 2px $entry_highlight; }
+      &:focus { border-color: $selection_mode_bg; box-shadow: inset 0 0 0 2px $entry_highlight; }
     }
 
     > spinbutton {
       background-image: image($button_bg);
-      border: 1px solid $borders_color;
-      &:active { background-image: image($header_button_active_bg); }
+      border: 1px solid $button_borders;
+
+      @if $variant == 'light' {
+        &:active {
+          background-image: image($bg_color);
+        }
+      }
 
       // Fixed thunderbird linked entry spinbutton border-radius.
       .entry { border-top-right-radius: 0;  border-bottom-right-radius: 0; }
@@ -1725,11 +1723,15 @@ window.background:not(.csd) {
 
     > button > button {
       outline-style: none;
+      border-radius: $bt_radius;
 
-      &:active {
-        background-image: image($header_button_active_bg);
-        border: none;
-        box-shadow: inset 0 0 0 1px $borders_color;
+      @if $variant == 'light' {
+        &:active {
+          border-radius: $bt_radius;
+          border: none;
+          background-image: image($bg_color);
+          box-shadow: inset 0 0 0 1px $button_borders;
+        }
       }
 
       label { padding: 4px 6px; }
@@ -1994,7 +1996,7 @@ window.background.csd {
 
       > box.vertical > stack {
         background-color: $base_color;
-        border-radius: 0 0 $wm_radius 0;
+        border-radius: 0 0 $wm_radius $wm_radius;
 
         > scrolledwindow.frame {
           border: none;
