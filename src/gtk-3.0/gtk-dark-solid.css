@@ -1619,8 +1619,9 @@ headerbar.default-decoration,
   border: none;
 }
 
-.titlebar,
-.titlebar.background {
+.titlebar, .titlebar > headerbar,
+.titlebar.background,
+.titlebar.background > headerbar {
   border-radius: 6px 6px 0 0;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
 }
@@ -1644,25 +1645,31 @@ headerbar entry {
   margin: 6px 3px;
 }
 
-separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
-  border-top-left-radius: 6px;
+separator:first-child + .titlebar headerbar, separator:first-child + .titlebar headerbar:backdrop,
+.titlebar headerbar:first-child,
+.titlebar headerbar:first-child:backdrop {
+  border-top-right-radius: 0;
 }
 
-.maximized separator:first-child + headerbar,
-.tiled separator:first-child + headerbar, .maximized separator:first-child + headerbar:backdrop,
-.tiled separator:first-child + headerbar:backdrop, .maximized headerbar:first-child,
-.tiled headerbar:first-child, .maximized headerbar:first-child:backdrop,
-.tiled headerbar:first-child:backdrop {
+.maximized separator:first-child + .titlebar headerbar,
+.tiled separator:first-child + .titlebar headerbar, .maximized separator:first-child + .titlebar headerbar:backdrop,
+.tiled separator:first-child + .titlebar headerbar:backdrop, .maximized
+.titlebar headerbar:first-child,
+.tiled
+.titlebar headerbar:first-child, .maximized
+.titlebar headerbar:first-child:backdrop,
+.tiled
+.titlebar headerbar:first-child:backdrop {
   border-radius: 0;
 }
 
-headerbar:last-child, headerbar:last-child:backdrop {
-  border-top-right-radius: 6px;
+.titlebar headerbar:last-child, .titlebar headerbar:last-child:backdrop {
+  border-top-left-radius: 0;
 }
 
-.maximized headerbar:last-child,
-.tiled headerbar:last-child, .maximized headerbar:last-child:backdrop,
-.tiled headerbar:last-child:backdrop {
+.maximized .titlebar headerbar:last-child,
+.tiled .titlebar headerbar:last-child, .maximized .titlebar headerbar:last-child:backdrop,
+.tiled .titlebar headerbar:last-child:backdrop {
   border-radius: 0;
 }
 
@@ -1676,7 +1683,7 @@ window.csd > .titlebar:not(headerbar):backdrop {
   box-shadow: none;
 }
 
-.titlebar:not(headerbar) > separator {
+.titlebar:not(headerbar) > separator.vertical {
   min-width: 1px;
   min-height: 1px;
   background-color: #373737;
@@ -1684,7 +1691,8 @@ window.csd > .titlebar:not(headerbar):backdrop {
   box-shadow: inset 0 -1px #101010, inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
-.titlebar:not(headerbar) > separator:backdrop {
+.titlebar:not(headerbar) > separator.vertical:backdrop {
+  transition: 200ms ease-out;
   background-image: none;
   background-color: #313131;
 }
@@ -2263,6 +2271,7 @@ headerbar scale trough:disabled, .nemo-window .primary-toolbar scale trough:disa
 
 .path-bar button {
   min-width: 12px;
+  min-height: 26px;
 }
 
 .path-bar button.text-button, .path-bar button.image-button, .path-bar button {
@@ -4219,10 +4228,6 @@ separator {
   min-height: 1px;
 }
 
-separator.vertical {
-  background-color: #101010;
-}
-
 list {
   background-color: #242424;
   border-color: rgba(255, 255, 255, 0.12);
@@ -5969,6 +5974,10 @@ stack.background {
   background: none;
 }
 
+window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
+  background-color: #101010;
+}
+
 .background.csd scrolledwindow.view {
   background-color: #242424;
   border-bottom-left-radius: 7px;
@@ -6469,6 +6478,10 @@ dialog.background.csd box.dialog-vbox > stack > stack > scrolledwindow iconview.
 
 dialog.background.csd box.dialog-vbox notebook > stack {
   border-radius: 0 0 6px 6px;
+}
+
+dialog.background.csd box.dialog-vbox separator.vertical {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 dialog.background.csd stack entry {

@@ -1267,8 +1267,10 @@ headerbar,
 
 .titlebar,
 .titlebar.background {
-  border-radius: $_header_radius $_header_radius 0 0;
-  box-shadow: inset 0 1px $highlight;
+  &, & > headerbar {
+    border-radius: $_header_radius $_header_radius 0 0;
+    box-shadow: inset 0 1px $highlight;
+  }
 
   button { min-height: if($variant == 'light', 24px, 26px); }
   entry { min-height: 20px; }
@@ -1287,19 +1289,19 @@ headerbar {
   }
 
   // Fixes split headerbars
-  separator:first-child + &,
-  &:first-child {
+  separator:first-child + .titlebar &,
+  .titlebar &:first-child {
     &, &:backdrop {
-      border-top-left-radius: $_header_radius;
+      border-top-right-radius: 0;
 
       .maximized &,
       .tiled & { border-radius: 0; }
     }
   }
 
-  &:last-child {
+  .titlebar &:last-child {
     &, &:backdrop {
-      border-top-right-radius: $_header_radius;
+      border-top-left-radius: 0;
 
       .maximized &,
       .tiled & { border-radius: 0; }
@@ -1320,7 +1322,7 @@ headerbar {
     }
   }
 
-  > separator {
+  > separator.vertical {
     min-width: 1px;
     min-height: 1px;
     background-color: $header_bg;
@@ -1328,6 +1330,7 @@ headerbar {
     box-shadow: inset 0 -1px $header_border, inset 0 1px $highlight;
 
     &:backdrop {
+      transition: $backdrop_transition;
       background-image: none;
       background-color: $header_bg_backdrop;
     }
@@ -1704,6 +1707,7 @@ headerbar {
 //
 .path-bar button {
   min-width: 12px;
+  min-height: if($variant == 'light', 24px, 26px);
 
   &.text-button, &.image-button, & {
     padding-left: 6px;
@@ -3130,9 +3134,9 @@ separator {
   min-width: 1px;
   min-height: 1px;
 
-  &.vertical {
-    background-color: if($variant=='light', $borders_color, $header_border);
-  }
+  // &.vertical {
+  //   background-color: if($variant=='light', $borders_color, $header_border);
+  // }
 }
 
 //

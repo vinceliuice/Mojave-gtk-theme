@@ -859,6 +859,12 @@ window.background.csd > stack {
 
 stack.background { background: none; }
 
+window.background.csd {
+  > box:not(.titlebar).horizontal > separator.vertical {
+    background-color: if($variant=='light', $borders_color, $header_border);
+  }
+}
+
 // users section
 stack > box.vertical > widget > overlay grid.horizontal > stack {
   > button.toggle { }
@@ -1359,6 +1365,8 @@ dialog.background.csd {
     notebook > stack {
       border-radius: 0 0 $wm_radius $wm_radius;
     }
+
+    separator.vertical { background-color: $borders_color; }
   }
 
   stack {
