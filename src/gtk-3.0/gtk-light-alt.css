@@ -1621,6 +1621,15 @@ headerbar.default-decoration button.titlebutton,
   padding: 0;
 }
 
+headerbar.default-decoration button.titlebutton.appmenu, headerbar.default-decoration button.titlebutton.appmenu:active, headerbar.default-decoration button.titlebutton.appmenu:checked,
+.default-decoration.titlebar:not(headerbar) button.titlebutton.appmenu,
+.default-decoration.titlebar:not(headerbar) button.titlebutton.appmenu:active,
+.default-decoration.titlebar:not(headerbar) button.titlebutton.appmenu:checked {
+  background-color: transparent;
+  box-shadow: none;
+  background-image: -gtk-scaled(url("assets/setting-icon-dark.png"), url("assets/setting-icon-dark@2.png"));
+}
+
 headerbar.default-decoration,
 .csd headerbar.default-decoration, headerbar.default-decoration:backdrop,
 .csd headerbar.default-decoration:backdrop,
@@ -6710,12 +6719,12 @@ menubar.-vala-panel-appmenu-private {
   background: none;
 }
 
-menubar.-vala-panel-appmenu-private menuitem {
+menubar.-vala-panel-appmenu-private > menuitem {
   color: #363636;
   font-weight: normal;
 }
 
-menubar.-vala-panel-appmenu-private menuitem:hover {
+menubar.-vala-panel-appmenu-private > menuitem:hover {
   color: #ffffff;
 }
 
