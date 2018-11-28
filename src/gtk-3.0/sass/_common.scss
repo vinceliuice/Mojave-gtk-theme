@@ -2612,13 +2612,15 @@ switch {
                                       url("assets/#{$a}#{$as}-dark@2.png"));
       }
     }
+
     // the borders of checks and radios are
     // too similar in luminosity to the selected background color, hence
     // we need special casing.
-    menuitem #{$w}#{$s}:hover,
-    .view #{$w}#{$s}:selected,
-    treeview.#{$w}#{$s}:selected,
-    row:selected #{$w}#{$s},
+
+    // menuitem #{$w}#{$s}:hover,
+    // .view #{$w}#{$s}:selected,
+    // treeview.#{$w}#{$s}:selected,
+    // row:selected #{$w}#{$s},
     infobar #{$w}#{$s} {
       -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
                                     url("assets/#{$a}#{$as}-selected@2.png"));
@@ -2631,7 +2633,7 @@ switch {
                   (':checked', '-checked-selectionmode') {
   .view.content-view.check#{$s}:not(list) {
     -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
-                                    url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+                                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
     background-color: transparent;
   }
 }
