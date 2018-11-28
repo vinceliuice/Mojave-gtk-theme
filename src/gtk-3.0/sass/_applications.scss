@@ -1606,7 +1606,7 @@ window.thunar {
     border-bottom: 1px solid $borders_color;
 
     // FIXME: need to unset for weird allocation height
-    entry { min-height: 0; }
+    entry { min-height: if($variant == 'light', 20px, 22px); }
   }
 
   notebook {

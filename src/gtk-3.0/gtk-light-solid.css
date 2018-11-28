@@ -6724,7 +6724,7 @@ window.thunar toolbar#location-toolbar, window.thunar #location-toolbar.inline-t
 }
 
 window.thunar toolbar#location-toolbar entry, window.thunar #location-toolbar.inline-toolbar entry {
-  min-height: 0;
+  min-height: 20px;
 }
 
 window.thunar notebook stack > scrolledwindow.frame.standard-view {
