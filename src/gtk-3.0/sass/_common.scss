@@ -1322,7 +1322,7 @@ headerbar {
     }
   }
 
-  > separator.vertical {
+  > separator {
     min-width: 1px;
     min-height: 1px;
     background-color: $header_bg;
@@ -1349,7 +1349,6 @@ headerbar {
 }
 
 %header_widgets {
-
   // Headerbar Entries
   entry {
     min-height: if($variant == 'light', 20px, 22px);
@@ -1453,7 +1452,6 @@ headerbar {
   }
 
   // Linking stuff
-
   %linked_header_middle {
     border-radius: 0;
     border-left-style: none;
