@@ -70,3 +70,8 @@ setting-dark
 setting-icon
 setting-icon-dark
 
+toggle-on
+toggle-off
+toggle-on-disabled
+toggle-off-disabled
+

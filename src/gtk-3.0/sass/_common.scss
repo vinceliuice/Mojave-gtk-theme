@@ -1113,7 +1113,7 @@ toolbar {
 searchbar {
   background-color: $bg_color;
   border: none;
-  box-shadow: inset 0 -1 $borders_color;
+  box-shadow: inset 0 -1px $borders_color;
   padding: 3px 3px 4px 3px;
 
   // Close button on searchbar
@@ -2559,19 +2559,23 @@ scrollbar {
       }
 
       // use ugly pixmaps
-      background-image: -gtk-scaled(url("assets/toggle-off.svg"));
+      background-image: -gtk-scaled(url("assets/toggle-off.png"),
+                                    url("assets/toggle-off.png"));
 
       &:checked {
         transition: all 350ms $ease-out-quad;
-        background-image:  -gtk-scaled(url("assets/toggle-on.svg"));
+        background-image: -gtk-scaled(url("assets/toggle-on.png"),
+                                      url("assets/toggle-on.png"));
 
         &:disabled {
-          background-image:  -gtk-scaled(url("assets/toggle-on-disabled.svg"));
+          background-image: -gtk-scaled(url("assets/toggle-on-disabled.png"),
+                                        url("assets/toggle-on-disabled.png"));
         }
       }
 
       &:disabled {
-        background-image:  -gtk-scaled(url("assets/toggle-off-disabled.svg"));
+        background-image: -gtk-scaled(url("assets/toggle-off-disabled.png"),
+                                      url("assets/toggle-off-disabled.png"));
     }
   }
 }
