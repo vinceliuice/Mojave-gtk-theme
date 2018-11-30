@@ -7,13 +7,13 @@
 // Container for both the "panel" area and the shadow. Wise to keep
 // this transparent..
 
-$raven_base_color: if($variant =='light', #ececec, #1b1b1b);
-$raven_bg_color: if($variant =='light', #fafafa, #1f1f1f);
+$raven_base_color: if($variant =='light', #f5f5f5, #1b1b1b);
+$raven_bg_color: if($variant =='light', #dedede, #1f1f1f);
 $raven_fg_color: $text_color;
-$raven_header_bg_color: if($variant =='light', #e4e4e4, #191919);
+$raven_header_bg_color: if($variant =='light', #efefef, #191919);
 $raven_header_fg_color: $text_color;
 $raven_button_bg_color: $button_bg;
-$raven_border_color: if($variant =='light', rgba(black, 0.15), rgba(black, 0.25));
+$raven_border_color: if($variant =='light', rgba(black, 0.10), rgba(black, 0.20));
 $panel_border_color: if($variant =='light', rgba(black, 0.2), rgba(black, 0.72));
 
 $raven_radius: 10px;
@@ -64,6 +64,17 @@ $raven_padding: 8px;
     &:hover { @include button(flat-hover); }
     &:checked { @include button(flat-checked); }
     &:active { @include button(flat-active); }
+    &:disabled { @include button(flat-insensitive); }
+  }
+
+  &.linked {
+    @include button(undecorated);
+    background-color: $base_color;
+    &:hover { background-color: $borders_color; }
+    &:active, &:checked {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+    }
     &:disabled { @include button(flat-insensitive); }
   }
 }
@@ -606,9 +617,11 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
    }
 }
 
+$raven_opacity: if($variant =='light', 0.85, 0.95);
+
 // Raven
 .raven {
-  background-color: if($transparency == 'true', rgba($raven_bg_color, 0.95), $raven_bg_color);
+  background-color: if($transparency == 'true', rgba($raven_bg_color, $raven_opacity), $raven_bg_color);
   color: $raven_fg_color;
 
   // for >=10.4
@@ -708,6 +721,7 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
     .raven-background {
       margin-bottom: -$raven_padding * 2; // unset parent margin
       border-radius: 0 0 $raven_radius $raven_radius;
+      background-color: $raven_base_color;
     }
 
     > box.vertical > box.vertical:last-child {
@@ -760,6 +774,8 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
       > button.text-button.radio {
         padding-top: $raven_padding;
         padding-bottom: $raven_padding;
+        border-top: 1px solid $dark_borders_color;
+        @extend %raven_button.linked;
         @extend %raven_middle_button;
         &:first-child{ @extend %raven_first_button; }
         &:last-child { @extend %raven_last_button; }

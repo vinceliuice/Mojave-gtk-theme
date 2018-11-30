@@ -8401,6 +8401,31 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
   color: rgba(36, 36, 36, 0.55);
 }
 
+.raven button.linked, .raven stackswitcher.linked > button.linked, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  background-color: #ffffff;
+}
+
+.raven button.linked:hover, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.raven button.linked:active, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:active, .raven button.linked:checked, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:checked {
+  color: #ffffff;
+  background-color: #315bef;
+}
+
+.raven button.linked:disabled, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled {
+  background-color: transparent;
+}
+
+.raven button.linked:disabled label, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled label, .raven button.linked:disabled, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled {
+  color: rgba(36, 36, 36, 0.55);
+}
+
 .budgie-container {
   background-color: transparent;
 }
@@ -9086,7 +9111,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 }
 
 .raven {
-  background-color: #fafafa;
+  background-color: #dedede;
   color: #363636;
 }
 
@@ -9170,9 +9195,9 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 .raven scrolledwindow > .frame > box.vertical > box.vertical {
   margin: 8px 0;
   border-radius: 10px;
-  background-color: #e4e4e4;
+  background-color: #efefef;
   transition-duration: 0s;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .raven scrolledwindow > .frame .raven-header {
@@ -9183,6 +9208,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 .raven scrolledwindow > .frame .raven-background {
   margin-bottom: -16px;
   border-radius: 0 0 10px 10px;
+  background-color: #f5f5f5;
 }
 
 .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child {
@@ -9227,6 +9253,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio {
   padding-top: 8px;
   padding-bottom: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .raven viewport.frame .raven-header {
@@ -9239,7 +9266,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 }
 
 .raven .raven-background {
-  background-color: #fafafa;
+  background-color: #dedede;
   color: #363636;
 }
 
@@ -9257,7 +9284,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 
 .raven .raven-background list {
   color: #363636;
-  background-color: #ececec;
+  background-color: #f5f5f5;
 }
 
 .raven .raven-background.frame {
