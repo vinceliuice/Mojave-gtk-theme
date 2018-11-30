@@ -430,7 +430,6 @@ button {
 
     &:active, &:checked { @include button(flat-active); }
     &:disabled { @include button(undecorated); }
-
   }
 
   &:hover {
@@ -1226,11 +1225,13 @@ headerbar,
   .tiled &, .tiled &:backdrop,
   .maximized &, .maximized &:backdrop {
     border-radius: 0; // squared corners when the window is max'd or tiled
+    box-shadow: none;
   }
 
   .maximized & {
     background-color: $header_bg;
     border-color: opacify($header_border, 1);
+    box-shadow: none;
 
     &:backdrop { background-color: $header_bg_backdrop; }
   }
@@ -1274,11 +1275,18 @@ headerbar,
   separator.titlebutton { @extend %header_separator; }
 }
 
-.titlebar,
-.titlebar.background {
+.titlebar {
+  &, &.background {
+    border-top-left-radius: $wm_radius;
+    border-top-right-radius: $wm_radius;
+  }
+
   &, & > headerbar {
-    border-radius: $_header_radius $_header_radius 0 0;
     box-shadow: inset 0 1px $highlight;
+
+    .tiled &,
+    .maximized &,
+    .fullscreen & { box-shadow: none; }
   }
 
   button { min-height: if($variant == 'light', 24px, 26px); }
@@ -1298,22 +1306,40 @@ headerbar {
   }
 
   // Fixes split headerbars
-  separator:first-child + .titlebar &,
-  .titlebar &:first-child {
+  separator:first-child + &,
+  &:first-child {
     &, &:backdrop {
-      border-top-right-radius: 0;
-
-      .maximized &,
-      .tiled & { border-radius: 0; }
+      border-top-left-radius: $_header_radius;
     }
   }
 
-  .titlebar &:last-child {
+  &:last-child {
     &, &:backdrop {
-      border-top-left-radius: 0;
+      border-top-right-radius: $_header_radius;
+    }
+  }
 
-      .maximized &,
-      .tiled & { border-radius: 0; }
+  stack & { // tackles the stacked headerbars case
+    &:first-child, &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  window.tiled &,
+  window.tiled-top &,
+  window.tiled-right &,
+  window.tiled-bottom &,
+  window.tiled-left &,
+  window.maximized &,
+  window.fullscreen &,
+  window.solid-csd & {
+    &,
+    &:first-child,
+    &:last-child,
+    &:only-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
 }
@@ -3998,8 +4024,8 @@ headerbar,
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
 
-        &.#{$k}#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}#{$alt_suffix}.png'),
-                                                     url('assets/titlebutton-#{$k}#{$m}#{$asset_suffix}#{$alt_suffix}@2.png')); }
+        &.#{$k}#{$l} { background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$alt_suffix}#{$asset_suffix}.png'),
+                                                     url('windows-assets/titlebutton-#{$k}#{$m}#{$alt_suffix}#{$asset_suffix}@2.png')); }
       }
     }
   }
@@ -4008,8 +4034,8 @@ headerbar,
   .maximized & {
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
-      &.maximize#{$l} { background-image: -gtk-scaled(url('assets/titlebutton-restore#{$m}#{$asset_suffix}#{$alt_suffix}.png'),
-                                                      url('assets/titlebutton-restore#{$m}#{$asset_suffix}#{$alt_suffix}@2.png')); }
+      &.maximize#{$l} { background-image: -gtk-scaled(url('windows-assets/titlebutton-restore#{$m}#{$alt_suffix}#{$asset_suffix}.png'),
+                                                      url('windows-assets/titlebutton-restore#{$m}#{$alt_suffix}#{$asset_suffix}@2.png')); }
       }
     }
   }

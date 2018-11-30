@@ -1,0 +1,16 @@
+titlebutton-close
+titlebutton-close-backdrop
+titlebutton-close-hover
+titlebutton-close-active
+titlebutton-maximize
+titlebutton-maximize-backdrop
+titlebutton-maximize-hover
+titlebutton-maximize-active
+titlebutton-minimize
+titlebutton-minimize-backdrop
+titlebutton-minimize-hover
+titlebutton-minimize-active
+titlebutton-restore
+titlebutton-restore-backdrop
+titlebutton-restore-hover
+titlebutton-restore-active

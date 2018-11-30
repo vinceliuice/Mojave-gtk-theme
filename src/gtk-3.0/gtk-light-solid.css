@@ -880,7 +880,7 @@ button.font separator, button.file separator {
 }
 
 .linked:not(.vertical):not(.path-bar) > entry + entry {
-  border-left-color: transparent;
+  border-left-color: rgba(0, 0, 0, 0);
 }
 
 .linked:not(.vertical):not(.path-bar) > entry.error + entry,
@@ -972,7 +972,7 @@ button.font separator, button.file separator {
 }
 
 .linked.vertical > entry + entry {
-  border-top-color: transparent;
+  border-top-color: rgba(0, 0, 0, 0);
 }
 
 .linked.vertical > entry.error + entry,
@@ -1283,7 +1283,7 @@ spinbutton:not(.vertical) > button:hover + button {
 
 spinbutton:not(.vertical) > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
 spinbutton:not(.vertical) > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {
-  box-shadow: inset 1px 0 transparent;
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0);
 }
 
 spinbutton:not(.vertical) > button:first-child:hover:not(:active),
@@ -1585,11 +1585,13 @@ headerbar.selection-mode .selection-menu .arrow,
 .tiled headerbar, .tiled headerbar:backdrop,
 .maximized headerbar, .maximized headerbar:backdrop, .tiled .titlebar:not(headerbar), .tiled .titlebar:backdrop:not(headerbar), .maximized .titlebar:not(headerbar), .maximized .titlebar:backdrop:not(headerbar) {
   border-radius: 0;
+  box-shadow: none;
 }
 
 .maximized headerbar, .maximized .titlebar:not(headerbar) {
   background-color: #e5e5e5;
   border-color: #a1a1a1;
+  box-shadow: none;
 }
 
 .maximized headerbar:backdrop, .maximized .titlebar:backdrop:not(headerbar) {
@@ -1640,20 +1642,28 @@ headerbar.default-decoration,
   border: none;
 }
 
-.titlebar, .titlebar > headerbar,
-.titlebar.background,
-.titlebar.background > headerbar {
-  border-radius: 6px 6px 0 0;
+.titlebar, .titlebar.background {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.titlebar, .titlebar > headerbar {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.65);
 }
 
-.titlebar button,
-.titlebar.background button {
+.tiled .titlebar,
+.maximized .titlebar,
+.fullscreen .titlebar, .tiled .titlebar > headerbar,
+.maximized .titlebar > headerbar,
+.fullscreen .titlebar > headerbar {
+  box-shadow: none;
+}
+
+.titlebar button {
   min-height: 24px;
 }
 
-.titlebar entry,
-.titlebar.background entry {
+.titlebar entry {
   min-height: 20px;
 }
 
@@ -1666,32 +1676,50 @@ headerbar entry {
   margin: 6px 3px;
 }
 
-separator:first-child + .titlebar headerbar, separator:first-child + .titlebar headerbar:backdrop,
-.titlebar headerbar:first-child,
-.titlebar headerbar:first-child:backdrop {
+separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
+  border-top-left-radius: 6px;
+}
+
+headerbar:last-child, headerbar:last-child:backdrop {
+  border-top-right-radius: 6px;
+}
+
+stack headerbar:first-child, stack headerbar:last-child {
+  border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
-.maximized separator:first-child + .titlebar headerbar,
-.tiled separator:first-child + .titlebar headerbar, .maximized separator:first-child + .titlebar headerbar:backdrop,
-.tiled separator:first-child + .titlebar headerbar:backdrop, .maximized
-.titlebar headerbar:first-child,
-.tiled
-.titlebar headerbar:first-child, .maximized
-.titlebar headerbar:first-child:backdrop,
-.tiled
-.titlebar headerbar:first-child:backdrop {
-  border-radius: 0;
-}
-
-.titlebar headerbar:last-child, .titlebar headerbar:last-child:backdrop {
+window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child,
+window.tiled-top headerbar,
+window.tiled-top headerbar:first-child,
+window.tiled-top headerbar:last-child,
+window.tiled-top headerbar:only-child,
+window.tiled-right headerbar,
+window.tiled-right headerbar:first-child,
+window.tiled-right headerbar:last-child,
+window.tiled-right headerbar:only-child,
+window.tiled-bottom headerbar,
+window.tiled-bottom headerbar:first-child,
+window.tiled-bottom headerbar:last-child,
+window.tiled-bottom headerbar:only-child,
+window.tiled-left headerbar,
+window.tiled-left headerbar:first-child,
+window.tiled-left headerbar:last-child,
+window.tiled-left headerbar:only-child,
+window.maximized headerbar,
+window.maximized headerbar:first-child,
+window.maximized headerbar:last-child,
+window.maximized headerbar:only-child,
+window.fullscreen headerbar,
+window.fullscreen headerbar:first-child,
+window.fullscreen headerbar:last-child,
+window.fullscreen headerbar:only-child,
+window.solid-csd headerbar,
+window.solid-csd headerbar:first-child,
+window.solid-csd headerbar:last-child,
+window.solid-csd headerbar:only-child {
   border-top-left-radius: 0;
-}
-
-.maximized .titlebar headerbar:last-child,
-.tiled .titlebar headerbar:last-child, .maximized .titlebar headerbar:last-child:backdrop,
-.tiled .titlebar headerbar:last-child:backdrop {
-  border-radius: 0;
+  border-top-right-radius: 0;
 }
 
 window > .titlebar:not(headerbar), window > .titlebar:not(headerbar):backdrop,
@@ -4474,7 +4502,7 @@ messagedialog.csd .dialog-action-area button {
 }
 
 filechooser #pathbarbox {
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 filechooser stack.view {
@@ -4729,14 +4757,14 @@ infobar.info selection, infobar.question selection, infobar.warning selection, i
   background-color: #ffffff;
 }
 
-row:selected button, infobar.info button, infobar.question button, infobar.warning button, infobar.error button, .nautilus-window .floating-bar button {
+row:selected button, infobar.info button, infobar.question button, infobar.warning button, infobar.error button, .nautilus-window .floating-bar button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.5);
   background-image: none;
 }
 
-row:selected button.flat, row:selected button.budgie-menu-launcher, row:selected .budgie-panel button.flat.launcher, .budgie-panel row:selected button.flat.launcher, infobar.info button.flat, infobar.info button.budgie-menu-launcher, infobar.info .budgie-panel button.flat.launcher, .budgie-panel infobar.info button.flat.launcher, infobar.question button.flat, infobar.question button.budgie-menu-launcher, infobar.question .budgie-panel button.flat.launcher, .budgie-panel infobar.question button.flat.launcher, infobar.warning button.flat, infobar.warning button.budgie-menu-launcher, infobar.warning .budgie-panel button.flat.launcher, .budgie-panel infobar.warning button.flat.launcher, infobar.error button.flat, infobar.error button.budgie-menu-launcher, infobar.error .budgie-panel button.flat.launcher, .budgie-panel infobar.error button.flat.launcher, .nautilus-window .floating-bar button.flat, .nautilus-window .floating-bar button.budgie-menu-launcher {
+row:selected button.flat, row:selected button.budgie-menu-launcher, row:selected .budgie-panel button.flat.launcher, .budgie-panel row:selected button.flat.launcher, infobar.info button.flat, infobar.info button.budgie-menu-launcher, infobar.info .budgie-panel button.flat.launcher, .budgie-panel infobar.info button.flat.launcher, infobar.question button.flat, infobar.question button.budgie-menu-launcher, infobar.question .budgie-panel button.flat.launcher, .budgie-panel infobar.question button.flat.launcher, infobar.warning button.flat, infobar.warning button.budgie-menu-launcher, infobar.warning .budgie-panel button.flat.launcher, .budgie-panel infobar.warning button.flat.launcher, infobar.error button.flat, infobar.error button.budgie-menu-launcher, infobar.error .budgie-panel button.flat.launcher, .budgie-panel infobar.error button.flat.launcher, .nautilus-window .floating-bar button.flat, .nautilus-window .floating-bar button.budgie-menu-launcher, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -4746,32 +4774,32 @@ row:selected button.flat, row:selected button.budgie-menu-launcher, row:selected
   background-image: none;
 }
 
-headerbar.selection-mode button:disabled, .nemo-window .selection-mode.primary-toolbar button:disabled, row:selected button.flat:disabled, row:selected button.budgie-menu-launcher:disabled, infobar.info button.flat:disabled, infobar.info button.budgie-menu-launcher:disabled, infobar.question button.flat:disabled, infobar.question button.budgie-menu-launcher:disabled, infobar.warning button.flat:disabled, infobar.warning button.budgie-menu-launcher:disabled, infobar.error button.flat:disabled, infobar.error button.budgie-menu-launcher:disabled, .nautilus-window .floating-bar button.flat:disabled, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled, headerbar.selection-mode button:disabled label, .nemo-window .selection-mode.primary-toolbar button:disabled label, row:selected button.flat:disabled label, row:selected button.budgie-menu-launcher:disabled label, infobar.info button.flat:disabled label, infobar.info button.budgie-menu-launcher:disabled label, infobar.question button.flat:disabled label, infobar.question button.budgie-menu-launcher:disabled label, infobar.warning button.flat:disabled label, infobar.warning button.budgie-menu-launcher:disabled label, infobar.error button.flat:disabled label, infobar.error button.budgie-menu-launcher:disabled label, .nautilus-window .floating-bar button.flat:disabled label, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled label {
+headerbar.selection-mode button:disabled, .nemo-window .selection-mode.primary-toolbar button:disabled, row:selected button.flat:disabled, row:selected button.budgie-menu-launcher:disabled, infobar.info button.flat:disabled, infobar.info button.budgie-menu-launcher:disabled, infobar.question button.flat:disabled, infobar.question button.budgie-menu-launcher:disabled, infobar.warning button.flat:disabled, infobar.warning button.budgie-menu-launcher:disabled, infobar.error button.flat:disabled, infobar.error button.budgie-menu-launcher:disabled, .nautilus-window .floating-bar button.flat:disabled, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled, headerbar.selection-mode button:disabled label, .nemo-window .selection-mode.primary-toolbar button:disabled label, row:selected button.flat:disabled label, row:selected button.budgie-menu-launcher:disabled label, infobar.info button.flat:disabled label, infobar.info button.budgie-menu-launcher:disabled label, infobar.question button.flat:disabled label, infobar.question button.budgie-menu-launcher:disabled label, infobar.warning button.flat:disabled label, infobar.warning button.budgie-menu-launcher:disabled label, infobar.error button.flat:disabled label, infobar.error button.budgie-menu-launcher:disabled label, .nautilus-window .floating-bar button.flat:disabled label, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled label {
   color: rgba(255, 255, 255, 0.4);
 }
 
-row:selected button:hover, infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover, .nautilus-window .floating-bar button:hover {
+row:selected button:hover, infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover, .nautilus-window .floating-bar button:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:hover {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked, row:selected button:active, infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, .nautilus-window .floating-bar button:active, headerbar.selection-mode button:hover:active, .nemo-window .selection-mode.primary-toolbar button:hover:active, headerbar.selection-mode button:hover:checked, .nemo-window .selection-mode.primary-toolbar button:hover:checked, row:selected button:active:hover, infobar.info button:active:hover, infobar.question button:active:hover, infobar.warning button:active:hover, infobar.error button:active:hover, .nautilus-window .floating-bar button:active:hover, row:selected button:checked, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked, .nautilus-window .floating-bar button:checked {
+headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked, row:selected button:active, infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, .nautilus-window .floating-bar button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:active, headerbar.selection-mode button:hover:active, .nemo-window .selection-mode.primary-toolbar button:hover:active, headerbar.selection-mode button:hover:checked, .nemo-window .selection-mode.primary-toolbar button:hover:checked, row:selected button:active:hover, infobar.info button:active:hover, infobar.question button:active:hover, infobar.warning button:active:hover, infobar.error button:active:hover, .nautilus-window .floating-bar button:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:active:hover, row:selected button:checked, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked, .nautilus-window .floating-bar button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:checked {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.4);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, .nautilus-window .floating-bar button:disabled {
+row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, .nautilus-window .floating-bar button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled {
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, .nautilus-window .floating-bar button:disabled, row:selected button:disabled label, infobar.info button:disabled label, infobar.question button:disabled label, infobar.warning button:disabled label, infobar.error button:disabled label, .nautilus-window .floating-bar button:disabled label {
+row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, .nautilus-window .floating-bar button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled, row:selected button:disabled label, infobar.info button:disabled label, infobar.question button:disabled label, infobar.warning button:disabled label, infobar.error button:disabled label, .nautilus-window .floating-bar button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled label {
   color: rgba(255, 255, 255, 0.5);
 }
 
-headerbar.selection-mode button:disabled:active, .nemo-window .selection-mode.primary-toolbar button:disabled:active, headerbar.selection-mode button:disabled:checked, .nemo-window .selection-mode.primary-toolbar button:disabled:checked, row:selected button:disabled:active, infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, .nautilus-window .floating-bar button:disabled:active, headerbar.selection-mode button:disabled:checked, .nemo-window .selection-mode.primary-toolbar button:disabled:checked, headerbar.selection-mode button:disabled:active, .nemo-window .selection-mode.primary-toolbar button:disabled:active, row:selected button:disabled:checked, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked, .nautilus-window .floating-bar button:disabled:checked {
+headerbar.selection-mode button:disabled:active, .nemo-window .selection-mode.primary-toolbar button:disabled:active, headerbar.selection-mode button:disabled:checked, .nemo-window .selection-mode.primary-toolbar button:disabled:checked, row:selected button:disabled:active, infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, .nautilus-window .floating-bar button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled:active, headerbar.selection-mode button:disabled:checked, .nemo-window .selection-mode.primary-toolbar button:disabled:checked, headerbar.selection-mode button:disabled:active, .nemo-window .selection-mode.primary-toolbar button:disabled:active, row:selected button:disabled:checked, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked, .nautilus-window .floating-bar button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled:checked {
   color: #315bef;
   background-color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.4);
@@ -5094,82 +5122,82 @@ headerbar button.titlebutton.close:backdrop:not(:hover):not(:active), headerbar 
 
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
-  background-image: -gtk-scaled(url("assets/titlebutton-close.png"), url("assets/titlebutton-close@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-close.png"), url("windows-assets/titlebutton-close@2.png"));
 }
 
 headerbar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.close:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-backdrop.png"), url("assets/titlebutton-close-backdrop@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-close-backdrop.png"), url("windows-assets/titlebutton-close-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.close:hover,
 .titlebar button.titlebutton.close:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-hover.png"), url("assets/titlebutton-close-hover@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-close-hover.png"), url("windows-assets/titlebutton-close-hover@2.png"));
 }
 
 headerbar button.titlebutton.close:active,
 .titlebar button.titlebutton.close:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-close-active.png"), url("assets/titlebutton-close-active@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-close-active.png"), url("windows-assets/titlebutton-close-active@2.png"));
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize.png"), url("assets/titlebutton-maximize@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize.png"), url("windows-assets/titlebutton-maximize@2.png"));
 }
 
 headerbar button.titlebutton.maximize:backdrop,
 .titlebar button.titlebutton.maximize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-backdrop.png"), url("assets/titlebutton-maximize-backdrop@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-backdrop.png"), url("windows-assets/titlebutton-maximize-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-hover.png"), url("assets/titlebutton-maximize-hover@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-hover.png"), url("windows-assets/titlebutton-maximize-hover@2.png"));
 }
 
 headerbar button.titlebutton.maximize:active,
 .titlebar button.titlebutton.maximize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-maximize-active.png"), url("assets/titlebutton-maximize-active@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-active.png"), url("windows-assets/titlebutton-maximize-active@2.png"));
 }
 
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize.png"), url("assets/titlebutton-minimize@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize.png"), url("windows-assets/titlebutton-minimize@2.png"));
 }
 
 headerbar button.titlebutton.minimize:backdrop,
 .titlebar button.titlebutton.minimize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-backdrop.png"), url("assets/titlebutton-minimize-backdrop@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-backdrop.png"), url("windows-assets/titlebutton-minimize-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-hover.png"), url("assets/titlebutton-minimize-hover@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-hover.png"), url("windows-assets/titlebutton-minimize-hover@2.png"));
 }
 
 headerbar button.titlebutton.minimize:active,
 .titlebar button.titlebutton.minimize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-minimize-active.png"), url("assets/titlebutton-minimize-active@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-active.png"), url("windows-assets/titlebutton-minimize-active@2.png"));
 }
 
 headerbar button.titlebutton.restore,
 .titlebar button.titlebutton.restore {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore.png"), url("assets/titlebutton-restore@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore.png"), url("windows-assets/titlebutton-restore@2.png"));
 }
 
 headerbar button.titlebutton.restore:backdrop,
 .titlebar button.titlebutton.restore:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop.png"), url("assets/titlebutton-restore-backdrop@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop.png"), url("windows-assets/titlebutton-restore-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.restore:hover,
 .titlebar button.titlebutton.restore:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover.png"), url("assets/titlebutton-restore-hover@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-hover.png"), url("windows-assets/titlebutton-restore-hover@2.png"));
 }
 
 headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.restore:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-active.png"), url("assets/titlebutton-restore-active@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize,
@@ -5177,7 +5205,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize,
 .maximized
 .titlebar button.titlebutton.maximize {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore.png"), url("assets/titlebutton-restore@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore.png"), url("windows-assets/titlebutton-restore@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:backdrop,
@@ -5185,7 +5213,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize:backdrop,
 .maximized
 .titlebar button.titlebutton.maximize:backdrop {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-backdrop.png"), url("assets/titlebutton-restore-backdrop@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop.png"), url("windows-assets/titlebutton-restore-backdrop@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:hover,
@@ -5193,7 +5221,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize:hover,
 .maximized
 .titlebar button.titlebutton.maximize:hover {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-hover.png"), url("assets/titlebutton-restore-hover@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-hover.png"), url("windows-assets/titlebutton-restore-hover@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:active,
@@ -5201,7 +5229,7 @@ headerbar button.titlebutton.restore:active,
 .titlebar button.titlebutton.maximize:active,
 .maximized
 .titlebar button.titlebutton.maximize:active {
-  background-image: -gtk-scaled(url("assets/titlebutton-restore-active.png"), url("assets/titlebutton-restore-active@2.png"));
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
 }
 
 .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
@@ -7182,7 +7210,7 @@ window > box.vertical > box.horizontal > widget {
 }
 
 .panel {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
   transition: all 100ms ease-in-out;
   color: white;
 }
@@ -8248,95 +8276,121 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 /******************
  * Budgie Desktop *
  ******************/
-.budgie-settings-window buttonbox.inline-toolbar button, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button), .workspace-switcher .workspace-add-button, .raven-mpris button.image-button, .drop-shadow button, window.budgie-switcher-window .drop-shadow button {
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio {
+  border-radius: 0;
+  border-right-style: none;
+  border-bottom-style: none;
+}
+
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:last-child {
+  border-radius: 0 0 10px 0;
+  border-right-style: none;
+  border-bottom-style: none;
+}
+
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:first-child {
+  border-radius: 0 0 0 10px;
+  border-left-style: none;
+  border-bottom-style: none;
+}
+
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:only-child {
+  border-radius: 0 0 10px 10px;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+}
+
+.budgie-settings-window buttonbox.inline-toolbar button, .budgie-popover:not(.budgie-menu) button.flat:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:not(.image-button), .workspace-switcher .workspace-add-button, .drop-shadow button, window.budgie-switcher-window .drop-shadow button {
   border: none;
   background-color: transparent;
   box-shadow: none;
   background-clip: border-box;
 }
 
-.budgie-settings-window buttonbox.inline-toolbar button:hover, .budgie-popover:not(.budgie-menu) button.flat:hover:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:hover:not(.image-button), .workspace-switcher .workspace-add-button:hover, .raven-mpris button.image-button:hover, .drop-shadow button:hover {
+.budgie-settings-window buttonbox.inline-toolbar button:hover, .budgie-popover:not(.budgie-menu) button.flat:hover:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:hover:not(.image-button), .workspace-switcher .workspace-add-button:hover, .drop-shadow button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-.budgie-settings-window buttonbox.inline-toolbar button:checked, .budgie-popover:not(.budgie-menu) button.flat:checked:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:checked:not(.image-button), .workspace-switcher .workspace-add-button:checked, .raven-mpris button.image-button:checked, .drop-shadow button:checked {
+.budgie-settings-window buttonbox.inline-toolbar button:checked, .budgie-popover:not(.budgie-menu) button.flat:checked:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:checked:not(.image-button), .workspace-switcher .workspace-add-button:checked, .drop-shadow button:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.65);
 }
 
-.budgie-settings-window buttonbox.inline-toolbar button:active, .budgie-popover:not(.budgie-menu) button.flat:active:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:active:not(.image-button), .workspace-switcher .workspace-add-button:active, .raven-mpris button.image-button:active, .drop-shadow button:active {
+.budgie-settings-window buttonbox.inline-toolbar button:active, .budgie-popover:not(.budgie-menu) button.flat:active:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:active:not(.image-button), .workspace-switcher .workspace-add-button:active, .drop-shadow button:active {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.budgie-settings-window buttonbox.inline-toolbar button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:disabled:not(.image-button), .workspace-switcher .workspace-add-button:disabled, .raven-mpris button.image-button:disabled, .drop-shadow button:disabled {
+.budgie-settings-window buttonbox.inline-toolbar button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:disabled:not(.image-button), .workspace-switcher .workspace-add-button:disabled, .drop-shadow button:disabled {
   background-color: transparent;
 }
 
-.budgie-settings-window buttonbox.inline-toolbar button:disabled label, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button) label, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:disabled:not(.image-button) label, .workspace-switcher .workspace-add-button:disabled label, .raven-mpris button.image-button:disabled label, .drop-shadow button:disabled label, .budgie-settings-window buttonbox.inline-toolbar button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:disabled:not(.image-button), .workspace-switcher .workspace-add-button:disabled, .raven-mpris button.image-button:disabled, .drop-shadow button:disabled {
+.budgie-settings-window buttonbox.inline-toolbar button:disabled label, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button) label, .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:disabled:not(.image-button) label, .workspace-switcher .workspace-add-button:disabled label, .drop-shadow button:disabled label, .budgie-settings-window buttonbox.inline-toolbar button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:disabled:not(.image-button), .workspace-switcher .workspace-add-button:disabled, .drop-shadow button:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
 .raven button, .raven stackswitcher.linked > button {
-  background-color: #616161;
-  color: #dedede;
-  border: none;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #575757;
+  background-color: white;
+  background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
 }
 
 .raven button:hover, .raven stackswitcher.linked > button:hover {
-  background-color: #6e6e6e;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #525252;
+  background-color: #fafafa;
+  background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
 }
 
 .raven button:active, .raven stackswitcher.linked > button:active {
-  background-color: #bcbcbc;
+  color: #ffffff;
+  background-color: #888888;
   background-image: none;
-  color: #242424;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .raven button:checked, .raven stackswitcher.linked > button:checked {
-  background-color: #AFAFAF;
-  background-image: none;
-  color: #2A2A2A;
+  color: #ffffff;
+  background-color: #686868;
+  background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .raven button:disabled, .raven stackswitcher.linked > button:disabled {
-  background-color: rgba(97, 97, 97, 0.5);
+  background-color: white;
 }
 
 .raven button:disabled label, .raven button:disabled, .raven stackswitcher.linked > button:disabled {
-  color: rgba(222, 222, 222, 0.5);
+  color: rgba(87, 87, 87, 0.55);
 }
 
 .raven button.flat, .raven button.budgie-menu-launcher, .raven .budgie-panel button.flat.launcher, .budgie-panel .raven button.flat.launcher, .raven stackswitcher.linked > button.flat, .raven stackswitcher.linked > button.budgie-menu-launcher, .raven .raven-header:not(.top) button {
-  border: none;
+  border-color: transparent;
   background-color: transparent;
-  color: white;
+  background-image: none;
   box-shadow: none;
 }
 
 .raven button.flat:hover, .raven button.budgie-menu-launcher:hover, .raven .raven-header:not(.top) button:hover {
-  color: #e6e6e6;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.15);
+  color: #0b0b0b;
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .raven button.flat:checked, .raven button.budgie-menu-launcher:checked, .raven .raven-header:not(.top) button:checked {
   background-image: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.35);
-  text-shadow: none;
-  -gtk-icon-shadow: none;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .raven button.flat:active, .raven button.budgie-menu-launcher:active, .raven .raven-header:not(.top) button:active {
   background-image: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.25);
-  text-shadow: none;
-  -gtk-icon-shadow: none;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .raven button.flat:disabled, .raven button.budgie-menu-launcher:disabled, .raven .raven-header:not(.top) button:disabled {
@@ -8344,7 +8398,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 }
 
 .raven button.flat:disabled label, .raven button.budgie-menu-launcher:disabled label, .raven .raven-header:not(.top) button:disabled label, .raven button.flat:disabled, .raven button.budgie-menu-launcher:disabled, .raven .raven-header:not(.top) button:disabled {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(36, 36, 36, 0.55);
 }
 
 .budgie-container {
@@ -8371,8 +8425,8 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
   padding: 0;
   border-color: rgba(0, 0, 0, 0.15);
   border-radius: 6px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.15);
   background-color: #f5f5f5;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
 .budgie-popover .container {
@@ -8664,21 +8718,37 @@ popover.background.places-menu row {
 
 .budgie-panel {
   transition: background-color 0.2s cubic-bezier(0, 0, 0.2, 1);
-  background-color: #fefefe;
+  background-color: #FEFEFE;
   color: #363636;
   font-weight: 500;
+  box-shadow: none;
+  background-clip: padding-box;
 }
 
 .budgie-panel.transparent {
   background-color: rgba(254, 254, 254, 0.65);
+  box-shadow: none;
+}
+
+.top .budgie-panel {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(0deg, #e2e2e2 0%, #f5f5f5 100%);
 }
 
 .top .budgie-panel.transparent {
   background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.9) 0%, rgba(245, 245, 245, 0.9) 100%);
 }
 
-.top .budgie-panel {
-  background-image: linear-gradient(0deg, #e2e2e2 0%, #f5f5f5 100%);
+.bottom .budgie-panel, .bottom .budgie-panel.transparent {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.left .budgie-panel, .left .budgie-panel.transparent {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.right .budgie-panel, .right .budgie-panel.transparent {
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .budgie-panel button {
@@ -8989,30 +9059,35 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
   border-image: none;
 }
 
-frame.raven-frame > border {
-  border-style: none;
-  box-shadow: none;
+.left frame.raven-frame > border {
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.right frame.raven-frame > border {
+  border: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .top .shadow-block {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.08), transparent);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
 }
 
 .bottom .shadow-block {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.08), transparent);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
 }
 
 .left .shadow-block {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.08), transparent);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
 }
 
 .right .shadow-block {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.23), rgba(0, 0, 0, 0.08), transparent);
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
 }
 
 .raven {
-  background-color: #2A2A2A;
-  color: #dedede;
+  background-color: #fafafa;
+  color: #363636;
 }
 
 .raven > box {
@@ -9049,8 +9124,9 @@ frame.raven-frame > border {
 }
 
 .raven .raven-header.top {
-  padding: 2px 12px;
-  color: #dedede;
+  padding: 2px 12px 8px;
+  color: #363636;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .raven .raven-header.top stackswitcher {
@@ -9082,7 +9158,75 @@ frame.raven-frame > border {
 }
 
 .raven .raven-header.bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.raven scrolledwindow > .frame {
+  padding: 0 8px;
+  transition-duration: 0s;
+  border: none;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical {
+  margin: 8px 0;
+  border-radius: 10px;
+  background-color: #e4e4e4;
+  transition-duration: 0s;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.raven scrolledwindow > .frame .raven-header {
+  margin-top: -16px;
+  border-radius: 10px 10px 0 0;
+}
+
+.raven scrolledwindow > .frame .raven-background {
+  margin-bottom: -16px;
+  border-radius: 0 0 10px 10px;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child {
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background {
+  background-color: rgba(0, 0, 0, 0.25);
+  margin-bottom: 0;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background image {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris {
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  border-radius: 0 0 10px 10px;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris label {
+  min-height: 24px;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris image {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button {
+  padding: 8px;
+  border: none;
+}
+
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked {
+  padding: 0;
+}
+
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .raven viewport.frame .raven-header {
@@ -9095,11 +9239,8 @@ frame.raven-frame > border {
 }
 
 .raven .raven-background {
-  border-style: solid none;
-  border-width: 1px;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: #242424;
-  color: #dedede;
+  background-color: #fafafa;
+  color: #363636;
 }
 
 .raven .raven-background.middle {
@@ -9107,25 +9248,26 @@ frame.raven-frame > border {
 }
 
 .raven .raven-background checkbutton.text-button:hover, .raven .raven-background radiobutton.text-button:hover {
-  color: #b8b8b8;
+  color: #101010;
 }
 
 .raven .raven-background checkbutton.text-button:disabled, .raven .raven-background radiobutton.text-button:disabled {
-  color: rgba(222, 222, 222, 0.45);
+  color: rgba(54, 54, 54, 0.45);
 }
 
 .raven .raven-background list {
-  color: #dedede;
-  background-color: #242424;
+  color: #363636;
+  background-color: #ececec;
 }
 
 .raven .raven-background.frame {
   border-style: solid none;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .raven .raven-background > overlay > widget > image {
-  color: alpha(#dedede,0.12);
+  color: rgba(54, 54, 54, 0.12);
 }
 
 .raven .raven-background grid > label:first-child {
@@ -9162,46 +9304,33 @@ calendar.raven-calendar {
   padding: 2px;
   border-style: none;
   background-color: transparent;
-  color: #dedede;
+  color: #363636;
 }
 
 calendar.raven-calendar:selected {
   border-radius: 3px;
   background-color: #315bef;
-}
-
-calendar.raven-calendar.button {
-  color: rgba(222, 222, 222, 0.45);
-}
-
-calendar.raven-calendar.button:hover {
-  color: #dedede;
-}
-
-calendar.raven-calendar.button:disabled {
-  color: rgba(222, 222, 222, 0.25);
-}
-
-calendar.raven-calendar:indeterminate {
-  color: alpha(#dedede,0.35);
-}
-
-calendar.raven-calendar.highlight {
-  color: #dedede;
-}
-
-.raven-mpris {
-  background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
 }
 
-.raven-mpris label {
-  min-height: 24px;
+calendar.raven-calendar.button {
+  color: rgba(54, 54, 54, 0.45);
 }
 
-.raven-mpris button.image-button {
-  padding: 8px;
-  border: none;
+calendar.raven-calendar.button:hover {
+  color: #363636;
+}
+
+calendar.raven-calendar.button:disabled {
+  color: rgba(54, 54, 54, 0.25);
+}
+
+calendar.raven-calendar:indeterminate {
+  color: alpha(#363636,0.35);
+}
+
+calendar.raven-calendar.highlight {
+  color: #363636;
 }
 
 box.vertical > stack > box.vertical > .raven-background > viewport.frame {
@@ -9221,7 +9350,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
 box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable > grid > *, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button > grid > *,
 box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable > box.vertical *,
 .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button > box.vertical * {
-  color: #dedede;
+  color: #363636;
 }
 
 box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable image, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button image {
@@ -9252,7 +9381,7 @@ box.vertical > stack > box.vertical > .raven-background > viewport.frame > list 
 }
 
 box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable list > row.activatable:selected, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button list > row.activatable:selected, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable .budgie-menu list > button:selected, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable list > button:selected, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button list > button:selected {
-  background-color: rgba(222, 222, 222, 0.06);
+  background-color: rgba(54, 54, 54, 0.06);
 }
 
 box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable list > row.activatable label, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button list > row.activatable label, box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable .budgie-menu list > button label, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable list > button label, .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button list > button label {

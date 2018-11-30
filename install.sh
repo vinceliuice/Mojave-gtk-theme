@@ -91,6 +91,7 @@ install() {
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/gtk-3.0/assets                                                      ${THEME_DIR}/gtk-3.0
+  cp -ur ${SRC_DIR}/gtk-3.0/windows-assets/titlebutton${alt}                            ${THEME_DIR}/gtk-3.0/windows-assets
   cp -ur ${SRC_DIR}/gtk-3.0/thumbnail${color}.png                                       ${THEME_DIR}/gtk-3.0/thumbnail.png
   cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}.css                             ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
