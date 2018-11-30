@@ -1326,6 +1326,16 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Eye of GNOME Image Viewer
+//
+box.vertical > box.vertical > box.vertical{
+  > paned.horizontal {
+    background-image: none;
+    background-color: $header_border;
+  }
+}
+
+//
 // Dialogs
 //
 dialog.background.csd {
@@ -1402,7 +1412,6 @@ MsdOsdWindow.background.osd {
 //
 // Mate/Gnome Flashback Panel
 //
-
 .mate-panel-menu-bar,
 panel-toplevel.background {
 
@@ -1449,7 +1458,6 @@ panel-toplevel.background {
 //
 // Xfce4
 //
-
 $text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),
               0 1px 2px rgba(0, 0, 0, 0.32),
               0 2px 3px rgba(0, 0, 0, 0.12);
@@ -1635,7 +1643,6 @@ window.thunar {
  /*********
   * Geary *
   *********/
-
 .geary-titlebar-left {
   // remove unexpected "hardcoded" vertical separator
   separator { opacity: 0; }

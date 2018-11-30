@@ -69,8 +69,10 @@ $raven_padding: 8px;
 
   &.linked {
     @include button(undecorated);
-    background-color: $base_color;
-    &:hover { background-color: $borders_color; }
+    background-color: $_menu_bg;
+    &:hover {
+      background-color: if($variant =='light', darken($_menu_bg, 5%), lighten($_menu_bg, 5%));
+    }
     &:active, &:checked {
       color: $selected_fg_color;
       background-color: $selected_bg_color;
@@ -794,8 +796,8 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
     // border-style: solid;
     // border-width: 1px;
     // border-color: $dark_borders_color;
-    background-color: if($transparency == 'true', rgba($raven_bg_color, 0.95), $raven_bg_color);
-    color: $raven_fg_color;
+    // background-color: if($transparency == 'true', rgba($raven_bg_color, 0.95), $raven_bg_color);
+    // color: $raven_fg_color;
 
     &.middle { border-bottom-style: none; } // applet background between two headers
 
@@ -844,6 +846,89 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
   }
 
   .option-subtitle { font-size: smaller; }
+
+  // notification list
+  box.vertical > stack > box.vertical {
+    > .raven-header { background-color: $raven_header_bg_color; }
+    > .raven-background > viewport.frame {
+      padding: 0; // reset padding for full-width list node
+
+      list { background-color: $raven_base_color; }
+
+      > list > row.activatable {
+        margin-left: -8px;
+        margin-right: -2px;
+        background-color: transparent;
+
+        > grid > *, // legacy
+        > box.vertical * { color: $raven_fg_color; }
+
+        image { padding-left: 8px; }
+
+        button.image-button { // 'dismiss'
+          @extend %circular_button;
+          margin: 8px;
+          padding: 2px;
+          image { padding: 0; }
+        }
+
+        // sub-list rows grouping
+        list {
+          border-radius: 0;
+          border-top: 1px solid $borders_color;
+          border-bottom: 1px solid $borders_color;
+
+          > row.activatable {
+            border-bottom: 1px solid $borders_color;
+            &:last-child { border-bottom: none; }
+
+            &:selected {
+              background-color: rgba($raven_fg_color, 0.06);
+            }
+
+            label { padding: 0 16px; }
+
+            button.image-button { // 'close'
+              min-height: 24px;
+              min-width: 24px;
+              image { padding: 0; }
+            }
+
+           // box.horizontal > label:first-child { font-weight: 500; } // title labels
+          }
+        }
+
+        &:selected {
+          background-color: rgba($selected_bg_color, 0.75);
+         // &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
+         // &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
+
+          > grid > *,
+          > box.vertical * { color: $selected_fg_color; }
+
+          button.image-button { // 'dismiss'
+            border: none;
+
+            &:hover { background-color: rgba(white, 0.25); }
+            &:active, &:checked { background-color: rgba(white, 0.35); }
+          }
+
+          list {
+            border: 1px solid rgba(white, 0.12);
+
+            > row.activatable {
+              border-bottom: 1px solid rgba(white, 0.12);
+              &:last-child { border-bottom: none; }
+
+              &:selected {
+                background-color: rgba($selected_bg_color, 0.65);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 // Calendar
@@ -870,89 +955,6 @@ calendar.raven-calendar {
 
   &:indeterminate { color: gtkalpha($raven_fg_color, 0.35); }
   &.highlight { color: $raven_fg_color; }
-}
-
-// notification list
-box.vertical > stack > box.vertical {
-
-  > .raven-background > viewport.frame {
-    padding: 0; // reset padding for full-width list node
-
-    list { background-color: transparent; }
-
-    > list > row.activatable {
-      margin-left: -8px;
-      margin-right: -2px;
-      background-color: transparent;
-
-      > grid > *, // legacy
-      > box.vertical * { color: $raven_fg_color; }
-
-      image { padding-left: 8px; }
-
-      button.image-button { // 'dismiss'
-        @extend %circular_button;
-        margin: 8px;
-        padding: 2px;
-        image { padding: 0; }
-      }
-
-      // sub-list rows grouping
-      list {
-        border-radius: 2px;
-        border-top: 1px solid $borders_color;
-        border-bottom: 1px solid $borders_color;
-
-        > row.activatable {
-          border-bottom: 1px solid $borders_color;
-          &:last-child { border-bottom: none; }
-
-          &:selected {
-            background-color: rgba($raven_fg_color, 0.06);
-          }
-
-          label { padding: 0 16px; }
-
-          button.image-button { // 'close'
-            min-height: 24px;
-            min-width: 24px;
-            image { padding: 0; }
-          }
-
-//          box.horizontal > label:first-child { font-weight: 500; } // title labels
-        }
-      }
-
-      &:selected {
-        background-color: rgba($selected_bg_color, 0.75);
-//        &:dir(ltr) { box-shadow: inset 2px 0 $selected_bg_color; }
-//        &:dir(rtl) { box-shadow: inset -2px 0 $selected_bg_color; }
-
-        > grid > *,
-        > box.vertical * { color: $selected_fg_color; }
-
-        button.image-button { // 'dismiss'
-          border: none;
-
-          &:hover { background-color: rgba(white, 0.25); }
-          &:active, &:checked { background-color: rgba(white, 0.35); }
-        }
-
-        list {
-          border: 1px solid rgba(white, 0.12);
-
-          > row.activatable {
-            border-bottom: 1px solid rgba(white, 0.12);
-            &:last-child { border-bottom: none; }
-
-            &:selected {
-              background-color: rgba($selected_bg_color, 0.65);
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 // Notifications
