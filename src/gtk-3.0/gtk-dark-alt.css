@@ -9633,6 +9633,10 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
   padding: 0;
 }
 
+.raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:active image, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:active image, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:active image, .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:checked image, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:checked image, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button:checked image {
+  color: white;
+}
+
 .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable list, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button list, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button list {
   border-radius: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);

@@ -808,12 +808,6 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
     -gtk-outline-radius: 100px; }
 
   .raven-background {
-    // border-style: solid;
-    // border-width: 1px;
-    // border-color: $dark_borders_color;
-    // background-color: if($transparency == 'true', rgba($raven_bg_color, 0.95), $raven_bg_color);
-    // color: $raven_fg_color;
-
     &.middle { border-bottom-style: none; } // applet background between two headers
 
     checkbutton, radiobutton { // this is for a nice focus on check and radios text
@@ -839,7 +833,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
     spinbutton:not(.vertical) { @extend entry.flat; }
 
     // for <10.4
-    button.combo { }
+    // button.combo { }
   }
 
   scrolledwindow.raven-background { border-bottom-style: none; }
@@ -885,6 +879,9 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
           margin: 8px;
           padding: 2px;
           image { padding: 0; }
+          &:active, &:checked {
+            image { color: white; }
+          }
         }
 
         // sub-list rows grouping
