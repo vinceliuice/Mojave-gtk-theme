@@ -14,10 +14,8 @@ terminal-window notebook {
 
 terminal-window,
 .mate-terminal {
-
   notebook {
     > header.top {
-
       tabs > tab { border-top: 1px solid transparent; }
 
       button {
@@ -34,12 +32,11 @@ terminal-window,
 //
 
 %pathbar_box_button {
-  @include button(header-normal);
-  &:hover { @include button(header-hover); }
-  &:active { @include button(header-active); }
-  &:checked { @include button(header-checked); }
-  &:disabled { color: transparentize($header_fg, 0.4); }
-  &:backdrop { opacity: 0.7; background-image: none; box-shadow: none; }
+  min-height: if($variant == 'light', 24px, 26px);
+  min-width: 22px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
 }
 
 .nautilus-window headerbar {
@@ -47,7 +44,15 @@ terminal-window,
     color: transparent;
     background-color: transparent;
 
-//    button { @extend %pathbar_box_button; }
+    .path-bar {
+      padding: 0;
+      margin: 0;
+
+      button.flat.text-button.toggle,
+      button.flat.image-button.text-button.toggle {
+        @extend %pathbar_box_button;
+      }
+    }
 
 //    &.width-maximized {
 //      border: 1px solid if($titlebar == 'light', rgba(black, 0.12), rgba(white, 0.12));
@@ -1613,7 +1618,6 @@ menubar.-vala-panel-appmenu-private {
 //
 
 window.thunar {
-
   treeview.view {
     background-color: $dark_sidebar_bg;
 
@@ -2316,9 +2320,6 @@ headerbar.titlebar {
   // entry.pathbar { min-height: 0; }
 
   button.flat.image-button.toggle {
-    min-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
     margin-top: 9px;
     margin-bottom: 10px;
   }

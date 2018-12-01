@@ -5309,9 +5309,23 @@ terminal-window notebook > header.top button,
   min-height: 24px;
 }
 
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
+  min-height: 26px;
+  min-width: 22px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+}
+
 .nautilus-window headerbar .path-bar-box {
   color: transparent;
   background-color: transparent;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar {
+  padding: 0;
+  margin: 0;
 }
 
 .nautilus-window headerbar .path-bar-box.background.frame {
@@ -7514,9 +7528,6 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
 }
 
 headerbar.titlebar button.flat.image-button.toggle, headerbar.titlebar button.image-button.toggle.budgie-menu-launcher {
-  min-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
   margin-top: 9px;
   margin-bottom: 10px;
 }
