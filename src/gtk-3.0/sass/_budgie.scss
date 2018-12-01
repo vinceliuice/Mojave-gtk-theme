@@ -7,6 +7,12 @@
 // Container for both the "panel" area and the shadow. Wise to keep
 // this transparent..
 
+// Panel
+$panel_top_color: if($variant == 'dark', #3a3a3a, #fefefe);
+$panel_bottom_color: if($variant == 'dark', #2a2a2a, #efefef);
+$panel_border_color: if($variant =='light', rgba(black, 0.2), rgba(black, 0.72));
+
+// Raven
 $raven_base_color: if($variant =='light', #f5f5f5, #1b1b1b);
 $raven_bg_color: if($variant =='light', #dedede, #1f1f1f);
 $raven_fg_color: $text_color;
@@ -14,7 +20,6 @@ $raven_header_bg_color: if($variant =='light', #efefef, #191919);
 $raven_header_fg_color: $text_color;
 $raven_button_bg_color: $button_bg;
 $raven_border_color: if($variant =='light', rgba(black, 0.10), rgba(black, 0.20));
-$panel_border_color: if($variant =='light', rgba(black, 0.2), rgba(black, 0.72));
 
 $raven_radius: 10px;
 $raven_padding: 8px;
@@ -377,14 +382,21 @@ popover.background.places-menu {
 
   .top & {
     border-bottom: 1px solid if($variant == 'light', $panel_border_color, $header_border);
-    background-image: linear-gradient(0deg, $header_middle 0%, $header_highlight 100%);
+    background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
   }
 
   .top &.transparent {
-    background-image: linear-gradient(0deg, rgba($header_middle, 0.9) 0%, rgba($header_highlight, 0.9) 100%);
+    background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.9) 0%, rgba($panel_top_color, 0.9) 100%);
   }
 
-  .bottom & { &, &.transparent { border-top: 1px solid $panel_border_color; } }
+  .bottom & {
+    &, &.transparent {
+      border: 1px solid $panel_border_color;
+      border-bottom: none;
+      border-radius: $wm_radius $wm_radius 0 0;
+    }
+  }
+
   .left & { &, &.transparent { border-right: 1px solid $panel_border_color; } }
   .right & { &, &.transparent { border-left: 1px solid $panel_border_color; } }
 
@@ -435,12 +447,8 @@ popover.background.places-menu {
       border: none;
       background-image: none;
 
-      menu {
-        border-radius: 0 0 $wm_radius $wm_radius;
-        menu { //submenu
-          border-radius: $wm_radius;
-        }
-      }
+      > window.background.popup > decoration,
+      > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
 
       &:hover { background-color: $selected_bg_color; }
       &:disabled { color: transparentize($panel_fg, 0.6); }
@@ -1016,14 +1024,6 @@ window.budgie-switcher-window {
     -gtk-outline-radius: $wm_radius;
 //    background-color: transparent;
     background-image: none;
-
-//    &:hover,
-//    &:active { }
-//    &:selected { // use the same values with Gnome-Shell
-//      &:disabled {
-//        &, label { }
-//      }
-//    }
   }
 }
 
@@ -1095,7 +1095,6 @@ window.budgie-switcher-window {
   @extend %budgie_dialog;
 
   .message { color: gtkalpha(currentColor, 0.6); }
-
   .failure { color: $destructive_color; }
 }
 

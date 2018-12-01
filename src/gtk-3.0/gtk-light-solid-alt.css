@@ -103,7 +103,7 @@ headerbar button,
 textview text,
 iconview,
 filechooser stack.view scrolledwindow treeview.view,
-window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
+window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view {
   color: #363636;
   background-color: #ffffff;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -113,7 +113,7 @@ window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
 textview text:hover,
 iconview:hover,
 filechooser stack.view scrolledwindow treeview.view:hover,
-window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:hover {
+window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:hover {
   background-color: #f7f7f7;
 }
 
@@ -121,7 +121,7 @@ window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:ho
 textview text:selected,
 iconview:selected,
 filechooser stack.view scrolledwindow treeview.view:selected,
-window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected {
+window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected {
   color: #ffffff;
   background-color: #315bef;
   transition: all 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -2543,14 +2543,11 @@ menubar > menuitem,
   padding: 4px 8px;
 }
 
-menubar > menuitem menu,
-.menubar > menuitem menu {
+menubar > menuitem > window.background.popup > decoration,
+menubar > menuitem > window.background.popup > menu,
+.menubar > menuitem > window.background.popup > decoration,
+.menubar > menuitem > window.background.popup > menu {
   border-radius: 0 0 6px 6px;
-}
-
-menubar > menuitem menu menu,
-.menubar > menuitem menu menu {
-  border-radius: 6px;
 }
 
 menubar > menuitem:hover,
@@ -5048,7 +5045,7 @@ decoration:backdrop {
 
 .csd.popup decoration {
   border-radius: 6px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06), 0 0 0 2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.12), 0 8px 15px rgba(0, 0, 0, 0.06), 0 0 0 2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
 tooltip.csd decoration {
@@ -5232,19 +5229,19 @@ headerbar button.titlebutton.restore:active,
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active-alt.png"), url("windows-assets/titlebutton-restore-active-alt@2.png"));
 }
 
-.view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
+.view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
 calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .budgie-menu button:checked {
   background-color: #315bef;
 }
 
-row:selected label, label:selected, .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
+row:selected label, label:selected, .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected,
 calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .budgie-menu button:checked {
   color: #ffffff;
 }
 
-row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, textview text:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, treeview.view:disabled:selected, row:disabled:selected,
+row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, textview text:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, treeview.view:disabled:selected, row:disabled:selected,
 calendar:disabled:selected, .nemo-window .nemo-window-pane widget.entry:disabled:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled, .budgie-menu button:disabled:checked {
   color: #98adf7;
@@ -6066,12 +6063,12 @@ dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
   font-weight: 700;
 }
 
-window#gnome-system-monitor.background.csd stack {
+window#gnome-system-monitor.background.csd > box.vertical > stack {
   background-color: #ffffff;
   border-radius: 0 0 6px 6px;
 }
 
-window#gnome-system-monitor.background.csd stack scrolledwindow treeview.view {
+window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view {
   background: none;
 }
 
@@ -6759,6 +6756,11 @@ menubar.-vala-panel-appmenu-private > menuitem {
 
 menubar.-vala-panel-appmenu-private > menuitem:hover {
   color: #ffffff;
+}
+
+menubar.-vala-panel-appmenu-private > menuitem > window.background.popup > decoration,
+menubar.-vala-panel-appmenu-private > menuitem > window.background.popup > menu {
+  border-radius: 0 0 6px 6px;
 }
 
 window.thunar treeview.view {
@@ -8762,15 +8764,17 @@ popover.background.places-menu row {
 
 .top .budgie-panel {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  background-image: linear-gradient(0deg, #e2e2e2 0%, #f5f5f5 100%);
+  background-image: linear-gradient(0deg, #efefef 0%, #fefefe 100%);
 }
 
 .top .budgie-panel.transparent {
-  background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.9) 0%, rgba(245, 245, 245, 0.9) 100%);
+  background-image: linear-gradient(0deg, rgba(239, 239, 239, 0.9) 0%, rgba(254, 254, 254, 0.9) 100%);
 }
 
 .bottom .budgie-panel, .bottom .budgie-panel.transparent {
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
 }
 
 .left .budgie-panel, .left .budgie-panel.transparent {
@@ -8837,14 +8841,11 @@ popover.background.places-menu row {
   background-image: none;
 }
 
-.budgie-panel menubar > menuitem menu,
-.budgie-panel .menubar > menuitem menu {
+.budgie-panel menubar > menuitem > window.background.popup > decoration,
+.budgie-panel menubar > menuitem > window.background.popup > menu,
+.budgie-panel .menubar > menuitem > window.background.popup > decoration,
+.budgie-panel .menubar > menuitem > window.background.popup > menu {
   border-radius: 0 0 6px 6px;
-}
-
-.budgie-panel menubar > menuitem menu menu,
-.budgie-panel .menubar > menuitem menu menu {
-  border-radius: 6px;
 }
 
 .budgie-panel menubar > menuitem:hover,

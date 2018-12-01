@@ -906,11 +906,11 @@ dialog.background.csd {
 //  Gnome system monitor
 //
 window#gnome-system-monitor.background.csd {
-  stack {
+  > box.vertical > stack {
     background-color: $base_color;
     border-radius: 0 0 $wm_radius $wm_radius;
 
-    scrolledwindow {
+    > box.vertical > scrolledwindow {
       treeview.view {
         background: none;
         @extend %view;
@@ -1601,6 +1601,9 @@ menubar.-vala-panel-appmenu-private {
     color: $panel_fg;
     font-weight: normal;
     &:hover { color: $selected_fg_color; }
+
+    > window.background.popup > decoration,
+    > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
   }
 }
 
