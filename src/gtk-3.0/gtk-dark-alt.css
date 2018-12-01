@@ -6176,6 +6176,7 @@ window.solid-csd > box.vertical > box.vertical > toolbar.horizontal,
 window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar {
   margin: -1px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: none;
   box-shadow: none;
   background-color: transparent;
 }
@@ -7198,7 +7199,7 @@ window > box.vertical > box.horizontal > widget {
 }
 
 .panel {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   transition: all 100ms ease-in-out;
   color: white;
 }
@@ -9077,10 +9078,6 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
 }
 
-.bottom .shadow-block {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
-}
-
 .left .shadow-block {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.23) 10%, rgba(0, 0, 0, 0.08) 60%, transparent);
 }
@@ -9218,6 +9215,10 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 
 .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris image {
   color: rgba(255, 255, 255, 0.85);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris image:disabled {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button {

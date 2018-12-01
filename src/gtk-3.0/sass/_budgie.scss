@@ -8,8 +8,8 @@
 // this transparent..
 
 // Panel
-$panel_top_color: if($variant == 'dark', #3a3a3a, #fefefe);
-$panel_bottom_color: if($variant == 'dark', #2a2a2a, #efefef);
+$panel_top_color: if($variant == 'dark', #3a3a3a, #f5f5f5);
+$panel_bottom_color: if($variant == 'dark', #2a2a2a, #e2e2e2);
 $panel_border_color: if($variant =='light', rgba(black, 0.2), rgba(black, 0.72));
 
 // Raven
@@ -607,7 +607,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher { border-image
   border-left: 1px solid $panel_border_color;
 }
 
-$pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
+$pos_list: ((top, bottom), (left, right), (right, left));
 
 @each $pos, $b_pos in $pos_list {
   // Panel borders
@@ -626,6 +626,8 @@ $pos_list: ((top, bottom), (bottom, top), (left, right), (right, left));
      background-image: linear-gradient(to $b_pos, rgba(black, 0.35) 0%, rgba(black, 0.23) 10%, rgba(black, 0.08) 60%, transparent);
    }
 }
+
+// .bottom .shadow-block { background-image: none; }
 
 $raven_opacity: if($variant =='light', 0.85, 0.95);
 
@@ -762,7 +764,13 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
           border-radius: 0 0 $raven_radius $raven_radius;
 
           label { min-height: 24px; }
-          image { color: rgba(white, 0.85); } //reset image color
+
+          image {  //reset image color
+            color: rgba(white, 0.85);
+            &:disabled {
+              color: rgba(white, 0.35);
+            }
+          }
 
           button.image-button {
             padding: 8px;
