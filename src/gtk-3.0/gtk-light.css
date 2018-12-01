@@ -9720,6 +9720,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 
 .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable:selected list, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button:selected list, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button:selected list {
   border: 1px solid rgba(255, 255, 255, 0.12);
+  background: none;
 }
 
 .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable:selected list > row.activatable, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button:selected list > row.activatable, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button:selected list > row.activatable, .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable:selected .budgie-menu list > button, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable:selected list > button, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button:selected list > button, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button:selected list > button {

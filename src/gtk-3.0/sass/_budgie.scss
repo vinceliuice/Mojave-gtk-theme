@@ -927,6 +927,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
 
           list {
             border: 1px solid rgba(white, 0.12);
+            background: none;
 
             > row.activatable {
               border-bottom: 1px solid rgba(white, 0.12);
