@@ -7,11 +7,6 @@
 // Container for both the "panel" area and the shadow. Wise to keep
 // this transparent..
 
-// Panel
-$panel_top_color: if($variant == 'dark', #3a3a3a, #f5f5f5);
-$panel_bottom_color: if($variant == 'dark', #2a2a2a, #e2e2e2);
-$panel_border_color: if($variant =='light', rgba(black, 0.2), rgba(black, 0.72));
-
 // Raven
 $raven_base_color: if($variant =='light', #f5f5f5, #1b1b1b);
 $raven_bg_color: if($variant =='light', #dedede, #1f1f1f);

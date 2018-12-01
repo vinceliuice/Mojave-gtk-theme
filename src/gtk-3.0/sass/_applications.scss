@@ -2099,19 +2099,19 @@ window > box.vertical > box.horizontal {
 // Wingpanel
 //
 .panel {
-  background-color: rgba(black, 0.0);
+  background-color: $panel_bg;
+  background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.9) 0%, rgba($panel_top_color, 0.9) 100%);
+  border-bottom: 1px solid if($variant == 'light', $panel_border_color, $header_border);
   transition: all 100ms ease-in-out;
-  color: white;
+  color: $panel_fg;
 
   &.maximized {
-    background-color: rgba(black, 0.65);
+    background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
   }
 
   &.translucent {
-    background-color: rgba(#000, 0.5);
-    box-shadow:
-      0 1px 3px rgba(#000, 0.24),
-      0 1px 1px rgba(#000, 0.52);
+    background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.9) 0%, rgba($panel_top_color, 0.9) 100%);
+    box-shadow: none;
 //    margin-bottom: 4px;
   }
 
@@ -2120,17 +2120,25 @@ window > box.vertical > box.horizontal {
     box-shadow: none;
     border: none;
     background-color: transparent;
-    color: white;
     background-image: none;
+    color: $panel_fg;
+
+    > menuitem {
+      &:hover {
+        background-color: $selected_bg_color;
+        color: $selected_fg_color
+      }
+      &:disabled { color: transparentize($panel_fg, 0.6); }
+    }
   }
 
   popover {
     padding: 2px 4px;
+    border: 1px solid if($variant == 'light', rgba(black, 0.35), rgba(white, 0.10));
+    box-shadow: 0 5px 5px rgba(black, 0.12), 0 5px 15px rgba(black, 0.08);
 
     button {
-      border-color: transparent;
-      background-color: transparent;
-      box-shadow: none;
+      @include button(undecorated);
       &:hover { @include button(flat-hover); }
       &:active { @include button(flat-active); label { color: white; } }
       &:checked { @include button(flat-checked); label { color: white; } }
@@ -2139,13 +2147,13 @@ window > box.vertical > box.horizontal {
     }
 
     .linked > button {
-      color: $fg_color;
-      background-color: $button_bg;
-      border-color: $borders_color;
-      @if $variant=='light' { box-shadow: $shadow_3, inset 0 0 0 1px rgba($borders_color, 0.01); }
+      @include button(normal);
       &:hover { @include button(hover); }
       &:active, &:checked { @include button(active); }
+      &:disabled { @include button(insensitive); }
     }
+
+    list { background-color: transparent; }
 
     separator.horizontal {
       margin: 0 -4px;
@@ -2160,6 +2168,7 @@ window > box.vertical > box.horizontal {
       background: none;
 
       .view {
+        background: none;
 
         &:hover {
           border-radius: $bt_radius;
@@ -2167,7 +2176,7 @@ window > box.vertical > box.horizontal {
         }
 
         &:selected {
-          &, &:focus {
+          &, &:focus, &:backdrop {
             text-shadow: none;
             transition: all 200ms $ease-out-quad;
             background-color: if($variant=='light', rgba(black, 0.65), rgba(white, 0.35));
@@ -2185,26 +2194,198 @@ window > box.vertical > box.horizontal {
   > revealer label,
   > revealer image,
   > revealer spinner {
-    color: #fff;
-    font-weight: bold;
-    text-shadow:
-        0 0 2px rgba(#000, 0.3),
-        0 1px 2px rgba(#000, 0.6);
+    color: $panel_fg;
+    font-weight: normal;
+    text-shadow: none;
     transition: all 200ms ease-in-out;
-    -gtk-icon-shadow:
-        0 0 2px rgba(#000, 0.3),
-        0 1px 2px rgba(#000, 0.6);
+    -gtk-icon-shadow: none;
   }
 
   .keyboard {
-    background-color: #fff;
+    background-color: $panel_fg;
     border-radius: 2px;
-    box-shadow:
-        0 0 2px rgba(#000, 0.3),
-        0 1px 2px rgba(#000, 0.6);
-    color: #333;
-    font-weight: 600;
+    box-shadow: none;
+    color: $panel_bg;
+    font-weight: normal;
     padding: 0 3px;
     text-shadow: none;
   }
+}
+
+// Popover switcher dots
+button.flat.toggle.switcher {
+  &:hover, &:active, &:checked, &:selected {
+    image {
+      color: $selected_bg_color;
+    }
+  }
+}
+
+// Calendar Popover
+.circular { // Calendar popover date button
+  label:disabled { color: $insensitive_fg_color; }
+  &.accent { // Today button
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+  }
+}
+
+// Marlin / Pantheon Files
+MarlinViewWindow {
+  *:selected, *:selected:focus {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    outline-color: transparent;
+  }
+
+  GtkIconView.view:selected {
+    &, &:focus, &:hover, &:focus:hover { background-color: transparent; }
+  }
+
+  FMListView, FMColumnView { outline-color: transparent; }
+}
+
+.marlin-pathbar.pathbar {
+  padding-left: 4px;
+  padding-right: 4px;
+
+  @include entry(header-normal);
+  &:focus { @include entry(header-focus) }
+  &:disabled { @include entry(header-insensitive) }
+}
+
+window.background.csd {
+  > paned.horizontal {
+    > separator {
+      &:dir(ltr) { margin-left: -1px; }
+      &:dir(rtl) { margin-right: -1px; }
+    }
+
+    > scrolledwindow {
+      > viewport.frame {
+        > box.vertical treeview.view {
+
+          &:not(:hover):not(:selected) {
+            border-bottom-left-radius: $wm_radius;
+            background: none;
+          }
+
+          color: $dark_sidebar_fg;
+          padding-top: 3px;
+          padding-bottom: 3px;
+          border-right: 1px solid $header_border;
+          @extend %view;
+
+          &:not(:selected):hover { background-color: if($variant == 'light', rgba(black, 0.05), rgba(white, 0.05)); }
+
+          image {
+            color: $dark_sidebar_fg;
+            &:selected { color: $selected_fg_color; }
+            &:disabled { color: rgba($dark_sidebar_fg, 0.45); }
+          }
+
+          &.trough { @extend treeview.view.trough }
+        }
+      }
+    }
+  }
+}
+
+.dynamic-notebook {
+  notebook > stack {
+    border-bottom-right-radius: $wm_radius;
+    background-color: $base_color;
+
+    scrolledwindow.view.h2 {
+      background-color: transparent;
+    }
+
+    treeview.view,
+    iconview.view {
+      &:not(:hover):not(:selected) { background: none; }
+      &:hover { background-color: if($variant == 'light', rgba(black, 0.05), rgba(white, 0.05)); }
+      &:selected {
+        color: $fg_color;
+        background-color: if($variant == 'light', rgba(black, 0.1), rgba(white, 0.1));
+      }
+    }
+  }
+}
+
+headerbar.titlebar {
+  // entry.pathbar { min-height: 0; }
+
+  button.flat.image-button.toggle {
+    min-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 9px;
+    margin-bottom: 10px;
+  }
+
+  .linked.raised {
+    > button.toggle {
+      @extend %outline_dashed;
+      @include button(header-normal);
+      &:hover { @include button(header-hover); }
+      &:active { @include button(header-active); }
+      &:checked { @include button(header-checked); }
+      &:disabled { color: transparentize($header_fg, 0.4); }
+      &:backdrop { opacity: 0.7; background-image: none; box-shadow: none; }
+      &, &:hover, &:active, &:checked, &:disabled {
+        @extend %linked;
+        border-left: 1px solid $header_button_border;
+      }
+    }
+
+    // fixed ugly border color
+    > button.toggle:not(:last-child) {
+      &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
+      &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
+    }
+
+    @include pathbar_linking_rules($button_rules: 'header');
+  }
+
+  > grid.linked.horizontal.format-bar {
+    background-image: image($header_bg); // Hide Code header format-bar
+  }
+}
+
+// Gala
+.gala-notification {
+    border: 1px solid $dark_borders_color;
+    border-radius: $wm_radius;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-image: _solid($osd_bg_color);
+    background-color: transparent;
+
+  .title, .label {
+    color: $osd_fg_color;
+  }
+}
+
+// system setting
+actionbar.inline-toolbar {
+  border: none;
+  border-top: 1px solid $borders_color;
+
+  button { // Reset buttons
+    border-radius: $bt_radius;
+    border: 1px solid $borders_color;
+    &:first-child {
+      border-right-style: solid;
+    }
+    &:last-child {
+      border-left-style: solid;
+    }
+  }
+}
+
+// Nightlight warmth trough
+scale.warmth trough {
+  min-height: 4px;
+  border-radius: 3px;
+  background-image: linear-gradient(to right, $suggested_color, $destructive_color);
+  box-shadow: inset 0 0 0 1px rgba(black, 0.25);
 }

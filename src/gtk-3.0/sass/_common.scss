@@ -1321,8 +1321,8 @@ headerbar {
 
   stack & { // tackles the stacked headerbars case
     &:first-child, &:last-child {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-top-left-radius: $_header_radius;
+      border-top-right-radius: $_header_radius;
     }
   }
 
@@ -1339,6 +1339,26 @@ headerbar {
     &:last-child,
     &:only-child {
       border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+box.vertical > headerbar { reset headerbar style for not CSD window
+  &, &:backdrop { background-image: $menubar_bg_image; }
+  border-radius: 0 0 0 0;
+  box-shadow: none;
+
+  // Fixes split headerbars
+  separator:first-child + &,
+  &:first-child {
+    &, &:backdrop {
+      border-top-left-radius: 0;
+    }
+  }
+
+  &:last-child {
+    &, &:backdrop {
       border-top-right-radius: 0;
     }
   }
@@ -1586,17 +1606,13 @@ headerbar {
       }
     }
 
-    @include pathbar_linking_rules($button_rules: 'header');
-  }
-
-  .linked:not(.vertical).path-bar,
-  .linked:not(.vertical):not(.path-bar).stack-switcher {
-
     // fixed ugly border color
     > button:not(:last-child) {
       &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
       &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
     }
+
+    @include pathbar_linking_rules($button_rules: 'header');
   }
 
   // Headerbar Suggested and Destructive Action buttons
@@ -1790,10 +1806,10 @@ treeview.view {
     -GtkTreeView-expander-size: 16;
   }
 
-  border-left-color: rgba($fg_color, 0.15);   // this is actually the tree lines color,
-  border-top-color: $borders_color;         // while this is the grid lines color, better then nothing
+  border-left-color: rgba($fg_color, 0.15); // this is actually the tree lines color,
+  border-top-color: $borders_color; // while this is the grid lines color, better then nothing
 
-  rubberband { @extend rubberband; }                    // to avoid borders being overridden by the previously set props
+  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
 
   acceleditor > label { background-color: $selected_bg_color; }
 
@@ -1801,7 +1817,7 @@ treeview.view {
     &, &:focus {
       border-radius: 0;
       border-left-color: mix($selected_fg_color, $selected_bg_color, 50%);
-      border-top-color: rgba($fg_color, 0.15);   // doesn't work unfortunately
+      border-top-color: rgba($fg_color, 0.15); // doesn't work unfortunately
 
       @extend %selected_items;
     }
@@ -1857,6 +1873,7 @@ treeview.view {
       background-color: $selected_fg_color;
     }
   }
+
   &.trough { // progress bar trough in treeviews
     color: $fg_color;
     background-color: $button_border;
