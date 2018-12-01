@@ -8962,12 +8962,21 @@ window.budgie-popover:not(.csd) > frame.container > border {
   box-shadow: none;
 }
 
+.budgie-menu button:hover {
+  transition: none;
+}
+
 .budgie-menu button:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
+.budgie-menu button:checked:hover {
+  background-image: none;
+  background-color: #496ef1;
+}
+
 .budgie-menu button:checked:disabled {
-  background-color: #315bef;
+  background-color: rgba(49, 91, 239, 0.5);
 }
 
 .budgie-menu row {

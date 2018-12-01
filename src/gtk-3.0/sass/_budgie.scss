@@ -272,7 +272,6 @@ window.budgie-popover:not(.csd) {
 
   button {
     @extend row.activatable;
-
     min-height: 32px;
     padding: 0 8px;
     border-radius: 0;
@@ -281,9 +280,14 @@ window.budgie-popover:not(.csd) {
     border: none;
     box-shadow: none;
 
+    &:hover { transition: none; }
     &:disabled { color: $insensitive_fg_color; }
     &:checked { @extend %selected_items; }
-    &:checked:disabled { background-color: $selected_bg_color; } // overriding
+    &:checked:hover {
+      background-image: none;
+      background-color: lighten($selected_bg_color, 5%);
+    }
+    &:checked:disabled { background-color: rgba($selected_bg_color, 0.5); } // overriding
   }
 
   row {
