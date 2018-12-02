@@ -1404,7 +1404,6 @@ MsdOsdWindow.background.osd {
 //
 .mate-panel-menu-bar,
 panel-toplevel.background {
-
   &, menubar {
     background-color: opacify($panel_bg, 1);
   }
@@ -2100,7 +2099,6 @@ window > box.vertical > box.horizontal {
   &.translucent {
     background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.9) 0%, rgba($panel_top_color, 0.9) 100%);
     box-shadow: none;
-//    margin-bottom: 4px;
   }
 
   menubar &,
@@ -2109,15 +2107,8 @@ window > box.vertical > box.horizontal {
     border: none;
     background-color: transparent;
     background-image: none;
+    background-image: none;
     color: $panel_fg;
-
-    > menuitem {
-      &:hover {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color
-      }
-      &:disabled { color: transparentize($panel_fg, 0.6); }
-    }
   }
 
   popover {
@@ -2184,18 +2175,18 @@ window > box.vertical > box.horizontal {
   > revealer spinner {
     color: $panel_fg;
     font-weight: normal;
-    text-shadow: none;
     transition: all 200ms ease-in-out;
+    text-shadow: none;
     -gtk-icon-shadow: none;
   }
 
   .keyboard {
     background-color: $panel_fg;
     border-radius: 2px;
-    box-shadow: none;
     color: $panel_bg;
-    font-weight: normal;
     padding: 0 3px;
+    font-weight: normal;
+    box-shadow: none;
     text-shadow: none;
   }
 }
