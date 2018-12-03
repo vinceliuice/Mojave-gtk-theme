@@ -7274,18 +7274,8 @@ menubar .panel,
   border: none;
   background-color: transparent;
   background-image: none;
+  background-image: none;
   color: #363636;
-}
-
-menubar .panel > menuitem:hover,
-.panel menubar > menuitem:hover {
-  background-color: #315bef;
-  color: #ffffff;
-}
-
-menubar .panel > menuitem:disabled,
-.panel menubar > menuitem:disabled {
-  color: rgba(54, 54, 54, 0.4);
 }
 
 .panel popover {
@@ -7418,18 +7408,18 @@ menubar .panel > menuitem:disabled,
 .composited-indicator > revealer spinner {
   color: #363636;
   font-weight: normal;
-  text-shadow: none;
   transition: all 200ms ease-in-out;
+  text-shadow: none;
   -gtk-icon-shadow: none;
 }
 
 .composited-indicator .keyboard {
   background-color: #363636;
   border-radius: 2px;
-  box-shadow: none;
   color: #FEFEFE;
-  font-weight: normal;
   padding: 0 3px;
+  font-weight: normal;
+  box-shadow: none;
   text-shadow: none;
 }
 

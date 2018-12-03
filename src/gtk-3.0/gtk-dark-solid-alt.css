@@ -7255,18 +7255,8 @@ menubar .panel,
   border: none;
   background-color: transparent;
   background-image: none;
+  background-image: none;
   color: #dadada;
-}
-
-menubar .panel > menuitem:hover,
-.panel menubar > menuitem:hover {
-  background-color: #315bef;
-  color: #ffffff;
-}
-
-menubar .panel > menuitem:disabled,
-.panel menubar > menuitem:disabled {
-  color: rgba(218, 218, 218, 0.4);
 }
 
 .panel popover {
@@ -7397,18 +7387,18 @@ menubar .panel > menuitem:disabled,
 .composited-indicator > revealer spinner {
   color: #dadada;
   font-weight: normal;
-  text-shadow: none;
   transition: all 200ms ease-in-out;
+  text-shadow: none;
   -gtk-icon-shadow: none;
 }
 
 .composited-indicator .keyboard {
   background-color: #dadada;
   border-radius: 2px;
-  box-shadow: none;
   color: #2a2a2a;
-  font-weight: normal;
   padding: 0 3px;
+  font-weight: normal;
+  box-shadow: none;
   text-shadow: none;
 }
 
@@ -8714,7 +8704,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 .budgie-popover {
   margin: 0;
   padding: 0;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.55);
   border-radius: 6px;
   background-color: #333333;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55);
