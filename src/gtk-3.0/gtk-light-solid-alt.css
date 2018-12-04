@@ -1725,20 +1725,20 @@ window.solid-csd headerbar:only-child {
   border-top-right-radius: 0;
 }
 
-box.vertical > headerbar {
+window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) {
   border-radius: 0 0 0 0;
   box-shadow: none;
 }
 
-box.vertical > headerbar, box.vertical > headerbar:backdrop {
+window.background:not(.csd) > box.vertical > headerbar:not(.titlebar), window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):backdrop {
   background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 100%);
 }
 
-separator:first-child + box.vertical > headerbar, separator:first-child + box.vertical > headerbar:backdrop, box.vertical > headerbar:first-child, box.vertical > headerbar:first-child:backdrop {
+separator:first-child + window.background:not(.csd) > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):backdrop, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):first-child, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
   border-top-left-radius: 0;
 }
 
-box.vertical > headerbar:last-child, box.vertical > headerbar:last-child:backdrop {
+window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):last-child, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):last-child:backdrop {
   border-top-right-radius: 0;
 }
 
