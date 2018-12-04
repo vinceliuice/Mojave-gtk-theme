@@ -1718,7 +1718,7 @@ box.vertical > headerbar {
   box-shadow: none;
 }
 
-reset headerbar style for not CSD window box.vertical > headerbar, box.vertical > headerbar:backdrop {
+box.vertical > headerbar, box.vertical > headerbar:backdrop {
   background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 100%);
 }
 

@@ -1344,7 +1344,7 @@ headerbar {
   }
 }
 
-box.vertical > headerbar { reset headerbar style for not CSD window
+box.vertical > headerbar { // reset headerbar style for not CSD window
   &, &:backdrop { background-image: $menubar_bg_image; }
   border-radius: 0 0 0 0;
   box-shadow: none;
