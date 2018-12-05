@@ -389,10 +389,13 @@ popover.background.places-menu {
   }
 
   .bottom & {
-    &, &.transparent {
-      border: 1px solid $panel_border_color;
-      border-bottom: none;
-      border-radius: $wm_radius $wm_radius 0 0;
+    border: solid $panel_border_color;
+    border-width: 1px 1px 0 1px;
+    border-radius: $wm_radius $wm_radius 0 0;
+
+    &.dock-mode {
+      border-radius: 0 0 0 0;
+      border-width: 1px 0 0 0;
     }
   }
 
