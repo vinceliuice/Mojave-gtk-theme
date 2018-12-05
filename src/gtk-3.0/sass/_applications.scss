@@ -2108,7 +2108,7 @@ window > box.vertical > box.horizontal {
     box-shadow: none;
   }
 
-  menubar &,
+  // menubar &,
   & menubar {
     box-shadow: none;
     border: none;
@@ -2185,6 +2185,15 @@ window > box.vertical > box.horizontal {
     transition: all 200ms ease-in-out;
     text-shadow: none;
     -gtk-icon-shadow: none;
+  }
+
+  > revealer image,
+  > revealer spinner {
+    padding: 3px 0;
+  }
+
+  > revealer label {
+    padding: 3px 6px;
   }
 
   .keyboard {
