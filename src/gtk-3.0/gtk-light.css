@@ -7268,7 +7268,6 @@ window > box.vertical > box.horizontal > widget {
   box-shadow: none;
 }
 
-menubar .panel,
 .panel menubar {
   box-shadow: none;
   border: none;
@@ -7411,6 +7410,15 @@ menubar .panel,
   transition: all 200ms ease-in-out;
   text-shadow: none;
   -gtk-icon-shadow: none;
+}
+
+.composited-indicator > revealer image,
+.composited-indicator > revealer spinner {
+  padding: 3px 0;
+}
+
+.composited-indicator > revealer label {
+  padding: 3px 6px;
 }
 
 .composited-indicator .keyboard {
