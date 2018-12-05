@@ -903,6 +903,14 @@ window#gnome-system-monitor.background.csd {
       treeview.view {
         background: none;
         @extend %view;
+
+        &.progressbar, &.progressbar:focus { // progress bar in treeviews
+          @extend treeview.view.progressbar;
+        }
+
+        &.trough { // progress bar trough in treeviews
+          @extend treeview.view.trough;
+        }
       }
     }
   }
@@ -1599,7 +1607,6 @@ menubar.-vala-panel-appmenu-private {
 //
 //  * Thunar *
 //
-
 window.thunar {
   treeview.view {
     background-color: $dark_sidebar_bg;

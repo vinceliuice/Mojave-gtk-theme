@@ -2452,26 +2452,26 @@ treeview.view.expander:checked {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
-treeview.view.progressbar, treeview.view.progressbar:focus {
+treeview.view.progressbar, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar:focus, treeview.view.progressbar:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar:focus {
   color: #ffffff;
   border-radius: 5px;
   background-color: #315bef;
 }
 
-treeview.view.progressbar:selected, treeview.view.progressbar:selected:focus, treeview.view.progressbar:focus:selected, treeview.view.progressbar:focus:selected:focus {
+treeview.view.progressbar:selected, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar:selected, treeview.view.progressbar:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar:selected:focus, treeview.view.progressbar:focus:selected, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar:focus:selected, treeview.view.progressbar:focus:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.progressbar:focus:selected:focus {
   color: #315bef;
   box-shadow: none;
   background-color: #ffffff;
 }
 
-treeview.view.trough, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view.trough {
+treeview.view.trough, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.trough, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view.trough {
   color: #dedede;
   background-color: rgba(255, 255, 255, 0.12);
   border-radius: 5px;
   border-width: 0;
 }
 
-treeview.view.trough:selected, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view.trough:selected, treeview.view.trough:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view.trough:selected:focus {
+treeview.view.trough:selected, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.trough:selected, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view.trough:selected, treeview.view.trough:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view.trough:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view.trough:selected:focus {
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 5px;
