@@ -120,7 +120,7 @@ textview {
 iconview {
   @extend %view;
 
-  &:hover, &:selected { border-radius: $bt_radius; }
+  &, &:hover, &:selected { border-radius: $bt_radius; }
 }
 
 rubberband,

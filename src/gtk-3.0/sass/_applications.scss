@@ -1297,6 +1297,25 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Document Viewer
+//
+window.background.csd {
+  > box.vertical {
+    > scrolledwindow {
+      > iconview.view.content-view:not(:hover):not(:selected) {
+        background-color: transparent;
+        border-radius: $wm_radius;
+      }
+    }
+  }
+
+  evview.view.content-view {
+    background-color: transparent;
+    border-radius: 0 0 $wm_radius $wm_radius;
+  }
+}
+
+//
 // Archive Manager
 //
 .background.csd {
@@ -1588,19 +1607,6 @@ window#whiskermenu-window {
         color: $fg_color;
       }
     }
-  }
-}
-
-// vala-panel-appmenu
-menubar.-vala-panel-appmenu-private {
-  background: none;
-  > menuitem {
-    color: $panel_fg;
-    font-weight: normal;
-    &:hover { color: $selected_fg_color; }
-
-    > window.background.popup > decoration,
-    > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
   }
 }
 
