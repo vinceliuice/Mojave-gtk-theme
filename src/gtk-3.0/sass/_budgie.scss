@@ -1127,19 +1127,15 @@ window.budgie-switcher-window {
 //
 // vala-panel
 //
-// That app does not have any position specific style-classes,
-// so embed indicators at the bottom of tasklist buttons as default.
-// Then that app looks quite weird in vertical layout at all.
-
 window#ValaPanel.background {
   background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
   border: none;
   color: $panel_fg;
 
-  decoration { all: unset; } // unset all decorations
-
-  widget.-vala-panel-background > separator { // separator applet
-    background: none;
+  widget.-vala-panel-background {
+    > separator { // separator applet
+      background: none;
+    }
   }
 }
 

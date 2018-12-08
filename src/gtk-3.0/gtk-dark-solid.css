@@ -9893,10 +9893,6 @@ window#ValaPanel.background {
   color: #dadada;
 }
 
-window#ValaPanel.background decoration {
-  all: unset;
-}
-
 window#ValaPanel.background widget.-vala-panel-background > separator {
   background: none;
 }

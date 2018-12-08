@@ -9920,10 +9920,6 @@ window#ValaPanel.background {
   color: #363636;
 }
 
-window#ValaPanel.background decoration {
-  all: unset;
-}
-
 window#ValaPanel.background widget.-vala-panel-background > separator {
   background: none;
 }
