@@ -1464,14 +1464,6 @@ searchbar {
   padding: 3px 3px 4px 3px;
 }
 
-searchbar button.flat, searchbar button.budgie-menu-launcher, searchbar .budgie-panel button.flat.launcher, .budgie-panel searchbar button.flat.launcher {
-  min-height: 16px;
-  min-width: 16px;
-  margin: 4px 6px;
-  padding: 0 2px;
-  border-radius: 100px;
-}
-
 actionbar {
   padding: 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
@@ -4334,15 +4326,6 @@ row.activatable:selected.has-open-popup, .budgie-menu button:selected.has-open-p
   border: none;
 }
 
-.app-notification button:not(.text-button).image-button {
-  padding: 0;
-  margin: 0 0 0 0;
-  min-height: 24px;
-  min-width: 24px;
-  border-radius: 100px;
-  -gtk-outline-radius: 100px;
-}
-
 .app-notification button:hover {
   color: #c5c5c5;
   background-color: rgba(255, 255, 255, 0.15);
@@ -4974,7 +4957,7 @@ popover.background.touch-selection, .csd popover.background.touch-selection {
   font-family: Monospace;
 }
 
-button.close, row button.circular, row button.nautilus-circular-button.image-button, stackswitcher button.circular, stackswitcher button.nautilus-circular-button.image-button,
+button.close, searchbar button.flat, searchbar button.budgie-menu-launcher, searchbar .budgie-panel button.flat.launcher, .budgie-panel searchbar button.flat.launcher, row button.circular, row button.nautilus-circular-button.image-button, .app-notification button.image-button:not(.text-button), stackswitcher button.circular, stackswitcher button.nautilus-circular-button.image-button,
 stackswitcher button.text-button.circular, .raven button.image-button, .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button, .raven .budgie-menu box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button, .budgie-menu .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > button button.image-button,
 button.circular,
 button.nautilus-circular-button.image-button {
