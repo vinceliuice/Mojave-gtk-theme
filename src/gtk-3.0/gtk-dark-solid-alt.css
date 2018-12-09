@@ -9040,12 +9040,26 @@ popover.background.places-menu row {
   border-width: 1px 0 0 0;
 }
 
-.left .budgie-panel, .left .budgie-panel.transparent {
-  border-right: 1px solid rgba(0, 0, 0, 0.72);
+.left .budgie-panel {
+  border: solid rgba(0, 0, 0, 0.72);
+  border-width: 1px 1px 1px 0;
+  border-radius: 0 6px 6px 0;
 }
 
-.right .budgie-panel, .right .budgie-panel.transparent {
-  border-left: 1px solid rgba(0, 0, 0, 0.72);
+.left .budgie-panel.dock-mode {
+  border-radius: 0 0 0 0;
+  border-width: 0 1px 0 0;
+}
+
+.right .budgie-panel {
+  border: solid rgba(0, 0, 0, 0.72);
+  border-width: 1px 0 1px 1px;
+  border-radius: 6px 0 0 6px;
+}
+
+.right .budgie-panel.dock-mode {
+  border-radius: 0 0 0 0;
+  border-width: 0 0 0 1px;
 }
 
 .budgie-panel button {
@@ -9889,8 +9903,9 @@ window.budgie-switcher-window flowboxchild {
 
 window#ValaPanel.background {
   background-image: linear-gradient(0deg, #2a2a2a 0%, #333333 100%);
-  border: none;
+  border: 1px solid #101010;
   color: #dadada;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.35);
 }
 
 window#ValaPanel.background widget.-vala-panel-background > separator {

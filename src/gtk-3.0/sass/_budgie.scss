@@ -399,8 +399,27 @@ popover.background.places-menu {
     }
   }
 
-  .left & { &, &.transparent { border-right: 1px solid $panel_border_color; } }
-  .right & { &, &.transparent { border-left: 1px solid $panel_border_color; } }
+  .left & {
+    border: solid $panel_border_color;
+    border-width: 1px 1px 1px 0;
+    border-radius: 0 $wm_radius $wm_radius 0;
+
+    &.dock-mode {
+      border-radius: 0 0 0 0;
+      border-width: 0 1px 0 0;
+    }
+  }
+
+  .right & {
+    border: solid $panel_border_color;
+    border-width: 1px 0 1px 1px;
+    border-radius: $wm_radius 0 0 $wm_radius;
+
+    &.dock-mode {
+      border-radius: 0 0 0 0;
+      border-width: 0 0 0 1px;
+    }
+  }
 
   button {
     min-height: 16px;
@@ -591,14 +610,6 @@ popover.background.places-menu {
 box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher { border-image: none; } // unset before drawing indicators
 
 // Raven borders
-// .top frame.raven-frame > border {
-//   border: none;
-// }
-//
-// .bottom frame.raven-frame > border {
-//   border: none;
-// }
-
 .left frame.raven-frame > border {
   border: none;
   border-right: 1px solid $panel_border_color;
@@ -1129,8 +1140,9 @@ window.budgie-switcher-window {
 //
 window#ValaPanel.background {
   background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
-  border: none;
+  border: 1px solid $header_border;
   color: $panel_fg;
+  box-shadow: 0 3px 5px rgba(black, 0.35);
 
   widget.-vala-panel-background {
     > separator { // separator applet
