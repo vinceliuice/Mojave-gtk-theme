@@ -2332,17 +2332,17 @@ headerbar.titlebar {
       &:backdrop { opacity: 0.7; background-image: none; box-shadow: none; }
       &, &:hover, &:active, &:checked, &:disabled {
         @extend %linked;
-        border-left: 1px solid $header_button_border;
+        border-color: $header_button_border;
       }
     }
 
-    // fixed ugly border color
+    fixed ugly border color
     > button.toggle:not(:last-child) {
       &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
       &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
     }
 
-    @include pathbar_linking_rules($button_rules: 'header');
+    @include pathbar_linking_rules ($button_rules: 'header');
   }
 
   > grid.linked.horizontal.format-bar {

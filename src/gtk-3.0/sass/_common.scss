@@ -1612,7 +1612,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
     }
 
-    @include pathbar_linking_rules($button_rules: 'header');
+    @include pathbar_linking_rules ($button_rules: 'header');
   }
 
   // Headerbar Suggested and Destructive Action buttons

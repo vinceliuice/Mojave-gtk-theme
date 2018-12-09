@@ -7578,14 +7578,14 @@ headerbar.titlebar .linked.raised > button.toggle:backdrop {
 }
 
 headerbar.titlebar .linked.raised > button.toggle, headerbar.titlebar .linked.raised > button.toggle:hover, headerbar.titlebar .linked.raised > button.toggle:active, headerbar.titlebar .linked.raised > button.toggle:checked, headerbar.titlebar .linked.raised > button.toggle:disabled {
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar.titlebar .linked.raised > button.toggle:not(:last-child):active {
+headerbar.titlebar .linked.raised fixed ugly border color > button.toggle:not(:last-child):active {
   box-shadow: 1px 0 #888888;
 }
 
-headerbar.titlebar .linked.raised > button.toggle:not(:last-child):checked {
+headerbar.titlebar .linked.raised fixed ugly border color > button.toggle:not(:last-child):checked {
   box-shadow: 1px 0 #686868;
 }
 
