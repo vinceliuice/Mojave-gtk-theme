@@ -9884,13 +9884,6 @@ window.budgie-switcher-window flowboxchild {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-window#ValaPanel.background {
-  background-image: linear-gradient(0deg, #2a2a2a 0%, #333333 100%);
-  border: 1px solid #101010;
-  color: #dadada;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.35);
-}
-
 window#ValaPanel.background widget.-vala-panel-background > separator {
   background: none;
 }
@@ -9948,21 +9941,18 @@ button.-panel-icon-button.budgie-menu-launcher:checked {
   color: #ffffff;
 }
 
-menubar.-vala-panel-background,
-menubar.-vala-panel-appmenu-private {
+menubar.-vala-panel-background {
   background: none;
   border: none;
   box-shadow: none;
 }
 
-menubar.-vala-panel-background > menuitem,
-menubar.-vala-panel-appmenu-private > menuitem {
+menubar.-vala-panel-background > menuitem {
   color: #dadada;
   font-weight: normal;
 }
 
-menubar.-vala-panel-background > menuitem:hover,
-menubar.-vala-panel-appmenu-private > menuitem:hover {
+menubar.-vala-panel-background > menuitem:hover {
   color: #ffffff;
 }
 
