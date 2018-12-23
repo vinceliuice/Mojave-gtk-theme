@@ -1595,7 +1595,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       &:active { @include button(header-active); }
       &:checked { @include button(header-checked); }
       &:disabled { color: rgba($header_fg, 0.45); }
-      &:backdrop { opacity: 0.7; background-image: none; box-shadow: none; }
+      &:backdrop { opacity: 0.65; background-image: none; box-shadow: none; }
       &, &:hover, &:active, &:checked, &:disabled {
         @extend %linked;
         border-left: 1px solid $header_button_border;
