@@ -1764,6 +1764,7 @@ headerbar entry, .nemo-window .primary-toolbar entry {
   color: #FDFDFD;
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
   border: none;
   box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
 }
@@ -1783,10 +1784,6 @@ headerbar entry:focus, .nemo-window .primary-toolbar entry:focus {
   border: none;
   box-shadow: inset 0 1px transparent, 0 0 0 2px rgba(104, 135, 205, 0.75), inset 0 0 0 1px #6887cd;
   background-clip: padding-box;
-}
-
-headerbar entry:focus image, .nemo-window .primary-toolbar entry:focus image {
-  color: #315bef;
 }
 
 headerbar entry:disabled, .nemo-window .primary-toolbar entry:disabled {
@@ -2050,7 +2047,7 @@ headerbar .linked:not(.vertical).path-bar > button:checked,
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
 headerbar .linked:not(.vertical).path-bar > button:disabled,
 .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:disabled {
-  color: rgba(253, 253, 253, 0.6);
+  color: rgba(253, 253, 253, 0.45);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:backdrop, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:backdrop,
@@ -2232,6 +2229,7 @@ headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combo
   color: #FDFDFD;
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
   border: none;
   box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
 }
@@ -5298,17 +5296,60 @@ terminal-window notebook > header.top button,
   min-width: 22px;
   padding-top: 0;
   padding-bottom: 0;
-  margin: 0;
+  margin: 0 0 0 -6px;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  border-width: 0 1px 0 0;
+  box-shadow: inset 0 1px #767676;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:hover, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:hover {
+  background-color: #777777;
+  background-image: linear-gradient(0deg, #707070 0%, #767676 100%);
+  box-shadow: inset 0 1px #868686;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:active, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:active {
+  background-color: #909090;
+  background-image: none;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:checked {
+  background-color: #aaaaaa;
+  background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
+  border-radius: 0 5px 5px 0;
+  box-shadow: inset 0 1px #cecece;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:disabled, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:disabled {
+  color: rgba(253, 253, 253, 0.45);
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:backdrop, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:backdrop {
+  opacity: 0.7;
+  background-image: none;
+  box-shadow: none;
 }
 
 .nautilus-window headerbar .path-bar-box {
   color: transparent;
-  background-color: transparent;
+  background: none;
 }
 
 .nautilus-window headerbar .path-bar-box .path-bar {
   padding: 0;
   margin: 0;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
+  border-radius: 5px 0 0 5px;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle:checked, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher:checked {
+  border-radius: 5px 5px 5px 5px;
 }
 
 .nautilus-window headerbar .path-bar-box.background.frame {
@@ -6329,6 +6370,7 @@ headerbar.titlebar.incognito-mode entry {
   color: #FDFDFD;
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
   border: none;
   box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
 }
@@ -6358,6 +6400,7 @@ notebook > box > stack > box.vertical > paned.vertical > overlay > .floating-bar
   color: #FDFDFD;
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
   border: none;
   box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
 }
@@ -7418,6 +7461,7 @@ MarlinViewWindow FMListView, MarlinViewWindow FMColumnView {
   color: #FDFDFD;
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
   border: none;
   box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
 }

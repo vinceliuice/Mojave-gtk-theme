@@ -117,6 +117,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $header_fg;
     background-color: $header_button_bg;
     background-image: $header_button_image;
+    box-shadow: none;
 
     @if $variant == 'dark' {
       border: none;
