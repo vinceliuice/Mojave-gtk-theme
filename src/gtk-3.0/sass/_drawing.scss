@@ -1,12 +1,12 @@
 // Shadows
-$shadow_0: 0 1px 2px 0 rgba(16, 16, 16, 0.1), 0 2px 2px 0 rgba(16, 16, 16, 0.05);  // Slider hover shadow
-$shadow_1: 0 1px 1px 0 rgba(16, 16, 16, 0.12), 0 1px 2px 0 rgba(16, 16, 16, 0.06); // Header-button shadow
-$shadow_2: 0 1px 1px 0 rgba(16, 16, 16, 0.1), 0 1px 2px 0 rgba(16, 16, 16, 0.05);  // Slider normal shadow
-$shadow_3: 0 1px 1px 0 rgba(16, 16, 16, 0.03);                                     // Normal button shadow
-$shadow_4: 0 2px 3px 0 rgba(16, 16, 16, 0.2), 0 3px 5px 0 rgba(16, 16, 16, 0.15);  // Switch-slider hover shadow
-$shadow_5: 0 1px 2px 0 rgba(16, 16, 16, 0.15), 0 2px 3px 0 rgba(16, 16, 16, 0.1);  // Switch-slider normal shadow
-$text_shadow: 0 -1px rgba(#ffffff, 0.04), -1px  0 rgba(#202020, 0.05), 1px 0 rgba(#202020, 0.05),
-              0 1px rgba(#202020, 0.3), 0 2px rgba(#202020, 0.05); // text and icon shadow
+$shadow_0: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);  // Slider hover shadow
+$shadow_1: 0 1px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06); // Header-button shadow
+$shadow_2: 0 1px 1px 0 rgba(16, 16, 16, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);  // Slider normal shadow
+$shadow_3: 0 1px 1px 0 rgba(0, 0, 0, 0.03);                                     // Normal button shadow
+$shadow_4: 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.15);  // Switch-slider hover shadow
+$shadow_5: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.1);  // Switch-slider normal shadow
+$text_shadow: 0 -1px rgba(#ffffff, 0.04), -1px 0 rgba(0, 0, 0, 0.05), 1px 0 rgba(0, 0, 0, 0.05),
+              0 1px rgba(0, 0, 0, 0.3), 0 2px rgba(0, 0, 0, 0.05); // text and icon shadow
 
 // Transitions
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
