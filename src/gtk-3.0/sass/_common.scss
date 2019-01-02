@@ -715,6 +715,18 @@ toolbar.inline-toolbar toolbutton {
     > button:checked + entry { border-#{$_border}-color: $button_active_border; }
   }
 
+  @if $entry_rules=='header' {
+    @each $e_type, $e_color in (':focus', $entry_highlight),
+                               (':drop(active)', $drop_target_color),
+                               ('.warning:focus', $warning_color),
+                               ('.error:focus', $error_color) {
+
+      > entry#{$e_type}:not(:only-child) {
+        @if $variant == 'dark' { box-shadow: inset 0 0 0 2px $e_color; }
+      }
+    }
+  }
+
   @if $button_rules=='true' {
     $_uncolored_button: 'button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action)';
 
@@ -762,6 +774,13 @@ toolbar.inline-toolbar toolbutton {
 .linked:not(.vertical) {
   &:not(.path-bar) { @include linking_rules(); }
   &.path-bar { @include pathbar_linking_rules(); }
+}
+
+headerbar,
+headerbar.titlebar {
+  .linked:not(.vertical):not(.path-bar) {
+    @include linking_rules($entry_rules:'header', $e_border: $header_entry_border, $b_border: transparent);
+  }
 }
 
 .linked.vertical { @include linking_rules($vert:'true'); }
@@ -1297,6 +1316,11 @@ headerbar {
     margin-bottom: 6px;
   }
 
+  entry {
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+
   // Fixes split headerbars
   separator:first-child + &,
   &:first-child {
@@ -1502,9 +1526,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   %linked_header_middle {
     border-radius: 0;
     border-left-style: none;
-    border-top-style: none;
-    border-bottom-style: none;
-    border-right-style: solid;
+    border-right: 1px solid $header_button_border;
   }
 
   %linked_header {
@@ -1513,71 +1535,60 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
     &:first-child {
       border-top-left-radius: $bt_radius;
       border-bottom-left-radius: $bt_radius;
+      border-left-style: solid;
     }
 
     &:last-child {
       border-top-right-radius: $bt_radius;
       border-bottom-right-radius: $bt_radius;
-      border-right-style: none;
     }
 
     &:only-child {
       border-radius: $bt_radius;
-      border-style: none;
+      border-style: solid;
     }
   }
 
-  // Disconnect linked buttons
-  .linked:not(.vertical):not(.path-bar):not(.stack-switcher) {
-    button:not(:only-child):not(:last-child) {
-      &, &:hover, &:active, &:checked, &:disabled {
-        margin-right: if($variant=='light', 0, 1px);
-        // @if $variant == 'dark' { &:last-child { } }
+  // Reset linked buttons
+  .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button {
+    min-width: 20px;
+
+    &, &:hover, &:active, &:checked, &:disabled {
+      @extend %linked_header;
+    }
+
+    &:last-child {
+      @if $variant == 'light' {
+        &:active { box-shadow: -1px 0 $header_button_active_bg; }
+        &:checked { box-shadow: -1px 0 $header_button_checked_bg; }
+      }
+
+      @if $variant == 'dark' {
+        border-right: none;
       }
     }
   }
 
-  // Reset buttons
-  .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button { min-width: 20px; }
-
   .linked.raised:not(.vertical):not(.path-bar) > button.image-button {
     &, &:hover, &:active, &:checked, &:disabled {
       border-radius: $bt_radius;
+      margin-right: if($variant=='light', 0, 1px);
       @if $variant == 'light' { border: 1px solid $borders_color; }
     }
   }
 
   // Reset entrys
-  // .linked:not(.vertical):not(.path-bar) > entry {
-  //   &, &:disabled {
-  //
-  //     @if $variant == 'dark' {
-  //       min-height: 22px;
-  //       margin-top: 5px;
-  //       margin-bottom: 5px;
-  //     }
-  //
-  //     border-radius: $bt_radius;
-  //     margin-right: 4px;
-  //     margin-left: 3px;
-  //     border: 1px solid if($variant == 'light', $borders_color, transparent);
-  //   }
-  //
-  //   &:focus { border: 1px solid $entry_highlight; }
-  // }
+  .linked:not(.vertical):not(.path-bar) > entry {
 
-  // use linking rules for entries only
-  .linked:not(.vertical):not(.path-bar) {
+    // @if $variant == 'dark' {
+    //   min-height: 22px;
+    //   margin-top: 5px;
+    //   margin-bottom: 5px;
+    // }
 
-    // Reset headerbar linked rules
-    > button:active + entry,
-    > button:checked + entry { border-left-color: $borders_color; }
-
-    > entry:focus:not(:only-child) {
-      + entry,
-      + button,
-      + combobox > box > button.combo { border-left-color: $borders_color; }
-    }
+    // border-radius: $bt_radius;
+    margin-right: 0;
+    margin-left: 0;
   }
 
   // special case for path-bars and stack-switchers

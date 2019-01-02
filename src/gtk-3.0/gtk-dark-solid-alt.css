@@ -962,6 +962,31 @@ button.font separator, button.file separator {
   border-left-style: none;
 }
 
+headerbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child),
+headerbar.titlebar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) {
+  box-shadow: inset 0 0 0 2px rgba(104, 135, 205, 0.75);
+}
+
+headerbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child),
+headerbar.titlebar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) {
+  box-shadow: inset 0 0 0 2px #F08437;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child),
+headerbar.titlebar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) {
+  box-shadow: inset 0 0 0 2px #F27835;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child),
+headerbar.titlebar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) {
+  box-shadow: inset 0 0 0 2px #FC4138;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar) > button + button,
+headerbar.titlebar .linked:not(.vertical):not(.path-bar) > button + button {
+  border-left-style: none;
+}
+
 .linked.vertical > entry + entry {
   border-top-color: rgba(255, 255, 255, 0);
 }
@@ -1655,6 +1680,11 @@ headerbar entry, headerbar button, headerbar separator {
   margin-bottom: 6px;
 }
 
+headerbar entry {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
 separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
   border-top-left-radius: 6px;
 }
@@ -1758,6 +1788,7 @@ window.csd > .titlebar:not(headerbar):backdrop {
 headerbar entry, .nemo-window .primary-toolbar entry {
   min-height: 22px;
   color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
   box-shadow: none;
@@ -1955,30 +1986,44 @@ headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-too
   text-shadow: none;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child), headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:only-child):not(:last-child):disabled {
-  margin-right: 1px;
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:disabled {
+  border-radius: 0;
+  border-left-style: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:disabled {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left-style: solid;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:disabled {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:disabled {
+  border-radius: 5px;
+  border-style: solid;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button {
   min-width: 20px;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child {
+  border-right: none;
 }
 
 headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled {
   border-radius: 5px;
+  margin-right: 1px;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar) > button:active + entry, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > button:active + entry,
-headerbar .linked:not(.vertical):not(.path-bar) > button:checked + entry,
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > button:checked + entry {
-  border-left-color: rgba(255, 255, 255, 0.12);
-}
-
-headerbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + entry, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + entry,
-headerbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + button,
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + button,
-headerbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + combobox > box > button.combo,
-.nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + combobox > box > button.combo {
-  border-left-color: rgba(255, 255, 255, 0.12);
+headerbar .linked:not(.vertical):not(.path-bar) > entry, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
@@ -2205,6 +2250,7 @@ headerbar combobox:disabled, .nemo-window .primary-toolbar combobox:disabled {
 headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combobox > .linked > button.combo {
   border-radius: 5px;
   color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
   box-shadow: none;
@@ -6388,6 +6434,7 @@ window.background > grid.vertical > box.vertical grid.math-buttons button:not(.s
   ************/
 headerbar.titlebar.incognito-mode entry {
   color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
   box-shadow: none;
@@ -6418,6 +6465,7 @@ notebook > box > stack > box.vertical > paned.vertical > overlay > .floating-bar
 
 .background headerbar entry.starred, .background headerbar entry.non-starred {
   color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
   box-shadow: none;
@@ -7475,6 +7523,7 @@ MarlinViewWindow FMListView, MarlinViewWindow FMColumnView {
   padding-left: 4px;
   padding-right: 4px;
   color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
   box-shadow: none;
