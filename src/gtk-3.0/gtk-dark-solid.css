@@ -4622,7 +4622,7 @@ button.sidebar-button:active, button.sidebar-button:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 button.sidebar-button:not(:hover):not(:active) > image {

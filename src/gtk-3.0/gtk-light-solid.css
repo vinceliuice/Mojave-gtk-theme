@@ -4624,7 +4624,7 @@ button.sidebar-button:active, button.sidebar-button:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 button.sidebar-button:not(:hover):not(:active) > image {
@@ -4644,7 +4644,7 @@ placessidebar row:selected button.sidebar-button:active, placessidebar row:selec
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
-  border-color: rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 placessidebar row.sidebar-placeholder-row {
