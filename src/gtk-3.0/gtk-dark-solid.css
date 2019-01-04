@@ -7669,7 +7669,21 @@ headerbar.titlebar .linked.raised > button + button {
 }
 
 headerbar.titlebar > grid.linked.horizontal.format-bar {
-  background-image: image(#373737);
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border: none;
+}
+
+headerbar.titlebar > grid.linked.horizontal.format-bar button.toggle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+headerbar.titlebar > grid.linked.horizontal.format-bar:backdrop {
+  transition: 200ms ease-out;
+  background-image: none;
+  background-color: #313131;
 }
 
 .gala-notification {

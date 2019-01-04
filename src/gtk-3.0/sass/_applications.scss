@@ -2307,6 +2307,7 @@ button.flat.toggle.switcher {
 // Calendar Popover
 .circular { // Calendar popover date button
   label:disabled { color: $insensitive_fg_color; }
+
   &.accent { // Today button
     color: $selected_fg_color;
     background-color: $selected_bg_color;
@@ -2427,8 +2428,23 @@ headerbar.titlebar {
     @include pathbar_linking_rules ($button_rules: 'header');
   }
 
+  // Hide Code header format-bar
   > grid.linked.horizontal.format-bar {
-    background-image: image($header_bg); // Hide Code header format-bar
+    background-image: $headerbar_bg_image;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border: none;
+
+    button.toggle {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &:backdrop {
+      transition: $backdrop_transition;
+      background-image: none;
+      background-color: $header_bg_backdrop;
+    }
   }
 }
 
