@@ -2011,6 +2011,10 @@ headerbar .linked:not(.vertical):not(.path-bar) > entry, .nemo-window .primary-t
   border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+headerbar .linked:not(.vertical):not(.path-bar) > entry:focus, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus {
+  border-color: #6887cd;
+}
+
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
 headerbar .linked:not(.vertical).path-bar > button,
 .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button {

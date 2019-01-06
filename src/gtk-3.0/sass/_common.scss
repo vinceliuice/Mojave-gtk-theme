@@ -1590,6 +1590,10 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
     margin-right: 0;
     margin-left: 0;
     border-right: 1px solid $borders_color;
+
+    &:focus {
+      @if $variant == 'light' { border-color: $selection_mode_bg; }
+    }
   }
 
   // special case for path-bars and stack-switchers
