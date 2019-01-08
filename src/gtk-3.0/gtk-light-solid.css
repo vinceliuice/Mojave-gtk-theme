@@ -1977,6 +1977,7 @@ headerbar .linked:not(.vertical) > button:not(:first-child):checked, .nemo-windo
 headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled {
   border-radius: 5px;
   margin-right: 0;
+  border-right: none;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
