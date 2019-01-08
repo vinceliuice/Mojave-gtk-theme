@@ -33,9 +33,8 @@
   -gtk-outline-radius: 5px;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
-headerbar .linked:not(.vertical).path-bar > button,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button, headerbar.titlebar .linked.raised > button.toggle {
+headerbar .linked:not(.vertical) > button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
+headerbar .linked:not(.vertical).path-bar > button, .nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, headerbar.titlebar .linked.raised > button.toggle {
   outline-color: alpha(currentColor,0.3);
   outline-style: dashed;
   outline-offset: -3px;
@@ -43,9 +42,7 @@ headerbar .linked:not(.vertical).path-bar > button,
   -gtk-outline-radius: 5px;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:not(.image-button),
-headerbar button,
-.nemo-window .primary-toolbar button {
+headerbar button, .nemo-window .primary-toolbar button, paned.titlebar.horizontal headerbar button.flat.toggle.popup:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:not(.image-button) {
   outline-color: rgba(104, 135, 205, 0.75);
   outline-style: solid;
   outline-offset: -1px;
@@ -548,13 +545,13 @@ button:disabled label, button:disabled {
 
 button:disabled:active, button:disabled:checked {
   border-color: rgba(49, 91, 239, 0.75);
-  background-color: rgba(49, 91, 239, 0.75);
+  background-color: rgba(49, 91, 239, 0.55);
   box-shadow: none;
   opacity: 0.6;
 }
 
 button:disabled:active label, button:disabled:active, button:disabled:checked label, button:disabled:checked {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 button.image-button {
@@ -1071,23 +1068,23 @@ headerbar.titlebar .linked:not(.vertical):not(.path-bar) > button + button {
 .linked:not(.vertical) > entry:focus, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > button,
 .linked:not(.vertical) > button:hover,
 .linked:not(.vertical) > button:active,
-.linked:not(.vertical) > button:checked, toolbar.inline-toolbar toolbutton > button.flat, .inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher, .budgie-panel .inline-toolbar toolbutton > button.flat.launcher, spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:active, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:checked, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:disabled, headerbar.titlebar .linked.raised > button.toggle, headerbar.titlebar .linked.raised > button.toggle:hover, headerbar.titlebar .linked.raised > button.toggle:active, headerbar.titlebar .linked.raised > button.toggle:checked, headerbar.titlebar .linked.raised > button.toggle:disabled, .linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl) {
+.linked:not(.vertical) > button:checked, toolbar.inline-toolbar toolbutton > button.flat, .inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher, .budgie-panel .inline-toolbar toolbutton > button.flat.launcher, spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, headerbar.titlebar .linked.raised > button.toggle, headerbar.titlebar .linked.raised > button.toggle:hover, headerbar.titlebar .linked.raised > button.toggle:active, headerbar.titlebar .linked.raised > button.toggle:checked, headerbar.titlebar .linked.raised > button.toggle:disabled, .linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl) {
   border-radius: 0;
   border-right-style: none;
 }
 
-.linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar toolbutton > button.flat:first-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:first-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:first-child, spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, .linked:not(.vertical) > combobox:first-child > box > button.combo, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:first-child, headerbar.titlebar .linked.raised > button.toggle:first-child {
+.linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar toolbutton > button.flat:first-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:first-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:first-child, spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, .linked:not(.vertical) > combobox:first-child > box > button.combo, headerbar.titlebar .linked.raised > button.toggle:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar toolbutton > button.flat:last-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:last-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:last-child, spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, .linked:not(.vertical) > combobox:last-child > box > button.combo, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:last-child, headerbar.titlebar .linked.raised > button.toggle:last-child {
+.linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar toolbutton > button.flat:last-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:last-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:last-child, spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, .linked:not(.vertical) > combobox:last-child > box > button.combo, headerbar.titlebar .linked.raised > button.toggle:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-right-style: solid;
 }
 
-.linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar toolbutton > button.flat:only-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:only-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:only-child, spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:only-child, headerbar.titlebar .linked.raised > button.toggle:only-child {
+.linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar toolbutton > button.flat:only-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:only-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:only-child, spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, headerbar.titlebar .linked.raised > button.toggle:only-child {
   border-radius: 5px;
   border-style: solid;
 }
@@ -1735,6 +1732,28 @@ window.csd > .titlebar:not(headerbar):backdrop {
   background-color: #F6F6F6;
 }
 
+headerbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button:hover, .nemo-window .primary-toolbar .linked.path-bar > button:active, .nemo-window .primary-toolbar .linked.path-bar > button:checked, .nemo-window .primary-toolbar .linked.path-bar > button:disabled, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:hover, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:active, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:checked, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:disabled, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:hover, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:active, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:checked, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:disabled {
+  border-radius: 0;
+  border-left-style: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+headerbar .linked:not(.vertical) > button:first-child, headerbar .linked:not(.vertical) > button:first-child:hover, headerbar .linked:not(.vertical) > button:first-child:active, headerbar .linked:not(.vertical) > button:first-child:checked, headerbar .linked:not(.vertical) > button:first-child:disabled, .nemo-window .primary-toolbar .linked.raised > button:first-child, .nemo-window .primary-toolbar .linked.path-bar > button:first-child, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:first-child:hover, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:first-child:active, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:first-child:checked, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:first-child:disabled, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left-style: solid;
+}
+
+headerbar .linked:not(.vertical) > button:last-child, headerbar .linked:not(.vertical) > button:last-child:hover, headerbar .linked:not(.vertical) > button:last-child:active, headerbar .linked:not(.vertical) > button:last-child:checked, headerbar .linked:not(.vertical) > button:last-child:disabled, .nemo-window .primary-toolbar .linked.raised > button:last-child, .nemo-window .primary-toolbar .linked.path-bar > button:last-child, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:last-child:hover, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:last-child:active, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:last-child:checked, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:last-child:disabled, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+headerbar .linked:not(.vertical) > button:only-child, headerbar .linked:not(.vertical) > button:only-child:hover, headerbar .linked:not(.vertical) > button:only-child:active, headerbar .linked:not(.vertical) > button:only-child:checked, headerbar .linked:not(.vertical) > button:only-child:disabled, .nemo-window .primary-toolbar .linked.raised > button:only-child, .nemo-window .primary-toolbar .linked.path-bar > button:only-child, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:only-child:hover, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:only-child:active, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:only-child:checked, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:only-child:disabled, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:only-child {
+  border-radius: 5px;
+  border-style: solid;
+}
+
 .primary-toolbar:not(.libreoffice-toolbar) separator, headerbar separator.titlebutton,
 .titlebar:not(headerbar) separator.titlebutton {
   min-width: 0;
@@ -1749,7 +1768,6 @@ window.csd > .titlebar:not(headerbar):backdrop {
 }
 
 headerbar entry, .nemo-window .primary-toolbar entry {
-  min-height: 20px;
   color: #575757;
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: white;
@@ -1821,27 +1839,19 @@ headerbar entry.error selection, .nemo-window .primary-toolbar entry.error selec
   color: #FC4138;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:not(.image-button),
-headerbar button,
-.nemo-window .primary-toolbar button {
-  min-height: 24px;
-  min-width: 22px;
+headerbar button, .nemo-window .primary-toolbar button, paned.titlebar.horizontal headerbar button.flat.toggle.popup:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:not(.image-button) {
   border-color: rgba(0, 0, 0, 0.15);
   color: #575757;
   background-color: white;
   background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:backdrop:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:backdrop:not(.image-button),
-headerbar button:backdrop,
-.nemo-window .primary-toolbar button:backdrop {
+headerbar button:backdrop, .nemo-window .primary-toolbar button:backdrop, paned.titlebar.horizontal headerbar button.flat.toggle.popup:backdrop:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:backdrop:not(.image-button) {
   opacity: 0.65;
   background-image: none;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:hover:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:hover:not(.image-button),
-headerbar button:hover,
-.nemo-window .primary-toolbar button:hover {
+headerbar button:hover, .nemo-window .primary-toolbar button:hover, paned.titlebar.horizontal headerbar button.flat.toggle.popup:hover:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:hover:not(.image-button) {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
@@ -1849,9 +1859,7 @@ headerbar button:hover,
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:active:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:active:not(.image-button),
-headerbar button:active,
-.nemo-window .primary-toolbar button:active {
+headerbar button:active, .nemo-window .primary-toolbar button:active, paned.titlebar.horizontal headerbar button.flat.toggle.popup:active:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:active:not(.image-button) {
   color: #ffffff;
   background-color: #888888;
   background-image: none;
@@ -1861,15 +1869,11 @@ headerbar button:active,
   background-clip: border-box;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:active:hover:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:active:hover:not(.image-button),
-headerbar button:active:hover,
-.nemo-window .primary-toolbar button:active:hover {
+headerbar button:active:hover, .nemo-window .primary-toolbar button:active:hover, paned.titlebar.horizontal headerbar button.flat.toggle.popup:active:hover:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:active:hover:not(.image-button) {
   background-image: none;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:checked:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:checked:not(.image-button),
-headerbar button:checked,
-.nemo-window .primary-toolbar button:checked {
+headerbar button:checked, .nemo-window .primary-toolbar button:checked, paned.titlebar.horizontal headerbar button.flat.toggle.popup:checked:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:checked:not(.image-button) {
   color: #ffffff;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
@@ -1879,51 +1883,40 @@ headerbar button:checked,
   transition-duration: 300ms;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:checked:hover:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:checked:hover:not(.image-button),
-headerbar button:checked:hover,
-.nemo-window .primary-toolbar button:checked:hover {
+headerbar button:checked:hover, .nemo-window .primary-toolbar button:checked:hover, paned.titlebar.horizontal headerbar button.flat.toggle.popup:checked:hover:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:checked:hover:not(.image-button) {
   background-image: none;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:not(.image-button),
-headerbar button:disabled,
-.nemo-window .primary-toolbar button:disabled {
+headerbar button:disabled, .nemo-window .primary-toolbar button:disabled, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:not(.image-button) {
   background-color: white;
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:not(.image-button) label, paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:not(.image-button) label, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:not(.image-button),
-headerbar button:disabled label,
-.nemo-window .primary-toolbar button:disabled label,
-headerbar button:disabled,
-.nemo-window .primary-toolbar button:disabled {
-  color: rgba(87, 87, 87, 0.55);
+headerbar button:disabled label, .nemo-window .primary-toolbar button:disabled label, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:not(.image-button) label, paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:not(.image-button) label, headerbar button:disabled, .nemo-window .primary-toolbar button:disabled, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:not(.image-button) {
+  color: rgba(87, 87, 87, 0.35);
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:active:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:active:not(.image-button), paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:checked:not(.image-button),
-headerbar button:disabled:active,
-.nemo-window .primary-toolbar button:disabled:active,
-headerbar button:disabled:checked,
-.nemo-window .primary-toolbar button:disabled:checked {
-  color: rgba(255, 255, 255, 0.75);
-  background-color: rgba(136, 136, 136, 0.65);
+headerbar button:disabled:active, .nemo-window .primary-toolbar button:disabled:active, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:active:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:active:not(.image-button), headerbar button:disabled:checked, .nemo-window .primary-toolbar button:disabled:checked, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:checked:not(.image-button) {
+  color: rgba(255, 255, 255, 0.55);
+  background-color: rgba(136, 136, 136, 0.55);
 }
 
-paned.titlebar.horizontal headerbar button.flat.toggle.popup:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:not(.image-button),
-headerbar button.flat,
-.nemo-window .primary-toolbar button.flat,
-headerbar button.budgie-menu-launcher,
-.nemo-window .primary-toolbar button.budgie-menu-launcher,
-headerbar .budgie-panel button.flat.launcher,
-.budgie-panel headerbar button.flat.launcher,
-.nemo-window .primary-toolbar .budgie-panel button.flat.launcher,
-.budgie-panel .nemo-window .primary-toolbar button.flat.launcher {
+headerbar button.flat, headerbar button.budgie-menu-launcher, headerbar .budgie-panel button.flat.launcher, .budgie-panel headerbar button.flat.launcher, .nemo-window .primary-toolbar button.flat, .nemo-window .primary-toolbar button.budgie-menu-launcher, paned.titlebar.horizontal headerbar button.flat.toggle.popup:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:not(.image-button) {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
 }
 
-headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar button, headerbar.selection-mode button.flat, .nemo-window .selection-mode.primary-toolbar button.flat, headerbar.selection-mode button.budgie-menu-launcher, .nemo-window .selection-mode.primary-toolbar button.budgie-menu-launcher, headerbar.selection-mode .budgie-panel button.flat.launcher, .budgie-panel headerbar.selection-mode button.flat.launcher {
+headerbar entry {
+  min-height: 20px;
+}
+
+headerbar button {
+  min-height: 24px;
+  min-width: 22px;
+}
+
+headerbar.selection-mode button, headerbar.selection-mode button.flat, headerbar.selection-mode button.budgie-menu-launcher, headerbar.selection-mode .budgie-panel button.flat.launcher, .budgie-panel headerbar.selection-mode button.flat.launcher {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -1932,68 +1925,45 @@ headerbar.selection-mode button, .nemo-window .selection-mode.primary-toolbar bu
   background-color: rgba(255, 255, 255, 0);
 }
 
-headerbar.selection-mode button:hover, .nemo-window .selection-mode.primary-toolbar button:hover {
+headerbar.selection-mode button:hover {
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked {
+headerbar.selection-mode button:active, headerbar.selection-mode button:checked {
   text-shadow: none;
 }
 
-headerbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:hover, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:hover, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:hover, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:hover, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:hover, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:hover, .nemo-window .primary-toolbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:active, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:active, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:active, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:active, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:active, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:active, .nemo-window .primary-toolbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:checked, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:checked, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:checked, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:checked, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:checked, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:disabled, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:disabled, headerbar .nemo-window .primary-toolbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical) > button:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, .nemo-window .primary-toolbar headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, headerbar .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, headerbar .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, .nemo-window .primary-toolbar headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:hover, .nemo-window .primary-toolbar headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:hover, headerbar .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:hover, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:active, .nemo-window .primary-toolbar headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:active, headerbar .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:active, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:checked, .nemo-window .primary-toolbar headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:checked, headerbar .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:checked, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:disabled, .nemo-window .primary-toolbar headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:disabled, headerbar .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:disabled {
-  border-radius: 0;
-  border-left-style: none;
-  border-right: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-headerbar .linked:not(.vertical) > button:first-child, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:first-child, .nemo-window .primary-toolbar .linked:not(.vertical) > button:first-child, headerbar .linked:not(.vertical) > button:first-child:hover, headerbar .linked:not(.vertical) > button:first-child:active, headerbar .linked:not(.vertical) > button:first-child:checked, headerbar .linked:not(.vertical) > button:first-child:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:first-child, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-left-style: solid;
-}
-
-headerbar .linked:not(.vertical) > button:last-child, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical) > button:last-child, headerbar .linked:not(.vertical) > button:last-child:hover, headerbar .linked:not(.vertical) > button:last-child:active, headerbar .linked:not(.vertical) > button:last-child:checked, headerbar .linked:not(.vertical) > button:last-child:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:last-child, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-headerbar .linked:not(.vertical) > button:only-child, .nemo-window .primary-toolbar headerbar .linked:not(.vertical) > button:only-child, .nemo-window .primary-toolbar .linked:not(.vertical) > button:only-child, headerbar .linked:not(.vertical) > button:only-child:hover, headerbar .linked:not(.vertical) > button:only-child:active, headerbar .linked:not(.vertical) > button:only-child:checked, headerbar .linked:not(.vertical) > button:only-child:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:only-child, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:only-child {
-  border-radius: 5px;
-  border-style: solid;
-}
-
-headerbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar .linked:not(.vertical) > button {
+headerbar .linked:not(.vertical) > button {
   min-width: 20px;
 }
 
-headerbar .linked:not(.vertical) > button:not(:first-child):active, .nemo-window .primary-toolbar .linked:not(.vertical) > button:not(:first-child):active {
+headerbar .linked:not(.vertical) > button:not(:first-child):active {
   box-shadow: -1px 0 #747474;
 }
 
-headerbar .linked:not(.vertical) > button:not(:first-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical) > button:not(:first-child):checked {
+headerbar .linked:not(.vertical) > button:not(:first-child):checked {
   box-shadow: -1px 0 #585858;
 }
 
-headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled {
+headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled {
   border-radius: 5px;
   margin-right: 0;
   border-right: none;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar) > entry, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry {
+headerbar .linked:not(.vertical):not(.path-bar) > entry {
   margin-right: 0;
   margin-left: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar) > entry:focus, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar) > entry:focus {
+headerbar .linked:not(.vertical):not(.path-bar) > entry:focus {
   border-color: #6887cd;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
-headerbar .linked:not(.vertical).path-bar > button,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button {
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
+headerbar .linked:not(.vertical).path-bar > button {
   min-height: 24px;
   border-color: rgba(0, 0, 0, 0.15);
   color: #575757;
@@ -2001,48 +1971,42 @@ headerbar .linked:not(.vertical).path-bar > button,
   background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
-headerbar .linked:not(.vertical).path-bar > button:hover,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:hover {
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
+headerbar .linked:not(.vertical).path-bar > button:hover {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
   background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active,
-headerbar .linked:not(.vertical).path-bar > button:active,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active {
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active,
+headerbar .linked:not(.vertical).path-bar > button:active {
   color: #ffffff;
   background-color: #888888;
   background-image: none;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
-headerbar .linked:not(.vertical).path-bar > button:checked,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:checked {
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
+headerbar .linked:not(.vertical).path-bar > button:checked {
   color: #ffffff;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
-headerbar .linked:not(.vertical).path-bar > button:disabled,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:disabled {
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
+headerbar .linked:not(.vertical).path-bar > button:disabled {
   color: rgba(87, 87, 87, 0.45);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:backdrop, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:backdrop,
-headerbar .linked:not(.vertical).path-bar > button:backdrop,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:backdrop {
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:backdrop,
+headerbar .linked:not(.vertical).path-bar > button:backdrop {
   opacity: 0.65;
   background-image: none;
-  box-shadow: none;
 }
 
-headerbar button.suggested-action, .nemo-window .primary-toolbar button.suggested-action {
+headerbar button.suggested-action {
   box-shadow: none;
   background-clip: border-box;
   color: white;
@@ -2051,7 +2015,7 @@ headerbar button.suggested-action, .nemo-window .primary-toolbar button.suggeste
   background-image: none;
 }
 
-headerbar button.suggested-action.flat, .nemo-window .primary-toolbar button.suggested-action.flat, headerbar button.suggested-action.budgie-menu-launcher, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher, headerbar .budgie-panel button.suggested-action.flat.launcher, .budgie-panel headerbar button.suggested-action.flat.launcher, .nemo-window .primary-toolbar .budgie-panel button.suggested-action.flat.launcher, .budgie-panel .nemo-window .primary-toolbar button.suggested-action.flat.launcher {
+headerbar button.suggested-action.flat, headerbar button.suggested-action.budgie-menu-launcher, headerbar .budgie-panel button.suggested-action.flat.launcher, .budgie-panel headerbar button.suggested-action.flat.launcher {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -2059,7 +2023,7 @@ headerbar button.suggested-action.flat, .nemo-window .primary-toolbar button.sug
   color: #3484e2;
 }
 
-headerbar button.suggested-action:hover, .nemo-window .primary-toolbar button.suggested-action:hover {
+headerbar button.suggested-action:hover {
   background-clip: border-box;
   color: white;
   background-color: #4a92e5;
@@ -2067,7 +2031,7 @@ headerbar button.suggested-action:hover, .nemo-window .primary-toolbar button.su
   background-image: none;
 }
 
-headerbar button.suggested-action:active, .nemo-window .primary-toolbar button.suggested-action:active, headerbar button.suggested-action:checked, .nemo-window .primary-toolbar button.suggested-action:checked {
+headerbar button.suggested-action:active, headerbar button.suggested-action:checked {
   background-clip: border-box;
   color: white;
   background-color: #619fe8;
@@ -2076,21 +2040,21 @@ headerbar button.suggested-action:active, .nemo-window .primary-toolbar button.s
   box-shadow: none;
 }
 
-headerbar button.suggested-action.flat:disabled, .nemo-window .primary-toolbar button.suggested-action.flat:disabled, headerbar button.suggested-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher:disabled, headerbar .budgie-panel button.suggested-action.flat.launcher:disabled, .budgie-panel headerbar button.suggested-action.flat.launcher:disabled, headerbar button.suggested-action:disabled, .nemo-window .primary-toolbar button.suggested-action:disabled {
+headerbar button.suggested-action.flat:disabled, headerbar button.suggested-action.budgie-menu-launcher:disabled, headerbar button.suggested-action:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.55);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-headerbar button.suggested-action.flat:disabled label, .nemo-window .primary-toolbar button.suggested-action.flat:disabled label, headerbar button.suggested-action.budgie-menu-launcher:disabled label, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher:disabled label, headerbar .budgie-panel button.suggested-action.flat.launcher:disabled label, .budgie-panel headerbar button.suggested-action.flat.launcher:disabled label, headerbar button.suggested-action.flat:disabled, .nemo-window .primary-toolbar button.suggested-action.flat:disabled, headerbar button.suggested-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.suggested-action.budgie-menu-launcher:disabled, headerbar .budgie-panel button.suggested-action.flat.launcher:disabled, .budgie-panel headerbar button.suggested-action.flat.launcher:disabled, headerbar button.suggested-action:disabled label, .nemo-window .primary-toolbar button.suggested-action:disabled label, headerbar button.suggested-action:disabled, .nemo-window .primary-toolbar button.suggested-action:disabled {
+headerbar button.suggested-action.flat:disabled label, headerbar button.suggested-action.budgie-menu-launcher:disabled label, headerbar button.suggested-action.flat:disabled, headerbar button.suggested-action.budgie-menu-launcher:disabled, headerbar button.suggested-action:disabled label, headerbar button.suggested-action:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
-headerbar button.suggested-action:backdrop, .nemo-window .primary-toolbar button.suggested-action:backdrop {
+headerbar button.suggested-action:backdrop {
   opacity: 0.8;
 }
 
-headerbar button.destructive-action, .nemo-window .primary-toolbar button.destructive-action {
+headerbar button.destructive-action {
   box-shadow: none;
   background-clip: border-box;
   color: white;
@@ -2099,7 +2063,7 @@ headerbar button.destructive-action, .nemo-window .primary-toolbar button.destru
   background-image: none;
 }
 
-headerbar button.destructive-action.flat, .nemo-window .primary-toolbar button.destructive-action.flat, headerbar button.destructive-action.budgie-menu-launcher, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher, headerbar .budgie-panel button.destructive-action.flat.launcher, .budgie-panel headerbar button.destructive-action.flat.launcher, .nemo-window .primary-toolbar .budgie-panel button.destructive-action.flat.launcher, .budgie-panel .nemo-window .primary-toolbar button.destructive-action.flat.launcher {
+headerbar button.destructive-action.flat, headerbar button.destructive-action.budgie-menu-launcher, headerbar .budgie-panel button.destructive-action.flat.launcher, .budgie-panel headerbar button.destructive-action.flat.launcher {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -2107,7 +2071,7 @@ headerbar button.destructive-action.flat, .nemo-window .primary-toolbar button.d
   color: #f8464c;
 }
 
-headerbar button.destructive-action:hover, .nemo-window .primary-toolbar button.destructive-action:hover {
+headerbar button.destructive-action:hover {
   background-clip: border-box;
   color: white;
   background-color: #f95f64;
@@ -2115,7 +2079,7 @@ headerbar button.destructive-action:hover, .nemo-window .primary-toolbar button.
   background-image: none;
 }
 
-headerbar button.destructive-action:active, .nemo-window .primary-toolbar button.destructive-action:active, headerbar button.destructive-action:checked, .nemo-window .primary-toolbar button.destructive-action:checked {
+headerbar button.destructive-action:active, headerbar button.destructive-action:checked {
   background-clip: border-box;
   color: white;
   background-color: #fa777c;
@@ -2124,72 +2088,70 @@ headerbar button.destructive-action:active, .nemo-window .primary-toolbar button
   box-shadow: none;
 }
 
-headerbar button.destructive-action.flat:disabled, .nemo-window .primary-toolbar button.destructive-action.flat:disabled, headerbar button.destructive-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher:disabled, headerbar .budgie-panel button.destructive-action.flat.launcher:disabled, .budgie-panel headerbar button.destructive-action.flat.launcher:disabled, headerbar button.destructive-action:disabled, .nemo-window .primary-toolbar button.destructive-action:disabled {
+headerbar button.destructive-action.flat:disabled, headerbar button.destructive-action.budgie-menu-launcher:disabled, headerbar button.destructive-action:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.55);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-headerbar button.destructive-action.flat:disabled label, .nemo-window .primary-toolbar button.destructive-action.flat:disabled label, headerbar button.destructive-action.budgie-menu-launcher:disabled label, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher:disabled label, headerbar .budgie-panel button.destructive-action.flat.launcher:disabled label, .budgie-panel headerbar button.destructive-action.flat.launcher:disabled label, headerbar button.destructive-action.flat:disabled, .nemo-window .primary-toolbar button.destructive-action.flat:disabled, headerbar button.destructive-action.budgie-menu-launcher:disabled, .nemo-window .primary-toolbar button.destructive-action.budgie-menu-launcher:disabled, headerbar .budgie-panel button.destructive-action.flat.launcher:disabled, .budgie-panel headerbar button.destructive-action.flat.launcher:disabled, headerbar button.destructive-action:disabled label, .nemo-window .primary-toolbar button.destructive-action:disabled label, headerbar button.destructive-action:disabled, .nemo-window .primary-toolbar button.destructive-action:disabled {
+headerbar button.destructive-action.flat:disabled label, headerbar button.destructive-action.budgie-menu-launcher:disabled label, headerbar button.destructive-action.flat:disabled, headerbar button.destructive-action.budgie-menu-launcher:disabled, headerbar button.destructive-action:disabled label, headerbar button.destructive-action:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
-headerbar button.destructive-action:backdrop, .nemo-window .primary-toolbar button.destructive-action:backdrop {
+headerbar button.destructive-action:backdrop {
   opacity: 0.8;
 }
 
-headerbar spinbutton:not(.vertical):focus, .nemo-window .primary-toolbar spinbutton:not(.vertical):focus {
+headerbar spinbutton:not(.vertical):focus {
   color: #575757;
   caret-color: #575757;
 }
 
-headerbar spinbutton:not(.vertical) button, .nemo-window .primary-toolbar spinbutton:not(.vertical) button, headerbar spinbutton:not(.vertical) button:disabled, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:disabled {
+headerbar spinbutton:not(.vertical) button, headerbar spinbutton:not(.vertical) button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
   background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
 }
 
-headerbar spinbutton:not(.vertical) button:hover, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:hover {
+headerbar spinbutton:not(.vertical) button:hover {
   background-color: white;
 }
 
-headerbar spinbutton:not(.vertical) button:active, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:active, headerbar spinbutton:not(.vertical) button:checked, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:checked {
+headerbar spinbutton:not(.vertical) button:active, headerbar spinbutton:not(.vertical) button:checked {
   color: #ffffff;
   background-color: #888888;
   background-image: none;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar spinbutton:not(.vertical) button:disabled, .nemo-window .primary-toolbar spinbutton:not(.vertical) button:disabled {
+headerbar spinbutton:not(.vertical) button:disabled {
   color: rgba(87, 87, 87, 0.6);
 }
 
-headerbar spinbutton:not(.vertical) > button + button, .nemo-window .primary-toolbar spinbutton:not(.vertical) > button + button {
+headerbar spinbutton:not(.vertical) > button + button {
   border-left-style: none;
 }
 
-headerbar spinbutton:not(.vertical) > button:hover:not(:active), .nemo-window .primary-toolbar spinbutton:not(.vertical) > button:hover:not(:active),
-headerbar spinbutton:not(.vertical) > button:hover + button,
-.nemo-window .primary-toolbar spinbutton:not(.vertical) > button:hover + button {
+headerbar spinbutton:not(.vertical) > button:hover:not(:active),
+headerbar spinbutton:not(.vertical) > button:hover + button {
   box-shadow: inset 1px 0 rgba(0, 0, 0, 0.15);
 }
 
-headerbar spinbutton:not(.vertical) > button:first-child:hover:not(:active), .nemo-window .primary-toolbar spinbutton:not(.vertical) > button:first-child:hover:not(:active),
-headerbar spinbutton:not(.vertical) > entry + button:not(:active):hover,
-.nemo-window .primary-toolbar spinbutton:not(.vertical) > entry + button:not(:active):hover {
+headerbar spinbutton:not(.vertical) > button:first-child:hover:not(:active),
+headerbar spinbutton:not(.vertical) > entry + button:not(:active):hover {
   box-shadow: none;
 }
 
-headerbar spinbutton:not(.vertical) > entry:focus + button, .nemo-window .primary-toolbar spinbutton:not(.vertical) > entry:focus + button {
+headerbar spinbutton:not(.vertical) > entry:focus + button {
   border-left-color: rgba(104, 135, 205, 0.75);
 }
 
-headerbar combobox:disabled, .nemo-window .primary-toolbar combobox:disabled {
+headerbar combobox:disabled {
   color: rgba(87, 87, 87, 0.4);
 }
 
-headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combobox > .linked > button.combo {
+headerbar combobox > .linked > button.combo {
   border-radius: 5px;
   color: #575757;
   border-bottom-color: rgba(0, 0, 0, 0.15);
@@ -2198,83 +2160,83 @@ headerbar combobox > .linked > button.combo, .nemo-window .primary-toolbar combo
   box-shadow: none;
 }
 
-headerbar combobox > .linked > button.combo image, .nemo-window .primary-toolbar combobox > .linked > button.combo image, headerbar combobox > .linked > button.combo image:hover, .nemo-window .primary-toolbar combobox > .linked > button.combo image:hover {
+headerbar combobox > .linked > button.combo image, headerbar combobox > .linked > button.combo image:hover {
   color: inherit;
 }
 
-headerbar combobox > .linked > button.combo:hover, .nemo-window .primary-toolbar combobox > .linked > button.combo:hover {
+headerbar combobox > .linked > button.combo:hover {
   border-color: #6887cd;
   background-image: none;
   box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
   box-shadow: none;
 }
 
-headerbar combobox > .linked > button.combo:disabled, .nemo-window .primary-toolbar combobox > .linked > button.combo:disabled {
+headerbar combobox > .linked > button.combo:disabled {
   color: rgba(87, 87, 87, 0.55);
   background-color: rgba(255, 255, 255, 0.75);
 }
 
-headerbar combobox > .linked > entry.combo, .nemo-window .primary-toolbar combobox > .linked > entry.combo {
+headerbar combobox > .linked > entry.combo {
   border-radius: 5px;
 }
 
-headerbar combobox > .linked > entry.combo:dir(ltr), .nemo-window .primary-toolbar combobox > .linked > entry.combo:dir(ltr) {
+headerbar combobox > .linked > entry.combo:dir(ltr) {
   border-right-style: none;
 }
 
-headerbar combobox > .linked > entry.combo:dir(ltr):focus, .nemo-window .primary-toolbar combobox > .linked > entry.combo:dir(ltr):focus {
+headerbar combobox > .linked > entry.combo:dir(ltr):focus {
   box-shadow: none;
 }
 
-headerbar combobox > .linked > entry.combo:dir(rtl), .nemo-window .primary-toolbar combobox > .linked > entry.combo:dir(rtl) {
+headerbar combobox > .linked > entry.combo:dir(rtl) {
   border-left-style: none;
 }
 
-headerbar combobox > .linked > entry.combo:dir(rtl):focus, .nemo-window .primary-toolbar combobox > .linked > entry.combo:dir(rtl):focus {
+headerbar combobox > .linked > entry.combo:dir(rtl):focus {
   box-shadow: none;
 }
 
-headerbar switch:backdrop, .nemo-window .primary-toolbar switch:backdrop {
+headerbar switch:backdrop {
   opacity: 0.75;
 }
 
-headerbar progressbar trough, .nemo-window .primary-toolbar progressbar trough {
+headerbar progressbar trough {
   background-color: #cccccc;
 }
 
-headerbar progressbar:backdrop, .nemo-window .primary-toolbar progressbar:backdrop {
+headerbar progressbar:backdrop {
   opacity: 0.75;
 }
 
-headerbar scale:backdrop, .nemo-window .primary-toolbar scale:backdrop {
+headerbar scale:backdrop {
   opacity: 0.75;
 }
 
-headerbar scale slider, .nemo-window .primary-toolbar scale slider {
+headerbar scale slider {
   background-color: white;
   border-color: rgba(0, 0, 0, 0.35);
 }
 
-headerbar scale slider:hover, .nemo-window .primary-toolbar scale slider:hover {
+headerbar scale slider:hover {
   background-color: white;
   border-color: rgba(0, 0, 0, 0.35);
 }
 
-headerbar scale slider:active, .nemo-window .primary-toolbar scale slider:active {
+headerbar scale slider:active {
   background-color: white;
   border-color: rgba(0, 0, 0, 0.35);
 }
 
-headerbar scale slider:disabled, .nemo-window .primary-toolbar scale slider:disabled {
+headerbar scale slider:disabled {
   background-color: #f7f7f7;
   border-color: rgba(0, 0, 0, 0.35);
 }
 
-headerbar scale trough, .nemo-window .primary-toolbar scale trough {
+headerbar scale trough {
   background-color: #cccccc;
 }
 
-headerbar scale trough:disabled, .nemo-window .primary-toolbar scale trough:disabled {
+headerbar scale trough:disabled {
   background-color: rgba(204, 204, 204, 0.95);
 }
 
@@ -4722,7 +4684,7 @@ row:selected button.flat, row:selected button.budgie-menu-launcher, row:selected
   background-image: none;
 }
 
-headerbar.selection-mode button:disabled, .nemo-window .selection-mode.primary-toolbar button:disabled, row:selected button.flat:disabled, row:selected button.budgie-menu-launcher:disabled, infobar.info button.flat:disabled, infobar.info button.budgie-menu-launcher:disabled, infobar.question button.flat:disabled, infobar.question button.budgie-menu-launcher:disabled, infobar.warning button.flat:disabled, infobar.warning button.budgie-menu-launcher:disabled, infobar.error button.flat:disabled, infobar.error button.budgie-menu-launcher:disabled, .nautilus-window .floating-bar button.flat:disabled, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled, headerbar.selection-mode button:disabled label, .nemo-window .selection-mode.primary-toolbar button:disabled label, row:selected button.flat:disabled label, row:selected button.budgie-menu-launcher:disabled label, infobar.info button.flat:disabled label, infobar.info button.budgie-menu-launcher:disabled label, infobar.question button.flat:disabled label, infobar.question button.budgie-menu-launcher:disabled label, infobar.warning button.flat:disabled label, infobar.warning button.budgie-menu-launcher:disabled label, infobar.error button.flat:disabled label, infobar.error button.budgie-menu-launcher:disabled label, .nautilus-window .floating-bar button.flat:disabled label, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled label {
+headerbar.selection-mode button:disabled, row:selected button.flat:disabled, row:selected button.budgie-menu-launcher:disabled, infobar.info button.flat:disabled, infobar.info button.budgie-menu-launcher:disabled, infobar.question button.flat:disabled, infobar.question button.budgie-menu-launcher:disabled, infobar.warning button.flat:disabled, infobar.warning button.budgie-menu-launcher:disabled, infobar.error button.flat:disabled, infobar.error button.budgie-menu-launcher:disabled, .nautilus-window .floating-bar button.flat:disabled, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled, headerbar.selection-mode button:disabled label, row:selected button.flat:disabled label, row:selected button.budgie-menu-launcher:disabled label, infobar.info button.flat:disabled label, infobar.info button.budgie-menu-launcher:disabled label, infobar.question button.flat:disabled label, infobar.question button.budgie-menu-launcher:disabled label, infobar.warning button.flat:disabled label, infobar.warning button.budgie-menu-launcher:disabled label, infobar.error button.flat:disabled label, infobar.error button.budgie-menu-launcher:disabled label, .nautilus-window .floating-bar button.flat:disabled label, .nautilus-window .floating-bar button.budgie-menu-launcher:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button.budgie-menu-launcher:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled label {
   color: rgba(255, 255, 255, 0.4);
 }
 
@@ -4732,7 +4694,7 @@ row:selected button:hover, infobar.info button:hover, infobar.question button:ho
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-toolbar button:active, headerbar.selection-mode button:checked, .nemo-window .selection-mode.primary-toolbar button:checked, row:selected button:active, infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, .nautilus-window .floating-bar button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:active, headerbar.selection-mode button:hover:active, .nemo-window .selection-mode.primary-toolbar button:hover:active, headerbar.selection-mode button:hover:checked, .nemo-window .selection-mode.primary-toolbar button:hover:checked, row:selected button:active:hover, infobar.info button:active:hover, infobar.question button:active:hover, infobar.warning button:active:hover, infobar.error button:active:hover, .nautilus-window .floating-bar button:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:active:hover, row:selected button:checked, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked, .nautilus-window .floating-bar button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:checked {
+headerbar.selection-mode button:active, headerbar.selection-mode button:checked, row:selected button:active, infobar.info button:active, infobar.question button:active, infobar.warning button:active, infobar.error button:active, .nautilus-window .floating-bar button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:active, headerbar.selection-mode button:hover:active, headerbar.selection-mode button:hover:checked, row:selected button:active:hover, infobar.info button:active:hover, infobar.question button:active:hover, infobar.warning button:active:hover, infobar.error button:active:hover, .nautilus-window .floating-bar button:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:active:hover, row:selected button:checked, infobar.info button:checked, infobar.question button:checked, infobar.warning button:checked, infobar.error button:checked, .nautilus-window .floating-bar button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:checked {
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.4);
   border-color: rgba(255, 255, 255, 0.5);
@@ -4747,7 +4709,7 @@ row:selected button:disabled, infobar.info button:disabled, infobar.question but
   color: rgba(255, 255, 255, 0.5);
 }
 
-headerbar.selection-mode button:disabled:active, .nemo-window .selection-mode.primary-toolbar button:disabled:active, headerbar.selection-mode button:disabled:checked, .nemo-window .selection-mode.primary-toolbar button:disabled:checked, row:selected button:disabled:active, infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, .nautilus-window .floating-bar button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled:active, headerbar.selection-mode button:disabled:checked, .nemo-window .selection-mode.primary-toolbar button:disabled:checked, headerbar.selection-mode button:disabled:active, .nemo-window .selection-mode.primary-toolbar button:disabled:active, row:selected button:disabled:checked, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked, .nautilus-window .floating-bar button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled:checked {
+headerbar.selection-mode button:disabled:active, headerbar.selection-mode button:disabled:checked, row:selected button:disabled:active, infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, .nautilus-window .floating-bar button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled:active, headerbar.selection-mode button:disabled:checked, headerbar.selection-mode button:disabled:active, row:selected button:disabled:checked, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked, .nautilus-window .floating-bar button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.budgie-menu-launcher:disabled:checked {
   color: #315bef;
   background-color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.4);
@@ -5537,48 +5499,58 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 }
 
 .nemo-window .primary-toolbar {
+  padding-top: 0;
+  padding-bottom: 0;
   border: none;
   color: #575757;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
   background-color: #e5e5e5;
+  background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 100%);
   box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
 }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button {
-  border-color: rgba(0, 0, 0, 0.15);
-  color: #575757;
-  background-color: white;
-  background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
+.nemo-window .primary-toolbar button {
+  min-width: 22px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover {
-  border-color: rgba(0, 0, 0, 0.15);
-  color: #525252;
-  background-color: #fafafa;
-  background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
+.nemo-window .primary-toolbar entry {
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:active {
-  color: #ffffff;
-  background-color: #888888;
-  background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
+.nemo-window .primary-toolbar .linked.raised > button {
+  min-height: 0;
 }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:checked {
-  color: #ffffff;
-  background-color: #686868;
-  background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
-  border-color: rgba(0, 0, 0, 0.15);
+.nemo-window .primary-toolbar .linked.raised > button:not(:first-child):active {
+  box-shadow: -1px 0 #747474;
 }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:disabled {
-  color: rgba(87, 87, 87, 0.6);
+.nemo-window .primary-toolbar .linked.raised > button:not(:first-child):checked {
+  box-shadow: -1px 0 #585858;
 }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:backdrop {
-  opacity: 0.7;
-  background-image: none;
-  box-shadow: none;
+.nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.raised > button:hover, .nemo-window .primary-toolbar .linked.raised > button:active, .nemo-window .primary-toolbar .linked.raised > button:checked, .nemo-window .primary-toolbar .linked.raised > button:disabled {
+  margin-right: 0;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button {
+  min-height: 0;
+  min-width: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button:not(:first-child):active, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:not(:first-child):active {
+  box-shadow: -1px 0 #747474;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button:not(:first-child):checked, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:not(:first-child):checked {
+  box-shadow: -1px 0 #585858;
 }
 
 .caja-notebook {
@@ -8681,7 +8653,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 }
 
 .raven button:disabled label, .raven button:disabled, .raven stackswitcher.linked > button:disabled {
-  color: rgba(87, 87, 87, 0.55);
+  color: rgba(87, 87, 87, 0.35);
 }
 
 .raven button.flat, .raven button.budgie-menu-launcher, .raven .budgie-panel button.flat.launcher, .budgie-panel .raven button.flat.launcher, .raven stackswitcher.linked > button.flat, .raven stackswitcher.linked > button.budgie-menu-launcher, .raven .raven-header:not(.top) button {

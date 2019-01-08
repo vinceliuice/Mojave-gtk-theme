@@ -1428,6 +1428,33 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   @extend %titlebar;
 }
 
+// Linking stuff
+%linked_header_middle {
+  border-radius: 0;
+  border-left-style: none;
+  border-right: 1px solid $header_button_border;
+}
+
+%linked_header {
+  @extend %linked_header_middle;
+
+  &:first-child {
+    border-top-left-radius: $bt_radius;
+    border-bottom-left-radius: $bt_radius;
+    border-left-style: solid;
+  }
+
+  &:last-child {
+    border-top-right-radius: $bt_radius;
+    border-bottom-right-radius: $bt_radius;
+  }
+
+  &:only-child {
+    border-radius: $bt_radius;
+    border-style: solid;
+  }
+}
+
 %header_separator {
   min-width: 0;
   min-height: 0;
@@ -1437,93 +1464,104 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   &:backdrop { opacity: 0.65; }
 }
 
-%header_widgets {
-  // Headerbar Entries
-  entry {
-    min-height: if($variant == 'light', 20px, 22px);
-    @include entry(header-normal);
+// Headerbar Entries
+%headerbar_entrys {
+  @include entry(header-normal);
 
-    &:backdrop { opacity: 0.65; background-image: none; }
+  &:backdrop { opacity: 0.65; background-image: none; }
 
-    &:focus {
-      @include entry(header-focus);
-      background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+  &:focus {
+    @include entry(header-focus);
+    background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
 
-      // image { color: $selected_bg_color; }
-    }
+    // image { color: $selected_bg_color; }
+  }
 
-    &:disabled { @include entry(header-insensitive); }
+  &:disabled { @include entry(header-insensitive); }
 
-    selection:focus {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-    }
+  selection:focus {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
 
-    progress {
-      border-color: $progress_color;
-      background-image: none;
-      background-color: transparent;
-    }
+  progress {
+    border-color: $progress_color;
+    background-image: none;
+    background-color: transparent;
+  }
 
-    @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $warning_fg_color),
-                                            (error, $error_color, $error_fg_color) {
-      &.#{$e_type} {
+  @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $warning_fg_color),
+                                          (error, $error_color, $error_fg_color) {
+    &.#{$e_type} {
+      color: $e_fg_color;
+      border-color: if($darker=='false' and $variant=='light', $e_color, $header_entry_border);
+      background-color: mix($e_color, $header_bg, 60%);
+
+      &:focus {
         color: $e_fg_color;
-        border-color: if($darker=='false' and $variant=='light', $e_color, $header_entry_border);
-        background-color: mix($e_color, $header_bg, 60%);
+        background-color: $e_color;
+      }
 
-        &:focus {
-          color: $e_fg_color;
-          background-color: $e_color;
-        }
-
-        selection, selection:focus {
-          background-color: $e_fg_color;
-          color: $e_color;
-        }
+      selection, selection:focus {
+        background-color: $e_fg_color;
+        color: $e_color;
       }
     }
   }
+}
+
+// Headerbar Buttons
+%headerbar_buttons {
+  @include button(header-normal);
+  @extend %outline_solid;
+
+  // &.circular { @extend %circular_button; }
+
+  &:backdrop { opacity: 0.65; background-image: none; }
+
+  &:hover {
+    @include button(header-hover);
+    transition: $button_transition;
+  }
+
+  &:active {
+    @include button(header-active);
+    transition: $button_transition;
+    transition-duration: 300ms;
+    background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+    &:hover { background-image: none; }
+  }
+
+  &:checked {
+    @include button(header-checked);
+    background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+    transition: $button_transition;
+    transition-duration: 300ms;
+    &:hover { background-image: none; }
+  }
+
+  &:disabled { @include button(header-insensitive); }
+  &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+//    &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
+
+  &.flat {
+    @include button(undecorated);
+  }
+}
+
+%header_widgets {
+
+  // Headerbar Entries
+  entry {
+    min-height: if($variant == 'light', 20px, 22px);
+    @extend %headerbar_entrys;
+  }
 
   // Headerbar Buttons
-  %headerbar_buttons,
   button {
     min-height: if($variant == 'light', 24px, 26px);
     min-width: 22px;
-    @include button(header-normal);
-    @extend %outline_solid;
-
-    // &.circular { @extend %circular_button; }
-
-    &:backdrop { opacity: 0.65; background-image: none; }
-    &:hover {
-      @include button(header-hover);
-      transition: $button_transition;
-    }
-
-    &:active {
-      @include button(header-active);
-      transition: $button_transition;
-      transition-duration: 300ms;
-      background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
-      &:hover { background-image: none; }
-    }
-
-    &:checked {
-      @include button(header-checked);
-      background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
-      transition: $button_transition;
-      transition-duration: 300ms;
-      &:hover { background-image: none; }
-    }
-
-    &:disabled { @include button(header-insensitive); }
-    &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
-//    &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
-
-    &.flat {
-      @include button(undecorated);
-    }
+    @extend %headerbar_buttons;
   }
 
   // button.toggle.popup { margin-right: 3px; } // Nautilus 3.30 popup button
@@ -1545,36 +1583,10 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
     }
   }
 
-  // Linking stuff
-  %linked_header_middle {
-    border-radius: 0;
-    border-left-style: none;
-    border-right: 1px solid $header_button_border;
-  }
-
-  %linked_header {
-    @extend %linked_header_middle;
-
-    &:first-child {
-      border-top-left-radius: $bt_radius;
-      border-bottom-left-radius: $bt_radius;
-      border-left-style: solid;
-    }
-
-    &:last-child {
-      border-top-right-radius: $bt_radius;
-      border-bottom-right-radius: $bt_radius;
-    }
-
-    &:only-child {
-      border-radius: $bt_radius;
-      border-style: solid;
-    }
-  }
-
   // Reset linked buttons
   .linked:not(.vertical) > button {
     min-width: 20px;
+    @extend %outline_dashed;
 
     &, &:hover, &:active, &:checked, &:disabled {
       @extend %linked_header;
@@ -1595,10 +1607,13 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   }
 
   .linked.raised:not(.vertical):not(.path-bar) > button.image-button {
+    @extend %outline_dashed;
+
     &, &:hover, &:active, &:checked, &:disabled {
       border-radius: $bt_radius;
       margin-right: if($variant=='light', 0, 1px);
       border-right: none;
+
       @if $variant == 'light' { border: 1px solid $borders_color; }
     }
   }
@@ -1617,7 +1632,6 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   // special case for path-bars and stack-switchers
   .linked:not(.vertical):not(.path-bar).stack-switcher,
   .linked:not(.vertical).path-bar {
-
     > button {
       min-height: if($variant == 'light', 24px, 26px);
       @extend %outline_dashed;
@@ -1626,19 +1640,16 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       &:active { @include button(header-active); }
       &:checked { @include button(header-checked); }
       &:disabled { color: rgba($header_fg, 0.45); }
-      &:backdrop { opacity: 0.65; background-image: none; box-shadow: none; }
-      // &, &:hover, &:active, &:checked, &:disabled { @extend %linked_header; }
+      &:backdrop { opacity: 0.65; background-image: none; }
+
+      @if $variant=='dark' {
+        border-right: 1px solid $borders_color;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
     }
-
-    // fixed ugly border color
-    // @if $variant=='light' {
-    //   > button:not(:last-child) {
-    //     &:active { box-shadow: 1px 0 darken($header_button_active_bg, 12%); }
-    //     &:checked { box-shadow: 1px 0 darken($header_button_checked_bg, 12%); }
-    //   }
-    // }
-
-    // @include pathbar_linking_rules ($button_rules: 'header');
   }
 
   // Headerbar Suggested and Destructive Action buttons
@@ -1717,13 +1728,12 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
         border-right-style: none;
 
         &:focus { box-shadow: none; }
-//        @if $variant=='light' and $darker=='false' { &:focus { box-shadow: 1px 0 $selected_bg_color; } }
       }
+
       &:dir(rtl) {
         border-left-style: none;
 
         &:focus { box-shadow: none; }
-//        @if $variant=='light' and $darker=='false' { &:focus { box-shadow: -1px 0 $selected_bg_color; } }
       }
     }
   }

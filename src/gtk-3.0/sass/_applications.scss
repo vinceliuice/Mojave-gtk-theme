@@ -297,6 +297,7 @@ $disk_space_free: darken($bg_color, 3%);
   &.bottom.left {
     border-top-left-radius: 0;
   }
+
   &.bottom.right {
     border-top-right-radius: 0;
   }
@@ -328,9 +329,12 @@ $disk_space_free: darken($bg_color, 3%);
   .nemo-places-sidebar.frame {
     border-width: 0;
   }
+
   notebook {
     background-color: $base_color;
-  } // Rename entry
+  }
+
+  // Rename entry
   .nemo-window-pane widget.entry {
     border: 1px solid;
     border-radius: 3px;
@@ -338,37 +342,86 @@ $disk_space_free: darken($bg_color, 3%);
     @include entry(focus);
 
     &:selected {
-      &:focus,
-      & {
-        @extend %selected_items;
-      }
+      &:focus, & { @extend %selected_items; }
     }
   }
 
   .primary-toolbar {
-    @extend %header_widgets;
+    // @extend %header_widgets;
+    padding-top: 0;
+    padding-bottom: 0;
     border: none;
     color: $header_fg;
-    background-color: opacify($header_bg, 1);
     box-shadow: inset 0 -1px $borders_color;
-  } // Pathbar
+    background-color: $header_bg;
+    background-image: $menubar_bg_image;
+    box-shadow: inset 0 -1px $borders_color;
 
-  .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) {
+    button {
+      @extend %headerbar_buttons;
+      min-width: 22px;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
 
-    > button {
-      @include button(header-normal);
-      &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); }
-      &:checked { @include button(header-checked); }
-      &:disabled { color: transparentize($header_fg, 0.4); }
-      &:backdrop { opacity: 0.7; background-image: none; @if $compact == 'false' { box-shadow: none; } }
+    entry {
+      @extend %headerbar_entrys;
+      margin-top: 4px;
+      margin-bottom: 4px;
+    }
+
+    .linked.raised > button {
+      @extend %linked_header;
+      @extend %outline_dashed;
+      min-height: 0;
+
+      @if $variant == 'light' {
+        &:not(:first-child) {
+          &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
+          &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
+        }
+      }
+
       &, &:hover, &:active, &:checked, &:disabled {
-        @extend %linked;
-        @if $compact == 'true' { border-right: 1px solid $header_button_border; }
+        margin-right: if($variant=='light', 0, 0);
+
+        @if $variant=='dark' {
+          &:last-child {
+            border-right: none;
+          }
+        }
       }
     }
 
-  // @include pathbar_linking_rules($sep_color:$header_button_border);
+    // Pathbar
+    .linked.path-bar {
+      > button, > button.image-button {
+        min-height: 0;
+        min-width: 20px;
+        padding-top: 0;
+        padding-bottom: 0;
+        @extend %outline_dashed;
+
+        &, &:hover, &:active, &:checked, &:disabled {
+          @extend %linked_header;
+        }
+
+        @if $variant == 'light' {
+          &:not(:first-child) {
+            &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
+            &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
+          }
+        }
+
+        @if $variant=='dark' {
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
   }
 }
 
