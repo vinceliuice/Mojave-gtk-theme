@@ -1573,7 +1573,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   }
 
   // Reset linked buttons
-  .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button {
+  .linked:not(.vertical) > button {
     min-width: 20px;
 
     &, &:hover, &:active, &:checked, &:disabled {
@@ -1626,10 +1626,9 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       &:checked { @include button(header-checked); }
       &:disabled { color: rgba($header_fg, 0.45); }
       &:backdrop { opacity: 0.65; background-image: none; box-shadow: none; }
-      &, &:hover, &:active, &:checked, &:disabled {
-        @extend %linked;
-        // border-left: 1px solid $header_button_border;
-      }
+      // &, &:hover, &:active, &:checked, &:disabled {
+      //   @extend %linked_header;
+      // }
     }
 
     // fixed ugly border color
@@ -1640,7 +1639,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
     //   }
     // }
 
-    @include pathbar_linking_rules ($button_rules: 'header');
+    // @include pathbar_linking_rules ($button_rules: 'header');
   }
 
   // Headerbar Suggested and Destructive Action buttons
