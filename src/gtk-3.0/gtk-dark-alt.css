@@ -2076,20 +2076,6 @@ headerbar .linked:not(.vertical).path-bar > button:backdrop,
   box-shadow: none;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
-headerbar .linked:not(.vertical).path-bar > button,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button,
-headerbar .linked:not(.vertical).path-bar > button:hover,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:hover,
-headerbar .linked:not(.vertical).path-bar > button:active,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active,
-headerbar .linked:not(.vertical).path-bar > button:checked,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:checked,
-headerbar .linked:not(.vertical).path-bar > button:disabled,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:disabled {
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-}
-
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:first-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:first-child,
 headerbar .linked:not(.vertical).path-bar > button:first-child,
 .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:first-child {

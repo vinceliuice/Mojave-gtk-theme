@@ -764,15 +764,26 @@ toolbar.inline-toolbar toolbutton {
 // special case, because path-bars are bugged
 @mixin pathbar_linking_rules ($sep_color: $button_border, $button_rules: 'true') {
 
-  @if $button_rules=='true' {
+  @if $button_rules == 'true' {
     > button + button {
       border-left-style: none;
     }
   }
 
-  @if $button_rules=='header' {
+  @if $button_rules == 'header' {
     > button:first-child { border-left-style: if($variant == 'light', solid, none); }
     > button + button { border-left-style: solid; }
+
+    @if $variant == 'light' {
+      > button:active + button {
+        border-left-color: mix(black, $header_button_active_bg, 15%);
+      }
+
+      > button:active + button:checked,
+      > button:checked + button {
+        border-left-color: mix(black, $header_button_checked_bg, 15%);
+      }
+    }
   }
 }
 
@@ -1569,13 +1580,15 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       @extend %linked_header;
     }
 
-    &:last-child {
-      @if $variant == 'light' {
+    @if $variant == 'light' {
+      &:not(:first-child) {
         &:active { box-shadow: -1px 0 $header_button_active_bg; }
         &:checked { box-shadow: -1px 0 $header_button_checked_bg; }
       }
+    }
 
-      @if $variant == 'dark' {
+    @if $variant=='dark' {
+      &:last-child {
         border-right: none;
       }
     }
@@ -1615,15 +1628,17 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       &:backdrop { opacity: 0.65; background-image: none; box-shadow: none; }
       &, &:hover, &:active, &:checked, &:disabled {
         @extend %linked;
-        border-left: 1px solid $header_button_border;
+        // border-left: 1px solid $header_button_border;
       }
     }
 
     // fixed ugly border color
-    > button:not(:last-child) {
-      &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
-      &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
-    }
+    // @if $variant=='light' {
+    //   > button:not(:last-child) {
+    //     &:active { box-shadow: 1px 0 darken($header_button_active_bg, 12%); }
+    //     &:checked { box-shadow: 1px 0 darken($header_button_checked_bg, 12%); }
+    //   }
+    // }
 
     @include pathbar_linking_rules ($button_rules: 'header');
   }

@@ -1990,11 +1990,11 @@ headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button, .
   min-width: 20px;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:active {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:not(:first-child):active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:not(:first-child):active {
   box-shadow: -1px 0 #888888;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:checked {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:not(:first-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:not(:first-child):checked {
   box-shadow: -1px 0 #686868;
 }
 
@@ -2065,32 +2065,6 @@ headerbar .linked:not(.vertical).path-bar > button:backdrop,
   box-shadow: none;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
-headerbar .linked:not(.vertical).path-bar > button,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button,
-headerbar .linked:not(.vertical).path-bar > button:hover,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:hover,
-headerbar .linked:not(.vertical).path-bar > button:active,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active,
-headerbar .linked:not(.vertical).path-bar > button:checked,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:checked,
-headerbar .linked:not(.vertical).path-bar > button:disabled,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:disabled {
-  border-left: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:not(:last-child):active, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:not(:last-child):active,
-headerbar .linked:not(.vertical).path-bar > button:not(:last-child):active,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:not(:last-child):active {
-  box-shadow: 1px 0 #888888;
-}
-
-headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:not(:last-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:not(:last-child):checked,
-headerbar .linked:not(.vertical).path-bar > button:not(:last-child):checked,
-.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:not(:last-child):checked {
-  box-shadow: 1px 0 #686868;
-}
-
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:first-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:first-child,
 headerbar .linked:not(.vertical).path-bar > button:first-child,
 .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:first-child {
@@ -2101,6 +2075,22 @@ headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button + button
 headerbar .linked:not(.vertical).path-bar > button + button,
 .nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button + button {
   border-left-style: solid;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active + button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active + button,
+headerbar .linked:not(.vertical).path-bar > button:active + button,
+.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active + button {
+  border-left-color: #747474;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active + button:checked, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active + button:checked,
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked + button,
+.nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked + button,
+headerbar .linked:not(.vertical).path-bar > button:active + button:checked,
+.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:active + button:checked,
+headerbar .linked:not(.vertical).path-bar > button:checked + button,
+.nemo-window .primary-toolbar .linked:not(.vertical).path-bar > button:checked + button {
+  border-left-color: #585858;
 }
 
 headerbar button.suggested-action, .nemo-window .primary-toolbar button.suggested-action {
@@ -7665,6 +7655,15 @@ headerbar.titlebar .linked.raised > button:first-child {
 
 headerbar.titlebar .linked.raised > button + button {
   border-left-style: solid;
+}
+
+headerbar.titlebar .linked.raised > button:active + button {
+  border-left-color: #747474;
+}
+
+headerbar.titlebar .linked.raised > button:active + button:checked,
+headerbar.titlebar .linked.raised > button:checked + button {
+  border-left-color: #585858;
 }
 
 headerbar.titlebar > grid.linked.horizontal.format-bar {
