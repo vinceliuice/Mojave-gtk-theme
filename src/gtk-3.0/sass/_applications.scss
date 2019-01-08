@@ -328,18 +328,27 @@ $disk_space_free: darken($bg_color, 3%);
 
   .nemo-places-sidebar.frame {
     border-width: 0;
+
+    .places-treeview {
+      @extend row.activatable;
+    }
   }
+
+  paned > separator { background-image: image($solid_borders_color); }
 
   notebook {
     background-color: $base_color;
+
+    infobar { background-color: $bg_color; }
   }
 
   // Rename entry
   .nemo-window-pane widget.entry {
-    border: 1px solid;
-    border-radius: 3px;
-
-    @include entry(focus);
+    border: 2px solid if($variant =='light', $entry_highlight, $selected_bg_color);
+    background-color: $entry_bg;
+    background-image: $header_button_image;
+    border-radius: $bt_radius;
+    box-shadow: none;
 
     &:selected {
       &:focus, & { @extend %selected_items; }
