@@ -1390,7 +1390,6 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
     &, &:backdrop {
       padding: 0;
       background: none;
-      background-image: none;
       border: none;
       box-shadow: none;
     }
@@ -1558,7 +1557,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
   }
 
   // Reset linked buttons
-  .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button {
+  .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button {
     min-width: 20px;
 
     &, &:hover, &:active, &:checked, &:disabled {

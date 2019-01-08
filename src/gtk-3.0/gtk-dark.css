@@ -1748,7 +1748,6 @@ window.csd > .titlebar:not(headerbar),
 window.csd > .titlebar:not(headerbar):backdrop {
   padding: 0;
   background: none;
-  background-image: none;
   border: none;
   box-shadow: none;
 }
@@ -1981,33 +1980,33 @@ headerbar.selection-mode button:active, .nemo-window .selection-mode.primary-too
   text-shadow: none;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:disabled {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button, .nemo-window .primary-toolbar headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:hover, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:active, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:checked, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:disabled {
   border-radius: 0;
   border-left-style: none;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:first-child:disabled {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:first-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:first-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:first-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:first-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:first-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:first-child:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:first-child, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-left-style: solid;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child:disabled {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:last-child, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:only-child:disabled {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:only-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:only-child, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:only-child:hover, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:only-child:active, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:only-child:checked, headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:only-child:disabled, headerbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:only-child, .nemo-window .primary-toolbar .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:only-child {
   border-radius: 5px;
   border-style: solid;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button {
   min-width: 20px;
 }
 
-headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher):not(.raised) > button:last-child {
+headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child, .nemo-window .primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) > button:last-child {
   border-right: none;
 }
 
@@ -6935,6 +6934,12 @@ window.thunar notebook header.top tab.reorderable-page > box > label {
 
 .geary-titlebar-right > button {
   min-width: 22px;
+}
+
+.geary-titlebar-right > box.linked.raised.horizontal > button.image-button:last-child {
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+  border-right: none;
 }
 
 .geary-composer-box entry {

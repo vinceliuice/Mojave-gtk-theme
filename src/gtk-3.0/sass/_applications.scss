@@ -1735,6 +1735,26 @@ window.thunar {
   > button { // button
     min-width: 22px;
   }
+
+  > box.linked.raised.horizontal > button.image-button {
+    &, &:hover, &:active, &:checked, &:disabled {
+      @extend %linked_header;
+    }
+
+    &:last-child {
+      border-radius: 0 $bt_radius $bt_radius 0;
+      border-left: none;
+
+      @if $variant == 'light' {
+        &:active { box-shadow: -1px 0 $header_button_active_bg; }
+        &:checked { box-shadow: -1px 0 $header_button_checked_bg; }
+      }
+
+      @if $variant == 'dark' {
+        border-right: none;
+      }
+    }
+  }
 }
 
 .geary-composer-box {
