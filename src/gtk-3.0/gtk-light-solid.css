@@ -1967,11 +1967,11 @@ headerbar .linked:not(.vertical) > button, .nemo-window .primary-toolbar .linked
 }
 
 headerbar .linked:not(.vertical) > button:not(:first-child):active, .nemo-window .primary-toolbar .linked:not(.vertical) > button:not(:first-child):active {
-  box-shadow: -1px 0 #888888;
+  box-shadow: -1px 0 #747474;
 }
 
 headerbar .linked:not(.vertical) > button:not(:first-child):checked, .nemo-window .primary-toolbar .linked:not(.vertical) > button:not(:first-child):checked {
-  box-shadow: -1px 0 #686868;
+  box-shadow: -1px 0 #585858;
 }
 
 headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:hover, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:active, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:checked, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled, .nemo-window .primary-toolbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button:disabled {

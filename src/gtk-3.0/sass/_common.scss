@@ -1582,8 +1582,8 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
 
     @if $variant == 'light' {
       &:not(:first-child) {
-        &:active { box-shadow: -1px 0 $header_button_active_bg; }
-        &:checked { box-shadow: -1px 0 $header_button_checked_bg; }
+        &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
+        &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
       }
     }
 
@@ -1626,9 +1626,7 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       &:checked { @include button(header-checked); }
       &:disabled { color: rgba($header_fg, 0.45); }
       &:backdrop { opacity: 0.65; background-image: none; box-shadow: none; }
-      // &, &:hover, &:active, &:checked, &:disabled {
-      //   @extend %linked_header;
-      // }
+      // &, &:hover, &:active, &:checked, &:disabled { @extend %linked_header; }
     }
 
     // fixed ugly border color
