@@ -553,21 +553,26 @@ button {
                                     (destructive-action, $destructive_color, $destructive_fg_color) {
     &.#{$b_type} {
       @include button(suggested_destructive, $b_color, $b_fg);
+
       &.flat {
         @include button(undecorated);
         color: $b_color;
       }
+
       &:hover {
-        @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
+        @include button(suggested_destructive, lighten($b_color, 5%), $b_fg);
       }
+
       &:active, &:checked {
-        @include button(suggested_destructive, darken($b_color, 10%), $b_fg);
+        @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
         box-shadow: none;
       }
+
       &.flat:disabled {
         @include button(undecorated);
         color: $insensitive_fg_color;
       }
+
       &:disabled { @include button(insensitive); }
     }
   }
@@ -1636,11 +1641,11 @@ window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) { // reset
       }
 
       &:hover {
-        @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
+        @include button(suggested_destructive, lighten($b_color, 5%), $b_fg);
       }
 
       &:active, &:checked {
-        @include button(suggested_destructive, darken($b_color, 10%), $b_fg);
+        @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
         box-shadow: none;
       }
 

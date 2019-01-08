@@ -708,14 +708,14 @@ button.suggested-action.flat, button.suggested-action.budgie-menu-launcher, .bud
 
 button.suggested-action:hover {
   color: white;
-  background-color: #619fe8;
+  background-color: #4a92e5;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
 }
 
 button.suggested-action:active, button.suggested-action:checked {
   color: white;
-  background-color: #1c6bc7;
+  background-color: #619fe8;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
   box-shadow: none;
@@ -755,14 +755,14 @@ button.destructive-action.flat, button.destructive-action.budgie-menu-launcher, 
 
 button.destructive-action:hover {
   color: white;
-  background-color: #fa777c;
+  background-color: #f95f64;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
 }
 
 button.destructive-action:active, button.destructive-action:checked {
   color: white;
-  background-color: #f6151c;
+  background-color: #fa777c;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
   box-shadow: none;
@@ -2120,14 +2120,14 @@ headerbar button.suggested-action.flat, .nemo-window .primary-toolbar button.sug
 
 headerbar button.suggested-action:hover, .nemo-window .primary-toolbar button.suggested-action:hover {
   color: white;
-  background-color: #619fe8;
+  background-color: #4a92e5;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
 }
 
 headerbar button.suggested-action:active, .nemo-window .primary-toolbar button.suggested-action:active, headerbar button.suggested-action:checked, .nemo-window .primary-toolbar button.suggested-action:checked {
   color: white;
-  background-color: #1c6bc7;
+  background-color: #619fe8;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
   box-shadow: none;
@@ -2164,14 +2164,14 @@ headerbar button.destructive-action.flat, .nemo-window .primary-toolbar button.d
 
 headerbar button.destructive-action:hover, .nemo-window .primary-toolbar button.destructive-action:hover {
   color: white;
-  background-color: #fa777c;
+  background-color: #f95f64;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
 }
 
 headerbar button.destructive-action:active, .nemo-window .primary-toolbar button.destructive-action:active, headerbar button.destructive-action:checked, .nemo-window .primary-toolbar button.destructive-action:checked {
   color: white;
-  background-color: #f6151c;
+  background-color: #fa777c;
   border-color: rgba(0, 0, 0, 0.15);
   background-image: none;
   box-shadow: none;
@@ -5323,13 +5323,12 @@ terminal-window notebook > header.top button,
 
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
-  min-height: 26px;
-  min-width: 22px;
   padding-top: 0;
   padding-bottom: 0;
-  margin: 0 0 0 -6px;
+  margin: 0 0 0 -5px;
   border-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  border-right-style: none;
   border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #5d5d5d;
   background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
@@ -5352,6 +5351,7 @@ terminal-window notebook > header.top button,
   background-color: #aaaaaa;
   background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
   border-radius: 0 5px 5px 0;
+  border-right-style: solid;
 }
 
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked:hover, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher:checked:hover {
