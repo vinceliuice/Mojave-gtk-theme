@@ -2058,6 +2058,15 @@ window.background.chromium {
     }
   }
 
+  > menu {
+    border: 1px solid $solid_borders_color;
+    // background-color: $menu_bg_color;
+
+    // > menuitem {
+    //   color: $menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color
+    // }
+  }
+
   // internal region of toolbar's entry widget
   > textview.view { background-color: $base_color; }
 }
