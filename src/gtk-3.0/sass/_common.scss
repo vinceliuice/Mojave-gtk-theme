@@ -627,6 +627,7 @@ button {
     background-repeat: no-repeat;
     @if $variant == 'light' { background-position: right 3px, right 4px; }
     @else { background-position: right 3px, right 2px; }
+
     &:dir(rtl) {
       @if $variant == 'light' { background-position: left 3px, left 4px; }
       @else { background-position: left 3px, left 2px; }
