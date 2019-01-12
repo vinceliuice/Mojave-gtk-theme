@@ -154,6 +154,10 @@ flowbox flowboxchild:selected {
   outline-offset: -2px;
 }
 
+flowbox.search-bar {
+  border-bottom: 1px solid #a1a1a1;
+}
+
 label.separator, popover label.separator,
 popover.background label.separator {
   color: #242424;
@@ -7649,8 +7653,28 @@ scale.warmth trough {
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
 }
 
+.terminal-window headerbar.titlebar.default-decoration {
+  background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 50%, #e9e9e9 98%, #f5f5f5 100%);
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #a1a1a1;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.65);
+}
+
+.terminal-window headerbar.titlebar.default-decoration:backdrop {
+  transition: 200ms ease-out;
+  color: rgba(87, 87, 87, 0.7);
+  background-image: none;
+  background-color: #F6F6F6;
+  border-color: #c7c7c7;
+}
+
 .terminal-window .search-bar {
   background-color: #f5f5f5;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.terminal-window .dynamic-notebook notebook > header {
+  border-color: #cfcfcf;
 }
 
 UnityDecoration {

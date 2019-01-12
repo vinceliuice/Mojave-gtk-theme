@@ -142,6 +142,8 @@ flowbox {
       outline-offset: -2px;
     }
   }
+
+  &.search-bar { border-bottom: 1px solid $header_border; }
 }
 
 label {
