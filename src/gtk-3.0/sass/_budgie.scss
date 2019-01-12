@@ -1086,7 +1086,7 @@ window.budgie-switcher-window {
   .linked.horizontal > button {
     padding: 4px 16px;
     border: none;
-    border-top: 1px solid $borders_color;
+    border-top: 1px solid $dark_borders_color;
     border-radius: 0;
 
     &:first-child { border-bottom-left-radius: $wm_radius; }
@@ -1097,13 +1097,13 @@ window.budgie-switcher-window {
 
       &:hover {
         @include button(flat-hover);
-        border-color: $borders_color;
+        border-color: $dark_borders_color;
         transition: $button_transition;
        }
 
       &:active, &:checked {
         @include button(flat-active);
-        border-color: $borders_color;
+        border-color: $dark_borders_color;
         text-shadow: $text_shadow;
       }
     }
