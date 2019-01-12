@@ -7055,6 +7055,10 @@ window.background.chromium entry.chromium, window.background.chromium entry.chro
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+window.background.chromium > menu {
+  border: 1px solid #cfcfcf;
+}
+
 window.background.chromium > textview.view {
   background-color: #ffffff;
 }
