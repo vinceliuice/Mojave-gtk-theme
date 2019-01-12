@@ -1699,20 +1699,20 @@ window.solid-csd headerbar:only-child {
   border-top-right-radius: 0;
 }
 
-window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) {
+window.background > box.vertical > headerbar:not(.titlebar) {
   border-radius: 0 0 0 0;
   box-shadow: none;
 }
 
-window.background:not(.csd) > box.vertical > headerbar:not(.titlebar), window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):backdrop {
+window.background > box.vertical > headerbar:not(.titlebar), window.background > box.vertical > headerbar:not(.titlebar):backdrop {
   background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 100%);
 }
 
-separator:first-child + window.background:not(.csd) > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):backdrop, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):first-child, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
+separator:first-child + window.background > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background > box.vertical > headerbar:not(.titlebar):backdrop, window.background > box.vertical > headerbar:not(.titlebar):first-child, window.background > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
   border-top-left-radius: 0;
 }
 
-window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):last-child, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):last-child:backdrop {
+window.background > box.vertical > headerbar:not(.titlebar):last-child, window.background > box.vertical > headerbar:not(.titlebar):last-child:backdrop {
   border-top-right-radius: 0;
 }
 
@@ -7658,6 +7658,10 @@ scale.warmth trough {
   border-radius: 3px;
   background-image: linear-gradient(to right, #3484e2, #f8464c);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.terminal-window .search-bar {
+  background-color: #333333;
 }
 
 UnityDecoration {
