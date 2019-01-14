@@ -197,7 +197,7 @@ popover.background.osd,
 popover.background.magnifier, .csd popover.background.osd, .csd popover.background.magnifier, .osd .scale-popup, .osd {
   color: #363636;
   border: none;
-  background-color: rgba(245, 245, 245, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   background-clip: padding-box;
   box-shadow: none;
 }
@@ -348,7 +348,7 @@ entry:drop(active):focus, entry:drop(active) {
 .osd entry {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.96);
 }
 
 .osd entry image, .osd entry image:hover {
@@ -363,7 +363,7 @@ entry:drop(active):focus, entry:drop(active) {
 
 .osd entry:disabled {
   color: #363636;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.81);
 }
 
 .osd entry selection:focus, .osd entry selection {
@@ -604,8 +604,8 @@ button:drop(active), combobox:drop(active) button.combo {
 
 button.osd {
   color: #363636;
-  background-color: rgba(245, 245, 245, 0.95);
-  border-color: rgba(225, 225, 225, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(235, 235, 235, 0.95);
 }
 
 button.osd.image-button {
@@ -626,23 +626,23 @@ button.osd:active, button.osd:checked {
 }
 
 button.osd:disabled {
-  color: #bcbcbc;
+  color: #c3c3c3;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.81);
   box-shadow: none;
 }
 
 .osd button {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.96);
   box-shadow: none;
 }
 
 .osd button:hover {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: white;
   box-shadow: none;
 }
 
@@ -655,9 +655,9 @@ button.osd:disabled {
 }
 
 .osd button:disabled {
-  color: #bcbcbc;
+  color: #c3c3c3;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.81);
   box-shadow: none;
 }
 
@@ -672,14 +672,14 @@ button.osd:disabled {
 .osd button.flat:hover, .osd button.budgie-menu-launcher:hover {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: white;
   box-shadow: none;
 }
 
 .osd button.flat:disabled, .osd button.budgie-menu-launcher:disabled {
-  color: #bcbcbc;
+  color: #c3c3c3;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.81);
   box-shadow: none;
   background-image: none;
 }
@@ -1377,14 +1377,14 @@ toolbar.vertical separator, .vertical.inline-toolbar separator {
 }
 
 .osd toolbar, .osd .inline-toolbar {
-  background-color: rgba(245, 245, 245, 0.9);
+  background-color: transparent;
 }
 
 toolbar.osd, .osd.inline-toolbar {
   padding: 8px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  background-color: rgba(245, 245, 245, 0.9);
+  background-color: #ffffff;
 }
 
 toolbar.osd.left, .osd.left.inline-toolbar, toolbar.osd.right, .osd.right.inline-toolbar, toolbar.osd.top, .osd.top.inline-toolbar, toolbar.osd.bottom, .osd.bottom.inline-toolbar {
@@ -6122,8 +6122,8 @@ window.background.csd > overlay > grid.horizontal > overlay > stack > box.horizo
 #gf-candidate-popup,
 #gf-candidate-popup.solid {
   color: #484848;
-  background-color: rgba(245, 245, 245, 0.95);
-  border: 1px solid rgba(225, 225, 225, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(235, 235, 235, 0.95);
   border-radius: 2px;
 }
 
@@ -6145,7 +6145,7 @@ window.background.csd > overlay > grid.horizontal > overlay > stack > box.horizo
 #gf-osd-window levelbar block.empty,
 #gf-input-source-popup levelbar block.empty,
 #gf-candidate-popup levelbar block.empty {
-  background-color: rgba(232, 232, 232, 0.95);
+  background-color: rgba(242, 242, 242, 0.95);
 }
 
 #gf-bubble levelbar trough,
@@ -6572,7 +6572,7 @@ dialog.background.csd entry.search {
 
 MsdOsdWindow.background.osd {
   border-radius: 2px;
-  border: 1px solid rgba(225, 225, 225, 0.95);
+  border: 1px solid rgba(235, 235, 235, 0.95);
 }
 
 MsdOsdWindow.background.osd .progressbar {
@@ -6583,7 +6583,7 @@ MsdOsdWindow.background.osd .progressbar {
 }
 
 MsdOsdWindow.background.osd .trough {
-  background-color: rgba(232, 232, 232, 0.95);
+  background-color: rgba(242, 242, 242, 0.95);
   border: none;
   border-radius: 5px;
 }
@@ -7696,7 +7696,7 @@ headerbar.titlebar > grid.linked.horizontal.format-bar:backdrop {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  background-image: linear-gradient(to bottom, rgba(245, 245, 245, 0.95), rgba(245, 245, 245, 0.95));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
   background-color: transparent;
 }
 
@@ -8195,7 +8195,7 @@ GtkListBox .h4 {
   padding-top: 20px;
   padding-bottom: 0px;
   border-style: none;
-  background-color: rgba(245, 245, 245, 0.95);
+  background-color: rgba(255, 255, 255, 0.95);
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   border: solid rgba(0, 0, 0, 0.1);
@@ -8206,14 +8206,14 @@ GtkListBox .h4 {
 #buttonbox_frame button {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(255, 255, 255, 0.96);
   box-shadow: none;
 }
 
 #buttonbox_frame button:hover {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.45);
+  background-color: white;
   box-shadow: none;
 }
 
@@ -8225,9 +8225,9 @@ GtkListBox .h4 {
 }
 
 #buttonbox_frame button:disabled {
-  color: #bcbcbc;
+  color: #c3c3c3;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.81);
   box-shadow: none;
 }
 
@@ -9982,35 +9982,35 @@ window.budgie-switcher-window flowboxchild {
   font-size: 120%;
 }
 
-.budgie-session-dialog .linked.horizontal > button,
-.budgie-polkit-dialog .linked.horizontal > button {
+.budgie-session-dialog buttonbox.linked.horizontal > button,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button {
   padding: 4px 16px;
   border: none;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0;
 }
 
-.budgie-session-dialog .linked.horizontal > button:first-child,
-.budgie-polkit-dialog .linked.horizontal > button:first-child {
+.budgie-session-dialog buttonbox.linked.horizontal > button:first-child,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:first-child {
   border-bottom-left-radius: 6px;
 }
 
-.budgie-session-dialog .linked.horizontal > button:last-child,
-.budgie-polkit-dialog .linked.horizontal > button:last-child {
+.budgie-session-dialog buttonbox.linked.horizontal > button:last-child,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:last-child {
   border-bottom-right-radius: 6px;
 }
 
-.budgie-session-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover,
-.budgie-polkit-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover {
+.budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.budgie-session-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):active, .budgie-session-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked,
-.budgie-polkit-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):active,
-.budgie-polkit-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked {
+.budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):active, .budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):active,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);

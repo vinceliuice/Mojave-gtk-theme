@@ -1083,7 +1083,7 @@ window.budgie-switcher-window {
   label:not(:last-child),
   .dialog-title { font-size: 120%; }
 
-  .linked.horizontal > button {
+  buttonbox.linked.horizontal > button {
     padding: 4px 16px;
     border: none;
     border-top: 1px solid $dark_borders_color;
@@ -1093,20 +1093,19 @@ window.budgie-switcher-window {
     &:last-child { border-bottom-right-radius: $wm_radius; }
   }
 
-  .linked.horizontal > button:not(.suggested-action):not(.destructive-action) {
-
-      &:hover {
-        @include button(flat-hover);
-        border-color: $dark_borders_color;
-        transition: $button_transition;
-       }
-
-      &:active, &:checked {
-        @include button(flat-active);
-        border-color: $dark_borders_color;
-        text-shadow: $text_shadow;
-      }
+  buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action) {
+    &:hover {
+      @include button(flat-hover);
+      border-color: $dark_borders_color;
+      transition: $button_transition;
     }
+
+    &:active, &:checked {
+      @include button(flat-active);
+      border-color: $dark_borders_color;
+      text-shadow: $text_shadow;
+    }
+  }
 }
 
 // PolKit Dialog

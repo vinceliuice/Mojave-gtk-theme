@@ -1092,13 +1092,13 @@ toolbar {
   &.horizontal separator { margin: 0 6px; }
   &.vertical separator { margin: 6px 0; }
 
-  .osd & { background-color: rgba($osd_bg_color, 0.9); }
+  .osd & { background-color: transparent; }
 
   &.osd {
     padding: 8px;
     border: 1px solid $borders_color;
     border-radius: $bt_radius;
-    background-color: rgba($osd_bg_color, 0.9);
+    background-color: $base_color;
 
     &.left,
     &.right,
@@ -1120,6 +1120,7 @@ toolbar {
       margin-right: 1px;
       margin-bottom: 1px;
     }
+
     .linked > button,
     .linked > entry { margin-right:0; }
   }
