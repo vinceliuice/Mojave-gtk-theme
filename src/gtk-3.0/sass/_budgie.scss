@@ -1083,30 +1083,29 @@ window.budgie-switcher-window {
   label:not(:last-child),
   .dialog-title { font-size: 120%; }
 
-  .linked.horizontal > button {
+  buttonbox.linked.horizontal > button {
     padding: 4px 16px;
     border: none;
-    border-top: 1px solid $borders_color;
+    border-top: 1px solid $dark_borders_color;
     border-radius: 0;
 
     &:first-child { border-bottom-left-radius: $wm_radius; }
     &:last-child { border-bottom-right-radius: $wm_radius; }
   }
 
-  .linked.horizontal > button:not(.suggested-action):not(.destructive-action) {
-
-      &:hover {
-        @include button(flat-hover);
-        border-color: $borders_color;
-        transition: $button_transition;
-       }
-
-      &:active, &:checked {
-        @include button(flat-active);
-        border-color: $borders_color;
-        text-shadow: $text_shadow;
-      }
+  buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action) {
+    &:hover {
+      @include button(flat-hover);
+      border-color: $dark_borders_color;
+      transition: $button_transition;
     }
+
+    &:active, &:checked {
+      @include button(flat-active);
+      border-color: $dark_borders_color;
+      text-shadow: $text_shadow;
+    }
+  }
 }
 
 // PolKit Dialog
@@ -1135,80 +1134,27 @@ window.budgie-switcher-window {
   scrolledwindow { border-top: 1px solid $borders_color; }
 }
 
-//
-// vala-panel
-//
-window#ValaPanel.background {
-  // background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
-  // border: 1px solid $header_border;
-  // color: currentColor;
-
-  widget.-vala-panel-background {
-    > separator { // separator applet
-      background: none;
-    }
-  }
-}
-
-button.flat.-panel-button,
-button#tasklist-button.toggle.flat,
-// tasklist-arrow-button.toggle.flat.-panel-flat-button, // xfce tasklist button
-button.flat.-panel-icon-button {
-  @extend %budgie_icon_tasklist_button;
-
-  &:hover {
-    box-shadow: inset 0 -2px rgba($selected_bg_color, 0.5);
-    background: none;
-  }
-  &:active,
-  &:checked {
-    box-shadow: inset 0 -2px $selected_bg_color;
-    color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
-    background: none;
-  }
-}
-
-.unpinned button.flat.-panel-icon-button {
+// pixel-saver(?) applet
+.budgie-panel box.titlebar {
+  min-width: 20px;
+  min-height: 20px;
   border-radius: 0;
-
-  &:hover { -gtk-icon-effect: highlight; }
-  &:hover,
-  &:active,
-  &:checked {
-    box-shadow: inset 0 -2px $selected_bg_color;
-    color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
-  }
-}
-
-.pinned button.flat.-panel-icon-button.running {
-  border-radius: 0;
-
-  > image {
-    background-position: bottom center;
-  }
-
-  &:hover { -gtk-icon-effect: highlight; }
-  &:hover,
-  &:active,
-  &:checked {
-    box-shadow: inset 0 -2px $selected_bg_color;
-    color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
-  }
-}
-
-// vala-panel-appmenu
-// menubar.-vala-panel-appmenu-private,
-menubar.-vala-panel-background {
   background: none;
-  border: none;
   box-shadow: none;
+  border: none;
 
-  > menuitem {
-    color: $panel_fg;
-    font-weight: normal;
-    &:hover { color: $selected_fg_color; }
+  > widget > label { color: rgba($panel_fg, 0.75); } // titles
 
-    // > window.background.popup > decoration,
-    // > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
+  > button.image-button.titlebutton { padding: 0 3px; }
+
+  &.horizontal { // spacing
+    padding: 0 3px;
+
+    > widget > label {
+      &:dir(ltr) { padding-right: 3px; }
+      &:dir(rtl) { padding-left: 3px; }
+    }
+
+    > button.image-button.titlebutton { padding: 0 3px; }
   }
 }

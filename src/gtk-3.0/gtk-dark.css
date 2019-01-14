@@ -154,6 +154,10 @@ flowbox flowboxchild:selected {
   outline-offset: -2px;
 }
 
+flowbox.search-bar {
+  border-bottom: 1px solid #101010;
+}
+
 label.separator, popover label.separator,
 popover.background label.separator {
   color: #dedede;
@@ -342,8 +346,8 @@ entry:drop(active):focus, entry:drop(active) {
 
 .osd entry {
   color: #dadada;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.35);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.96);
 }
 
 .osd entry image, .osd entry image:hover {
@@ -358,7 +362,7 @@ entry:drop(active):focus, entry:drop(active) {
 
 .osd entry:disabled {
   color: #dadada;
-  background-color: rgba(92, 92, 92, 0.2);
+  background-color: rgba(92, 92, 92, 0.81);
 }
 
 .osd entry selection:focus, .osd entry selection {
@@ -612,44 +616,44 @@ button.osd:hover {
 
 button.osd:active, button.osd:checked {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
   box-shadow: none;
 }
 
 button.osd:disabled {
   color: #5b5b5b;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.81);
   box-shadow: none;
 }
 
 .osd button {
   color: #dadada;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.35);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.96);
   box-shadow: none;
 }
 
 .osd button:hover {
   color: #dadada;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(110, 110, 110, 0.45);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: #6e6e6e;
   box-shadow: none;
 }
 
 .osd button:active, .osd button:checked {
   background-clip: padding-box;
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
   box-shadow: none;
 }
 
 .osd button:disabled {
   color: #5b5b5b;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.81);
   box-shadow: none;
 }
 
@@ -663,22 +667,22 @@ button.osd:disabled {
 
 .osd button.flat:hover, .osd button.budgie-menu-launcher:hover {
   color: #dadada;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(110, 110, 110, 0.45);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: #6e6e6e;
   box-shadow: none;
 }
 
 .osd button.flat:disabled, .osd button.budgie-menu-launcher:disabled {
   color: #5b5b5b;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.81);
   box-shadow: none;
   background-image: none;
 }
 
 .osd button.flat:active, .osd button.budgie-menu-launcher:active, .osd button.flat:checked, .osd button.budgie-menu-launcher:checked {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
   box-shadow: none;
 }
@@ -1287,7 +1291,7 @@ spinbutton:not(.vertical) > entry:drop(active) + button {
 
 .osd spinbutton:not(.vertical) > button:hover:not(:active),
 .osd spinbutton:not(.vertical) > button:hover + button {
-  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 1px 0 rgba(0, 0, 0, 0.15);
 }
 
 .osd spinbutton:not(.vertical) > button:first-child:hover:not(:active),
@@ -1380,14 +1384,14 @@ toolbar.vertical separator, .vertical.inline-toolbar separator {
 }
 
 .osd toolbar, .osd .inline-toolbar {
-  background-color: rgba(36, 36, 36, 0.9);
+  background-color: transparent;
 }
 
 toolbar.osd, .osd.inline-toolbar {
   padding: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 5px;
-  background-color: rgba(36, 36, 36, 0.9);
+  background-color: #242424;
 }
 
 toolbar.osd.left, .osd.left.inline-toolbar, toolbar.osd.right, .osd.right.inline-toolbar, toolbar.osd.top, .osd.top.inline-toolbar, toolbar.osd.bottom, .osd.bottom.inline-toolbar {
@@ -1699,20 +1703,20 @@ window.solid-csd headerbar:only-child {
   border-top-right-radius: 0;
 }
 
-window.background:not(.csd) > box.vertical > headerbar:not(.titlebar) {
+window.background > box.vertical > headerbar:not(.titlebar) {
   border-radius: 0 0 0 0;
   box-shadow: none;
 }
 
-window.background:not(.csd) > box.vertical > headerbar:not(.titlebar), window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):backdrop {
+window.background > box.vertical > headerbar:not(.titlebar), window.background > box.vertical > headerbar:not(.titlebar):backdrop {
   background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 100%);
 }
 
-separator:first-child + window.background:not(.csd) > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):backdrop, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):first-child, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
+separator:first-child + window.background > box.vertical > headerbar:not(.titlebar), separator:first-child + window.background > box.vertical > headerbar:not(.titlebar):backdrop, window.background > box.vertical > headerbar:not(.titlebar):first-child, window.background > box.vertical > headerbar:not(.titlebar):first-child:backdrop {
   border-top-left-radius: 0;
 }
 
-window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):last-child, window.background:not(.csd) > box.vertical > headerbar:not(.titlebar):last-child:backdrop {
+window.background > box.vertical > headerbar:not(.titlebar):last-child, window.background > box.vertical > headerbar:not(.titlebar):last-child:backdrop {
   border-top-right-radius: 0;
 }
 
@@ -7255,6 +7259,78 @@ window > box.vertical > box.horizontal > widget {
   background-color: transparent;
 }
 
+window#ValaPanel.background widget.-vala-panel-background > separator {
+  background: none;
+}
+
+button.flat.-panel-button:hover, button.-panel-button.budgie-menu-launcher:hover,
+button#tasklist-button.toggle.flat:hover,
+button#tasklist-button.toggle.budgie-menu-launcher:hover,
+button.flat.-panel-icon-button:hover,
+button.-panel-icon-button.budgie-menu-launcher:hover {
+  box-shadow: inset 0 -2px rgba(49, 91, 239, 0.5);
+  background: none;
+}
+
+button.flat.-panel-button:active, button.-panel-button.budgie-menu-launcher:active, button.flat.-panel-button:checked, button.-panel-button.budgie-menu-launcher:checked,
+button#tasklist-button.toggle.flat:active,
+button#tasklist-button.toggle.budgie-menu-launcher:active,
+button#tasklist-button.toggle.flat:checked,
+button#tasklist-button.toggle.budgie-menu-launcher:checked,
+button.flat.-panel-icon-button:active,
+button.-panel-icon-button.budgie-menu-launcher:active,
+button.flat.-panel-icon-button:checked,
+button.-panel-icon-button.budgie-menu-launcher:checked {
+  box-shadow: inset 0 -2px #315bef;
+  color: #ffffff;
+  background: none;
+}
+
+.unpinned button.flat.-panel-icon-button, .unpinned button.-panel-icon-button.budgie-menu-launcher {
+  border-radius: 0;
+}
+
+.unpinned button.flat.-panel-icon-button:hover, .unpinned button.-panel-icon-button.budgie-menu-launcher:hover {
+  -gtk-icon-effect: highlight;
+}
+
+.unpinned button.flat.-panel-icon-button:hover, .unpinned button.-panel-icon-button.budgie-menu-launcher:hover, .unpinned button.flat.-panel-icon-button:active, .unpinned button.-panel-icon-button.budgie-menu-launcher:active, .unpinned button.flat.-panel-icon-button:checked, .unpinned button.-panel-icon-button.budgie-menu-launcher:checked {
+  box-shadow: inset 0 -2px #315bef;
+  color: #ffffff;
+}
+
+.pinned button.flat.-panel-icon-button.running, .pinned button.-panel-icon-button.running.budgie-menu-launcher {
+  border-radius: 0;
+}
+
+.pinned button.flat.-panel-icon-button.running > image, .pinned button.-panel-icon-button.running.budgie-menu-launcher > image, .pinned .budgie-panel button.-panel-icon-button.running.flat.launcher > image {
+  background-position: bottom center;
+}
+
+.pinned button.flat.-panel-icon-button.running:hover, .pinned button.-panel-icon-button.running.budgie-menu-launcher:hover {
+  -gtk-icon-effect: highlight;
+}
+
+.pinned button.flat.-panel-icon-button.running:hover, .pinned button.-panel-icon-button.running.budgie-menu-launcher:hover, .pinned button.flat.-panel-icon-button.running:active, .pinned button.-panel-icon-button.running.budgie-menu-launcher:active, .pinned button.flat.-panel-icon-button.running:checked, .pinned button.-panel-icon-button.running.budgie-menu-launcher:checked {
+  box-shadow: inset 0 -2px #315bef;
+  color: #ffffff;
+}
+
+menubar.-vala-panel-background {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+menubar.-vala-panel-background > menuitem {
+  color: #dadada;
+  font-weight: normal;
+}
+
+menubar.-vala-panel-background > menuitem:hover {
+  color: #ffffff;
+}
+
 .panel {
   background-color: #2a2a2a;
   background-image: linear-gradient(0deg, rgba(42, 42, 42, 0.9) 0%, rgba(51, 51, 51, 0.9) 100%);
@@ -7646,7 +7722,6 @@ actionbar.inline-toolbar {
 
 actionbar.inline-toolbar button {
   border-radius: 5px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 actionbar.inline-toolbar button:first-child {
@@ -7662,6 +7737,30 @@ scale.warmth trough {
   border-radius: 3px;
   background-image: linear-gradient(to right, #3484e2, #f8464c);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.terminal-window headerbar.titlebar.default-decoration {
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  background-color: #373737;
+  border-bottom: 1px solid #101010;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.terminal-window headerbar.titlebar.default-decoration:backdrop {
+  transition: 200ms ease-out;
+  color: rgba(253, 253, 253, 0.7);
+  background-image: none;
+  background-color: #313131;
+  border-color: #080808;
+}
+
+.terminal-window .search-bar {
+  background-color: #333333;
+  border-bottom: 1px solid #474747;
+}
+
+.terminal-window .dynamic-notebook notebook > header {
+  border-color: #474747;
 }
 
 UnityDecoration {
@@ -8115,29 +8214,29 @@ GtkListBox .h4 {
 
 #buttonbox_frame button {
   color: #dadada;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.35);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.96);
   box-shadow: none;
 }
 
 #buttonbox_frame button:hover {
   color: #dadada;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(110, 110, 110, 0.45);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: #6e6e6e;
   box-shadow: none;
 }
 
 #buttonbox_frame button:active, #buttonbox_frame button:checked {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
   box-shadow: none;
 }
 
 #buttonbox_frame button:disabled {
   color: #5b5b5b;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: rgba(92, 92, 92, 0.2);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(92, 92, 92, 0.81);
   box-shadow: none;
 }
 
@@ -9888,39 +9987,39 @@ window.budgie-switcher-window flowboxchild {
   font-size: 120%;
 }
 
-.budgie-session-dialog .linked.horizontal > button,
-.budgie-polkit-dialog .linked.horizontal > button {
+.budgie-session-dialog buttonbox.linked.horizontal > button,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button {
   padding: 4px 16px;
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0;
 }
 
-.budgie-session-dialog .linked.horizontal > button:first-child,
-.budgie-polkit-dialog .linked.horizontal > button:first-child {
+.budgie-session-dialog buttonbox.linked.horizontal > button:first-child,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:first-child {
   border-bottom-left-radius: 6px;
 }
 
-.budgie-session-dialog .linked.horizontal > button:last-child,
-.budgie-polkit-dialog .linked.horizontal > button:last-child {
+.budgie-session-dialog buttonbox.linked.horizontal > button:last-child,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:last-child {
   border-bottom-right-radius: 6px;
 }
 
-.budgie-session-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover,
-.budgie-polkit-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover {
+.budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover {
   color: #c5c5c5;
   background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.budgie-session-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):active, .budgie-session-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked,
-.budgie-polkit-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):active,
-.budgie-polkit-dialog .linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked {
+.budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):active, .budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):active,
+.budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(0, 0, 0, 0.15);
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.26), 0 1px 2px rgba(0, 0, 0, 0.32), 0 2px 3px rgba(0, 0, 0, 0.12);
 }
 
@@ -9952,76 +10051,37 @@ window.budgie-switcher-window flowboxchild {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-window#ValaPanel.background widget.-vala-panel-background > separator {
-  background: none;
-}
-
-button.flat.-panel-button:hover, button.-panel-button.budgie-menu-launcher:hover,
-button#tasklist-button.toggle.flat:hover,
-button#tasklist-button.toggle.budgie-menu-launcher:hover,
-button.flat.-panel-icon-button:hover,
-button.-panel-icon-button.budgie-menu-launcher:hover {
-  box-shadow: inset 0 -2px rgba(49, 91, 239, 0.5);
-  background: none;
-}
-
-button.flat.-panel-button:active, button.-panel-button.budgie-menu-launcher:active, button.flat.-panel-button:checked, button.-panel-button.budgie-menu-launcher:checked,
-button#tasklist-button.toggle.flat:active,
-button#tasklist-button.toggle.budgie-menu-launcher:active,
-button#tasklist-button.toggle.flat:checked,
-button#tasklist-button.toggle.budgie-menu-launcher:checked,
-button.flat.-panel-icon-button:active,
-button.-panel-icon-button.budgie-menu-launcher:active,
-button.flat.-panel-icon-button:checked,
-button.-panel-icon-button.budgie-menu-launcher:checked {
-  box-shadow: inset 0 -2px #315bef;
-  color: #ffffff;
-  background: none;
-}
-
-.unpinned button.flat.-panel-icon-button, .unpinned button.-panel-icon-button.budgie-menu-launcher {
+.budgie-panel box.titlebar {
+  min-width: 20px;
+  min-height: 20px;
   border-radius: 0;
-}
-
-.unpinned button.flat.-panel-icon-button:hover, .unpinned button.-panel-icon-button.budgie-menu-launcher:hover {
-  -gtk-icon-effect: highlight;
-}
-
-.unpinned button.flat.-panel-icon-button:hover, .unpinned button.-panel-icon-button.budgie-menu-launcher:hover, .unpinned button.flat.-panel-icon-button:active, .unpinned button.-panel-icon-button.budgie-menu-launcher:active, .unpinned button.flat.-panel-icon-button:checked, .unpinned button.-panel-icon-button.budgie-menu-launcher:checked {
-  box-shadow: inset 0 -2px #315bef;
-  color: #ffffff;
-}
-
-.pinned button.flat.-panel-icon-button.running, .pinned button.-panel-icon-button.running.budgie-menu-launcher {
-  border-radius: 0;
-}
-
-.pinned button.flat.-panel-icon-button.running > image, .pinned button.-panel-icon-button.running.budgie-menu-launcher > image, .pinned .budgie-panel button.-panel-icon-button.running.flat.launcher > image {
-  background-position: bottom center;
-}
-
-.pinned button.flat.-panel-icon-button.running:hover, .pinned button.-panel-icon-button.running.budgie-menu-launcher:hover {
-  -gtk-icon-effect: highlight;
-}
-
-.pinned button.flat.-panel-icon-button.running:hover, .pinned button.-panel-icon-button.running.budgie-menu-launcher:hover, .pinned button.flat.-panel-icon-button.running:active, .pinned button.-panel-icon-button.running.budgie-menu-launcher:active, .pinned button.flat.-panel-icon-button.running:checked, .pinned button.-panel-icon-button.running.budgie-menu-launcher:checked {
-  box-shadow: inset 0 -2px #315bef;
-  color: #ffffff;
-}
-
-menubar.-vala-panel-background {
   background: none;
-  border: none;
   box-shadow: none;
+  border: none;
 }
 
-menubar.-vala-panel-background > menuitem {
-  color: #dadada;
-  font-weight: normal;
+.budgie-panel box.titlebar > widget > label {
+  color: rgba(218, 218, 218, 0.75);
 }
 
-menubar.-vala-panel-background > menuitem:hover {
-  color: #ffffff;
+.budgie-panel box.titlebar > button.image-button.titlebutton {
+  padding: 0 3px;
+}
+
+.budgie-panel box.titlebar.horizontal {
+  padding: 0 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > widget > label:dir(ltr) {
+  padding-right: 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > widget > label:dir(rtl) {
+  padding-left: 3px;
+}
+
+.budgie-panel box.titlebar.horizontal > button.image-button.titlebutton {
+  padding: 0 3px;
 }
 
 @define-color theme_fg_color #dedede;

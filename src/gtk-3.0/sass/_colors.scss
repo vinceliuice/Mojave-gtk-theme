@@ -68,13 +68,13 @@ $sidebar_theme_color: if($variant=='light', #C7C7C7, rgba(#C7C7C7, 0.25));
 
 //OSD colors
 $osd_fg_color: $text_color;
-$osd_bg_color: if($variant=='light', transparentize(#f5f5f5, 0.05), transparentize(#242424, 0.05));
+$osd_bg_color: rgba($base_color, 0.95);
 
-$osd_button_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
-$osd_button_border: $borders_color;
+$osd_button_bg: rgba(lighten($osd_bg_color, 22%), 0.96);
+$osd_button_border: $dark_borders_color;
 
-$osd_entry_bg: transparentize(lighten($osd_bg_color, 22%), 0.6);
-$osd_entry_border: $borders_color;
+$osd_entry_bg: rgba(lighten($osd_bg_color, 22%), 0.96);
+$osd_entry_border: $dark_borders_color;
 
 $osd_insensitive_bg_color: darken($osd_bg_color, 3%);
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);

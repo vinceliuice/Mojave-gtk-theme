@@ -2267,6 +2267,84 @@ window > box.vertical > box.horizontal {
   > widget { background-color: transparent; }
 }
 
+//
+// vala-panel
+//
+window#ValaPanel.background {
+  // background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
+  // border: 1px solid $header_border;
+  // color: currentColor;
+
+  widget.-vala-panel-background {
+    > separator { // separator applet
+      background: none;
+    }
+  }
+}
+
+button.flat.-panel-button,
+button#tasklist-button.toggle.flat,
+// tasklist-arrow-button.toggle.flat.-panel-flat-button, // xfce tasklist button
+button.flat.-panel-icon-button {
+  @extend %budgie_icon_tasklist_button;
+
+  &:hover {
+    box-shadow: inset 0 -2px rgba($selected_bg_color, 0.5);
+    background: none;
+  }
+  &:active,
+  &:checked {
+    box-shadow: inset 0 -2px $selected_bg_color;
+    color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
+    background: none;
+  }
+}
+
+.unpinned button.flat.-panel-icon-button {
+  border-radius: 0;
+
+  &:hover { -gtk-icon-effect: highlight; }
+  &:hover,
+  &:active,
+  &:checked {
+    box-shadow: inset 0 -2px $selected_bg_color;
+    color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
+  }
+}
+
+.pinned button.flat.-panel-icon-button.running {
+  border-radius: 0;
+
+  > image {
+    background-position: bottom center;
+  }
+
+  &:hover { -gtk-icon-effect: highlight; }
+  &:hover,
+  &:active,
+  &:checked {
+    box-shadow: inset 0 -2px $selected_bg_color;
+    color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
+  }
+}
+
+// vala-panel-appmenu
+// menubar.-vala-panel-appmenu-private,
+menubar.-vala-panel-background {
+  background: none;
+  border: none;
+  box-shadow: none;
+
+  > menuitem {
+    color: $panel_fg;
+    font-weight: normal;
+    &:hover { color: $selected_fg_color; }
+
+    // > window.background.popup > decoration,
+    // > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
+  }
+}
+
 // * Elementary Apps *
 
 //
@@ -2560,10 +2638,12 @@ actionbar.inline-toolbar {
 
   button { // Reset buttons
     border-radius: $bt_radius;
-    border: 1px solid $borders_color;
+    // border: 1px solid $dark_borders_color;
+
     &:first-child {
       border-right-style: solid;
     }
+
     &:last-child {
       border-left-style: solid;
     }
@@ -2576,4 +2656,31 @@ scale.warmth trough {
   border-radius: 3px;
   background-image: linear-gradient(to right, $suggested_color, $destructive_color);
   box-shadow: inset 0 0 0 1px rgba(black, 0.25);
+}
+
+// Terminal
+.terminal-window {
+  headerbar.titlebar.default-decoration {
+    background-image: $headerbar_bg_image;
+    background-color: $header_bg;
+    border-bottom: 1px solid $header_border;
+    box-shadow: inset 0 1px $highlight;
+
+    &:backdrop {
+      transition: $backdrop_transition;
+      color: transparentize($header_fg, 0.3);
+      background-image: none;
+      background-color: $header_bg_backdrop;
+      border-color: if($variant=='light', lighten($header_border, 15%), darken($header_border, 3%));
+    }
+  }
+
+  .search-bar {
+    background-color: $bg_color;
+    border-bottom: 1px solid $solid_borders_color;
+  }
+
+  .dynamic-notebook {
+    notebook > header { border-color: $solid_borders_color; }
+  }
 }
