@@ -131,10 +131,10 @@ terminal-window,
       }
     }
 
-//    &.width-maximized {
-//      border: 1px solid if($titlebar == 'light', rgba(black, 0.12), rgba(white, 0.12));
-//      background-color: rgba($header_fg, 0.06);
-//    }
+    // &.width-maximized {
+    //   border: 1px solid if($titlebar == 'light', rgba(black, 0.12), rgba(white, 0.12));
+    //   background-color: rgba($header_fg, 0.06);
+    // }
 
     // workaround for 3.30.1
     &.background.frame {
@@ -144,9 +144,7 @@ terminal-window,
   }
 }
 
-.nautilus-canvas-item {
-  border-radius: 2px;
-}
+.nautilus-canvas-item { border-radius: 2px; }
 
 // .view.nautilus-desktop,
 .nautilus-desktop.nautilus-canvas-item {
@@ -173,45 +171,76 @@ terminal-window,
   }
 }
 
+$nautilus_radius: $wm_radius + 3px;
+
 .nautilus-window {
+  background-color: transparent;
+  border-radius: $wm_radius $wm_radius $nautilus_radius $nautilus_radius;
+
   // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
-  searchbar {
-    border-top: 1px solid $borders_color;
-  }
-  .searchbar-container {
-    margin-top: -1px;
-  }
-}
+  searchbar { border-top: 1px solid $borders_color; }
+  .searchbar-container { margin-top: -1px; }
 
-.nautilus-window notebook {
-  margin-left: -1px;
-  margin-right: -1px;
+  notebook {
+    margin-left: -1px;
+    margin-right: -1px;
+    background-color: $base_color;
 
-  tab { margin-left: -1px; }
-}
+    tab { margin-left: -1px; }
 
-.nautilus-window notebook {
-  scrolledwindow {
-    .view:not(:hover):not(:active):not(:selected) {
-      background-color: transparent;
-      // @extend %view;
+    scrolledwindow {
+      .view:not(:hover):not(:active):not(:selected) {
+        background-color: transparent;
+        // @extend %view;
+      }
+    }
+
+    &, > stack {
+      border-radius: 0 0 $nautilus_radius $nautilus_radius;
+    }
+
+    > stack:not(:only-child) {
+      searchbar { background-color: $base_color; }
     }
   }
-}
 
-.nautilus-window notebook,
-.nautilus-window notebook > stack {
-  border-radius: 0 0 $wm_radius $wm_radius;
-}
+  // Floating Bar
+  .floating-bar {
+    padding: 1px;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 3px 0 $wm_radius 0;
 
-.nautilus-window.maximized notebook,
-.nautilus-window.maximized notebook > stack {
-  border-radius: 0 0 0 0;
-}
+    &.bottom.left {
+      border-top-left-radius: 0;
+    }
 
-.nautilus-window notebook,
-.nautilus-window notebook > stack:not(:only-child) searchbar {
-  background-color: $base_color;
+    &.bottom.right {
+      border-top-right-radius: 0;
+    }
+
+    button {
+      border: none;
+      border-radius: 100px;
+      min-height: 0;
+      min-width: 0;
+      padding: 0;
+      margin-right: 6px;
+      -gtk-icon-shadow: none;
+      @extend %selected-button;
+    }
+  }
+
+  // Reset maximized nautilus-window border-radius
+  &.maximized {
+    notebook {
+      &, > stack {
+        border-radius: 0 0 0 0;
+      }
+    }
+
+    .floating-bar { border-radius: 3px 0 0 0; }
+  }
 }
 
 .nautilus-list-view {
@@ -241,10 +270,12 @@ $disk_space_free: darken($bg_color, 3%);
     background-color: $disk_space_unknown;
     border-color: darken($disk_space_unknown, 10%);
   }
+
   &.used {
     background-color: $disk_space_used;
     border-color: darken($disk_space_used, 10%);
   }
+
   &.free {
     background-color: $disk_space_free;
     border-color: darken($disk_space_free, 10%);
@@ -255,6 +286,7 @@ $disk_space_free: darken($bg_color, 3%);
   0% {
     @include button(header-hover);
   }
+
   100% {
     @include button(header-active)
   }
@@ -286,36 +318,6 @@ $disk_space_free: darken($bg_color, 3%);
     background-color: $selected_bg_color;
   }
 }
-
-// Floating Bar
-.nautilus-window .floating-bar {
-  padding: 1px;
-  background-color: $selected_bg_color;
-  color: $selected_fg_color;
-  border-radius: 3px 0 $wm_radius - 2px 0;
-
-  &.bottom.left {
-    border-top-left-radius: 0;
-  }
-
-  &.bottom.right {
-    border-top-right-radius: 0;
-  }
-
-  button {
-    border: none;
-    border-radius: 100px;
-    min-height: 0;
-    min-width: 0;
-    padding: 0;
-    margin-right: 6px;
-    -gtk-icon-shadow: none;
-    @extend %selected-button;
-  }
-}
-
-// Reset maximized nautilus-window floating-bar border-radius
-.nautilus-window.maximized .floating-bar { border-radius: 3px 0 0 0; }
 
 //
 // Nemo

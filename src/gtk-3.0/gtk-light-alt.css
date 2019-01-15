@@ -5352,6 +5352,11 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   color: #d6defc;
 }
 
+.nautilus-window {
+  background-color: transparent;
+  border-radius: 6px 6px 9px 9px;
+}
+
 .nautilus-window searchbar {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -5363,6 +5368,7 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 .nautilus-window notebook {
   margin-left: -1px;
   margin-right: -1px;
+  background-color: #ffffff;
 }
 
 .nautilus-window notebook tab {
@@ -5373,19 +5379,45 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   background-color: transparent;
 }
 
-.nautilus-window notebook,
-.nautilus-window notebook > stack {
-  border-radius: 0 0 6px 6px;
+.nautilus-window notebook, .nautilus-window notebook > stack {
+  border-radius: 0 0 9px 9px;
 }
 
-.nautilus-window.maximized notebook,
-.nautilus-window.maximized notebook > stack {
+.nautilus-window notebook > stack:not(:only-child) searchbar {
+  background-color: #ffffff;
+}
+
+.nautilus-window .floating-bar {
+  padding: 1px;
+  background-color: #315bef;
+  color: #ffffff;
+  border-radius: 3px 0 6px 0;
+}
+
+.nautilus-window .floating-bar.bottom.left {
+  border-top-left-radius: 0;
+}
+
+.nautilus-window .floating-bar.bottom.right {
+  border-top-right-radius: 0;
+}
+
+.nautilus-window .floating-bar button {
+  border: none;
+  border-radius: 100px;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  margin-right: 6px;
+  -gtk-icon-shadow: none;
+}
+
+.nautilus-window.maximized notebook, .nautilus-window.maximized notebook > stack {
   border-radius: 0 0 0 0;
 }
 
-.nautilus-window notebook,
-.nautilus-window notebook > stack:not(:only-child) searchbar {
-  background-color: #ffffff;
+.nautilus-window.maximized .floating-bar {
+  border-radius: 3px 0 0 0;
 }
 
 .nautilus-list-view {
@@ -5454,35 +5486,6 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 .conflict-row.activatable:selected {
   color: #ffffff;
   background-color: #315bef;
-}
-
-.nautilus-window .floating-bar {
-  padding: 1px;
-  background-color: #315bef;
-  color: #ffffff;
-  border-radius: 3px 0 4px 0;
-}
-
-.nautilus-window .floating-bar.bottom.left {
-  border-top-left-radius: 0;
-}
-
-.nautilus-window .floating-bar.bottom.right {
-  border-top-right-radius: 0;
-}
-
-.nautilus-window .floating-bar button {
-  border: none;
-  border-radius: 100px;
-  min-height: 0;
-  min-width: 0;
-  padding: 0;
-  margin-right: 6px;
-  -gtk-icon-shadow: none;
-}
-
-.nautilus-window.maximized .floating-bar {
-  border-radius: 3px 0 0 0;
 }
 
 .nemo-window .nemo-places-sidebar.frame {
