@@ -171,11 +171,12 @@ terminal-window,
   }
 }
 
-$nautilus_radius: $wm_radius + 3px;
+$nautilus_radius: $wm_radius + 2px;
 
 .nautilus-window {
-  background-color: transparent;
   border-radius: $wm_radius $wm_radius $nautilus_radius $nautilus_radius;
+
+  &, &.background.csd { background-color: transparent; }
 
   // Workaround for https://bugzilla.gnome.org/show_bug.cgi?id=724096
   searchbar { border-top: 1px solid $borders_color; }
