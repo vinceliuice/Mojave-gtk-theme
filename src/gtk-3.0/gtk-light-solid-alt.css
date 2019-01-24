@@ -5351,8 +5351,11 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 }
 
 .nautilus-window {
+  border-radius: 6px 6px 8px 8px;
+}
+
+.nautilus-window, .nautilus-window.background.csd {
   background-color: transparent;
-  border-radius: 6px 6px 9px 9px;
 }
 
 .nautilus-window searchbar {
@@ -5378,7 +5381,7 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
 }
 
 .nautilus-window notebook, .nautilus-window notebook > stack {
-  border-radius: 0 0 9px 9px;
+  border-radius: 0 0 8px 8px;
 }
 
 .nautilus-window notebook > stack:not(:only-child) searchbar {
