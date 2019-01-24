@@ -1998,23 +1998,26 @@ menubar,
 
   &:backdrop {
     color: transparentize($header_fg, 0.2);
-//    background-image: none;
-//    background-color: opacify($header_bg_backdrop, 1);
+    // background-image: none;
+    // background-color: opacify($header_bg_backdrop, 1);
   }
 
   > menuitem {
     transition: all 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
     padding: 4px 8px;
 
-    > window.background.popup > decoration,
-    > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
+    > window.background.popup > decoration { border-radius: 0 0 $wm_radius $wm_radius; }
+
+    > window.background.popup > menu {
+      border-radius: 0 0 $wm_radius $wm_radius;
+
+      > menuitem { transition: none; }
+    }
 
     &:hover { //Seems like it :hover even with keyboard focus
-//      @include button(active);
-      transition: background-color 100ms cubic-bezier(0.0, 0.0, 0.2, 1);
+      transition: none;
       background-color: $selected_bg_color;
       color: $selected_fg_color;
-//      text-shadow: $text_shadow;
     }
 
     &:disabled {
@@ -2027,14 +2030,13 @@ menubar,
 .context-menu,
 menu,
 .menu {
-//  margin: 4px;
+  // margin: 4px;
   padding: 6px 0;
   border-radius: $wm_radius;
   background-color: $_menu_bg;
   border: 1px solid $borders_color;
 
   .csd & {
-//    background-color: $_menu_bg;
     @if $variant == 'light' { border: none; }
     @if $variant == 'dark' { border: 1px solid lighten($_menu_bg, 10%); }
   }
@@ -2047,12 +2049,7 @@ menu,
     background-color: transparent;
   }
 
-//  // Firefox workaround
-//  .separator:not(label),
-//  .csd & .separator:not(label) { color: $_menu_bd; }
-//  // Firefox workaround end
-
-  menuitem {
+  > menuitem {
     transition: background-color 100ms cubic-bezier(0.0, 0.0, 0.2, 1);
     min-height: 12px;
     min-width: 40px;
@@ -2063,12 +2060,10 @@ menu,
       transition: none;
       color: $selected_fg_color;
       background-color: $selected_bg_color;
-//      text-shadow: $text_shadow;
 
       arrow {
         transition: none;
         color: $selected_fg_color;
-//        -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
       }
 
       menu { //sunmenu
@@ -2077,6 +2072,7 @@ menu,
           text-shadow: none;
           -gtk-icon-shadow: none;
         }
+
         menuitem:hover {
           arrow { color: $selected_fg_color; }
         }
@@ -2202,7 +2198,7 @@ popover.background {
 
   &, .csd & {
     &.osd, &.magnifier { @extend %osd; }
-    &.touch-selection { @extend .context-menu }
+    &.touch-selection { font: initial; }
 
     &.osd { @extend %osd; }
   }
