@@ -17,7 +17,7 @@ filechooser,
 
 filechooser placessidebar.sidebar.frame { border-right: 1px solid if($variant=='light', $borders_color, $header_border); }
 
-// Dark transparent sidebars
+// transparent sidebars
 %placessidebar,
 filechooser,
 .nautilus-window {

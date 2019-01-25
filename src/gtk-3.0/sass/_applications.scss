@@ -328,13 +328,16 @@ $disk_space_free: darken($bg_color, 3%);
 }
 
 .nemo-window {
-
   .nemo-places-sidebar.frame {
     border-width: 0;
 
     .places-treeview {
       @extend row.activatable;
     }
+  }
+
+  .sidebar {
+    scrolledwindow.frame { border: none; } // Removed treeview double borders
   }
 
   paned > separator { background-image: image($solid_borders_color); }
@@ -355,6 +358,13 @@ $disk_space_free: darken($bg_color, 3%);
 
     &:selected {
       &:focus, & { @extend %selected_items; }
+    }
+  }
+
+  .toolbar {
+    > button {
+      margin-top: 2px;
+      margin-bottom: 2px;
     }
   }
 
@@ -433,6 +443,33 @@ $disk_space_free: darken($bg_color, 3%);
           }
         }
       }
+    }
+  }
+
+  // Floating Bar
+  .floating-bar {
+    padding: 2px;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 0;
+    border: none;
+
+    &.bottom.left {
+      border-top-right-radius: $bt_radius;
+    }
+
+    &.bottom.right {
+      border-top-left-radius: $bt_radius;
+    }
+
+    button {
+      border: none;
+      border-radius: 3px;
+      min-height: 16px;
+      min-width: 16px;
+      -gtk-icon-shadow: none;
+      @extend %undecorated_button;
+      @extend %selected-button;
     }
   }
 }
