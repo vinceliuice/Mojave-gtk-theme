@@ -2607,36 +2607,60 @@ window.background.csd {
 }
 
 headerbar.titlebar {
-  // entry.pathbar { min-height: 0; }
-
-  button.flat.image-button.toggle {
-    margin-top: 9px;
-    margin-bottom: 10px;
+  > box.horizontal > entry.pathbar {
+    min-height: 0;
+    padding: 2px 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
 
-  .linked.raised {
-    > button.toggle {
-      @extend %outline_dashed;
-      @include button(header-normal);
-      &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); }
-      &:checked { @include button(header-checked); }
-      &:disabled { color: transparentize($header_fg, 0.4); }
-      &:backdrop { opacity: 0.7; background-image: none; box-shadow: none; }
-      &, &:hover, &:active, &:checked, &:disabled {
-        @extend %linked;
-        border-color: $header_button_border;
-      }
+  > button.flat.image-button.toggle {
+    margin-top: 6px;
+    margin-bottom: 6px;
+
+    &:not(:checked):not(:active) {
+      background-clip: if($variant=='light', padding-box, padding-box);
     }
 
-    fixed ugly border color
-    > button.toggle:not(:last-child) {
-      &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
-      &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
+    @if $variant == 'light' {
+      border-width: 1px;
+      border-style: solid;
+      border-color: $borders_color;
     }
 
-    @include pathbar_linking_rules ($button_rules: 'header');
+    @include button(header-normal);
+    &:hover { @include button(header-hover); }
+    &:active { @include button(header-active); }
+    &:checked { @include button(header-checked); }
+    &:disabled { color: transparentize($header_fg, 0.4); }
+    &:backdrop { opacity: 0.7; background-image: none;}
+
+    + button.flat.image-button.toggle { margin-right: if($variant=='light', -6px, -5px); }
   }
+
+  // .linked.raised {
+  //   > button.toggle {
+  //     @extend %outline_dashed;
+  //     @include button(header-normal);
+  //     &:hover { @include button(header-hover); }
+  //     &:active { @include button(header-active); }
+  //     &:checked { @include button(header-checked); }
+  //     &:disabled { color: transparentize($header_fg, 0.4); }
+  //     &:backdrop { opacity: 0.7; background-image: none;}
+  //     &, &:hover, &:active, &:checked, &:disabled {
+  //       @extend %linked;
+  //       border-color: $borders_color;
+  //     }
+  //   }
+  //
+  //   fixed ugly border color
+  //   > button.toggle:not(:last-child) {
+  //     &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
+  //     &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
+  //   }
+  //
+  //   @include pathbar_linking_rules ($button_rules: 'header');
+  // }
 
   // Hide Code header format-bar
   > grid.linked.horizontal.format-bar {

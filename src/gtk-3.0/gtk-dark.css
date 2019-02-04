@@ -34,7 +34,7 @@
 }
 
 headerbar .linked:not(.vertical) > button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
-headerbar .linked:not(.vertical).path-bar > button, .nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, headerbar.titlebar .linked.raised > button.toggle {
+headerbar .linked:not(.vertical).path-bar > button, .nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button {
   outline-color: alpha(currentColor,0.3);
   outline-style: dashed;
   outline-offset: -3px;
@@ -1080,23 +1080,23 @@ headerbar.titlebar .linked:not(.vertical):not(.path-bar) > button + button {
 .linked:not(.vertical) > entry:focus, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > button,
 .linked:not(.vertical) > button:hover,
 .linked:not(.vertical) > button:active,
-.linked:not(.vertical) > button:checked, toolbar.inline-toolbar toolbutton > button.flat, .inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher, .budgie-panel .inline-toolbar toolbutton > button.flat.launcher, spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, headerbar.titlebar .linked.raised > button.toggle, headerbar.titlebar .linked.raised > button.toggle:hover, headerbar.titlebar .linked.raised > button.toggle:active, headerbar.titlebar .linked.raised > button.toggle:checked, headerbar.titlebar .linked.raised > button.toggle:disabled, .linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl) {
+.linked:not(.vertical) > button:checked, toolbar.inline-toolbar toolbutton > button.flat, .inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar toolbutton > button.budgie-menu-launcher, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher, .budgie-panel .inline-toolbar toolbutton > button.flat.launcher, spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, .linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl) {
   border-radius: 0;
   border-right-style: none;
 }
 
-.linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar toolbutton > button.flat:first-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:first-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:first-child, spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, .linked:not(.vertical) > combobox:first-child > box > button.combo, headerbar.titlebar .linked.raised > button.toggle:first-child {
+.linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar toolbutton > button.flat:first-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:first-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:first-child, spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, .linked:not(.vertical) > combobox:first-child > box > button.combo {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar toolbutton > button.flat:last-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:last-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:last-child, spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, .linked:not(.vertical) > combobox:last-child > box > button.combo, headerbar.titlebar .linked.raised > button.toggle:last-child {
+.linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar toolbutton > button.flat:last-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:last-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:last-child, spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, .linked:not(.vertical) > combobox:last-child > box > button.combo {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-right-style: solid;
 }
 
-.linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar toolbutton > button.flat:only-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:only-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:only-child, spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo, headerbar.titlebar .linked.raised > button.toggle:only-child {
+.linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar toolbutton > button.flat:only-child, .inline-toolbar toolbutton > button.budgie-menu-launcher:only-child, .inline-toolbar .budgie-panel toolbutton > button.flat.launcher:only-child, spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, .linked:not(.vertical) > combobox:only-child > box > button.combo {
   border-radius: 5px;
   border-style: solid;
 }
@@ -7663,12 +7663,16 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-headerbar.titlebar button.flat.image-button.toggle, headerbar.titlebar button.image-button.toggle.budgie-menu-launcher {
-  margin-top: 9px;
-  margin-bottom: 10px;
+headerbar.titlebar > box.horizontal > entry.pathbar {
+  min-height: 0;
+  padding: 2px 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
-headerbar.titlebar .linked.raised > button.toggle {
+headerbar.titlebar > button.flat.image-button.toggle, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher {
+  margin-top: 6px;
+  margin-bottom: 6px;
   border-color: rgba(255, 255, 255, 0.12);
   color: #FDFDFD;
   background-color: #5d5d5d;
@@ -7677,7 +7681,11 @@ headerbar.titlebar .linked.raised > button.toggle {
   box-shadow: inset 0 1px #767676;
 }
 
-headerbar.titlebar .linked.raised > button.toggle:hover {
+headerbar.titlebar > button.flat.image-button.toggle:not(:checked):not(:active), headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher:not(:checked):not(:active), .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher:not(:checked):not(:active) {
+  background-clip: padding-box;
+}
+
+headerbar.titlebar > button.flat.image-button.toggle:hover, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher:hover, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher:hover {
   border-color: rgba(255, 255, 255, 0.12);
   color: #f8f8f8;
   background-color: #777777;
@@ -7685,14 +7693,14 @@ headerbar.titlebar .linked.raised > button.toggle:hover {
   box-shadow: inset 0 1px #868686;
 }
 
-headerbar.titlebar .linked.raised > button.toggle:active {
+headerbar.titlebar > button.flat.image-button.toggle:active, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher:active, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher:active {
   color: #ffffff;
   background-color: #909090;
   background-image: none;
   border-color: rgba(255, 255, 255, 0.12);
 }
 
-headerbar.titlebar .linked.raised > button.toggle:checked {
+headerbar.titlebar > button.flat.image-button.toggle:checked, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher:checked, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher:checked {
   color: #3d3d3d;
   background-color: #aaaaaa;
   background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
@@ -7700,26 +7708,17 @@ headerbar.titlebar .linked.raised > button.toggle:checked {
   box-shadow: inset 0 1px #cecece;
 }
 
-headerbar.titlebar .linked.raised > button.toggle:disabled {
+headerbar.titlebar > button.flat.image-button.toggle:disabled, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher:disabled, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher:disabled {
   color: rgba(253, 253, 253, 0.6);
 }
 
-headerbar.titlebar .linked.raised > button.toggle:backdrop {
+headerbar.titlebar > button.flat.image-button.toggle:backdrop, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher:backdrop, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher:backdrop {
   opacity: 0.7;
   background-image: none;
-  box-shadow: none;
 }
 
-headerbar.titlebar .linked.raised > button.toggle, headerbar.titlebar .linked.raised > button.toggle:hover, headerbar.titlebar .linked.raised > button.toggle:active, headerbar.titlebar .linked.raised > button.toggle:checked, headerbar.titlebar .linked.raised > button.toggle:disabled {
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-headerbar.titlebar .linked.raised > button:first-child {
-  border-left-style: none;
-}
-
-headerbar.titlebar .linked.raised > button + button {
-  border-left-style: solid;
+headerbar.titlebar > button.flat.image-button.toggle + button.flat.image-button.toggle, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher + button.flat.image-button.toggle, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher + button.flat.image-button.toggle, headerbar.titlebar > button.flat.image-button.toggle + button.image-button.toggle.budgie-menu-launcher, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher + button.image-button.toggle.budgie-menu-launcher, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher + button.image-button.toggle.budgie-menu-launcher, .budgie-panel headerbar.titlebar > button.flat.image-button.toggle + button.image-button.toggle.flat.launcher, .budgie-panel headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher + button.image-button.toggle.flat.launcher {
+  margin-right: -5px;
 }
 
 headerbar.titlebar > grid.linked.horizontal.format-bar {
