@@ -3158,26 +3158,29 @@ switch {
   transition: all 0.2s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   margin: 6px 0;
   border-radius: 50px;
-  background-color: alpha(currentColor,0.3);
+  background-color: rgba(36, 36, 36, 0.3);
   background-clip: padding-box;
+  color: rgba(36, 36, 36, 0.3);
   font-size: 0;
 }
 
 
 switch:disabled {
-  color: alpha(currentColor,0.4);
+  color: rgba(36, 36, 36, 0.15);
+  background-color: rgba(36, 36, 36, 0.15);
 }
 
 
 switch:checked {
   animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   background-color: #71c837;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 
 switch:checked:disabled {
-  background-color: alpha(#71c837,0.5);
-  color: rgba(36, 36, 36, 0.55);
+  background-color: rgba(113, 200, 55, 0.5);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 

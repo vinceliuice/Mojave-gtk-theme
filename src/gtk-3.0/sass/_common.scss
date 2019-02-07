@@ -2539,53 +2539,57 @@ scrollbar {
 }
 
 %switch_pixmap {
-    // 'indeterminate' is the synthetic wildcard
-    &:not(:indeterminate) {
+  // 'indeterminate' is the synthetic wildcard
+  &:not(:indeterminate) {
+    @extend %reset_switch;
+    min-width: 40px;
+    min-height: 24px;
+    margin: 0;
+    background-size: 40px 24px;
+    transition: all 350ms $ease-out-quad;
+
+    slider:not(:indeterminate) {
       @extend %reset_switch;
-      min-width: 40px;
-      min-height: 24px;
       margin: 0;
       background-size: 40px 24px;
+    }
+
+    // use ugly pixmaps
+    background-image: -gtk-scaled(
+                      url("assets/switch.png"),
+                      url("assets/switch@2.png"));
+    &:hover {
       transition: all 350ms $ease-out-quad;
-
-      slider:not(:indeterminate) {
-        @extend %reset_switch;
-        margin: 0;
-        background-size: 40px 24px;
-      }
-
-      // use ugly pixmaps
       background-image: -gtk-scaled(
-                        url("assets/switch.png"),
-                        url("assets/switch@2.png"));
+                        url("assets/switch-hover.png"),
+                        url("assets/switch-hover@2.png"));
+    }
+
+    &:checked {
+      transition: all 350ms $ease-out-quad;
+      background-image: -gtk-scaled(
+                        url("assets/switch-active.png"),
+                        url("assets/switch-active@2.png"));
+
       &:hover {
-        transition: all 350ms $ease-out-quad;
         background-image: -gtk-scaled(
-                          url("assets/switch-hover.png"),
-                          url("assets/switch-hover@2.png"));
+                          url("assets/switch-active-hover.png"),
+                          url("assets/switch-active-hover@2.png"));
       }
-      &:checked {
-        transition: all 350ms $ease-out-quad;
-        background-image: -gtk-scaled(
-                          url("assets/switch-active.png"),
-                          url("assets/switch-active@2.png"));
-        &:hover {
-          background-image: -gtk-scaled(
-                            url("assets/switch-active-hover.png"),
-                            url("assets/switch-active-hover@2.png"));
-        }
-        &:disabled,
-        &:disabled:hover {
-          background-image: -gtk-scaled(
-                            url("assets/switch-active-insensitive.png"),
-                            url("assets/switch-active-insensitive@2.png"));
-        }
-      }
+
       &:disabled,
       &:disabled:hover {
         background-image: -gtk-scaled(
-                          url("assets/switch-insensitive.png"),
-                          url("assets/switch-insensitive@2.png"));
+                          url("assets/switch-active-insensitive.png"),
+                          url("assets/switch-active-insensitive@2.png"));
+      }
+    }
+
+    &:disabled,
+    &:disabled:hover {
+      background-image: -gtk-scaled(
+                        url("assets/switch-insensitive.png"),
+                        url("assets/switch-insensitive@2.png"));
     }
   }
 }
@@ -2633,19 +2637,24 @@ switch {
   transition: $transition_1;
   margin: 6px 0;
   border-radius: 50px;
-  background-color: gtkalpha(currentColor, 0.3);
+  background-color: rgba($fg_color, 0.3);
   background-clip: padding-box;
+  color: rgba($fg_color, 0.3);
   font-size: 0;
 
-  &:disabled { color: gtkalpha(currentColor, 0.4); }
+  &:disabled {
+    color: rgba($fg_color, 0.15);
+    background-color: rgba($fg_color, 0.15);
+  }
 
   &:checked {
     animation: $switch_animation;
     background-color: $success_color;
+    color: rgba(white, 0.65);
 
     &:disabled {
-      background-color: gtkalpha($success_color, 0.5);
-      color: $insensitive_fg_color;
+      background-color: rgba($success_color, 0.5);
+      color: rgba(white, 0.35);
     }
   }
 
