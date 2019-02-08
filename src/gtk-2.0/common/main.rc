@@ -465,7 +465,7 @@ style "default" {
 
     image {
       function = FOCUS
-      file = "assets/focus-line.png"
+      file = "assets/null.png"
       border = { 1, 1, 1, 1 }
       stretch = TRUE
     }
@@ -707,8 +707,7 @@ style "menu_framed_box" {
 
 }
 
-style "menu_item"
-{
+style "menu_item" {
   xthickness = 4
   ythickness = 2
 
@@ -776,7 +775,7 @@ style "menu_item"
       recolorable = TRUE
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/menu-checkbox-unchecked-selected.png"
+      overlay_file = "assets/menu-checkbox-unchecked.png"
       overlay_stretch = FALSE
     }
 
@@ -812,7 +811,7 @@ style "menu_item"
       recolorable = TRUE
       state = PRELIGHT
       shadow = IN
-      overlay_file = "assets/menu-checkbox-checked-selected.png"
+      overlay_file = "assets/menu-checkbox-checked.png"
       overlay_stretch = FALSE
     }
 
@@ -848,7 +847,7 @@ style "menu_item"
       function = OPTION
       state = PRELIGHT
       shadow = OUT
-      overlay_file = "assets/menu-radio-unchecked-selected.png"
+      overlay_file = "assets/menu-radio-unchecked.png"
       overlay_stretch = FALSE
     }
 
@@ -880,7 +879,7 @@ style "menu_item"
       function = OPTION
       state = PRELIGHT
       shadow = IN
-      overlay_file = "assets/menu-radio-checked-selected.png"
+      overlay_file = "assets/menu-radio-checked.png"
       overlay_stretch = FALSE
     }
 
