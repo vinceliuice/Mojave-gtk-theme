@@ -6934,7 +6934,7 @@ window.background:not(.csd) > widget > separator {
   padding-top: 1px;
   margin-top: 1px;
   min-height: 2px;
-  color: #474747;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 window.background:not(.csd) > widget > scrollbar {
@@ -6943,14 +6943,14 @@ window.background:not(.csd) > widget > scrollbar {
 
 window.background:not(.csd) > widget > scrollbar,
 window.background:not(.csd) > widget > frame > border {
-  border-color: #474747;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 window.background:not(.csd) > widget > entry,
 window.background:not(.csd) > widget .entry {
   border-radius: 5px;
   background-image: image(#242424);
-  border: 1px solid #474747;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 window.background:not(.csd) > widget > entry:focus,
@@ -6961,7 +6961,7 @@ window.background:not(.csd) > widget .entry:focus {
 
 window.background:not(.csd) > widget > spinbutton {
   background-image: image(#656565);
-  border: 1px solid #474747;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 window.background:not(.csd) > widget > spinbutton .entry {
@@ -7051,13 +7051,13 @@ window.background:not(.csd) > window > menu menuitem {
 #MozillaGtkWidget.background > window.background > menu {
   background-color: rgba(51, 51, 51, 0.95);
   border-radius: 0;
-  border-color: #474747;
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 #MozillaGtkWidget.background > window.background > menu > separator {
   margin-top: 2px;
   margin-bottom: 2px;
-  background-color: #474747;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 #MozillaGtkWidget.background > widget border {
@@ -7065,7 +7065,7 @@ window.background:not(.csd) > window > menu menuitem {
 }
 
 #MozillaGtkWidget.background > widget separator {
-  background-color: #474747;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 #MozillaGtkWidget.background > widget > scrolledwindow > textview {
@@ -7074,7 +7074,7 @@ window.background:not(.csd) > window > menu menuitem {
 
 #MozillaGtkWidget.background > widget > scrolledwindow > textview text {
   background-color: transparent;
-  color: #dadada;
+  color: #aaaaaa;
 }
 
 /***************
