@@ -220,3 +220,6 @@ widget_class "*ThunarWindow*<GtkToolbar>*<GtkButton>"                       styl
 widget_class "*ThunarWindow*<GtkToolbar>*<GtkWidget>"                       style "toolbar_text"
 widget_class "*ThunarWindow*<GtkToolbar>*<GtkButton>*<GtkLabel>"            style "menubar-text"
 
+# GtkCheckButton
+widget_class "*<GtkCheckButton>"                                    style "button"
+

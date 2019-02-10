@@ -23,6 +23,9 @@ border
 button
 button-hover
 button-active
+button-active-hover
+toolbar-button-active
+toolbar-button-active-hover
 button-insensitive
 checkbox-checked
 checkbox-checked-insensitive

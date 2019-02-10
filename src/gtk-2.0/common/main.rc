@@ -74,16 +74,16 @@ style "default" {
   # Colors
 
   bg[NORMAL] = @bg_color
-  bg[PRELIGHT] = shade (1.02, @bg_color)
+  bg[PRELIGHT] = shade (1.0, @bg_color)
   bg[SELECTED] = @selected_bg_color
   bg[INSENSITIVE] = @insensitive_bg_color
   bg[ACTIVE] = shade (0.9, @bg_color)
 
   fg[NORMAL] = @text_color
   fg[PRELIGHT] = @fg_color
-  fg[SELECTED] = @selected_fg_color
   fg[INSENSITIVE] = @insensitive_fg_color
-  fg[ACTIVE] = @fg_color
+  # fg[ACTIVE] = @fg_color
+  fg[SELECTED] = @selected_fg_color
 
   text[NORMAL] = @text_color
   text[PRELIGHT] = @text_color
@@ -969,23 +969,34 @@ style "button" {
       function = BOX
       state = NORMAL
       file = "assets/button.png"
-      border = { 4, 4, 4, 4 }
+      border = {6, 6, 6, 6}
       stretch = TRUE
     }
 
     image {
       function = BOX
-      state = PRELIGHT
-      file = "assets/button-hover.png"
-      border = { 4, 4, 4, 4 }
-      stretch = TRUE
+      state    = PRELIGHT
+      shadow   = OUT
+      file     = "assets/button-hover.png"
+      border = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    # hover effect on pressed buttons
+    image {
+      function = BOX
+      state    = PRELIGHT
+      shadow   = IN
+      file     = "assets/button-active-hover.png"
+      border = {6, 6, 6, 6}
+      stretch  = TRUE
     }
 
     image {
       function = BOX
       state = ACTIVE
       file = "assets/button-active.png"
-      border = { 4, 4, 4, 4 }
+      border = {6, 6, 6, 6}
       stretch = TRUE
     }
 
@@ -993,10 +1004,53 @@ style "button" {
       function = BOX
       state = INSENSITIVE
       file = "assets/button-insensitive.png"
-      border = { 4, 4, 4, 4 }
+      border = {6, 6, 6, 6}
       stretch = TRUE
     }
   }
+}
+
+style "toolbar_button" {
+
+  engine "pixmap" {
+
+    # hover effect on pressed buttons
+    image {
+      function = BOX
+      state    = PRELIGHT
+      shadow   = IN
+      file     = "assets/toolbar-button-active-hover.png"
+      border   = {6, 6, 6, 6}
+      stretch  = TRUE
+    }
+
+    image {
+      function = BOX
+      state = ACTIVE
+      file = "assets/toolbar-button-active.png"
+      border = {6, 6, 6, 6}
+      stretch = TRUE
+    }
+
+  }
+}
+
+style "button_label" {
+
+  fg[NORMAL] = @text_color
+  fg[PRELIGHT] = @fg_color
+  fg[INSENSITIVE] = @insensitive_fg_color
+  fg[ACTIVE] = @selected_fg_color
+
+}
+
+style "misc_button_label" {
+
+  fg[NORMAL] = @text_color
+  fg[PRELIGHT] = @fg_color
+  fg[INSENSITIVE] = @insensitive_fg_color
+  fg[ACTIVE] = @fg_color
+
 }
 
 style "checkbutton" {
@@ -1095,14 +1149,26 @@ style "notebook_entry" {
   }
 }
 
-style "notebook_tab_label" {
+style "notebook_button_bg" {
 
- fg[ACTIVE] = @text_color
+  bg[NORMAL] = @notebook_bg
+  bg[PRELIGHT] = @notebook_bg
+  bg[INSENSITIVE] = @notebook_bg
+  bg[ACTIVE] = @notebook_bg
 
 }
 
-style "combobox_entry"
-{
+style "notebook_tab_label" {
+
+  fg[NORMAL] = @text_color
+  fg[PRELIGHT] = @fg_color
+  fg[INSENSITIVE] = @insensitive_fg_color
+  fg[ACTIVE] = @text_color
+
+}
+
+style "combobox_entry" {
+
   xthickness = 3
   ythickness = 4
 
@@ -1252,8 +1318,8 @@ style "notebook_combobox_entry" {
   }
 }
 
-style "combobox_entry_button"
-{
+style "combobox_entry_button" {
+
   xthickness = 6
 
   fg[ACTIVE] = @text_color
@@ -1347,7 +1413,7 @@ style "spinbutton" {
   engine "pixmap" {
 
     image {
-    function = ARROW
+      function = ARROW
     }
 
     # Spin-Up LTR
@@ -2016,8 +2082,7 @@ style "treeview" {
   xthickness = 2
   ythickness = 0
 
-
-}    
+}
 
 style "scrolled_window" {
 
@@ -2131,6 +2196,7 @@ style "gimp_toolbox_frame" {
     image {
       function = SHADOW
     }
+
   }
 }
 
@@ -2264,10 +2330,10 @@ style "xfwm-tabwin" {
   Xfwm4TabwinWidget::alpha = 1.0
   Xfwm4TabwinWidget::border-radius = 2
 
-	bg[NORMAL] = @bg_color
-	bg[SELECTED] = @bg_color
+  bg[NORMAL] = @bg_color
+  bg[SELECTED] = @bg_color
 
-	fg[NORMAL] = @fg_color
+  fg[NORMAL] = @fg_color
 
   engine "murrine" {
     contrast = 0.7
@@ -2280,7 +2346,6 @@ style "xfwm-tabwin" {
 }
 
 style "xfwm-tabwin-button" {
-
   font_name = "bold"
   bg[SELECTED] = @selected_bg_color
 }
@@ -2294,13 +2359,14 @@ style "chrome_menu_item" {
 
 # Text Style
 style "text" = "default" {
+  fg[NORMAL] = @fg_color # FIXME: VMWare needs this?
+
   engine "murrine" { textstyle = 0 }
 }
 
 style "menu_text" = "menu_item" {
   engine "murrine" { textstyle = 0 }
 }
-
 
 style "null" {
 
@@ -2334,6 +2400,7 @@ widget_class "*<GtkMenu>*"                                          style "menu"
 widget_class "*<GtkMenu>*"                                          style "menu_framed_box"
 widget_class "*<GtkMenuItem>*"                                      style "menu_item"
 widget_class "*<GtkSeparatorMenuItem>*"                             style "separator_menu_item"
+#widget_class "*<GtkCheckButton>"                                    style "toolbar_button"
 widget_class "*<GtkCheckButton>*"                                   style "checkbutton"
 widget_class "*<GtkComboBox>"                                       style "combobox"
 widget_class "*<GtkComboBox>*<GtkButton>"                           style "combobox_button"
@@ -2344,6 +2411,14 @@ widget_class "*<GtkComboBoxEntry>*<GtkEntry>"                       style "combo
 widget_class "*<GtkComboBoxEntry>*<GtkButton>"                      style "combobox_entry_button"
 widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"     style "notebook_viewport"
 widget_class "*HandleBox"                                           style "toolbar"
+widget_class "*<GtkToolbar>*<GtkButton>"                            style "toolbar_button"
+
+widget_class "*<GtkButton>*<GtkLabel>"                              style "button_label"
+widget_class "*<GtkComboBox>*<GtkCellView>"                         style "button_label"
+#widget_class "*<GtkFontButton>*<GtkLabel>"                          style "button_label"
+#widget_class "*<GtkSpinButton>*<GtkLabel>"                          style "button_label"
+widget_class "*<GtkCheckButton>*<GtkLabel>"                         style "misc_button_label"
+widget_class "*<GtkToolbar>*<GtkButton>*<GtkLabel>"                 style "misc_button_label"
 
 # Entries in notebooks draw with notebook's base color, but not if there's
 # something else in the middle that draws gray again
@@ -2353,8 +2428,10 @@ widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkEntry>"                      styl
 widget_class "*<GtkNotebook>*<GtkComboBoxEntry>*<GtkEntry>"                 style "notebook_combobox_entry"
 widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkComboBoxEntry>*<GtkEntry>"   style "combobox_entry"
 
+widget_class "*<GtkNotebook>*<GtkSpinButton>"                               style "notebook_button_bg"
+
 # We also need to avoid changing fg color for the inactive notebook tab labels
-widget_class "*<GtkNotebook>.<GtkLabel>"                            style "notebook_tab_label"
+widget_class "*<GtkNotebook>*<GtkLabel>"                            style "notebook_tab_label"
 
 # GTK tooltips
 widget "gtk-tooltip*"                                               style "tooltips"
