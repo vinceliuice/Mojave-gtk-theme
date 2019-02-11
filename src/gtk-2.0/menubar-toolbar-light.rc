@@ -162,5 +162,6 @@ widget_class "*ThunarWindow*<GtkToolbar>*<GtkEntry>"                style "toolb
 widget_class "*CajaNavigationWindow*<GtkToolbar>*<GtkEntry>"        style "toolbar_entry"
 
 # GtkCheckButton
-widget_class "*<GtkCheckButton>"                                    style "toolbar_button"
+widget_class "*<GtkNotebook>*<GtkCheckButton>"                      style "toolbar_button"
+widget_class "*<GtkNotebook>*<GtkCheckButton>*<GtkLabel>"           style "misc_button_label"
 

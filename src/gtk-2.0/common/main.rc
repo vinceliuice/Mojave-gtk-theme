@@ -2432,6 +2432,7 @@ widget_class "*<GtkNotebook>*<GtkSpinButton>"                               styl
 
 # We also need to avoid changing fg color for the inactive notebook tab labels
 widget_class "*<GtkNotebook>*<GtkLabel>"                            style "notebook_tab_label"
+widget_class "*<GtkNotebook>*<GtkButton>*<GtkLabel>"                style "button_label"
 
 # GTK tooltips
 widget "gtk-tooltip*"                                               style "tooltips"
