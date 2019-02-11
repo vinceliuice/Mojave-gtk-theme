@@ -5930,10 +5930,68 @@ button.run-arrow-button {
 }
 
 omnibar.linked > entry:not(:only-child) {
-  border-style: solid;
-  border-radius: 3px;
   margin-left: 1px;
   margin-right: 1px;
+  color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
+  border: none;
+  box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
+  border-left: none;
+}
+
+omnibar.linked > entry:not(:only-child) image, omnibar.linked > entry:not(:only-child) image:hover {
+  color: inherit;
+}
+
+omnibar.linked > entry:not(:only-child):backdrop {
+  color: #FDFDFD;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: none;
+  border: none;
+  box-shadow: inset 0 1px #767676, 0 0 0 2px transparent, inset 0 0 0 1px transparent;
+  opacity: 0.65;
+}
+
+omnibar.linked > entry:not(:only-child):backdrop image, omnibar.linked > entry:not(:only-child):backdrop image:hover {
+  color: inherit;
+}
+
+entry.search.preferences-search {
+  box-shadow: none;
+}
+
+entry.search.preferences-search:focus {
+  box-shadow: none;
+  border-bottom: 1px solid #315bef;
+}
+
+preferencesbin spinbutton {
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #333333;
+}
+
+preferencesbin spinbutton:focus {
+  border-color: #315bef;
+}
+
+preferencesbin spinbutton entry,
+preferencesbin spinbutton entry:focus {
+  border: none;
+  box-shadow: none;
+}
+
+preferencesbin spinbutton button {
+  border-width: 0 0 0 1px;
+}
+
+preferencesbin entry.search {
+  margin: 2px;
 }
 
 gstyleslidein #scale_box button.toggle:checked,

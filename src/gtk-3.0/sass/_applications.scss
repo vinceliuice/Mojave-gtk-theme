@@ -729,6 +729,7 @@ docktabstrip {
     label {
       opacity: 0.5;
     }
+
     &:checked,
     &:hover {
       label {
@@ -790,6 +791,7 @@ popover.popover-selector {
     row {
       padding: 5px 0;
     }
+
     row image {
       margin-left: 3px;
       margin-right: 10px;
@@ -824,10 +826,49 @@ button.run-arrow-button {
 }
 
 omnibar.linked > entry:not(:only-child) {
-  border-style: solid;
-  border-radius: 3px;
   margin-left: 1px;
   margin-right: 1px;
+  @include entry(header-normal);
+  border-left: none;
+
+  &:backdrop {
+    @include entry(header-normal);
+    // background-image: none;
+
+    opacity: 0.65;
+  }
+}
+
+entry.search.preferences-search { // preferences-search
+  box-shadow: none;
+
+  &:focus {
+    box-shadow: none;
+    border-bottom: 1px solid $selected_bg_color;
+  }
+}
+
+preferencesbin {
+  spinbutton {
+    border-radius: $wm_radius;
+    border: 1px solid $borders_color;
+    background-color: $bg_color;
+
+    &:focus { border-color: $selected_bg_color; }
+
+    entry,
+    entry:focus { border: none; box-shadow: none; }
+
+    button {
+      border-width: 0 0 0 1px;
+
+      // &:first-child {
+      //   border-left: 1px solid $borders_color;
+      // }
+    }
+  }
+
+  entry.search { margin: 2px; }
 }
 
 gstyleslidein {
@@ -845,6 +886,7 @@ configurationview {
   entry.flat {
     background: none;
   }
+
   list {
     border-width: 0;
   }
