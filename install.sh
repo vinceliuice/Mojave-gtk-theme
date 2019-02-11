@@ -12,7 +12,7 @@ DEST_DIR=
 if [ "$UID" -eq "$ROOT_UID" ]; then
   DEST_DIR="/usr/share/themes"
 else
-  DEST_DIR="$HOME/.themes"
+  DEST_DIR="$HOME/.local/share/themes"
 fi
 
 THEME_NAME=Mojave
