@@ -389,6 +389,7 @@ $_dot_color: $selected_bg_color;
                                     to($_dot_color),
                                     to(transparent));
   }
+
   to {
     background-image: -gtk-gradient(radial,
                                     center center, 0,
@@ -485,10 +486,12 @@ button {
         padding-left: 8px;
         padding-right: 2px;
       }
+
       &:last-child {
         padding-right: 8px;
         padding-left: 2px;
       }
+
       &:only-child {
         padding-left: 8px;
         padding-right: 8px;
@@ -530,23 +533,29 @@ button {
     @include button(osd);
 
     &:hover { @include button(osd-hover); }
+
     &:active, &:checked {
       background-clip: padding-box;
       @include button(osd-active);
     }
+
     &:disabled { @include button(osd-insensitive); }
 
     &.flat {
       @include button(undecorated);
       box-shadow: none;
+
       &:hover { @include button(osd-hover); }
+
       &:disabled {
         @include button(osd-insensitive);
         background-image: none;
       }
+
       &:active, &:checked { @include button(osd-active); }
     }
   }
+
   .osd .linked:not(.vertical):not(.path-bar) > &:hover:not(:checked):not(:active):not(:only-child),
   .osd .linked:not(.vertical):not(.path-bar) > &:hover:not(:checked):not(:active) + &:not(:checked):not(:active) { box-shadow: none; }
 
@@ -1968,6 +1977,7 @@ treeview.view {
         border-color: $bg_color;
         background-image: none;
       }
+
       &:last-child {
         border-right-style: none;
         border-image: none;
