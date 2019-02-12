@@ -1284,14 +1284,15 @@ window.solid-csd > box.vertical > box.vertical {
     box-shadow: none;
     background-color: transparent;
 
-    button {
+    > toolitem > .linked > button,
+    > toolitem > box.horizontal > button {
       min-height: 36px;
       min-width: 36px;
       padding: 0;
       margin-top: 8px;
       margin-bottom: 8px;
       @if $variant == 'dark' { border: none; }
-//      &:hover { @include button(flat-hover); }
+      // &:hover { @include button(flat-hover); }
       &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
     }
   }
@@ -1306,17 +1307,15 @@ window.solid-csd > box.vertical > box.vertical {
 
 // hard-coded spacing depends on non-scalable unit,
 // seems cover-art widget is the most biggest thing?
-
 window.background > box.vertical > toolbar.primary-toolbar {
-
-  toolitem {
-    .linked > button.image-button.raised { // 'shuffle/repeat'
+  > toolitem {
+    > .linked > button.image-button.raised { // 'shuffle/repeat'
       min-height: 36px;
       min-width: 36px;
       padding: 0;
       margin: 0;
       @if $variant == 'dark' { border: none; }
-//      &:hover { @include button(flat-hover); }
+      // &:hover { @include button(flat-hover); }
       &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
       > widget > box > image { padding: 0; }
     }
@@ -1336,7 +1335,7 @@ window.background > box.vertical > toolbar.primary-toolbar {
       padding: 0;
       margin: 0;
       @if $variant == 'dark' { border: none; }
-//      &:hover { @include button(flat-hover); }
+      // &:hover { @include button(flat-hover); }
       &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
     }
   }
@@ -2633,6 +2632,16 @@ window.background.csd {
           }
 
           &.trough { @extend treeview.view.trough }
+        }
+      }
+    }
+  }
+
+  > stack > stack {
+    > paned.horizontal {
+      > scrolledwindow > viewport.frame {
+        list {
+          border-bottom-left-radius: $wm_radius;
         }
       }
     }

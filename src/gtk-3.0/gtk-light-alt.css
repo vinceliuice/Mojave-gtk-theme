@@ -6311,9 +6311,13 @@ window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar {
   background-color: transparent;
 }
 
-window.csd > box.vertical > box.vertical > toolbar.horizontal button, window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar button,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button,
-window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar button {
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button, window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > .linked > button,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button,
+window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > box.horizontal > button,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button,
+window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > .linked > button,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button,
+window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > box.horizontal > button {
   min-height: 36px;
   min-width: 36px;
   padding: 0;
@@ -6321,11 +6325,19 @@ window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar butt
   margin-bottom: 8px;
 }
 
-window.csd > box.vertical > box.vertical > toolbar.horizontal button:active, window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar button:active, window.csd > box.vertical > box.vertical > toolbar.horizontal button:checked, window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar button:checked,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:active,
-window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar button:active,
-window.solid-csd > box.vertical > box.vertical > toolbar.horizontal button:checked,
-window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar button:checked {
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:active, window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > .linked > button:active, window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:checked, window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > .linked > button:checked,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:active,
+window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > box.horizontal > button:active,
+window.csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:checked,
+window.csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > box.horizontal > button:checked,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:active,
+window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > .linked > button:active,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > .linked > button:checked,
+window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > .linked > button:checked,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:active,
+window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > box.horizontal > button:active,
+window.solid-csd > box.vertical > box.vertical > toolbar.horizontal > toolitem > box.horizontal > button:checked,
+window.solid-csd > box.vertical > box.vertical > .horizontal.inline-toolbar > toolitem > box.horizontal > button:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
@@ -6343,25 +6355,25 @@ window.solid-csd > box.vertical > box.vertical > frame > border {
   border: none;
 }
 
-window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem .linked > button.image-button.raised {
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button.image-button.raised {
   min-height: 36px;
   min-width: 36px;
   padding: 0;
   margin: 0;
 }
 
-window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:active, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem .linked > button.image-button.raised:active, window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised:checked, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem .linked > button.image-button.raised:checked {
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised:active, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button.image-button.raised:active, window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised:checked, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button.image-button.raised:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-window.background > box.vertical > toolbar.primary-toolbar toolitem .linked > button.image-button.raised > widget > box > image, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem .linked > button.image-button.raised > widget > box > image {
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button.image-button.raised > widget > box > image, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button.image-button.raised > widget > box > image {
   padding: 0;
 }
 
-window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.scale, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar toolitem button.scale.budgie-menu-launcher, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem button.scale.budgie-menu-launcher, .budgie-panel window.background > box.vertical > toolbar.primary-toolbar toolitem button.scale.flat.launcher, .budgie-panel window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem button.scale.flat.launcher {
+window.background > box.vertical > toolbar.primary-toolbar > toolitem button.flat.scale, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem button.flat.scale, window.background > box.vertical > toolbar.primary-toolbar > toolitem button.scale.budgie-menu-launcher, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem button.scale.budgie-menu-launcher, .budgie-panel window.background > box.vertical > toolbar.primary-toolbar > toolitem button.scale.flat.launcher, .budgie-panel window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem button.scale.flat.launcher {
   min-height: 24px;
   min-width: 36px;
   padding: 0;
@@ -6369,20 +6381,20 @@ window.background > box.vertical > toolbar.primary-toolbar toolitem button.flat.
   margin-bottom: 8px;
 }
 
-window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem > box.horizontal:not(.linked) > button.toggle,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat),
-window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat) {
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle,
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat),
+window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat) {
   min-height: 28px;
   min-width: 28px;
   padding: 0;
   margin: 0;
 }
 
-window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:active, window.background > box.vertical > toolbar.primary-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked, window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem > box.horizontal:not(.linked) > button.toggle:checked,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):active,
-window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):active,
-window.background > box.vertical > toolbar.primary-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):checked,
-window.background > box.vertical > .primary-toolbar.inline-toolbar toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):checked {
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle:active, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle:active, window.background > box.vertical > toolbar.primary-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle:checked, window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > box.horizontal:not(.linked) > button.toggle:checked,
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):active,
+window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):active,
+window.background > box.vertical > toolbar.primary-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):checked,
+window.background > box.vertical > .primary-toolbar.inline-toolbar > toolitem > .linked > button:not(.toggle):not(.raised):not(.flat):checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
@@ -7679,6 +7691,10 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
 
 window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view image:disabled {
   color: rgba(54, 54, 54, 0.45);
+}
+
+window.background.csd > stack > stack > paned.horizontal > scrolledwindow > viewport.frame list {
+  border-bottom-left-radius: 6px;
 }
 
 .dynamic-notebook notebook > stack {

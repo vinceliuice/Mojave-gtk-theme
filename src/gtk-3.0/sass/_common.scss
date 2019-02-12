@@ -650,7 +650,7 @@ button {
   //inline-toolbar buttons
   .inline-toolbar &, .inline-toolbar &:backdrop {
     border-radius: $bt_radius;
-//    border: none;
+    // border: none;
     @extend %linked;
   }
 
