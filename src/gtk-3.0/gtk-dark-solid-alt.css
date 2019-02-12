@@ -1475,14 +1475,14 @@ headerbar,
 .titlebar:not(headerbar) {
   min-height: 34px;
   padding: 0 8px;
-  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 100%);
   color: #FDFDFD;
   background-color: #373737;
   border-bottom: 1px solid #101010;
 }
 
 .csd headerbar, .csd .titlebar:not(headerbar) {
-  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 100%);
   background-color: #373737;
   border-bottom: 1px solid #101010;
 }
@@ -1583,7 +1583,7 @@ headerbar.default-decoration,
   min-height: 26px;
   padding: 0 6px;
   background-color: #373737;
-  background-image: linear-gradient(0deg, #3e3e3e 0%, #434343 98%, #434343 100%);
+  background-image: linear-gradient(0deg, #3e3e3e 0%, #434343 100%);
 }
 
 .tiled headerbar.default-decoration,
@@ -1733,7 +1733,7 @@ window.csd > .titlebar:not(headerbar):backdrop {
   min-width: 1px;
   min-height: 1px;
   background-color: #373737;
-  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 100%);
   box-shadow: inset 0 -1px #101010, inset 0 1px rgba(255, 255, 255, 0.15);
 }
 
@@ -7793,7 +7793,7 @@ headerbar.titlebar > button.flat.image-button.toggle + button.flat.image-button.
 }
 
 headerbar.titlebar > grid.linked.horizontal.format-bar {
-  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 100%);
   margin-top: 6px;
   margin-bottom: 6px;
   border: none;
@@ -7847,7 +7847,7 @@ scale.warmth trough {
 }
 
 .terminal-window headerbar.titlebar.default-decoration {
-  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 98%, #434343 100%);
+  background-image: linear-gradient(0deg, #383838 0%, #3e3e3e 50%, #434343 100%);
   background-color: #373737;
   border-bottom: 1px solid #101010;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.15);

@@ -20,8 +20,8 @@ $backdrop_transition: 200ms ease-out;
 $button_active_image: linear-gradient(0deg, $button_active_bottom 0%, $button_active_top 100%);
 $button_active_hover_image: linear-gradient(0deg, $button_active_hover_bottom 0%, $button_active_hover_top 100%);
 
-$headerbar_bg_image: linear-gradient(0deg, $header_bottom 0%, $header_middle 50%, $header_top 98%, $header_highlight 100%);
-$headerbar_top_image: linear-gradient(0deg, $header_middle 0%, $header_top 98%, $header_highlight 100%);
+$headerbar_bg_image: linear-gradient(0deg, $header_bottom 0%, $header_middle 50%, $header_top 100%);
+$headerbar_top_image: linear-gradient(0deg, $header_middle 0%, $header_top 100%);
 $header_button_image: if($variant=='light', linear-gradient( 0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%),
                                             linear-gradient( 0deg, #636363 0%, #696969 100%));
 $header_button_hover_image: if($variant=='light', linear-gradient( 0deg, #f8f8f8 0%, #ffffff 100%),
