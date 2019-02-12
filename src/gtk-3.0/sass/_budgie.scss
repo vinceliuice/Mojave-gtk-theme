@@ -70,13 +70,16 @@ $raven_padding: 8px;
   &.linked {
     @include button(undecorated);
     background-color: $_menu_bg;
+
     &:hover {
       background-color: if($variant =='light', darken($_menu_bg, 5%), lighten($_menu_bg, 5%));
     }
+
     &:active, &:checked {
       color: $selected_fg_color;
       background-color: $selected_bg_color;
     }
+
     &:disabled { @include button(flat-insensitive); }
   }
 }
@@ -256,13 +259,13 @@ window.budgie-popover:not(.csd) {
   entry.search { background-color: transparent; }
 
   entry.search {
-//    margin: 6px 6px 0 6px;
+    // margin: 6px 6px 0 6px;
     border: none;
     border-bottom: 1px solid $borders_color;
     border-radius: 0;
     box-shadow: none;
     font-size: 120%;
-//    &:focus { @include entry(focus); }
+    // &:focus { @include entry(focus); }
   }
 
   .categories {
@@ -283,10 +286,12 @@ window.budgie-popover:not(.csd) {
     &:hover { transition: none; }
     &:disabled { color: $insensitive_fg_color; }
     &:checked { @extend %selected_items; }
+
     &:checked:hover {
       background-image: none;
       background-color: lighten($selected_bg_color, 5%);
     }
+
     &:checked:disabled { background-color: rgba($selected_bg_color, 0.5); } // overriding
   }
 
@@ -317,9 +322,9 @@ popover.background.user-menu {
 }
 
 // Raven Trigger
-button.raven-trigger {
-  // padding: 0 4px;
-}
+// button.raven-trigger {
+//   padding: 0 4px;
+// }
 
 // Places Menu
 popover.background.places-menu {
@@ -560,9 +565,11 @@ popover.background.places-menu {
       -gtk-icon-effect: highlight;
       > image { opacity: 1.0; }
     }
+
     &:active {
       > image { opacity: 1.0; }
     }
+
     &:checked {
       &:hover { -gtk-icon-effect: highlight; }
       > image { opacity: 1.0; }
@@ -688,7 +695,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
 
     &.top {
       padding: 2px 12px $raven_padding;
-//      background-color: rgba($raven_bg_color, 0.95);
+      // background-color: rgba($raven_bg_color, 0.95);
       color: $raven_fg_color;
       border-bottom: 1px solid $borders_color;
 

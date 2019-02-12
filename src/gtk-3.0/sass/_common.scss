@@ -1253,10 +1253,12 @@ headerbar,
       padding-left: 10px;
       padding-right: 10px;
       GtkArrow { -GtkArrow-arrow-scaling: 1; }
+
       .arrow {
         -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
       }
     }
+
     .maximized & { background-color: $selection_mode_bg; }
   }
 
@@ -1306,7 +1308,7 @@ headerbar,
   .csd &.default-decoration,             // needed under wayland, since all gtk3 windows are csd windows
   &.default-decoration:backdrop,
   .csd &.default-decoration:backdrop {
-//    box-shadow: none;
+    // box-shadow: none;
     border: none;
   }
 
@@ -1427,6 +1429,13 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
       background-image: none;
       background-color: $header_bg_backdrop;
     }
+
+    .tiled &,
+    .maximized &,
+    .fullscreen & {
+      box-shadow: reset;
+      box-shadow: inset 0 -1px $header_border;
+    }
   }
 
   @extend %titlebar;
@@ -1546,7 +1555,7 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
 
   &:disabled { @include button(header-insensitive); }
   &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
-//    &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
+  // &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
 
   &.flat {
     @include button(undecorated);

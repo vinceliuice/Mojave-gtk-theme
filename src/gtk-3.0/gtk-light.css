@@ -1736,6 +1736,13 @@ window.csd > .titlebar:not(headerbar):backdrop {
   background-color: #F6F6F6;
 }
 
+.tiled .titlebar:not(headerbar) > separator,
+.maximized .titlebar:not(headerbar) > separator,
+.fullscreen .titlebar:not(headerbar) > separator {
+  box-shadow: reset;
+  box-shadow: inset 0 -1px #a1a1a1;
+}
+
 headerbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled, .nemo-window .primary-toolbar .linked.raised > button, .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button:hover, .nemo-window .primary-toolbar .linked.path-bar > button:active, .nemo-window .primary-toolbar .linked.path-bar > button:checked, .nemo-window .primary-toolbar .linked.path-bar > button:disabled, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:hover, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:active, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:checked, .nemo-window .primary-toolbar .linked.path-bar > button.image-button:disabled, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:hover, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:active, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:checked, .geary-titlebar-right > box.linked.raised.horizontal > button.image-button:disabled {
   border-radius: 0;
   border-left-style: none;
@@ -7388,98 +7395,101 @@ button.-panel-icon-button.budgie-menu-launcher:checked {
   color: #292929;
 }
 
+menubar.-vala-panel-appmenu-private,
 menubar.-vala-panel-background {
   background: none;
   border: none;
   box-shadow: none;
 }
 
+menubar.-vala-panel-appmenu-private > menuitem,
 menubar.-vala-panel-background > menuitem {
   color: #363636;
   font-weight: normal;
 }
 
+menubar.-vala-panel-appmenu-private > menuitem:hover,
 menubar.-vala-panel-background > menuitem:hover {
   color: #ffffff;
 }
 
-.panel {
-  background-color: #FEFEFE;
-  background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.9) 0%, rgba(245, 245, 245, 0.9) 100%);
+.menubar.panel .panel.color-light {
+  background-color: transparent;
+  background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.95) 0%, rgba(245, 245, 245, 0.95) 100%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   transition: all 100ms ease-in-out;
   color: #363636;
 }
 
-.panel.maximized {
-  background-image: linear-gradient(0deg, #e2e2e2 0%, #f5f5f5 100%);
+.menubar.panel .panel.maximized {
+  background-color: #FEFEFE;
+  background-image: linear-gradient(0deg, #e2e2e2 0%, whitesmoke 100%);
+  border: none;
 }
 
-.panel.translucent {
-  background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.9) 0%, rgba(245, 245, 245, 0.9) 100%);
-  box-shadow: none;
-}
-
-.panel menubar {
+.menubar.panel .panel.translucent {
+  background: none;
   box-shadow: none;
   border: none;
-  background-color: transparent;
-  background-image: none;
-  background-image: none;
-  color: #363636;
 }
 
-.panel popover {
+.menubar.panel .panel menubar {
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+.menubar.panel popover {
   padding: 2px 4px;
   border: 1px solid rgba(0, 0, 0, 0.35);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
-.panel popover button {
+.menubar.panel popover button {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
 }
 
-.panel popover button:hover {
+.menubar.panel popover button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-.panel popover button:active {
+.menubar.panel popover button:active {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.panel popover button:active label {
+.menubar.panel popover button:active label {
   color: white;
 }
 
-.panel popover button:checked {
+.menubar.panel popover button:checked {
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.65);
 }
 
-.panel popover button:checked label {
+.menubar.panel popover button:checked label {
   color: white;
 }
 
-.panel popover button:disabled {
+.menubar.panel popover button:disabled {
   background-color: transparent;
 }
 
-.panel popover button:disabled label, .panel popover button:disabled {
+.menubar.panel popover button:disabled label, .menubar.panel popover button:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
-.panel popover button, .panel popover button:hover, .panel popover button:active, .panel popover button:checked, .panel popover button:disabled {
+.menubar.panel popover button, .menubar.panel popover button:hover, .menubar.panel popover button:active, .menubar.panel popover button:checked, .menubar.panel popover button:disabled {
   border-color: transparent;
 }
 
-.panel popover .linked > button {
+.menubar.panel popover .linked > button {
   color: #242424;
   border-color: rgba(0, 0, 0, 0.15);
   border-top-color: rgba(0, 0, 0, 0.15);
@@ -7488,7 +7498,7 @@ menubar.-vala-panel-background > menuitem:hover {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-.panel popover .linked > button:hover {
+.menubar.panel popover .linked > button:hover {
   color: #0b0b0b;
   border-color: rgba(0, 0, 0, 0.15);
   border-top-color: rgba(0, 0, 0, 0.15);
@@ -7497,7 +7507,7 @@ menubar.-vala-panel-background > menuitem:hover {
   box-shadow: none;
 }
 
-.panel popover .linked > button:active, .panel popover .linked > button:checked {
+.menubar.panel popover .linked > button:active, .menubar.panel popover .linked > button:checked {
   color: #ffffff;
   background-color: #315bef;
   border-color: #487afa;
@@ -7507,43 +7517,43 @@ menubar.-vala-panel-background > menuitem:hover {
   box-shadow: none;
 }
 
-.panel popover .linked > button:disabled {
+.menubar.panel popover .linked > button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.55);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-.panel popover .linked > button:disabled label, .panel popover .linked > button:disabled {
+.menubar.panel popover .linked > button:disabled label, .menubar.panel popover .linked > button:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
-.panel popover list {
+.menubar.panel popover list {
   background-color: transparent;
 }
 
-.panel popover separator.horizontal {
+.menubar.panel popover separator.horizontal {
   margin: 0 -4px;
 }
 
-.panel popover separator.vertical {
+.menubar.panel popover separator.vertical {
   background: none;
 }
 
-.panel popover .sidebar {
+.menubar.panel popover .sidebar {
   border-style: none;
   background: none;
 }
 
-.panel popover .sidebar .view {
+.menubar.panel popover .sidebar .view {
   background: none;
 }
 
-.panel popover .sidebar .view:hover {
+.menubar.panel popover .sidebar .view:hover {
   border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-.panel popover .sidebar .view:selected, .panel popover .sidebar .view:selected:focus, .panel popover .sidebar .view:selected:backdrop {
+.menubar.panel popover .sidebar .view:selected, .menubar.panel popover .sidebar .view:selected:focus, .menubar.panel popover .sidebar .view:selected:backdrop {
   text-shadow: none;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   background-color: rgba(0, 0, 0, 0.65);
