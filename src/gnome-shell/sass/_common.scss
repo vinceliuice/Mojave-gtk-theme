@@ -738,22 +738,24 @@ $slider_color: if($variant == 'light', $accent_color, white);
   min-height: 64px;
 
   .osd-monitor-label { @include font(display-2); }
+
   .level {
-    height: 2px;
+    height: 4px;
     border-radius: 3px;
     background-color: rgba($primary_color, $lower_opacity);
     color: $fg_color;
 
     // For >= 3.29.90
-    -barlevel-height: 2px;
+    -barlevel-height: 4px;
     // FIXME: above 'background-color' property rendered correct trough
     // colour already, so keep -background-color style-property transparent
-    -barlevel-background-color: transparent;
-    -barlevel-active-background-color: $success_color;
+    -barlevel-background-color: rgba($primary_color, $lower_opacity);
+    -barlevel-active-background-color: $primary_color;
     -barlevel-overdrive-color: $destructive_color;
     -barlevel-overdrive-separator-width: 3px;
     -barlevel-border-width: 0;
   }
+
   .level-bar {
     background-color: $primary_color;
     border-radius: 3px;

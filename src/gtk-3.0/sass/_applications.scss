@@ -1839,6 +1839,9 @@ window#whiskermenu-window {
 //  * Thunar *
 //
 window.thunar {
+
+  .sidebar { border-top: none; }
+
   treeview.view {
     background-color: $dark_sidebar_bg;
 

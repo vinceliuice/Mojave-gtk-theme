@@ -1746,7 +1746,6 @@ window.csd > .titlebar:not(headerbar):backdrop {
 .tiled .titlebar:not(headerbar) > separator,
 .maximized .titlebar:not(headerbar) > separator,
 .fullscreen .titlebar:not(headerbar) > separator {
-  box-shadow: reset;
   box-shadow: inset 0 -1px #101010;
 }
 
@@ -6926,6 +6925,10 @@ window#whiskermenu-window scrolledwindow > viewport button.radio:checked, window
 window#whiskermenu-window scrolledwindow treeview.view:selected:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: #dedede;
+}
+
+window.thunar .sidebar {
+  border-top: none;
 }
 
 window.thunar treeview.view {

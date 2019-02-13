@@ -922,13 +922,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .osd-window .level {
-  height: 2px;
+  height: 4px;
   border-radius: 3px;
   background-color: rgba(49, 91, 239, 0.3);
   color: rgba(0, 0, 0, 0.87);
-  -barlevel-height: 2px;
-  -barlevel-background-color: transparent;
-  -barlevel-active-background-color: #00C853;
+  -barlevel-height: 4px;
+  -barlevel-background-color: rgba(49, 91, 239, 0.3);
+  -barlevel-active-background-color: #315bef;
   -barlevel-overdrive-color: #FF5252;
   -barlevel-overdrive-separator-width: 3px;
   -barlevel-border-width: 0;
