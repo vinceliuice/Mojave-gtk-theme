@@ -963,6 +963,8 @@ style "button" {
   xthickness = 4
   ythickness = 4
 
+  engine "murrine" { textstyle = 0 }
+
   engine "pixmap" {
 
     image {
@@ -1039,8 +1041,10 @@ style "button_label" {
 
   fg[NORMAL] = @text_color
   fg[PRELIGHT] = @fg_color
-  fg[INSENSITIVE] = @insensitive_fg_color
+  fg[INSENSITIVE] = @insensitive_button_fg_color
   fg[ACTIVE] = @selected_fg_color
+
+  engine "murrine" { textstyle = 0 }
 
 }
 
@@ -1048,8 +1052,10 @@ style "misc_button_label" {
 
   fg[NORMAL] = @text_color
   fg[PRELIGHT] = @fg_color
-  fg[INSENSITIVE] = @insensitive_fg_color
+  fg[INSENSITIVE] = @insensitive_button_fg_color
   fg[ACTIVE] = @fg_color
+
+  engine "murrine" { textstyle = 0 }
 
 }
 
