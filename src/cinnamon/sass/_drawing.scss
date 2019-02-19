@@ -1,0 +1,220 @@
+// generic drawing of more complex things
+
+// provide font size in pt, with px fallback
+@function pt($size: $root-font-size) {
+  @return ($size * 0.75 / 1px) + pt;
+}
+
+// provide icon size in em, with px fallback
+@function em($size: 16px) {
+  @return ($size / $root-font-size) + em;
+}
+
+// Typography
+// based on:
+// https://material.io/guidelines/style/typography.html#typography-styles
+
+@mixin font($size) {
+  @if $size == display-4 {
+    // font-family: $large-font-family;
+    font-size: 112px;
+    font-weight: 300;
+    // line-height: 1;
+  }
+
+  @if $size == display-3 {
+    // font-family: $large-font-family;
+    font-size: 56px;
+    font-weight: 400;
+    // line-height: 1;
+  }
+
+  @if $size == display-2 {
+    // font-family: $large-font-family;
+    font-size: 45px;
+    font-weight: 400;
+    // line-height: 48px;
+  }
+
+  @if $size == display-1 {
+    // font-family: $large-font-family;
+    font-size: 34px;
+    font-weight: 400;
+    // line-height: 40px;
+  }
+
+  @if $size == headline {
+    font-size: pt(24px);
+    font-weight: 400;
+    // line-height: 32px;
+  }
+
+  @if $size == title {
+    font-size: pt(20px);
+    font-weight: 500;
+    // line-height: 1;
+  }
+
+  @if $size == subheading {
+    font-size: pt($subheading-size);
+    font-weight: 400;
+    // line-height: 24px;
+  }
+
+  @if $size == body-2 {
+    font-size: pt($root-font-size);
+    font-weight: 500;
+    // line-height: 24px;
+  }
+
+  @if $size == body-1 {
+    font-size: pt($root-font-size);
+    font-weight: 400;
+    // line-height: 20px;
+  }
+
+  @if $size == caption {
+    font-size: pt(12px);
+    font-weight: 400;
+    // line-height: 1;
+  }
+
+  @if $size == button {
+    font-size: pt($root-font-size);
+    font-weight: 500;
+    // line-height: 20px;
+  }
+}
+
+
+@mixin entry($t, $fc: $primary) {
+//
+// entry
+//
+// $t: entry type
+// $fc: focus color
+//
+
+  @if $t == normal {
+    transition-duration: $shorter_duration;
+    background-color: if($fc == $primary, $fill, on(black, fill));
+    border-color: transparent;
+    box-shadow: inset 0 -1px if($fc == $primary, $track, $fc);
+  }
+
+  @if $t == focus {
+    border-color: transparent;
+    box-shadow: inset 0 -2px $fc;
+  }
+
+  @if $t == hover {
+    box-shadow: inset 0 -1px if($fc == $primary, $text, $fc);
+  }
+
+  @if $t == insensitive {
+    color: $text-disabled;
+    border-color: transparent;
+    box-shadow: inset 0 -1px if($fc == $primary, $divider, $fc);
+  }
+}
+
+
+@mixin button($t, $c: $surface, $tc: $text) {
+//
+// button
+//
+// $t: button type
+// $c: base color
+// $tc: text color
+//
+
+  @if $t == normal {
+    color: $tc;
+    background-color: $c;
+    border-color: transparent;
+    box-shadow: $shadow_1;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $shorter_duration;
+  }
+
+  @if $t == focus {
+    color: $tc;
+    text-shadow: none;
+    icon-shadow: none;
+    box-shadow: $shadow_2;
+  }
+
+  @if $t == hover {
+    color: $tc;
+    background-color: $c;
+    border-color: transparent;
+    box-shadow: $shadow_2;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == active {
+    color: $tc;
+    background-color: mix($tc, $c, percentage(0.24));
+    border-color: transparent;
+    box-shadow: $shadow_2;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $longer_duration;
+  }
+
+  @if $t == insensitive {
+    color: if($tc == $text, $text-disabled, $tc);
+    background-color: if($c == $surface, $fill, $c);
+    border-color: transparent;
+    box-shadow: $shadow_0;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == flat-normal {
+    color: if($tc != on(black), $text-secondary, on(black, secondary));
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: $shadow_0;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $shorter_duration;
+  }
+
+  @if $t == flat-focus {
+    color: if($tc != on(black), $text, on(black));
+    text-shadow: none;
+    icon-shadow: none;
+    box-shadow: $shadow_0;
+  }
+
+  @if $t == flat-hover {
+    color: if($tc != on(black), $text, on(black));
+    background-color: if($tc != on(black), $overlay-hover, $inverse-overlay-hover);
+    border-color: transparent;
+    box-shadow: $shadow_0;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == flat-active {
+    color: if($tc != on(black), $text, on(black));
+    background-color: if($tc != on(black), $overlay-active, $inverse-overlay-active);
+    border-color: transparent;
+    box-shadow: $shadow_0;
+    text-shadow: none;
+    icon-shadow: none;
+    transition-duration: $longer_duration;
+  }
+
+  @if $t == flat-insensitive {
+    color: if($tc != on(black), $text-secondary-disabled, on(black, secondary-disabled));
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: $shadow_0;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+}

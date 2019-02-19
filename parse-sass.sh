@@ -37,3 +37,8 @@ for color in "${_COLOR_VARIANTS[@]}"; do
     echo "==> Generating the gnome-shell${color}${trans}.css..."
   done
 done
+
+for color in "${_COLOR_VARIANTS[@]}"; do
+  sassc $SASSC_OPT src/cinnamon/cinnamon${color}.{scss,css}
+  echo "==> Generating the cinnamon${color}.css..."
+done

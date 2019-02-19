@@ -1,0 +1,141 @@
+%button-shared {
+  @include button(normal);
+  @include font(button);
+
+  min-height: $medium_size;
+  padding: 0 16px;
+  border-radius: $material_radius;
+  &:focus { @include button(focus); }
+  &:hover, &:checked { @include button(hover); }
+  &:active { @include button(active);}
+  &:insensitive { @include button(insensitive);}
+}
+%icon-button-shared {
+  @include button(normal);
+
+  min-height: $medium_size;
+  min-width: $medium_size;
+  padding: 6px;
+  border-radius: $material_radius;
+  &:focus { @include button(focus); }
+  &:hover, &:checked { @include button(hover); }
+  &:active { @include button(active);}
+  &:insensitive { @include button(insensitive);}
+}
+%slider-shared {
+   height: 20px;
+   color: $primary;
+  -slider-height: 2px;
+  -slider-background-color: $track; //background of the trough
+  -slider-border-color: transparent; //trough border color
+  -slider-active-background-color: $primary; //active trough fill
+  -slider-active-border-color: transparent; //active trough border
+  -slider-border-width: 0;
+  -slider-handle-radius: 6px;
+}
+%separator-shared {
+  -gradient-height: 1px;
+  -gradient-start: $border;
+  -gradient-end: $border;
+  -margin-horizontal: 4px;
+  height: 1.5em;
+}
+%dialog-entry-shared {
+  @include entry(normal);
+
+  width: 250px;
+  min-height: $medium_size;
+  padding: 0 8px;
+  border-radius: $material_radius $material_radius 0 0;
+  color: $text;
+  caret-color: $text;
+  selection-background-color: $overlay-selected;
+  selected-color: $text;
+  &:focus {
+    @include entry(focus);
+
+    padding: 0 8px;
+    border-width: 0;
+    color: $text;
+  }
+}
+%desklet-shared {
+  color: $text;
+  border: none;
+  padding: 12px;
+  box-shadow: $shadow_4;
+}
+%calendar-shared {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  transition-duration: $shorter_duration;
+  &:active { background-color: $track;}
+}
+%menu-shared {
+  background-color: $surface;
+  border-radius: $material_radius;
+  color: $text;
+  box-shadow: $shadow_2;
+}
+%menu-button-label-shared {
+  &:ltr {
+    padding-left: 4px;
+  }
+  &:rtl {
+    padding-right: 4px;
+  }
+}
+%dialogs-subject-shared {
+  font-weight: bold;
+  color: $text;
+  padding-top: 10px;
+  padding-left: 17px;
+  padding-bottom: 6px;
+}
+%dialogs-subject-rtl-shared {
+  padding-left: 0;
+  padding-right: 17px;
+}
+%dialogs-description-shared {
+  color: $text;
+  padding-left: 17px;
+  width: 28em;
+}
+%check-box-shared {
+  width: 24px;
+  height: 24px;
+  padding: ($medium_size - 24px) / 2;
+  border-radius: 100px;
+  background-image: url(assets/checkbox-off.svg);
+}
+%radiobutton-shared {
+  width: 20px;
+  height: 20px;
+  padding: ($medium_size - 20px) / 2;
+  border-radius: 100px;
+  background-image: url(assets/radiobutton-off.svg);
+}
+%tile-shared {
+  background-color: $scrim-alt;
+  border: 2px solid $border;
+}
+%tile-shared-snap {
+  background-color: $scrim-alt;
+  border: 2px solid $primary;
+}
+%osd-panel-shared {
+  color: $text;
+  background-color: $surface;
+  border: none;
+  border-radius: $material_radius;
+  padding: 12px;
+  box-shadow: $shadow_4;
+}
+%osd-info-workspace-shared {
+  @include font(title);
+  @extend %osd-panel-shared;
+
+  text-align: center;
+  padding: 8px 10px;
+}
