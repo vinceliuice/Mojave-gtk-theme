@@ -50,7 +50,6 @@ stage {
   &:active { @include button(flat-active); }
   &:insensitive { @include button(flat-insensitive); }
   &:focus { @include button(flat-focus); }
-
 }
 
 .modal-dialog-linked-button {
@@ -2254,7 +2253,7 @@ $slider_color: if($variant == 'light', $accent_color, white);
 }
 
 #lockDialogGroup {
-  background: #555555 url("assets/noise-texture.svg");
+  background: #333333 url("assets/background.png");
   background-size: cover;
 }
 

@@ -9976,6 +9976,10 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
   background-color: rgba(49, 91, 239, 0.65);
 }
 
+.devices-list.sound-devices > row.activatable > box.horizontal label, .nemo-window .nemo-places-sidebar.frame .devices-list.sound-devices > .places-treeview > box.horizontal label, .budgie-menu .devices-list.sound-devices > button > box.horizontal label {
+  padding-left: 8px;
+}
+
 calendar.raven-calendar {
   margin: 2px 0;
   padding: 2px;

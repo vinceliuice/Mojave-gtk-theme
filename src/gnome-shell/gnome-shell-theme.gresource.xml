@@ -52,6 +52,8 @@
     <file>assets/key-shift-latched-uppercase.svg</file>
     <file>assets/key-shift-uppercase.svg</file>
     <file>assets/activities.svg</file>
+    <file>assets/startup.png</file>
+    <file>assets/background.png</file>
     <file>extensions/workspaces-to-dock/workspaces-to-dock.css</file>
     <file>gnome-shell.css</file>
     <file alias="icons/message-indicator-symbolic.svg">message-indicator-symbolic.svg</file>

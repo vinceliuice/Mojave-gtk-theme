@@ -111,26 +111,47 @@ install() {
   cp -ur ${SRC_DIR}/plank/${name}${color}/*.theme                                       ${THEME_DIR}/plank
 }
 
+# Bakup and install files related to GDM theme
 install_gdm() {
-    local THEME_DIR=${1}/${2}${3}${4}${5}
-      # bakup and install files related to gdm theme
-      if [[ ! -f /usr/share/gnome-shell/gnome-shell-theme.gresource.bak ]]; then
-          mv -f /usr/share/gnome-shell/gnome-shell-theme.gresource \
-                /usr/share/gnome-shell/gnome-shell-theme.gresource.bak
-      fi
-      if [[ -f /usr/share/gnome-shell/theme/ubuntu.css ]]; then
-          if [[ ! -f /usr/share/gnome-shell/theme/ubuntu.css.bak ]]; then
-              mv -f /usr/share/gnome-shell/theme/ubuntu.css \
-                     /usr/share/gnome-shell/theme/ubuntu.css.bak
-          fi
-          cp -af ${THEME_DIR}/gnome-shell/gnome-shell.css \
-                 /usr/share/gnome-shell/theme/ubuntu.css
-      fi
-      glib-compile-resources \
-       --sourcedir=${THEME_DIR}/gnome-shell \
-       --target=/usr/share/gnome-shell/gnome-shell-theme.gresource \
-       ${SRC_DIR}/gnome-shell/gnome-shell-theme.gresource.xml
-  echo "Installing 'gnome-shell-theme.gresource'..."
+  local THEME_DIR="$1/$2$3$4$5"
+  local GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
+  local SHELL_THEME_FOLDER="/usr/share/gnome-shell/theme"
+  local ETC_THEME_FOLDER="/etc/alternatives"
+  local ETC_THEME_FILE="/etc/alternatives/gdm3.css"
+  local UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
+  local UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
+
+  if [[ -f "$GS_THEME_FILE" ]] && command -v glib-compile-resources >/dev/null ; then
+    echo "Installing '$GS_THEME_FILE'..."
+    cp -an "$GS_THEME_FILE" "$GS_THEME_FILE.bak"
+    glib-compile-resources \
+      --sourcedir="$THEME_DIR/gnome-shell" \
+      --target="$GS_THEME_FILE" \
+      "${SRC_DIR}/gnome-shell/gnome-shell-theme.gresource.xml"
+  else
+    echo
+    echo "ERROR: Failed to install '$GS_THEME_FILE'"
+    exit 1
+  fi
+
+  if [[ -f "$UBUNTU_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
+    echo "Installing '$UBUNTU_THEME_FILE'..."
+    cp -an "$UBUNTU_THEME_FILE" "$UBUNTU_THEME_FILE.bak"
+    rm -rf "$GS_THEME_FILE"
+    mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
+    cp -af "$THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_THEME_FILE"
+  fi
+
+  if [[ -f "$ETC_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
+    echo "Installing Ubuntu gnome-shell theme..."
+    cp -an "$ETC_THEME_FILE" "$ETC_THEME_FILE.bak"
+    rm -rf "$ETC_THEME_FILE" "$GS_THEME_FILE"
+    mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
+    [[ -d $SHELL_THEME_FOLDER/Mojave ]] && rm -rf $SHELL_THEME_FOLDER/Mojave
+    cp -ur "$THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
+    cd "$ETC_THEME_FOLDER"
+    ln -s "$SHELL_THEME_FOLDER/Mojave/gnome-shell.css" gdm3.css
+  fi
 }
 
 while [[ $# -gt 0 ]]; do

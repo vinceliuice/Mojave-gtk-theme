@@ -48,7 +48,6 @@ $keyboard_bg_color:  if($variant == 'light', $grey_50, fade($grey_700)); // for 
 $alt_keyboard_bg_color:  if($variant == 'light', $grey_300, fade($grey_900)); // for gnome-shell keyboard
 
 // Misc colors
-
 $primary_color: if($variant == 'light', #315bef, #315bef);
 $alt_primary_color: if($variant == 'light', #6887cd, #6887cd);
 $accent_color: if($variant == 'light', #315bef, #315bef);
@@ -75,3 +74,34 @@ $error_bg_color:    $red_400;
 $border_color:        if($variant == 'light', rgba($black, 0.12), rgba($white, 0.12));
 $highlight_color:     if($variant == 'light', rgba($white, 0.4),  rgba($white, 0.1));
 $alt_highlight_color: rgba($white, 0.2);
+
+$borders_bottom_color: if($variant =='light', rgba(black, 0.27), rgba(white, 0.12));
+$dark_borders_color:  if($variant =='light', rgba(black, 0.15), rgba(black, 0.15));
+
+// Button colors
+$button_bg: if($variant == 'light', white, #656565);
+$button_active_top: if($variant == 'light', #7ba3f7, #3d6be3);
+$button_active_bottom: if($variant == 'light', #3d6ffc, #3861ca);
+$button_active_hover_top: if($variant == 'light', #82a8f7, #3b65e3);
+$button_active_hover_bottom: if($variant == 'light', #4675f7, #365cca);
+
+$button_border: $border_color;
+$button_bottom_border: $borders_bottom_color;
+$button_active_border: #487afa;
+$button_active_top_border: #6290f7;
+$button_active_bottom_border: #3767fc;
+
+// Button borders and highlights colors
+$button_highlight: if($variant == 'light', white, rgba(white, 0.1));
+
+$button_borders: if($variant == 'light', $button_border, $dark_borders_color);
+$button_borders_top: if($variant == 'light', $button_border, $dark_borders_color);
+$button_borders_bottom: if($variant == 'light', $button_bottom_border, $dark_borders_color);
+
+$button_borders_hover: if($variant == 'light', $button_border, $dark_borders_color);
+$button_borders_hover_top: if($variant == 'light', $button_border, $dark_borders_color);
+$button_borders_hover_bottom: if($variant == 'light', $button_bottom_border, $dark_borders_color);
+
+$button_borders_active: if($variant == 'light', $button_active_border, $dark_borders_color);
+$button_borders_active_top: if($variant == 'light', $button_active_top_border, $dark_borders_color);
+$button_borders_active_bottom: if($variant == 'light', $button_active_bottom_border, $dark_borders_color);
