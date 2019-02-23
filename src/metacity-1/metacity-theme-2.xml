@@ -11,8 +11,8 @@
 <!-- ::: CONSTANTS ::: -->
 <constant name="C_titlebar_gradient_a" value="shade/gtk:bg[NORMAL]/1.07" />
 <constant name="C_titlebar_gradient_b" value="gtk:bg[NORMAL]" />
-<constant name="C_border_focused" value="shade/gtk:bg[NORMAL]/0.7" />
-<constant name="C_border_unfocused" value="shade/gtk:bg[NORMAL]/0.8" />
+<constant name="C_border_focused" value="shade/gtk:bg[NORMAL]/0.5" />
+<constant name="C_border_unfocused" value="shade/gtk:bg[NORMAL]/0.5" />
 <constant name="C_title_focused" value="blend/gtk:fg[NORMAL]/gtk:bg[NORMAL]/0.3" />
 <constant name="C_title_focused_shadow" value="shade/gtk:bg[NORMAL]/1.1" />
 <constant name="C_title_unfocused" value="blend/gtk:fg[NORMAL]/gtk:bg[NORMAL]/0.6" />
@@ -442,9 +442,9 @@
 	<button function="close" state="normal" draw_ops="close_focused" />
 	<button function="close" state="prelight" draw_ops="close_focused_prelight" />
 	<button function="close" state="pressed" draw_ops="close_focused_pressed" />
-	<button function="maximize" state="normal" draw_ops="maximize_focused" />
-	<button function="maximize" state="prelight" draw_ops="maximize_focused_prelight" />
-	<button function="maximize" state="pressed" draw_ops="maximize_focused_pressed" />
+	<button function="maximize" state="normal" draw_ops="unmaximize_focused" />
+	<button function="maximize" state="prelight" draw_ops="unmaximize_focused_prelight" />
+	<button function="maximize" state="pressed" draw_ops="unmaximize_focused_pressed" />
 	<button function="minimize" state="normal" draw_ops="minimize_focused" />
 	<button function="minimize" state="prelight" draw_ops="minimize_focused_prelight" />
 	<button function="minimize" state="pressed" draw_ops="minimize_focused_pressed" />
@@ -508,9 +508,9 @@
 	<button function="close" state="normal" draw_ops="close_focused" />
 	<button function="close" state="prelight" draw_ops="close_focused_prelight" />
 	<button function="close" state="pressed" draw_ops="close_focused_pressed" />
-	<button function="maximize" state="normal" draw_ops="unmaximize_unfocused" />
-	<button function="maximize" state="prelight" draw_ops="unmaximize_unfocused_prelight" />
-	<button function="maximize" state="pressed" draw_ops="unmaximize_unfocused_pressed" />
+	<button function="maximize" state="normal" draw_ops="unmaximize_focused" />
+	<button function="maximize" state="prelight" draw_ops="unmaximize_focused_prelight" />
+	<button function="maximize" state="pressed" draw_ops="unmaximize_focused_pressed" />
 	<button function="minimize" state="normal" draw_ops="minimize_focused" />
 	<button function="minimize" state="prelight" draw_ops="minimize_focused_prelight" />
 	<button function="minimize" state="pressed" draw_ops="minimize_focused_pressed" />

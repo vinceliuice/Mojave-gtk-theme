@@ -328,8 +328,8 @@ $disk_space_free: darken($bg_color, 3%);
 }
 
 .nemo-window {
-  .nemo-places-sidebar.frame {
-    border-width: 0;
+  .nemo-places-sidebar {
+    &.frame { border-width: 0; }
 
     .places-treeview {
       @extend row.activatable;
@@ -344,8 +344,6 @@ $disk_space_free: darken($bg_color, 3%);
 
   notebook {
     background-color: $base_color;
-
-    infobar { background-color: $bg_color; }
   }
 
   // Rename entry
