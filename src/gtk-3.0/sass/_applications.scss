@@ -2306,6 +2306,8 @@ window.background.csd {
               background-color: transparent;
               border-right: 1px solid $borders_color;
               border-bottom-left-radius: $wm_radius;
+
+              label:disabled { color: $insensitive_fg_color; }
             }
           }
         }
@@ -2324,6 +2326,8 @@ window.background.csd {
               background-color: transparent;
               background-image: none;
               border-bottom-left-radius: $wm_radius;
+
+              label:disabled { color: $insensitive_fg_color; }
             }
           }
         }
