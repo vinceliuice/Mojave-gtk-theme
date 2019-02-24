@@ -6912,7 +6912,7 @@ XfdesktopIconView.view:active, XfdesktopIconView.view:checked {
 }
 
 window#whiskermenu-window {
-  background-color: #242424;
+  background-color: #333333;
 }
 
 window#whiskermenu-window > frame > border {
@@ -6931,6 +6931,10 @@ window#whiskermenu-window scrolledwindow > viewport button.radio:hover {
 window#whiskermenu-window scrolledwindow > viewport button.radio:checked, window#whiskermenu-window scrolledwindow > viewport button.radio:active {
   background-color: #315bef;
   color: #ffffff;
+}
+
+window#whiskermenu-window scrolledwindow > viewport button.radio:checked:hover, window#whiskermenu-window scrolledwindow > viewport button.radio:active:hover {
+  background-image: none;
 }
 
 window#whiskermenu-window scrolledwindow treeview.view:selected:hover {

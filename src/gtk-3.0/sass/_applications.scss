@@ -1806,7 +1806,7 @@ XfdesktopIconView.view {
 }
 
 window#whiskermenu-window {
-  background-color: $base_color;
+  background-color: $bg_color;
 
   // no CSD class even if the sw compositor was enabled.
   > frame > border {
@@ -1817,10 +1817,14 @@ window#whiskermenu-window {
     > viewport button.radio {
       padding: 2px 6px;
       margin: 2px;
+
       &:hover { background-color: if($variant == 'light', rgba(black, 0.12), rgba(white, 0.12)); }
+
       &:checked, &:active {
         background-color: $selected_bg_color;
         color: $selected_fg_color;
+
+        &:hover { background-image: none; }
       }
     }
 
