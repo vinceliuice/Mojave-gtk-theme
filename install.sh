@@ -29,6 +29,7 @@ usage() {
   printf "  %-25s%s\n" "-o, --opacity VARIANTS" "Specify theme opacity variant(s) [standard|solid] (Default: All variants)"
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
+  printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify titilebutton size variant(s) [standard|small] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
   printf "\n%s\n" "INSTALLATION EXAMPLES:"

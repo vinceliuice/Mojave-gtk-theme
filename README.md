@@ -47,6 +47,8 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-n, --name           | Specify theme name (Default: Mojave)|
 |-c, --color          | Specify theme color variant(s) **[light/dark]** (Default: All variants)|
 |-o, --opacity        | Specify theme opacity variant(s) **[standard/solid]** (Default: All variants)|
+|-a, --alt            | Alt titlebutton theme opacity variant(s) **[standard/alt]** (Default: All variants)|
+|-s, --small          | small titlebutton theme opacity variant(s) **[standard/small]** (Default: standard variant)|
 |-g, --gdm            | Install GDM theme|
 |-h, --help           | Show this help|
 
