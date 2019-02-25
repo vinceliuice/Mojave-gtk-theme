@@ -1661,8 +1661,22 @@ separator:first-child + headerbar, separator:first-child + headerbar:backdrop, h
   border-top-left-radius: 6px;
 }
 
+.maximized separator:first-child + headerbar,
+.tiled separator:first-child + headerbar, .maximized separator:first-child + headerbar:backdrop,
+.tiled separator:first-child + headerbar:backdrop, .maximized headerbar:first-child,
+.tiled headerbar:first-child, .maximized headerbar:first-child:backdrop,
+.tiled headerbar:first-child:backdrop {
+  border-radius: 0;
+}
+
 headerbar:last-child, headerbar:last-child:backdrop {
   border-top-right-radius: 6px;
+}
+
+.maximized headerbar:last-child,
+.tiled headerbar:last-child, .maximized headerbar:last-child:backdrop,
+.tiled headerbar:last-child:backdrop {
+  border-radius: 0;
 }
 
 stack headerbar:first-child, stack headerbar:last-child {
@@ -6942,19 +6956,33 @@ window#whiskermenu-window scrolledwindow treeview.view:selected:hover {
   color: #dedede;
 }
 
-window.thunar .sidebar {
-  border-top: none;
-}
-
-window.thunar treeview.view {
+window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
+  border-bottom-left-radius: 6px;
   background-color: #3B3B3B;
 }
 
-window.thunar treeview.view:hover {
+window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:not(:hover):not(:selected) {
+  background-color: transparent;
+}
+
+window.background.csd.thunar > grid.horizontal > paned.horizontal > separator {
+  background-image: image(#474747);
+}
+
+window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
+  border-top: none;
+  background-color: #3B3B3B;
+}
+
+window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view {
+  background-color: #3B3B3B;
+}
+
+window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
 
-window.thunar treeview.view:selected, window.thunar treeview.view:selected:hover, window.thunar treeview.view:active:hover {
+window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:selected, window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:selected:hover, window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:active:hover {
   color: #dedede;
   background-color: rgba(199, 199, 199, 0.25);
 }

@@ -1360,12 +1360,18 @@ headerbar {
   &:first-child {
     &, &:backdrop {
       border-top-left-radius: $_header_radius;
+
+      .maximized &,
+      .tiled & { border-radius: 0; }
     }
   }
 
   &:last-child {
     &, &:backdrop {
       border-top-right-radius: $_header_radius;
+
+      .maximized &,
+      .tiled & { border-radius: 0; }
     }
   }
 

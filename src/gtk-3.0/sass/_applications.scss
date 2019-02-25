@@ -1840,17 +1840,36 @@ window#whiskermenu-window {
 //
 //  * Thunar *
 //
-window.thunar {
 
-  .sidebar { border-top: none; }
-
-  treeview.view {
+window.background.csd.thunar {
+  > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
+    border-bottom-left-radius: $wm_radius;
     background-color: $dark_sidebar_bg;
 
-    &:hover { background-color: if($variant == 'light', rgba(black, 0.08), rgba(white, 0.08)); }
-    &:selected, &:selected:hover, &:active:hover {
-      color: $fg_color;
-      background-color: $sidebar_theme_color;
+    treeview.view:not(:hover):not(:selected) {
+      background-color: transparent;
+    }
+  }
+
+  > grid.horizontal > paned.horizontal > separator {
+    background-image: image($solid_borders_color);
+  }
+}
+
+window.thunar {
+  > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
+    border-top: none;
+    background-color: $dark_sidebar_bg;
+
+    treeview.view {
+      background-color: $dark_sidebar_bg;
+
+      &:hover { background-color: if($variant == 'light', rgba(black, 0.08), rgba(white, 0.08)); }
+
+      &:selected, &:selected:hover, &:active:hover {
+        color: $fg_color;
+        background-color: $sidebar_theme_color;
+      }
     }
   }
 
