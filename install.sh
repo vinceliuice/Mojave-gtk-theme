@@ -19,6 +19,7 @@ THEME_NAME=Mojave
 COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
+SMALL_VARIANTS=('' '-small')
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -47,11 +48,12 @@ install() {
   local color=${3}
   local opacity=${4}
   local alt=${5}
+  local small=${6}
 
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
 
-  local THEME_DIR=${dest}/${name}${color}${opacity}${alt}
+  local THEME_DIR=${dest}/${name}${color}${opacity}${alt}${small}
 
   [[ -d ${THEME_DIR} ]] && rm -rf ${THEME_DIR}
 
@@ -91,11 +93,11 @@ install() {
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/gtk-3.0/assets                                                      ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/gtk-3.0/windows-assets/titlebutton${alt}                            ${THEME_DIR}/gtk-3.0/windows-assets
+  cp -ur ${SRC_DIR}/gtk-3.0/windows-assets/titlebutton${alt}${small}                    ${THEME_DIR}/gtk-3.0/windows-assets
   cp -ur ${SRC_DIR}/gtk-3.0/thumbnail${color}.png                                       ${THEME_DIR}/gtk-3.0/thumbnail.png
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}.css                             ${THEME_DIR}/gtk-3.0/gtk.css
+  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}${small}.css                     ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}${alt}.css                                ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}${alt}${small}.css                        ${THEME_DIR}/gtk-3.0/gtk-dark.css
 
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
   cp -ur ${SRC_DIR}/metacity-1/metacity-theme${color}.xml                               ${THEME_DIR}/metacity-1/metacity-theme-1.xml
@@ -247,6 +249,29 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
+    -s|--small)
+      shift
+      for alt in "${@}"; do
+        case "${alt}" in
+          standard)
+            smalls+=("${SMALL_VARIANTS[0]}")
+            shift
+            ;;
+          small)
+            smalls+=("${SMALL_VARIANTS[1]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized alt variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -h|--help)
       usage
       exit 0
@@ -262,13 +287,15 @@ done
 for opacity in "${opacitys[@]:-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
     for alt in "${alts[@]:-${ALT_VARIANTS[@]}}"; do
-      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}"
+      for small in "${smalls[@]:-${SMALL_VARIANTS[0]}}"; do
+      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}"
+      done
     done
   done
 done
 
 if [[ "${gdm:-}" == 'true' ]]; then
-  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}"
+  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}"
 fi
 
 echo
