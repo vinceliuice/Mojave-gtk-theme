@@ -1843,6 +1843,16 @@ window#whiskermenu-window {
   }
 }
 
+dialog.background {
+  .dialog-vbox {
+    .dialog-action-box {
+      buttonbox.dialog-action-area {
+        padding: 6px;
+      }
+    }
+  }
+}
+
 //
 //  * Thunar *
 //

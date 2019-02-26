@@ -6960,6 +6960,10 @@ window#whiskermenu-window scrolledwindow treeview.view:selected:hover {
   color: #dedede;
 }
 
+dialog.background .dialog-vbox .dialog-action-box buttonbox.dialog-action-area {
+  padding: 6px;
+}
+
 window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
   border-bottom-left-radius: 6px;
   background-color: #3B3B3B;
