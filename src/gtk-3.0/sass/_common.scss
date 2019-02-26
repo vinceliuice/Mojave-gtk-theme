@@ -4016,10 +4016,12 @@ decoration {
     box-shadow: 0 3px 3px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
                 $_wm_border;
   }
+
   .popup & {
-//    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06), 0 0 0 1px $borders_color;
+    // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06), 0 0 0 1px $borders_color;
     border-radius: $wm_radius;
   }
+
   // server-side decorations as used by mutter
   .ssd & {
     margin: -5px;
@@ -4027,19 +4029,23 @@ decoration {
     box-shadow: 0 0 5px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)), $_wm_border;
     &.maximized { border-radius: 0; }
   }
+
   .csd.popup & {
     border-radius: $wm_radius;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.12), 0 8px 15px rgba(0, 0, 0, 0.06), $_wm_border;
   }
+
   tooltip.csd & {
     border-radius: $wm_radius;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
   }
+
   messagedialog.csd & {
     border-radius: $wm_radius;
   }
+
   .solid-csd & {
-    border: 1px solid $dark_solid_borders_color;
+    border: 1px solid $header_border;
     border-radius: 0;
     margin: 0;
     background-color: $header_bg;
