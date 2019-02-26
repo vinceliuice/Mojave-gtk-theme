@@ -4676,6 +4676,7 @@ paned.vertical > separator.wide {
 
 infobar {
   border-style: none;
+  background-color: #f5f5f5;
 }
 
 infobar.info {

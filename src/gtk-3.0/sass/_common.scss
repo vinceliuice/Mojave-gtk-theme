@@ -3702,6 +3702,7 @@ paned {
 
 infobar {
   border-style: none;
+  background-color: $bg_color;
 
   &.info { background-color: $success_color; }
   &.question { background-color: $suggested_color; }
