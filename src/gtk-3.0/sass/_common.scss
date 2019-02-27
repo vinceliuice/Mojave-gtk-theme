@@ -1243,6 +1243,7 @@ headerbar,
   }
 
   // Selectionmode
+  .selection-mode &,
   &.selection-mode {
     color: $selection_mode_fg;
     background-color: $selection_mode_bg;
@@ -1346,7 +1347,7 @@ headerbar,
 headerbar {
   @extend %header_widgets;
 
-  entry, button, separator {
+  entry, button, spinbutton, separator:not(.sidebar) {
     margin-top: 6px;
     margin-bottom: 6px;
   }
@@ -1354,6 +1355,22 @@ headerbar {
   entry {
     margin-left: 3px;
     margin-right: 3px;
+  }
+
+  &.titlebar headerbar:not(.titlebar) {
+    // Drop the background of non-titlebar nested headerbars. This is needed to
+    // work around headerbar sliding animation issues without refactoring
+    // Adwaita's support of titlebars and headerbars as it may break
+    // applications.
+    // See https://gitlab.gnome.org/GNOME/gtk/issues/1264 for more information.
+    background: none;
+    box-shadow: none;
+  }
+
+  separator.sidebar {
+    background: none;
+    border-right: none;
+    box-shadow: inset 0 -1px $header_border;
   }
 
   // Fixes split headerbars
@@ -1380,6 +1397,19 @@ headerbar {
     &:first-child, &:last-child {
       border-top-left-radius: $_header_radius;
       border-top-right-radius: $_header_radius;
+    }
+  }
+
+  window separator:first-child + &,
+  window &:first-child { &:backdrop, & { border-top-left-radius: $_header_radius; }}
+  window &:last-child { &:backdrop, & { border-top-right-radius: $_header_radius; }}
+
+  window stack & { // tackles the stacked headerbars case
+    &:first-child, &:last-child {
+      &:backdrop, & {
+        border-top-left-radius: $_header_radius;
+        border-top-right-radius: $_header_radius;
+      }
     }
   }
 

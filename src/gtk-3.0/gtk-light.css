@@ -1212,7 +1212,7 @@ modelbutton.flat arrow.right {
   color: #d6defc;
 }
 
-infobar.info *:link, infobar.info button:link, infobar.info button:visited, infobar.question *:link, infobar.question button:link, infobar.question button:visited, infobar.warning *:link, infobar.warning button:link, infobar.warning button:visited, infobar.error *:link, infobar.error button:link, infobar.error button:visited, *:link:selected, button:selected:link, button:selected:visited, headerbar.selection-mode .subtitle:link,
+infobar.info *:link, infobar.info button:link, infobar.info button:visited, infobar.question *:link, infobar.question button:link, infobar.question button:visited, infobar.warning *:link, infobar.warning button:link, infobar.warning button:visited, infobar.error *:link, infobar.error button:link, infobar.error button:visited, *:link:selected, button:selected:link, button:selected:visited, .selection-mode headerbar .subtitle:link, headerbar.selection-mode .subtitle:link, .selection-mode .titlebar:not(headerbar) .subtitle:link,
 .selection-mode.titlebar:not(headerbar) .subtitle:link,
 *:selected *:link,
 *:selected button:link,
@@ -1518,7 +1518,7 @@ headerbar .subtitle,
   margin-top: -3px;
 }
 
-headerbar.selection-mode,
+.selection-mode headerbar, headerbar.selection-mode, .selection-mode .titlebar:not(headerbar),
 .selection-mode.titlebar:not(headerbar) {
   color: #ffffff;
   background-color: #6887cd;
@@ -1528,30 +1528,30 @@ headerbar.selection-mode,
   text-shadow: none;
 }
 
-headerbar.selection-mode:backdrop,
+.selection-mode headerbar:backdrop, headerbar.selection-mode:backdrop, .selection-mode .titlebar:backdrop:not(headerbar),
 .selection-mode.titlebar:backdrop:not(headerbar) {
   background-color: #6887cd;
   color: rgba(255, 255, 255, 0.6);
 }
 
-headerbar.selection-mode .selection-menu,
+.selection-mode headerbar .selection-menu, headerbar.selection-mode .selection-menu, .selection-mode .titlebar:not(headerbar) .selection-menu,
 .selection-mode.titlebar:not(headerbar) .selection-menu {
   box-shadow: none;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-headerbar.selection-mode .selection-menu GtkArrow,
+.selection-mode headerbar .selection-menu GtkArrow, headerbar.selection-mode .selection-menu GtkArrow, .selection-mode .titlebar:not(headerbar) .selection-menu GtkArrow,
 .selection-mode.titlebar:not(headerbar) .selection-menu GtkArrow {
   -GtkArrow-arrow-scaling: 1;
 }
 
-headerbar.selection-mode .selection-menu .arrow,
+.selection-mode headerbar .selection-menu .arrow, headerbar.selection-mode .selection-menu .arrow, .selection-mode .titlebar:not(headerbar) .selection-menu .arrow,
 .selection-mode.titlebar:not(headerbar) .selection-menu .arrow {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
-.maximized headerbar.selection-mode, .maximized .selection-mode.titlebar:not(headerbar) {
+.maximized .selection-mode headerbar, .maximized headerbar.selection-mode, .maximized .selection-mode .titlebar:not(headerbar), .maximized .selection-mode.titlebar:not(headerbar) {
   background-color: #6887cd;
 }
 
@@ -1640,7 +1640,7 @@ headerbar.default-decoration,
   min-height: 20px;
 }
 
-headerbar entry, headerbar button, headerbar separator {
+headerbar entry, headerbar button, headerbar spinbutton, headerbar separator:not(.sidebar) {
   margin-top: 6px;
   margin-bottom: 6px;
 }
@@ -1648,6 +1648,17 @@ headerbar entry, headerbar button, headerbar separator {
 headerbar entry {
   margin-left: 3px;
   margin-right: 3px;
+}
+
+headerbar.titlebar headerbar:not(.titlebar) {
+  background: none;
+  box-shadow: none;
+}
+
+headerbar separator.sidebar {
+  background: none;
+  border-right: none;
+  box-shadow: inset 0 -1px #a1a1a1;
 }
 
 separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
@@ -1673,6 +1684,21 @@ headerbar:last-child, headerbar:last-child:backdrop {
 }
 
 stack headerbar:first-child, stack headerbar:last-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+window separator:first-child + headerbar:backdrop, window separator:first-child + headerbar,
+window headerbar:first-child:backdrop,
+window headerbar:first-child {
+  border-top-left-radius: 6px;
+}
+
+window headerbar:last-child:backdrop, window headerbar:last-child {
+  border-top-right-radius: 6px;
+}
+
+window stack headerbar:first-child:backdrop, window stack headerbar:first-child, window stack headerbar:last-child:backdrop, window stack headerbar:last-child {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
@@ -6165,6 +6191,19 @@ window.background.csd > stack {
 
 stack.background {
   background: none;
+}
+
+window.background.csd > hdyleaflet > separator.sidebar {
+  border-right-color: rgba(0, 0, 0, 0.15);
+}
+
+window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
+  border-right: none;
+}
+
+hdyleaflet > separator.sidebar {
+  background: none;
+  min-width: 0;
 }
 
 window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
