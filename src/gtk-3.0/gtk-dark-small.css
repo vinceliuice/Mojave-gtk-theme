@@ -9469,6 +9469,7 @@ popover.background.places-menu row {
 .budgie-panel .menubar > menuitem {
   border: none;
   background-image: none;
+  font-weight: normal;
 }
 
 .budgie-panel menubar > menuitem > window.background.popup > decoration,
@@ -9486,6 +9487,10 @@ popover.background.places-menu row {
 .budgie-panel menubar > menuitem:disabled,
 .budgie-panel .menubar > menuitem:disabled {
   color: rgba(218, 218, 218, 0.4);
+}
+
+.budgie-panel menubar.-vala-panel-appmenu-private > menuitem {
+  font-weight: normal;
 }
 
 .budgie-panel .alert {
