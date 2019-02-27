@@ -1858,10 +1858,10 @@ window#whiskermenu-window {
 }
 
 dialog.background {
-  .dialog-vbox {
-    .dialog-action-box {
-      buttonbox.dialog-action-area {
-        padding: 6px;
+  > box.vertical > .dialog-vbox {
+    > .dialog-action-box {
+      > .dialog-action-area {
+        padding: 3px 6px 6px;
       }
     }
   }
