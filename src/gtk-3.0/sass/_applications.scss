@@ -472,6 +472,12 @@ $disk_space_free: darken($bg_color, 3%);
   }
 }
 
+// Cinnamon setting
+.view.cs-category-view {
+  border-bottom-right-radius: $wm_radius;
+}
+
+
 //
 // Gedit
 //

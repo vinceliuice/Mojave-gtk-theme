@@ -5697,6 +5697,10 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   -gtk-icon-shadow: none;
 }
 
+.view.cs-category-view {
+  border-bottom-right-radius: 6px;
+}
+
 .open-document-selector-treeview.view {
   padding: 3px 6px 3px 6px;
   border-color: #242424;

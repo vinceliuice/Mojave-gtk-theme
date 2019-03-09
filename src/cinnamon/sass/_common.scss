@@ -287,8 +287,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     background-gradient-direction: none;
     box-shadow: none;
     background-color: $bg_color;
-    border-top: 1px solid $borders_color;
-    border-bottom: 1px solid $borders_color;
+    border-top: 1px solid $dark_borders_color;
+    border-bottom: 1px solid $dark_borders_color;
 
     .popup-menu-item:ltr { padding-right: 0em; }
     .popup-menu-item:rtl { padding-left: 0em; }
@@ -383,6 +383,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
       background-gradient-start: rgba(255,0,0,0.05);
       background-gradient-end: rgba(255,0,0,0.2);
     }
+
     &:ltr { padding-right: 4px; }
     &:rtl { padding-left: 4px; }
 
@@ -401,6 +402,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
       background-gradient-start: rgba(0,0,255,0.05);
       background-gradient-end: rgba(0,0,255,0.2);
     }
+
     &:ltr { padding-left: 4px; spacing: 0px; }
     &:rtl { padding-right: 4px; spacing: 0px; }
 
@@ -429,7 +431,20 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     color: $panel_fg;
     font-size: 1em;
     padding: 0px;
-    background-color: $panel_bg;
+    background-color: rgba($panel_bg, 0.95);
+    box-shadow: 0 0 5px rgba(#000, 0.5), 0 0 16px rgba(#000, 0.24);
+
+    .panel-button,
+    .panel-status-button {
+      &:hover {
+        color: $fg_color;
+        background-color: rgba($fg_color, 0.1);
+      }
+      &:active {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+    }
   }
 
   @if $variant == 'dark' {
@@ -451,11 +466,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     -minimum-hpadding: 3px;
     font-weight: bold;
     height: 22px;
-
-    &:hover, &:active, &:selected {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-    }
+    color: $panel_fg;
   }
 
   &-button {
@@ -463,11 +474,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     -minimum-hpadding: 2px;
     font-weight: bold;
     transition-duration: 100ms;
-
-    &:hover, &:active, &:selected {
-      background-color: $selected_bg_color;
-      color: $selected_fg_color;
-    }
+    color: $panel_fg;
   }
 }
 
@@ -584,14 +591,14 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   }
 }
 
-//.workspace-thumbnail-indicator {
-//  outline: 2px solid red;
-//  border: 1px solid green;
-//}
-//
-//.window-close:rtl {
-//  -st-background-image-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-//}
+.workspace-thumbnail-indicator {
+  outline: 2px solid red;
+  border: 1px solid green;
+}
+
+.window-close:rtl {
+  -st-background-image-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
 
 .window-close-area {
   background-image: url("#{$asset_path}/trash-icon.svg");
@@ -658,29 +665,28 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .calendar-month-label {
   color: $fg_color;
   font-weight: bold;
-  padding: 8px 0;
+  margin: 0 2px;
+  padding: 2px; // label centering
 }
 
 .calendar-change-month-back,
 .calendar-change-month-forward {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border-radius: 100px;
+
+  &:focus, &:hover { background-color: rgba($fg_color, 0.1); }
+  &:active { background-color: rgba($fg_color, 0.25); }
 }
 
 //arrow back
 .calendar-change-month-back {
   background-image: url("#{$asset_path}/calendar-arrow-left.svg");
 
-  &:focus, &:hover { background-color: rgba($fg_color, 0.1); }
-
-  &:active { background-color: rgba($fg_color, 0.25); }
-
   &:rtl {
     background-image: url("#{$asset_path}/calendar-arrow-right.svg");
-
-    &:focus, &:hover { background-color: rgba($fg_color, 0.1); }
-
-    &:active { background-color: rgba($fg_color, 0.25); }
   }
 }
 
@@ -688,16 +694,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .calendar-change-month-forward {
   background-image: url("#{$asset_path}/calendar-arrow-right.svg");
 
-  &:focus, &:hover { background-color: rgba($fg_color, 0.1); }
-
-  &:active { background-color: rgba($fg_color, 0.25); }
-
   &:rtl {
     background-image: url("#{$asset_path}/calendar-arrow-left.svg");
-
-    &:focus, &:hover { background-color: rgba($fg_color, 0.1); }
-
-    &:active { background-color: rgba($fg_color, 0.25); }
   }
 }
 
@@ -1168,6 +1166,32 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     &-label:rtl { padding-right: 5px; }
   }
 
+  StScrollView.menu-application-button { // extracted submenu container
+    padding: 0;
+    border-radius: 3px;
+    border: 1px solid $borders_color;
+    background-color: $base_color;
+
+    .popup-menu-item {
+      padding: 0;
+      spacing: 0;
+      &:ltr { padding-left: 7px; }
+      &:rtl { padding-right: 7px; }
+
+      &:active {
+        border-image: none; // image independent
+        background-color: $selected_bg_color;
+      }
+
+      StIcon { min-width: 22px; } // indentation
+
+      StLabel {
+        &:ltr { padding: 6px 0 7px 5px; }
+        &:rtl { padding: 6px 5px 7px 0; }
+      }
+    }
+  }
+
   &-category-button {
     padding: 6px;
     border: 1px solid rgba(0,0,0,0);
@@ -1395,10 +1419,11 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   &-preview { // thumbnail popup windows = .switcher-list
     padding: 20px - 8px; // = .switcher-list - .item-box
     spacing: 8px; // = .switcher-list-item-container
-    border: 1px solid $borders_color;
+    border: none;
     background-color: $base_color;
     border-radius: 5px;
     color: $fg_color;
+    box-shadow: 0 3px 5px rgba(#000, 0.35), 0 3px 12px rgba(#000, 0.16);
   }
 }
 
@@ -1612,16 +1637,19 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 
 // 2.8
 .sound-player {
-  padding: 0 4px;
+  padding: 0;
 
   > StBoxLayout:first-child {
     padding: 5px 10px 12px 10px;
     spacing: 0.5em;
 
     StButton:small {
-      width: 16px;
-      height: 16px;
-      padding: 1px;
+      width: 24px;
+      height: 24px;
+      border-radius: 100px;
+
+      &:hover { background-color: rgba($fg_color, 0.1); }
+      &:active { background-color: rgba($fg_color, 0.25); }
 
       StIcon { icon-size: 12px; }
     }
@@ -1643,16 +1671,17 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 
     StButton {
       width: 22px;
-      height: 13px;
-      padding: 5px;
+      height: 16px;
+      padding: 6px;
+      margin: 0 2px;
       color: $osd_fg_color;
-      border-radius: 2px;
-      border: 1px solid transparentize($osd_bg_color,1);
+      border-radius: 3px;
+      border: none;
 
       StIcon { icon-size: 16px; }
 
-      &:hover{ @include button(osd-hover); }
-      &:active { @include button(active); }
+      &:hover { @include button(osd-hover); }
+      &:active { @include button(osd-active); }
     }
 
     StBoxLayout {
@@ -1816,6 +1845,11 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     }
 
     &:hover {
+      color: $panel_fg;
+      background-color: rgba($panel_fg, 0.15);
+    }
+
+    &:checked, &:checked:hover {
       color: $selected_fg_color;
       background-color: $selected_bg_color;
     }
@@ -1831,7 +1865,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     font-weight: bold;
     color: $panel_fg;
 
-    &:hover, .applet-box:hover > & {
+    .applet-box:checked & {
       color: $selected_fg_color;
       text-shadow: none;
     }
@@ -1841,12 +1875,11 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     color: $panel_fg;
     icon-size: 22px;
 
-    &:hover, .applet-box:hover > & {
+    .applet-box:checked & {
       color: $selected_fg_color;
       text-shadow: none;
     }
   }
-
 }
 
 //
