@@ -110,11 +110,11 @@ install() {
   cp -ur ${SRC_DIR}/xfwm4/assets${color}/*.png                                          ${THEME_DIR}/xfwm4
   cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
 
-#  mkdir -p                                                                              ${THEME_DIR}/cinnamon
-#  cp -ur ${SRC_DIR}/cinnamon/cinnamon${color}.css                                       ${THEME_DIR}/cinnamon/cinnamon.css
-#  cp -ur ${SRC_DIR}/cinnamon/common-assets                                              ${THEME_DIR}/cinnamon/assets
-#  cp -ur ${SRC_DIR}/cinnamon/assets${color}/*.svg                                       ${THEME_DIR}/cinnamon/assets
-#  cp -ur ${SRC_DIR}/cinnamon/thumbnail${color}.png                                      ${THEME_DIR}/cinnamon/thumbnail.png
+  mkdir -p                                                                              ${THEME_DIR}/cinnamon
+  cp -ur ${SRC_DIR}/cinnamon/cinnamon${color}.css                                       ${THEME_DIR}/cinnamon/cinnamon.css
+  cp -ur ${SRC_DIR}/cinnamon/common-assets                                              ${THEME_DIR}/cinnamon/assets
+  cp -ur ${SRC_DIR}/cinnamon/assets${color}/*.svg                                       ${THEME_DIR}/cinnamon/assets
+  cp -ur ${SRC_DIR}/cinnamon/thumbnail${color}.png                                      ${THEME_DIR}/cinnamon/thumbnail.png
 
   mkdir -p                                                                              ${THEME_DIR}/plank
   cp -ur ${SRC_DIR}/plank/${name}${color}/*.theme                                       ${THEME_DIR}/plank

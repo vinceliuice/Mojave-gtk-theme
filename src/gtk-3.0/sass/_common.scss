@@ -433,6 +433,7 @@ button {
      }
 
     &:active, &:checked { @include button(flat-active); }
+    &:checked:hover { background-image: none; }
     &:disabled { @include button(undecorated); }
   }
 

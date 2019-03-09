@@ -477,6 +477,7 @@ button.flat, button.budgie-menu-launcher, .budgie-panel button.flat.launcher {
 button.flat:hover, button.budgie-menu-launcher:hover, .budgie-panel button.flat.launcher:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-duration: 350ms;
 }
@@ -489,6 +490,10 @@ button.flat:active, button.budgie-menu-launcher:active, .budgie-panel button.fla
   background-image: none;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+button.flat:checked:hover, button.budgie-menu-launcher:checked:hover {
+  background-image: none;
 }
 
 button.flat:disabled, button.budgie-menu-launcher:disabled, .budgie-panel button.flat.launcher:disabled {
@@ -858,6 +863,7 @@ button.font separator, button.file separator {
 .inline-toolbar toolbutton > button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
 }
 
 .inline-toolbar toolbutton > button:active, .inline-toolbar toolbutton > button:checked {
@@ -4306,6 +4312,7 @@ row.activatable:selected.has-open-popup, .nemo-window .nemo-places-sidebar .plac
 .app-notification button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
 }
 
 .app-notification button:active, .app-notification button:checked {
@@ -4435,6 +4442,7 @@ messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive
 messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
   border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -5662,18 +5670,6 @@ popover.background label.nautilus-canvas-item.separator, headerbar .nautilus-can
   -gtk-icon-shadow: none;
 }
 
-.caja-notebook {
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-.caja-side-pane .frame {
-  border-width: 1px 0 0;
-}
-
-.caja-notebook .frame {
-  border-width: 0 0 1px;
-}
-
 .open-document-selector-treeview.view {
   padding: 3px 6px 3px 6px;
   border-color: #ffffff;
@@ -6813,6 +6809,54 @@ panel-toplevel.background na-tray-applet {
   -NaTrayApplet-icon-size: 16px;
 }
 
+.caja-notebook {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.caja-navigation-window .primary-toolbar {
+  background-color: #e2e2e2;
+}
+
+.caja-navigation-window .caja-side-pane {
+  background-color: transparent;
+}
+
+.caja-navigation-window .caja-side-pane .frame {
+  border-width: 1px 0 0;
+}
+
+.caja-navigation-window paned > separator {
+  background-image: image(#cfcfcf);
+}
+
+.caja-side-pane treeview.view, .caja-side-pane .view {
+  background: none;
+}
+
+.caja-side-pane treeview.view:hover, .caja-side-pane .view:hover {
+  background-color: rgba(36, 36, 36, 0.1);
+}
+
+.caja-side-pane treeview.view:active, .caja-side-pane treeview.view:selected, .caja-side-pane .view:active, .caja-side-pane .view:selected {
+  background-color: #315bef;
+}
+
+.caja-side-pane textview.view text {
+  background: none;
+}
+
+.caja-side-pane scrollbar {
+  background: none;
+}
+
+.caja-notebook .frame {
+  border-width: 0 0 1px;
+}
+
+.caja-search-bar entry:focus {
+  box-shadow: none;
+}
+
 .mate-panel-menu-bar button:not(#tasklist-button),
 panel-toplevel.background button:not(#tasklist-button), .xfce4-panel.panel button, .xfce4-panel.panel button.flat, .xfce4-panel.panel button.budgie-menu-launcher, .xfce4-panel button.flat, .xfce4-panel button.budgie-menu-launcher, .xfce4-panel .budgie-panel button.flat.launcher, .budgie-panel .xfce4-panel button.flat.launcher, .xfce4-panel button {
   color: #363636;
@@ -7234,6 +7278,7 @@ window.background.chromium headerbar.titlebar button.toggle {
 window.background.chromium headerbar.titlebar button.toggle:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
 }
 
 window.background.chromium headerbar.titlebar button.toggle:checked, window.background.chromium headerbar.titlebar button.toggle:active {
@@ -7551,6 +7596,7 @@ button.-panel-icon-button.budgie-menu-launcher:checked {
 .menubar.panel popover button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
 }
 
 .menubar.panel popover button:active {
@@ -8897,6 +8943,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 .budgie-settings-window buttonbox.inline-toolbar button:hover, .budgie-popover:not(.budgie-menu) button.flat:hover:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:hover:not(.image-button), .workspace-switcher .workspace-add-button:hover, .drop-shadow button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
 }
 
 .budgie-settings-window buttonbox.inline-toolbar button:checked, .budgie-popover:not(.budgie-menu) button.flat:checked:not(.image-button), .budgie-popover:not(.budgie-menu) button.budgie-menu-launcher:checked:not(.image-button), .workspace-switcher .workspace-add-button:checked, .drop-shadow button:checked {
@@ -8965,6 +9012,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 .raven button.flat:hover, .raven button.budgie-menu-launcher:hover, .raven .raven-header:not(.top) button:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
 }
 
 .raven button.flat:checked, .raven button.budgie-menu-launcher:checked, .raven .raven-header:not(.top) button:checked {
@@ -10202,6 +10250,7 @@ window.budgie-switcher-window flowboxchild {
 .budgie-polkit-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
+  background-image: none;
   border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

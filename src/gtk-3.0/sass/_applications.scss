@@ -472,26 +472,6 @@ $disk_space_free: darken($bg_color, 3%);
   }
 }
 
-
-//
-// Caja
-//
-.caja-desktop {
-  @extend .nautilus-desktop.nautilus-canvas-item;
-}
-
-.caja-notebook {
-  border-top: 1px solid $borders_color;
-}
-
-.caja-side-pane .frame {
-  border-width: 1px 0 0;
-}
-
-.caja-notebook .frame {
-  border-width: 0 0 1px;
-}
-
 //
 // Gedit
 //
@@ -1700,6 +1680,78 @@ panel-toplevel.background {
   na-tray-applet {
     -NaTrayApplet-icon-padding: 0;
     -NaTrayApplet-icon-size: 16px;
+  }
+}
+
+//
+// Caja
+//
+.caja-desktop {
+  @extend .nautilus-desktop.nautilus-canvas-item;
+}
+
+.caja-notebook {
+  border-top: 1px solid $borders_color;
+}
+
+// .caja-pathbar {
+//   button { }
+// }
+
+.caja-navigation-window {
+  .primary-toolbar {
+    background-color: $header_middle;
+  }
+
+  .caja-side-pane {
+    background-color: transparent;
+
+    .frame {
+      border-width: 1px 0 0;
+    }
+  }
+
+  paned > separator {
+    background-image: image($solid_borders_color);
+  }
+}
+
+.caja-side-pane {
+
+  treeview.view, .view {
+    background: none;
+
+    &:hover {
+      background-color: rgba($fg_color, 0.1);
+    }
+
+    &:active, &:selected {
+      background-color: $selected_bg_color;
+    }
+  }
+
+  textview.view text { background: none; }
+
+  scrollbar {
+    background: none;
+  }
+
+  // notebook .view > box.vertical {
+  //   border-bottom-left-radius: $wm_radius;
+  // }
+}
+
+.caja-notebook .frame {
+  border-width: 0 0 1px;
+}
+
+.caja-search-bar {
+  entry {
+    // margin: 2px 0;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 }
 
