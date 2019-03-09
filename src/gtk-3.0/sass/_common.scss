@@ -3735,7 +3735,7 @@ infobar {
   border-style: none;
   background-color: $bg_color;
 
-  &.info { background-color: $success_color; }
+  &.info { background-color: $selected_bg_color; }
   &.question { background-color: $suggested_color; }
   &.warning { background-color: $warning_color; }
   &.error { background-color: $error_color; }
