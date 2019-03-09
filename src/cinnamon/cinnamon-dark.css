@@ -378,13 +378,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .menu .popup-sub-menu .popup-menu-item:ltr,
 .popup-menu .popup-sub-menu .popup-menu-item:ltr,
 .popup-combo-menu .popup-sub-menu .popup-menu-item:ltr {
-  padding-right: 0em;
+  padding-right: 8px;
 }
 
 .menu .popup-sub-menu .popup-menu-item:rtl,
 .popup-menu .popup-sub-menu .popup-menu-item:rtl,
 .popup-combo-menu .popup-sub-menu .popup-menu-item:rtl {
-  padding-left: 0em;
+  padding-left: 8px;
 }
 
 .menu .popup-sub-menu StScrollBar,
@@ -454,14 +454,16 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .popup-menu-boxpointer {
   -arrow-border-radius: 3px;
   -arrow-background-color: rgba(0, 0, 0, 0);
-  -arrow-border-width: 1px;
+  -arrow-border-width: 0;
   -arrow-border-color: rgba(0, 0, 0, 0);
   -arrow-base: 0;
   -arrow-rise: 0;
+  margin: 0.4em 0.5em 0.5em;
+  border-radius: 2px;
 }
 
 .popup-combo-menu {
-  padding: 10px 1px;
+  padding: 10px;
 }
 
 .popup-combobox-item {
@@ -473,7 +475,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -gradient-start: transparent;
   -gradient-end: transparent;
   -margin-horizontal: 1.5em;
-  height: 1em;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border-color: rgba(255, 255, 255, 0.12);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  background-color: transparent;
 }
 
 .popup-alternating-menu-item:alternate {
@@ -1096,11 +1104,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .modal-dialog {
-  color: #dedede;
-  background-color: rgba(51, 51, 51, 0);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #dadada;
+  background-color: rgba(34, 34, 34, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.65);
   padding: 0 5px 6px 5px;
   border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.75), 0 5px 18px rgba(0, 0, 0, 0.55);
 }
 
 .modal-dialog > StBoxLayout:first-child {
@@ -1111,9 +1120,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   spacing: 0;
   margin: 0;
   padding: 14px 10px;
-  background-color: #2b2b2b;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 5px;
+  background-color: transparent;
+  border: none;
 }
 
 .modal-dialog-button-box .modal-dialog-button {
@@ -1963,8 +1971,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .sound-player > StBoxLayout:first-child {
-  padding: 5px 10px 12px 10px;
-  spacing: 0.5em;
+  padding: 5px 10px 10px 10px;
+  spacing: 0;
 }
 
 .sound-player > StBoxLayout:first-child StButton:small {
@@ -1982,7 +1990,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .sound-player > StBoxLayout:first-child StButton:small StIcon {
-  icon-size: 12px;
+  icon-size: 16px;
 }
 
 .sound-player-generic-coverart {
@@ -2024,6 +2032,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   text-shadow: none;
   color: #ffffff;
   background-color: #315bef;
+}
+
+.sound-player-overlay StLabel {
+  padding: 0 6px;
 }
 
 .sound-player-overlay StBoxLayout {

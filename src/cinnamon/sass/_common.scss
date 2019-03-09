@@ -290,8 +290,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     border-top: 1px solid $dark_borders_color;
     border-bottom: 1px solid $dark_borders_color;
 
-    .popup-menu-item:ltr { padding-right: 0em; }
-    .popup-menu-item:rtl { padding-left: 0em; }
+    .popup-menu-item:ltr { padding-right: 8px; }
+    .popup-menu-item:rtl { padding-left: 8px; }
 
     StScrollBar {
       padding: 4px;
@@ -329,15 +329,17 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .popup-menu-boxpointer {
   -arrow-border-radius: 3px;
   -arrow-background-color:  rgba(0,0,0,0.0);
-  -arrow-border-width: 1px;
+  -arrow-border-width: 0;
   -arrow-border-color: rgba(0,0,0,0.0);
   -arrow-base: 0;
   -arrow-rise: 0;
+  margin: 0.4em 0.5em 0.5em;
+  border-radius: 2px;
 }
 
 .popup-combo-menu {
   @extend %menu;
-  padding: 10px 1px;
+  padding: 10px;
 }
 
 // .popup-image-menu-item {}
@@ -349,7 +351,13 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   -gradient-start: transparent;
   -gradient-end: transparent;
   -margin-horizontal: 1.5em;
-  height: 1em;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border-color: $borders_color;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  background-color: transparent;
 }
 
 .popup-alternating-menu-item:alternate {
@@ -917,11 +925,12 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .flashspot { background-color: white; }
 
 .modal-dialog {
-  color: $fg_color;
-  background-color: transparentize($bg_color, 1);
-  border: 1px solid $borders_color;
+  color: $osd_fg_color;
+  background-color: rgba(darken($osd_bg_color, 3%), 0.95);
+  border: 1px solid rgba(black, 0.65);
   padding: 0 5px 6px 5px;
   border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(black, 0.75), 0 5px 18px rgba(black, 0.55);
 
   > StBoxLayout:first-child {
     padding: 20px 10px 10px 10px;
@@ -931,9 +940,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     spacing: 0;
     margin: 0;
     padding: 14px 10px;
-    background-color: darken($bg_color, 3%);
-    border: 1px solid $borders_color;
-    border-radius: 5px;
+    background-color: transparent;
+    border: none;
 
     .modal-dialog-button {
       padding-top: 0;
@@ -1638,8 +1646,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   padding: 0;
 
   > StBoxLayout:first-child {
-    padding: 5px 10px 12px 10px;
-    spacing: 0.5em;
+    padding: 5px 10px 10px 10px;
+    spacing: 0;
 
     StButton:small {
       width: 24px;
@@ -1649,7 +1657,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
       &:hover { background-color: rgba($fg_color, 0.1); }
       &:active { background-color: rgba($fg_color, 0.25); }
 
-      StIcon { icon-size: 12px; }
+      StIcon { icon-size: 16px; }
     }
   }
 
@@ -1681,6 +1689,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
       &:hover { @include button(osd-hover); }
       &:active { @include button(osd-active); }
     }
+
+    StLabel { padding: 0 6px; }
 
     StBoxLayout {
       padding-top: 2px;
