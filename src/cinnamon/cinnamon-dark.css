@@ -370,7 +370,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .popup-combo-menu .popup-sub-menu {
   background-gradient-direction: none;
   box-shadow: none;
-  background-color: #333333;
+  background-color: #242424;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -1522,19 +1522,21 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .window-list-box {
-  spacing: 2px;
-  padding-left: 10px;
+  spacing: 0;
 }
 
-.panel-bottom .window-list-box,
-.panel-top .window-list-box {
-  padding-top: 2px;
-  padding-bottom: 2px;
+.panel-bottom .window-list-box:ltr,
+.panel-top .window-list-box:ltr {
+  padding: 0 0 0 8px;
+}
+
+.panel-bottom .window-list-box:rtl,
+.panel-top .window-list-box:rtl {
+  padding: 0 8px 0 0;
 }
 
 .window-list-box.vertical {
-  spacing: 2px;
-  padding: 10px 0;
+  padding: 6px 0 0 0;
 }
 
 .window-list-box.vertical #appMenuIcon {
@@ -1554,9 +1556,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .window-list-item-box {
   font-weight: normal;
   background-image: none;
-  padding: 2px 10px;
-  spacing: 8px;
   transition-duration: 100;
+  padding: 0 6px;
   color: rgba(218, 218, 218, 0.6);
   border: 0 solid transparent;
 }
@@ -1763,9 +1764,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .grouped-window-list-item-box {
   font-weight: normal;
   background-image: none;
-  padding-top: 0;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 0 6px;
   transition-duration: 100;
   color: rgba(218, 218, 218, 0.6);
   border: 0 solid transparent;

@@ -286,7 +286,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   .popup-sub-menu {
     background-gradient-direction: none;
     box-shadow: none;
-    background-color: $bg_color;
+    background-color: if($variant=='light', $bg_color, $base_color);
     border-top: 1px solid $dark_borders_color;
     border-bottom: 1px solid $dark_borders_color;
 
@@ -1297,15 +1297,16 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .window-list {
 
   &-box {
-    spacing: 2px;
-    padding-left: 10px;
+    spacing: 0;
 
     .panel-bottom &,
-    .panel-top & { padding-top: 2px; padding-bottom: 2px; }
+    .panel-top & {
+      &:ltr { padding: 0 0 0 8px; }
+      &:rtl { padding: 0 8px 0 0; }
+    }
 
     &.vertical {
-      spacing: 2px;
-      padding: 10px 0;
+      padding: 6px 0 0 0;
 
       #appMenuIcon {
         padding-top: 2px;
@@ -1324,9 +1325,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   &-item-box {
     font-weight: normal;
     background-image: none;
-    padding: 2px 10px;
-    spacing: 8px;
     transition-duration: 100;
+    padding: 0 6px;
     color: rgba($panel_fg, 0.6);
     border: 0 solid transparent;
 
@@ -1488,9 +1488,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   &-item-box {
     font-weight: normal;
     background-image: none;
-    padding-top: 0;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 0 6px;
     transition-duration: 100;
     color: rgba($panel_fg, 0.6);
     border: 0 solid transparent;
