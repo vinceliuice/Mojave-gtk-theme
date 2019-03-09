@@ -2416,7 +2416,6 @@ widget_class "*<GtkMenu>*"                                          style "menu"
 widget_class "*<GtkMenu>*"                                          style "menu_framed_box"
 widget_class "*<GtkMenuItem>*"                                      style "menu_item"
 widget_class "*<GtkSeparatorMenuItem>*"                             style "separator_menu_item"
-#widget_class "*<GtkCheckButton>"                                    style "toolbar_button"
 widget_class "*<GtkCheckButton>*"                                   style "checkbutton"
 widget_class "*<GtkComboBox>"                                       style "combobox"
 widget_class "*<GtkComboBox>*<GtkButton>"                           style "combobox_button"
@@ -2427,14 +2426,17 @@ widget_class "*<GtkComboBoxEntry>*<GtkEntry>"                       style "combo
 widget_class "*<GtkComboBoxEntry>*<GtkButton>"                      style "combobox_entry_button"
 widget_class "*<GtkNotebook>*<GtkScrolledWindow>*<GtkViewport>"     style "notebook_viewport"
 widget_class "*HandleBox"                                           style "toolbar"
-widget_class "*<GtkToolbar>*<GtkButton>"                            style "toolbar_button"
 
 widget_class "*<GtkButton>*<GtkLabel>"                              style "button_label"
 widget_class "*<GtkComboBox>*<GtkCellView>"                         style "button_label"
 #widget_class "*<GtkFontButton>*<GtkLabel>"                          style "button_label"
 #widget_class "*<GtkSpinButton>*<GtkLabel>"                          style "button_label"
-widget_class "*<GtkCheckButton>*<GtkLabel>"                         style "misc_button_label"
+
+widget_class "*<GtkToolbar>*<GtkButton>"                            style "toolbar_button"
 widget_class "*<GtkToolbar>*<GtkButton>*<GtkLabel>"                 style "misc_button_label"
+
+widget_class "*<GtkCheckButton>"                                    style "toolbar_button"
+widget_class "*<GtkCheckButton>*<GtkLabel>"                         style "misc_button_label"
 
 # Entries in notebooks draw with notebook's base color, but not if there's
 # something else in the middle that draws gray again
