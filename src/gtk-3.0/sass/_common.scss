@@ -1681,7 +1681,16 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   .linked:not(.vertical):not(.path-bar) > entry {
     margin-right: 0;
     margin-left: 0;
-    border-right: 1px solid $borders_color;
+
+    &, &:hover, &:active, &:checked, &:disabled {
+      @extend %linked_header;
+    }
+
+    @if $variant=='dark' {
+      &:last-child {
+        border-right: none;
+      }
+    }
 
     &:focus {
       @if $variant == 'light' { border-color: $selection_mode_bg; }
