@@ -10387,7 +10387,7 @@ window.budgie-switcher-window flowboxchild {
 @define-color wm_unfocused_title alpha(#fdfdfd, 0.5);
 @define-color wm_bg #373737;
 @define-color wm_bg_unfocused #313131;
-@define-color wm_highlight #3f3f3f;
+@define-color wm_highlight dimgray;
 @define-color wm_shadow alpha(black, 0.35);
 @define-color wm_button_close_bg #cc575d;
 @define-color wm_button_close_hover_bg #d7787d;

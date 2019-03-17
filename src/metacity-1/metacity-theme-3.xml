@@ -17,6 +17,7 @@
 <constant name="C_title_focused_shadow" value="gtk:custom(wm_title_focused_shadow,shade/gtk:bg[NORMAL]/1.1)" />
 <constant name="C_title_unfocused" value="gtk:custom(wm_title_unfocused,blend/gtk:fg[NORMAL]/gtk:bg[NORMAL]/0.6)" />
 <constant name="C_title_unfocused_shadow" value="gtk:custom(wm_title_unfocused_shadow,shade/gtk:bg[NORMAL]/1.05)" />
+<constant name="C_highlight" value="gtk:custom(wm_highlight,gtk:base[NORMAL])"/>
 
 <!-- ::: GEOMETRY ::: -->
 <frame_geometry name="normal" title_scale="medium" rounded_top_left="4" rounded_top_right="4">
@@ -179,8 +180,11 @@
 	<line color="C_border_focused" x1="0" y1="height-1" x2="width-1" y2="height-1" />
 	<line color="C_border_focused" x1="0" y1="4" x2="0" y2="height-2" />
 	<line color="C_border_focused" x1="width-1" y1="4" x2="width-1" y2="height-2" />
+  <line color="C_highlight" x1="5" y1="1" x2="width - 5" y2="1"/>
 	<arc color="C_border_focused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_focused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
+	<arc color="C_highlight" x="0" y="1" width="9" height="9"  start_angle="270" extent_angle="90" />
+	<arc color="C_highlight" x="width-10" y="1" width="9" height="9"  start_angle="0" extent_angle="90" />
 	<!-- double arcs for darker borders -->
 	<arc color="C_border_focused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_focused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
