@@ -183,8 +183,8 @@
   <line color="C_highlight" x1="5" y1="1" x2="width - 5" y2="1"/>
 	<arc color="C_border_focused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_focused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
-	<arc color="C_highlight" x="0" y="1" width="9" height="9"  start_angle="270" extent_angle="90" />
-	<arc color="C_highlight" x="width-10" y="1" width="9" height="9"  start_angle="0" extent_angle="90" />
+	<arc color="C_highlight" x="1" y="1" width="8" height="8"  start_angle="270" extent_angle="90" />
+	<arc color="C_highlight" x="width-11" y="1" width="8" height="8"  start_angle="0" extent_angle="90" />
 	<!-- double arcs for darker borders -->
 	<arc color="C_border_focused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_focused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
