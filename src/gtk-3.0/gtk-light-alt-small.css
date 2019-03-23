@@ -6192,17 +6192,18 @@ stack.background {
   background: none;
 }
 
-window.background.csd > hdyleaflet > separator.sidebar {
-  border-right-color: rgba(0, 0, 0, 0.15);
-}
-
+window.background.csd > headerbar.titlebar > box.horizontal > separator.sidebar,
 window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
   border-right: none;
+  background: none;
+  min-width: 0;
 }
 
+box.horizontal > separator.sidebar,
 hdyleaflet > separator.sidebar {
   background: none;
   min-width: 0;
+  border-right-color: rgba(0, 0, 0, 0.15);
 }
 
 window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
