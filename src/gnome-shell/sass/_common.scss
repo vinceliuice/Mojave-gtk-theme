@@ -1396,20 +1396,20 @@ $slider_color: if($variant == 'light', $accent_color, white);
   color: transparent;
   box-shadow: none;
   StIcon { icon-size: 26px; } // for safety
-  background-image: url("assets/close.svg");
+  background-image: url("assets/window-close.svg");
 
   &:hover {
     background-size: 26px;
     height: 26px;
     width: 26px;
-    background-image: url("assets/close-hover.svg");
+    background-image: url("assets/window-close-hover.svg");
   }
 
   &:active {
     background-size: 26px;
     height: 26px;
     width: 26px;
-    background-image: url("assets/close-active.svg");
+    background-image: url("assets/window-close-active.svg");
   }
 }
 
