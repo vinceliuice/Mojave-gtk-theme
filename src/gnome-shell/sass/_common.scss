@@ -1386,23 +1386,31 @@ $slider_color: if($variant == 'light', $accent_color, white);
 //close buttons
 
 .window-close {
-  transition-duration: 0ms; // FIXME: unless disable the transition, button will distort when hovering
-  height: $medium_size;
-  width: $medium_size;
-  -shell-close-overlap: $medium_size / 2;
-  -st-background-image-shadow: $shadow_1;
-  background-image: url("assets/window-close.svg");
-  background-size: $medium_size;
+  background-size: 26px;
+  height: 26px;
+  width: 26px;
+  -shell-close-overlap: 10px;
+  border-radius: 100px;
+  border: 0 none transparent;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: none;
+  StIcon { icon-size: 26px; } // for safety
+  background-image: url("assets/close.svg");
 
   &:hover {
-    -st-background-image-shadow: $shadow_2;
-    background-image: url("assets/window-close.svg");
+    background-size: 26px;
+    height: 26px;
+    width: 26px;
+    background-image: url("assets/close-hover.svg");
   }
-  &:active { background-image: url("assets/window-close-active.svg"); }
 
-  // For backward compatibility of 3.26.0
-  &:rtl { -st-background-image-shadow: $shadow_1; }
-  &:rtl:hover { -st-background-image-shadow: $shadow_2; }
+  &:active {
+    background-size: 26px;
+    height: 26px;
+    width: 26px;
+    background-image: url("assets/close-active.svg");
+  }
 }
 
 /* NETWORK DIALOGS */
@@ -1671,9 +1679,10 @@ $slider_color: if($variant == 'light', $accent_color, white);
 
   .show-apps {
     & .overview-icon {
-    background-image: url("assets/startup.png") !important;
-    background-size: contain;
-   }
+      // background-image: url("assets/startup.svg");
+      // background-size: contain;
+      color: transparent;
+    }
   }
 
   .app-well-app-running-dot { //running apps indicator
@@ -1698,6 +1707,8 @@ $slider_color: if($variant == 'light', $accent_color, white);
 
   .show-apps .show-apps-icon {
     color: transparent;
+    background-image: url("assets/startup.svg");
+    background-size: contain;
   }
 
   .show-apps:hover .show-apps-icon,
@@ -1730,7 +1741,12 @@ $slider_color: if($variant == 'light', $accent_color, white);
       width: 12px;
       height: 12px;
       border-radius: 12px;
+      margin: 0;
+      padding: 0;
       background-image: none;
+      color: transparent;
+      border: none;
+      box-shadow: none;
       background-color: $inverse_disabled_secondary_fg_color;
     }
     &:hover .page-indicator-icon {
@@ -1738,7 +1754,12 @@ $slider_color: if($variant == 'light', $accent_color, white);
       background-color: $inverse_disabled_fg_color;
     }
     &:active .page-indicator-icon {
+      margin: 0;
+      padding: 0;
       background-image: none;
+      color: transparent;
+      border: none;
+      box-shadow: none;
       background-color: $inverse_secondary_fg_color;
     }
     &:checked .page-indicator-icon {
@@ -1765,8 +1786,8 @@ $slider_color: if($variant == 'light', $accent_color, white);
     padding: 16px;
     border-radius: $material_radius;
     margin: 6px;
-    //border-width: 0; //fixme: can't have non unoform borders :(
-//    &:rtl { border-radius: $material_radius; }
+    // border-width: 0; //fixme: can't have non unoform borders :(
+    // &:rtl { border-radius: $material_radius; }
   }
   .workspace-thumbnail-indicator {
     border: 0 solid $primary_color;

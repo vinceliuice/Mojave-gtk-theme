@@ -1690,30 +1690,34 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .window-close {
-  transition-duration: 0ms;
-  height: 32px;
-  width: 32px;
-  -shell-close-overlap: 16px;
-  -st-background-image-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
-  background-image: url("assets/window-close.svg");
-  background-size: 32px;
+  background-size: 26px;
+  height: 26px;
+  width: 26px;
+  -shell-close-overlap: 10px;
+  border-radius: 100px;
+  border: 0 none transparent;
+  background-color: transparent;
+  color: transparent;
+  box-shadow: none;
+  background-image: url("assets/close.svg");
+}
+
+.window-close StIcon {
+  icon-size: 26px;
 }
 
 .window-close:hover {
-  -st-background-image-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
-  background-image: url("assets/window-close.svg");
+  background-size: 26px;
+  height: 26px;
+  width: 26px;
+  background-image: url("assets/close-hover.svg");
 }
 
 .window-close:active {
-  background-image: url("assets/window-close-active.svg");
-}
-
-.window-close:rtl {
-  -st-background-image-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
-}
-
-.window-close:rtl:hover {
-  -st-background-image-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
+  background-size: 26px;
+  height: 26px;
+  width: 26px;
+  background-image: url("assets/close-active.svg");
 }
 
 /* NETWORK DIALOGS */
@@ -2059,8 +2063,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .show-apps .overview-icon {
-  background-image: url("assets/startup.png") !important;
-  background-size: contain;
+  color: transparent;
 }
 
 .app-well-app-running-dot {
@@ -2090,6 +2093,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .show-apps .show-apps-icon {
   color: transparent;
+  background-image: url("assets/startup.svg");
+  background-size: contain;
 }
 
 .show-apps:hover .show-apps-icon,
@@ -2125,7 +2130,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   width: 12px;
   height: 12px;
   border-radius: 12px;
+  margin: 0;
+  padding: 0;
   background-image: none;
+  color: transparent;
+  border: none;
+  box-shadow: none;
   background-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -2135,7 +2145,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .page-indicator:active .page-indicator-icon {
+  margin: 0;
+  padding: 0;
   background-image: none;
+  color: transparent;
+  border: none;
+  box-shadow: none;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
