@@ -4029,7 +4029,7 @@ $_wm_border: $_wm_shadow;
 }
 
 @if $variant == 'dark' {
-  $_wm_border: 0 0 0 2px rgba(black, 0.05), 0 0 0 1px rgba(black, 0.35);
+  $_wm_border: 0 0 0 2px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.75);
 }
 
 decoration {
