@@ -52,31 +52,6 @@ stage {
   &:focus { @include button(flat-focus); }
 }
 
-.modal-dialog-linked-button {
-  min-height: 40px;
-  padding: 0 16px;
-  border-top: 1px solid $border_color !important;
-  border-right-width: 0;
-  @include font(button);
-  @include button(flat-normal);
-  &:hover { @include button(flat-hover); }
-  &:active { @include button(flat-active); }
-  &:insensitive { @include button(flat-insensitive); }
-  &:focus { @include button(flat-focus); }
-
-  &:first-child {
-    border-radius: 0px 0px 0px $bt_radius;
-  }
-  &:last-child {
-    border-right-width: 0px;
-    border-radius: 0px 0px $bt_radius 0px;
-  }
-  &:first-child:last-child {
-    border-right-width: 0px;
-    border-radius: 0px 0px $bt_radius $bt_radius;
-  }
-}
-
 /* Entries */
 StEntry {
   min-height: $medium_size;
@@ -145,6 +120,7 @@ StScrollBar {
 /* Slider */
 
 $slider_color: if($variant == 'light', $accent_color, white);
+$selected_slider_color: white;
 
 .slider {
   height: 20px;
@@ -167,6 +143,16 @@ $slider_color: if($variant == 'light', $accent_color, white);
   -barlevel-overdrive-border-color: transparent;
   -barlevel-overdrive-separator-width: 2px;
   -barlevel-border-width: 0;
+
+  .popup-menu-item.selected & {
+    color: $selected_slider_color;
+    -slider-background-color: $track_color;
+    -slider-active-background-color: rgba($light_fg_color, 0.45);
+
+    // barlevels are for >= 3.29.90
+    -barlevel-background-color: $track_color;
+    -barlevel-active-background-color: rgba($light_fg_color, 0.45);
+  }
 }
 
 /* Check Boxes */
@@ -242,11 +228,48 @@ $slider_color: if($variant == 'light', $accent_color, white);
 .flashspot { background-color: white; }
 
 .modal-dialog {
-  border-radius: $bt_radius;
   color: $fg_color;
-  background-color: $base_color;
+  background-color: transparent;
   border: none;
-  box-shadow: $shadow_4;
+  box-shadow: none;
+  padding: 0 5px 6px 5px;
+
+  @if $trans == 'true' {
+    border-image: url("assets/menu.svg") 13 17 15 15;
+  }
+
+  @else {
+    border-image: url("assets/menu-solid.svg") 13 17 15 15;
+  }
+
+  &-linked-button {
+    min-height: 40px;
+    padding: 0 16px;
+    margin-bottom: 3px;
+    border-top: 1px solid $border_color !important;
+    border-right-width: 0;
+    @include font(button);
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:insensitive { @include button(flat-insensitive); }
+    &:focus { @include button(flat-focus); }
+
+    &:first-child {
+      margin-left: 2px;
+      border-radius: 0px 0px 0px $bt_radius;
+    }
+    &:last-child {
+      margin-right: 2px;
+      border-right-width: 0px;
+      border-radius: 0px 0px $bt_radius 0px;
+    }
+    &:first-child:last-child {
+      border-right-width: 0px;
+      border-radius: 0px 0px $bt_radius $bt_radius;
+    }
+  }
+
   .modal-dialog-content-box {
     padding: 24px;
   }
@@ -255,14 +278,15 @@ $slider_color: if($variant == 'light', $accent_color, white);
     padding-top: 16px;
     spacing: 6px;
   }
-  .run-dialog-button-box { padding-top: 1em; }
+  .run-dialog-button-box {
+    padding-top: 1em;
+  }
   .run-dialog-label {
     font-size: 1em;
     font-weight: normal;
     color: $hint_fg_color;
     padding-bottom: .4em;
   }
-
 }
 
   .mount-dialog-subject,
@@ -566,43 +590,37 @@ $slider_color: if($variant == 'light', $accent_color, white);
 
 .popup-menu {
   min-width: 12em;
-  background-color: transparent;
+  color: $fg_color;
+  padding: 3px 0 2px 0;
 
-  .popup-menu-arrow { width: 16px; height: 16px; } //defined globally in the TOP BAR
-  .popup-sub-menu {
-    background-color: rgba($alt_base_color, 0.35);
-    border-radius: 0 0 $material_radius $material_radius;
-    border: none;
-    box-shadow: none;
+  @if $trans == 'true' {
+    border-image: url("assets/menu.svg") 13 17 15 15;
   }
 
-  // .popup-sub-menu .popup-menu-item {
-  //   &:ltr { /* 8px spacing + 2*4px padding */
-  //         padding-left: 8px;
-  //         padding-right: 24px;
-  //   }
-  //   &:rtl { /* 8px spacing + 2*4px padding */
-  //         padding-left: 24px;
-  //         padding-right: 8px;
-  //   }
-  // }
+  @else {
+    border-image: url("assets/menu-solid.svg") 13 17 15 15;
+  }
 
-  .popup-menu-content { padding: 6px 0; margin: 0 4px; }
+  .popup-menu-arrow { } //defined globally in the TOP BAR
+  .popup-sub-menu {
+    background: none;
+    box-shadow: none;
+    border-image: url("assets/submenu.svg") 15 15 2 2;
+  }
+
+  .popup-menu-content { padding: 1em 0; }
   .popup-menu-item {
-    spacing: 8px;
-    transition-duration: $shorter_duration;
-    border-radius: $material_radius;
+    spacing: 12px;
+    transition-duration: 0s;
 
     &:ltr { padding: 0.4em 24px 0.4em 0; }
     &:rtl { padding: 0.4em 0 0.4em 24px; }
 
     &:checked {
-      background-color: $primary_color;
-      color: $inverse_fg_color;
-      box-shadow: inset 0 -1px rgba(black, 0.15);
       font-weight: normal;
-      border-radius: $material_radius $material_radius 0 0;
-      text-shadow: 0 1px rgba(black, 0.45);
+      background: none;
+      box-shadow: none;
+      border-image: url("assets/submenu-open.svg") 15 15 2 2;
 
       .popup-menu-icon,
       .app-menu-icon > StIcon,
@@ -611,26 +629,48 @@ $slider_color: if($variant == 'light', $accent_color, white);
       }
 
       &.selected {
-        background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity / 2));
-        color: $inverse_fg_color;
+        color: $light_fg_color;
+        background: none;
+        background-color: transparent;
+        border-image: url("assets/menu-hover.svg") 15 15 2 2;
+        transition-duration: 0ms;
+        animation: none;
+        box-shadow: none;
       }
+
       &:active {
-        background-color: mix($inverse_fg_color, $primary_color, percentage($lower_opacity));
-        color: $inverse_fg_color !important;
+        color: $light_fg_color;
+        background: none;
+        background-color: transparent;
+        border-image: url("assets/menu-active.svg") 15 15 2 2;
+        transition-duration: 100ms;
+        animation: none;
+        box-shadow: none;
       }
+
       &:insensitive { color: $inverse_disabled_fg_color; }
     }
+
     &.selected {
-      background-color: $divider_color;
-      color: $fg_color;
+      color: $light_fg_color;
+      background: none;
+      background-color: transparent;
+      border-image: url("assets/menu-hover.svg") 15 15 2 2;
       transition-duration: 0ms;
+      animation: none;
+      box-shadow: none;
     }
-    &:active {
-      background-color: $track_color;
-      color: $fg_color;
-      transition-duration: $longer_duration;
+
+    &:active, &.selected:active {
+      color: $light_fg_color;
+      background: none;
+      background-color: transparent;
+      border-image: url("assets/menu-active.svg") 15 15 2 2;
+      transition-duration: 100ms;
+      animation: none;
+      box-shadow: none;
     }
-    &.selected:active { color: $fg_color; }
+
     &:insensitive { color: $disabled_fg_color; }
   }
 
@@ -639,6 +679,7 @@ $slider_color: if($variant == 'light', $accent_color, white);
 
     &:insensitive { color: $hint_fg_color; }
   }
+
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
   &.panel-menu {
     -boxpointer-gap: 4px;
@@ -652,8 +693,7 @@ $slider_color: if($variant == 'light', $accent_color, white);
   height: 16px;
 }
 
-.popup-menu-boxpointer,
-.candidate-popup-boxpointer {
+.popup-menu-boxpointer {
   -arrow-border-radius: 0;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
@@ -661,7 +701,22 @@ $slider_color: if($variant == 'light', $accent_color, white);
   -arrow-base: 0;
   -arrow-rise: 0;
   -arrow-box-shadow: none; //dreaming. bug #689995
-  margin: 2px 6px 6px 6px;
+  background: transparent; // needs to reset?
+
+  StEntry {
+    selection-background-color: $light_fg_color;
+    selected-background-color: $light_fg_color;
+    selected-color: $primary_color;
+  }
+}
+
+.candidate-popup-boxpointer {
+  -arrow-border-radius: 2px;
+  -arrow-background-color: $base_color;
+  -arrow-border-width: 1px;
+  -arrow-border-color: $border_color;
+  -arrow-base: 5;
+  -arrow-rise: 5;
   background-color: $menu_bg_color;
   border-radius: $material_radius;
   box-shadow: $shadow_2;
@@ -714,6 +769,7 @@ $slider_color: if($variant == 'light', $accent_color, white);
     border: none;
     padding: ($large_size - 20px) / 2;
   }
+
   &:active { background-color: $track_color; color: $fg_color; }
 
   & > StIcon { icon-size: 16px; }
@@ -1621,11 +1677,11 @@ $slider_color: if($variant == 'light', $accent_color, white);
     }
     &:active {
       color: $inverse_fg_color;
-      background-color: $inverse_track_color;
+      background-color: darken($primary_color, 3%);
     }
     &:checked {
       color: $inverse_fg_color;
-      background-color: rgba($inverse_fg_color, 0.35);
+      background-color: $primary_color;
       box-shadow: none;
     }
     &:first-child {

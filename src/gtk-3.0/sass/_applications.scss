@@ -2794,8 +2794,8 @@ headerbar.titlebar {
   }
 
   > button.flat.image-button.toggle {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 
     &:not(:checked):not(:active) {
       background-clip: if($variant=='light', padding-box, padding-box);

@@ -7864,8 +7864,8 @@ headerbar.titlebar > box.horizontal > entry.pathbar {
 }
 
 headerbar.titlebar > button.flat.image-button.toggle, headerbar.titlebar > button.image-button.toggle.budgie-menu-launcher, .budgie-panel headerbar.titlebar > button.image-button.toggle.flat.launcher {
-  margin-top: 6px;
-  margin-bottom: 6px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-width: 1px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.15);

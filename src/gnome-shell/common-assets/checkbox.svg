@@ -13,7 +13,7 @@
    width="24"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="checkbox.svg">
   <metadata
      id="metadata12">
@@ -39,14 +39,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1366"
-     inkscape:window-height="691"
+     inkscape:window-height="714"
      id="namedview8"
      showgrid="true"
      inkscape:zoom="12.050278"
-     inkscape:cx="-2.5873361"
+     inkscape:cx="-16.694894"
      inkscape:cy="3.1020107"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="28"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2">
     <inkscape:grid
@@ -56,5 +56,5 @@
   <path
      d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
      id="path6"
-     style="fill:#0e6bff;fill-opacity:1" />
+     style="fill:#315bef;fill-opacity:1" />
 </svg>
