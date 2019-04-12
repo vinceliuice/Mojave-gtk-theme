@@ -17,6 +17,7 @@
 <constant name="C_title_focused_shadow" value="gtk:custom(wm_title_focused_shadow,shade/gtk:bg[NORMAL]/1.1)" />
 <constant name="C_title_unfocused" value="gtk:custom(wm_title_unfocused,blend/gtk:fg[NORMAL]/gtk:bg[NORMAL]/0.6)" />
 <constant name="C_title_unfocused_shadow" value="gtk:custom(wm_title_unfocused_shadow,shade/gtk:bg[NORMAL]/1.05)" />
+<constant name="C_background" value="gtk:bg[NORMAL]"/>
 <constant name="C_highlight" value="gtk:custom(wm_highlight,gtk:base[NORMAL])"/>
 
 <!-- ::: GEOMETRY ::: -->
@@ -61,28 +62,28 @@
 
 <frame_geometry name="nobuttons" hide_buttons="false" parent="normal" />
 
-<frame_geometry name="border" has_title="false" rounded_top_left="false" rounded_top_right="false" parent="normal" >
+<frame_geometry name="border" has_title="false" rounded_top_left="4" rounded_top_right="4" parent="normal" >
 	<distance name="left_width" value="1" />
 	<distance name="right_width" value="1" />
 	<distance name="bottom_height" value="1" />
 	<distance name="title_vertical_pad" value="0" />
-	<border name="title_border" left="0" right="0" top="0" bottom="0" />
-	<border name="button_border" left="0" right="0" top="0" bottom="0"/>
+	<border name="title_border" left="8" right="8" top="4" bottom="4" />
+	<border name="button_border" left="3" right="3" top="4" bottom="4"  />
 </frame_geometry>
 
-<frame_geometry name="borderless" has_title="false" rounded_top_left="false" rounded_top_right="false" parent="normal">
+<frame_geometry name="borderless" has_title="false" rounded_top_left="4" rounded_top_right="4" parent="normal">
 	<distance name="left_width" value="0" />
 	<distance name="right_width" value="0" />
 	<distance name="bottom_height" value="0" />
 	<distance name="title_vertical_pad" value="0" />
-	<border name="title_border" left="0" right="0" top="0" bottom="0" />
-	<border name="button_border" left="0" right="0" top="0" bottom="0" />
+	<border name="title_border" left="8" right="8" top="4" bottom="4" />
+	<border name="button_border" left="3" right="3" top="4" bottom="4"  />
 </frame_geometry>
 
-<frame_geometry name="modal" title_scale="small" hide_buttons="false" rounded_top_left="false" rounded_top_right="false" rounded_bottom_right="false" rounded_bottom_left="false" parent="small">
+<frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="4" rounded_top_right="4" rounded_bottom_right="false" rounded_bottom_left="false" parent="small">
 </frame_geometry>
 
-<frame_geometry name="attached" title_scale="small" hide_buttons="false" rounded_top_left="false" rounded_top_right="false" parent="small">
+<frame_geometry name="attached" title_scale="small" hide_buttons="true" rounded_top_left="4" rounded_top_right="4" parent="small">
 </frame_geometry>
 
 <!-- ::: TITLES ::: -->
@@ -203,6 +204,14 @@
 	<!-- double arcs for darker borders -->
 	<arc color="C_border_unfocused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_unfocused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
+</draw_ops>
+
+<draw_ops name="dialog_fill_background">
+	<rectangle color="C_background" x="0" y="0" width="width" height="height" filled="true" />
+</draw_ops>
+
+<draw_ops name="dialog_background">
+	<rectangle color="C_background" x="0" y="0" width="width" height="height" filled="true" />
 </draw_ops>
 
 <draw_ops name="border_right_focused">
@@ -599,8 +608,8 @@
 </frame_style>
 
 <frame_style name="dialog_focused" geometry="nobuttons">
-	<piece position="entire_background" draw_ops="entire_background_focused" />
-	<piece position="titlebar" draw_ops="rounded_titlebar_focused" />
+	<piece position="entire_background" draw_ops="dialog_background" />
+	<piece position="titlebar" draw_ops="dialog_fill_background" />
 	<piece position="title" draw_ops="title_focused" />
 	<piece position="overlay" draw_ops="rounded_border_focused" />
 	<button function="close" state="normal" draw_ops="close_focused" />
@@ -633,8 +642,8 @@
 </frame_style>
 
 <frame_style name="dialog_unfocused" geometry="nobuttons">
-	<piece position="entire_background" draw_ops="entire_background_unfocused" />
-	<piece position="titlebar" draw_ops="titlebar_fill_unfocused" />
+	<piece position="entire_background" draw_ops="dialog_background" />
+	<piece position="titlebar" draw_ops="dialog_fill_background" />
 	<piece position="title" draw_ops="title_unfocused" />
 	<piece position="overlay" draw_ops="rounded_border_unfocused" />
 	<button function="close" state="normal" draw_ops="close_unfocused" />
@@ -666,10 +675,10 @@
 </frame_style>
 
 <frame_style name="modal_dialog_focused" geometry="modal">
-	<piece position="entire_background" draw_ops="entire_background_focused" />
-	<piece position="titlebar" draw_ops="titlebar_attached_focused" />
+	<piece position="entire_background" draw_ops="dialog_background" />
+	<piece position="titlebar" draw_ops="dialog_fill_background" />
 	<piece position="title" draw_ops="title_focused" />
-	<piece position="overlay" draw_ops="border_focused" />
+	<piece position="overlay" draw_ops="rounded_border_focused" />
 	<button function="close" state="normal" draw_ops="close_focused" />
 	<button function="close" state="prelight" draw_ops="close_focused_prelight" />
 	<button function="close" state="pressed" draw_ops="close_focused_pressed" />
@@ -688,7 +697,6 @@
 	<button function="unshade" state="normal" draw_ops="unshade_focused" />
 	<button function="unshade" state="prelight" draw_ops="unshade_focused_prelight" />
 	<button function="unshade" state="pressed" draw_ops="unshade_focused_pressed" />
-
 	<button function="above" state="normal"><draw_ops></draw_ops></button>
 	<button function="above" state="pressed"><draw_ops></draw_ops></button>
 	<button function="unabove" state="normal"><draw_ops></draw_ops></button>
@@ -699,10 +707,10 @@
 </frame_style>
 
 <frame_style name="modal_dialog_unfocused" geometry="modal">
-	<piece position="entire_background" draw_ops="entire_background_unfocused" />
-	<piece position="titlebar" draw_ops="titlebar_fill_unfocused" />
+	<piece position="entire_background" draw_ops="dialog_background" />
+	<piece position="titlebar" draw_ops="dialog_fill_background" />
 	<piece position="title" draw_ops="title_unfocused" />
-	<piece position="overlay" draw_ops="border_unfocused" />
+	<piece position="overlay" draw_ops="rounded_border_unfocused" />
 	<button function="close" state="normal" draw_ops="close_unfocused" />
 	<button function="close" state="prelight" draw_ops="close_unfocused_prelight" />
 	<button function="close" state="pressed" draw_ops="close_unfocused_pressed" />

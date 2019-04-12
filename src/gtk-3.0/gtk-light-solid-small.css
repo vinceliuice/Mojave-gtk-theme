@@ -4448,8 +4448,8 @@ messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive
 
 messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
   background-image: none;
+  background-color: #315bef;
   color: #ffffff;
-  background-color: rgba(0, 0, 0, 0.5);
   border-color: rgba(0, 0, 0, 0.15);
 }
 

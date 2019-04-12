@@ -3465,10 +3465,20 @@ messagedialog { // Message Dialog styling
         @include button(flat-hover);
         border-color: $button_borders;
         transition: $button_transition;
-       }
+      }
 
       &:active, &:checked {
-        @include button(flat-active);
+
+        @if $variant == 'light' {
+          background-image: none;
+          background-color: $selected_bg_color;
+          color: $selected_fg_color;
+        }
+
+        @else {
+          @include button(active);
+        }
+
         border-color: $button_borders;
       }
     }

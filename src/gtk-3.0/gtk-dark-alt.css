@@ -4462,9 +4462,12 @@ messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive
 }
 
 messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
-  background-image: none;
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: #315bef;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(0deg, #3861ca 0%, #3d6be3 100%);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
