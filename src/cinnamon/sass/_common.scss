@@ -264,7 +264,7 @@ StScrollBar {
 }
 
 //
-// Popvers/Menus
+// Pop0vers/Menus
 //
 
 $menu_bg: if($variant=='light', rgba($base_color, 0.95), rgba($bg_color, 0.95));
@@ -783,6 +783,13 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   color: $text_color;
   background-color: $bg_color;
 
+  .notification-button, .notification-icon-button {
+    @extend %button;
+    padding: 5px;
+  }
+
+  StEntry { @extend %entry; }
+
   .menu &,
   .popup-menu & {
     &, &.multi-line-notification { color: $text_color; }
@@ -822,13 +829,13 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   }
 
   &-button, &-icon-button {
-    @extend %osd_button;
+    @extend %button;
     padding: 5px;
   }
 
   &-icon-button > StIcon { icon-size: 36px; }
 
-  StEntry { @extend %osd_entry; }
+  StEntry { @extend %entry; }
 }
 
 //

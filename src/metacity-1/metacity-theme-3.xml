@@ -59,7 +59,7 @@
 	<distance name="right_titlebar_edge" value="1"/>
 </frame_geometry>
 
-<frame_geometry name="nobuttons" hide_buttons="true" parent="normal" />
+<frame_geometry name="nobuttons" hide_buttons="false" parent="normal" />
 
 <frame_geometry name="border" has_title="false" rounded_top_left="false" rounded_top_right="false" parent="normal" >
 	<distance name="left_width" value="1" />
@@ -79,10 +79,10 @@
 	<border name="button_border" left="0" right="0" top="0" bottom="0" />
 </frame_geometry>
 
-<frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="false" rounded_top_right="false" rounded_bottom_right="false" rounded_bottom_left="false" parent="small">
+<frame_geometry name="modal" title_scale="small" hide_buttons="false" rounded_top_left="false" rounded_top_right="false" rounded_bottom_right="false" rounded_bottom_left="false" parent="small">
 </frame_geometry>
 
-<frame_geometry name="attached" title_scale="small" hide_buttons="true" rounded_top_left="false" rounded_top_right="false" parent="small">
+<frame_geometry name="attached" title_scale="small" hide_buttons="false" rounded_top_left="false" rounded_top_right="false" parent="small">
 </frame_geometry>
 
 <!-- ::: TITLES ::: -->
@@ -180,7 +180,7 @@
 	<line color="C_border_focused" x1="0" y1="height-1" x2="width-1" y2="height-1" />
 	<line color="C_border_focused" x1="0" y1="4" x2="0" y2="height-2" />
 	<line color="C_border_focused" x1="width-1" y1="4" x2="width-1" y2="height-2" />
-  <line color="C_highlight" x1="5" y1="1" x2="width - 5" y2="1"/>
+	<line color="C_highlight" x1="5" y1="1" x2="width - 5" y2="1"/>
 	<arc color="C_border_focused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_focused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
 	<arc color="C_highlight" x="1" y="1" width="8" height="8"  start_angle="270" extent_angle="90" />
@@ -195,8 +195,11 @@
 	<line color="C_border_unfocused" x1="0" y1="height-1" x2="width-1" y2="height-1" />
 	<line color="C_border_unfocused" x1="0" y1="4" x2="0" y2="height-2" />
 	<line color="C_border_unfocused" x1="width-1" y1="4" x2="width-1" y2="height-2" />
+	<line color="C_highlight" x1="5" y1="1" x2="width - 5" y2="1"/>
 	<arc color="C_border_unfocused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_unfocused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
+	<arc color="C_highlight" x="1" y="1" width="8" height="8"  start_angle="270" extent_angle="90" />
+	<arc color="C_highlight" x="width-11" y="1" width="8" height="8"  start_angle="0" extent_angle="90" />
 	<!-- double arcs for darker borders -->
 	<arc color="C_border_unfocused" x="0" y="0" width="9" height="9"  start_angle="270" extent_angle="90" />
 	<arc color="C_border_unfocused" x="width-10" y="0" width="9" height="9"  start_angle="0" extent_angle="90" />
