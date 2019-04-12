@@ -273,22 +273,26 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .menu,
 .popup-menu,
 %menu {
+  padding: 4px 4px 6px 4px;
   color: $fg_color;
-  background-color: $menu_bg;
-  padding-left: 0;
-  border-radius: 6px;
-  margin: 5px;
-  @if $variant == 'dark' { border: 1px solid $menu_border; }
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.56), 0 3px 15px rgba(0, 0, 0, 0.36);
+  // background-color: $menu_bg;
+  // border-radius: 6px;
+  // margin: 5px;
+  // @if $variant == 'dark' { border: 1px solid $menu_border; }
+  // box-shadow: 0 3px 8px rgba(0, 0, 0, 0.56), 0 3px 15px rgba(0, 0, 0, 0.36);
+
+  border-image: url("assets/menu.svg") 15 15 15 15;
 
   &-arrow { icon-size: 16px; }
 
   .popup-sub-menu {
     background-gradient-direction: none;
     box-shadow: none;
-    background-color: if($variant=='light', $bg_color, $base_color);
-    border-top: 1px solid $dark_borders_color;
-    border-bottom: 1px solid $dark_borders_color;
+    border-image: url("assets/submenu.svg") 15 15 2 2;
+
+    // background-color: if($variant=='light', $bg_color, $base_color);
+    // border-top: 1px solid $dark_borders_color;
+    // border-bottom: 1px solid $dark_borders_color;
 
     .popup-menu-item:ltr { padding-right: 8px; }
     .popup-menu-item:rtl { padding-left: 8px; }
@@ -306,7 +310,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 
     &:active {
       color: $selected_fg_color;
-      background-color: $selected_bg_color;
+      border-image: url("assets/menu-hover.svg") 15 15 2 2;
     }
 
     &:insensitive {
@@ -1342,7 +1346,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     background-image: none;
     transition-duration: 100;
     padding: 0 6px;
-    color: rgba($panel_fg, 0.6);
+    color: rgba($panel_fg, 0.9);
     border: 0 solid transparent;
 
     .panel-bottom & StLabel { padding-left: 6px; }
@@ -1735,13 +1739,13 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 .workspace-button {
   width: 20px;
   height: 10px;
-  color: $selected_fg_color;
+  color: $panel_fg;
   padding: 3px;
   padding-top: 4px;
   transition-duration: 300;
 
   &:outlined, &:outlined:hover { color: $selected_bg_color; }
-  &:hover { color: transparentize($selected_bg_color, 0.5) }
+  &:hover { color: lighten($selected_bg_color, 10%) }
 }
 
 /* Controls the style when using the "Visual representation" option */

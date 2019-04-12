@@ -296,12 +296,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .menu,
 .popup-menu,
 .popup-combo-menu {
+  padding: 4px 4px 6px 4px;
   color: #242424;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding-left: 0;
-  border-radius: 6px;
-  margin: 5px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.56), 0 3px 15px rgba(0, 0, 0, 0.36);
+  border-image: url("assets/menu.svg") 15 15 15 15;
 }
 
 .menu-arrow,
@@ -314,9 +311,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .popup-combo-menu .popup-sub-menu {
   background-gradient-direction: none;
   box-shadow: none;
-  background-color: #f5f5f5;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-image: url("assets/submenu.svg") 15 15 2 2;
 }
 
 .menu .popup-sub-menu .popup-menu-item:ltr,
@@ -362,7 +357,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .popup-menu .popup-menu-item:active,
 .popup-combo-menu .popup-menu-item:active {
   color: #ffffff;
-  background-color: #315bef;
+  border-image: url("assets/menu-hover.svg") 15 15 2 2;
 }
 
 .menu .popup-menu-item:insensitive,
@@ -1498,7 +1493,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-image: none;
   transition-duration: 100;
   padding: 0 6px;
-  color: rgba(54, 54, 54, 0.6);
+  color: rgba(54, 54, 54, 0.9);
   border: 0 solid transparent;
 }
 
@@ -2001,7 +1996,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .workspace-button {
   width: 20px;
   height: 10px;
-  color: #ffffff;
+  color: #363636;
   padding: 3px;
   padding-top: 4px;
   transition-duration: 300;
@@ -2012,7 +2007,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .workspace-button:hover {
-  color: rgba(49, 91, 239, 0.5);
+  color: #6081f3;
 }
 
 /* Controls the style when using the "Visual representation" option */
