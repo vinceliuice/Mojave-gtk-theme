@@ -1654,11 +1654,11 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 
 // 2.8
 .sound-player {
-  padding: 0;
+  padding: 0 3px;
 
   > StBoxLayout:first-child {
     padding: 5px 10px 10px 10px;
-    spacing: 0;
+    spacing: 0.5em;
 
     StButton:small {
       width: 24px;
@@ -1682,8 +1682,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     padding: 15px;
     spacing: 0.5em;
     background: transparentize(darken($osd_bg_color, 5%), 0.1);
-    border: 0px solid darken($osd_bg_color, 10%);
-    border-bottom: 1px ;
+    border: 0px solid darken($osd_bg_color, 8%);
+    border-bottom: 1px;
     color: $osd_fg_color;
 
     StButton {
@@ -1711,7 +1711,8 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   .slider {
     height: 0.5em;
     padding: 0;
-    border: none;
+    border: 0px solid darken($osd_bg_color, 8%);
+    border-bottom: 1px;
     -slider-height: 0.5em;
     -slider-background-color: if($variant == 'light', $button_border, darken($bg_color, 5%));
     -slider-border-color: rgba(0,0,0,0);

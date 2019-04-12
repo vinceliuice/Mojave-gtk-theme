@@ -1910,12 +1910,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .sound-player {
-  padding: 0;
+  padding: 0 3px;
 }
 
 .sound-player > StBoxLayout:first-child {
   padding: 5px 10px 10px 10px;
-  spacing: 0;
+  spacing: 0.5em;
 }
 
 .sound-player > StBoxLayout:first-child StButton:small {
@@ -1946,7 +1946,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 15px;
   spacing: 0.5em;
   background: rgba(29, 29, 29, 0.9);
-  border: 0px solid #111111;
+  border: 0px solid #161616;
   border-bottom: 1px;
   color: #dadada;
 }
@@ -1988,7 +1988,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .sound-player .slider {
   height: 0.5em;
   padding: 0;
-  border: none;
+  border: 0px solid #161616;
+  border-bottom: 1px;
   -slider-height: 0.5em;
   -slider-background-color: #262626;
   -slider-border-color: rgba(0, 0, 0, 0);
