@@ -2558,7 +2558,7 @@ button.flat.-panel-icon-button {
 //
 .menubar.panel {
   .panel {
-    &.color-light, &.color-dark {
+    &, &.color-light, &.color-dark {
       background-color: transparent;
       background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.95) 0%, rgba($panel_top_color, 0.95) 100%);
       border-bottom: 1px solid if($variant == 'light', $panel_border_color, $header_border);
@@ -2568,14 +2568,14 @@ button.flat.-panel-icon-button {
 
     &.maximized {
       background-color: $panel_bg;
-      background-image: linear-gradient(0deg, rgba($panel_bottom_color, 1) 0%, rgba($panel_top_color, 1) 100%);
+      background-image: none;
       border: none;
     }
 
     &.translucent {
-      background-color: transparent;
-      background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.95) 0%, rgba($panel_top_color, 0.95) 100%);
-      border-bottom: 1px solid if($variant == 'light', $panel_border_color, $header_border);
+      background-color: rgba($panel_bg, 0.75);
+      background-image: none;
+      border: none;
     }
 
     menubar {
@@ -2587,8 +2587,9 @@ button.flat.-panel-icon-button {
 
   popover {
     padding: 2px 4px;
-    border: 1px solid if($variant == 'light', rgba(black, 0.35), rgba(white, 0.10));
-    box-shadow: 0 5px 5px rgba(black, 0.12), 0 5px 15px rgba(black, 0.08);
+    margin: 0 6px 15px 6px;
+    border: 1px solid if($variant == 'light', rgba(black, 0.35), rgba(black, 0.45));
+    box-shadow: 0 3px 5px rgba(black, 0.12), 0 5px 8px rgba(black, 0.08);
 
     button {
       @include button(undecorated);

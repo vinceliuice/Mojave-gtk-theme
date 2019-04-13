@@ -81,7 +81,7 @@ $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
 $osd_borders_color: $borders_color;
 
 // Panel colors
-$panel_bg: if($variant == 'light', #FEFEFE, #2a2a2a);
+$panel_bg: if($variant == 'light', #f1f1f1, #2a2a2a);
 $panel_fg: $text_color;
 $panel_top_color: if($variant == 'dark', #333333, #f5f5f5);
 $panel_bottom_color: if($variant == 'dark', #2a2a2a, #e2e2e2);
