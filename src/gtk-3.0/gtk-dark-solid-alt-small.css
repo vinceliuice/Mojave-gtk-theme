@@ -223,6 +223,33 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
+notebook infobar entry {
+  color: #dadada;
+  border-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  background-color: #242424;
+  box-shadow: none;
+  padding: 4px 10px;
+  border-image-source: -gtk-scaled(url("assets/entry-dark.png"));
+}
+
+notebook infobar entry:focus {
+  color: #dadada;
+  border-color: #6887cd;
+  background-color: #242424;
+  box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
+  box-shadow: none;
+  border-image-source: -gtk-scaled(url("assets/entry-focus-dark.png"));
+}
+
+notebook infobar entry:disabled {
+  color: rgba(222, 222, 222, 0.45);
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: rgba(36, 36, 36, 0.55);
+  box-shadow: none;
+  border-image-source: -gtk-scaled(url("assets/entry-disabled-dark.png"));
+}
+
 notebook entry, filechooser box#pathbarbox.view stack entry.search {
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
@@ -245,7 +272,7 @@ notebook entry:disabled, filechooser box#pathbarbox.view stack entry.search:disa
 entry {
   min-height: 18px;
   border: 1px solid;
-  padding: 3px 10px;
+  padding: 4px 10px;
   caret-color: currentColor;
   border-radius: 5px;
   transition: all 0.1s cubic-bezier(0, 0, 0.2, 1);
@@ -299,6 +326,7 @@ entry:disabled {
   color: rgba(222, 222, 222, 0.45);
   border-color: rgba(255, 255, 255, 0.12);
   background-color: rgba(36, 36, 36, 0.55);
+  box-shadow: none;
   border-image-source: -gtk-scaled(url("assets/entry-disabled-dark.png"));
 }
 

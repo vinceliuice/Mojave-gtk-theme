@@ -223,6 +223,34 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
+notebook infobar entry {
+  color: #363636;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.27);
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
+  box-shadow: none;
+  padding: 4px 10px;
+  border-image-source: -gtk-scaled(url("assets/entry.png"));
+}
+
+notebook infobar entry:focus {
+  color: #363636;
+  border-color: #6887cd;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px 0 transparent, 0 0 0 2px rgba(104, 135, 205, 0.75);
+  box-shadow: none;
+  border-image-source: -gtk-scaled(url("assets/entry-focus.png"));
+}
+
+notebook infobar entry:disabled {
+  color: rgba(36, 36, 36, 0.55);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.55);
+  box-shadow: none;
+  border-image-source: -gtk-scaled(url("assets/entry-disabled.png"));
+}
+
 notebook entry, filechooser box#pathbarbox.view stack entry.search {
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
@@ -241,7 +269,7 @@ notebook entry:disabled, filechooser box#pathbarbox.view stack entry.search:disa
 entry {
   min-height: 16px;
   border: 1px solid;
-  padding: 3px 10px;
+  padding: 4px 10px;
   caret-color: currentColor;
   border-radius: 5px;
   transition: all 0.1s cubic-bezier(0, 0, 0.2, 1);
@@ -296,6 +324,7 @@ entry:disabled {
   color: rgba(36, 36, 36, 0.55);
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.55);
+  box-shadow: none;
   border-image-source: -gtk-scaled(url("assets/entry-disabled.png"));
 }
 

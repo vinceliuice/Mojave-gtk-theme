@@ -223,6 +223,25 @@ spinner {
 // Text Entries
 //
 
+%normal_entry {
+  @include entry(normal);
+  box-shadow: none;
+  padding: 4px 10px;
+  border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"));
+
+  &:focus {
+    @include entry(focus);
+    box-shadow: none;
+    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"))
+  }
+
+  &:disabled {
+    @include entry(insensitive);
+    box-shadow: none;
+    border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"))
+  }
+}
+
 %notebook_entry {
   &, &:focus, &:disabled {
     @if $variant == 'dark' { background-color: #1e1e1e; }
@@ -245,7 +264,7 @@ spinner {
 entry {
   min-height: if($variant =='light', 16px, 18px);
   border: 1px solid;
-  padding: 3px 10px;
+  padding: 4px 10px;
 
   caret-color: currentColor;
   border-radius: $bt_radius;
@@ -287,11 +306,16 @@ entry {
 
   &:disabled {
     @include entry(insensitive);
+    box-shadow: none;
     border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"));
   }
 
   notebook & {
     @extend %notebook_entry;
+  }
+
+  notebook infobar & {
+    @extend %normal_entry;
   }
 
   selection { &:focus, & { @extend %selected_items; }}
