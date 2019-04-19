@@ -1762,6 +1762,10 @@ headerbar entry {
   margin-right: 3px;
 }
 
+headerbar entry, headerbar entry:focus, headerbar entry:disabled {
+  border-image: none;
+}
+
 headerbar.titlebar headerbar:not(.titlebar) {
   background: none;
   box-shadow: none;
@@ -5362,14 +5366,18 @@ popover.emoji-picker {
 }
 
 popover.emoji-picker entry {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: none;
   border-width: 0 0 1px 0;
   padding: 4px 12px;
   background: none;
-  margin: -1px;
+}
+
+popover.emoji-picker entry, popover.emoji-picker entry:focus, popover.emoji-picker entry:disabled {
+  margin: -1px -1px 0 -1px;
+  border-image: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 popover.emoji-picker scrolledwindow {
@@ -6371,20 +6379,20 @@ window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
   background-color: #101010;
 }
 
-.background.csd scrolledwindow.view {
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view {
   background-color: #242424;
   border-bottom-left-radius: 7px;
 }
 
-.background.csd scrolledwindow.view > viewport.frame > stack {
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack {
   background-color: transparent;
 }
 
-.background.csd scrolledwindow.view > viewport.frame > stack > list {
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list {
   background-color: transparent;
 }
 
-.background.csd scrolledwindow.view > viewport.frame > stack > list > row.activatable:not(:hover):not(:active):not(:selected), .background.csd .nemo-window .nemo-places-sidebar scrolledwindow.view > viewport.frame > stack > list > .places-treeview:not(:hover):not(:active):not(:selected), .nemo-window .nemo-places-sidebar .background.csd scrolledwindow.view > viewport.frame > stack > list > .places-treeview:not(:hover):not(:active):not(:selected), .background.csd .budgie-menu scrolledwindow.view > viewport.frame > stack > list > button:not(:hover):not(:active):not(:selected), .budgie-menu .background.csd scrolledwindow.view > viewport.frame > stack > list > button:not(:hover):not(:active):not(:selected) {
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > row.activatable:not(:hover):not(:active):not(:selected), .nemo-window .nemo-places-sidebar window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > .places-treeview:not(:hover):not(:active):not(:selected), .budgie-menu window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > button:not(:hover):not(:active):not(:selected) {
   background-color: transparent;
 }
 

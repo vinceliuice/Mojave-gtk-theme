@@ -1447,6 +1447,10 @@ headerbar {
   entry {
     margin-left: 3px;
     margin-right: 3px;
+
+    &, &:focus, &:disabled {
+      border-image: none;
+    }
   }
 
   &.titlebar headerbar:not(.titlebar) {
@@ -4297,14 +4301,18 @@ popover.emoji-picker {
   border-radius: $wm_radius;
 
   entry {
-    border-bottom: 1px solid $borders_color;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: none;
     border-width: 0 0 1px 0;
     padding: 4px 12px;
     background: none;
-    margin: -1px;
+
+    &, &:focus, &:disabled {
+      margin: -1px -1px 0 -1px;
+      border-image: none;
+      border-bottom: 1px solid $borders_color;
+    }
   }
 
   scrolledwindow {

@@ -1101,7 +1101,7 @@ window.background.csd {
 // }
 
 // > 3.25.90
-.background.csd scrolledwindow.view {
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view {
   background-color: $base_color;
   border-bottom-left-radius: $wm_radius + 1px;
 
