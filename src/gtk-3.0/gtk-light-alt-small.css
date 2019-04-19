@@ -223,6 +223,21 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
+notebook entry, filechooser box#pathbarbox.view stack entry.search {
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/notebook-entry.png"));
+}
+
+notebook entry:focus, filechooser box#pathbarbox.view stack entry.search:focus {
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-focus.png"));
+}
+
+notebook entry:disabled, filechooser box#pathbarbox.view stack entry.search:disabled {
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled.png"));
+}
+
 entry {
   min-height: 16px;
   border: 1px solid;
@@ -282,21 +297,6 @@ entry:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.55);
   border-image-source: -gtk-scaled(url("assets/entry-disabled.png"));
-}
-
-notebook entry {
-  border-image-width: 6px 6px 6px 6px;
-  border-image-slice: 6 6 6 6;
-  border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/notebook-entry.png"));
-}
-
-notebook entry:focus {
-  border-image-source: -gtk-scaled(url("assets/notebook-entry-focus.png"));
-}
-
-notebook entry:disabled {
-  border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled.png"));
 }
 
 entry.warning {
@@ -8813,6 +8813,32 @@ filechooser placesview actionbar.background,
   border-radius: 0 0 6px 0;
 }
 
+filechooser actionbar {
+  color: #363636;
+  background-color: rgba(246, 246, 246, 0.94);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+filechooser actionbar label, filechooser actionbar combobox {
+  color: #363636;
+}
+
+filechooser box.vertical > paned > separator {
+  border: none;
+  background-color: transparent;
+  background-image: image(#ffffff);
+  background-size: 8px 8px;
+  background-position: left bottom;
+}
+
+filechooser box.vertical > paned > separator:dir(ltr) {
+  margin-left: -1px;
+}
+
+filechooser box.vertical > paned > separator:dir(rtl) {
+  margin-right: -1px;
+}
+
 .nemo-window .sidebar {
   color: #363636;
   background-color: rgba(246, 246, 246, 0.94);
@@ -8859,16 +8885,6 @@ filechooser placesview actionbar.background,
 
 .caja-side-pane junction {
   background-color: rgba(233, 233, 233, 0.94);
-}
-
-filechooser actionbar {
-  color: #363636;
-  background-color: rgba(246, 246, 246, 0.94);
-  border-color: rgba(0, 0, 0, 0.15);
-}
-
-filechooser actionbar label, filechooser actionbar combobox {
-  color: #363636;
 }
 
 .gedit-bottom-panel-paned {
@@ -8927,7 +8943,7 @@ filechooser actionbar button {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-.caja-side-pane > box button:hover:not(:active), filechooser actionbar button:hover {
+filechooser actionbar button:hover, .caja-side-pane > box button:hover:not(:active) {
   color: #0b0b0b;
   border-color: rgba(0, 0, 0, 0.15);
   border-top-color: rgba(0, 0, 0, 0.15);

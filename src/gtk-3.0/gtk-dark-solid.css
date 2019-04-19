@@ -223,6 +223,25 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
+notebook entry, filechooser box#pathbarbox.view stack entry.search {
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-dark.png"));
+}
+
+notebook entry, filechooser box#pathbarbox.view stack entry.search, notebook entry:focus, filechooser box#pathbarbox.view stack entry.search:focus, notebook entry:disabled, filechooser box#pathbarbox.view stack entry.search:disabled {
+  background-color: #1e1e1e;
+}
+
+notebook entry:focus, filechooser box#pathbarbox.view stack entry.search:focus {
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-focus-dark.png"));
+}
+
+notebook entry:disabled, filechooser box#pathbarbox.view stack entry.search:disabled {
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled-dark.png"));
+}
+
 entry {
   min-height: 18px;
   border: 1px solid;
@@ -281,25 +300,6 @@ entry:disabled {
   border-color: rgba(255, 255, 255, 0.12);
   background-color: rgba(36, 36, 36, 0.55);
   border-image-source: -gtk-scaled(url("assets/entry-disabled-dark.png"));
-}
-
-notebook entry {
-  border-image-width: 6px 6px 6px 6px;
-  border-image-slice: 6 6 6 6;
-  border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/notebook-entry-dark.png"));
-}
-
-notebook entry, notebook entry:focus, notebook entry:disabled {
-  background-color: #1e1e1e;
-}
-
-notebook entry:focus {
-  border-image-source: -gtk-scaled(url("assets/notebook-entry-focus-dark.png"));
-}
-
-notebook entry:disabled {
-  border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled-dark.png"));
 }
 
 entry.warning {
@@ -8838,6 +8838,32 @@ filechooser placesview actionbar.background,
   border-radius: 0 0 6px 0;
 }
 
+filechooser actionbar {
+  color: #dadada;
+  background-color: #3B3B3B;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+filechooser actionbar label, filechooser actionbar combobox {
+  color: #dadada;
+}
+
+filechooser box.vertical > paned > separator {
+  border: none;
+  background-color: transparent;
+  background-image: image(#242424);
+  background-size: 8px 8px;
+  background-position: left bottom;
+}
+
+filechooser box.vertical > paned > separator:dir(ltr) {
+  margin-left: -1px;
+}
+
+filechooser box.vertical > paned > separator:dir(rtl) {
+  margin-right: -1px;
+}
+
 .nemo-window .sidebar {
   color: #dadada;
   background-color: #3B3B3B;
@@ -8884,16 +8910,6 @@ filechooser placesview actionbar.background,
 
 .caja-side-pane junction {
   background-color: #2e2e2e;
-}
-
-filechooser actionbar {
-  color: #dadada;
-  background-color: #3B3B3B;
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-filechooser actionbar label, filechooser actionbar combobox {
-  color: #dadada;
 }
 
 .gedit-bottom-panel-paned {
@@ -8952,7 +8968,7 @@ filechooser actionbar button {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
-.caja-side-pane > box button:hover:not(:active), filechooser actionbar button:hover {
+filechooser actionbar button:hover, .caja-side-pane > box button:hover:not(:active) {
   color: #f8f8f8;
   border-color: rgba(0, 0, 0, 0.15);
   border-top-color: rgba(0, 0, 0, 0.15);

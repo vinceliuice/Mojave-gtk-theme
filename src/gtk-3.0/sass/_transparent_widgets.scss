@@ -77,6 +77,40 @@ filechooser,
   }
 }
 
+filechooser {
+  actionbar {
+    color: $dark_sidebar_fg;
+    background-color: $dark_sidebar_bg;
+    border-color: $borders_color;
+
+    button { @extend %dark_sidebar_button; }
+    entry { @extend %dark_sidebar_entry; }
+
+    @extend %osd_check_radio;
+
+    label, combobox { color: $dark_sidebar_fg; }
+  }
+
+  box#pathbarbox.view {
+    stack {
+      entry.search {
+        @extend %notebook_entry;
+      }
+    }
+  }
+
+  box.vertical > paned > separator { // Use paned separator to hide stack border-bottom-left-radius
+    border: none;
+    background-color: transparent;
+    background-image: image($base_color);
+    background-size: 8px 8px;
+    background-position: left bottom;
+
+    &:dir(ltr) { margin-left: -1px; }
+    &:dir(rtl) { margin-right: -1px; }
+  }
+}
+
 .nemo-window {
   .sidebar {
     color: $dark_sidebar_fg;
@@ -124,22 +158,6 @@ filechooser,
 
   scrollbar { @extend %dark_sidebar_scrollbar; }
   junction { background-color: darken($dark_sidebar_bg, 5%); }
-}
-
-filechooser {
-
-  actionbar {
-    color: $dark_sidebar_fg;
-    background-color: $dark_sidebar_bg;
-    border-color: $borders_color;
-
-    button { @extend %dark_sidebar_button; }
-    entry { @extend %dark_sidebar_entry; }
-
-    @extend %osd_check_radio;
-
-    label, combobox { color: $dark_sidebar_fg; }
-  }
 }
 
 // Gedit

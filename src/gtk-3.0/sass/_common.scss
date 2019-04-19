@@ -222,6 +222,26 @@ spinner {
 //
 // Text Entries
 //
+
+%notebook_entry {
+  &, &:focus, &:disabled {
+    @if $variant == 'dark' { background-color: #1e1e1e; }
+  }
+
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/notebook-entry#{$asset_suffix}.png"));
+
+  &:focus {
+    border-image-source: -gtk-scaled(url("assets/notebook-entry-focus#{$asset_suffix}.png"))
+  }
+
+  &:disabled {
+    border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled#{$asset_suffix}.png"))
+  }
+}
+
 entry {
   min-height: if($variant =='light', 16px, 18px);
   border: 1px solid;
@@ -271,19 +291,7 @@ entry {
   }
 
   notebook & {
-    &, &:focus, &:disabled {
-      @if $variant == 'dark' { background-color: #1e1e1e; }
-    }
-    border-image-width: 6px 6px 6px 6px;
-    border-image-slice: 6 6 6 6;
-    border-image-repeat: stretch;
-    border-image-source: -gtk-scaled(url("assets/notebook-entry#{$asset_suffix}.png"));
-    &:focus {
-      border-image-source: -gtk-scaled(url("assets/notebook-entry-focus#{$asset_suffix}.png"))
-    }
-    &:disabled {
-      border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled#{$asset_suffix}.png"))
-    }
+    @extend %notebook_entry;
   }
 
   selection { &:focus, & { @extend %selected_items; }}
