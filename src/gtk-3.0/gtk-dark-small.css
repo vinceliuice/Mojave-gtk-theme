@@ -226,7 +226,7 @@ spinner:checked:disabled {
 entry {
   min-height: 18px;
   border: 1px solid;
-  padding: 2px 8px;
+  padding: 3px 10px;
   caret-color: currentColor;
   border-radius: 5px;
   transition: all 0.1s cubic-bezier(0, 0, 0.2, 1);
@@ -234,6 +234,11 @@ entry {
   border-color: rgba(255, 255, 255, 0.12);
   border-bottom-color: rgba(255, 255, 255, 0.12);
   background-color: #242424;
+  box-shadow: none;
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/entry-dark.png"));
 }
 
 entry.search {
@@ -256,30 +261,52 @@ entry image.right {
 
 entry.flat, .raven .raven-background spinbutton:not(.vertical), entry.flat:focus, .raven .raven-background spinbutton:focus:not(.vertical) {
   min-height: 0;
-  padding: 2px;
   background-image: none;
   border-color: transparent;
   border-radius: 0;
 }
 
 entry:focus {
-  background-clip: border-box;
   color: #dadada;
   border-color: #6887cd;
   background-color: #242424;
   box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
+  box-shadow: none;
+  transition: border-image 200ms ease-out;
+  border-image-source: -gtk-scaled(url("assets/entry-focus-dark.png"));
 }
 
 entry:disabled {
   color: rgba(222, 222, 222, 0.45);
   border-color: rgba(255, 255, 255, 0.12);
   background-color: rgba(36, 36, 36, 0.55);
+  border-image-source: -gtk-scaled(url("assets/entry-disabled-dark.png"));
+}
+
+notebook entry {
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-dark.png"));
+}
+
+notebook entry, notebook entry:focus, notebook entry:disabled {
+  background-color: #1e1e1e;
+}
+
+notebook entry:focus {
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-focus-dark.png"));
+}
+
+notebook entry:disabled {
+  border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled-dark.png"));
 }
 
 entry.warning {
   color: white;
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #a0562e;
+  border-image: none;
 }
 
 entry.warning image {
@@ -301,6 +328,7 @@ entry.error {
   color: white;
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #a63530;
+  border-image: none;
 }
 
 entry.error image {
@@ -322,6 +350,7 @@ entry.search-missing {
   color: white;
   border-color: rgba(255, 255, 255, 0.12);
   background-color: #a63530;
+  border-image: none;
 }
 
 entry.search-missing image {
@@ -342,12 +371,14 @@ entry.search-missing selection, entry.search-missing selection:focus {
 entry:drop(active):focus, entry:drop(active) {
   border-color: #F08437;
   box-shadow: none;
+  border-image: none;
 }
 
 .osd entry {
   color: #dadada;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(92, 92, 92, 0.96);
+  border-image: none;
 }
 
 .osd entry image, .osd entry image:hover {
@@ -358,11 +389,13 @@ entry:drop(active):focus, entry:drop(active) {
   color: #ffffff;
   border-color: #5578c7;
   background-color: #315bef;
+  border-image: none;
 }
 
 .osd entry:disabled {
   color: #dadada;
   background-color: rgba(92, 92, 92, 0.81);
+  border-image: none;
 }
 
 .osd entry selection:focus, .osd entry selection {
@@ -381,6 +414,20 @@ entry progress {
   box-shadow: none;
 }
 
+.linked:not(.vertical) > entry,
+.linked:not(.vertical) > entry:focus {
+  border-image: none;
+  padding: 2px 8px;
+  transition: box-shadow 200ms ease-out;
+}
+
+.linked.vertical > entry,
+.linked.vertical > entry:focus {
+  border-image: none;
+  padding: 2px 8px;
+  transition: box-shadow 200ms ease-out;
+}
+
 .linked:not(.vertical) > entry + button.combo {
   padding-left: 0;
 }
@@ -393,9 +440,11 @@ treeview entry.flat, treeview .raven .raven-background spinbutton:not(.vertical)
   border-radius: 0;
   background-image: none;
   background-color: #242424;
+  border-image: none;
 }
 
 treeview entry.flat:focus, treeview .raven .raven-background spinbutton:focus:not(.vertical), .raven .raven-background treeview spinbutton:focus:not(.vertical), treeview entry:focus {
+  border-image: none;
   border-color: #315bef;
 }
 
@@ -1250,6 +1299,10 @@ spinbutton:disabled {
   color: rgba(222, 222, 222, 0.45);
 }
 
+spinbutton > entry, spinbutton > entry:focus, spinbutton > entry:drop(active) {
+  border-image: none;
+}
+
 spinbutton > entry:focus {
   box-shadow: inset 0 0 0 1px rgba(104, 135, 205, 0.75);
 }
@@ -1258,8 +1311,13 @@ spinbutton > entry:drop(active) {
   box-shadow: inset 0 0 0 1px #F08437;
 }
 
+spinbutton:not(.vertical) entry, spinbutton:not(.vertical) entry:focus, spinbutton:not(.vertical) entry:drop(active) {
+  border-image: none;
+}
+
 spinbutton:not(.vertical) entry {
   min-width: 28px;
+  border-image: none;
 }
 
 spinbutton:not(.vertical):dir(ltr) entry,
@@ -1295,6 +1353,10 @@ spinbutton:not(.vertical) > entry:drop(active) + button {
   border-left-color: #F08437;
 }
 
+.osd spinbutton:not(.vertical), .osd spinbutton:not(.vertical):focus, .osd spinbutton:not(.vertical):drop(active) {
+  border-image: none;
+}
+
 .osd spinbutton:not(.vertical) > button:hover:not(:active),
 .osd spinbutton:not(.vertical) > button:hover + button {
   box-shadow: inset 1px 0 rgba(0, 0, 0, 0.15);
@@ -1308,6 +1370,10 @@ spinbutton:not(.vertical) > entry:drop(active) + button {
 
 .osd spinbutton:not(.vertical) > entry:focus + button {
   border-left-color: rgba(104, 135, 205, 0.75);
+}
+
+spinbutton.vertical entry, spinbutton.vertical entry:focus, spinbutton.vertical entry:drop(active) {
+  border-image: none;
 }
 
 spinbutton.vertical button, spinbutton.vertical entry {
@@ -1357,6 +1423,11 @@ combobox arrow {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-image: linear-gradient(0deg, #3861ca 0%, #3d6be3 100%);
+}
+
+combobox decoration,
+combobox button.combo:checked {
+  transition: none;
 }
 
 .linked:not(.vertical) > combobox > box > button.combo arrow {
@@ -2703,7 +2774,7 @@ menu > arrow,
 .context-menu > arrow.top,
 menu > arrow.top,
 .menu > arrow.top {
-  margin: -8px 0 0 0;
+  margin-top: -6px;
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
@@ -2713,7 +2784,8 @@ menu > arrow.top,
 .context-menu > arrow.bottom,
 menu > arrow.bottom,
 .menu > arrow.bottom {
-  margin: 0 0 -18px 0;
+  margin-top: 12px;
+  margin-bottom: -16px;
   border-radius: 0 0 6px 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -5323,9 +5395,6 @@ terminal-window notebook > header.top button,
 
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
-  padding-top: 0;
-  padding-bottom: 0;
-  margin: 0 0 0 -5px;
   border-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-right-style: none;
@@ -5380,6 +5449,9 @@ terminal-window notebook > header.top button,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle,
 .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0 0 0 -5px;
   border: none;
   margin: 0 0 0 -4px;
   box-shadow: inset 0 1px #767676;
@@ -5423,6 +5495,30 @@ terminal-window notebook > header.top button,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle:checked,
 .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher:checked {
   border-radius: 5px 5px 5px 5px;
+}
+
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button {
+  margin-top: 0;
+  margin-bottom: 0;
+  min-height: 26px;
+}
+
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:not(:only-child):last-child,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button:not(:only-child):last-child {
+  color: #3d3d3d;
+  background-color: #aaaaaa;
+  background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px #cecece;
+  background-clip: padding-box;
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 300ms;
+}
+
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.text-button:not(:only-child):last-child:hover,
+.nautilus-window headerbar .path-bar-box .linked.nautilus-path-bar button.image-button.text-button:not(:only-child):last-child:hover {
+  background-image: none;
 }
 
 .nautilus-window headerbar .path-bar-box.background.frame {

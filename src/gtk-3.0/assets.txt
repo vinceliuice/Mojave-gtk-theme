@@ -64,6 +64,19 @@ radio-unchecked-insensitive-dark
 radio-mixed-dark
 radio-mixed-insensitive-dark
 
+entry
+entry-dark
+entry-focus
+entry-focus-dark
+entry-disabled
+entry-disabled-dark
+notebook-entry
+notebook-entry-dark
+notebook-entry-focus
+notebook-entry-focus-dark
+notebook-entry-disabled
+notebook-entry-disabled-dark
+
 setting
 setting-dark
 

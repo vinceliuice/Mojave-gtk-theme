@@ -225,7 +225,7 @@ spinner {
 entry {
   min-height: if($variant =='light', 16px, 18px);
   border: 1px solid;
-  padding: 2px 8px;
+  padding: 3px 10px;
 
   caret-color: currentColor;
   border-radius: $bt_radius;
@@ -234,6 +234,12 @@ entry {
   &.search { border-radius: $bt_radius; }
 
   @include entry(normal);
+
+  box-shadow: none;
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"));
 
   image { // icons inside the entry
     color: mix($fg_color,$base_color,80%);
@@ -245,7 +251,6 @@ entry {
   &.flat {
     &, &:focus {
       min-height: 0;
-      padding: 2px;
       background-image: none;
       border-color: transparent;
       border-radius: 0;
@@ -253,11 +258,33 @@ entry {
   }
 
   &:focus {
-    background-clip: border-box;
+    // background-clip: border-box;
     @include entry(focus);
+    box-shadow: none;
+    transition: border-image 200ms ease-out;
+    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"));
   }
 
-  &:disabled { @include entry(insensitive); }
+  &:disabled {
+    @include entry(insensitive);
+    border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"));
+  }
+
+  notebook & {
+    &, &:focus, &:disabled {
+      @if $variant == 'dark' { background-color: #1e1e1e; }
+    }
+    border-image-width: 6px 6px 6px 6px;
+    border-image-slice: 6 6 6 6;
+    border-image-repeat: stretch;
+    border-image-source: -gtk-scaled(url("assets/notebook-entry#{$asset_suffix}.png"));
+    &:focus {
+      border-image-source: -gtk-scaled(url("assets/notebook-entry-focus#{$asset_suffix}.png"))
+    }
+    &:disabled {
+      border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled#{$asset_suffix}.png"))
+    }
+  }
 
   selection { &:focus, & { @extend %selected_items; }}
 
@@ -270,6 +297,7 @@ entry {
       color: $e_fg_color;
       border-color: if($variant=='light', $e_color, $entry_border);
       background-color: mix($e_color, $base_color, 60%);
+      border-image: none;
 
       image { color: $e_fg_color; }
 
@@ -278,6 +306,7 @@ entry {
         background-color: $e_color;
         box-shadow: none;
       }
+
       selection, selection:focus {
         background-color: $e_fg_color;
         color: $e_color;
@@ -289,13 +318,15 @@ entry {
     &:focus, & {
       border-color: $drop_target_color;
       box-shadow: none;
+      border-image: none;
     }
   }
 
   .osd & {
     @include entry(osd);
-    &:focus { @include entry(osd-focus); }
-    &:disabled { @include entry(osd-insensitive); }
+    border-image: none;
+    &:focus { @include entry(osd-focus); border-image: none; }
+    &:disabled { @include entry(osd-insensitive); border-image: none; }
 
     selection {
       &:focus, & {
@@ -318,10 +349,20 @@ entry {
 
   // linked entries
   .linked:not(.vertical) > &,
-  .linked:not(.vertical) > &:focus { @extend %linked; }
+  .linked:not(.vertical) > &:focus {
+    @extend %linked;
+    border-image: none;
+    padding: 2px 8px;
+    transition: box-shadow 200ms ease-out;
+  }
 
   .linked.vertical > &,
-  .linked.vertical > &:focus { @extend %linked_vertical; }
+  .linked.vertical > &:focus {
+    @extend %linked_vertical;
+    border-image: none;
+    padding: 2px 8px;
+    transition: box-shadow 200ms ease-out;
+  }
 
   .linked:not(.vertical) > & + button.combo { padding-left: 0; }
   .linked.vertical > & + button.combo { padding: 0; }
@@ -332,8 +373,12 @@ treeview entry {
     border-radius: 0;
     background-image: none;
     background-color: $base_color;
+    border-image: none;
 
-    &:focus { border-color: $selected_bg_color; }
+    &:focus {
+      border-image: none;
+      border-color: $selected_bg_color;
+    }
   }
 }
 
@@ -969,6 +1014,10 @@ spinbutton {
   button:active { color: $selected_fg_color; }
   &:disabled { color: $insensitive_fg_color; }
 
+  > entry {
+    &, &:focus, &:drop(active) { border-image: none; }
+  }
+
   > entry:focus {
     @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $entry_highlight; }
     @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $entry_highlight; }
@@ -980,7 +1029,10 @@ spinbutton {
   }
 
   &:not(.vertical) {
-    entry { min-width: 28px; }
+    entry {
+      &, &:focus, &:drop(active) { border-image: none; }
+    }
+    entry { min-width: 28px; border-image: none; }
     button, entry { @extend %linked; }
 
     &:dir(ltr) entry,
@@ -1002,6 +1054,7 @@ spinbutton {
     > entry:drop(active) + button { border-left-color: $drop_target_color; }
 
     .osd & {
+      &, &:focus, &:drop(active) { border-image: none; }
       > button:hover:not(:active),
       > button:hover + button { box-shadow: inset 1px 0 $osd_button_border; }
 
@@ -1014,6 +1067,9 @@ spinbutton {
   }
 
   &.vertical {
+    entry {
+      &, &:focus, &:drop(active) { border-image: none; }
+    }
     button, entry {
       padding-left: 4px;
       padding-right: 4px;
@@ -1036,7 +1092,7 @@ combobox {
   button.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
     min-height: 20px;
-//    margin: 0;
+    // margin: 0;
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -1065,6 +1121,9 @@ combobox {
   // .background & menu arrow { // Reset menu overflow arrow
   //   @extend %menu_overflow_arrow;
   // }
+
+  decoration,
+  button.combo:checked { transition: none; } // workaround for menuitem selection
 
   &:drop(active) button.combo { @extend button:drop(active); }
 
@@ -2193,14 +2252,15 @@ menu,
     color: $fg_color;
 
     &.top {
-      margin: -8px 0 0 0;
+      margin-top: -6px;
       border-radius: $wm_radius $wm_radius 0 0;
       border-bottom: 1px solid $borders_color;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
     }
 
     &.bottom {
-      margin: 0 0 -18px 0;
+      margin-top: 12px;
+      margin-bottom: -16px;
       border-radius: 0 0 $wm_radius $wm_radius;
       border-top: 1px solid $borders_color;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
