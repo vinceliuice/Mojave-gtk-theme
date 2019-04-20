@@ -226,8 +226,35 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
+row.activatable entry, .nemo-window .nemo-places-sidebar .places-treeview entry, .budgie-menu button entry {
+  margin: 2px;
+  padding: 2px 8px;
+  color: #363636;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.27);
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+row.activatable entry, .nemo-window .nemo-places-sidebar .places-treeview entry, .budgie-menu button entry, row.activatable entry:focus, .nemo-window .nemo-places-sidebar .places-treeview entry:focus, .budgie-menu button entry:focus, row.activatable entry:disabled, .nemo-window .nemo-places-sidebar .places-treeview entry:disabled, .budgie-menu button entry:disabled {
+  border-image: none;
+}
+
+row.activatable entry:focus, .nemo-window .nemo-places-sidebar .places-treeview entry:focus, .budgie-menu button entry:focus {
+  color: #363636;
+  border-color: rgba(103, 164, 233, 0.75);
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px 0 transparent, 0 0 0 2px rgba(103, 164, 233, 0.75);
+}
+
+row.activatable entry:disabled, .nemo-window .nemo-places-sidebar .places-treeview entry:disabled, .budgie-menu button entry:disabled {
+  color: rgba(36, 36, 36, 0.55);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
 notebook searchbar entry,
-notebook infobar entry {
+notebook infobar entry, .linked > entry:only-child {
   color: #363636;
   border-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.27);
@@ -239,7 +266,7 @@ notebook infobar entry {
 }
 
 notebook searchbar entry:focus,
-notebook infobar entry:focus {
+notebook infobar entry:focus, .linked > entry:focus:only-child {
   color: #363636;
   border-color: rgba(103, 164, 233, 0.75);
   background-color: #ffffff;
@@ -249,7 +276,7 @@ notebook infobar entry:focus {
 }
 
 notebook searchbar entry:disabled,
-notebook infobar entry:disabled {
+notebook infobar entry:disabled, .linked > entry:disabled:only-child {
   color: rgba(36, 36, 36, 0.55);
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.55);
@@ -276,6 +303,7 @@ entry {
   min-height: 16px;
   border: 1px solid;
   padding: 4px 10px;
+  margin: -2px;
   caret-color: currentColor;
   border-radius: 5px;
   transition: all 0.1s cubic-bezier(0, 0, 0.2, 1);
@@ -1324,7 +1352,10 @@ spinbutton:disabled {
   color: rgba(36, 36, 36, 0.55);
 }
 
-spinbutton > entry, spinbutton > entry:focus, spinbutton > entry:drop(active) {
+spinbutton > entry {
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
   border-image: none;
 }
 
@@ -1336,11 +1367,10 @@ spinbutton > entry:drop(active) {
   box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px #F08437;
 }
 
-spinbutton:not(.vertical) entry, spinbutton:not(.vertical) entry:focus, spinbutton:not(.vertical) entry:drop(active) {
-  border-image: none;
-}
-
 spinbutton:not(.vertical) entry {
+  margin: 0;
+  padding-top: 2px;
+  padding-bottom: 2px;
   min-width: 28px;
   border-image: none;
 }
@@ -1397,7 +1427,7 @@ spinbutton:not(.vertical) > entry:drop(active) + button {
   border-left-color: rgba(103, 164, 233, 0.75);
 }
 
-spinbutton.vertical entry, spinbutton.vertical entry:focus, spinbutton.vertical entry:drop(active) {
+spinbutton.vertical entry {
   border-image: none;
 }
 
@@ -1750,14 +1780,13 @@ headerbar.default-decoration,
   min-height: 20px;
 }
 
-headerbar entry, headerbar button, headerbar spinbutton, headerbar separator:not(.sidebar) {
+headerbar entry, headerbar .linked > entry, headerbar button, headerbar spinbutton, headerbar separator:not(.sidebar) {
   margin-top: 6px;
   margin-bottom: 6px;
 }
 
 headerbar entry {
-  margin-left: 3px;
-  margin-right: 3px;
+  margin: 6px 3px;
   padding: 2px 8px;
 }
 
@@ -6434,6 +6463,27 @@ window.background.csd > overlay > grid.horizontal > frame:dir(ltr) > border {
 
 window.background.csd > overlay > grid.horizontal > overlay > stack > box.horizontal > grid.horizontal > scrolledwindow.contacts-contact-form {
   border-bottom-right-radius: 7px;
+}
+
+stack.view.polari-entry-area {
+  background-color: #f5f5f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+stack.view.polari-entry-area button.popup.flat.toggle.polari-nick-button:hover, stack.view.polari-entry-area button.popup.toggle.polari-nick-button.budgie-menu-launcher:hover {
+  background-color: rgba(36, 36, 36, 0.15);
+  box-shadow: none;
+  background-image: none;
+}
+
+stack.view.polari-entry-area button.popup.flat.toggle.polari-nick-button:active, stack.view.polari-entry-area button.popup.toggle.polari-nick-button.budgie-menu-launcher:active, stack.view.polari-entry-area button.popup.flat.toggle.polari-nick-button:checked, stack.view.polari-entry-area button.popup.toggle.polari-nick-button.budgie-menu-launcher:checked {
+  background-color: rgba(36, 36, 36, 0.25);
+  box-shadow: none;
+  background-image: none;
+}
+
+stack:disabled.view.polari-entry-area {
+  background-image: image(#f5f5f5);
 }
 
 .tr-workarea undershoot,

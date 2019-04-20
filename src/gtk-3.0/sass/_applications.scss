@@ -1228,6 +1228,30 @@ window.background.csd {
 }
 
 //
+// Polari
+//
+stack.view.polari-entry-area {
+  background-color: $bg_color;
+  border-top: 1px solid $borders_color;
+
+  button.popup.flat.toggle.polari-nick-button {
+    &:hover {
+      background-color: rgba($fg_color, 0.15);
+      box-shadow: none;
+      background-image: none;
+    }
+
+    &:active, &:checked {
+      background-color: rgba($fg_color, 0.25);
+      box-shadow: none;
+      background-image: none;
+    }
+  }
+}
+
+stack:disabled.view.polari-entry-area { background-image: image($bg_color); }
+
+//
 // Transmission
 //
 .tr-workarea undershoot,
@@ -1249,54 +1273,49 @@ window.background.csd {
 #gf-osd-window,
 #gf-input-source-popup,
 #gf-candidate-popup {
-    &,
-    &.solid {
-        color: lighten($osd_fg_color, 7%);
-        background-color: $osd_bg_color;
-        border: 1px solid darken($osd_bg_color, 8%);
-        border-radius: 2px;
+  &, &.solid {
+    color: lighten($osd_fg_color, 7%);
+    background-color: $osd_bg_color;
+    border: 1px solid darken($osd_bg_color, 8%);
+    border-radius: 2px;
+  }
+
+  levelbar {
+    block {
+      &.low, &.high, &.full {
+        background-color: $selected_bg_color;
+        border-color: $selected_bg_color;
+      }
+
+      &.empty { background-color: darken($osd_bg_color, 5%); }
     }
 
-    levelbar {
-        block {
-            &.low,
-            &.high,
-            &.full {
-                background-color: $selected_bg_color;
-                border-color: $selected_bg_color;
-            }
-            &.empty {
-                background-color: darken($osd_bg_color, 5%);
-            }
-        }
-        trough {
-            background: none;
-        }
-    } // FIXME still needs button styling
+    trough { background: none; }
+  } // FIXME still needs button styling
 }
 
 #gf-input-source {
-    min-height: 32px;
-    min-width: 40px;
+  min-height: 32px;
+  min-width: 40px;
 
-    &:selected {
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
-        border-radius: 2px;
-    }
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    border-radius: 2px;
+  }
 }
 
 gf-candidate-box {
-    label {
-        padding: 3px;
-    }
+  label {
+    padding: 3px;
+  }
 
-    &:hover,
-    &:selected {
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
-        border-radius: 2px;
-    }
+  &:hover,
+  &:selected {
+    color: $selected_fg_color;
+    background-color: $selected_bg_color;
+    border-radius: 2px;
+  }
 }
 
  /*************

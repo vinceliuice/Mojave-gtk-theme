@@ -53,7 +53,7 @@ $wm_radius: 6px;
 }
 
 .background {
-//  border-radius: 0 0 $wm_radius $wm_radius;
+  // border-radius: 0 0 $wm_radius $wm_radius;
   color: $fg_color;
   background-color: $bg_color;
 
@@ -70,18 +70,22 @@ $wm_radius: 6px;
 .gtkstyle-fallback {
   background-color: $bg_color;
   color: $fg_color;
+
   &:hover {
     background-color: lighten($bg_color, 10%);
     color: $fg_color;
   }
+
   &:active {
     background-color: darken($bg_color, 10%);
     color: $fg_color;
   }
+
   &:disabled {
     background-color: $insensitive_bg_color;
     color: $insensitive_fg_color;
   }
+
   &:selected {
     background-color: $selected_bg_color;
     color: $selected_fg_color;
@@ -231,6 +235,14 @@ spinner {
 //
 // Text Entries
 //
+%default_entry {
+  margin: 2px;
+  padding: 2px 8px;
+  &, &:focus, &:disabled { border-image: none; }
+  @include entry(normal);
+  &:focus { @include entry(focus); }
+  &:disabled { @include entry(insensitive); }
+}
 
 %normal_entry {
   @include entry(normal);
@@ -274,6 +286,7 @@ entry {
   min-height: if($variant =='light', 16px, 18px);
   border: 1px solid;
   padding: 4px 10px;
+  margin: -2px;
 
   caret-color: currentColor;
   border-radius: $bt_radius;
@@ -326,6 +339,10 @@ entry {
   notebook searchbar &,
   notebook infobar & {
     @extend %normal_entry;
+  }
+
+  row.activatable & {
+    @extend %default_entry;
   }
 
   selection { &:focus, & { @extend %selected_items; }}
@@ -405,6 +422,8 @@ entry {
     padding: 2px 8px;
     transition: box-shadow 200ms ease-out;
   }
+
+  .linked > &:only-child { @extend %normal_entry; }
 
   .linked:not(.vertical) > & + button.combo { padding-left: 0; }
   .linked.vertical > & + button.combo { padding: 0; }
@@ -1052,7 +1071,10 @@ spinbutton {
   &:disabled { color: $insensitive_fg_color; }
 
   > entry {
-    &, &:focus, &:drop(active) { border-image: none; }
+    margin: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-image: none;
   }
 
   > entry:focus {
@@ -1067,9 +1089,13 @@ spinbutton {
 
   &:not(.vertical) {
     entry {
-      &, &:focus, &:drop(active) { border-image: none; }
+      margin: 0;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      min-width: 28px;
+      border-image: none;
     }
-    entry { min-width: 28px; border-image: none; }
+
     button, entry { @extend %linked; }
 
     &:dir(ltr) entry,
@@ -1104,9 +1130,7 @@ spinbutton {
   }
 
   &.vertical {
-    entry {
-      &, &:focus, &:drop(active) { border-image: none; }
-    }
+    entry { border-image: none; }
     button, entry {
       padding-left: 4px;
       padding-right: 4px;
@@ -1444,19 +1468,16 @@ headerbar,
 headerbar {
   @extend %header_widgets;
 
-  entry, button, spinbutton, separator:not(.sidebar) {
+  entry, .linked > entry, button, spinbutton, separator:not(.sidebar) {
     margin-top: 6px;
     margin-bottom: 6px;
   }
 
   entry {
-    margin-left: 3px;
-    margin-right: 3px;
+    margin: 6px 3px;
     padding: 2px 8px;
 
-    &, &:focus, &:disabled {
-      border-image: none;
-    }
+    &, &:focus, &:disabled { border-image: none; }
   }
 
   &.titlebar headerbar:not(.titlebar) {
