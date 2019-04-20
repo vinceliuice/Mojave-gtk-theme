@@ -226,7 +226,10 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
-row.activatable entry, .nemo-window .nemo-places-sidebar .places-treeview entry, .budgie-menu button entry {
+popover entry,
+row.activatable entry,
+.nemo-window .nemo-places-sidebar .places-treeview entry,
+.budgie-menu button entry {
   margin: 2px;
   padding: 2px 8px;
   color: #dadada;
@@ -235,18 +238,33 @@ row.activatable entry, .nemo-window .nemo-places-sidebar .places-treeview entry,
   background-color: #242424;
 }
 
-row.activatable entry, .nemo-window .nemo-places-sidebar .places-treeview entry, .budgie-menu button entry, row.activatable entry:focus, .nemo-window .nemo-places-sidebar .places-treeview entry:focus, .budgie-menu button entry:focus, row.activatable entry:disabled, .nemo-window .nemo-places-sidebar .places-treeview entry:disabled, .budgie-menu button entry:disabled {
+popover entry,
+row.activatable entry,
+.nemo-window .nemo-places-sidebar .places-treeview entry,
+.budgie-menu button entry, popover entry:focus,
+row.activatable entry:focus,
+.nemo-window .nemo-places-sidebar .places-treeview entry:focus,
+.budgie-menu button entry:focus, popover entry:disabled,
+row.activatable entry:disabled,
+.nemo-window .nemo-places-sidebar .places-treeview entry:disabled,
+.budgie-menu button entry:disabled {
   border-image: none;
 }
 
-row.activatable entry:focus, .nemo-window .nemo-places-sidebar .places-treeview entry:focus, .budgie-menu button entry:focus {
+popover entry:focus,
+row.activatable entry:focus,
+.nemo-window .nemo-places-sidebar .places-treeview entry:focus,
+.budgie-menu button entry:focus {
   color: #dadada;
   border-color: rgba(104, 135, 205, 0.75);
   background-color: #242424;
   box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
 }
 
-row.activatable entry:disabled, .nemo-window .nemo-places-sidebar .places-treeview entry:disabled, .budgie-menu button entry:disabled {
+popover entry:disabled,
+row.activatable entry:disabled,
+.nemo-window .nemo-places-sidebar .places-treeview entry:disabled,
+.budgie-menu button entry:disabled {
   color: rgba(222, 222, 222, 0.45);
   border-color: rgba(255, 255, 255, 0.12);
   background-color: rgba(36, 36, 36, 0.55);

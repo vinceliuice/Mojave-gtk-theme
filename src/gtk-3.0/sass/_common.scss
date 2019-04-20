@@ -341,6 +341,7 @@ entry {
     @extend %normal_entry;
   }
 
+  popover &,
   row.activatable & {
     @extend %default_entry;
   }
