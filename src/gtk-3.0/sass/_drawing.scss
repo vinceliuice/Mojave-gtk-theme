@@ -94,7 +94,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // focused entry
   //
     color: $text_color;
-    border-color: $selection_mode_bg;
+    border-color: $entry_highlight;
     background-color: $entry_bg;
     @if $variant == 'dark' { box-shadow: 0 0 0 2px $entry_highlight; }
     @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, // set the same size transparent shadow for entry transition
@@ -424,8 +424,9 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // active osd button
   //
     color: $selected_fg_color;
-    border-color: $osd_button_border;
+    border-color: if($variant == 'light', $selected_bg_color, $osd_button_border);
     background-color: $selected_bg_color;
+    background-image: none;
     box-shadow: none;
   }
 

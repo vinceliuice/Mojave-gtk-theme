@@ -110,12 +110,21 @@ $wm_radius: 6px;
 textview {
   background-color: $base_color; // This will get overridden by .view, needed by gedit line numbers
 
+  // &:focus {
+  //   border-radius: 0;
+  //   box-shadow: inset 0 0 0 2px $entry_highlight;
+  // }
+
   text {
-    @extend %view;
-    selection { &:focus, & { @extend %selected_items; } }
+    border: none;
+    background: none;
+    selection { &:focus, & { @extend %selected_items; }}
   }
 
-  border { background-color: mix($bg_color, $base_color, 50%); }
+  border {
+    border: none;
+    background-color: mix($bg_color, $base_color, 50%);
+  }
 }
 
 iconview {
@@ -163,7 +172,7 @@ label {
   }
 
   &:disabled {
-//    color: $insensitive_fg_color;
+    // color: $insensitive_fg_color;
     selection { @extend %selected_items:disabled; }
   }
 }
@@ -173,7 +182,7 @@ label {
 }
 
 assistant {
- //   min-height: 38px;
+  // min-height: 38px;
   .sidebar {
     background-color: $base_color;
     border-top: 1px solid $borders_color;
@@ -314,6 +323,7 @@ entry {
     @extend %notebook_entry;
   }
 
+  notebook searchbar &,
   notebook infobar & {
     @extend %normal_entry;
   }
@@ -603,7 +613,7 @@ button {
     }
 
     &:hover { color: $selected_bg_color; }
-    &:active, &:checked { @include button(osd-active); }
+    &:active, &:checked {@include button(osd-active); }
     &:disabled { @include button(osd-insensitive); }
   }
 
@@ -612,12 +622,7 @@ button {
     @include button(osd);
 
     &:hover { @include button(osd-hover); }
-
-    &:active, &:checked {
-      background-clip: padding-box;
-      @include button(osd-active);
-    }
-
+    &:active, &:checked { @include button(osd-active); }
     &:disabled { @include button(osd-insensitive); }
 
     &.flat {
@@ -772,7 +777,7 @@ toolbar.inline-toolbar toolbutton {
 
 // Some crazy linking stuff
 @mixin linking_rules($a:0.7, $var:$variant, $vert:'false', $entry_rules:'true', $button_rules:'true',
-                     $e_border:$entry_border, $b_border:$button_border) {
+                     $e_border:$entry_highlight, $b_border:$button_border) {
 
   $_border: if($vert=='false', left, top);
 
@@ -1447,6 +1452,7 @@ headerbar {
   entry {
     margin-left: 3px;
     margin-right: 3px;
+    padding: 2px 8px;
 
     &, &:focus, &:disabled {
       border-image: none;
@@ -4332,8 +4338,8 @@ button.emoji-section {
   border: none;
   outline-offset: -2px;
   box-shadow: none;
-//  &:first-child { border-radius: 0 0 0 $wm_radius; }
-//  &:last-child { border-radius: 0 0 $wm_radius 0; }
+  // &:first-child { border-radius: 0 0 0 $wm_radius; }
+  // &:last-child { border-radius: 0 0 $wm_radius 0; }
 }
 
 .emoji {

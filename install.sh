@@ -20,6 +20,7 @@ COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
 SMALL_VARIANTS=('' '-small')
+ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian')
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -30,17 +31,9 @@ usage() {
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
   printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify titilebutton size variant(s) [standard|small] (Default: standard variant)"
+  printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
-  printf "\n%s\n" "INSTALLATION EXAMPLES:"
-  printf "%s\n" "Install all theme variants into ~/.themes"
-  printf "  %s\n" "$0 --dest ~/.themes"
-  printf "%s\n" "Install all theme variants into ~/.themes including GDM theme"
-  printf "  %s\n" "$0 --dest ~/.themes --gdm"
-  printf "%s\n" "Install standard theme variant only"
-  printf "  %s\n" "$0 --color standard --flat standard"
-  printf "%s\n" "Install specific theme variants with different name into ~/.themes"
-  printf "  %s\n" "$0 --dest ~/.themes --name MyTheme --color light dark"
 }
 
 install() {
@@ -50,11 +43,12 @@ install() {
   local opacity=${4}
   local alt=${5}
   local small=${6}
+  local icon=${7}
 
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
 
-  local THEME_DIR=${dest}/${name}${color}${opacity}${alt}${small}
+  local THEME_DIR=${dest}/${name}${color}${opacity}${alt}
 
   [[ -d ${THEME_DIR} ]] && rm -rf ${THEME_DIR}
 
@@ -81,6 +75,7 @@ install() {
   cp -ur ${SRC_DIR}/gnome-shell/gnome-shell${color}${opacity}.css                       ${THEME_DIR}/gnome-shell/gnome-shell.css
   cp -ur ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
   cp -ur ${SRC_DIR}/gnome-shell/assets${color}/*.svg                                    ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/activities/activities${icon}.svg         ${THEME_DIR}/gnome-shell/assets/activities.svg
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
   ln -s assets/process-working.svg process-working.svg
@@ -274,6 +269,53 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
+    -i|--icon)
+      shift
+      for icon in "${@}"; do
+        case "${icon}" in
+          standard)
+            icons+=("${ICON_VARIANTS[0]}")
+            shift
+            ;;
+          normal)
+            icons+=("${ICON_VARIANTS[1]}")
+            shift
+            ;;
+          gnome)
+            icons+=("${ICON_VARIANTS[2]}")
+            shift
+            ;;
+          ubuntu)
+            icons+=("${ICON_VARIANTS[3]}")
+            shift
+            ;;
+          arch)
+            icons+=("${ICON_VARIANTS[4]}")
+            shift
+            ;;
+          manjaro)
+            icons+=("${ICON_VARIANTS[5]}")
+            shift
+            ;;
+          fedora)
+            icons+=("${ICON_VARIANTS[6]}")
+            shift
+            ;;
+          debian)
+            icons+=("${ICON_VARIANTS[7]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized alt variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -h|--help)
       usage
       exit 0
@@ -290,14 +332,16 @@ for opacity in "${opacitys[@]:-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
     for alt in "${alts[@]:-${ALT_VARIANTS[@]}}"; do
       for small in "${smalls[@]:-${SMALL_VARIANTS[0]}}"; do
-      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}"
+        for icon in "${icons[@]:-${ICON_VARIANTS[0]}}"; do
+          install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
+        done
       done
     done
   done
 done
 
 if [[ "${gdm:-}" == 'true' ]]; then
-  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}"
+  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}"
 fi
 
 echo

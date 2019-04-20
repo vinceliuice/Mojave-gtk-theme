@@ -97,7 +97,6 @@ headerbar button, .nemo-window .primary-toolbar button, paned.titlebar.horizonta
 }
 
 .view,
-textview text,
 iconview,
 filechooser stack.view scrolledwindow treeview.view,
 window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view,
@@ -108,7 +107,6 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
 }
 
 .view:hover,
-textview text:hover,
 iconview:hover,
 filechooser stack.view scrolledwindow treeview.view:hover,
 window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:hover,
@@ -117,7 +115,6 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
 }
 
 .view:selected,
-textview text:selected,
 iconview:selected,
 filechooser stack.view scrolledwindow treeview.view:selected,
 window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected,
@@ -131,7 +128,13 @@ textview {
   background-color: #242424;
 }
 
+textview text {
+  border: none;
+  background: none;
+}
+
 textview border {
+  border: none;
   background-color: #2c2c2c;
 }
 
@@ -223,6 +226,7 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
+notebook searchbar entry,
 notebook infobar entry {
   color: #dadada;
   border-color: rgba(255, 255, 255, 0.12);
@@ -233,15 +237,17 @@ notebook infobar entry {
   border-image-source: -gtk-scaled(url("assets/entry-dark.png"));
 }
 
+notebook searchbar entry:focus,
 notebook infobar entry:focus {
   color: #dadada;
-  border-color: #6887cd;
+  border-color: rgba(104, 135, 205, 0.75);
   background-color: #242424;
   box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
   box-shadow: none;
   border-image-source: -gtk-scaled(url("assets/entry-focus-dark.png"));
 }
 
+notebook searchbar entry:disabled,
 notebook infobar entry:disabled {
   color: rgba(222, 222, 222, 0.45);
   border-color: rgba(255, 255, 255, 0.12);
@@ -314,7 +320,7 @@ entry.flat, .raven .raven-background spinbutton:not(.vertical), entry.flat:focus
 
 entry:focus {
   color: #dadada;
-  border-color: #6887cd;
+  border-color: rgba(104, 135, 205, 0.75);
   background-color: #242424;
   box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
   box-shadow: none;
@@ -700,6 +706,7 @@ button.osd:active, button.osd:checked {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  background-image: none;
   box-shadow: none;
 }
 
@@ -725,10 +732,10 @@ button.osd:disabled {
 }
 
 .osd button:active, .osd button:checked {
-  background-clip: padding-box;
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  background-image: none;
   box-shadow: none;
 }
 
@@ -766,6 +773,7 @@ button.osd:disabled {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  background-image: none;
   box-shadow: none;
 }
 
@@ -955,22 +963,22 @@ button.font separator, button.file separator {
 }
 
 .linked:not(.vertical):not(.path-bar) > entry + entry {
-  border-left-color: rgba(255, 255, 255, 0);
+  border-left-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked:not(.vertical):not(.path-bar) > entry.error + entry,
 .linked:not(.vertical):not(.path-bar) > entry + entry.error {
-  border-left-color: rgba(255, 255, 255, 0);
+  border-left-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked:not(.vertical):not(.path-bar) > entry.warning + entry,
 .linked:not(.vertical):not(.path-bar) > entry + entry.warning {
-  border-left-color: rgba(255, 255, 255, 0);
+  border-left-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked:not(.vertical):not(.path-bar) > entry.error + entry.warning,
 .linked:not(.vertical):not(.path-bar) > entry.warning + entry.error {
-  border-left-color: rgba(255, 255, 255, 0);
+  border-left-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) {
@@ -1072,22 +1080,22 @@ headerbar.titlebar .linked:not(.vertical):not(.path-bar) > button + button {
 }
 
 .linked.vertical > entry + entry {
-  border-top-color: rgba(255, 255, 255, 0);
+  border-top-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked.vertical > entry.error + entry,
 .linked.vertical > entry + entry.error {
-  border-top-color: rgba(255, 255, 255, 0);
+  border-top-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked.vertical > entry.warning + entry,
 .linked.vertical > entry + entry.warning {
-  border-top-color: rgba(255, 255, 255, 0);
+  border-top-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked.vertical > entry.error + entry.warning,
 .linked.vertical > entry.warning + entry.error {
-  border-top-color: rgba(255, 255, 255, 0);
+  border-top-color: rgba(104, 135, 205, 0.05);
 }
 
 .linked.vertical > entry:focus:not(:only-child) {
@@ -1760,6 +1768,7 @@ headerbar entry, headerbar button, headerbar spinbutton, headerbar separator:not
 headerbar entry {
   margin-left: 3px;
   margin-right: 3px;
+  padding: 2px 8px;
 }
 
 headerbar entry, headerbar entry:focus, headerbar entry:disabled {
@@ -5327,7 +5336,7 @@ headerbar button.titlebutton.restore:active,
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active-alt-dark.png"), url("windows-assets/titlebutton-restore-active-alt-dark@2.png"));
 }
 
-.view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
+.view:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
 modelbutton.flat:active,
 modelbutton.flat:active arrow,
 modelbutton.flat:selected,
@@ -5337,7 +5346,7 @@ calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .
   background-color: #315bef;
 }
 
-row:selected label, label:selected, .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
+row:selected label, label:selected, .view:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
 modelbutton.flat:active,
 modelbutton.flat:active arrow,
 modelbutton.flat:selected,
@@ -5347,7 +5356,7 @@ calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .
   color: #ffffff;
 }
 
-row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, textview text:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:disabled:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, menuitem.button.flat:disabled:active, menuitem.button.flat:active arrow:disabled, menuitem.button.flat:disabled:selected, menuitem.button.flat:selected arrow:disabled,
+row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:disabled:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, menuitem.button.flat:disabled:active, menuitem.button.flat:active arrow:disabled, menuitem.button.flat:disabled:selected, menuitem.button.flat:selected arrow:disabled,
 modelbutton.flat:disabled:active,
 modelbutton.flat:active arrow:disabled,
 modelbutton.flat:disabled:selected,
@@ -6203,6 +6212,27 @@ configurationview entry.flat, configurationview .raven .raven-background spinbut
 
 configurationview list {
   border-width: 0;
+}
+
+window.org-gnome-Builder.workspace > popover.dzlmenubutton > box.vertical > dzlmenubuttonsection.vertical > box.vertical > button.dzlmenubuttonitem {
+  color: #3d3d3d;
+}
+
+window.org-gnome-Builder.workspace > popover.dzlmenubutton > box.vertical > dzlmenubuttonsection.vertical > box.vertical > button.dzlmenubuttonitem:active, window.org-gnome-Builder.workspace > popover.dzlmenubutton > box.vertical > dzlmenubuttonsection.vertical > box.vertical > button.dzlmenubuttonitem:checked {
+  color: #dedede;
+  background-color: rgba(222, 222, 222, 0.25);
+}
+
+window.org-gnome-Builder.workspace > popover.dzlmenubutton > box.vertical > dzlmenubuttonsection.vertical > box.vertical > button.dzlmenubuttonitem > box.horizontal > box.horizontal > label.title {
+  color: #dedede;
+}
+
+window.org-gnome-Builder.workspace > stack#titlebar_container.titlebar > headerbar > omnibar > .linked > entry {
+  min-height: 0;
+}
+
+window.org-gnome-Builder.workspace > stack#titlebar_container.titlebar > headerbar > omnibar > .linked > entry > overlay > box.horizontal > box.vertical.pan > button {
+  min-height: 0;
 }
 
 window.background > box.vertical box.horizontal list.categories {
@@ -7419,7 +7449,7 @@ window.background:not(.csd) > window > menu menuitem {
 }
 
 #MozillaGtkWidget.background > widget border {
-  border-color: #474747;
+  border-color: #666666;
 }
 
 #MozillaGtkWidget.background > widget separator {
@@ -8627,6 +8657,7 @@ GtkListBox .h4 {
   color: #ffffff;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: #315bef;
+  background-image: none;
   box-shadow: none;
 }
 
@@ -9040,7 +9071,7 @@ filechooser actionbar entry {
 
 filechooser actionbar entry:focus {
   color: #dadada;
-  border-color: #6887cd;
+  border-color: rgba(104, 135, 205, 0.75);
   background-color: #242424;
   box-shadow: 0 0 0 2px rgba(104, 135, 205, 0.75);
 }

@@ -897,6 +897,39 @@ configurationview {
   }
 }
 
+window.org-gnome-Builder.workspace > popover.dzlmenubutton {
+  > box.vertical > dzlmenubuttonsection.vertical {
+    > box.vertical > button.dzlmenubuttonitem {
+      color: $alt_fg_color;
+
+      &:active, &:checked {
+        color: $fg_color;
+        background-color: rgba($fg_color, 0.25);
+      }
+
+      > box.horizontal > box.horizontal {
+        > label.title {
+          color: $fg_color;
+        }
+      }
+    }
+  }
+}
+
+window.org-gnome-Builder.workspace > stack#titlebar_container.titlebar {
+  > headerbar > omnibar {
+    > .linked > entry {
+      min-height: 0;
+
+      > overlay > box.horizontal > box.vertical.pan {
+        > button {
+          min-height: 0;
+        }
+      }
+    }
+  }
+}
+
 //
 //  Gnome-Logs
 //
@@ -2168,7 +2201,6 @@ window.background:not(.csd) {
 //  *******************/
 
 #MozillaGtkWidget.background {
-
   // blend with weird toolbar backgrounds
   background-color: $bg_color;
 
@@ -2213,7 +2245,7 @@ window.background:not(.csd) {
   }
 
   > widget {
-    border { border-color: $solid_borders_color; }
+    border { border-color: if($variant == 'light', darken($bg_color, 15%), lighten($bg_color, 20%)); }
 
     separator { background-color: $borders_color; }
 
@@ -2240,8 +2272,8 @@ window.background:not(.csd) {
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
-//  background-color: $bg_color;
-//  color: $text_color;
+  // background-color: $bg_color;
+  // color: $text_color;
 
   headerbar.titlebar {
     button.toggle { // account-button (> 64.0.3282?)
