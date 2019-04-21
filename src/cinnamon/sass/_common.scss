@@ -1289,23 +1289,30 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   font-weight: bold;
   spacing: 1em;
   padding: 20px;
-  margin: 32px;
+  //  margin: 32px;
   min-width: 64px;
   min-height: 64px;
 
   color: $panel_fg;
-  border: 1px solid $borders_color;
-  border-radius: 5px;
-  background-color: $panel_bg;
 
-.osd-monitor-label { font-size: 3em; }
+  border-radius: 0;
+  background-color: $panel_bg;
+  border: none;
+  border-image: url("assets/menu.svg") 15 15 15 15;
+
+  .osd-monitor-label { font-size: 3em; }
 
   .level {
     padding: 0;
     height: 4px;
-    background-color: rgba(black, 0.5);
+    background-color: rgba(black, 0.35);
     border-radius: 2px;
     color: $selected_bg_color;
+  }
+
+  .level-bar {
+    border-radius: 2px;
+    background-color: $selected_bg_color;
   }
 }
 
