@@ -2809,7 +2809,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .login-dialog-user-list-item {
   border-radius: 8px;
-  padding: 4px 4px 0;
+  padding: 6px;
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -2833,7 +2833,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .login-dialog-user-list-item .login-dialog-timed-login-indicator {
   height: 2px;
-  margin: 2px 0 0 0;
+  margin: 6px 0 0 0;
   background-color: rgba(255, 255, 255, 0.85);
 }
 
