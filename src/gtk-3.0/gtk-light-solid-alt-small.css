@@ -2014,8 +2014,8 @@ headerbar entry:focus, .nemo-window .primary-toolbar entry:focus {
 }
 
 headerbar entry:disabled, .nemo-window .primary-toolbar entry:disabled {
-  color: rgba(87, 87, 87, 0.55);
-  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(87, 87, 87, 0.35);
+  background-color: white;
 }
 
 headerbar entry selection:focus, .nemo-window .primary-toolbar entry selection:focus {
@@ -2118,7 +2118,7 @@ headerbar button:disabled label, .nemo-window .primary-toolbar button:disabled l
 }
 
 headerbar button:disabled:active, .nemo-window .primary-toolbar button:disabled:active, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:active:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:active:not(.image-button), headerbar button:disabled:checked, .nemo-window .primary-toolbar button:disabled:checked, paned.titlebar.horizontal headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), paned.titlebar.horizontal headerbar button.toggle.popup.budgie-menu-launcher:disabled:checked:not(.image-button) {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.35);
   background-color: rgba(136, 136, 136, 0.55);
 }
 
@@ -2393,8 +2393,8 @@ headerbar combobox > .linked > button.combo:hover {
 }
 
 headerbar combobox > .linked > button.combo:disabled {
-  color: rgba(87, 87, 87, 0.55);
-  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(87, 87, 87, 0.35);
+  background-color: white;
 }
 
 headerbar combobox > .linked > entry.combo {
@@ -6774,8 +6774,8 @@ headerbar.titlebar.incognito-mode entry:focus {
 }
 
 headerbar.titlebar.incognito-mode entry:disabled {
-  color: rgba(87, 87, 87, 0.55);
-  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(87, 87, 87, 0.35);
+  background-color: white;
 }
 
 notebook > box > stack > box.vertical > paned.vertical > overlay > .floating-bar {
@@ -6801,8 +6801,8 @@ notebook > box > stack > box.vertical > paned.vertical > overlay > .floating-bar
 }
 
 .background headerbar entry.starred:disabled, .background headerbar entry.non-starred:disabled {
-  color: rgba(87, 87, 87, 0.55);
-  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(87, 87, 87, 0.35);
+  background-color: white;
 }
 
 .background headerbar entry.starred > image.right {
@@ -8032,8 +8032,8 @@ MarlinViewWindow FMListView, MarlinViewWindow FMColumnView {
 }
 
 .marlin-pathbar.pathbar:disabled {
-  color: rgba(87, 87, 87, 0.55);
-  background-color: rgba(255, 255, 255, 0.75);
+  color: rgba(87, 87, 87, 0.35);
+  background-color: white;
 }
 
 window.background.csd > paned.horizontal > separator:dir(ltr) {

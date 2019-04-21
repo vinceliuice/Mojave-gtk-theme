@@ -1226,7 +1226,7 @@ toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
   background-color: $header_bg;
-//  border-radius: $wm_radius;
+  // border-radius: $wm_radius;
 
   &.horizontal { border-bottom: 1px solid $borders_color; }
 
