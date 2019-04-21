@@ -514,6 +514,16 @@ entry progress {
   padding: 0;
 }
 
+.linked > entry {
+  margin: 0;
+}
+
+headerbar .linked > entry,
+.titlebar .linked > entry {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
 treeview entry.flat, treeview .raven .raven-background spinbutton:not(.vertical), .raven .raven-background treeview spinbutton:not(.vertical), treeview entry {
   border-radius: 0;
   background-image: none;
