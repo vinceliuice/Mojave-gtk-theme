@@ -887,6 +887,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 0 4px;
 }
 
+.system-switch-user-submenu-icon {
+  icon-size: 16px;
+  padding: 0 4px;
+}
+
 #appMenu {
   spinner-image: url("process-working.svg");
   spacing: 4px;
@@ -1110,7 +1115,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* TOP BAR */
 #panel {
-  background-color: rgba(36, 36, 36, 0.65);
+  background-color: rgba(36, 36, 36, 0.8);
   /* transition from solid to transparent */
   transition-duration: 250ms;
   font-weight: bold;
@@ -1128,7 +1133,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #panel .panel-corner {
   -panel-corner-radius: 0;
-  -panel-corner-background-color: rgba(36, 36, 36, 0.65);
+  -panel-corner-background-color: rgba(36, 36, 36, 0.8);
   -panel-corner-border-width: 2px;
   -panel-corner-border-color: transparent;
 }
@@ -1243,7 +1248,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.solid {
-  background-color: rgba(36, 36, 36, 0.65);
+  background-color: rgba(36, 36, 36, 0.8);
   /* transition from transparent to solid */
   transition-duration: 250ms;
   background-gradient-direction: none;
@@ -1255,7 +1260,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel.solid .panel-corner {
-  -panel-corner-background-color: rgba(36, 36, 36, 0.65);
+  -panel-corner-background-color: rgba(36, 36, 36, 0.8);
 }
 
 #panel.solid .panel-button {
