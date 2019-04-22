@@ -66,20 +66,13 @@ radio-mixed-insensitive-dark
 
 entry
 entry-dark
-entry-focus
-entry-focus-dark
 entry-disabled
 entry-disabled-dark
-notebook-entry
-notebook-entry-dark
-notebook-entry-focus
-notebook-entry-focus-dark
-notebook-entry-disabled
-notebook-entry-disabled-dark
+entry-focus
+entry-focus-dark
 
-headerbar-entry
-headerbar-entry-focus
-headerbar-entry-focus-dark
+header-entry
+header-entry-disabled
 
 setting
 setting-dark

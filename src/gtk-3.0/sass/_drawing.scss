@@ -83,10 +83,9 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // normal entry
   //
     color: $text_color;
-    border-color: $entry_border;
-    border-bottom-color: $entry_bottom_border;
+    // border-color: $entry_border;
+    // border-bottom-color: $entry_bottom_border;
     background-color: $entry_bg;
-    @if $variant == 'light' { box-shadow: $shadow_3; }
   }
 
   @if $t==focus {
@@ -94,11 +93,8 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // focused entry
   //
     color: $text_color;
-    border-color: $entry_highlight;
+    // border-color: $entry_highlight;
     background-color: $entry_bg;
-    @if $variant == 'dark' { box-shadow: 0 0 0 2px $entry_highlight; }
-    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, // set the same size transparent shadow for entry transition
-                                          0 0 0 2px $entry_highlight; }
   }
 
   @if $t==insensitive {
@@ -106,8 +102,8 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // insensitive entry
   //
     color: $insensitive_fg_color;
-    border-color: $entry_border;
-    background-color: transparentize($entry_bg, 0.45);
+    // border-color: $entry_border;
+    background-color: rgba($entry_bg, 0.55);
   }
 
   @if $t==header-normal {
@@ -115,16 +111,12 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // normal header-bar entry
   //
     color: $header_fg;
-    border-bottom-color: $entry_border;
+    // border-bottom-color: $entry_border;
     background-color: $header_button_bg;
     background-image: $header_button_image;
-    box-shadow: none;
 
     @if $variant == 'dark' {
-      border: none;
-      box-shadow: inset 0 1px $header_button_highlight,
-                  0 0 0 2px transparent,
-                  inset 0 0 0 1px transparent;
+      box-shadow: inset 0 1px $header_button_highlight;
     }
 
     image, image:hover { color: inherit; }
@@ -134,17 +126,12 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
   // focused header-bar entry
   //
-    border-color: $selection_mode_bg;
+    // border-color: $selection_mode_bg;
     background-image: none;
     background-color: $entry_bg;
 
-    @if $variant == 'light' { box-shadow: 0 0 0 2px $entry_highlight; }
-
     @if $variant == 'dark' {
-      border: none;
-      box-shadow: inset 0 1px transparent,
-                  0 0 0 2px $entry_highlight,
-                  inset 0 0 0 1px $selection_mode_bg;
+      box-shadow: inset 0 1px transparent;
     }
   }
 
@@ -210,7 +197,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     @if $variant=='light' { box-shadow: $shadow_3; }
     @if $variant=='dark' {
       box-shadow: inset 0 1px $button_highlight, $shadow_3;
-      // background-clip: border-box;
     }
   }
 
@@ -226,7 +212,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     @if $variant=='light' { box-shadow: none; }
     @if $variant=='dark' {
       box-shadow: inset 0 1px rgba($button_highlight, 0.12), $shadow_3;
-      // background-clip: border-box;
     }
   }
 
@@ -294,8 +279,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-image: none;
     color: $selected_fg_color;
     background-color: if($variant=='light', rgba(black, 0.5), rgba(white, 0.25));
-//    text-shadow: if($variant=='light', $text_shadow, none);
-//    -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
   }
 
   @else if $t==flat-checked {
@@ -305,8 +288,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-image: none;
     color: $selected_fg_color;
     background-color: if($variant=='light', rgba(black, 0.65), rgba(white, 0.35));
-//    text-shadow: if($variant=='light', $text_shadow, none);
-//    -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
   }
 
   @else if $t==flat-insensitive {
@@ -326,7 +307,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     label, & { color: transparentize($selected_fg_color, 0.2); }
 
     background-color: lighten($fg_color, 20%);
-    // border-color: lighten($fg_color, 20%);
     opacity: 0.6;
   }
 
@@ -364,9 +344,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-color: $header_button_active_bg;
     background-image: none;
     border-color: $borders_color;
-//    text-shadow: if($variant=='light', $text_shadow, none);
-//    -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
-//    box-shadow: none;
   }
 
   @else if $t==header-checked {
@@ -377,8 +354,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-color: $header_button_checked_bg;
     background-image: $header_button_checked_image;
     border-color: $borders_color;
-//    text-shadow: if($variant=='light', $text_shadow, none);
-//    -gtk-icon-shadow: if($variant=='light', $text_shadow, none);
     @if $variant == 'dark' { box-shadow: inset 0 1px $header_button_checked_highlight; }
   }
 

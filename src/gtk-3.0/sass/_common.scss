@@ -234,68 +234,39 @@ spinner {
 //
 // Text Entries
 //
-%default_entry {
-  margin: 2px;
-  padding: 2px 8px;
-  &, &:focus, &:disabled { border-image: none; }
-  @include entry(normal);
-  &:focus { @include entry(focus); }
-  &:disabled { @include entry(insensitive); }
-}
 
-%normal_entry {
+%Linked_entrys {
   @include entry(normal);
-  box-shadow: none;
-  padding: 4px 10px;
-  border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"));
+  border-image: none;
+  border: 1px solid;
+  border-color: $entry_border;
+  border-bottom-color: $entry_bottom_border;
 
   &:focus {
     @include entry(focus);
-    box-shadow: none;
-    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"))
+    border-image: none;
+    border-color: $entry_highlight;
   }
 
   &:disabled {
     @include entry(insensitive);
-    box-shadow: none;
-    border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"))
-  }
-}
-
-%notebook_entry {
-  &, &:focus, &:disabled {
-    @if $variant == 'dark' { background-color: #1e1e1e; }
-  }
-
-  border-image-width: 6px 6px 6px 6px;
-  border-image-slice: 6 6 6 6;
-  border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/notebook-entry#{$asset_suffix}.png"));
-
-  &:focus {
-    border-image-source: -gtk-scaled(url("assets/notebook-entry-focus#{$asset_suffix}.png"))
-  }
-
-  &:disabled {
-    border-image-source: -gtk-scaled(url("assets/notebook-entry-disabled#{$asset_suffix}.png"))
+    border-image: none;
+    border-color: $entry_border;
   }
 }
 
 entry {
-  min-height: if($variant =='light', 16px, 18px);
-  border: 1px solid;
-  padding: 4px 10px;
-  margin: -2px;
-
+  min-height: if($variant =='light', 16px, 16px);
+  border: 3px solid transparent;
+  padding: 2px 8px;
+  border-radius: 7px;
   caret-color: currentColor;
-  border-radius: $bt_radius;
-  transition: $transition_2;
+
 
   &.search { border-radius: $bt_radius; }
 
   @include entry(normal);
 
-  box-shadow: none;
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
@@ -319,29 +290,37 @@ entry {
 
   &:focus {
     @include entry(focus);
-    box-shadow: none;
-    transition: border-image 200ms ease-out;
+    border-radius: 7px;
+    transition: border-image 200ms ease-out, box-shadow 200ms ease-out;
     border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"));
   }
 
   &:disabled {
     @include entry(insensitive);
-    box-shadow: none;
+    border-radius: 7px;
     border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"));
   }
 
-  notebook & {
-    @extend %notebook_entry;
+  notebook &,
+  notebook spinbutton & {
+    &, &:focus {
+      background-color: darken($entry_bg, 2%);
+    }
+
+    &:disabled {
+      background-color: rgba(darken($entry_bg, 2%), 0.55);
+    }
   }
 
   notebook searchbar &,
   notebook infobar & {
-    @extend %normal_entry;
-  }
+    &, &:focus {
+      background-color: $entry_bg;
+    }
 
-  popover &,
-  row.activatable & {
-    @extend %default_entry;
+    &:disabled {
+      background-color: rgba($entry_bg, 0.55);
+    }
   }
 
   selection { &:focus, & { @extend %selected_items; }}
@@ -409,27 +388,21 @@ entry {
   .linked:not(.vertical) > &,
   .linked:not(.vertical) > &:focus {
     @extend %linked;
-    border-image: none;
-    padding: 2px 8px;
-    transition: box-shadow 200ms ease-out;
   }
 
   .linked.vertical > &,
   .linked.vertical > &:focus {
     @extend %linked_vertical;
-    border-image: none;
-    padding: 2px 8px;
-    transition: box-shadow 200ms ease-out;
   }
 
-  .linked > &:only-child { @extend %normal_entry; }
+  .linked > & {
+    @extend %Linked_entrys;
+
+    // &:only-child { }
+  }
 
   .linked:not(.vertical) > & + button.combo { padding-left: 0; }
   .linked.vertical > & + button.combo { padding: 0; }
-}
-
-.linked > entry {
-  margin: 0;
 }
 
 treeview entry {
@@ -437,6 +410,7 @@ treeview entry {
     border-radius: 0;
     background-image: none;
     background-color: $base_color;
+    border: 1px solid $borders_color;
     border-image: none;
 
     &:focus {
@@ -1072,30 +1046,28 @@ spinbutton {
   button:active { color: $selected_fg_color; }
   &:disabled { color: $insensitive_fg_color; }
 
-  > entry {
-    margin: 0;
+  entry {
     padding-top: 2px;
     padding-bottom: 2px;
-    border-image: none;
-  }
+    @extend %Linked_entrys;
 
-  > entry:focus {
-    @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $entry_highlight; }
-    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $entry_highlight; }
-  }
+    &:focus {
+      @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $entry_highlight; }
+      @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $entry_highlight; }
+    }
 
-  > entry:drop(active) {
-    @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $drop_target_color; }
-    @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $drop_target_color; }
+    &:drop(active) {
+      @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $drop_target_color; }
+      @if $variant == 'light' { box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px $drop_target_color; }
+    }
   }
 
   &:not(.vertical) {
     entry {
-      margin: 0;
       padding-top: 2px;
       padding-bottom: 2px;
       min-width: 28px;
-      border-image: none;
+      @extend %Linked_entrys;
     }
 
     button, entry { @extend %linked; }
@@ -1132,7 +1104,7 @@ spinbutton {
   }
 
   &.vertical {
-    entry { border-image: none; }
+    entry { @extend %Linked_entrys; }
     button, entry {
       padding-left: 4px;
       padding-right: 4px;
@@ -1601,7 +1573,6 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   @extend %titlebar;
 }
 
-%linking_header_entrys,
 headerbar, .titlebar {
   button {
     min-height: if($variant == 'light', 24px, 26px);
@@ -1644,6 +1615,7 @@ headerbar, .titlebar {
       @extend %linked_header;
 
       @if $variant == 'dark' {
+        border: none;
         border-right: 1px solid $header_button_border;
 
         &:last-child {
@@ -1693,29 +1665,28 @@ headerbar, .titlebar {
 // Headerbar Entries
 %headerbar_entrys {
   @include entry(header-normal);
-  border-radius: 8px;
+  border-radius: 7px;
   border: 3px solid transparent;
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
   background-clip: padding-box;
-  border-image-source: -gtk-scaled(url("assets/headerbar-entry.png"));
+  border-image-source: -gtk-scaled(url("assets/header-entry.png"));
 
   &:backdrop { opacity: 0.65; background-image: none; }
 
   &:focus {
     @include entry(header-focus);
     box-shadow: none;
-    border: 3px solid transparent;
-    background-clip: padding-box;
-    border-image-width: 6px 6px 6px 6px;
-    border-image-slice: 6 6 6 6;
-    border-image-repeat: stretch;
-    border-image-source: -gtk-scaled(url("assets/headerbar-entry-focus#{$asset_suffix}.png"));
+    border-radius: 7px;
+    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"));
   }
 
   &:disabled {
     @include entry(header-insensitive);
+    border-radius: 7px;
+    border: 3px solid transparent;
+    border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"));
   }
 
   selection:focus {
@@ -2397,10 +2368,10 @@ popover.background {
     border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($_popover_bg, 10%));
   }
 
-  entry { margin: 2px; }
-
-  spinbutton entry,
-  .linked entry { margin: 0; }
+  // entry { margin: 2px; }
+  //
+  // spinbutton entry,
+  // .linked entry { margin: 0; }
 
   separator,
   & separator,
@@ -2443,7 +2414,7 @@ cursor-handle {
 //
 notebook {
   padding: 0;
-//  margin-top: -1px;
+  // margin-top: -1px;
 
   &.frame {
     border: 1px solid $solid_borders_color;
@@ -2541,7 +2512,7 @@ notebook {
           min-height: 20px;
           border-radius: 0;
           outline-offset: -4px;
-//          border-#{$_pos}: none;
+          // border-#{$_pos}: none;
 
           // tab overlap
           + tab {
@@ -2605,6 +2576,7 @@ notebook {
       color: $insensitive_fg_color;
       background-color: transparentize($base_color, 1);
       border: 1px solid transparent;
+      transition: all 150ms ease-out;
 
       &:hover:not(:checked) {
         color: mix($fg_color, $insensitive_fg_color, 50%);
@@ -4368,7 +4340,7 @@ popover.emoji-picker {
     border-bottom-right-radius: 0;
     box-shadow: none;
     border-width: 0 0 1px 0;
-    padding: 4px 12px;
+    padding: 6px 12px;
     background: none;
 
     &, &:focus, &:disabled {

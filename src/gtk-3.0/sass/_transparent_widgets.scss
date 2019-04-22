@@ -94,7 +94,13 @@ filechooser {
   box#pathbarbox.view {
     stack {
       entry.search {
-        @extend %notebook_entry;
+        &, &:focus {
+          background-color: darken($entry_bg, 2%);
+        }
+
+        &:disabled {
+          background-color: rgba(darken($entry_bg, 2%), 0.55);
+        }
       }
     }
   }
