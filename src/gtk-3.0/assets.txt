@@ -77,6 +77,10 @@ notebook-entry-focus-dark
 notebook-entry-disabled
 notebook-entry-disabled-dark
 
+headerbar-entry
+headerbar-entry-focus
+headerbar-entry-focus-dark
+
 setting
 setting-dark
 

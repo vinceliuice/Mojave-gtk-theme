@@ -15,7 +15,7 @@
    height="270"
    id="svg9892"
    version="1.1"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="assets.svg">
   <defs
      id="mojave_theme">
@@ -1140,11 +1140,11 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="578.70322"
-     inkscape:cy="286.42871"
+     inkscape:cx="1003.6327"
+     inkscape:cy="135.88879"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
-     showgrid="false"
+     showgrid="true"
      showborder="true"
      inkscape:window-width="1366"
      inkscape:window-height="714"
@@ -1153,13 +1153,13 @@
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
      inkscape:snap-bbox="true"
-     inkscape:bbox-paths="true"
+     inkscape:bbox-paths="false"
      inkscape:snap-global="true"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:bbox-nodes="true"
-     inkscape:object-nodes="true"
-     inkscape:snap-bbox-midpoints="true"
+     inkscape:object-nodes="false"
+     inkscape:snap-bbox-midpoints="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -1168,7 +1168,9 @@
      inkscape:pagecheckerboard="true"
      inkscape:showpageshadow="false"
      inkscape:snap-others="false"
-     inkscape:object-paths="false">
+     inkscape:object-paths="false"
+     inkscape:snap-smooth-nodes="false"
+     inkscape:snap-midpoints="false">
     <inkscape:grid
        type="xygrid"
        id="grid10919"
@@ -1814,6 +1816,75 @@
          width="90"
          id="rect1785"
          style="opacity:1;fill:#1e1e1e;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+    </g>
+    <g
+       id="headerbar-entry"
+       transform="translate(510,-27.999999)">
+      <rect
+         style="opacity:0;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect1687"
+         width="96"
+         height="35.999996"
+         x="412"
+         y="-285.63782"
+         rx="0"
+         ry="0" />
+      <path
+         style="opacity:0.15;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.26524782;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m 938,109 c -3.324,0 -6,2.676 -6,6 v 20 c 0,3.324 2.676,6 6,6 h 80 c 3.324,0 6,-2.676 6,-6 v -20 c 0,-3.324 -2.676,-6 -6,-6 z m 0,1 h 80 c 2.77,0 5,2.23 5,5 v 20 c 0,2.77 -2.23,5 -5,5 h -80 c -2.77,0 -5,-2.23 -5,-5 v -20 c 0,-2.77 2.23,-5 5,-5 z"
+         transform="translate(-518,-392.63782)"
+         id="rect1693"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       transform="translate(510,37.000001)"
+       id="headerbar-entry-focus">
+      <path
+         style="opacity:0.75;fill:#67a4e9;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.7882247;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m 938,172 c -4.432,0 -8,3.568 -8,8 v 20 c 0,4.432 3.568,8 8,8 h 80 c 4.432,0 8,-3.568 8,-8 v -20 c 0,-4.432 -3.568,-8 -8,-8 z m 0,3 h 80 c 2.77,0 5,2.23 5,5 v 20 c 0,2.77 -2.23,5 -5,5 h -80 c -2.77,0 -5,-2.23 -5,-5 v -20 c 0,-2.77 2.23,-5 5,-5 z"
+         transform="translate(-518,-457.63782)"
+         id="rect1720"
+         inkscape:connector-curvature="0" />
+      <rect
+         ry="0"
+         rx="0"
+         y="-285.63782"
+         x="412"
+         height="35.999996"
+         width="96"
+         id="rect1707"
+         style="opacity:0;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+      <path
+         style="opacity:1;fill:#7ab1ee;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.26524782;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         d="m 938,174 c -3.324,0 -6,2.676 -6,6 v 20 c 0,3.324 2.676,6 6,6 h 80 c 3.324,0 6,-2.676 6,-6 v -20 c 0,-3.324 -2.676,-6 -6,-6 z m 0,1 h 80 c 2.77,0 5,2.23 5,5 v 20 c 0,2.77 -2.23,5 -5,5 h -80 c -2.77,0 -5,-2.23 -5,-5 v -20 c 0,-2.77 2.23,-5 5,-5 z"
+         transform="translate(-518,-457.63782)"
+         id="rect1711"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="headerbar-entry-focus-dark"
+       transform="translate(623,37.000001)">
+      <path
+         id="path1726"
+         transform="translate(-518,-457.63782)"
+         d="m 938,172 c -4.432,0 -8,3.568 -8,8 v 20 c 0,4.432 3.568,8 8,8 h 80 c 4.432,0 8,-3.568 8,-8 v -20 c 0,-4.432 -3.568,-8 -8,-8 z m 0,3 h 80 c 2.77,0 5,2.23 5,5 v 20 c 0,2.77 -2.23,5 -5,5 h -80 c -2.77,0 -5,-2.23 -5,-5 v -20 c 0,-2.77 2.23,-5 5,-5 z"
+         style="opacity:0.75;fill:#6887cd;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.7882247;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         inkscape:connector-curvature="0" />
+      <rect
+         style="opacity:0;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         id="rect1728"
+         width="96"
+         height="35.999996"
+         x="412"
+         y="-285.63782"
+         rx="0"
+         ry="0" />
+      <path
+         id="path1730"
+         transform="translate(-518,-457.63782)"
+         d="m 938,174 c -3.324,0 -6,2.676 -6,6 v 20 c 0,3.324 2.676,6 6,6 h 80 c 3.324,0 6,-2.676 6,-6 v -20 c 0,-3.324 -2.676,-6 -6,-6 z m 0,1 h 80 c 2.77,0 5,2.23 5,5 v 20 c 0,2.77 -2.23,5 -5,5 h -80 c -2.77,0 -5,-2.23 -5,-5 v -20 c 0,-2.77 2.23,-5 5,-5 z"
+         style="opacity:1;fill:#5683fa;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:6.26524782;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+         inkscape:connector-curvature="0" />
     </g>
   </g>
   <g

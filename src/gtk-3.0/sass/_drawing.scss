@@ -136,6 +136,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
     border-color: $selection_mode_bg;
     background-image: none;
+    background-color: $entry_bg;
 
     @if $variant == 'light' { box-shadow: 0 0 0 2px $entry_highlight; }
 

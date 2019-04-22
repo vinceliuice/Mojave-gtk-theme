@@ -409,14 +409,18 @@ $disk_space_free: darken($bg_color, 3%);
 
     entry {
       @extend %headerbar_entrys;
-      margin-top: 4px;
-      margin-bottom: 4px;
+      margin-top: if($variant=='light', 2px, 1px);
+      margin-bottom: if($variant=='light', 2px, 1px);
+      margin-left: 0;
+      margin-right: 0;
+      padding: 2px 10px;
     }
 
     .linked.raised > button {
       @extend %linked_header;
       @extend %outline_dashed;
       min-height: 0;
+      border-right: 1px solid $header_button_border;
 
       @if $variant == 'light' {
         &:not(:first-child) {
@@ -444,6 +448,7 @@ $disk_space_free: darken($bg_color, 3%);
         padding-top: 0;
         padding-bottom: 0;
         @extend %outline_dashed;
+        border-right: 1px solid $header_button_border;
 
         &, &:hover, &:active, &:checked, &:disabled {
           @extend %linked_header;
@@ -2077,6 +2082,8 @@ window.thunar {
   }
 
   > box.linked.raised.horizontal > button.image-button {
+    border-right: 1px solid $header_button_border;
+
     &, &:hover, &:active, &:checked, &:disabled {
       @extend %linked_header;
     }
