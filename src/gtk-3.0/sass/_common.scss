@@ -120,8 +120,7 @@ textview {
   // }
 
   text {
-    // border: none;
-    // background: none;
+    @extend %view;
     selection { &:focus, & { @extend %selected_items; }}
   }
 
@@ -302,7 +301,9 @@ entry {
   }
 
   notebook &,
-  notebook spinbutton & {
+  notebook .linked &,
+  notebook spinbutton > &,
+  notebook spinbutton > &:not(.vertical) {
     &, &:focus {
       background-color: darken($entry_bg, 2%);
     }
@@ -1067,7 +1068,6 @@ spinbutton {
       padding-top: 2px;
       padding-bottom: 2px;
       min-width: 28px;
-      @extend %Linked_entrys;
     }
 
     button, entry { @extend %linked; }
@@ -1104,7 +1104,6 @@ spinbutton {
   }
 
   &.vertical {
-    entry { @extend %Linked_entrys; }
     button, entry {
       padding-left: 4px;
       padding-right: 4px;
@@ -1580,12 +1579,13 @@ headerbar, .titlebar {
   }
 
   entry { // Reset entrys
-    min-height: if($variant == 'light', 20px, 22px);
+    min-height: if($variant == 'light', 19px, 21px);
     margin-top: if($variant == 'light', 4px, 3px);
     margin-bottom: if($variant == 'light', 4px, 3px);
     margin-left: 0;
     margin-right: 0;
     padding: 2px 8px;
+    border-radius: 7px;
   }
 
   .linked > entry { // Reset linking entrys

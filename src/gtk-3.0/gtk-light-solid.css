@@ -97,6 +97,7 @@ headerbar button, .nemo-window .primary-toolbar button, paned.titlebar.horizonta
 }
 
 .view,
+textview text,
 iconview,
 filechooser stack.view scrolledwindow treeview.view,
 window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view,
@@ -107,6 +108,7 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
 }
 
 .view:hover,
+textview text:hover,
 iconview:hover,
 filechooser stack.view scrolledwindow treeview.view:hover,
 window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:hover,
@@ -115,6 +117,7 @@ window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box
 }
 
 .view:selected,
+textview text:selected,
 iconview:selected,
 filechooser stack.view scrolledwindow treeview.view:selected,
 window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected,
@@ -220,7 +223,7 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
-.linked > entry, spinbutton entry, spinbutton:not(.vertical) entry, spinbutton.vertical entry {
+.linked > entry, spinbutton entry {
   color: #363636;
   background-color: #ffffff;
   border-image: none;
@@ -298,13 +301,19 @@ entry:disabled {
 }
 
 notebook entry, notebook entry:focus,
-notebook spinbutton entry,
-notebook spinbutton entry:focus {
+notebook .linked entry,
+notebook .linked entry:focus,
+notebook spinbutton > entry,
+notebook spinbutton > entry:focus,
+notebook spinbutton > entry:not(.vertical),
+notebook spinbutton > entry:not(.vertical):focus {
   background-color: #fafafa;
 }
 
 notebook entry:disabled,
-notebook spinbutton entry:disabled {
+notebook .linked entry:disabled,
+notebook spinbutton > entry:disabled,
+notebook spinbutton > entry:not(.vertical):disabled {
   background-color: rgba(250, 250, 250, 0.55);
 }
 
@@ -1851,12 +1860,13 @@ headerbar button, .titlebar button {
 }
 
 headerbar entry, .titlebar entry {
-  min-height: 20px;
+  min-height: 19px;
   margin-top: 4px;
   margin-bottom: 4px;
   margin-left: 0;
   margin-right: 0;
   padding: 2px 8px;
+  border-radius: 7px;
 }
 
 headerbar .linked > entry, .titlebar .linked > entry {
@@ -5298,7 +5308,7 @@ headerbar button.titlebutton.restore:active,
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
 }
 
-.view:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
+.view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
 modelbutton.flat:active,
 modelbutton.flat:active arrow,
 modelbutton.flat:selected,
@@ -5308,7 +5318,7 @@ calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .
   background-color: #315bef;
 }
 
-row:selected label, label:selected, .view:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
+row:selected label, label:selected, .view:selected:focus, textview text:selected:focus, iconview:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, textview text selection:focus, textview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, menuitem.button.flat:active, menuitem.button.flat:active arrow, menuitem.button.flat:selected, menuitem.button.flat:selected arrow,
 modelbutton.flat:active,
 modelbutton.flat:active arrow,
 modelbutton.flat:selected,
@@ -5318,7 +5328,7 @@ calendar:selected, .nemo-window .nemo-window-pane widget.entry:selected:focus, .
   color: #ffffff;
 }
 
-row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:disabled:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, menuitem.button.flat:disabled:active, menuitem.button.flat:active arrow:disabled, menuitem.button.flat:disabled:selected, menuitem.button.flat:selected arrow:disabled,
+row:selected label:disabled, label:disabled:selected, .view:disabled:selected:focus, textview text:disabled:selected:focus, iconview:disabled:selected:focus, window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical > scrolledwindow treeview.view:disabled:selected:focus, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:disabled:selected:focus, textview text selection:disabled, flowbox flowboxchild:disabled:selected, label:disabled selection, entry selection:disabled, menuitem.button.flat:disabled:active, menuitem.button.flat:active arrow:disabled, menuitem.button.flat:disabled:selected, menuitem.button.flat:selected arrow:disabled,
 modelbutton.flat:disabled:active,
 modelbutton.flat:active arrow:disabled,
 modelbutton.flat:disabled:selected,
@@ -8009,8 +8019,8 @@ window.background.csd > stack > stack > paned.horizontal > scrolledwindow > view
 }
 
 headerbar.titlebar > box.horizontal > entry.pathbar {
-  min-height: 0;
-  padding: 2px 10px;
+  min-height: 20px;
+  padding: 2px 16px;
   margin-top: 2px;
   margin-bottom: 2px;
 }
