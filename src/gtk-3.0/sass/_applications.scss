@@ -12,20 +12,16 @@ terminal-window notebook {
 // GNOME Terminal, MATE Terminal
 //
 
-terminal-window,
-.mate-terminal {
-  notebook {
-    > header.top {
-      tabs > tab { border-top: 1px solid transparent; }
-
-      button {
-        padding: 0;
-        min-width: 24px;
-        min-height: 24px;
-      }
-    }
-  }
-}
+// terminal-window,
+// .mate-terminal {
+//   > box.vertical > notebook, notebook {
+//     > header.top {
+//       > tabs > tab {
+//         border-top: 1px solid transparent;
+//       }
+//     }
+//   }
+// }
 
 //
 // Nautilus
@@ -1084,6 +1080,39 @@ button.documents-favorite:active:hover {
 //
 // Gnome Tweak Tool ( Gnome tweaks )
 //
+row#Focus,
+row#ClickMethod,
+row#StaticWorkspaceTweak, // for 3.26.0
+row#dynamic-workspaces,
+row#PrimaryWorkspaceTweak, // for 3.26.0
+row#workspaces-only-on-primary {
+  padding: 0;
+  border: 1px solid $borders_color;
+
+  row:not(:last-child) { border-bottom: 1px solid $borders_color; }
+
+  &.tweak > list {
+    margin-top: -3px;
+  }
+}
+
+// Add more spaces between title and list
+row#Focus,
+row#ClickMethod,
+row#PrimaryWorkspaceTweak, // for 3.26.0
+row#workspaces-only-on-primary { margin-top: 4px; }
+
+row#AutostartTitle.tweak {
+  padding: 3px;
+  background-color: $base_color;
+}
+
+list#AutostartListBoxTweakGroup {
+  &.tweak-group-startup {
+    border: 1px solid $borders_color;
+  }
+}
+
 .tweak-categories,
 .tweak-category:not(:selected):not(:hover) {
   background-image: _solid($base_color);
@@ -1106,62 +1135,67 @@ dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }
 //
 //  Gnome Control Center
 //
-window.background.csd > stack {
-  border-radius: 0 0 $wm_radius $wm_radius;
-}
-
-stack.background { background: none; }
-
-window.background.csd > headerbar.titlebar > box.horizontal > separator.sidebar,
-window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
-  border-right: none;
-  background: none;
-  min-width: 0;
-  // box-shadow: inset 0 -1px $header_border;
-}
-
-box.horizontal > separator.sidebar,
-hdyleaflet > separator.sidebar {
-  background: none;
-  min-width: 0;
-  border-right-color: if($variant=='light', $borders_color, $header_border);
-}
-
 window.background.csd {
+  > headerbar.titlebar > box.horizontal > separator.sidebar, // > 3.22
+  > headerbar.titlebar > hdyleaflet > separator.sidebar {
+    border-right: none;
+    background: none;
+    min-width: 0;
+    // box-shadow: inset 0 -1px $header_border;
+  }
+
+  > stack {
+    border-radius: 0 0 $wm_radius $wm_radius;
+  }
+
   > box:not(.titlebar).horizontal > separator.vertical {
     background-color: if($variant=='light', $borders_color, $header_border);
   }
-}
 
-// users section
-// stack > box.vertical > widget > overlay grid.horizontal > stack {
-//   > button.toggle { }
-// }
+  > box.horizontal > stack.background {
+    background: none;
 
-// > 3.25.90
-window.background.csd > box.horizontal > box.vertical > scrolledwindow.view {
-  background-color: $base_color;
-  border-bottom-left-radius: $wm_radius + 1px;
+    > widget {
+      > box.horizontal > box.horizontal > box.vertical {
+        > button { // wallpaper set button
+          &:active {
+            color: $fg_color;
+            background-image: none;
+            background-color: if($variant=='light', darken($button_bg, 15%), lighten($button_bg, 10%));
+            border-color: $dark_borders_color;
+          }
+        }
+      }
+    }
+  }
 
-  > viewport.frame > stack {
-    background-color: transparent;
+  // > 3.25.90
+  > box.horizontal > box.vertical > scrolledwindow.view {
+    background-color: $base_color;
+    border-bottom-left-radius: $wm_radius + 1px;
 
-    > list { // left-pane
+    > viewport.frame > stack {
       background-color: transparent;
 
-      > row.activatable:not(:hover):not(:active):not(:selected) {
+      > list { // left-pane
         background-color: transparent;
+
+        > row.activatable:not(:hover):not(:active):not(:selected) {
+          background-color: transparent;
+        }
       }
     }
   }
 }
 
-box.horizontal.titlebar > headerbar > stack > box.vertical {
-  > .title { margin: 0; }
-  > .subtitle { margin: -3px 0; }
+box.horizontal > separator.sidebar,
+hdyleaflet > separator.sidebar { // reset
+  background: none;
+  min-width: 0;
+  border-right-color: if($variant=='light', $borders_color, $header_border);
 }
 
-dialog.background.csd {
+dialog.background.csd { // wallpaper set dialog
   > headerbar.titlebar {
     > label:not(.title):not(.subtitle) {
       font-weight: 700;
@@ -2123,6 +2157,7 @@ window#GearyMainWindow.background.csd {
     scrolledwindow.geary-conversation-scroller {
       viewport.frame {
         list.conversation-listbox {
+          background: none;
           border-bottom-right-radius: $wm_radius;
         }
       }

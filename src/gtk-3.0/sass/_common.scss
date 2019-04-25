@@ -11,6 +11,7 @@ $bt_radius: 5px;
 $wm_radius: 6px;
 
 * {
+  padding: 0;
   background-clip: padding-box;
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: $error_color;
@@ -30,6 +31,8 @@ $wm_radius: 6px;
   outline-offset: -3px;
   outline-width: 1px;
   -gtk-outline-radius: $bt_radius;
+
+  -gtk-secondary-caret-color: $selected_bg_color;
 }
 
 //
@@ -396,10 +399,8 @@ entry {
     @extend %linked_vertical;
   }
 
-  .linked > & {
+  .linked > &:not(:only-child) {
     @extend %Linked_entrys;
-
-    // &:only-child { }
   }
 
   .linked:not(.vertical) > & + button.combo { padding-left: 0; }
@@ -1258,9 +1259,18 @@ toolbar {
 
 searchbar {
   background-color: $bg_color;
+  padding: 0;
+  margin: 0;
   border: none;
-  box-shadow: inset 0 -1px $borders_color;
-  padding: 3px 3px 4px 3px;
+
+  > revealer > box {
+    padding: 6px;
+    margin: -6px;
+    border-style: solid;
+    border-color: $solid_borders_color;
+    background-color: $bg_color;
+    border-width: 0 0 1px;
+  }
 
   // Close button on searchbar
   button.flat {
@@ -2368,18 +2378,13 @@ popover.background {
     border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($_popover_bg, 10%));
   }
 
-  // entry { margin: 2px; }
-  //
-  // spinbutton entry,
-  // .linked entry { margin: 0; }
-
   separator,
   & separator,
   .csd & separator {
-    margin: 4px -9px;
-    min-height: 2px;
+    // margin: 4px -9px;
+    // min-height: 2px;
     border: none;
-    background-color: $_menu_bd;
+    background-color: transparent;
   }
 
   label.separator { @extend label.separator; } // Noice
@@ -2498,7 +2503,7 @@ notebook {
       padding: 0;
       border: none;
       box-shadow: none;
-      margin: 2px;
+      // margin: 2px;
     }
 
     @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
@@ -2633,10 +2638,10 @@ scrollbar {
   transition: 300ms $ease-out-quad;
 
   // scrollbar border
-//  &.top { border-bottom: 1px solid $borders_color; }
-//  &.bottom { border-top: 1px solid $borders_color; }
-//  &.left { border-right: 1px solid $borders_color; }
-//  &.right { border-left: 1px solid $borders_color; }
+  // &.top { border-bottom: 1px solid $borders_color; }
+  // &.bottom { border-top: 1px solid $borders_color; }
+  // &.left { border-right: 1px solid $borders_color; }
+  // &.right { border-left: 1px solid $borders_color; }
 
   border: none;
 
@@ -2663,9 +2668,7 @@ scrollbar {
     background-color: mix($fg_color, $bg_color, 40%);
 
     &:hover { background-color: mix($fg_color, $bg_color, 30%); }
-
     &:hover:active { background-color: $header_button_checked_bg; }
-
     &:disabled { background-color: transparent; }
   }
 
@@ -3408,13 +3411,13 @@ scrolledwindow {
     &.right { @include undershoot(right); }
   }
 
-  junction { // the small square between two scrollbars
-    border-color: transparent;
-    // the border image is used to add the missing dot between the borders, details, details, details...
-    border-image: linear-gradient(to bottom, $borders_color 1px, transparent 1px) 0 0 0 0 / 0 0 stretch;
+  @at-root junction { // the small square between two scrollbars
+    border-style: solid none none solid;
+    border-width: 1px;
+    border-color: $borders_color;
     background-color: $_scrollbar_bg_color;
 
-    &:dir(rtl) { border-image-slice: 0 1 0 0; }
+    &:dir(rtl) { border-style: solid solid none none; }
   }
 }
 
@@ -3435,7 +3438,7 @@ separator {
 list {
   background-color: $base_color;
   border-color: $borders_color;
-//  border-radius: $wm_radius;
+  // border-radius: $wm_radius;
 
   row { padding: 2px; }
 }

@@ -17,6 +17,7 @@
 }
 
 * {
+  padding: 0;
   background-clip: padding-box;
   -GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: #FC4138;
@@ -31,6 +32,7 @@
   outline-offset: -3px;
   outline-width: 1px;
   -gtk-outline-radius: 5px;
+  -gtk-secondary-caret-color: #315bef;
 }
 
 headerbar .linked:not(.vertical) > button, headerbar .linked.raised:not(.vertical):not(.path-bar) > button.image-button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
@@ -223,7 +225,7 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
-.linked > entry, spinbutton entry {
+.linked > entry:not(:only-child), spinbutton entry {
   color: #363636;
   background-color: #ffffff;
   border-image: none;
@@ -232,14 +234,14 @@ spinner:checked:disabled {
   border-bottom-color: rgba(0, 0, 0, 0.27);
 }
 
-.linked > entry:focus, spinbutton entry:focus {
+.linked > entry:focus:not(:only-child), spinbutton entry:focus {
   color: #363636;
   background-color: #ffffff;
   border-image: none;
   border-color: rgba(103, 164, 233, 0.75);
 }
 
-.linked > entry:disabled, spinbutton entry:disabled {
+.linked > entry:disabled:not(:only-child), spinbutton entry:disabled {
   color: rgba(36, 36, 36, 0.55);
   background-color: rgba(255, 255, 255, 0.55);
   border-image: none;
@@ -1534,9 +1536,18 @@ toolbar:not(.inline-toolbar) .linked > entry,
 
 searchbar {
   background-color: #f5f5f5;
+  padding: 0;
+  margin: 0;
   border: none;
-  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
-  padding: 3px 3px 4px 3px;
+}
+
+searchbar > revealer > box {
+  padding: 6px;
+  margin: -6px;
+  border-style: solid;
+  border-color: #cfcfcf;
+  background-color: #f5f5f5;
+  border-width: 0 0 1px;
 }
 
 actionbar {
@@ -2842,10 +2853,8 @@ popover.background separator,
 popover.background separator,
 .csd
 popover.background separator {
-  margin: 4px -9px;
-  min-height: 2px;
   border: none;
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: transparent;
 }
 
 popover > list,
@@ -2944,7 +2953,6 @@ notebook > header button.flat, notebook > header button.budgie-menu-launcher, no
   padding: 0;
   border: none;
   box-shadow: none;
-  margin: 2px;
 }
 
 notebook > header.top {
@@ -4332,14 +4340,15 @@ scrolledwindow undershoot.right {
   border: none;
 }
 
-scrolledwindow junction {
-  border-color: transparent;
-  border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.15) 1px, transparent 1px) 0 0 0 0/0 0 stretch;
+junction {
+  border-style: solid none none solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.15);
   background-color: #fcfcfc;
 }
 
-scrolledwindow junction:dir(rtl) {
-  border-image-slice: 0 1 0 0;
+junction:dir(rtl) {
+  border-style: solid solid none none;
 }
 
 separator {
@@ -5398,18 +5407,6 @@ terminal-window notebook {
   > header.top > tabs > tab:checked { box-shadow: inset 0 -1px $borders_color; }
 }
 */
-terminal-window notebook > header.top tabs > tab,
-.mate-terminal notebook > header.top tabs > tab {
-  border-top: 1px solid transparent;
-}
-
-terminal-window notebook > header.top button,
-.mate-terminal notebook > header.top button {
-  padding: 0;
-  min-width: 24px;
-  min-height: 24px;
-}
-
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
   border-radius: 0;
@@ -6313,6 +6310,50 @@ button.documents-favorite:active:hover {
   transition: opacity 0.2s ease-out;
 }
 
+row#Focus,
+row#ClickMethod,
+row#StaticWorkspaceTweak,
+row#dynamic-workspaces,
+row#PrimaryWorkspaceTweak,
+row#workspaces-only-on-primary {
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+row#Focus row:not(:last-child),
+row#ClickMethod row:not(:last-child),
+row#StaticWorkspaceTweak row:not(:last-child),
+row#dynamic-workspaces row:not(:last-child),
+row#PrimaryWorkspaceTweak row:not(:last-child),
+row#workspaces-only-on-primary row:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+row#Focus.tweak > list,
+row#ClickMethod.tweak > list,
+row#StaticWorkspaceTweak.tweak > list,
+row#dynamic-workspaces.tweak > list,
+row#PrimaryWorkspaceTweak.tweak > list,
+row#workspaces-only-on-primary.tweak > list {
+  margin-top: -3px;
+}
+
+row#Focus,
+row#ClickMethod,
+row#PrimaryWorkspaceTweak,
+row#workspaces-only-on-primary {
+  margin-top: 4px;
+}
+
+row#AutostartTitle.tweak {
+  padding: 3px;
+  background-color: #ffffff;
+}
+
+list#AutostartListBoxTweakGroup.tweak-group-startup {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
 .tweak-categories,
 .tweak-category:not(:selected):not(:hover) {
   background-image: linear-gradient(to bottom, #ffffff, #ffffff);
@@ -6333,14 +6374,6 @@ dialog.csd > headerbar.titlebar > switch {
   margin: 8px 0;
 }
 
-window.background.csd > stack {
-  border-radius: 0 0 6px 6px;
-}
-
-stack.background {
-  background: none;
-}
-
 window.background.csd > headerbar.titlebar > box.horizontal > separator.sidebar,
 window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
   border-right: none;
@@ -6348,15 +6381,23 @@ window.background.csd > headerbar.titlebar > hdyleaflet > separator.sidebar {
   min-width: 0;
 }
 
-box.horizontal > separator.sidebar,
-hdyleaflet > separator.sidebar {
-  background: none;
-  min-width: 0;
-  border-right-color: rgba(0, 0, 0, 0.15);
+window.background.csd > stack {
+  border-radius: 0 0 6px 6px;
 }
 
 window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
   background-color: rgba(0, 0, 0, 0.15);
+}
+
+window.background.csd > box.horizontal > stack.background {
+  background: none;
+}
+
+window.background.csd > box.horizontal > stack.background > widget > box.horizontal > box.horizontal > box.vertical > button:active {
+  color: #242424;
+  background-image: none;
+  background-color: #d9d9d9;
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 window.background.csd > box.horizontal > box.vertical > scrolledwindow.view {
@@ -6376,12 +6417,11 @@ window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > vi
   background-color: transparent;
 }
 
-box.horizontal.titlebar > headerbar > stack > box.vertical > .title {
-  margin: 0;
-}
-
-box.horizontal.titlebar > headerbar > stack > box.vertical > .subtitle {
-  margin: -3px 0;
+box.horizontal > separator.sidebar,
+hdyleaflet > separator.sidebar {
+  background: none;
+  min-width: 0;
+  border-right-color: rgba(0, 0, 0, 0.15);
 }
 
 dialog.background.csd > headerbar.titlebar > label:not(.title):not(.subtitle) {
@@ -7273,6 +7313,7 @@ window#GearyMainWindow.background.csd stack#conversation_viewer {
 }
 
 window#GearyMainWindow.background.csd stack#conversation_viewer scrolledwindow.geary-conversation-scroller viewport.frame list.conversation-listbox {
+  background: none;
   border-bottom-right-radius: 6px;
 }
 
