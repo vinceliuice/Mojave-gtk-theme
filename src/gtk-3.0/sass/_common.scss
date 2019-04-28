@@ -4179,13 +4179,12 @@ $_wm_border: $_wm_shadow;
 decoration {
   transition: $shadow_transition;
   border-radius: if($darker=='false' and $variant=='light', $wm_radius, $wm_radius);
-  border-width: 0;
   box-shadow: 0 5px 5px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
               0 8px 15px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
               $_wm_border;
 
   // this is used for the resize cursor area
-  margin: 4px;
+  margin: 6px;
 
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
@@ -4195,6 +4194,7 @@ decoration {
                 $_wm_border;
   }
 
+  .maximized &,
   .fullscreen &,
   .tiled & {
     border-radius: 0;

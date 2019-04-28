@@ -12,16 +12,26 @@ terminal-window notebook {
 // GNOME Terminal, MATE Terminal
 //
 
-// terminal-window,
-// .mate-terminal {
-//   > box.vertical > notebook, notebook {
-//     > header.top {
-//       > tabs > tab {
-//         border-top: 1px solid transparent;
-//       }
-//     }
-//   }
-// }
+.mate-terminal {
+  notebook {
+    > header.top {
+      > tabs > tab {
+        border-top: 1px solid transparent;
+      }
+    }
+  }
+}
+
+terminal-window {
+  > box.vertical > notebook.terminal-notebook {
+    > terminal-screen-container {
+      > box.horizontal > vte-terminal.terminal-screen {
+        padding: 0;
+        border-radius: 0 0 $wm_radius $wm_radius;
+      }
+    }
+  }
+}
 
 //
 // Nautilus

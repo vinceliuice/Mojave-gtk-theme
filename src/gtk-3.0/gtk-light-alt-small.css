@@ -5102,15 +5102,15 @@ stackswitcher button.text-button {
 decoration {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   border-radius: 6px;
-  border-width: 0;
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15), 0 8px 15px 0 rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.12);
-  margin: 4px;
+  margin: 6px;
 }
 
 decoration:backdrop {
   box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
+.maximized decoration,
 .fullscreen decoration,
 .tiled decoration {
   border-radius: 0;
@@ -5407,6 +5407,15 @@ terminal-window notebook {
   > header.top > tabs > tab:checked { box-shadow: inset 0 -1px $borders_color; }
 }
 */
+.mate-terminal notebook > header.top > tabs > tab {
+  border-top: 1px solid transparent;
+}
+
+terminal-window > box.vertical > notebook.terminal-notebook > terminal-screen-container > box.horizontal > vte-terminal.terminal-screen {
+  padding: 0;
+  border-radius: 0 0 6px 6px;
+}
+
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
   border-radius: 0;
