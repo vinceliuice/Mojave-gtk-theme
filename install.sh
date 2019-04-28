@@ -239,7 +239,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized alt variant '$1'."
+            echo "ERROR: Unrecognized alt titlebutton variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -262,7 +262,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized small variant '$1'."
+            echo "ERROR: Unrecognized small titlebutton variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -309,7 +309,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized alt variant '$1'."
+            echo "ERROR: Unrecognized icon variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -328,9 +328,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
+for opacity in "${opacities[@]:-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-    for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
+    for alt in "${alts[@]:-${ALT_VARIANTS[@]}}"; do
       for small in "${smalls[@]:-${SMALL_VARIANTS[0]}}"; do
         for icon in "${icons[@]:-${ICON_VARIANTS[0]}}"; do
           install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
