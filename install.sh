@@ -328,11 +328,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-for opacity in "${opacities[@]:-${OPACITY_VARIANTS[@]}}"; do
-  for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-    for alt in "${alts[@]:-${ALT_VARIANTS[@]}}"; do
-      for small in "${smalls[@]:-${SMALL_VARIANTS[0]}}"; do
-        for icon in "${icons[@]:-${ICON_VARIANTS[0]}}"; do
+for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
+      for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+        for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
           install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
         done
       done
