@@ -116,7 +116,7 @@ install() {
   cp -ur ${SRC_DIR}/plank/${name}${color}/*.theme                                       ${THEME_DIR}/plank
 }
 
-# Bakup and install files related to GDM theme
+# Backup and install files related to GDM theme
 install_gdm() {
   local THEME_DIR="$1/$2$3$4$5"
   local GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
@@ -164,8 +164,8 @@ while [[ $# -gt 0 ]]; do
     -d|--dest)
       dest="${2}"
       if [[ ! -d "${dest}" ]]; then
-        echo "ERROR: Destination directory does not exist."
-        exit 1
+        echo "Destination directory does not exist. Let's make a new one..."
+        mkdir -p ${dest}
       fi
       shift 2
       ;;
@@ -182,11 +182,11 @@ while [[ $# -gt 0 ]]; do
       for opacity in "${@}"; do
         case "${opacity}" in
           standard)
-            opacitys+=("${OPACITY_VARIANTS[0]}")
+            opacities+=("${OPACITY_VARIANTS[0]}")
             shift
             ;;
           solid)
-            opacitys+=("${OPACITY_VARIANTS[1]}")
+            opacities+=("${OPACITY_VARIANTS[1]}")
             shift
             ;;
           -*|--*)
@@ -248,8 +248,8 @@ while [[ $# -gt 0 ]]; do
       ;;
     -s|--small)
       shift
-      for alt in "${@}"; do
-        case "${alt}" in
+      for small in "${@}"; do
+        case "${small}" in
           standard)
             smalls+=("${SMALL_VARIANTS[0]}")
             shift
@@ -262,7 +262,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized alt variant '$1'."
+            echo "ERROR: Unrecognized small variant '$1'."
             echo "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -328,9 +328,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-for opacity in "${opacitys[@]:-${OPACITY_VARIANTS[@]}}"; do
+for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]:-${COLOR_VARIANTS[@]}}"; do
-    for alt in "${alts[@]:-${ALT_VARIANTS[@]}}"; do
+    for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
       for small in "${smalls[@]:-${SMALL_VARIANTS[0]}}"; do
         for icon in "${icons[@]:-${ICON_VARIANTS[0]}}"; do
           install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
