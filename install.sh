@@ -372,18 +372,10 @@ fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
   install_theme && install_gdm
-else
-  echo "ERROR: install gdm theme failed!..."
-  echo "Try '$0 --help' for more information."
-  exit 1
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then
   revert_gdm
-else
-  echo "ERROR: revert gdm theme failed!..."
-  echo "Try '$0 --help' for more information."
-  exit 1
 fi
 
 echo
