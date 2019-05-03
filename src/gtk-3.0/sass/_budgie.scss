@@ -479,6 +479,10 @@ popover.background.places-menu {
 
       &:hover { background-color: $selected_bg_color; }
       &:disabled { color: transparentize($panel_fg, 0.6); }
+
+      &.budgie-menubar {
+        &:hover { background-color: rgba($panel_fg, 0.10); }
+      }
     }
   }
 
@@ -981,7 +985,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
 // Calendar
 calendar.raven-calendar {
   margin: 2px 0;
-  padding: 2px;
+  padding: 4px;
   border-style: none;
   background-color: transparent;
   color: $raven_fg_color;

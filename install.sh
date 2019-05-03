@@ -32,7 +32,8 @@ usage() {
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
   printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify titilebutton size variant(s) [standard|small] (Default: standard variant)"
   printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian] (Default: standard variant)"
-  printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme"
+  printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme, this option need root user authority! please run this with sudo"
+  printf "  %-25s%s\n" "-r, --revert" "revert GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 
@@ -117,26 +118,24 @@ install() {
 }
 
 # Backup and install files related to GDM theme
+
+GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
+SHELL_THEME_FOLDER="/usr/share/gnome-shell/theme"
+ETC_THEME_FOLDER="/etc/alternatives"
+ETC_THEME_FILE="/etc/alternatives/gdm3.css"
+UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
+UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
+
 install_gdm() {
-  local THEME_DIR="$1/$2$3$4$5"
-  local GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
-  local SHELL_THEME_FOLDER="/usr/share/gnome-shell/theme"
-  local ETC_THEME_FOLDER="/etc/alternatives"
-  local ETC_THEME_FILE="/etc/alternatives/gdm3.css"
-  local UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
-  local UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
+  local GDM_THEME_DIR="${DEST_DIR}/Mojave-dark"
 
   if [[ -f "$GS_THEME_FILE" ]] && command -v glib-compile-resources >/dev/null ; then
     echo "Installing '$GS_THEME_FILE'..."
     cp -an "$GS_THEME_FILE" "$GS_THEME_FILE.bak"
     glib-compile-resources \
-      --sourcedir="$THEME_DIR/gnome-shell" \
+      --sourcedir="$GDM_THEME_DIR/gnome-shell" \
       --target="$GS_THEME_FILE" \
       "${SRC_DIR}/gnome-shell/gnome-shell-theme.gresource.xml"
-  else
-    echo
-    echo "ERROR: Failed to install '$GS_THEME_FILE'"
-    exit 1
   fi
 
   if [[ -f "$UBUNTU_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
@@ -144,7 +143,7 @@ install_gdm() {
     cp -an "$UBUNTU_THEME_FILE" "$UBUNTU_THEME_FILE.bak"
     rm -rf "$GS_THEME_FILE"
     mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
-    cp -af "$THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_THEME_FILE"
+    cp -af "$GDM_THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_THEME_FILE"
   fi
 
   if [[ -f "$ETC_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
@@ -153,9 +152,30 @@ install_gdm() {
     rm -rf "$ETC_THEME_FILE" "$GS_THEME_FILE"
     mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
     [[ -d $SHELL_THEME_FOLDER/Mojave ]] && rm -rf $SHELL_THEME_FOLDER/Mojave
-    cp -ur "$THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
+    cp -ur "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
     cd "$ETC_THEME_FOLDER"
     ln -s "$SHELL_THEME_FOLDER/Mojave/gnome-shell.css" gdm3.css
+  fi
+}
+
+revert_gdm() {
+  if [[ -f "$GS_THEME_FILE.bak" ]]; then
+    echo "reverting '$GS_THEME_FILE'..."
+    rm -rf "$GS_THEME_FILE"
+    mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
+  fi
+
+  if [[ -f "$UBUNTU_THEME_FILE.bak" ]]; then
+    echo "reverting '$UBUNTU_THEME_FILE'..."
+    rm -rf "$UBUNTU_THEME_FILE"
+    mv "$UBUNTU_THEME_FILE.bak" "$UBUNTU_THEME_FILE"
+  fi
+
+  if [[ -f "$ETC_THEME_FILE.bak" ]]; then
+    echo "reverting Ubuntu gnome-shell theme..."
+    rm -rf "$ETC_THEME_FILE"
+    mv "$ETC_THEME_FILE.bak" "$ETC_THEME_FILE"
+    [[ -d $SHELL_THEME_FOLDER/Mojave ]] && rm -rf $SHELL_THEME_FOLDER/Mojave
   fi
 }
 
@@ -175,6 +195,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     -g|--gdm)
       gdm='true'
+      shift 1
+      ;;
+    -r|--revert)
+      revert='true'
       shift 1
       ;;
     -o|--opacity)
@@ -328,6 +352,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+install_theme() {
 for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
@@ -339,9 +364,26 @@ for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
     done
   done
 done
+}
 
-if [[ "${gdm:-}" == 'true' ]]; then
-  install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}"
+if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
+  install_theme
+fi
+
+if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
+  install_theme && install_gdm
+else
+  echo "ERROR: install gdm theme failed!..."
+  echo "Try '$0 --help' for more information."
+  exit 1
+fi
+
+if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then
+  revert_gdm
+else
+  echo "ERROR: revert gdm theme failed!..."
+  echo "Try '$0 --help' for more information."
+  exit 1
 fi
 
 echo

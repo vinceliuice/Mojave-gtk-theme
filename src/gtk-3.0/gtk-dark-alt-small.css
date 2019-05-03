@@ -9776,6 +9776,11 @@ popover.background.places-menu row {
   color: rgba(218, 218, 218, 0.4);
 }
 
+.budgie-panel menubar > menuitem.budgie-menubar:hover,
+.budgie-panel .menubar > menuitem.budgie-menubar:hover {
+  background-color: rgba(218, 218, 218, 0.1);
+}
+
 .budgie-panel menubar.-vala-panel-appmenu-private > menuitem {
   font-weight: normal;
 }
@@ -10378,7 +10383,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 
 calendar.raven-calendar {
   margin: 2px 0;
-  padding: 2px;
+  padding: 4px;
   border-style: none;
   background-color: transparent;
   color: #dadada;
