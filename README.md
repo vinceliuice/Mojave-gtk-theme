@@ -50,7 +50,8 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-a, --alt            | Alt titlebutton theme opacity variant(s) **[standard/alt]** (Default: All variants)|
 |-s, --small          | small titlebutton theme opacity variant(s) **[standard/small]** (Default: standard variant)|
 |-i, --icon           | activities icon variant(s) **[standard/normal/gnome/ubuntu/arch/manjaro/fedora/debian]** (Default: standard variant)|
-|-g, --gdm            | Install GDM theme|
+|-g, --gdm            | Install GDM theme, you should run this with sudo!|
+|-r, --revert         | revert GDM theme, you should run this with sudo!|
 |-h, --help           | Show this help|
 
 ### Icon theme
