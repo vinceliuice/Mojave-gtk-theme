@@ -2641,9 +2641,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .login-dialog StEntry {
-  color: rgba(255, 255, 255, 0.85);
-  selection-background-color: rgba(255, 255, 255, 0.3);
-  selected-color: rgba(255, 255, 255, 0.85);
+  selection-background-color: rgba(255, 255, 255, 0.1);
+  selected-background-color: rgba(255, 255, 255, 0.1);
+  selected-color: #315bef;
   background-color: #212121;
   border-radius: 5px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -2658,7 +2658,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog StEntry:insensitive {
   color: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .login-dialog .modal-dialog-button-box {

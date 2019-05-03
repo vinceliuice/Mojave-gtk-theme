@@ -1,5 +1,5 @@
 #!/bin/bash
-#set -ueo pipefail
+set -ueo pipefail
 #set -x
 
 REPO_DIR=$(cd $(dirname $0) && pwd)
@@ -127,7 +127,7 @@ UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
 UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
 
 install_gdm() {
-  local GDM_THEME_DIR="${DEST_DIR}/Mojave-dark"
+  local GDM_THEME_DIR="${1}/${2}${3}${4}"
 
   if [[ -f "$GS_THEME_FILE" ]] && command -v glib-compile-resources >/dev/null ; then
     echo "Installing '$GS_THEME_FILE'..."
@@ -371,7 +371,7 @@ if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
 fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
-  install_theme && install_gdm
+  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then

@@ -111,8 +111,6 @@ $button_active_hover_image: linear-gradient(0deg, $button_active_hover_bottom 0%
     box-shadow: 0 0 0 1px lighten($primary_color, 15%);
   }
 
-  @if $t == hover { }
-
   @if $t == insensitive {
     color: $disabled_fg_color;
     border: 1px solid rgba($border_color, 0.5);
