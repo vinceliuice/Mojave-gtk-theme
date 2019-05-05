@@ -281,7 +281,13 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   // @if $variant == 'dark' { border: 1px solid $menu_border; }
   // box-shadow: 0 3px 8px rgba(0, 0, 0, 0.56), 0 3px 15px rgba(0, 0, 0, 0.36);
 
-  border-image: url("assets/menu.svg") 15 15 15 15;
+  @if $transparency == 'true' {
+    border-image: url("assets/menu.svg") 15 15 15 15;
+  }
+
+  @else {
+    border-image: url("assets/menu-solid.svg") 15 15 15 15;
+  }
 
   &-arrow { icon-size: 16px; }
 
@@ -438,12 +444,11 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 }
 
 .panel {
-
   &-top, &-bottom, &-left, &-right {
     color: $panel_fg;
     font-size: 1em;
     padding: 0px;
-    background-color: rgba($panel_bg, 0.95);
+    background-color: if($transparency == 'true', rgba($panel_bg, 0.95), $panel_bg);
     box-shadow: 0 0 5px rgba(#000, 0.5), 0 0 16px rgba(#000, 0.24);
 
     .panel-button,
@@ -452,6 +457,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
         color: $fg_color;
         background-color: rgba($fg_color, 0.1);
       }
+
       &:active {
         color: $selected_fg_color;
         background-color: $selected_bg_color;
@@ -1298,7 +1304,14 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   border-radius: 0;
   background-color: $panel_bg;
   border: none;
-  border-image: url("assets/menu.svg") 15 15 15 15;
+
+  @if $transparency == 'true' {
+    border-image: url("assets/menu.svg") 15 15 15 15;
+  }
+
+  @else {
+    border-image: url("assets/menu-solid.svg") 15 15 15 15;
+  }
 
   .osd-monitor-label { font-size: 3em; }
 

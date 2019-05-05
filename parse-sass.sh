@@ -42,10 +42,7 @@ for color in "${_COLOR_VARIANTS[@]}"; do
   for trans in "${_TRANS_VARIANTS[@]}"; do
     sassc $SASSC_OPT src/gnome-shell/gnome-shell${color}${trans}.{scss,css}
     echo "==> Generating the gnome-shell${color}${trans}.css..."
+    sassc $SASSC_OPT src/cinnamon/cinnamon${color}${trans}.{scss,css}
+    echo "==> Generating the cinnamon${color}${trans}.css..."
   done
-done
-
-for color in "${_COLOR_VARIANTS[@]}"; do
-  sassc $SASSC_OPT src/cinnamon/cinnamon${color}.{scss,css}
-  echo "==> Generating the cinnamon${color}.css..."
 done

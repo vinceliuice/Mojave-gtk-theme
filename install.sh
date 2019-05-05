@@ -108,7 +108,7 @@ install() {
   cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
 
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
-  cp -ur ${SRC_DIR}/cinnamon/cinnamon${color}.css                                       ${THEME_DIR}/cinnamon/cinnamon.css
+  cp -ur ${SRC_DIR}/cinnamon/cinnamon${color}${opacity}.css                             ${THEME_DIR}/cinnamon/cinnamon.css
   cp -ur ${SRC_DIR}/cinnamon/common-assets                                              ${THEME_DIR}/cinnamon/assets
   cp -ur ${SRC_DIR}/cinnamon/assets${color}/*.svg                                       ${THEME_DIR}/cinnamon/assets
   cp -ur ${SRC_DIR}/cinnamon/thumbnail${color}.png                                      ${THEME_DIR}/cinnamon/thumbnail.png
