@@ -1139,6 +1139,7 @@ combobox {
   }
 
   .background & button.combo arrow {
+    @include button(active);
     -gtk-icon-source: -gtk-scaled(
                        url("assets/combobox-arrow.png"),
                        url("assets/combobox-arrow@2.png"));
@@ -1150,7 +1151,6 @@ combobox {
     border-width: 1px;
     border-style: solid;
     border-left-style: none;
-    @include button(active);
   }
 
   // .background & menu arrow { // Reset menu overflow arrow
@@ -1158,7 +1158,8 @@ combobox {
   // }
 
   decoration,
-  button.combo:checked { transition: none; } // workaround for menuitem selection
+  button.combo:checked,
+  .background & button.combo:checked { transition: none; } // workaround for menuitem selection
 
   &:drop(active) button.combo { @extend button:drop(active); }
 
@@ -2254,7 +2255,7 @@ menu,
   }
 
   > menuitem {
-    transition: background-color 100ms cubic-bezier(0.0, 0.0, 0.2, 1);
+    transition: background-color 50ms cubic-bezier(0.0, 0.0, 0.2, 1);
     min-height: 12px;
     min-width: 40px;
     padding: 2px 6px;

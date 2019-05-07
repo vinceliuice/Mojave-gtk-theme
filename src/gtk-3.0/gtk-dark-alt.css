@@ -1419,6 +1419,12 @@ combobox arrow {
 }
 
 .background combobox button.combo arrow {
+  color: #ffffff;
+  background-color: #315bef;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(0deg, #3861ca 0%, #3d6be3 100%);
   -gtk-icon-source: -gtk-scaled(url("assets/combobox-arrow.png"), url("assets/combobox-arrow@2.png"));
   min-height: 16px;
   min-width: 16px;
@@ -1428,16 +1434,11 @@ combobox arrow {
   border-width: 1px;
   border-style: solid;
   border-left-style: none;
-  color: #ffffff;
-  background-color: #315bef;
-  border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
-  background-image: linear-gradient(0deg, #3861ca 0%, #3d6be3 100%);
 }
 
 combobox decoration,
-combobox button.combo:checked {
+combobox button.combo:checked,
+.background combobox button.combo:checked {
   transition: none;
 }
 
@@ -2720,7 +2721,7 @@ menu separator,
 .context-menu > menuitem,
 menu > menuitem,
 .menu > menuitem {
-  transition: background-color 100ms cubic-bezier(0, 0, 0.2, 1);
+  transition: background-color 50ms cubic-bezier(0, 0, 0.2, 1);
   min-height: 12px;
   min-width: 40px;
   padding: 2px 6px;
