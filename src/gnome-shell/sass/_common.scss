@@ -714,10 +714,10 @@ $selected_slider_color: white;
   -arrow-border-radius: 2px;
   -arrow-background-color: $base_color;
   -arrow-border-width: 1px;
-  -arrow-border-color: $border_color;
+  -arrow-border-color: $dark_borders_color;
   -arrow-base: 5;
   -arrow-rise: 5;
-  background-color: $menu_bg_color;
+  background-color: transparent;
   border-radius: $material_radius;
   box-shadow: $shadow_2;
 }

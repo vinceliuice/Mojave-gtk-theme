@@ -860,10 +860,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -arrow-border-radius: 2px;
   -arrow-background-color: #242424;
   -arrow-border-width: 1px;
-  -arrow-border-color: rgba(255, 255, 255, 0.12);
+  -arrow-border-color: rgba(0, 0, 0, 0.35);
   -arrow-base: 5;
   -arrow-rise: 5;
-  background-color: #242424;
+  background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
 }
@@ -2704,14 +2704,14 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog .modal-dialog-button:default {
   color: rgba(255, 255, 255, 0.85);
   background-color: #315bef;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.35);
   text-shadow: none;
   icon-shadow: none;
 }
 
 .login-dialog .modal-dialog-button:default:hover, .login-dialog .modal-dialog-button:default:focus {
   color: rgba(255, 255, 255, 0.85);
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
   background-color: #3f66f0;
   text-shadow: none;
   icon-shadow: none;
@@ -2720,7 +2720,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog .modal-dialog-button:default:active {
   color: #FFFFFF;
   background-color: #315bef;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
   text-shadow: none;
   icon-shadow: none;
 }
@@ -2728,7 +2728,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .login-dialog .modal-dialog-button:default:insensitive {
   color: rgba(255, 255, 255, 0.5);
   background-color: rgba(255, 255, 255, 0.15);
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.35);
   text-shadow: none;
   icon-shadow: none;
 }

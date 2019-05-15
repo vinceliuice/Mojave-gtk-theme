@@ -860,10 +860,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -arrow-border-radius: 2px;
   -arrow-background-color: #ffffff;
   -arrow-border-width: 1px;
-  -arrow-border-color: rgba(0, 0, 0, 0.12);
+  -arrow-border-color: rgba(0, 0, 0, 0.15);
   -arrow-base: 5;
   -arrow-rise: 5;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: transparent;
   border-radius: 5px;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.24), 0 3px 3px rgba(0, 0, 0, 0.345);
 }

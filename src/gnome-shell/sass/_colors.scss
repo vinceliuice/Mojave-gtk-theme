@@ -76,7 +76,7 @@ $highlight_color:     if($variant == 'light', rgba($white, 0.4),  rgba($white, 0
 $alt_highlight_color: rgba($white, 0.2);
 
 $borders_bottom_color: if($variant =='light', rgba(black, 0.27), rgba(white, 0.12));
-$dark_borders_color:  if($variant =='light', rgba(black, 0.15), rgba(black, 0.15));
+$dark_borders_color:  if($variant =='light', rgba(black, 0.15), rgba(black, 0.35));
 
 // Button colors
 $button_bg: if($variant == 'light', white, #656565);
