@@ -31,9 +31,10 @@ Search for the engines in your distributions repository or install the engines f
 
 ### Fix entries issues of dark version on Firefox
 
-Use "light theme" for webs of Firefox when you are using dark gtk theme version.
+Use "light theme" for webs on Firefox.
 
-go to `about:config`. Create a pref called `widget.content.gtk-theme-override` of type String, and give it a value of `Mojave-light`. This will fix it.
+go to `about:config`. Create a pref called `widget.content.gtk-theme-override` of type String,
+and give it a value of `Mojave-light`. This will fix it.
 
 ## Installation
 
