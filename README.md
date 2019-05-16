@@ -33,8 +33,11 @@ Search for the engines in your distributions repository or install the engines f
 
 Use "light theme" for webs on Firefox.
 
-go to `about:config`. Create a pref called `widget.content.gtk-theme-override` of type String,
-and give it a value of `Mojave-light`. This will fix it.
+1. Go to `about:config`,
+
+2. create a pref called `widget.content.gtk-theme-override` of type String,
+
+3. and give it a value of `Mojave-light`. This will fix it.
 
 ## Installation
 
