@@ -29,7 +29,7 @@ ArchLinux:
 Other:
 Search for the engines in your distributions repository or install the engines from source.
 
-### Fix entries issues of dark version on Firefox
+## Fix entries issues of dark version on Firefox
 
 Use "light theme" for webs on Firefox.
 
