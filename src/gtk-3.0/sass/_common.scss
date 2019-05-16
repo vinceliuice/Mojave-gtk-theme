@@ -4197,14 +4197,18 @@ decoration {
 
   .maximized &,
   .fullscreen &,
-  .tiled & {
+  .tiled &,
+  .tiled-top &,
+  .tiled-right &,
+  .tiled-bottom &,
+  .tiled-left & {
     border-radius: 0;
     box-shadow: 0 3px 3px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
                 $_wm_border;
   }
 
   .popup & {
-    // box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.06), 0 0 0 1px $borders_color;
+    box-shadow: none;
     border-radius: $wm_radius;
   }
 

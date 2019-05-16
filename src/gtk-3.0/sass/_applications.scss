@@ -31,6 +31,8 @@ terminal-window {
       }
     }
   }
+
+  &.background.csd.maximized { border-radius: 0 0 $wm_radius $wm_radius; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 }
 
 //
