@@ -29,6 +29,12 @@ ArchLinux:
 Other:
 Search for the engines in your distributions repository or install the engines from source.
 
+### Fix entries issues of dark version on Firefox
+
+Use "light theme" for webs of Firefox when you are using dark gtk theme version.
+
+go to `about:config`. Create a pref called `widget.content.gtk-theme-override` of type String, and give it a value of `Mojave-light`. This will fix it.
+
 ## Installation
 
 ### From source

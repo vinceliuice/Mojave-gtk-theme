@@ -361,7 +361,8 @@ $disk_space_free: darken($bg_color, 3%);
     &.frame { border-width: 0; }
 
     .places-treeview {
-      @extend row.activatable;
+      -NemoPlacesTreeView-disk-full-bg-color: $dark_solid_borders_color;
+      -NemoPlacesTreeView-disk-full-fg-color: lighten($progress_color, 5%);
     }
   }
 

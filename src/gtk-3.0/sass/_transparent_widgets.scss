@@ -125,10 +125,11 @@ filechooser {
     .view, row {
       background-color: transparent;
       color: $dark_sidebar_fg;
+      @extend row.activatable;
 
       &.cell:selected {
-        background-color: $selected_bg_color;
-        color: $selected_fg_color;
+        color: $fg_color;
+        background-color: $sidebar_theme_color;
       }
 
       &.expander {

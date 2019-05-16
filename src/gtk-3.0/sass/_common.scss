@@ -303,6 +303,7 @@ entry {
     border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"));
   }
 
+  row &
   notebook &,
   notebook .linked &,
   notebook spinbutton > &,
@@ -325,6 +326,10 @@ entry {
     &:disabled {
       background-color: rgba($entry_bg, 0.55);
     }
+  }
+
+  row & {
+    min-height: 24px;
   }
 
   selection { &:focus, & { @extend %selected_items; }}
@@ -3741,10 +3746,12 @@ placessidebar {
     > revealer {
       padding: 0 10px;
     }
+
     image.sidebar-icon {
       &:dir(ltr) { padding-right: 8px; }
       &:dir(rtl) { padding-left: 8px; }
     }
+
     label.sidebar-label {
       &:dir(ltr) { padding-right: 2px; }
       &:dir(rtl) { padding-left: 2px; }
