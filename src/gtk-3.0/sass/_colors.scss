@@ -59,7 +59,7 @@ $header_fg: if($variant=='light', #575757, #FDFDFD);
 $dark_sidebar_bg: white;
 @if $transparency=='true' and $variant=='light' { $dark_sidebar_bg: transparentize(#f6f6f6, 0.06); }
 @if $transparency=='false' and $variant=='light' { $dark_sidebar_bg: #f6f6f6; }
-@if $transparency=='true' and $variant=='dark' { $dark_sidebar_bg: transparentize(#3B3B3B, 0.06); }
+@if $transparency=='true' and $variant=='dark' { $dark_sidebar_bg: transparentize(#3B3B3B, 0.05); }
 @if $transparency=='false' and $variant=='dark' { $dark_sidebar_bg: #3B3B3B; }
 
 $dark_sidebar_fg: $text_color;

@@ -7290,7 +7290,7 @@ dialog.background > box.vertical > .dialog-vbox > .dialog-action-box > .dialog-a
 
 window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
   border-bottom-left-radius: 6px;
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
 }
 
 window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:not(:hover):not(:selected) {
@@ -7303,11 +7303,11 @@ window.background.csd.thunar > grid.horizontal > paned.horizontal > separator {
 
 window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
   border-top: none;
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
 }
 
 window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view {
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
 }
 
 window.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:hover {
@@ -7660,7 +7660,7 @@ widget > box.terminal-titlebar > button.image-button, widget > box.terminal-titl
 }
 
 list.tilix-session-sidebar {
-  background-image: image(rgba(59, 59, 59, 0.94));
+  background-image: image(rgba(59, 59, 59, 0.95));
 }
 
 list.tilix-session-sidebar button.tilix-sidebar-close-button {
@@ -8829,7 +8829,7 @@ filechooser.csd.background,
 filechooser placessidebar,
 .nautilus-window.csd.background,
 .nautilus-window placessidebar {
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
   border-radius: 0 0 6px 6px;
 }
 
@@ -8971,7 +8971,7 @@ filechooser placesview actionbar.background,
 
 filechooser actionbar {
   color: #dadada;
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
   border-color: rgba(255, 255, 255, 0.12);
 }
 
@@ -9005,7 +9005,7 @@ filechooser box.vertical > paned > separator:dir(rtl) {
 
 .nemo-window .sidebar {
   color: #dadada;
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
 }
 
 .nemo-window .sidebar .view, .nemo-window .sidebar row {
@@ -9019,7 +9019,7 @@ filechooser box.vertical > paned > separator:dir(rtl) {
 }
 
 .nemo-window .sidebar .view.expander, .nemo-window .sidebar row.expander {
-  color: rgba(143, 143, 143, 0.97);
+  color: rgba(142, 142, 142, 0.975);
 }
 
 .nemo-window .sidebar .view.expander:hover, .nemo-window .sidebar row.expander:hover {
@@ -9048,7 +9048,7 @@ filechooser box.vertical > paned > separator:dir(rtl) {
 }
 
 .caja-side-pane junction {
-  background-color: rgba(46, 46, 46, 0.94);
+  background-color: rgba(46, 46, 46, 0.95);
 }
 
 .gedit-bottom-panel-paned {
@@ -9064,7 +9064,7 @@ filechooser box.vertical > paned > separator:dir(rtl) {
 }
 
 .gedit-document-panel {
-  background-color: rgba(59, 59, 59, 0.94);
+  background-color: rgba(59, 59, 59, 0.95);
 }
 
 .maximized .gedit-document-panel {
