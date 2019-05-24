@@ -2005,7 +2005,7 @@ headerbar, .titlebar {
 //
 .path-bar button {
   min-width: 12px;
-  min-height: if($variant == 'light', 24px, 26px);
+  min-height: if($variant == 'light', 20px, 22px);
 
   &.text-button, &.image-button, & {
     padding-left: 6px;

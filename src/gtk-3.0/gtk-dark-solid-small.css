@@ -2441,7 +2441,7 @@ headerbar scale trough:disabled {
 
 .path-bar button {
   min-width: 12px;
-  min-height: 26px;
+  min-height: 22px;
 }
 
 .path-bar button.text-button, .path-bar button.image-button, .path-bar button {
@@ -6975,56 +6975,60 @@ box.vertical > box.vertical > box.vertical > paned.horizontal {
   background-color: #101010;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame {
+dialog.background.csd > box.vertical.dialog-vbox > grid.horizontal > scrolledwindow.frame {
   border: none;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame > viewport.frame {
+dialog.background.csd > box.vertical.dialog-vbox > grid.horizontal > scrolledwindow.frame > viewport.frame {
   border: none;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame > viewport.frame list:first-child {
+dialog.background.csd > box.vertical.dialog-vbox > grid.horizontal > scrolledwindow.frame > viewport.frame list:first-child {
   border-radius: 0 0 0 6px;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal > scrolledwindow.frame > viewport.frame list:last-child {
+dialog.background.csd > box.vertical.dialog-vbox > grid.horizontal > scrolledwindow.frame > viewport.frame list:last-child {
   border-radius: 0 0 6px 0;
 }
 
-dialog.background.csd box.dialog-vbox grid.horizontal stack scrolledwindow.frame {
+dialog.background.csd > box.vertical.dialog-vbox > grid.horizontal > stack > scrolledwindow.frame {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-dialog.background.csd box.dialog-vbox > stack > scrolledwindow,
-dialog.background.csd box.dialog-vbox > stack > stack > scrolledwindow {
+dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow,
+dialog.background.csd > box.vertical.dialog-vbox > stack > stack > scrolledwindow {
   border-radius: 0 0 6px 6px;
   background-color: #242424;
 }
 
-dialog.background.csd box.dialog-vbox > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active),
-dialog.background.csd box.dialog-vbox > stack > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active) {
+dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active),
+dialog.background.csd > box.vertical.dialog-vbox > stack > stack > scrolledwindow iconview.view:not(:hover):not(:selected):not(:active) {
   background-color: transparent;
 }
 
-dialog.background.csd box.dialog-vbox notebook > stack {
+dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list {
   border-radius: 0 0 6px 6px;
 }
 
-dialog.background.csd box.dialog-vbox separator.vertical {
+dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list row.activatable:not(:hover):not(:selected):not(:active), dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list .nemo-window .sidebar .view:not(:hover):not(:selected):not(:active), .nemo-window .sidebar dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list .view:not(:hover):not(:selected):not(:active), dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list .nemo-window .sidebar row:not(:hover):not(:selected):not(:active), .nemo-window .sidebar dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list row:not(:hover):not(:selected):not(:active), dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list .budgie-menu button:not(:hover):not(:selected):not(:active), .budgie-menu dialog.background.csd > box.vertical.dialog-vbox > stack > scrolledwindow > viewport.frame > list button:not(:hover):not(:selected):not(:active) {
+  background-color: transparent;
+}
+
+dialog.background.csd > box.vertical.dialog-vbox > stack > box.vertical > stack.view > scrolledwindow > treeview.view:not(:hover):not(:selected):not(:active) {
+  background-color: transparent;
+}
+
+dialog.background.csd > box.vertical.dialog-vbox > stack toolbar.toolbar, dialog.background.csd > box.vertical.dialog-vbox > stack .toolbar.inline-toolbar {
+  border-radius: 0 0 6px 6px;
+  border-width: 1px 0 0 0;
+}
+
+dialog.background.csd > box.vertical.dialog-vbox > notebook > stack {
+  border-radius: 0 0 6px 6px;
+}
+
+dialog.background.csd > box.vertical.dialog-vbox separator.vertical {
   background-color: rgba(255, 255, 255, 0.12);
-}
-
-dialog.background.csd stack entry {
-  margin: 2px;
-}
-
-dialog.background.csd stack spinbutton entry,
-dialog.background.csd stack .linked entry {
-  margin: 0;
-}
-
-dialog.background.csd entry.search {
-  margin: 2px;
 }
 
 MsdOsdWindow.background.osd {

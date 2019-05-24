@@ -1699,8 +1699,8 @@ box.vertical > box.vertical > box.vertical{
 // Dialogs
 //
 dialog.background.csd {
-  box.dialog-vbox {
-    grid.horizontal {
+  > box.vertical.dialog-vbox {
+    > grid.horizontal {
       > scrolledwindow.frame { //removed ugly boders for nautilus batch renaming dialog
         border: none;
 
@@ -1712,8 +1712,8 @@ dialog.background.csd {
         }
       }
 
-      stack {
-        scrolledwindow.frame { // reset border for totem setting dialog
+      > stack {
+        > scrolledwindow.frame { // reset border for totem setting dialog
           border: 1px solid $borders_color;
         }
       }
@@ -1732,21 +1732,44 @@ dialog.background.csd {
       }
     }
 
-    notebook > stack {
-      border-radius: 0 0 $wm_radius $wm_radius;
+    > stack {
+      // entry { margin: 2px; }
+      //
+      // spinbutton entry,
+      // .linked entry { margin: 0; }
+
+      > scrolledwindow > viewport.frame {
+        > list {
+          border-radius: 0 0 $wm_radius $wm_radius;
+
+          row.activatable:not(:hover):not(:selected):not(:active) {
+            background-color: transparent;
+          }
+        }
+      }
+
+      > box.vertical > stack.view {
+        > scrolledwindow > treeview.view:not(:hover):not(:selected):not(:active) {
+          background-color: transparent;
+        }
+      }
+
+      toolbar.toolbar {
+        border-radius: 0 0 $wm_radius $wm_radius;
+        border-width: 1px 0 0 0;
+      }
+    }
+
+    > notebook {
+      > stack {
+        border-radius: 0 0 $wm_radius $wm_radius;
+      }
     }
 
     separator.vertical { background-color: $borders_color; }
   }
 
-  stack {
-    entry { margin: 2px; }
-
-    spinbutton entry,
-    .linked entry { margin: 0; }
-  }
-
-  entry.search { margin: 2px; }
+  // entry.search { margin: 2px; }
 }
 
 //
