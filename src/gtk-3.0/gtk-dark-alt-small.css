@@ -2698,13 +2698,14 @@ menu,
 .menu {
   padding: 6px 0;
   border-radius: 6px;
-  background-color: rgba(51, 51, 51, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #333333;
+  border: 1px solid #474747;
 }
 
 .csd .context-menu, .csd
 menu, .csd
 .menu {
+  background-color: rgba(51, 51, 51, 0.95);
   border: 1px solid rgba(77, 77, 77, 0.95);
 }
 
@@ -6501,11 +6502,12 @@ window#gnome-system-monitor.background.csd > box.vertical > stack > box.vertical
   background: none;
 }
 
-stack > grid.vertical > scrolledwindow.frame {
+stack > grid.vertical > scrolledwindow {
   border: none;
+  border-radius: 0 0 6px 6px;
 }
 
-stack > grid.vertical > scrolledwindow.frame > viewport.frame list {
+stack > grid.vertical > scrolledwindow > viewport.frame list {
   border-radius: 0 0 6px 6px;
 }
 
@@ -7445,7 +7447,6 @@ window.background:not(.csd) > widget > button > button label {
 
 window.background:not(.csd) > menu,
 window.background:not(.csd) > menu > menu {
-  border: none;
   border-radius: 0;
   background-color: rgba(51, 51, 51, 0.95);
 }
@@ -7509,9 +7510,9 @@ window.background:not(.csd) > window > menu menuitem {
 }
 
 #MozillaGtkWidget.background > window.background > menu {
+  border: none;
   background-color: rgba(51, 51, 51, 0.95);
   border-radius: 0;
-  border-color: rgba(255, 255, 255, 0.12);
 }
 
 #MozillaGtkWidget.background > window.background > menu > separator {

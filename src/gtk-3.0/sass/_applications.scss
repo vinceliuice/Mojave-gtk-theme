@@ -1246,8 +1246,9 @@ window#gnome-system-monitor.background.csd {
 //
 stack {
   > grid.vertical {
-    > scrolledwindow.frame {
+    > scrolledwindow {
       border: none;
+      border-radius: 0 0 $wm_radius $wm_radius;
 
       > viewport.frame {
         list {
@@ -2270,7 +2271,6 @@ window.background:not(.csd) {
 
   > menu,
   > menu > menu {
-    border: none;
     border-radius: 0;
     background-color: $_menu_bg;
   }
@@ -2329,9 +2329,9 @@ window.background:not(.csd) {
   }
 
   > window.background > menu { // context-menus
+    border: none; // hide ugly double borders
     background-color: $_menu_bg;
     border-radius: 0;
-    border-color: $borders_color;
 
     // revert to standard separators
     > separator {

@@ -65,9 +65,7 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-h, --help           | Show this help|
 
 ### Icon theme
-MacOSX: https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/MacOSX-icon-theme.tar.xz
-
-MacOSX-dark: https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/MacOSX-dark-icon-theme.tar.xz
+McMojave-circle: https://github.com/vinceliuice/McMojave-circle
 
 ### Wallpaper
 Mojave default wallpapers: https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/macOS_Mojave_Wallpapers.tar.xz

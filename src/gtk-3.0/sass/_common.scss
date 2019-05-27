@@ -2243,10 +2243,11 @@ menu,
   // margin: 4px;
   padding: 6px 0;
   border-radius: $wm_radius;
-  background-color: $_menu_bg;
-  border: 1px solid $borders_color;
+  background-color: opacify($_menu_bg, 1);
+  border: 1px solid $solid_borders_color;
 
   .csd & {
+    background-color: $_menu_bg;
     @if $variant == 'light' { border: none; }
     @if $variant == 'dark' { border: 1px solid lighten($_menu_bg, 10%); }
   }
