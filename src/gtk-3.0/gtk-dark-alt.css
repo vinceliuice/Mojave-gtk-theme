@@ -6309,6 +6309,72 @@ window.background > box.vertical box.horizontal > box.vertical > scrolledwindow 
   transition-duration: 0s;
 }
 
+widget#PROCESSOR list row, widget#MEMORY list row {
+  margin: -1px;
+  border: 1px solid #474747;
+}
+
+widget#PROCESSOR list row.max, widget#MEMORY list row.max {
+  color: rgba(36, 36, 36, 0.95);
+}
+
+widget#PROCESSOR list separator.list, widget#MEMORY list separator.list {
+  box-shadow: inset 0 0 0 1px #474747;
+}
+
+widget#STORAGE list {
+  margin: -1px;
+}
+
+widget#STORAGE list row.activatable, widget#STORAGE list .nemo-window .sidebar .view, .nemo-window .sidebar widget#STORAGE list .view, widget#STORAGE list .nemo-window .sidebar row, .nemo-window .sidebar widget#STORAGE list row, widget#STORAGE list .budgie-menu button, .budgie-menu widget#STORAGE list button {
+  color: rgba(222, 222, 222, 0.75);
+}
+
+widget#STORAGE list row.activatable:hover, widget#STORAGE list .nemo-window .sidebar .view:hover, .nemo-window .sidebar widget#STORAGE list .view:hover, widget#STORAGE list .nemo-window .sidebar row:hover, .nemo-window .sidebar widget#STORAGE list row:hover, widget#STORAGE list .budgie-menu button:hover, .budgie-menu widget#STORAGE list button:hover, widget#STORAGE list row.activatable:active, widget#STORAGE list .nemo-window .sidebar .view:active, .nemo-window .sidebar widget#STORAGE list .view:active, widget#STORAGE list .nemo-window .sidebar row:active, .nemo-window .sidebar widget#STORAGE list row:active, widget#STORAGE list .budgie-menu button:active, .budgie-menu widget#STORAGE list button:active {
+  color: rgba(222, 222, 222, 0.75);
+}
+
+widget#STORAGE list separator.list {
+  box-shadow: inset 0 0 0 1px #474747;
+}
+
+widget#PERFORMANCE searchbar {
+  box-shadow: inset 0 -2px rgba(255, 255, 255, 0.12), inset 0 -1px #333333;
+}
+
+widget#PERFORMANCE searchbar entry, widget#PERFORMANCE searchbar button {
+  margin-bottom: 2px;
+}
+
+widget#PERFORMANCE .sidebar {
+  background-color: #242424;
+  border-bottom-left-radius: 6px;
+}
+
+graph-switcher-button.toggle {
+  color: rgba(222, 222, 222, 0.75);
+  font-weight: 500;
+}
+
+graph-switcher-button.toggle:hover {
+  color: #dedede;
+  background-image: image(rgba(255, 255, 255, 0.03));
+}
+
+rg-graph.big {
+  background-position: left top;
+  background-origin: border-box;
+  background-repeat: repeat;
+}
+
+box.speedometer-outter {
+  opacity: 0.8;
+}
+
+box.speedometer-content-area {
+  box-shadow: 0 0 0 4px rgba(49, 91, 239, 0.2);
+}
+
 .documents-scrolledwin.frame {
   border-width: 0;
 }
