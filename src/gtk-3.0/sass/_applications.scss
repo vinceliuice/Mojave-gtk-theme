@@ -1300,6 +1300,12 @@ dialog.background.csd { // wallpaper set dialog
       font-weight: 700;
     }
   }
+
+  > box.vertical.dialog-vbox { // wifi setting
+    > notebook > stack > box.horizontal > notebook > stack {
+      border-radius: 0 0 $wm_radius $wm_radius;
+    }
+  }
 }
 
 //
