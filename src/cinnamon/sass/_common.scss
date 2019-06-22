@@ -1365,7 +1365,6 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     font-weight: normal;
     background-image: none;
     transition-duration: 100;
-    padding: 0 6px;
     color: rgba($panel_fg, 0.9);
     border: 0 solid transparent;
 
@@ -1527,7 +1526,6 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   &-item-box {
     font-weight: normal;
     background-image: none;
-    padding: 0 6px;
     transition-duration: 100;
     color: rgba($panel_fg, 0.6);
     border: 0 solid transparent;
