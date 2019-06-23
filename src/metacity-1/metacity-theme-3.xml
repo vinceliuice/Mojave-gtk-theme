@@ -51,8 +51,8 @@
 
 <frame_geometry name="small" title_scale="small" parent="normal" rounded_top_left="false" rounded_top_right="false">
 	<distance name="title_vertical_pad" value="2" />
-	<border name="title_border" left="8" right="8" top="4" bottom="4" />
-	<border name="button_border" left="3" right="3" top="4" bottom="4"  />
+	<border name="title_border" left="8" right="8" top="0" bottom="0" />
+	<border name="button_border" left="3" right="3" top="40" bottom="0"  />
 </frame_geometry>
 
 <frame_geometry name="small_unfocused" parent="small">
@@ -67,8 +67,8 @@
 	<distance name="right_width" value="1" />
 	<distance name="bottom_height" value="1" />
 	<distance name="title_vertical_pad" value="0" />
-	<border name="title_border" left="8" right="8" top="4" bottom="4" />
-	<border name="button_border" left="3" right="3" top="4" bottom="4"  />
+	<border name="title_border" left="8" right="8" top="0" bottom="0" />
+	<border name="button_border" left="3" right="3" top="0" bottom="0"  />
 </frame_geometry>
 
 <frame_geometry name="borderless" has_title="false" rounded_top_left="4" rounded_top_right="4" parent="normal">
@@ -76,8 +76,8 @@
 	<distance name="right_width" value="0" />
 	<distance name="bottom_height" value="0" />
 	<distance name="title_vertical_pad" value="0" />
-	<border name="title_border" left="8" right="8" top="4" bottom="4" />
-	<border name="button_border" left="3" right="3" top="4" bottom="4"  />
+	<border name="title_border" left="8" right="8" top="0" bottom="0" />
+	<border name="button_border" left="3" right="3" top="0" bottom="0"  />
 </frame_geometry>
 
 <frame_geometry name="modal" title_scale="small" hide_buttons="true" rounded_top_left="4" rounded_top_right="4" rounded_bottom_right="false" rounded_bottom_left="false" parent="small">
