@@ -2524,9 +2524,7 @@ window.background.chromium {
     background-color: $chrome_menu_bg_color;
 
     > separator, .separator {
-      background-color: darken($chrome_menu_bg_color, 6%);
-      color: darken($chrome_menu_bg_color, 6%);
-      // border: none;
+      border-top: 2px solid darken($chrome_menu_bg_color, 8%);
     }
 
     > menuitem {
