@@ -7609,8 +7609,13 @@ window.background:not(.csd) > window > menu menuitem {
 }
 
 /***************
-  * Chrome(ium) *
-  ***************/
+ * Chrome(ium) *
+ ***************/
+window.background.chromium {
+  background-color: #333333;
+  color: #dadada;
+}
+
 window.background.chromium headerbar.titlebar button.toggle {
   border: none;
   background-color: transparent;
@@ -7641,20 +7646,53 @@ window.background.chromium headerbar.titlebar button.titlebutton {
 window.background.chromium button {
   border-width: 1px;
   border-style: solid;
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: #474747;
+  background-color: #333333;
+  color: #dadada;
 }
 
 window.background.chromium entry.chromium, window.background.chromium entry.chromium:focus {
   border-image: none;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid #474747;
+  background-color: #333333;
+  color: #dadada;
+}
+
+window.background.chromium > textview.view, window.background.chromium textview {
+  background-color: #333333;
+  color: #dadada;
+}
+
+window.background.chromium > menubar {
+  background-color: #373737;
 }
 
 window.background.chromium > menu {
-  border: 1px solid #474747;
+  border: 1px solid #d9d9d9;
+  color: #565656;
+  background-color: #ffffff;
 }
 
-window.background.chromium > textview.view {
-  background-color: #242424;
+window.background.chromium > menu > separator, window.background.chromium > menu .separator {
+  background-color: #f0f0f0;
+  color: #f0f0f0;
+}
+
+window.background.chromium > menu > menuitem {
+  color: #565656;
+}
+
+window.background.chromium > menu > menuitem:hover {
+  color: #ffffff;
+  background-color: #315bef;
+}
+
+window.background.chromium > menu > menuitem:disabled {
+  color: rgba(86, 86, 86, 0.45);
+}
+
+window.background.chromium > menu > menuitem accelerator {
+  color: rgba(86, 86, 86, 0.45);
 }
 
 /****************

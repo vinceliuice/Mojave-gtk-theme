@@ -2455,14 +2455,19 @@ window.background:not(.csd) {
   }
 }
 
- /***************
-  * Chrome(ium) *
-  ***************/
+/***************
+ * Chrome(ium) *
+ ***************/
+
+$chrome_bg_color: $bg_color;
+$chrome_fg_color: $text_color;
+$chrome_menu_bg_color: #ffffff;
+$chrome_menu_fg_color: #565656;
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
-  // background-color: $bg_color;
-  // color: $text_color;
+  background-color: $bg_color;
+  color: $text_color;
 
   headerbar.titlebar {
     button.toggle { // account-button (> 64.0.3282?)
@@ -2491,27 +2496,56 @@ window.background.chromium {
   button { // for active-tab borders
     border-width: 1px;
     border-style: solid;
-    border-color: $borders_color;
+    border-color: $solid_borders_color;
+    background-color: $chrome_bg_color;
+    color: $chrome_fg_color;
   }
 
   entry.chromium {
     &, &:focus { // overrides standard borders
       border-image: none;
-      border: 1px solid $borders_color;
+      border: 1px solid $solid_borders_color;
+      background-color: $chrome_bg_color;
+      color: $chrome_fg_color;
     }
   }
 
-  > menu {
-    border: 1px solid $solid_borders_color;
-    // background-color: $menu_bg_color;
-
-    // > menuitem {
-    //   color: $menu_fg_color; // Atom/VS-code menubar use this as menubar menuitem color
-    // }
+  // internal region of toolbar's entry widget
+  > textview.view, textview {
+    background-color: $chrome_bg_color;
+    color: $chrome_fg_color;
   }
 
-  // internal region of toolbar's entry widget
-  > textview.view { background-color: $base_color; }
+  > menubar { background-color: $header_bg; }
+
+  > menu {
+    border: 1px solid darken($chrome_menu_bg_color, 15%);
+    color: $chrome_menu_fg_color;
+    background-color: $chrome_menu_bg_color;
+
+    > separator, .separator {
+      background-color: darken($chrome_menu_bg_color, 6%);
+      color: darken($chrome_menu_bg_color, 6%);
+      // border: none;
+    }
+
+    > menuitem {
+      color: $chrome_menu_fg_color;
+
+      &:hover {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+      }
+
+      &:disabled {
+        color: rgba($chrome_menu_fg_color, 0.45);
+      }
+
+      // label { &:disabled { color: rgba($chrome_menu_fg_color, 0.45); } }
+
+      accelerator { color: rgba($chrome_menu_fg_color, 0.45); }
+    }
+  }
 }
 
 /****************
