@@ -7674,7 +7674,10 @@ window.background.chromium > menu {
 }
 
 window.background.chromium > menu > separator, window.background.chromium > menu .separator {
-  border-top: 2px solid #ebebeb;
+  margin: 2px 0;
+  min-height: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  background: none;
 }
 
 window.background.chromium > menu > menuitem {

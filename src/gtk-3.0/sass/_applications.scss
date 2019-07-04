@@ -2524,7 +2524,10 @@ window.background.chromium {
     background-color: $chrome_menu_bg_color;
 
     > separator, .separator {
-      border-top: 2px solid darken($chrome_menu_bg_color, 8%);
+      margin: 2px 0;
+      min-height: 0;
+      border-bottom: 2px solid $_menu_bd;
+      background: none;
     }
 
     > menuitem {
