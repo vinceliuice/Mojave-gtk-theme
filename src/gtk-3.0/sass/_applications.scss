@@ -2526,7 +2526,7 @@ window.background.chromium {
     > separator, .separator {
       margin: 2px 0;
       min-height: 0;
-      border-bottom: 2px solid $_menu_bd;
+      border-bottom: 2px solid rgba(black, 0.05);
       background: none;
     }
 
