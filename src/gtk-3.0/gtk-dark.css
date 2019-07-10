@@ -7825,6 +7825,10 @@ window.background.csd > box.vertical > stack > box.horizontal > box.vertical > s
   border-radius: 0 0 6px 0;
 }
 
+window.background.csd > box.vertical > stack > box.horizontal > box.vertical > stack > scrolledwindow treeview.view:not(:hover):not(:selected) {
+  border-radius: 0 0 6px 0;
+}
+
 window.background.csd > box.vertical > stack > box.horizontal > separator {
   background: none;
 }
@@ -7861,10 +7865,16 @@ window.background.csd > box.vertical > stack > box.horizontal > revealer > stack
   color: rgba(222, 222, 222, 0.45);
 }
 
+window.background.csd > box.vertical > stack > box.vertical > box.horizontal > revealer > stack > scrolledwindow,
+window.background.csd > box.vertical > stack > box.vertical > box.horizontal > revealer > stack > stack > scrolledwindow {
+  background-color: #242424;
+  border-bottom-left-radius: 6px;
+}
+
 window.background.csd > box.vertical > stack > box.vertical > box.horizontal > revealer > stack > scrolledwindow > viewport.frame list,
 window.background.csd > box.vertical > stack > box.vertical > box.horizontal > revealer > stack > stack > scrolledwindow > viewport.frame list {
-  background-color: #242424;
-  border-right: none;
+  background-color: transparent;
+  border-right: 1px solid #101010;
   border-bottom-left-radius: 6px;
 }
 
@@ -7892,9 +7902,13 @@ window.background.csd > box.vertical > stack > box.vertical > box.horizontal > r
   color: rgba(222, 222, 222, 0.45);
 }
 
+window.background.csd > box.vertical > stack > box.vertical > box.horizontal > separator {
+  background: none;
+}
+
 window.background.csd > box.vertical > stack > box.vertical > box.horizontal > box.vertical > stack > scrolledwindow > viewport.frame list {
   background-color: transparent;
-  border-right: none;
+  border-right: 1px solid #101010;
   border-bottom-right-radius: 6px;
 }
 

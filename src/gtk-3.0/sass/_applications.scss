@@ -2565,15 +2565,18 @@ window.background:not(.solid-csd) {
       border: none;
       border-radius: 50px;
       background-image: none;
+
       &:hover {
         background-color: lighten($header_bg, 15%);
         color: lighten($header_fg, 5%);
       }
+
       &:active,
       &:checked {
         background-color: rgba(red, 0.65);
         color: white;
       }
+
       &:disabled {
         color: rgba($header_fg, 0.6);
       }
@@ -2680,6 +2683,12 @@ window.background.csd {
             border-radius: 0 0 $wm_radius 0;
           }
         }
+
+        > scrolledwindow {
+          treeview.view:not(:hover):not(:selected) {
+            border-radius: 0 0 $wm_radius 0;
+          }
+        }
       }
 
       > separator {
@@ -2727,14 +2736,17 @@ window.background.csd {
       }
     }
 
-    > box.vertical > box.horizontal { // Pamac 8.0.1-1
+    > box.vertical > box.horizontal { // Pamac > 8.0
       > revealer > stack,
       > revealer > stack > stack {
         > scrolledwindow {
+          background-color: $base_color;
+          border-bottom-left-radius: $wm_radius;
+
           > viewport.frame {
             list {
-              background-color: $base_color;
-              border-right: none;
+              background-color: transparent;
+              border-right: 1px solid if($variant=='light', $borders_color, $header_border);
               border-bottom-left-radius: $wm_radius;
 
               row.activatable:not(:hover):not(:selected) {
@@ -2749,12 +2761,16 @@ window.background.csd {
         }
       }
 
+      > separator {
+        background: none;
+      }
+
       > box.vertical > stack {
         > scrolledwindow {
           > viewport.frame {
             list {
               background-color: transparent;
-              border-right: none;
+              border-right: 1px solid if($variant=='light', $borders_color, $header_border);
               border-bottom-right-radius: $wm_radius;
 
               row.activatable:not(:hover):not(:selected) {
