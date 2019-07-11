@@ -1597,7 +1597,6 @@ headerbar:backdrop,
 
 .maximized headerbar, .maximized .titlebar:not(headerbar) {
   background-color: #e5e5e5;
-  border-bottom: 1px solid #a1a1a1;
 }
 
 .maximized headerbar:backdrop, .maximized .titlebar:backdrop:not(headerbar) {

@@ -1331,7 +1331,7 @@ headerbar,
 
   .maximized & {
     background-color: $header_bg;
-    border-bottom: 1px solid $header_border;
+    // border-bottom: 1px solid $header_border;
 
     &:backdrop {
       background-color: $header_bg_backdrop;
