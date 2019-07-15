@@ -65,10 +65,10 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-h, --help           | Show this help|
 
 ### Icon theme
-McMojave-circle: https://github.com/vinceliuice/McMojave-circle
+[McMojave-circle](https://github.com/vinceliuice/McMojave-circle)
 
 ### Wallpaper
-Mojave default wallpapers: https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/macOS_Mojave_Wallpapers.tar.xz
+[Mojave default wallpapers](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/macOS_Mojave_Wallpapers.tar.xz)
 
 ### Firefox theme
 [Intall Firefox theme](src/firefox)
