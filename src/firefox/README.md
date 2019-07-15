@@ -3,6 +3,10 @@
 
 <p align="center">A GNOME theme for Firefox 60+</p>
 
+#### Preview
+![01](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/firefox01.png?raw=true)
+![02](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/firefox02.png?raw=true)
+
 ## Description
 
 This is a bunch of CSS code to make Firefox look closer to Mac Mojave theme.
@@ -61,4 +65,3 @@ any specific license on your code.
 
 ## Credits
 Developed by **Rafael Mardojai** and [contributors](https://github.com/rafaelmardojai/firefox-gnome-theme/graphs/contributors). Based on **[Sai Kurogetsu](https://github.com/kurogetsusai/firefox-gnome-theme)** original work.
-
