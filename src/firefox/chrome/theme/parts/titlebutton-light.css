@@ -1,0 +1,79 @@
+ :root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar] #titlebar #titlebar-close {
+	background: url("../icons/titlebutton-close.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max,
+:root[tabsintitlebar] #titlebar #titlebar-max {
+	background: url("../icons/titlebutton-maximize.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min,
+:root[tabsintitlebar] #titlebar #titlebar-min {
+	background: url("../icons/titlebutton-minimize.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button {
+	background: url("../icons/titlebutton-restore.png") no-repeat;
+	background-size: contain;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close:hover,
+:root[tabsintitlebar] #titlebar #titlebar-close:hover {
+	background: url("../icons/titlebutton-close-hover.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max:hover,
+:root[tabsintitlebar] #titlebar #titlebar-max:hover {
+	background: url("../icons/titlebutton-maximize-hover.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min:hover,
+:root[tabsintitlebar] #titlebar #titlebar-min:hover {
+	background: url("../icons/titlebutton-minimize-hover.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button:hover {
+	background: url("../icons/titlebutton-restore-hover.png") no-repeat;
+	background-size: contain;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close:active,
+:root[tabsintitlebar] #titlebar #titlebar-close:active {
+	background: url("../icons/titlebutton-close-active.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max:active,
+:root[tabsintitlebar] #titlebar #titlebar-max:active {
+	background: url("../icons/titlebutton-maximize-active.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min:active,
+:root[tabsintitlebar] #titlebar #titlebar-min:active {
+	background: url("../icons/titlebutton-minimize-active.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button:active {
+	background: url("../icons/titlebutton-restore-active.png") no-repeat;
+	background-size: contain;
+}
+
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-close {
+	background: url("../icons/titlebutton-close-backdrop.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-max,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-max {
+	background: url("../icons/titlebutton-maximize-backdrop.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-min,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-min {
+	background: url("../icons/titlebutton-minimize-backdrop.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button:active {
+	background: url("../icons/titlebutton-restore-backdrop.png") no-repeat;
+	background-size: contain;
+}

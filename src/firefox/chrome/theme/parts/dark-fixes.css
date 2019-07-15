@@ -1,0 +1,11 @@
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton),
+#downloadsHistory,
+#downloadsPanel-mainView .download-state .downloadButton,
+#viewButton,
+#urlbar {
+	border: none !important;
+}
+
+#nav-bar #forward-button:not(#hack) {
+	margin-left: 1px !important;
+}

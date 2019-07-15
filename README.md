@@ -70,6 +70,13 @@ McMojave-circle: https://github.com/vinceliuice/McMojave-circle
 ### Wallpaper
 Mojave default wallpapers: https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/macOS_Mojave_Wallpapers.tar.xz
 
+### Firefox theme
+[Intall Firefox theme](https://github.com/vinceliuice/Mojave-gtk-theme/src/firefox/README.md)
+
+#### Preview
+![01](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/firefox01.png?raw=true)
+![02](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/firefox02.png?raw=true)
+
 ## Screenshots
 
 #### Mojave

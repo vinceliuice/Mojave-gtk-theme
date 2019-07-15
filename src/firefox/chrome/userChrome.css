@@ -1,0 +1,34 @@
+
+/* Import theme */
+
+@import "theme/gnome-theme-light.css"; /* light theme */
+/*@import "theme/gnome-theme-dark.css"; /* dark theme */
+
+/*
+ * Here you can enable other theme features not included by default.
+ * To enable a specific feature, uncomment its @import line by removing "/*" at
+ * the beginning of the line. To disable it, put the "/*" back.
+ */
+
+/* Hide the tab bar when only one tab is open
+ * Warning: This also hides the private browsing indicator in private windows.
+ * If you are using it, you might wanna enable the next feature too. Also you
+ * should move the new tab button somewhere else for this to work, because by
+ * default it is on the tab bar too. */
+/*@import "theme/hide-single-tab.css"; /**/
+
+/* Limit the URL bar's autocompletion popup's width to the URL bar's width */
+/*@import "theme/matching-autocomplete-width.css"; /**/
+
+/* Use GNOME stack icons */
+/*@import "theme/gnome-icons.css"; /**/
+
+/* Make all tab icons look kinda like symbolic icons */
+/*@import "theme/symbolic-tab-icons.css"; /**/
+
+/* Import a custom stylesheet
+ * Everything you add in your customChrome.css file (it doesn't exist by
+ * default) will be included here and preserved between updates, so you can move
+ * your configuration to that file if you don't like setting it up after every
+ * update. You can also apply your own custom styles in that file. */
+@import "customChrome.css"; /**/

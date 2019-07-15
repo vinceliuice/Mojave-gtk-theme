@@ -1,0 +1,98 @@
+/* Popup menus and context menus */
+
+@import "popups-contents.css";
+@namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* Style menus */
+menupopup {
+	-moz-appearance: none !important;
+	background: none !important;
+	border: 0 !important;
+	padding: 2px;
+}
+
+menupopup menupopup {
+	margin: -7px 0 0 -4px;
+}
+
+menupopup .popup-internal-box {
+	background: var(--gnome-menu-background);
+	border: 1px solid var(--gnome-menu-border-color);
+	border-radius: 5px;
+	padding: 4px 0;
+	color: var(--gnome-toolbar-color) !important;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Adjust popovers position */
+panel[type=arrow] {
+	margin-top: 9px !important;
+}
+
+/* Style popovers */
+.panel-arrowcontent .panel-arrowcontent, 
+.panel-header, .PanelUI-subView,
+.panel-subview-body, #widget-overflow-mainView,
+panelview {
+	background: transparent !important;
+}
+panel:not(.tooltip-xul-wrapper) .panel-arrowcontent {
+	background: var(--gnome-popover-background) !important;
+	border: 1px solid !important;
+	border-color: var(--gnome-popover-border-color) !important;
+	border-radius: 9px;
+	box-shadow: var(--gnome-popover-shadow) !important;
+	padding: 8px 12px !important;
+	color: var(--gnome-toolbar-color) !important;
+}
+
+.panel-arrow {
+	fill: var(--gnome-popover-background) !important;
+	stroke: var(--gnome-popover-border-color) !important;
+}
+
+.panel-footer {
+	background-color: transparent !important;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.panel-footer toolbarseparator {
+	display: none !important;
+}
+
+/* Style popovers menu buttons */
+.subviewbutton, .toolbarbutton-1 {
+	border-radius: 3px !important;
+	color: var(--gnome-toolbar-color) !important;
+}
+
+.subviewbutton[disabled], .toolbarbutton-1[disabled] {
+	opacity: 0.5 !important;
+}
+
+.subviewbutton::after {
+	opacity: 0.7 !important;
+}
+.subviewbutton:not([disabled]):hover, .toolbarbutton-1:not([disabled]):hover {
+	background: var(--gnome-popover-button-hover-background) !important;
+}
+.subviewbutton:not([disabled]):active, .toolbarbutton-1:not([disabled]):active {
+	background: var(--gnome-popover-button-active-background) !important;
+}
+
+/* Style popover separators */
+toolbarseparator, menuseparator {
+	border-color: var(--gnome-popover-separator-color) !important;
+}
+toolbarseparator:not([orient="vertical"]) {
+	margin: 8px 0 !important;
+}
+toolbarseparator[orient="vertical"] {
+	margin: 0 3px !important;
+}
+
+/* Remove popover header separator */
+.panel-header {
+	border-bottom: 0 !important;
+}

@@ -2770,7 +2770,7 @@ window.background.csd {
           > viewport.frame {
             list {
               background-color: transparent;
-              border-right: 1px solid if($variant=='light', $borders_color, $header_border);
+              // border-right: 1px solid if($variant=='light', $borders_color, $header_border);
               border-bottom-right-radius: $wm_radius;
 
               row.activatable:not(:hover):not(:selected) {

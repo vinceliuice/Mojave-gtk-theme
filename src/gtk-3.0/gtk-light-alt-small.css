@@ -7877,7 +7877,6 @@ window.background.csd > box.vertical > stack > box.vertical > box.horizontal > s
 
 window.background.csd > box.vertical > stack > box.vertical > box.horizontal > box.vertical > stack > scrolledwindow > viewport.frame list {
   background-color: transparent;
-  border-right: 1px solid rgba(0, 0, 0, 0.15);
   border-bottom-right-radius: 6px;
 }
 

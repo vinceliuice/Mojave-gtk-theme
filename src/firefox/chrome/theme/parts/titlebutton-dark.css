@@ -1,0 +1,79 @@
+ :root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar] #titlebar #titlebar-close {
+	background: url("../icons/titlebutton-close-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max,
+:root[tabsintitlebar] #titlebar #titlebar-max {
+	background: url("../icons/titlebutton-maximize-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min,
+:root[tabsintitlebar] #titlebar #titlebar-min {
+	background: url("../icons/titlebutton-minimize-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button {
+	background: url("../icons/titlebutton-restore-dark.png") no-repeat;
+	background-size: contain;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close:hover,
+:root[tabsintitlebar] #titlebar #titlebar-close:hover {
+	background: url("../icons/titlebutton-close-hover-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max:hover,
+:root[tabsintitlebar] #titlebar #titlebar-max:hover {
+	background: url("../icons/titlebutton-maximize-hover-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min:hover,
+:root[tabsintitlebar] #titlebar #titlebar-min:hover {
+	background: url("../icons/titlebutton-minimize-hover-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button:hover {
+	background: url("../icons/titlebutton-restore-hover.png") no-repeat;
+	background-size: contain;
+}
+
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close:active,
+:root[tabsintitlebar] #titlebar #titlebar-close:active {
+	background: url("../icons/titlebutton-close-active-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max:active,
+:root[tabsintitlebar] #titlebar #titlebar-max:active {
+	background: url("../icons/titlebutton-maximize-active-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min:active,
+:root[tabsintitlebar] #titlebar #titlebar-min:active {
+	background: url("../icons/titlebutton-minimize-active-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button:active {
+	background: url("../icons/titlebutton-restore-active-dark.png") no-repeat;
+	background-size: contain;
+}
+
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-close {
+	background: url("../icons/titlebutton-close-backdrop-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-max,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-max {
+	background: url("../icons/titlebutton-maximize-backdrop-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-min,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-min {
+	background: url("../icons/titlebutton-minimize-backdrop-dark.png") no-repeat;
+	background-size: contain;
+}
+:root[tabsintitlebar][inFullscreen] #window-controls #restore-button:active {
+	background: url("../icons/titlebutton-restore-backdrop-dark.png") no-repeat;
+	background-size: contain;
+}
