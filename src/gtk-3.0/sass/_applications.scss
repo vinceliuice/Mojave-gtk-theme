@@ -2668,6 +2668,8 @@ window.background.csd {
         background-color: transparent;
         border-right: 1px solid $borders_color;
         border-bottom-left-radius: $wm_radius;
+
+        label:disabled { color: $insensitive_fg_color; }
       }
 
       > box.vertical > stack {
@@ -2700,6 +2702,8 @@ window.background.csd {
           background-color: transparent;
           border-right: 1px solid $borders_color;
           border-bottom-left-radius: $wm_radius;
+
+          label:disabled { color: $insensitive_fg_color; }
         }
 
         > scrolledwindow {
@@ -2724,6 +2728,8 @@ window.background.csd {
             border-right: 1px solid $borders_color;
             border-bottom-left-radius: $wm_radius;
 
+            label:disabled { color: $insensitive_fg_color; }
+
             row.activatable:not(:hover):not(:selected) {
               background-color: transparent;
               background-image: none;
@@ -2739,6 +2745,22 @@ window.background.csd {
     > box.vertical > box.horizontal { // Pamac > 8.0
       > revealer > stack,
       > revealer > stack > stack {
+        list {
+          background-color: $base_color;
+          border-right: 1px solid if($variant=='light', $borders_color, $header_border);
+          border-bottom-left-radius: $wm_radius;
+
+          label:disabled { color: $insensitive_fg_color; }
+
+          row.activatable:not(:hover):not(:selected) {
+            background-color: transparent;
+            background-image: none;
+            border-bottom-left-radius: $wm_radius;
+
+            label:disabled { color: $insensitive_fg_color; }
+          }
+        }
+
         > scrolledwindow {
           background-color: $base_color;
           border-bottom-left-radius: $wm_radius;
@@ -2748,6 +2770,8 @@ window.background.csd {
               background-color: transparent;
               border-right: 1px solid if($variant=='light', $borders_color, $header_border);
               border-bottom-left-radius: $wm_radius;
+
+              label:disabled { color: $insensitive_fg_color; }
 
               row.activatable:not(:hover):not(:selected) {
                 background-color: transparent;
@@ -2772,6 +2796,8 @@ window.background.csd {
               background-color: transparent;
               // border-right: 1px solid if($variant=='light', $borders_color, $header_border);
               border-bottom-right-radius: $wm_radius;
+
+              label:disabled { color: $insensitive_fg_color; }
 
               row.activatable:not(:hover):not(:selected) {
                 background-color: transparent;
