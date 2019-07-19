@@ -31,11 +31,11 @@
 	border: 1px solid var(--gnome-button-border-color) !important;
 	border-bottom-color: var(--gnome-button-border-accent-color) !important;
 	border-radius: 5px !important;
-	padding: 0 2px !important;
+	padding: 0 4px !important;
 	height: 26px !important;
 	max-height: 26px !important;
 	min-height: 26px !important;
-	min-width: 38px !important;
+	min-width: 26px !important;
 	color: var(--gnome-toolbar-color) !important;
 }
 

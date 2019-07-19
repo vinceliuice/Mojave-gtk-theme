@@ -35,6 +35,26 @@ terminal-window {
   &.background.csd.maximized { border-radius: 0 0 $wm_radius $wm_radius; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 }
 
+window.background { // gnome-terminal 3.32 setting
+  > box.vertical > box.horizontal > frame {
+    > border {
+      border-width: 0 1px 0 0;
+    }
+
+    > scrolledwindow > viewport.frame {
+      list {
+        border-bottom-left-radius: $wm_radius;
+      }
+    }
+  }
+
+  > box.vertical > box.horizontal > stack {
+    > widget > notebook.frame {
+      border-width: 0 0 0 1px;
+    }
+  }
+}
+
 //
 // Nautilus
 //
