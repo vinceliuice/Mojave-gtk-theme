@@ -51,6 +51,10 @@ window.background { // gnome-terminal 3.32 setting
   > box.vertical > box.horizontal > stack {
     > widget > notebook.frame {
       border-width: 0 0 0 1px;
+
+      > stack {
+        border-bottom-right-radius: $wm_radius;
+      }
     }
   }
 }

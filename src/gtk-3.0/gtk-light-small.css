@@ -5442,6 +5442,10 @@ window.background > box.vertical > box.horizontal > stack > widget > notebook.fr
   border-width: 0 0 0 1px;
 }
 
+window.background > box.vertical > box.horizontal > stack > widget > notebook.frame > stack {
+  border-bottom-right-radius: 6px;
+}
+
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle.budgie-menu-launcher,
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle, .nautilus-window headerbar .path-bar-box .path-bar button.image-button.text-button.toggle.budgie-menu-launcher {
   border-radius: 0;
