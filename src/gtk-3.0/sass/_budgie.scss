@@ -11,10 +11,10 @@
 $raven_base_color: if($variant =='light', #f5f5f5, #1b1b1b);
 $raven_bg_color: if($variant =='light', #dedede, #1f1f1f);
 $raven_fg_color: $text_color;
-$raven_header_bg_color: if($variant =='light', #efefef, #191919);
+$raven_header_bg_color: if($variant =='light', #efefef, #181818);
 $raven_header_fg_color: $text_color;
 $raven_button_bg_color: $button_bg;
-$raven_border_color: if($variant =='light', rgba(black, 0.10), rgba(black, 0.20));
+$raven_border_color: if($variant =='light', rgba(black, 0.10), rgba(black, 0.35));
 
 $raven_radius: 10px;
 $raven_padding: 8px;
@@ -113,7 +113,8 @@ $raven_padding: 8px;
   background-color: if($transparency == 'true', rgba($bg_color, 0.95), $bg_color);
   box-shadow: 0 1px 2px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
               0 2px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
-              0 0 0 1px if($variant=='light', $borders_color, rgba($dark_borders_color, 0.55));
+              0 0 0 1px if($variant=='light', $borders_color, rgba($dark_borders_color, 0.55)),
+              inset 0 0 0 1px if($variant=='light', rgba($borders_color, 0.0), lighten($_popover_bg, 10%));
 
   .container { padding: 2px; border: none; }
   border { border: none; }
@@ -979,6 +980,34 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
 .devices-list.sound-devices {
   > row.activatable > box.horizontal {
     label { padding-left: 8px; }
+  }
+}
+
+// some specific scale styling
+box.audio-widget,
+window.sound-popover.background {
+  scale.horizontal.marks-after { // overdrive-mode scale
+    padding-top: 0; // unset default padding
+    padding-bottom: 0;
+
+    trough { // overdrive-mode trough styling
+      background-color: transparent; // unset default trough color
+      @each $_dir, $_opp_end in (ltr, right),
+                                (rtl, left) {
+        &:dir(#{$_dir}) {
+          background-image:
+            linear-gradient(to $_opp_end,
+                            rgba($success_color, 0.25) calc(66% - 3px),
+                            rgba($destructive_color, 0.25) calc(66% - 3px),
+                            rgba($destructive_color, 0.25) 100%);
+        }
+      }
+    }
+
+    mark {
+      // hide label for vertically centered troughs
+      label { font-size: 0; }
+    }
   }
 }
 

@@ -9586,7 +9586,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
   border-color: rgba(0, 0, 0, 0.15);
   border-radius: 6px;
   background-color: rgba(245, 245, 245, 0.95);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(0, 0, 0, 0);
 }
 
 .budgie-popover .container {
@@ -10622,6 +10622,32 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 
 .devices-list.sound-devices > row.activatable > box.horizontal label, .nemo-window .sidebar .devices-list.sound-devices > .view > box.horizontal label, .nemo-window .sidebar .devices-list.sound-devices > row > box.horizontal label, .budgie-menu .devices-list.sound-devices > button > box.horizontal label {
   padding-left: 8px;
+}
+
+box.audio-widget scale.horizontal.marks-after,
+window.sound-popover.background scale.horizontal.marks-after {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+box.audio-widget scale.horizontal.marks-after trough,
+window.sound-popover.background scale.horizontal.marks-after trough {
+  background-color: transparent;
+}
+
+box.audio-widget scale.horizontal.marks-after trough:dir(ltr),
+window.sound-popover.background scale.horizontal.marks-after trough:dir(ltr) {
+  background-image: linear-gradient(to right, rgba(113, 200, 55, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) 100%);
+}
+
+box.audio-widget scale.horizontal.marks-after trough:dir(rtl),
+window.sound-popover.background scale.horizontal.marks-after trough:dir(rtl) {
+  background-image: linear-gradient(to left, rgba(113, 200, 55, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) 100%);
+}
+
+box.audio-widget scale.horizontal.marks-after mark label,
+window.sound-popover.background scale.horizontal.marks-after mark label {
+  font-size: 0;
 }
 
 calendar.raven-calendar {

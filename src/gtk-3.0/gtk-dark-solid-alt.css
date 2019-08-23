@@ -9613,7 +9613,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
   border-color: rgba(0, 0, 0, 0.55);
   border-radius: 6px;
   background-color: #333333;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px #4d4c4c;
 }
 
 .budgie-popover .container {
@@ -10396,9 +10396,9 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 .raven scrolledwindow > .frame > box.vertical > box.vertical {
   margin: 8px 0;
   border-radius: 10px;
-  background-color: #191919;
+  background-color: #181818;
   transition-duration: 0s;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
 .raven scrolledwindow > .frame .raven-header {
@@ -10527,7 +10527,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 }
 
 .raven box.vertical > stack > box.vertical > .raven-header {
-  background-color: #191919;
+  background-color: #181818;
 }
 
 .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame {
@@ -10649,6 +10649,32 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
 
 .devices-list.sound-devices > row.activatable > box.horizontal label, .nemo-window .sidebar .devices-list.sound-devices > .view > box.horizontal label, .nemo-window .sidebar .devices-list.sound-devices > row > box.horizontal label, .budgie-menu .devices-list.sound-devices > button > box.horizontal label {
   padding-left: 8px;
+}
+
+box.audio-widget scale.horizontal.marks-after,
+window.sound-popover.background scale.horizontal.marks-after {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+box.audio-widget scale.horizontal.marks-after trough,
+window.sound-popover.background scale.horizontal.marks-after trough {
+  background-color: transparent;
+}
+
+box.audio-widget scale.horizontal.marks-after trough:dir(ltr),
+window.sound-popover.background scale.horizontal.marks-after trough:dir(ltr) {
+  background-image: linear-gradient(to right, rgba(113, 200, 55, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) 100%);
+}
+
+box.audio-widget scale.horizontal.marks-after trough:dir(rtl),
+window.sound-popover.background scale.horizontal.marks-after trough:dir(rtl) {
+  background-image: linear-gradient(to left, rgba(113, 200, 55, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) calc(66% - 3px), rgba(248, 70, 76, 0.25) 100%);
+}
+
+box.audio-widget scale.horizontal.marks-after mark label,
+window.sound-popover.background scale.horizontal.marks-after mark label {
+  font-size: 0;
 }
 
 calendar.raven-calendar {
