@@ -1111,7 +1111,9 @@ window.budgie-switcher-window {
   padding: 8px;
   border-radius: $wm_radius;
   box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent,
-              0 3px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1));
+              0 3px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
+              0 0 0 1px if($variant=='light', rgba($borders_color, 0.15), rgba($dark_borders_color, 0.55)),
+              inset 0 0 0 1px rgba(white, 0.06);
 
   background-color: if($transparency == 'true', rgba($base_color, 0.95), $base_color);
   background-image: none;
