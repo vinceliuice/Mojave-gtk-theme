@@ -9610,10 +9610,10 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
 .budgie-popover {
   margin: 0;
   padding: 0;
-  border-color: rgba(0, 0, 0, 0.55);
+  border-color: #474747;
   border-radius: 6px;
   background-color: #333333;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px #4d4c4c;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .budgie-popover .container {

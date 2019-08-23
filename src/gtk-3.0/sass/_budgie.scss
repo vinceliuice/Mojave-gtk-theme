@@ -108,13 +108,13 @@ $raven_padding: 8px;
 .budgie-popover {
   margin: 0;
   padding: 0;
-  border-color: if($variant=='light', $borders_color, rgba($dark_borders_color, 0.55));
+  border-color: if($variant=='light', $borders_color, lighten($_popover_bg, 8%));
   border-radius: $wm_radius;
   background-color: if($transparency == 'true', rgba($bg_color, 0.95), $bg_color);
   box-shadow: 0 1px 2px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
               0 2px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
               0 0 0 1px if($variant=='light', $borders_color, rgba($dark_borders_color, 0.55)),
-              inset 0 0 0 1px if($variant=='light', rgba($borders_color, 0.0), lighten($_popover_bg, 10%));
+              inset 0 0 0 1px if($variant=='light', rgba(black, 0.0), rgba(white, 0.08));
 
   .container { padding: 2px; border: none; }
   border { border: none; }
