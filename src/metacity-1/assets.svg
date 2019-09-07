@@ -14,7 +14,7 @@
    viewBox="0 0 52.916665 31.750001"
    version="1.1"
    id="svg1795"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   inkscape:version="0.92.4 5da689c313, 2019-01-14"
    sodipodi:docname="assets.svg">
   <defs
      id="defs1789" />
@@ -25,14 +25,14 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="76.182619"
-     inkscape:cy="83.029935"
+     inkscape:zoom="7.919596"
+     inkscape:cx="147.27473"
+     inkscape:cy="31.283552"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:window-width="1366"
-     inkscape:window-height="716"
+     inkscape:window-height="701"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -832,15 +832,15 @@
            id="g2776"
            transform="translate(-4.9999997,-1033.3622)">
           <path
-             inkscape:connector-curvature="0"
-             id="path2772"
-             d="m 12.000061,1047.3622 c 3.865929,0 6.999939,-3.134 6.999939,-7 0,-3.866 -3.13401,-7 -6.999939,-7 -3.8660427,0 -7.0000616,3.134 -7.0000616,7 0,3.866 3.1340189,7 7.0000616,7"
-             style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+             style="fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:none;opacity:0.5"
+             d="M 167.57227 39.572266 C 163.70622 39.572266 160.57227 42.706266 160.57227 46.572266 C 160.57227 50.438266 163.70622 53.572266 167.57227 53.572266 C 171.43819 53.572266 174.57227 50.438266 174.57227 46.572266 C 174.57227 42.706266 171.43819 39.572266 167.57227 39.572266 z M 167.57227 40.072266 C 171.16205 40.072266 174.07227 42.982366 174.07227 46.572266 C 174.07227 50.162066 171.16205 53.072266 167.57227 53.072266 C 163.98235 53.072266 161.07227 50.162066 161.07227 46.572266 C 161.07227 42.982366 163.98235 40.072266 167.57227 40.072266 z "
+             transform="translate(-155.57137,993.79077)"
+             id="path2772" />
           <path
              inkscape:connector-curvature="0"
              id="path2774"
              d="m 12.000067,1046.8623 c 3.589781,0 6.499933,-2.9103 6.499933,-6.5001 0,-3.5899 -2.910152,-6.5 -6.499933,-6.5 -3.5899136,0 -6.5000676,2.9101 -6.5000676,6.5 0,3.5898 2.910154,6.5001 6.5000676,6.5001"
-             style="opacity:1;fill:#c8c8c8;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+             style="opacity:0.35;fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:none" />
         </g>
       </g>
     </g>
@@ -1170,7 +1170,7 @@
          inkscape:connector-curvature="0"
          id="path2784"
          d="m 103.71667,84.539579 c 1.02286,0 1.85206,-0.829205 1.85206,-1.852084 0,-1.022879 -0.8292,-1.852083 -1.85206,-1.852083 -1.02289,0 -1.8521,0.829204 -1.8521,1.852083 0,1.022879 0.82921,1.852084 1.8521,1.852084"
-         style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332" />
+         style="fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332;opacity:0.5" />
       <circle
          transform="scale(1,-1)"
          id="ellipse7224"
@@ -1192,15 +1192,15 @@
          y="73.691666"
          ry="4.4795979e-06" />
       <path
-         inkscape:connector-curvature="0"
-         id="path2796"
-         d="m 103.71667,77.660419 c 1.02286,0 1.85206,-0.829205 1.85206,-1.852084 0,-1.022879 -0.8292,-1.852083 -1.85206,-1.852083 -1.02289,0 -1.8521,0.829204 -1.8521,1.852083 0,1.022879 0.82921,1.852084 1.8521,1.852084"
-         style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332" />
+         style="fill:#999999;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.99999994;opacity:0.5"
+         d="M 167.57227 65.572266 C 163.70622 65.572266 160.57227 68.706266 160.57227 72.572266 C 160.57227 76.438265 163.70622 79.572266 167.57227 79.572266 C 171.43819 79.572266 174.57227 76.438265 174.57227 72.572266 C 174.57227 68.706266 171.43819 65.572266 167.57227 65.572266 z M 167.57227 66.072266 C 171.16202 66.072266 174.07227 68.982368 174.07227 72.572266 C 174.07227 76.162068 171.16202 79.072266 167.57227 79.072266 C 163.98236 79.072266 161.07227 76.162068 161.07227 72.572266 C 161.07227 68.982368 163.98236 66.072266 167.57227 66.072266 z "
+         transform="matrix(0.26458333,0,0,0.26458333,59.38006,56.60714)"
+         id="path2796" />
       <path
          inkscape:connector-curvature="0"
          id="path2798"
          d="m 103.71667,77.528153 c 0.94979,0 1.71977,-0.770016 1.71977,-1.719818 0,-0.949827 -0.76998,-1.719791 -1.71977,-1.719791 -0.94983,0 -1.71981,0.769964 -1.71981,1.719791 0,0.949802 0.76998,1.719818 1.71981,1.719818"
-         style="opacity:1;fill:#c8c8c8;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332" />
+         style="opacity:0.35;fill:#b3b3b3;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332" />
       <circle
          r="0.66145831"
          cy="-75.80835"

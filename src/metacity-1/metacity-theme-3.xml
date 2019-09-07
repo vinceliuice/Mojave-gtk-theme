@@ -344,18 +344,25 @@
 	<include name="minimize_focused_pressed" />
 </draw_ops>
 
-<!-- menu icon -->
-<draw_ops name="menu_focused"></draw_ops>
-
-<draw_ops name="menu_focused_prelight"></draw_ops>
-
-<draw_ops name="menu_focused_pressed"></draw_ops>
-
-<draw_ops name="menu_unfocused"></draw_ops>
-
-<draw_ops name="menu_unfocused_prelight"></draw_ops>
-
-<draw_ops name="menu_unfocused_pressed"></draw_ops>
+<!-- Menu icon -->
+<draw_ops name="menu_focused">
+	<image filename="menu_focused_normal.png" x="0" y="1" width="object_width" height="object_height" />
+</draw_ops>
+<draw_ops name="menu_focused_prelight">
+	<image filename="menu_focused_prelight.png" x="0" y="1" width="object_width" height="object_height" />
+</draw_ops>
+<draw_ops name="menu_focused_pressed">
+	<image filename="menu_focused_pressed.png" x="0" y="1" width="object_width" height="object_height" />
+</draw_ops>
+<draw_ops name="menu_unfocused">
+	<image filename="menu_unfocused.png" x="0" y="1" width="object_width" height="object_height" />
+</draw_ops>
+<draw_ops name="menu_unfocused_prelight">
+	<image filename="menu_unfocused_prelight.png" x="0" y="1" width="object_width" height="object_height" />
+</draw_ops>
+<draw_ops name="menu_unfocused_pressed">
+	<image filename="menu_unfocused_pressed.png" x="0" y="1" width="object_width" height="object_height" />
+</draw_ops>
 
 <!-- shade icon -->
 <draw_ops name="shade_focused">
