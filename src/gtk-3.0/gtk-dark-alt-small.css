@@ -2643,12 +2643,6 @@ treeview.view header.button.dnd:active {
   border-style: none;
 }
 
-.csd menubar > menuitem > window.background.popup > decoration,
-.csd menubar > menuitem > window.background.popup > menu, .csd .menubar > menuitem > window.background.popup > decoration,
-.csd .menubar > menuitem > window.background.popup > menu {
-  border-radius: 0 0 6px 6px;
-}
-
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
@@ -2670,8 +2664,18 @@ menubar > menuitem,
   padding: 4px 8px;
 }
 
-menubar > menuitem > window.background.popup > menu > menuitem,
-.menubar > menuitem > window.background.popup > menu > menuitem {
+menubar > menuitem > window.popup.background.csd > decoration,
+.menubar > menuitem > window.popup.background.csd > decoration {
+  border-radius: 0 0 6px 6px;
+}
+
+menubar > menuitem > window.popup.background.csd > menu,
+.menubar > menuitem > window.popup.background.csd > menu {
+  border-radius: 0 0 6px 6px;
+}
+
+menubar > menuitem > window.popup.background.csd > menu > menuitem,
+.menubar > menuitem > window.popup.background.csd > menu > menuitem {
   transition: none;
 }
 

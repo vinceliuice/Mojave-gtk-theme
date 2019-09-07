@@ -2197,15 +2197,6 @@ $_menu_bg: if($variant=='light', $base_color, $bg_color);
 $_menu_bd: if($variant=='light', rgba(black, 0.05), rgba(white, 0.08));
 @if $transparency == 'true' { $_menu_bg: if($variant=='light', rgba($base_color, 0.95), rgba($bg_color, 0.95)); }
 
-.csd menubar, .csd .menubar {
-  > menuitem {
-    > window.background.popup > decoration,
-    > window.background.popup > menu {
-      border-radius: 0 0 $wm_radius $wm_radius;
-    }
-  }
-}
-
 menubar,
 .menubar {
   -GtkWidget-window-dragging: true;
@@ -2225,7 +2216,11 @@ menubar,
     transition: all 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
     padding: 4px 8px;
 
-    > window.background.popup > menu {
+    > window.popup.background.csd > decoration { border-radius: 0 0 $wm_radius $wm_radius; }
+
+    > window.popup.background.csd > menu {
+      border-radius: 0 0 $wm_radius $wm_radius;
+
       > menuitem { transition: none; }
     }
 
