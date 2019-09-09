@@ -5421,13 +5421,16 @@ terminal-window notebook {
   border-top: 1px solid transparent;
 }
 
-terminal-window > box.vertical > notebook.terminal-notebook > terminal-screen-container > box.horizontal > vte-terminal.terminal-screen {
-  padding: 0;
-  border-radius: 0 0 6px 6px;
+terminal-window.background.csd {
+  border-radius: 0 0 0 0;
+}
+
+terminal-window decoration {
+  border-radius: 6px 6px 0 0;
 }
 
 terminal-window.background.csd.maximized {
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 0 0;
 }
 
 window.background > box.vertical > box.horizontal > frame > border {

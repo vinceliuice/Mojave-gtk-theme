@@ -23,16 +23,24 @@ terminal-window notebook {
 }
 
 terminal-window {
-  > box.vertical > notebook.terminal-notebook {
-    > terminal-screen-container {
-      > box.horizontal > vte-terminal.terminal-screen {
-        padding: 0;
-        border-radius: 0 0 $wm_radius $wm_radius;
-      }
-    }
+  &.background.csd {
+    border-radius: 0 0 0 0;
   }
 
-  &.background.csd.maximized { border-radius: 0 0 $wm_radius $wm_radius; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
+  decoration {
+    border-radius: $wm_radius $wm_radius 0 0;
+  }
+
+  // > box.vertical > notebook {
+  //   > terminal-screen-container {
+  //     > box.horizontal > vte-terminal {
+  //       padding: 0;
+  //       border-radius: 0 0 $wm_radius $wm_radius;
+  //     }
+  //   }
+  // }
+
+  &.background.csd.maximized { border-radius: 0 0 0 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 }
 
 window.background { // gnome-terminal 3.32 setting
