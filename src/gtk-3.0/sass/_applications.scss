@@ -1821,6 +1821,19 @@ box.vertical > box.vertical > box.vertical{
 }
 
 //
+// Gnome-Disk
+//
+window.background.csd {
+  > box.vertical > paned.horizontal {
+    > scrolledwindow {
+      treeview.view {
+        border-bottom-left-radius: $wm_radius;
+      }
+    }
+  }
+}
+
+//
 // Dialogs
 //
 dialog.background.csd {
