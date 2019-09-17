@@ -56,7 +56,7 @@ install() {
   echo "Installing '${THEME_DIR}'..."
 
   mkdir -p                                                                              ${THEME_DIR}
-  cp -ur ${REPO_DIR}/COPYING                                                            ${THEME_DIR}
+  cp -r ${REPO_DIR}/COPYING                                                            ${THEME_DIR}
 
   echo "[Desktop Entry]" >>                                                             ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme" >>                                                      ${THEME_DIR}/index.theme
@@ -72,50 +72,50 @@ install() {
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                   ${THEME_DIR}/index.theme
 
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell
-  cp -ur ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
-  cp -ur ${SRC_DIR}/gnome-shell/gnome-shell${color}${opacity}.css                       ${THEME_DIR}/gnome-shell/gnome-shell.css
-  cp -ur ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/*.svg                                    ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/*.png                                    ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/activities/activities${icon}.svg         ${THEME_DIR}/gnome-shell/assets/activities.svg
+  cp -r ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
+  cp -r ${SRC_DIR}/gnome-shell/gnome-shell${color}${opacity}.css                       ${THEME_DIR}/gnome-shell/gnome-shell.css
+  cp -r ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
+  cp -r ${SRC_DIR}/gnome-shell/assets${color}/*.svg                                    ${THEME_DIR}/gnome-shell/assets
+  cp -r ${SRC_DIR}/gnome-shell/assets${color}/*.png                                    ${THEME_DIR}/gnome-shell/assets
+  cp -r ${SRC_DIR}/gnome-shell/assets${color}/activities/activities${icon}.svg         ${THEME_DIR}/gnome-shell/assets/activities.svg
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
   ln -s assets/process-working.svg process-working.svg
   ln -s assets/no-notifications.svg no-notifications.svg
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/gtk-2.0/gtkrc${color}                                               ${THEME_DIR}/gtk-2.0/gtkrc
-  cp -ur ${SRC_DIR}/gtk-2.0/assets${color}                                              ${THEME_DIR}/gtk-2.0/assets
-  cp -ur ${SRC_DIR}/gtk-2.0/common/*.rc                                                 ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/gtk-2.0/menubar-toolbar${color}.rc                                  ${THEME_DIR}/gtk-2.0/menubar-toolbar.rc
+  cp -r ${SRC_DIR}/gtk-2.0/gtkrc${color}                                               ${THEME_DIR}/gtk-2.0/gtkrc
+  cp -r ${SRC_DIR}/gtk-2.0/assets${color}                                              ${THEME_DIR}/gtk-2.0/assets
+  cp -r ${SRC_DIR}/gtk-2.0/common/*.rc                                                 ${THEME_DIR}/gtk-2.0
+  cp -r ${SRC_DIR}/gtk-2.0/menubar-toolbar${color}.rc                                  ${THEME_DIR}/gtk-2.0/menubar-toolbar.rc
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/gtk-3.0/assets                                                      ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/gtk-3.0/windows-assets/titlebutton${alt}${small}                    ${THEME_DIR}/gtk-3.0/windows-assets
-  cp -ur ${SRC_DIR}/gtk-3.0/thumbnail${color}.png                                       ${THEME_DIR}/gtk-3.0/thumbnail.png
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}${small}.css                     ${THEME_DIR}/gtk-3.0/gtk.css
+  cp -r ${SRC_DIR}/gtk-3.0/assets                                                      ${THEME_DIR}/gtk-3.0
+  cp -r ${SRC_DIR}/gtk-3.0/windows-assets/titlebutton${alt}${small}                    ${THEME_DIR}/gtk-3.0/windows-assets
+  cp -r ${SRC_DIR}/gtk-3.0/thumbnail${color}.png                                       ${THEME_DIR}/gtk-3.0/thumbnail.png
+  cp -r ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}${small}.css                     ${THEME_DIR}/gtk-3.0/gtk.css
   [[ ${color} != '-dark' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}${alt}${small}.css                        ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -r ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}${alt}${small}.css                        ${THEME_DIR}/gtk-3.0/gtk-dark.css
 
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/metacity-theme${color}.xml                               ${THEME_DIR}/metacity-1/metacity-theme-1.xml
-  cp -ur ${SRC_DIR}/metacity-1/metacity-theme-3.xml                                     ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/assets/*.png                                             ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/thumbnail${color}.png                                    ${THEME_DIR}/metacity-1/thumbnail.png
+  cp -r ${SRC_DIR}/metacity-1/metacity-theme${color}.xml                               ${THEME_DIR}/metacity-1/metacity-theme-1.xml
+  cp -r ${SRC_DIR}/metacity-1/metacity-theme-3.xml                                     ${THEME_DIR}/metacity-1
+  cp -r ${SRC_DIR}/metacity-1/assets/*.png                                             ${THEME_DIR}/metacity-1
+  cp -r ${SRC_DIR}/metacity-1/thumbnail${color}.png                                    ${THEME_DIR}/metacity-1/thumbnail.png
   cd ${THEME_DIR}/metacity-1 && ln -s metacity-theme-1.xml metacity-theme-2.xml
 
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
-  cp -ur ${SRC_DIR}/xfwm4/assets${color}/*.png                                          ${THEME_DIR}/xfwm4
-  cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
+  cp -r ${SRC_DIR}/xfwm4/assets${color}/*.png                                          ${THEME_DIR}/xfwm4
+  cp -r ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
 
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
-  cp -ur ${SRC_DIR}/cinnamon/cinnamon${color}${opacity}.css                             ${THEME_DIR}/cinnamon/cinnamon.css
-  cp -ur ${SRC_DIR}/cinnamon/common-assets                                              ${THEME_DIR}/cinnamon/assets
-  cp -ur ${SRC_DIR}/cinnamon/assets${color}/*.svg                                       ${THEME_DIR}/cinnamon/assets
-  cp -ur ${SRC_DIR}/cinnamon/thumbnail${color}.png                                      ${THEME_DIR}/cinnamon/thumbnail.png
+  cp -r ${SRC_DIR}/cinnamon/cinnamon${color}${opacity}.css                             ${THEME_DIR}/cinnamon/cinnamon.css
+  cp -r ${SRC_DIR}/cinnamon/common-assets                                              ${THEME_DIR}/cinnamon/assets
+  cp -r ${SRC_DIR}/cinnamon/assets${color}/*.svg                                       ${THEME_DIR}/cinnamon/assets
+  cp -r ${SRC_DIR}/cinnamon/thumbnail${color}.png                                      ${THEME_DIR}/cinnamon/thumbnail.png
 
   mkdir -p                                                                              ${THEME_DIR}/plank
-  cp -ur ${SRC_DIR}/plank/${name}${color}/*.theme                                       ${THEME_DIR}/plank
+  cp -r ${SRC_DIR}/plank/${name}${color}/*.theme                                       ${THEME_DIR}/plank
 }
 
 # Backup and install files related to GDM theme
@@ -153,7 +153,7 @@ install_gdm() {
     rm -rf "$ETC_THEME_FILE" "$GS_THEME_FILE"
     mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
     [[ -d $SHELL_THEME_FOLDER/Mojave ]] && rm -rf $SHELL_THEME_FOLDER/Mojave
-    cp -ur "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
+    cp -r "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
     cd "$ETC_THEME_FOLDER"
     ln -s "$SHELL_THEME_FOLDER/Mojave/gnome-shell.css" gdm3.css
   fi
