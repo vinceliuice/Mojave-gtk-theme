@@ -1283,6 +1283,7 @@ window.background.csd {
     background-color: if($variant=='light', $borders_color, $header_border);
   }
 
+  > hdyleaflet > stack.background, // > 3.34.0
   > box.horizontal > stack.background {
     background: none;
 
@@ -1300,22 +1301,28 @@ window.background.csd {
     }
   }
 
-  // > 3.25.90
-  > box.horizontal > box.vertical > scrolledwindow.view {
+  > hdyleaflet > box.vertical > scrolledwindow.view, // > 3.34.0
+  > box.horizontal > box.vertical > scrolledwindow.view { // > 3.25.90
     background-color: $base_color;
     border-bottom-left-radius: $wm_radius + 1px;
 
     > viewport.frame > stack {
       background-color: transparent;
 
-      > list { // left-pane
+      list { // left-pane
         background-color: transparent;
 
-        > row.activatable:not(:hover):not(:active):not(:selected) {
+        row.activatable:not(:hover):not(:active):not(:selected) {
           background-color: transparent;
         }
       }
     }
+  }
+
+  > hdyleaflet > separator.sidebar {
+    background: none;
+    min-width: 0;
+    border-right-color: if($variant=='light', $borders_color, $header_border);
   }
 }
 
@@ -2506,8 +2513,8 @@ window.background:not(.csd) {
 
 $chrome_bg_color: $bg_color;
 $chrome_fg_color: $text_color;
-$chrome_menu_bg_color: #ffffff;
-$chrome_menu_fg_color: #565656;
+$chrome_menu_bg_color: $_menu_bg;
+$chrome_menu_fg_color: $fg_color;
 
 window.background.chromium {
   // checked-tab & toolbar & button widgets
@@ -2564,14 +2571,14 @@ window.background.chromium {
   > menubar { background-color: $header_bg; }
 
   > menu {
-    border: 1px solid darken($chrome_menu_bg_color, 15%);
+    border: 1px solid $solid_borders_color;
     color: $chrome_menu_fg_color;
     background-color: $chrome_menu_bg_color;
 
     > separator, .separator {
       margin: 2px 0;
       min-height: 0;
-      border-bottom: 2px solid rgba(black, 0.05);
+      border-bottom: 2px solid $_menu_bd;
       background: none;
     }
 

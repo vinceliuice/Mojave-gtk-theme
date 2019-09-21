@@ -2672,6 +2672,7 @@ menu,
   border-radius: 6px;
   background-color: white;
   border: 1px solid #cfcfcf;
+  color: #242424;
 }
 
 .csd .context-menu, .csd
@@ -2703,6 +2704,7 @@ menu > menuitem,
   min-width: 40px;
   padding: 2px 6px;
   text-shadow: none;
+  color: #242424;
 }
 
 .context-menu > menuitem:hover,
@@ -6502,10 +6504,12 @@ window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
   background-color: rgba(0, 0, 0, 0.15);
 }
 
+window.background.csd > hdyleaflet > stack.background,
 window.background.csd > box.horizontal > stack.background {
   background: none;
 }
 
+window.background.csd > hdyleaflet > stack.background > widget > box.horizontal > box.horizontal > box.vertical > button:active,
 window.background.csd > box.horizontal > stack.background > widget > box.horizontal > box.horizontal > box.vertical > button:active {
   color: #242424;
   background-image: none;
@@ -6513,21 +6517,37 @@ window.background.csd > box.horizontal > stack.background > widget > box.horizon
   border-color: rgba(0, 0, 0, 0.15);
 }
 
+window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view,
 window.background.csd > box.horizontal > box.vertical > scrolledwindow.view {
   background-color: #ffffff;
   border-bottom-left-radius: 7px;
 }
 
+window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack,
 window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack {
   background-color: transparent;
 }
 
-window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list {
+window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list,
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list {
   background-color: transparent;
 }
 
-window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > row.activatable:not(:hover):not(:active):not(:selected), .nemo-window .sidebar window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > .view:not(:hover):not(:active):not(:selected), .nemo-window .sidebar window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > row:not(:hover):not(:active):not(:selected), .budgie-menu window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack > list > button:not(:hover):not(:active):not(:selected) {
+window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list row.activatable:not(:hover):not(:active):not(:selected), window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list .nemo-window .sidebar .view:not(:hover):not(:active):not(:selected), .nemo-window .sidebar window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list .view:not(:hover):not(:active):not(:selected), window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list .nemo-window .sidebar row:not(:hover):not(:active):not(:selected), .nemo-window .sidebar window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list row:not(:hover):not(:active):not(:selected), window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list .budgie-menu button:not(:hover):not(:active):not(:selected), .budgie-menu window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view > viewport.frame > stack list button:not(:hover):not(:active):not(:selected),
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list row.activatable:not(:hover):not(:active):not(:selected),
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list .nemo-window .sidebar .view:not(:hover):not(:active):not(:selected),
+.nemo-window .sidebar window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list .view:not(:hover):not(:active):not(:selected),
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list .nemo-window .sidebar row:not(:hover):not(:active):not(:selected),
+.nemo-window .sidebar window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list row:not(:hover):not(:active):not(:selected),
+window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list .budgie-menu button:not(:hover):not(:active):not(:selected),
+.budgie-menu window.background.csd > box.horizontal > box.vertical > scrolledwindow.view > viewport.frame > stack list button:not(:hover):not(:active):not(:selected) {
   background-color: transparent;
+}
+
+window.background.csd > hdyleaflet > separator.sidebar {
+  background: none;
+  min-width: 0;
+  border-right-color: rgba(0, 0, 0, 0.15);
 }
 
 box.horizontal > separator.sidebar,
@@ -7660,9 +7680,9 @@ window.background.chromium > menubar {
 }
 
 window.background.chromium > menu {
-  border: 1px solid #d9d9d9;
-  color: #565656;
-  background-color: #ffffff;
+  border: 1px solid #cfcfcf;
+  color: #242424;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 window.background.chromium > menu > separator, window.background.chromium > menu .separator {
@@ -7673,7 +7693,7 @@ window.background.chromium > menu > separator, window.background.chromium > menu
 }
 
 window.background.chromium > menu > menuitem {
-  color: #565656;
+  color: #242424;
 }
 
 window.background.chromium > menu > menuitem:hover {
@@ -7682,11 +7702,11 @@ window.background.chromium > menu > menuitem:hover {
 }
 
 window.background.chromium > menu > menuitem:disabled {
-  color: rgba(86, 86, 86, 0.45);
+  color: rgba(36, 36, 36, 0.45);
 }
 
 window.background.chromium > menu > menuitem accelerator {
-  color: rgba(86, 86, 86, 0.45);
+  color: rgba(36, 36, 36, 0.45);
 }
 
 /****************

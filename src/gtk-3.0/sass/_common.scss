@@ -2245,6 +2245,7 @@ menu,
   border-radius: $wm_radius;
   background-color: opacify($_menu_bg, 1);
   border: 1px solid $solid_borders_color;
+  color: $fg_color;
 
   .csd & {
     background-color: $_menu_bg;
@@ -2266,6 +2267,7 @@ menu,
     min-width: 40px;
     padding: 2px 6px;
     text-shadow: none;
+    color: $fg_color;
 
     &:hover {
       transition: none;
