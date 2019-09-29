@@ -1298,6 +1298,17 @@ window.background.csd {
           }
         }
       }
+
+      > box.vertical > box.vertical { // Gnome 3.34 Wallpaper setting
+        > scrolledwindow > viewport.frame {
+          background-color: $base_color;
+          border-bottom-right-radius: $wm_radius + 1px;
+
+          > box.vertical {
+            background: none;
+          }
+        }
+      }
     }
   }
 

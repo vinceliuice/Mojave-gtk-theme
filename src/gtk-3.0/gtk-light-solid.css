@@ -6517,6 +6517,17 @@ window.background.csd > box.horizontal > stack.background > widget > box.horizon
   border-color: rgba(0, 0, 0, 0.15);
 }
 
+window.background.csd > hdyleaflet > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame,
+window.background.csd > box.horizontal > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame {
+  background-color: #ffffff;
+  border-bottom-right-radius: 7px;
+}
+
+window.background.csd > hdyleaflet > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame > box.vertical,
+window.background.csd > box.horizontal > stack.background > widget > box.vertical > box.vertical > scrolledwindow > viewport.frame > box.vertical {
+  background: none;
+}
+
 window.background.csd > hdyleaflet > box.vertical > scrolledwindow.view,
 window.background.csd > box.horizontal > box.vertical > scrolledwindow.view {
   background-color: #ffffff;
