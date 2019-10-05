@@ -7665,7 +7665,7 @@ window.background:not(.csd) > window > menu menuitem {
  * Chrome(ium) *
  ***************/
 window.background.chromium {
-  background-color: #333333;
+  background-color: rgb(78, 78, 78);
   color: #dadada;
 }
 
@@ -7721,33 +7721,33 @@ window.background.chromium > menubar {
 }
 
 window.background.chromium > menu {
-  border: 1px solid #474747;
-  color: #dedede;
-  background-color: rgba(51, 51, 51, 0.95);
+  border: 1px solid #333;
+  color: #fafafa;
+  background-color: #333;
 }
 
 window.background.chromium > menu > separator, window.background.chromium > menu .separator {
   margin: 2px 0;
   min-height: 0;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
   background: none;
 }
 
 window.background.chromium > menu > menuitem {
-  color: #dedede;
+  color: #fafafa;
 }
 
 window.background.chromium > menu > menuitem:hover {
-  color: #ffffff;
-  background-color: #315bef;
+  color: #fafafa;
+  background-color: rgba(66, 133, 244, 1);
 }
 
 window.background.chromium > menu > menuitem:disabled {
-  color: rgba(222, 222, 222, 0.45);
+  color: #ccc;
 }
 
 window.background.chromium > menu > menuitem accelerator {
-  color: rgba(222, 222, 222, 0.45);
+  color: rgba(86, 86, 86, 0.45);
 }
 
 /****************
@@ -9845,10 +9845,12 @@ window.budgie-popover:not(.csd) > frame.container > border {
 
 .budgie-menu entry.search {
   border: none;
+  padding: 10px;
+  font-style: italic;  
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
   box-shadow: none;
-  font-size: 120%;
+  font-size: 110%;
 }
 
 .budgie-menu .categories:dir(ltr) {
