@@ -330,10 +330,10 @@ while [[ $# -gt 0 ]]; do
             icons+=("${ICON_VARIANTS[7]}")
             shift
             ;;
-	  void)
+          void)
             icons+=("${ICON_VARIANTS[8]}")
-	    shift
-	    ;;
+            shift
+            ;;
           -*|--*)
             break
             ;;
