@@ -119,7 +119,7 @@ StScrollBar {
 
 /* Slider */
 
-$slider_color: if($variant == 'light', $accent_color, white);
+$slider_color: if($variant == 'light', white, white);
 $selected_slider_color: white;
 
 .slider {
@@ -132,6 +132,8 @@ $selected_slider_color: white;
   -slider-active-border-color: transparent; //active trough border
   -slider-border-width: 0;
   -slider-handle-radius: 7px;
+  -slider-handle-border-width: 1px;
+  -slider-handle-border-color: $dark_borders_color;
 
   // barlevels are for >= 3.29.90
   -barlevel-height: 2px;
@@ -244,11 +246,11 @@ $selected_slider_color: white;
   padding: 0 5px 6px 5px;
 
   @if $trans == 'true' {
-    border-image: url("assets/menu.svg") 13 17 15 15;
+    border-image: url("assets/menu.svg") 24 32 28 28;
   }
 
   @else {
-    border-image: url("assets/menu-solid.svg") 13 17 15 15;
+    border-image: url("assets/menu-solid.svg") 24 32 28 28;
   }
 
   &-linked-button {
@@ -603,18 +605,18 @@ $selected_slider_color: white;
   padding: 3px 0 2px 0;
 
   @if $trans == 'true' {
-    border-image: url("assets/menu.svg") 13 17 15 15;
+    border-image: url("assets/menu.svg") 24 32 28 28;
   }
 
   @else {
-    border-image: url("assets/menu-solid.svg") 13 17 15 15;
+    border-image: url("assets/menu-solid.svg") 24 32 28 28;
   }
 
   .popup-menu-arrow { } //defined globally in the TOP BAR
   .popup-sub-menu {
     background: none;
     box-shadow: none;
-    border-image: url("assets/submenu.svg") 15 15 2 2;
+    border-image: url("assets/submenu.svg") 28 28 2 2;
   }
 
   .popup-menu-content { padding: 1em 0; }
@@ -629,7 +631,7 @@ $selected_slider_color: white;
       font-weight: normal;
       background: none;
       box-shadow: none;
-      border-image: url("assets/submenu-open.svg") 15 15 2 2;
+      border-image: url("assets/submenu-open.svg") 28 28 2 2;
 
       .popup-menu-icon,
       .app-menu-icon > StIcon,
@@ -641,7 +643,7 @@ $selected_slider_color: white;
         color: $light_fg_color;
         background: none;
         background-color: transparent;
-        border-image: url("assets/menu-hover.svg") 15 15 2 2;
+        border-image: url("assets/menu-hover.svg") 28 28 2 2;
         transition-duration: 0ms;
         animation: none;
         box-shadow: none;
@@ -651,7 +653,7 @@ $selected_slider_color: white;
         color: $light_fg_color;
         background: none;
         background-color: transparent;
-        border-image: url("assets/menu-active.svg") 15 15 2 2;
+        border-image: url("assets/menu-active.svg") 28 28 2 2;
         transition-duration: 100ms;
         animation: none;
         box-shadow: none;
@@ -664,7 +666,7 @@ $selected_slider_color: white;
       color: $light_fg_color;
       background: none;
       background-color: transparent;
-      border-image: url("assets/menu-hover.svg") 15 15 2 2;
+      border-image: url("assets/menu-hover.svg") 28 28 2 2;
       transition-duration: 0ms;
       animation: none;
       box-shadow: none;
@@ -674,7 +676,7 @@ $selected_slider_color: white;
       color: $light_fg_color;
       background: none;
       background-color: transparent;
-      border-image: url("assets/menu-active.svg") 15 15 2 2;
+      border-image: url("assets/menu-active.svg") 28 28 2 2;
       transition-duration: 100ms;
       animation: none;
       box-shadow: none;
@@ -1680,9 +1682,11 @@ $selected_slider_color: white;
   .app-view-controls { //favorties | all toggle container
     width: 320px;
     padding-bottom: 32px;
+    margin: 0 0;
   }
   .app-view-control { //favorties | all toggle button
     padding: 0 16px;
+    margin: 0 0;
     font-weight: bold;
     color: $inverse_secondary_fg_color;
     background-color: rgba($inverse_fg_color, 0.15);

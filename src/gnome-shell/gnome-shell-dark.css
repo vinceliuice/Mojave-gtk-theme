@@ -178,6 +178,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -slider-active-border-color: transparent;
   -slider-border-width: 0;
   -slider-handle-radius: 7px;
+  -slider-handle-border-width: 1px;
+  -slider-handle-border-color: rgba(0, 0, 0, 0.35);
   -barlevel-height: 2px;
   -barlevel-background-color: rgba(255, 255, 255, 0.1);
   -barlevel-border-color: transparent;
@@ -315,7 +317,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border: none;
   box-shadow: none;
   padding: 0 5px 6px 5px;
-  border-image: url("assets/menu.svg") 13 17 15 15;
+  border-image: url("assets/menu.svg") 24 32 28 28;
 }
 
 .modal-dialog-linked-button {
@@ -746,13 +748,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   min-width: 12em;
   color: rgba(255, 255, 255, 0.9);
   padding: 3px 0 2px 0;
-  border-image: url("assets/menu.svg") 13 17 15 15;
+  border-image: url("assets/menu.svg") 24 32 28 28;
 }
 
 .popup-menu .popup-sub-menu {
   background: none;
   box-shadow: none;
-  border-image: url("assets/submenu.svg") 15 15 2 2;
+  border-image: url("assets/submenu.svg") 28 28 2 2;
 }
 
 .popup-menu .popup-menu-content {
@@ -776,7 +778,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   font-weight: normal;
   background: none;
   box-shadow: none;
-  border-image: url("assets/submenu-open.svg") 15 15 2 2;
+  border-image: url("assets/submenu-open.svg") 28 28 2 2;
 }
 
 .popup-menu .popup-menu-item:checked .popup-menu-icon,
@@ -789,7 +791,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
   background: none;
   background-color: transparent;
-  border-image: url("assets/menu-hover.svg") 15 15 2 2;
+  border-image: url("assets/menu-hover.svg") 28 28 2 2;
   transition-duration: 0ms;
   animation: none;
   box-shadow: none;
@@ -799,7 +801,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
   background: none;
   background-color: transparent;
-  border-image: url("assets/menu-active.svg") 15 15 2 2;
+  border-image: url("assets/menu-active.svg") 28 28 2 2;
   transition-duration: 100ms;
   animation: none;
   box-shadow: none;
@@ -813,7 +815,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
   background: none;
   background-color: transparent;
-  border-image: url("assets/menu-hover.svg") 15 15 2 2;
+  border-image: url("assets/menu-hover.svg") 28 28 2 2;
   transition-duration: 0ms;
   animation: none;
   box-shadow: none;
@@ -823,7 +825,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #FFFFFF;
   background: none;
   background-color: transparent;
-  border-image: url("assets/menu-active.svg") 15 15 2 2;
+  border-image: url("assets/menu-active.svg") 28 28 2 2;
   transition-duration: 100ms;
   animation: none;
   box-shadow: none;
@@ -1223,7 +1225,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button .system-status-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
   padding: 0 3px;
 }
 
@@ -1606,7 +1608,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-icon-bin > StIcon {
   color: rgba(255, 255, 255, 0.9);
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
   -st-icon-style: requested;
   margin: 4px 0px 4px 4px;
 }
@@ -1630,7 +1632,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-secondary-bin > StIcon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .message-title {
@@ -1736,7 +1738,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-menu-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .window-close {
@@ -2032,10 +2034,12 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .app-view-controls {
   width: 320px;
   padding-bottom: 32px;
+  margin: 0 0;
 }
 
 .app-view-control {
   padding: 0 16px;
+  margin: 0 0;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.7);
   background-color: rgba(255, 255, 255, 0.15);
@@ -2288,7 +2292,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .notification-banner .secondary-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .notification-banner .notification-actions {
@@ -2339,7 +2343,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .secondary-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .chat-body {
@@ -2627,7 +2631,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-page-button-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 /* Auth Dialogs & Screen Shield */
