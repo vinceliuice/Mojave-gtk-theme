@@ -5124,12 +5124,12 @@ stackswitcher button.text-button {
 decoration {
   transition: box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
   border-radius: 6px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 8px 15px 0 rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.35), 0 8px 15px 0 rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
   margin: 6px;
 }
 
 decoration:backdrop {
-  box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
 
 .maximized decoration,
@@ -5140,7 +5140,7 @@ decoration:backdrop {
 .tiled-bottom decoration,
 .tiled-left decoration {
   border-radius: 0;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
 
 .popup decoration {
@@ -5151,7 +5151,7 @@ decoration:backdrop {
 .ssd decoration {
   margin: -5px;
   border-radius: 6px 6px 0 0;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
 
 .ssd decoration.maximized {
@@ -5160,7 +5160,7 @@ decoration:backdrop {
 
 .csd.popup decoration {
   border-radius: 6px;
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.12), 0 8px 15px rgba(0, 0, 0, 0.06), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 8px 15px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
 
 tooltip.csd decoration {
@@ -7720,36 +7720,6 @@ window.background.chromium > menubar {
   background-color: #373737;
 }
 
-window.background.chromium > menu {
-  border: 1px solid #474747;
-  color: #dedede;
-  background-color: rgba(51, 51, 51, 0.95);
-}
-
-window.background.chromium > menu > separator, window.background.chromium > menu .separator {
-  margin: 2px 0;
-  min-height: 0;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
-  background: none;
-}
-
-window.background.chromium > menu > menuitem {
-  color: #dedede;
-}
-
-window.background.chromium > menu > menuitem:hover {
-  color: #ffffff;
-  background-color: #315bef;
-}
-
-window.background.chromium > menu > menuitem:disabled {
-  color: rgba(222, 222, 222, 0.45);
-}
-
-window.background.chromium > menu > menuitem accelerator {
-  color: rgba(222, 222, 222, 0.45);
-}
-
 /****************
  * Libre-Office *
  ****************/
@@ -9651,7 +9621,7 @@ filechooser placessidebar.sidebar scrollbar trough, .nautilus-window placessideb
   border-color: rgba(71, 71, 71, 0.98);
   border-radius: 6px;
   background-color: rgba(51, 51, 51, 0.95);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.45), 0 2px 3px 0 rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .budgie-popover .container {
@@ -10798,7 +10768,7 @@ window.budgie-switcher-window flowboxchild {
   margin: 5px 9px;
   padding: 8px;
   border-radius: 6px;
-  box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent, 0 3px 3px 0 rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
   background-color: rgba(36, 36, 36, 0.95);
   background-image: none;
 }

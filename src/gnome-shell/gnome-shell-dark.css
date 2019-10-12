@@ -1587,6 +1587,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .message {
   min-height: 56px;
   background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
 }
 

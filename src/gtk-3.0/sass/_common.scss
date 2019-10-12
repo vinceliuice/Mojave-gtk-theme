@@ -4176,7 +4176,7 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
 // Window Decorations
 //
 
-$_wm_shadow: if($variant=='light', rgba(black, 0.15), rgba(black, 0.1));
+$_wm_shadow: if($variant=='light', rgba(black, 0.15), rgba(black, 0.35));
 $_wm_border: $_wm_shadow;
 
 @if $variant == 'light' {
@@ -4190,8 +4190,8 @@ $_wm_border: $_wm_shadow;
 decoration {
   transition: $shadow_transition;
   border-radius: if($darker=='false' and $variant=='light', $wm_radius, $wm_radius);
-  box-shadow: 0 5px 5px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
-              0 8px 15px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
+  box-shadow: 0 5px 5px 0 $_wm_shadow,
+              0 8px 15px 0 $_wm_shadow,
               $_wm_border;
 
   // this is used for the resize cursor area
@@ -4201,7 +4201,7 @@ decoration {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
     box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent,
-                0 3px 3px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
+                0 3px 3px 0 $_wm_shadow,
                 $_wm_border;
   }
 
@@ -4213,7 +4213,7 @@ decoration {
   .tiled-bottom &,
   .tiled-left & {
     border-radius: 0;
-    box-shadow: 0 3px 3px 0 if($variant == 'light', rgba($_wm_shadow, 0.15), rgba($_wm_shadow, 0.1)),
+    box-shadow: 0 3px 3px 0 $_wm_shadow,
                 $_wm_border;
   }
 
@@ -4226,13 +4226,13 @@ decoration {
   .ssd & {
     margin: -5px;
     border-radius: $wm_radius $wm_radius 0 0;
-    box-shadow: 0 0 5px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)), $_wm_border;
+    box-shadow: 0 0 5px 0 $_wm_shadow, $_wm_border;
     &.maximized { border-radius: 0; }
   }
 
   .csd.popup & {
     border-radius: $wm_radius;
-    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.12), 0 8px 15px rgba(0, 0, 0, 0.06), $_wm_border;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 8px 15px rgba(0, 0, 0, 0.08), $_wm_border;
   }
 
   tooltip.csd & {
