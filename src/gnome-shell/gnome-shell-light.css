@@ -1917,11 +1917,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: rgba(255, 255, 255, 0.85);
 }
 
-#searchResultsBin {
-  max-width: 1000px;
-}
-
 #searchResultsContent {
+  max-width: 1000px;
   padding-left: 20px;
   padding-right: 20px;
   spacing: 16px;
