@@ -12,6 +12,7 @@
 	box-shadow: var(--gnome-urlbar-box-shadow) !important;
 	color: var(--gnome-urlbar-color) !important;
 	height: 26px !important;
+	max-height: 26px !important;
 	margin: 0 0 !important;
 	padding: 2px 6px !important;
 	box-sizing: border-box;
@@ -35,8 +36,7 @@
 	box-shadow: var(--gnome-button-box-shadow) !important;
 	color: var(--gnome-urlbar-color) !important;
 	height: 26px !important;
-	margin: 0 0 !important;
-	padding: 2px 6px !important;
+	max-height: 26px !important;
 	box-sizing: border-box;
 }
 
