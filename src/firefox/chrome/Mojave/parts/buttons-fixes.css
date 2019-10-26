@@ -93,15 +93,10 @@
 }
 
 /* Fix toolbars close icons */
-.close-icon:not(.tab-close-button) {
-	list-style-image: url("moz-icon://stock/window-close-symbolic?size=dialog") !important;
-}
-
 .close-icon:not(.tab-close-button) image {
-	filter: var(--gnome-window-icons-hack-filter) !important;
 	height: 16px !important;
 	width: 16px !important;
-	margin: 4px !important;
+	margin: 6px !important;
 }
 
 /* */
@@ -113,9 +108,11 @@
 .identity-popup-preferences-button:not(#hack) {
 	list-style-image: url("chrome://browser/skin/settings.svg") !important;
 }
-
 #tracking-protection-preferences-button > .toolbarbutton-text {
 	padding-inline-end: 0 !important;
+}
+.protections-popup-footer-button-label {
+	margin-inline-start: 3px !important;
 }
 
 /* Fix findbar buttons issues */
@@ -131,4 +128,49 @@
 /* Sidebar header button reset font size */
 #sidebar-header {
 	font-size: 1em !important;
+}
+
+/* Sidebar header button arrow opacity */
+#sidebar-switcher-arrow {
+	opacity: 1 !important;
+}
+
+/* Sidebar history view */
+#viewButton {
+	margin: 0 !important;
+	margin-inline-start: 6px !important;
+}
+
+/* Menulist */
+menulist {
+	-moz-appearance: none !important;
+}
+#identity-popup-popup-menulist {
+	margin-right: 0 !important;
+}
+
+/* Bookmarks editor buttons */
+.expander-down image, .expander-up image {
+	margin: 6px !important;
+}
+
+/* Identity popup tracking protection button */
+.tracking-protection-button {
+	margin-inline-end: 0 !important;
+}
+
+/* Identity popup delete permission button */
+.identity-popup-permission-remove-button {
+	opacity: 1 !important;
+}
+
+/* Identity popup expander button */
+#identity-popup-security {
+	-moz-box-align: center;
+}
+#identity-popup-security-expander {
+	width: 34px !important;
+}
+#identity-popup-security-expander .button-icon {
+	margin: 0 !important;
 }

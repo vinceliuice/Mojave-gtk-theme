@@ -1,8 +1,7 @@
 
 /* Import theme */
 
-/* @import "theme/gnome-theme-light.css"; /* light theme */
-@import "theme/gnome-theme-dark.css"; /* dark theme */
+@import "Mojave/mojave-theme.css"; /**/
 
 /*
  * Here you can enable other theme features not included by default.
@@ -10,18 +9,27 @@
  * the beginning of the line. To disable it, put the "/*" back.
  */
 
-/* Hide the tab bar when only one tab is open
- * Warning: This also hides the private browsing indicator in private windows.
- * If you are using it, you might wanna enable the next feature too. Also you
- * should move the new tab button somewhere else for this to work, because by
+/* Hide the tab bar when only one tab is open (GNOMISH)
+ * You should move the new tab button somewhere else for this to work, because by
  * default it is on the tab bar too. */
 /*@import "theme/hide-single-tab.css"; /**/
 
-/* Limit the URL bar's autocompletion popup's width to the URL bar's width */
+/* Limit the URL bar's autocompletion popup's width to the URL bar's width (GNOMISH) 
+ * This feature is included by default for Firefox 70+ */
 /*@import "theme/matching-autocomplete-width.css"; /**/
 
-/* Use GNOME stack icons */
-/*@import "theme/gnome-icons.css"; /**/
+/* Rounded title buttons (headerbar window controls) (GNOMISH) */
+/*@import "theme/rounded-title-buttons.css"; /**/
+
+/* Active tab high contrast */
+/*@import "theme/active-tab-contrast.css"; /**/
+
+/* Use system theme icons instead of Adwaita icons included by theme */
+/*@import "theme/system-icons.css"; /**/
+
+/* Allow drag window from headerbar buttons (GNOMISH) [BUGGED] 
+ * It can activate button action, with unpleasant behavior. */
+/*@import "theme/drag-window-headerbar-buttons.css"; /**/
 
 /* Make all tab icons look kinda like symbolic icons */
 /*@import "theme/symbolic-tab-icons.css"; /**/

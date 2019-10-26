@@ -1,4 +1,4 @@
- :root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close,
 :root[tabsintitlebar] #titlebar #titlebar-close {
 	background: url("../icons/titlebutton-close.png") no-repeat;
 	background-size: contain;

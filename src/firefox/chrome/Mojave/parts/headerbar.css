@@ -20,3 +20,19 @@
 	border-bottom-color: var(--gnome-inactive-headerbar-border-color) !important;
 	box-shadow: var(--gnome-inactive-headerbar-box-shadow) !important;
 }
+
+@media (prefers-color-scheme: dark) {
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton),
+#downloadsHistory,
+#downloadsPanel-mainView .download-state .downloadButton,
+#viewButton,
+#urlbar,
+#urlbar.megabar #urlbar-input-container,
+#urlbar:not(.megabar) {
+	border: none !important;
+}
+
+#nav-bar #forward-button:not(#hack) {
+	margin-left: 1px !important;
+}
+}

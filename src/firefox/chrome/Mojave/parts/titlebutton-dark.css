@@ -1,4 +1,5 @@
- :root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close,
+@media (prefers-color-scheme: dark) {
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close,
 :root[tabsintitlebar] #titlebar #titlebar-close {
 	background: url("../icons/titlebutton-close-dark.png") no-repeat;
 	background-size: contain;
@@ -76,4 +77,5 @@
 :root[tabsintitlebar][inFullscreen] #window-controls #restore-button:active {
 	background: url("../icons/titlebutton-restore-backdrop-dark.png") no-repeat;
 	background-size: contain;
+}
 }
