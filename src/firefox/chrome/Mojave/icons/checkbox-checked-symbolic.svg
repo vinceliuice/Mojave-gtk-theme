@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-    <g color="#000" font-weight="400" fill="#474747">
-        <path d="M3.5 1A2.506 2.506 0 0 0 1 3.5v9C1 13.876 2.124 15 3.5 15h9c1.376 0 2.5-1.124 2.5-2.5v-9C15 2.124 13.876 1 12.5 1zm0 1h9c.84 0 1.5.66 1.5 1.5v9c0 .84-.66 1.5-1.5 1.5h-9c-.84 0-1.5-.66-1.5-1.5v-9C2 2.66 2.66 2 3.5 2z" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;shape-padding:0;isolation:auto;mix-blend-mode:normal;marker:none" font-family="sans-serif" white-space="normal" overflow="visible"/>
-        <path d="M14.5 2.5l-6 6-2-2-2 2 4 4 6-6z" style="line-height:normal;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration-line:none;text-transform:none;marker:none" font-family="Sans" overflow="visible"/>
-    </g>
+<svg width="16" height="16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb">
+ <rect y="6.1719e-7" width="16" height="16" color="#000000" fill="none"/>
+ <path d="m3 1c-1.108 0-2 0.892-2 2v10c0 1.108 0.892 2 2 2h10c1.108 0 2-0.892 2-2v-10c0-1.108-0.892-2-2-2h-10zm8.2773 3.8438c0.25562 0 0.51116 0.097101 0.70703 0.29297 0.39174 0.39174 0.39174 1.0223 0 1.4141l-4.2422 4.2422c-0.39173 0.39173-0.99323 0.42083-1.3496 0.064453l-0.064453-0.064453-2.1855-2.1836c-0.35633-0.35637-0.32729-0.95983 0.064453-1.3516 0.39173-0.39173 0.99323-0.41888 1.3496-0.0625l1.4785 1.4766 3.5352-3.5352c0.19587-0.19587 0.45141-0.29297 0.70703-0.29297z" color="#000000" fill="#474747" style="paint-order:fill markers stroke"/>
+ <rect transform="rotate(45)" x="8.1066" y="1.1569" width="3" height="1" fill-opacity="0"/>
 </svg>

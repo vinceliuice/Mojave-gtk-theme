@@ -18,6 +18,6 @@
 
 /* Set theme version text in customization panel */
 #customization-footer::before {
-	content: "Firefox GNOME theme v0.9";
+	content: "Firefox Mojave theme";
 	padding: 9px;
 }

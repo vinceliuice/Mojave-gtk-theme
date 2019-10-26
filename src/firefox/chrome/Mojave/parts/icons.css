@@ -120,6 +120,9 @@ treechildren::-moz-tree-twisty(selected, focus, open) {
 menuitem[type="checkbox"] {
 	list-style-image: url("../icons/checkbox-symbolic.svg") !important;
 }
+menuitem[type="checkbox"][hover="true"] {
+
+}
 menuitem[type="checkbox"][checked="true"] {
 	list-style-image: url("../icons/checkbox-checked-symbolic.svg") !important;
 }
@@ -258,6 +261,7 @@ menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
 #nav-bar-overflow-button {
 	list-style-image: url("../icons/view-more-horizontal-symbolic.svg") !important;
 }
+
 /* Glitch - animations (may be possible to fix in about:config)
 #reload-button .toolbarbutton-icon { /* Reload button
 	list-style-image: url("../icons/view-refresh-symbolic.svg") !important;
