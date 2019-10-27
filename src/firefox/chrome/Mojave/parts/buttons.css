@@ -342,7 +342,6 @@ button.popup-notification-primary-button.popup-notification-button:active,
 
 /* Buttons with destructive action */
 #editBookmarkPanelRemoveButton,
-.identity-popup-permission-remove-button,
 #PanelUI-panic-view-button {
 	color: white !important;
 	background: var(--gnome-button-destructive-action-background) !important;

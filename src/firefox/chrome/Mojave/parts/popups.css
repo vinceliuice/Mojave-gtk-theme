@@ -28,6 +28,10 @@ menuitem, menupopup menu {
 	padding: 5px 10px !important;
 }
 
+menuitem:hover, menupopup menu:hover {
+	background: var(--theme-primary-color) !important;
+}
+
 menuitem[type="checkbox"] image, menuitem[type="radio"] image {
 	visibility: visible !important;
 }
@@ -133,7 +137,7 @@ panel:not(.tooltip-xul-wrapper)[type=arrow][remote] .panel-header {
 .subviewbutton:not(.subviewbutton-back),
 .toolbarbutton-1, .protections-popup-category,
 .identity-popup-content-blocking-category {
-	border-radius: 5px !important;	
+	border-radius: 5px !important;
 	color: var(--gnome-toolbar-color) !important;
 	font: menu !important;
 }
