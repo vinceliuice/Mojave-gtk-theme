@@ -10781,6 +10781,7 @@ window.budgie-switcher-window flowboxchild {
 .budgie-polkit-dialog, .budgie-run-dialog {
   border-radius: 6px;
   background-color: #333333;
+  border: 1px solid #4d4c4c;
 }
 
 .background.budgie-session-dialog,
