@@ -1823,10 +1823,10 @@ window.fullscreen headerbar,
 window.fullscreen headerbar:first-child,
 window.fullscreen headerbar:last-child,
 window.fullscreen headerbar:only-child,
-window.solid-csd headerbar,
-window.solid-csd headerbar:first-child,
-window.solid-csd headerbar:last-child,
-window.solid-csd headerbar:only-child {
+.solid-csd headerbar,
+.solid-csd headerbar:first-child,
+.solid-csd headerbar:last-child,
+.solid-csd headerbar:only-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }

@@ -1522,7 +1522,7 @@ headerbar {
   window.tiled-left &,
   window.maximized &,
   window.fullscreen &,
-  window.solid-csd & {
+  .solid-csd & {
     &,
     &:first-child,
     &:last-child,
