@@ -232,7 +232,6 @@ tab[selected]:-moz-window-inactive {
 :root:not(:-moz-window-inactive) .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]) {
 	background-color: var(--gnome-tabbar-tab-hover-background) !important;
 	border: 1px solid var(--gnome-headerbar-border-color) !important;
-	margin: 0 -2px !important;
 	border-image: none !important;
 	border-top: none !important;
 }
