@@ -29,16 +29,6 @@ ArchLinux:
 Other:
 Search for the engines in your distributions repository or install the engines from source.
 
-## Fix entries issues of dark version on Firefox
-
-Use "light theme" for webs on Firefox.
-
-1. Go to `about:config`,
-
-2. create a pref called `widget.content.gtk-theme-override` of type String,
-
-3. and give it a value of `Mojave-light`. This will fix it.
-
 ## Installation
 
 ### From source
@@ -64,11 +54,24 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-r, --revert         | revert GDM theme, you should run this with sudo!|
 |-h, --help           | Show this help|
 
+### Kde theme
+[McMojave-kde](https://github.com/vinceliuice/McMojave-kde)
+
 ### Icon theme
 [McMojave-circle](https://github.com/vinceliuice/McMojave-circle)
 
 ### Wallpaper
 [Mojave default wallpapers](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/macOS_Mojave_Wallpapers.tar.xz)
+
+## Fix entries issues of dark version on Firefox
+
+Use "light theme" for webs on Firefox.
+
+1. Go to `about:config`,
+
+2. create a pref called `widget.content.gtk-theme-override` of type String,
+
+3. and give it a value of `Mojave-light`. This will fix it.
 
 ### Firefox theme
 [Intall Firefox theme](src/firefox)
