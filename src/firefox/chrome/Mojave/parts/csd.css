@@ -127,6 +127,10 @@
 	height: 30px !important;
 	margin-bottom: 8px;
 }
+/* Hide empty menubar when global menu is used */
+:root[tabsintitlebar][shellshowingmenubar=true] #toolbar-menubar {
+        height: 0px !important;
+}
 
 /* Remove default style of titlebar */
 :root[tabsintitlebar] #titlebar {
