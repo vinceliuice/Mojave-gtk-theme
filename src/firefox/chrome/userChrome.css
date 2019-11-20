@@ -34,6 +34,9 @@
 /* Make all tab icons look kinda like symbolic icons */
 /*@import "Mojave/symbolic-tab-icons.css"; /**/
 
+/* Hide window buttons (close/min/max) in maximized windows */
+/*@import "Mojave/hide-window-buttons.css"; /**/
+
 /* Import a custom stylesheet
  * Everything you add in your customChrome.css file (it doesn't exist by
  * default) will be included here and preserved between updates, so you can move
