@@ -20,7 +20,7 @@ COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
 SMALL_VARIANTS=('' '-small')
-ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian', '-void')
+ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"

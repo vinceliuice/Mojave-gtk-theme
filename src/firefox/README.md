@@ -1,7 +1,7 @@
 
 ## Firefox Mojave theme
 
-<p align="center">A GNOME theme for Firefox 60+</p>
+<p align="center">A MacOSX Mojave theme for Firefox 60+</p>
 
 #### Preview
 ![01](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/firefox01.png?raw=true)
