@@ -46,6 +46,7 @@
 	position: absolute !important;
 	right: 0;
 	top: 0;
+	display: block !important;
 }
 :root[tabsintitlebar] #titlebar .titlebar-buttonbox {
 	-moz-appearance: none !important;
@@ -129,7 +130,7 @@
 }
 /* Hide empty menubar when global menu is used */
 :root[tabsintitlebar][shellshowingmenubar=true] #toolbar-menubar {
-        height: 0px !important;
+	height: 0px !important;
 }
 
 /* Remove default style of titlebar */
@@ -140,20 +141,6 @@
 /* Fix the issue when dragging tabs */
 :root[tabsintitlebar] #navigator-toolbox[movingtab] #TabsToolbar {
 	padding-bottom: 0 !important;
-}
-
-/* Allow window drag with headerbar buttons */
-:root[tabsintitlebar] #nav-bar *,
-:root[tabsintitlebar] #titlebar .titlebar-button,
-:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
-	-moz-window-dragging: drag;
-}
-
-:root[tabsintitlebar] #nav-bar .urlbar-input-box,
-:root[tabsintitlebar] #nav-bar .urlbar-input-box *,
-#back-button,
-#forward-button {
-	-moz-window-dragging: no-drag !important;
 }
 
 /* FF 60 fixes */
