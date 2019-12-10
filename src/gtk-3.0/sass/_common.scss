@@ -264,7 +264,6 @@ entry {
   border-radius: 7px;
   caret-color: currentColor;
 
-
   &.search { border-radius: $bt_radius; }
 
   @include entry(normal);
@@ -328,9 +327,9 @@ entry {
     }
   }
 
-  row & {
-    min-height: 24px;
-  }
+  // row & {
+  //   min-height: 24px;
+  // }
 
   selection { &:focus, & { @extend %selected_items; }}
 
@@ -525,6 +524,10 @@ button {
     &:active, &:checked { @include button(flat-active); }
     &:checked:hover { background-image: none; }
     &:disabled { @include button(undecorated); }
+
+    &.toggle.popup {
+      min-width: 20px;
+    }
   }
 
   &:hover {
@@ -2843,7 +2846,7 @@ scrollbar {
 %switch,
 switch {
   transition: $transition_1;
-  margin: 6px 0;
+  // margin: 6px 0;
   border-radius: 50px;
   background-color: rgba($fg_color, 0.3);
   background-clip: padding-box;

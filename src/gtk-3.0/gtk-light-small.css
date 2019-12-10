@@ -330,10 +330,6 @@ notebook infobar entry:disabled {
   background-color: rgba(255, 255, 255, 0.55);
 }
 
-row entry {
-  min-height: 24px;
-}
-
 entry.warning {
   color: white;
   border-color: #F27835;
@@ -568,6 +564,10 @@ button.flat:disabled, button.budgie-menu-launcher:disabled, .budgie-panel button
   background-color: transparent;
   background-image: none;
   box-shadow: none;
+}
+
+button.flat.toggle.popup, button.toggle.popup.budgie-menu-launcher {
+  min-width: 20px;
 }
 
 button:hover {
@@ -3314,7 +3314,6 @@ row switch:not(:indeterminate):disabled, row switch:not(:indeterminate):disabled
 
 switch {
   transition: all 0.2s cubic-bezier(0, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0, 0, 0.2, 1);
-  margin: 6px 0;
   border-radius: 50px;
   background-color: rgba(36, 36, 36, 0.3);
   background-clip: padding-box;
