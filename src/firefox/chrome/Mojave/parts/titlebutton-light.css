@@ -18,17 +18,17 @@
 	background-size: contain;
 }
 
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close:hover,
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox:hover .titlebar-close,
 :root[tabsintitlebar] #titlebar #titlebar-close:hover {
 	background: url("../icons/titlebutton-close-hover.png") no-repeat;
 	background-size: contain;
 }
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max:hover,
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox:hover .titlebar-max,
 :root[tabsintitlebar] #titlebar #titlebar-max:hover {
 	background: url("../icons/titlebutton-maximize-hover.png") no-repeat;
 	background-size: contain;
 }
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min:hover,
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox:hover .titlebar-min,
 :root[tabsintitlebar] #titlebar #titlebar-min:hover {
 	background: url("../icons/titlebutton-minimize-hover.png") no-repeat;
 	background-size: contain;
