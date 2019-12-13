@@ -392,7 +392,8 @@ popover.background.places-menu {
   }
 
   .top &.transparent {
-    background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.9) 0%, rgba($panel_top_color, 0.9) 100%);
+    background-color: transparent;
+    background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.85) 0%, rgba($panel_top_color, 0.85) 100%);
   }
 
   .bottom & {
@@ -976,11 +977,26 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
       }
     }
   }
-}
 
-.devices-list.sound-devices {
-  > row.activatable > box.horizontal {
-    label { padding-left: 8px; }
+  .audio-widget {
+    // scale.marks-after {
+    //   label { }
+    // }
+
+    // button.flat.expander-button { }
+
+    list.devices-list.sound-devices {
+      > row.activatable {
+        &:selected, &:checked {
+          background-color: rgba($fg_color, 0.06);
+          color: $fg_color;
+
+          label { color: $fg_color; }
+        }
+
+        label { padding-left: 12px; }
+      }
+    }
   }
 }
 

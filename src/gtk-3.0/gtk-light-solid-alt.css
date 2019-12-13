@@ -9913,7 +9913,8 @@ popover.background.places-menu row {
 }
 
 .top .budgie-panel.transparent {
-  background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.9) 0%, rgba(245, 245, 245, 0.9) 100%);
+  background-color: transparent;
+  background-image: linear-gradient(0deg, rgba(226, 226, 226, 0.85) 0%, rgba(245, 245, 245, 0.85) 100%);
 }
 
 .bottom .budgie-panel {
@@ -10628,8 +10629,17 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, box:not(.unpi
   background-color: rgba(49, 91, 239, 0.65);
 }
 
-.devices-list.sound-devices > row.activatable > box.horizontal label, .nemo-window .sidebar .devices-list.sound-devices > .view > box.horizontal label, .nemo-window .sidebar .devices-list.sound-devices > row > box.horizontal label, .budgie-menu .devices-list.sound-devices > button > box.horizontal label {
-  padding-left: 8px;
+.raven .audio-widget list.devices-list.sound-devices > row.activatable:selected, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > .view:selected, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > .view:selected, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > row:selected, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > row:selected, .raven .audio-widget .budgie-menu list.devices-list.sound-devices > button:selected, .budgie-menu .raven .audio-widget list.devices-list.sound-devices > button:selected, .raven .audio-widget list.devices-list.sound-devices > row.activatable:checked, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > .view:checked, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > .view:checked, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > row:checked, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > row:checked, .raven .audio-widget .budgie-menu list.devices-list.sound-devices > button:checked, .budgie-menu .raven .audio-widget list.devices-list.sound-devices > button:checked {
+  background-color: rgba(36, 36, 36, 0.06);
+  color: #242424;
+}
+
+.raven .audio-widget list.devices-list.sound-devices > row.activatable:selected label, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > .view:selected label, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > .view:selected label, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > row:selected label, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > row:selected label, .raven .audio-widget .budgie-menu list.devices-list.sound-devices > button:selected label, .budgie-menu .raven .audio-widget list.devices-list.sound-devices > button:selected label, .raven .audio-widget list.devices-list.sound-devices > row.activatable:checked label, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > .view:checked label, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > .view:checked label, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > row:checked label, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > row:checked label, .raven .audio-widget .budgie-menu list.devices-list.sound-devices > button:checked label, .budgie-menu .raven .audio-widget list.devices-list.sound-devices > button:checked label {
+  color: #242424;
+}
+
+.raven .audio-widget list.devices-list.sound-devices > row.activatable label, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > .view label, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > .view label, .raven .audio-widget .nemo-window .sidebar list.devices-list.sound-devices > row label, .nemo-window .sidebar .raven .audio-widget list.devices-list.sound-devices > row label, .raven .audio-widget .budgie-menu list.devices-list.sound-devices > button label, .budgie-menu .raven .audio-widget list.devices-list.sound-devices > button label {
+  padding-left: 12px;
 }
 
 box.audio-widget scale.horizontal.marks-after,
