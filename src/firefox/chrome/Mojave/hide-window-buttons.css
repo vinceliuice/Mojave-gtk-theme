@@ -1,7 +1,7 @@
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 :root[tabsintitlebar][sizemode="maximized"] #titlebar .titlebar-buttonbox-container {
-    display: none;
+    display: none !important;
 }
 
 :root[tabsintitlebar][sizemode="maximized"] #nav-bar {
