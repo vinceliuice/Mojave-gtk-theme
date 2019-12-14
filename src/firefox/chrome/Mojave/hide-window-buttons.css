@@ -3,3 +3,7 @@
 :root[tabsintitlebar][sizemode="maximized"] #titlebar .titlebar-buttonbox-container {
     display: none;
 }
+
+:root[tabsintitlebar][sizemode="maximized"] #nav-bar {
+    padding-left: 3px !important;
+}
