@@ -74,7 +74,6 @@
 	background: url("../titlebuttons/titlebutton-restore-active.svg") no-repeat;
 	background-size: contain;
 }
-
 :root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-close,
 :root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-close {
 	background: url("../titlebuttons/titlebutton-backdrop.svg") no-repeat;
@@ -96,16 +95,16 @@
 }
 :root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox:hover .titlebar-close,
 :root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-close {
-	background: url("../titlebuttons/titlebutton-close-hover-inactive.svg") no-repeat;
+	background: url("../titlebuttons/titlebutton-close-backdrop.svg") no-repeat;
 	background-size: contain;
 }
 :root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox:hover .titlebar-max,
 :root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-max {
-	background: url("../titlebuttons/titlebutton-maximize-hover-inactive.svg") no-repeat;
+	background: url("../titlebuttons/titlebutton-maximize-backdrop.svg") no-repeat;
 	background-size: contain;
 }
 :root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox:hover .titlebar-min,
 :root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-min {
-	background: url("../titlebuttons/titlebutton-minimize-hover-inactive.svg") no-repeat;
+	background: url("../titlebuttons/titlebutton-minimize-backdrop.svg") no-repeat;
 	background-size: contain;
 }
