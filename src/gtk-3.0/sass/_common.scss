@@ -4311,12 +4311,12 @@ headerbar,
       border-width: 0;
       box-shadow: none;
 
-      &:backdrop:not(:hover):not(:active) { opacity: 1; }
+      &:backdrop { opacity: 1; }
     }
 
     // Load png assets for each button, Fix the Chrome window restore button bug
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$alt_suffix}#{$small_suffix}#{$asset_suffix}.png'),
                                         url('windows-assets/titlebutton-#{$k}#{$m}#{$alt_suffix}#{$small_suffix}#{$asset_suffix}@2.png'));
@@ -4328,7 +4328,7 @@ headerbar,
   .fullscreen &,
   .maximized & {
     button.titlebutton {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':hover','-hover'), (':active','-active') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
         &.maximize#{$l} {
           background-image: -gtk-scaled(url('windows-assets/titlebutton-restore#{$m}#{$alt_suffix}#{$small_suffix}#{$asset_suffix}.png'),
                                         url('windows-assets/titlebutton-restore#{$m}#{$alt_suffix}#{$small_suffix}#{$asset_suffix}@2.png'));

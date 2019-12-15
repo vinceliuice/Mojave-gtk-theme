@@ -5223,11 +5223,11 @@ headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, heade
   box-shadow: none;
 }
 
-headerbar button.titlebutton.close:backdrop:not(:hover):not(:active), headerbar button.titlebutton.maximize:backdrop:not(:hover):not(:active), headerbar button.titlebutton.minimize:backdrop:not(:hover):not(:active), headerbar button.titlebutton.restore:backdrop:not(:hover):not(:active),
-.titlebar button.titlebutton.close:backdrop:not(:hover):not(:active),
-.titlebar button.titlebutton.maximize:backdrop:not(:hover):not(:active),
-.titlebar button.titlebutton.minimize:backdrop:not(:hover):not(:active),
-.titlebar button.titlebutton.restore:backdrop:not(:hover):not(:active) {
+headerbar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop,
+.titlebar button.titlebutton.close:backdrop,
+.titlebar button.titlebutton.maximize:backdrop,
+.titlebar button.titlebutton.minimize:backdrop,
+.titlebar button.titlebutton.restore:backdrop {
   opacity: 1;
 }
 
@@ -5239,6 +5239,11 @@ headerbar button.titlebutton.close,
 headerbar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.close:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-close-backdrop-small-dark.png"), url("windows-assets/titlebutton-close-backdrop-small-dark@2.png"));
+}
+
+headerbar button.titlebutton.close:backdrop:hover,
+.titlebar button.titlebutton.close:backdrop:hover {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-close-backdrop-hover-small-dark.png"), url("windows-assets/titlebutton-close-backdrop-hover-small-dark@2.png"));
 }
 
 headerbar button.titlebutton.close:hover,
@@ -5261,6 +5266,11 @@ headerbar button.titlebutton.maximize:backdrop,
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-backdrop-small-dark.png"), url("windows-assets/titlebutton-maximize-backdrop-small-dark@2.png"));
 }
 
+headerbar button.titlebutton.maximize:backdrop:hover,
+.titlebar button.titlebutton.maximize:backdrop:hover {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-backdrop-hover-small-dark.png"), url("windows-assets/titlebutton-maximize-backdrop-hover-small-dark@2.png"));
+}
+
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-hover-small-dark.png"), url("windows-assets/titlebutton-maximize-hover-small-dark@2.png"));
@@ -5281,6 +5291,11 @@ headerbar button.titlebutton.minimize:backdrop,
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-backdrop-small-dark.png"), url("windows-assets/titlebutton-minimize-backdrop-small-dark@2.png"));
 }
 
+headerbar button.titlebutton.minimize:backdrop:hover,
+.titlebar button.titlebutton.minimize:backdrop:hover {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-backdrop-hover-small-dark.png"), url("windows-assets/titlebutton-minimize-backdrop-hover-small-dark@2.png"));
+}
+
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-hover-small-dark.png"), url("windows-assets/titlebutton-minimize-hover-small-dark@2.png"));
@@ -5299,6 +5314,11 @@ headerbar button.titlebutton.restore,
 headerbar button.titlebutton.restore:backdrop,
 .titlebar button.titlebutton.restore:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop-small-dark.png"), url("windows-assets/titlebutton-restore-backdrop-small-dark@2.png"));
+}
+
+headerbar button.titlebutton.restore:backdrop:hover,
+.titlebar button.titlebutton.restore:backdrop:hover {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop-hover-small-dark.png"), url("windows-assets/titlebutton-restore-backdrop-hover-small-dark@2.png"));
 }
 
 headerbar button.titlebutton.restore:hover,
@@ -5325,6 +5345,14 @@ headerbar button.titlebutton.restore:active,
 .maximized
 .titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop-small-dark.png"), url("windows-assets/titlebutton-restore-backdrop-small-dark@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize:backdrop:hover,
+.maximized headerbar button.titlebutton.maximize:backdrop:hover, .fullscreen
+.titlebar button.titlebutton.maximize:backdrop:hover,
+.maximized
+.titlebar button.titlebutton.maximize:backdrop:hover {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop-hover-small-dark.png"), url("windows-assets/titlebutton-restore-backdrop-hover-small-dark@2.png"));
 }
 
 .fullscreen headerbar button.titlebutton.maximize:hover,
