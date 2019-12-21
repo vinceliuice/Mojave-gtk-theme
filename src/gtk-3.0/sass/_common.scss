@@ -4178,23 +4178,17 @@ stackswitcher button.text-button.circular { // FIXME aggregate with buttons
 //
 // Window Decorations
 //
-
+$_wm_border_light: 0 0 0 2px rgba(black, 0.03), 0 0 0 1px rgba(black, 0.12);
+$_wm_border_dark: 0 0 0 2px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.75);
 $_wm_shadow: if($variant=='light', rgba(black, 0.15), rgba(black, 0.35));
-$_wm_border: $_wm_shadow;
-
-@if $variant == 'light' {
-  $_wm_border: 0 0 0 2px rgba(black, 0.03), 0 0 0 1px rgba(black, 0.12);
-}
-
-@if $variant == 'dark' {
-  $_wm_border: 0 0 0 2px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.75);
-}
+$_wm_border: if($variant=='light', $_wm_border_light, $_wm_border_dark);
 
 decoration {
   transition: $shadow_transition;
   border-radius: if($darker=='false' and $variant=='light', $wm_radius, $wm_radius);
-  box-shadow: 0 5px 5px 0 $_wm_shadow,
-              0 8px 15px 0 $_wm_shadow,
+  box-shadow: 0 3px 3px 0 $_wm_shadow,
+              0 8px 8px 0 $_wm_shadow,
+              0 16px 16px 0 $_wm_shadow,
               $_wm_border;
 
   // this is used for the resize cursor area
@@ -4203,8 +4197,9 @@ decoration {
   &:backdrop {
     // the transparent shadow here is to enforce that the shadow extents don't
     // change when we go to backdrop, to prevent jumping windows
-    box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent,
-                0 3px 3px 0 $_wm_shadow,
+    box-shadow: 0 3px 3px 0 $_wm_shadow,
+                0 8px 8px 0 transparent,
+                0 16px 16px 0 transparent,
                 $_wm_border;
   }
 
@@ -4216,8 +4211,7 @@ decoration {
   .tiled-bottom &,
   .tiled-left & {
     border-radius: 0;
-    box-shadow: 0 3px 3px 0 $_wm_shadow,
-                $_wm_border;
+    box-shadow: 0 3px 3px 0 $_wm_shadow, $_wm_border;
   }
 
   .popup & {
@@ -4262,13 +4256,6 @@ decoration {
 headerbar,
 .titlebar {
   button.titlebutton {
-
-    // @include button(undecorated);
-    // background-color: transparentize($header_bg, 1);
-
-    // &:hover { @include button(header-hover); }
-    // &:active, &:checked { @include button(header-active); }
-
     &.appmenu {
       transition: background-color 0.1s $ease-out-quad,
                   box-shadow 0.1s $ease-out-quad,
