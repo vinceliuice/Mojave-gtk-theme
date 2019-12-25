@@ -31,14 +31,13 @@ terminal-window {
     border-radius: $wm_radius $wm_radius 0 0;
   }
 
-  // > box.vertical > notebook {
-  //   > terminal-screen-container {
-  //     > box.horizontal > vte-terminal {
-  //       padding: 0;
-  //       border-radius: 0 0 $wm_radius $wm_radius;
-  //     }
-  //   }
-  // }
+  notebook {
+    button.flat.toggle.popup {
+      min-height: 24px;
+      min-width: 24px;
+      margin: -2px;
+    }
+  }
 
   &.background.csd.maximized { border-radius: 0 0 0 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 }
@@ -1643,9 +1642,9 @@ window.background {
   }
 }
 
- /************
-  * Epiphany *
-  ************/
+/************
+ * Epiphany *
+ ************/
 
 $question_bg_color: #FFEA00;
 
@@ -1741,7 +1740,7 @@ popover.background:not(.emoji-picker) > box.vertical > stack > box.vertical {
         min-width: 16px;
         min-height: 16px;
         padding: 4px; // Same as of image.sidebar-icon
-//        margin: 0 4px;
+        // margin: 0 4px;
         border-radius: 100px;
         -gtk-outline-radius: 100px;
       }

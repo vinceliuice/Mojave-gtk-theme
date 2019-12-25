@@ -2509,13 +2509,18 @@ notebook {
       margin-left: -1px;
     }
 
-    button.flat {
-      min-height: 24px;
-      min-width: 24px;
+    button.flat.toggle.popup {
+      min-width: 28px;
+      border-radius: 0;
       padding: 0;
       border: none;
       box-shadow: none;
-      // margin: 2px;
+      margin: 0;
+
+      &:active, &:checked {
+        color: $fg_color;
+        background-color: if($variant=='light', rgba(black, 0.20), rgba(white, 0.15));
+      }
     }
 
     @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
@@ -2613,7 +2618,8 @@ notebook {
         min-width: 16px;
         border-radius: 3px;
         padding: 0;
-        margin: 2px 0;
+        margin-top: 2px;
+        margin-bottom: 2px;
         color: mix($bg_color, $fg_color, 35%);
 
         &:hover {

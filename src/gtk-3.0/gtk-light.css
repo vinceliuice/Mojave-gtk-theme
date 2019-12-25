@@ -2954,12 +2954,18 @@ notebook > header.left {
   margin-left: -1px;
 }
 
-notebook > header button.flat, notebook > header button.budgie-menu-launcher, notebook > header .budgie-panel button.flat.launcher, .budgie-panel notebook > header button.flat.launcher {
-  min-height: 24px;
-  min-width: 24px;
+notebook > header button.flat.toggle.popup, notebook > header button.toggle.popup.budgie-menu-launcher, .budgie-panel notebook > header button.toggle.popup.flat.launcher {
+  min-width: 28px;
+  border-radius: 0;
   padding: 0;
   border: none;
   box-shadow: none;
+  margin: 0;
+}
+
+notebook > header button.flat.toggle.popup:active, notebook > header button.toggle.popup.budgie-menu-launcher:active, .budgie-panel notebook > header button.toggle.popup.flat.launcher:active, notebook > header button.flat.toggle.popup:checked, notebook > header button.toggle.popup.budgie-menu-launcher:checked, .budgie-panel notebook > header button.toggle.popup.flat.launcher:checked {
+  color: #242424;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 notebook > header.top {
@@ -3114,7 +3120,8 @@ notebook > header tabs > tab button.flat, notebook > header tabs > tab button.bu
   min-width: 16px;
   border-radius: 3px;
   padding: 0;
-  margin: 2px 0;
+  margin-top: 2px;
+  margin-bottom: 2px;
   color: #6d6d6d;
 }
 
@@ -5456,6 +5463,12 @@ terminal-window.background.csd {
 
 terminal-window decoration {
   border-radius: 6px 6px 0 0;
+}
+
+terminal-window notebook button.flat.toggle.popup, terminal-window notebook button.toggle.popup.budgie-menu-launcher {
+  min-height: 24px;
+  min-width: 24px;
+  margin: -2px;
 }
 
 terminal-window.background.csd.maximized {
