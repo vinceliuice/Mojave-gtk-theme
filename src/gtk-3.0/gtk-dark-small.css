@@ -5499,7 +5499,7 @@ window.background > box.vertical > box.horizontal > frame > scrolledwindow > vie
 }
 
 window.background > box.vertical > box.horizontal > stack > widget > notebook.frame {
-  border-width: 0 0 0 1px;
+  border-width: 0;
 }
 
 window.background > box.vertical > box.horizontal > stack > widget > notebook.frame > stack {
@@ -6951,8 +6951,8 @@ window.background > grid.vertical > box.vertical grid.math-buttons button:not(.s
 }
 
 /************
-  * Epiphany *
-  ************/
+ * Epiphany *
+ ************/
 headerbar.titlebar.incognito-mode entry {
   color: #FDFDFD;
   background-color: #5d5d5d;
@@ -7860,6 +7860,10 @@ list.tilix-session-sidebar button.tilix-sidebar-close-button:hover {
 
 list.tilix-session-sidebar button.tilix-sidebar-close-button:active, list.tilix-session-sidebar button.tilix-sidebar-close-button:checked {
   background-image: image(#f6151c);
+}
+
+window.background.csd > box.horizontal > stack > box.vertical > notebook > stack {
+  border-bottom-right-radius: 6px;
 }
 
 window.background.csd > box.vertical > separator.horizontal {

@@ -35,10 +35,6 @@ $wm_radius: 6px;
   -gtk-secondary-caret-color: $selected_bg_color;
 }
 
-//
-// Base States
-//
-
 %outline_dashed {
   outline-color: gtkalpha(currentColor, 0.3);
   outline-style: dashed;
@@ -55,6 +51,9 @@ $wm_radius: 6px;
   -gtk-outline-radius: $bt_radius + 1px;
 }
 
+//
+// Base States
+//
 .background {
   // border-radius: 0 0 $wm_radius $wm_radius;
   color: $fg_color;

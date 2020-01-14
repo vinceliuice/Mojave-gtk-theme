@@ -57,7 +57,7 @@ window.background { // gnome-terminal 3.32 setting
 
   > box.vertical > box.horizontal > stack {
     > widget > notebook.frame {
-      border-width: 0 0 0 1px;
+      border-width: 0;
 
       > stack {
         border-bottom-right-radius: $wm_radius;
@@ -2715,6 +2715,14 @@ list.tilix-session-sidebar {
 
     &:active,
     &:checked { background-image: image(darken($destructive_color, 10%)); }
+  }
+}
+
+window.background.csd {
+  > box.horizontal > stack {
+    > box.vertical > notebook > stack {
+      border-bottom-right-radius: $wm_radius;
+    }
   }
 }
 
