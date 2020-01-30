@@ -2268,8 +2268,97 @@ window.thunar {
   toolbar#location-toolbar {
     border-bottom: 1px solid $borders_color;
 
+    button.path-bar-button {
+      min-height: if($variant == 'light', 24px, 26px);
+      @if $variant=='dark' {
+        border: none;
+      }
+    }
+
+    @if $variant=='dark' {
+      button.path-bar-button {
+        border: none;
+      }
+    }
+
+    button.flat {
+      @include button(normal);
+      @include button(header-normal);
+      border-width: 1px;
+      margin-left: 0;
+      margin-right: 0;
+      background-clip: padding-box;
+
+      @if $variant=='dark' {
+        border-width: 0;
+      }
+
+      &:hover { @include button(header-hover); }
+
+      &:checked {
+        @include button(header-checked);
+        background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+        &:hover { background-image: none; }
+      }
+
+      &:active {
+        @include button(header-active);
+        background-clip: if($darker=='false' and $variant=='light', border-box, padding-box);
+        &:hover { background-image: none; }
+      }
+
+      &:disabled { @include button(header-insensitive); }
+
+      &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+
+      &, &:hover, &:active, &:checked, &:disabled {
+        @extend %linked_header;
+      }
+
+      @if $variant == 'light' {
+        &:not(:first-child) {
+          &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
+          &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
+        }
+      }
+
+      @if $variant=='dark' {
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    > toolbutton#open-parent > button.image-button.flat:not(.toggle) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right: none;
+      margin-left: 6px;
+    }
+
+    > toolbutton#open-home > button.image-button.flat:not(.toggle) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      margin-right: 6px;
+
+      @if $variant=='dark' {
+        margin-left: 1px;
+      }
+    }
+
+    // > toolitem#back > button.flat.toggle,
+    > toolitem#forward > button.flat.toggle {
+      @if $variant=='dark' {
+        margin-left: 1px;
+      }
+    }
+
     // FIXME: need to unset for weird allocation height
-    entry { min-height: if($variant == 'light', 20px, 22px); }
+    entry {
+      min-height: if($variant == 'light', 16px, 16px);
+      margin-top: -2px;
+      margin-bottom: -2px;
+    }
   }
 
   notebook {

@@ -37,7 +37,7 @@ stage {
 
 #notification .notification-button:hover, #notification .notification-icon-button:hover, .notification-button:hover, .notification-icon-button:hover, .menu-favorites-button:hover, .menu-category-button-selected, .menu-category-button-hover, .sound-button:hover {
   text-shadow: none;
-  color: #0b0a0a;
+  color: #0b0b0b;
   border: 1px solid rgba(0, 0, 0, 0.15);
   background-color: #ffffff;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12);
@@ -45,7 +45,7 @@ stage {
 
 #notification .notification-button:hover:focus, #notification .notification-icon-button:hover:focus, .notification-button:hover:focus, .notification-icon-button:hover:focus, .menu-favorites-button:focus:hover, .menu-category-button-selected:focus, .menu-category-button-hover:focus, .sound-button:hover:focus {
   text-shadow: none;
-  color: #0b0a0a;
+  color: #0b0b0b;
   background-color: #ffffff;
   border: 1px solid #315bef;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12);
