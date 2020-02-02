@@ -23,18 +23,6 @@
 	visibility: visible;
 }
 
-/* Main menu remove items icons */
-panelview vbox.panel-subview-body > toolbarbutton image {
-	display: none;
-}
-panelview vbox.panel-subview-body > toolbarbutton label {
-	padding-inline-start: 0 !important;
-}
-#appMenu-zoom-controls > spacer,
-#appMenu-edit-controls > spacer {
-	width: 12px !important;
-}
-
 /* Main menu */
 #appMenu-popup .panel-banner-item:after {
 	-moz-box-ordinal-group: 0;
@@ -212,7 +200,7 @@ panelview vbox.panel-subview-body > toolbarbutton label {
 }
 
 #protections-popup-mainView-panel-header {
-	background: var(--gnome-button-suggested-action-background) !important;	
+	background: var(--gnome-button-suggested-action-background) !important;
 	border: 1px solid var(--gnome-button-suggested-action-border-color) !important;
 	border-radius: 5px 5px 0 0;
 	min-height: 34px !important;
@@ -337,4 +325,9 @@ panelview vbox.panel-subview-body > toolbarbutton label {
 #protections-popup-tp-switch[enabled]::before {
 	border-color: var(--gnome-switch-active-slider-border-color) !important;
 	left: 24px;
+}
+
+/* Feature recommendation notification, fix width */
+#contextual-feature-recommendation-notification {
+    width: auto !important;
 }

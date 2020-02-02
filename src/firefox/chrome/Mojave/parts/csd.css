@@ -1,4 +1,4 @@
-/* GNOME CSD styles for headerbar on Firefox [tabsintitlebar] */
+/* MacOS CSD styles for headerbar on Firefox [tabsintitlebar] */
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
@@ -34,54 +34,7 @@
 
 /* Fullscreen headerbar padding for 1 button */
 :root[tabsintitlebar][inFullscreen] #nav-bar {
-	padding-right: 50px !important;
-}
-
-/* Window buttons box */
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container,
-:root[tabsintitlebar] #titlebar-buttonbox-container,
-:root[tabsintitlebar][inFullscreen] #window-controls {
-	-moz-appearance: none !important;
-	padding: 0 3px 0 4px;
-	position: absolute !important;
-	right: 0;
-	top: 0;
-	display: block !important;
-}
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox {
-	-moz-appearance: none !important;
-}
-
-/* Window buttons style */
-:root[tabsintitlebar] #titlebar .titlebar-button,
-:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
-	-moz-appearance: none !important;
-	background-color: transparent;
-	border: none !important;
-	border-radius: 100px !important;
-	height: 16px;
-	margin: 10px 4px !important;
-	padding: 0 0 !important;
-	width: 16px;
-}
-:root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon,
-:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon {
-	filter: var(--gnome-window-icons-hack-filter) !important;
-	height: 16px;
-	width: 16px;
-	border: none;
-	box-shadow: none;
-	transition: all 300ms cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-button .toolbarbutton-icon,
-:root[tabsintitlebar][inFullscreen] #window-controls:-moz-window-inactive toolbarbutton .toolbarbutton-icon {
-	opacity: 1 !important;
-}
-
-/* Remove close and minimize buttons from fullscreen buttons */
-:root[tabsintitlebar][inFullscreen] #window-controls #close-button,
-:root[tabsintitlebar][inFullscreen] #window-controls #minimize-button {
-	display: none;
+	padding-right: 30px !important;
 }
 
 /* Left window buttons */
@@ -119,6 +72,20 @@
 	}
 }
 
+/* Remove close and minimize buttons from fullscreen buttons */
+:root[tabsintitlebar][inFullscreen] #window-controls #close-button,
+:root[tabsintitlebar][inFullscreen] #window-controls #minimize-button,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-min {
+	display: none !important;
+}
+
+:root[tabsintitlebar][inFullscreen] #window-controls #maximize-button,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-max {
+	color: transparent;
+}
+
 /* Remove tabsbar titlebar blank spaces */
 :root[tabsintitlebar] #TabsToolbar .titlebar-placeholder {
 	display: none !important;
@@ -144,21 +111,40 @@
 	padding-bottom: 0 !important;
 }
 
-/* FF 60 fixes */
-:root[tabsintitlebar] #titlebar[style="margin-bottom: -1px;"] {
-	margin-bottom: -38px !important;
-}
-:root[tabsintitlebar] #titlebar-content {
+/* Window buttons box */
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container,
+:root[tabsintitlebar] #titlebar-buttonbox-container,
+:root[tabsintitlebar][inFullscreen] #window-controls {
+	-moz-appearance: none !important;
+	padding: 0 3px 0 4px;
+	position: absolute !important;
+	right: 0;
+	top: 0;
 	display: block !important;
-	position: absolute;
-	height: 38px !important;
-	top: 0 !important;
 }
-:root[tabsintitlebar] #titlebar-buttonbox {
-	height: auto !important;
-	padding: 0 !important;
-	margin: 0 !important;
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox {
+	-moz-appearance: none !important;
 }
-:root[tabsintitlebar] #titlebar-content .titlebar-button {
-	padding: 0 6px !important;
+
+/* Window buttons style */
+:root[tabsintitlebar] #titlebar .titlebar-button,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
+	-moz-appearance: none !important;
+	background-color: transparent;
+	border: none !important;
+	border-radius: 100px !important;
+	height: 16px;
+	margin: 10px 4px !important;
+	padding: 0 0 !important;
+	width: 16px;
+        color: transparent;
 }
+:root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon {
+	opacity: 0 !important;
+}
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-button .toolbarbutton-icon,
+:root[tabsintitlebar][inFullscreen] #window-controls:-moz-window-inactive toolbarbutton .toolbarbutton-icon {
+	opacity: 0 !important;
+}
+

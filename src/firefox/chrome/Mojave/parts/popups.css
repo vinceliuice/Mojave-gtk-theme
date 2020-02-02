@@ -13,7 +13,6 @@ menupopup {
 	color: var(--gnome-toolbar-color) !important;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
 }
-
 menupopup menupopup {
 	margin: -5px 0 0 -4px;
 }
@@ -25,11 +24,7 @@ menubar > menu > menupopup {
 
 menuitem, menupopup menu {
 	-moz-appearance: none !important;
-	padding: 5px 10px !important;
-}
-
-menuitem:hover, menupopup menu:hover {
-	background: var(--theme-primary-color) !important;
+	padding: 4px 8px !important;
 }
 
 menuitem[type="checkbox"] image, menuitem[type="radio"] image {
@@ -45,92 +40,52 @@ panel[type=arrow] {
 	margin-top: 9px !important;
 	max-height: 80vh !important;
 }
-panel[type=arrow] {
-	margin-right: -40px !important;
-	margin-left: -40px !important;
-}
-panel[type=arrow][position] .panel-arrow {
-	margin-right: 30px !important;
-	margin-left: 30px !important;
-}
 
 /* Style popovers */
 .panel-arrowcontent .panel-arrowcontent,
 .panel-header, .PanelUI-subView,
-.panel-subview-body, #widget-overflow-mainView,
+.panel-subview-body, #widget-overflow-mainView, #protections-popup-footer,
 panelview {
 	border: 0 !important;
 	background: transparent !important;
 }
 
-panel:not(.tooltip-xul-wrapper) .panel-arrowcontent {
+.panel-arrowcontent {
 	background: var(--gnome-popover-background) !important;
 	border: 1px solid !important;
 	border-color: var(--gnome-popover-border-color) !important;
 	border-radius: 9px;
-	box-shadow: var(--gnome-popover-shadow);
-	padding: 8px 12px !important;
+	box-shadow: var(--gnome-popover-shadow) !important;
+	padding: 12px !important;
 	color: var(--gnome-toolbar-color) !important;
 }
-
-.panel-subview-body, .panel-view-body-unscrollable, .panel-header, .panel-footer {
-	padding: 6px 4px !important;
-}
-
-#notification-popup .panel-arrowcontent,
-#appMenu-notification-popup .panel-arrowcontent,
-#identity-popup  .panel-arrowcontent,
-#protections-popup .panel-arrowcontent,
-#sidebarMenu-popup .panel-arrowcontent,
-#UITourTooltip .panel-arrowcontent {
-	padding: 6px 4px !important;
-}
-
-#notification-popup .panel-footer,
-#appMenu-notification-popup .panel-footer,
-#identity-popup .panel-footer,
-#identity-popup .panel-header,
-#protections-popup .panel-footer,
-#protections-popup .panel-header {
-	padding: 0 !important;
-	margin: 0 !important;
+.panel-arrow {    
+	fill: var(--gnome-popover-background) !important;
+	stroke: var(--gnome-popover-border-color) !important;
 }
 
 .PanelUI-subView toolbarseparator:not([orient="vertical"]) {
 	margin: 10px 2px !important;
 }
 
-.panel-arrow {
-	fill: var(--gnome-popover-background) !important;
-	stroke: var(--gnome-popover-border-color) !important;
+.panel-header {
+	padding: 0 0 10px 0 !important;
 }
-
 .panel-footer {
 	background-color: transparent !important;
 	display: flex;
 	justify-content: flex-end;
-	padding-top: 0 !important;
+	padding-top: 0px !important;
 }
-
 .panel-footer toolbarseparator {
 	display: none !important;
 }
 
-.panel-subview-footer {
-	margin: 0 10px 10px !important;
-}
-
-/* Use --arrowpanel-background for popover background when content is remote */
-panel:not(.tooltip-xul-wrapper)[type=arrow][remote] .panel-arrowcontent {
-	background: var(--arrowpanel-background) !important;
-	padding: 10px !important;
-}
-panel:not(.tooltip-xul-wrapper)[type=arrow][remote] .panel-arrow  {
-	fill: var(--arrowpanel-background) !important;
-}
-panel:not(.tooltip-xul-wrapper)[type=arrow][remote] .panel-header {
-	margin-top: 0 !important;
+.panel-subview-body {
 	padding: 0 !important;
+}
+.panel-subview-footer {
+	margin-top: 10px !important;
 }
 
 /* Style popovers menu buttons */

@@ -23,6 +23,10 @@ tab > stack {
 	margin-bottom: -1px !important;
 }
 
+:root[tabsintitlebar][inFullscreen] #TabsToolbar .toolbar-items {
+	margin-bottom: 0 !important;
+}
+
 /* Remove hover effects on tab bar buttons */
 #TabsToolbar {
 	--toolbarbutton-active-background: transparent !important;
@@ -206,6 +210,7 @@ tab[selected]:-moz-window-inactive {
 	border-image: none !important;
 	border-top: none !important;
 	margin-left: -1px !important;
+	margin-right: -1px !important
 }
 .tab-background[selected=true]:-moz-window-inactive {
 	background-color: var(--gnome-inactive-tabbar-tab-active-background) !important;
@@ -228,12 +233,17 @@ tab[selected]:-moz-window-inactive {
 	border: 1px solid var(--gnome-headerbar-border-color) !important;
 	border-image: none !important;
 	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	box-shadow: 1px 0 var(--gnome-headerbar-border-color), -1px 0 var(--gnome-headerbar-border-color) !important;
 }
 :root:not(:-moz-window-inactive) .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]) {
 	background-color: var(--gnome-tabbar-tab-hover-background) !important;
 	border: 1px solid var(--gnome-headerbar-border-color) !important;
 	border-image: none !important;
 	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
 }
 
 /* Tabs scroll buttons hover */

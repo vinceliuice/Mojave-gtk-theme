@@ -26,7 +26,6 @@
 #sidebar-switcher-target,
 #viewButton,
 .close-icon:not(.tab-close-button),
-#TabsToolbar .toolbarbutton-1,
 .menulist-label-box,
 .expander-down, .expander-up,
 .notification-button,
@@ -50,18 +49,6 @@
 	color: var(--gnome-toolbar-color) !important;
 }
 
-.close-icon:not(.tab-close-button) {
-	background: transparent !important;
-	box-shadow: none !important;
-	border: 1px solid transparent !important;
-	border-radius: 5px !important;
-	padding: 0 0 !important;
-	height: 28px !important;
-	width: 28px !important;
-	min-height: 28px !important;
-	min-width: 28px !important;
-}
-
 /* Buttons with margins */
 #nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton) {
 	margin: 0 2px !important;
@@ -80,36 +67,6 @@
 
 #nav-bar #back-button:not(#hack) {
 	margin-right: 0 !important;
-}
-
-#TabsToolbar .toolbarbutton-1 {
-	margin: 1px 2px 2px !important;
-	padding: 0 3px !important;
-	height: 24px !important;
-	width: 24px !important;
-	min-height: 24px !important;
-	min-width: 24px !important;
-}
-
-#TabsToolbar .toolbarbutton-1 image {
-	margin: 0 0 !important;
-	padding: 0 0 !important;
-	height: 16px !important;
-	width: 16px !important;
-	min-height: 16px !important;
-	min-width: 16px !important;
-}
-
-.close-icon:not(.tab-close-button):hover,
-#TabsToolbar .toolbarbutton-1:not(:active):not([open]):hover {
-	outline: 0 !important;
-	background: var(--gnome-button-hover-color) !important;
-}
-
-.close-icon:not(.tab-close-button):active,
-#TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open] {
-	outline: 0 !important;
-	background: var(--gnome-button-active-color) !important;
 }
 
 /* Text buttons */
@@ -173,7 +130,6 @@
 .findbar-closebutton .toolbarbutton-icon:hover,
 #sidebar-switcher-target:hover,
 #viewButton:hover,
-#TabsToolbar .toolbarbutton-1:hover,
 menulist:hover .menulist-label-box,
 .expander-down:hover, .expander-up:hover,
 .notification-button:hover,
@@ -204,7 +160,6 @@ menulist:hover .menulist-label-box,
 .findbar-container toolbarbutton:active,
 #sidebar-switcher-target:active, #sidebar-switcher-target.active,
 #viewButton[open],
-#TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open],
 menulist[open] .menulist-label-box,
 .expander-down:active, .expander-up:active,
 .notification-button:active,
@@ -266,6 +221,49 @@ menulist[open] .menulist-label-box,
 	border-color: var(--gnome-button-border-color) !important;
 	border-bottom-color: var(--gnome-button-border-accent-color) !important;
 }
+
+.close-icon:not(.tab-close-button) {
+	background: transparent !important;
+	box-shadow: none !important;
+	border: 1px solid transparent !important;
+	border-radius: 5px !important;
+	padding: 0 0 !important;
+	height: 28px !important;
+	width: 28px !important;
+	min-height: 28px !important;
+	min-width: 28px !important;
+}
+
+#TabsToolbar .toolbarbutton-1 {
+	margin: 1px 2px 2px !important;
+	padding: 0 3px !important;
+	height: 24px !important;
+	width: 24px !important;
+	min-height: 24px !important;
+	min-width: 24px !important;
+}
+
+#TabsToolbar .toolbarbutton-1 image {
+	margin: 0 0 !important;
+	padding: 0 0 !important;
+	height: 16px !important;
+	width: 16px !important;
+	min-height: 16px !important;
+	min-width: 16px !important;
+}
+
+.close-icon:not(.tab-close-button):hover,
+#TabsToolbar .toolbarbutton-1:not(:active):not([open]):hover {
+	outline: 0 !important;
+	background: var(--gnome-button-hover-color) !important;
+}
+
+.close-icon:not(.tab-close-button):active,
+#TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open] {
+	outline: 0 !important;
+	background: var(--gnome-button-active-color) !important;
+}
+
 
 /* Circle buttons */
 #downloadsPanel-mainView .download-state .downloadButton,
