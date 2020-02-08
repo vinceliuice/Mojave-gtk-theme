@@ -55,11 +55,11 @@ panelview {
 	border: 1px solid !important;
 	border-color: var(--gnome-popover-border-color) !important;
 	border-radius: 9px;
-	box-shadow: var(--gnome-popover-shadow) !important;
+	box-shadow: var(--gnome-popover-shadow);
 	padding: 12px !important;
 	color: var(--gnome-toolbar-color) !important;
 }
-.panel-arrow {    
+.panel-arrow {
 	fill: var(--gnome-popover-background) !important;
 	stroke: var(--gnome-popover-border-color) !important;
 }
