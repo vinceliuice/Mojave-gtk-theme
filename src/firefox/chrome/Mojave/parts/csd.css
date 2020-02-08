@@ -1,4 +1,4 @@
-/* MacOS CSD styles for headerbar on Firefox [tabsintitlebar] */
+/* GNOME CSD styles for headerbar on Firefox [tabsintitlebar] */
 
 @namespace xul url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
@@ -19,8 +19,8 @@
 }
 /* Window buttons: at least 2 buttons */
 @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),
-	(-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
-	(-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+       (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),
+       (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
 	:root[tabsintitlebar]:not([inFullscreen]) #nav-bar {
 		padding-right: 60px !important;
 	}
@@ -35,6 +35,57 @@
 /* Fullscreen headerbar padding for 1 button */
 :root[tabsintitlebar][inFullscreen] #nav-bar {
 	padding-right: 30px !important;
+}
+
+/* Window buttons box */
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container,
+:root[tabsintitlebar] #titlebar-buttonbox-container,
+:root[tabsintitlebar][inFullscreen] #window-controls {
+	-moz-appearance: none !important;
+	padding: 0 3px 0 4px;
+	position: absolute !important;
+	right: 0;
+	top: 0;
+	display: block !important;
+}
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox {
+	-moz-appearance: none !important;
+}
+
+/* Window buttons style */
+:root[tabsintitlebar] #titlebar .titlebar-button,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
+	-moz-appearance: none !important;
+	background-color: transparent;
+	border: none !important;
+	border-radius: 100px !important;
+	height: 16px;
+	margin: 10px 4px !important;
+	padding: 0 0 !important;
+	width: 16px;
+	color: transparent;
+}
+:root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon,
+:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon {
+	opacity: 0 !important;
+}
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-button .toolbarbutton-icon,
+:root[tabsintitlebar][inFullscreen] #window-controls:-moz-window-inactive toolbarbutton .toolbarbutton-icon {
+	opacity: 0 !important;
+}
+
+/* Remove close and minimize buttons from fullscreen buttons */
+:root[tabsintitlebar][inFullscreen] #window-controls #close-button,
+:root[tabsintitlebar][inFullscreen] #window-controls #minimize-button,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-close,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-min {
+	display: none !important;
+}
+
+:root[tabsintitlebar][inFullscreen] #window-controls #maximize-button,
+:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-max {
+	color: transparent;
 }
 
 /* Left window buttons */
@@ -72,20 +123,6 @@
 	}
 }
 
-/* Remove close and minimize buttons from fullscreen buttons */
-:root[tabsintitlebar][inFullscreen] #window-controls #close-button,
-:root[tabsintitlebar][inFullscreen] #window-controls #minimize-button,
-:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox-container,
-:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-close,
-:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-min {
-	display: none !important;
-}
-
-:root[tabsintitlebar][inFullscreen] #window-controls #maximize-button,
-:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-max {
-	color: transparent;
-}
-
 /* Remove tabsbar titlebar blank spaces */
 :root[tabsintitlebar] #TabsToolbar .titlebar-placeholder {
 	display: none !important;
@@ -95,10 +132,6 @@
 :root[tabsintitlebar] #toolbar-menubar:not([inactive=true]) {
 	height: 30px !important;
 	margin-bottom: 8px;
-}
-/* Hide empty menubar when global menu is used */
-:root[tabsintitlebar][shellshowingmenubar=true] #toolbar-menubar {
-	height: 0px !important;
 }
 
 /* Remove default style of titlebar */
@@ -110,41 +143,3 @@
 :root[tabsintitlebar] #navigator-toolbox[movingtab] #TabsToolbar {
 	padding-bottom: 0 !important;
 }
-
-/* Window buttons box */
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox-container,
-:root[tabsintitlebar] #titlebar-buttonbox-container,
-:root[tabsintitlebar][inFullscreen] #window-controls {
-	-moz-appearance: none !important;
-	padding: 0 3px 0 4px;
-	position: absolute !important;
-	right: 0;
-	top: 0;
-	display: block !important;
-}
-:root[tabsintitlebar] #titlebar .titlebar-buttonbox {
-	-moz-appearance: none !important;
-}
-
-/* Window buttons style */
-:root[tabsintitlebar] #titlebar .titlebar-button,
-:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
-	-moz-appearance: none !important;
-	background-color: transparent;
-	border: none !important;
-	border-radius: 100px !important;
-	height: 16px;
-	margin: 10px 4px !important;
-	padding: 0 0 !important;
-	width: 16px;
-        color: transparent;
-}
-:root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon,
-:root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon {
-	opacity: 0 !important;
-}
-:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-button .toolbarbutton-icon,
-:root[tabsintitlebar][inFullscreen] #window-controls:-moz-window-inactive toolbarbutton .toolbarbutton-icon {
-	opacity: 0 !important;
-}
-
