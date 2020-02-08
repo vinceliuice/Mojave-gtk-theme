@@ -56,14 +56,12 @@
 :root[tabsintitlebar] #titlebar .titlebar-button,
 :root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton {
 	-moz-appearance: none !important;
-	background-color: transparent;
 	border: none !important;
 	border-radius: 100px !important;
 	height: 16px;
 	margin: 10px 4px !important;
-	padding: 0 0 !important;
+	padding: 2px 0 !important;
 	width: 16px;
-	color: transparent;
 }
 :root[tabsintitlebar] #titlebar .titlebar-button .toolbarbutton-icon,
 :root[tabsintitlebar][inFullscreen] #window-controls toolbarbutton .toolbarbutton-icon {
@@ -81,11 +79,6 @@
 :root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-close,
 :root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-min {
 	display: none !important;
-}
-
-:root[tabsintitlebar][inFullscreen] #window-controls #maximize-button,
-:root[tabsintitlebar][inFullscreen] #titlebar .titlebar-buttonbox .titlebar-max {
-	color: transparent;
 }
 
 /* Left window buttons */
@@ -120,7 +113,7 @@
 		:root[tabsintitlebar]:not([inFullscreen]) #nav-bar {
 			padding-left: 80px !important;
 		}
-	}
+	} 
 }
 
 /* Remove tabsbar titlebar blank spaces */
