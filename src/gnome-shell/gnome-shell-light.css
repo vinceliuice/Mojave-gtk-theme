@@ -3350,12 +3350,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   background-image: url("assets/dash/bottom-running4-focused.svg");
 }
 
-/* Simple Dock */
 #dash:desktop {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* GPaste */
+.openweather-button-action {
+  border: 1px solid transparent;
+  background: none;
+}
+
 .popup-menu .search-entry {
   color: rgba(0, 0, 0, 0.87);
   selection-background-color: #315bef;

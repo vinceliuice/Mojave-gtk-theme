@@ -87,14 +87,20 @@
 }
 
 
-/* Simple Dock */
+// * Simple Dock *
 
 #dash:desktop {
   background-color: $bg_color;
 }
 
+// * OpenWeather Extension *
 
-/* GPaste */
+.openweather-button-action {
+  border: 1px solid transparent;
+  background: none;
+}
+
+// * GPaste *
 
 .popup-menu {
   .search-entry {

@@ -42,7 +42,7 @@ terminal-window {
   &.background.csd.maximized { border-radius: 0 0 0 0; } // Fixed gnome 3.32 issue: Unable to restore window size after maximization
 }
 
-window.background { // gnome-terminal 3.32 setting
+window.background.csd { // gnome-terminal 3.32 setting
   > box.vertical > box.horizontal > frame {
     > border {
       border-width: 0 1px 0 0;
