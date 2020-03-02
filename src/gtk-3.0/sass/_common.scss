@@ -3497,11 +3497,11 @@ row {
   padding: 16px;
   margin: 0 8px 8px 8px;
   color: $fg_color;
-  background-color: $bg_color;
-  background-image: linear-gradient(0deg, $bg_color 0%, $bg_color 85%, darken($bg_color, 5%) 95%, darken($bg_color, 15%) 100%);
-  border-radius: 0;
+  background-color: rgba($bg_color, 0.95);
+  // background-image: linear-gradient(0deg, $bg_color 0%, $bg_color 85%, darken($bg_color, 5%) 95%, darken($bg_color, 15%) 100%);
+  border-radius: 0 0 2px 2px;
   border: none;
-  box-shadow: $shadow_5, 0 0 0 1px $borders_color;
+  box-shadow: $shadow_5, 0 0 0 1px if($variant=='light', rgba(black, 0.15), rgba(black, 0.65));
 
   border { border: none; }
 
