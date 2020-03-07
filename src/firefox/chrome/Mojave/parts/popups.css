@@ -11,7 +11,7 @@ menupopup {
 	border-radius: 5px;
 	padding: 4px 0 !important;
 	color: var(--gnome-toolbar-color) !important;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) !important;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
 }
 menupopup menupopup {
 	margin: -5px 0 0 -4px;
@@ -55,7 +55,7 @@ panelview {
 	border: 1px solid !important;
 	border-color: var(--gnome-popover-border-color) !important;
 	border-radius: 9px;
-	box-shadow: var(--gnome-popover-shadow);
+	/* box-shadow: var(--gnome-popover-shadow) !important; */
 	padding: 12px !important;
 	color: var(--gnome-toolbar-color) !important;
 }

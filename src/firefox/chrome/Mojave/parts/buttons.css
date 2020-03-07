@@ -41,12 +41,21 @@
 	border: 1px solid var(--gnome-button-border-color) !important;
 	border-bottom-color: var(--gnome-button-border-accent-color) !important;
 	border-radius: 5px !important;
-	padding: 0 3px !important;
+	padding: 0 4px !important;
 	height: 28px !important;
 	max-height: 28px !important;
 	min-height: 28px !important;
 	min-width: 28px !important;
 	color: var(--gnome-toolbar-color) !important;
+}
+
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton) {
+	border: none !important;
+	box-shadow: var(--gnome-headerbar-button-box-shadow) !important;
+}
+
+:root:-moz-window-inactive #nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton) {
+	box-shadow: inset 0 0 0 1px var(--gnome-inactive-button-border-color) !important;
 }
 
 /* Buttons with margins */
@@ -56,9 +65,9 @@
 
 #nav-bar #back-button:not(#hack),
 #nav-bar #forward-button:not(#hack) {
-	padding: 0 0 !important;
-	width: 30px !important;
-	min-width: 30px !important;
+	padding: 0 4px !important;
+	width: 34px !important;
+	min-width: 34px !important;
 }
 
 #nav-bar #forward-button:not(#hack) {
@@ -171,8 +180,14 @@ menulist[open] .menulist-label-box,
 	background: var(--gnome-button-active-background) !important;
 	box-shadow: var(--gnome-button-active-box-shadow) !important;
 	border-color: var(--gnome-button-active-border-color) !important;
-	border-bottom-color: var(--gnome-button-active-border-color) !important;
-	border-top-color: var(--gnome-button-active-border-accent-color) !important;
+}
+
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not([disabled]):not(#hack):active,
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not(.subviewbutton):not([disabled])[open],
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not([disabled])[checked] {
+	border: none !important;
+	background: var(--gnome-headerbar-button-active-background) !important;
+	box-shadow: var(--gnome-headerbar-button-active-box-shadow) !important;
 }
 
 /* Disabled buttons */
@@ -183,6 +198,11 @@ menulist[open] .menulist-label-box,
 	border-color: var(--gnome-button-disabled-border-color) !important;
 	box-shadow: var(--gnome-button-disabled-box-shadow) !important;
 	opacity: 1 !important;
+}
+
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton)[disabled] {
+	border: none !important;
+	box-shadow: var(--gnome-headerbar-button-box-shadow) !important;
 }
 
 #nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled] image,
@@ -278,7 +298,6 @@ menulist[open] .menulist-label-box,
 
 /* Combined buttons */
 #nav-bar .toolbaritem-combined-buttons toolbarbutton:not(:last-of-type):not(#hack),
-#nav-bar #back-button:not(#hack),
 .subviewbutton.panel-subview-footer:not(:only-of-type):not(:last-of-type),
 .panel-footer button:not(:only-of-type):not(:last-of-type),
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:last-of-type):not(#appMenu-zoomEnlarge-button),
@@ -292,7 +311,6 @@ menulist[open] .menulist-label-box,
 }
 
 #nav-bar .toolbaritem-combined-buttons toolbarbutton:not(:first-of-type):not(#hack),
-#nav-bar #forward-button:not(#hack),
 .subviewbutton.panel-subview-footer:not(:only-of-type):not(:first-of-type),
 .panel-footer button:not(:only-of-type):not(:first-of-type),
 #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:first-of-type):not(#appMenu-fullscreen-button),
@@ -370,6 +388,21 @@ button.popup-notification-primary-button.popup-notification-button:active,
 }
 .identity-popup-permission-remove-button:not(#hack):hover .button-icon {
 	filter: invert(100%) brightness(200%);
+}
+
+/* Fixed for dark theme */
+@media (prefers-color-scheme: dark) {
+	#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton) {
+		box-shadow: var(--gnome-button-box-shadow) !important;
+	}
+
+	#nav-bar #forward-button:not(#hack) {
+		margin-left: 1px !important;
+	}
+
+	#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton)[disabled] {
+		box-shadow: var(--gnome-button-box-shadow) !important;
+	}
 }
 
 /* User sync menu, bigger avatar */

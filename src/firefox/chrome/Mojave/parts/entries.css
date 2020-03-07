@@ -30,10 +30,9 @@
 #urlbar {
 	-moz-appearance: none !important;
 	background: var(--gnome-button-background) !important;
-	border: 1px solid var(--gnome-headerbar-button-border-color) !important;
-	border-bottom-color: var(--gnome-headerbar-button-border-accent-color) !important;
+	border: none !important;
+	box-shadow: var(--gnome-headerbar-button-box-shadow) !important;
 	border-radius: 5px !important;
-	box-shadow: var(--gnome-button-box-shadow) !important;
 	color: var(--gnome-urlbar-color) !important;
 	height: 28px !important;
 	max-height: 28px !important;
@@ -44,9 +43,8 @@
 #search-box[focused],
 .findbar-textbox[focused],
 .findbar-textbox:focus {
-	outline: 2px solid var(--gnome-focused-urlbar-border-color) !important;
-	outline-offset: -2px;
-	-moz-outline-radius: 5px;
+	border-color: var(--gnome-focused-urlbar-border-color) !important;
+	box-shadow: 0 0 0 2px var(--gnome-focused-urlbar-highlight-color) !important;
 }
 
 #urlbar.megabar[breakout][breakout-extend],
@@ -54,7 +52,7 @@
 #searchbar:focus-within,
 #urlbar[focused] {
 	background: var(--gnome-urlbar-background) !important;
-	outline: 2px solid var(--gnome-focused-urlbar-border-color) !important;
+	outline: 2px solid var(--gnome-focused-urlbar-highlight-color) !important;
 	outline-offset: -2px;
 	-moz-outline-radius: 5px;
 }
@@ -73,8 +71,7 @@
 #searchbar:-moz-window-inactive,
 #urlbar:-moz-window-inactive {
 	background: var(--gnome-inactive-button-background) !important;
-	border-color: var(--gnome-inactive-button-border-color) !important;
-	box-shadow: var(--gnome-inactive-button-box-shadow) !important;
+	box-shadow: inset 0 0 0 1px var(--gnome-inactive-button-border-color) !important;
 	color: var(--gnome-inactive-urlbar-color) !important;
 }
 
@@ -111,3 +108,12 @@
 	margin: 0 !important;
 }
 
+/* Fixed for dark theme */
+@media (prefers-color-scheme: dark) {
+	#searchbar,
+	#urlbar.megabar #urlbar-input-container,
+	#urlbar:not(.megabar),
+	#urlbar {
+		box-shadow: var(--gnome-button-box-shadow) !important;
+	}
+}

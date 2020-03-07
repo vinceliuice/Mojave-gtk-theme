@@ -7,7 +7,7 @@
 
 :root {
 	/* Browser area before a page starts loading */
-	--gnome-browser-before-load-background: #d6d6d6;
+	--gnome-browser-before-load-background: #f5f5f5;
 	--theme-primary-color: #315bef;
 
 	/* Toolbars */
@@ -17,16 +17,16 @@
 	--gnome-toolbar-color: rgb(46, 52, 54);
 	--gnome-toolbar-border-color: #b6b6b3;
 	--gnome-inactive-toolbar-background: #f6f5f4;
-	--gnome-inactive-toolbar-border-color: #c0c0bd;
-	
+	--gnome-inactive-toolbar-border-color: #dadada;
+
 	/* Sidebar */
-	--gnome-sidebar-background: #fbfafa;
+	--gnome-sidebar-background: #f5f5f5;
 	--gnome-inactive-sidebar-background: #f9f9f8;
-	
+
 	/* Popups */
-	--gnome-menu-background: #ffffff;
+	--gnome-menu-background: rgba(255, 255, 255, 0.95);
 	--gnome-menu-border-color: #cdc7c2;
-	--gnome-popover-background: #ffffff;
+	--gnome-popover-background: rgba(255, 255, 255, 0.95);
 	--gnome-popover-border-color: #cdc7c2;
 	--gnome-popover-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 	--gnome-popover-button-hover-background: rgba(0, 0, 0, 0.1);
@@ -38,28 +38,29 @@
 	--gnome-headerbar-border-color: #bdb7b0;
 	--gnome-headerbar-box-shadow: 0 1px rgba(255, 255, 255, 0.65) inset;
 	--gnome-inactive-headerbar-background: linear-gradient(#f6f5f4, #f6f5f4);
-	--gnome-inactive-headerbar-border-color: #c0c0bd;
+	--gnome-inactive-headerbar-border-color: #dadada;
  	--gnome-inactive-headerbar-box-shadow: 0 1px #fff inset;
-	
+
 	/* Buttons */
 	--gnome-button-background: linear-gradient(to top, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
 	--gnome-button-border-color: #cdc7c2;
-	--gnome-button-border-accent-color: #bfb8b1;
-	--gnome-headerbar-button-border-color: #cdc7c2;
-	--gnome-headerbar-button-border-accent-color: #bfb8b1;
+	--gnome-button-border-accent-color: #b2b2b1;
 	--gnome-button-box-shadow: inset 0 1px white, 0 1px 2px rgba(0, 0, 0, 0.03);
+	--gnome-headerbar-button-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.20), inset 0 -1px rgba(0, 0, 0, 0.10), inset 0 2px white;
+	--gnome-headerbar-button-active-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.10);
 	--gnome-button-hover-color: rgba(0, 0, 0, 0.1);
 	--gnome-button-active-color: rgba(0, 0, 0, 0.2);
 	--gnome-button-hover-background: linear-gradient(to top, #fdfdfd 0%, #ffffff 100%);
-	--gnome-button-active-background: linear-gradient(#cfcfcf, #cfcfcf);
-	--gnome-button-active-border-color: #c6bfb9;
-	--gnome-button-active-border-accent-color: #bab3ab;
+	--gnome-button-active-background: #cfcfcf;
+	--gnome-headerbar-button-active-background: linear-gradient(#cfcfcf, #cfcfcf);
+	--gnome-button-active-border-color: #b2b2b1;
 	--gnome-button-active-box-shadow: 0 1px rgba(255, 255, 255, 0) inset;
+  --gnome-headerbar-button-active-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 	--gnome-button-disabled-background: #faf9f8;
 	--gnome-button-disabled-border-color: #cdc7c2;
 	--gnome-button-disabled-box-shadow: inset 0 1px rgba(255, 255, 255, 0);
 	--gnome-inactive-button-background: linear-gradient(#f6f5f4, #f6f5f4);
-	--gnome-inactive-button-border-color: #c0c0bd;
+	--gnome-inactive-button-border-color: #dadada;
 	--gnome-inactive-button-box-shadow: 0 1px rgba(255, 255, 255, 0) inset, 0 1px rgba(255, 255, 255, 0);
 	--gnome-button-suggested-action-background: linear-gradient(to top, #2379e2 2px, #3584e4);
 	--gnome-button-suggested-action-border-color: #1b6acb;
@@ -68,7 +69,7 @@
 	--gnome-button-suggested-action-hover-background: linear-gradient(to top, #3584e4, #3987e5 1px);
 	--gnome-button-suggested-action-active-background: #1961b9;
 	--gnome-button-suggested-action-active-border-color: #1b6acb;
-	--gnome-button-suggested-action-active-box-shadow: inset 0 1px rgba(255, 255, 255, 0);	
+	--gnome-button-suggested-action-active-box-shadow: inset 0 1px rgba(255, 255, 255, 0);
 	--gnome-button-destructive-action-background: linear-gradient(to top, #ce1921 2px, #e01b24);
 	--gnome-button-destructive-action-border-color: #b2161d;
 	--gnome-button-destructive-action-border-accent-color: #851015;
@@ -84,10 +85,11 @@
 	--gnome-urlbar-box-shadow: none;
 	--gnome-urlbar-color: #020202;
 	--gnome-inactive-urlbar-background: linear-gradient(#fcfcfc, #fcfcfc);
-	--gnome-inactive-urlbar-border-color: #c0c0bd;
+	--gnome-inactive-urlbar-border-color: #dadada;
 	--gnome-inactive-urlbar-box-shadow: none;
 	--gnome-inactive-urlbar-color: #323232;
-	--gnome-focused-urlbar-border-color: #4a90d9;
+	--gnome-focused-urlbar-border-color: #5683DA;
+  --gnome-focused-urlbar-highlight-color: #6592E9;
 	--gnome-private-urlbar-background: #e6c2ff;
 
 	/* Tabs */

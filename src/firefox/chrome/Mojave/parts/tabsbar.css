@@ -214,18 +214,12 @@ tab[selected]:-moz-window-inactive {
 }
 .tab-background[selected=true]:-moz-window-inactive {
 	background-color: var(--gnome-inactive-tabbar-tab-active-background) !important;
-	border: 1px solid var(--gnome-headerbar-border-color) !important;
+	border: 1px solid var(--gnome-inactive-headerbar-border-color) !important;
 	border-image: none !important;
 	border-top: none !important;
 }
 
 /* Tab hover */
-:root:not(:-moz-window-inactive) .tabbrowser-tab:hover > .tab-stack > .tab-background[selected=true] {
-	background-color: var(--gnome-tabbar-tab-active-hover-background) !important;
-	border: 1px solid var(--gnome-headerbar-border-color) !important;
-	border-image: none !important;
-	border-top: none !important;
-}
 .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]),
 #TabsToolbar[brighttext] > #tabbrowser-tabs > .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]),
 #TabsToolbar[brighttext] > #tabbrowser-tabs > .tabbrowser-tab:hover > .tab-stack > .tab-background > .tab-line:not([selected=true]) {
@@ -236,14 +230,6 @@ tab[selected]:-moz-window-inactive {
 	border-left: none !important;
 	border-right: none !important;
 	box-shadow: 1px 0 var(--gnome-headerbar-border-color), -1px 0 var(--gnome-headerbar-border-color) !important;
-}
-:root:not(:-moz-window-inactive) .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]) {
-	background-color: var(--gnome-tabbar-tab-hover-background) !important;
-	border: 1px solid var(--gnome-headerbar-border-color) !important;
-	border-image: none !important;
-	border-top: none !important;
-	border-left: none !important;
-	border-right: none !important;
 }
 
 /* Tabs scroll buttons hover */
@@ -291,8 +277,8 @@ tab[selected]:-moz-window-inactive {
 }
 
 .tabbrowser-tab[class*="identity-color-"][pinned] .tab-content::before,
-.tabbrowser-tab[class*="identity-color-"][image] .tab-content::before, 
-.tabbrowser-tab[class*="identity-color-"][busy] .tab-content::before, 
+.tabbrowser-tab[class*="identity-color-"][image] .tab-content::before,
+.tabbrowser-tab[class*="identity-color-"][busy] .tab-content::before,
 .tabbrowser-tab[class*="identity-color-"][progress] .tab-content::before {
 	right: -10px;
 	top: -8px;
