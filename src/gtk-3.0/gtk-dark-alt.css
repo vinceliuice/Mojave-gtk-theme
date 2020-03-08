@@ -2706,7 +2706,7 @@ menu,
 menu, .csd
 .menu {
   background-color: rgba(51, 51, 51, 0.95);
-  border: 1px solid rgba(77, 77, 77, 0.95);
+  border: 1px solid rgba(66, 66, 66, 0.95);
 }
 
 .context-menu separator,
@@ -2877,7 +2877,7 @@ popover.background {
 popover.background,
 popover.background {
   border-radius: 6px;
-  border: 1px solid rgba(77, 77, 77, 0.98);
+  border: 1px solid rgba(66, 66, 66, 0.98);
 }
 
 popover separator,

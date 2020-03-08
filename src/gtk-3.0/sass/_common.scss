@@ -2252,7 +2252,7 @@ menu,
   .csd & {
     background-color: $_menu_bg;
     @if $variant == 'light' { border: none; }
-    @if $variant == 'dark' { border: 1px solid lighten($_menu_bg, 10%); }
+    @if $variant == 'dark' { border: 1px solid lighten($_menu_bg, 6%); }
   }
 
   separator,
@@ -2386,7 +2386,7 @@ popover.background {
 
   .csd &, & {
     border-radius: $wm_radius;
-    border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($_popover_bg, 10%));
+    border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($_popover_bg, 6%));
   }
 
   separator,
