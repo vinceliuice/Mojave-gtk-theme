@@ -985,7 +985,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 */
 .popup-menu-arrow,
 .popup-menu-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 /* OSD */
@@ -1198,8 +1198,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button {
-  -natural-hpadding: 1em;
-  -minimum-hpadding: 1em;
+  -natural-hpadding: 8px;
+  -minimum-hpadding: 8px;
   font-weight: bold;
   color: #dedede;
   text-shadow: none;
@@ -1255,8 +1255,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #panel .panel-button .system-status-icon {
-  icon-size: 1.23077em;
-  padding: 0 3px;
+  icon-size: 1.2307692308em;
+  padding: 0 4px;
 }
 
 .unlock-screen #panel .panel-button,
@@ -1660,7 +1660,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-icon-bin > StIcon {
   color: rgba(255, 255, 255, 0.9);
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
   -st-icon-style: requested;
   margin: 4px 0px 4px 4px;
 }
@@ -1684,7 +1684,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .message-secondary-bin > StIcon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .message-title {
@@ -2404,7 +2404,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .notification-banner .secondary-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .notification-banner .notification-actions {
@@ -2455,7 +2455,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .secondary-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 .chat-body {
@@ -2743,7 +2743,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .candidate-page-button-icon {
-  icon-size: 1.23077em;
+  icon-size: 1.2307692308em;
 }
 
 /* Auth Dialogs & Screen Shield */

@@ -782,7 +782,7 @@ $selected_slider_color: white;
   min-width: 21em;
 
   // lock screen, shutdown, etc. buttons
-  .popup-menu-icon { 
+  .popup-menu-icon {
     padding:0;
     margin: 0 4px;
     -st-icon-style: symbolic;
@@ -1034,8 +1034,8 @@ $selected_slider_color: white;
   }
 
   .panel-button {
-    -natural-hpadding: 1em;
-    -minimum-hpadding: 1em;
+    -natural-hpadding: 8px;
+    -minimum-hpadding: 8px;
     font-weight: bold;
     color: $panel_fg_color;
     text-shadow: none;
@@ -1081,7 +1081,7 @@ $selected_slider_color: white;
       }
     }
 
-    .system-status-icon { icon-size: em(16px); padding: 0 3px; }
+    .system-status-icon { icon-size: em(16px); padding: 0 4px; }
     .unlock-screen &,
     .login-screen &,
     .lock-screen & {
@@ -1908,7 +1908,7 @@ $selected_slider_color: white;
     padding: 10px 8px 5px 8px;
     spacing: 4px;
   }
-  
+
 /* App Folders */
 .app-folder {
   .overview-icon {

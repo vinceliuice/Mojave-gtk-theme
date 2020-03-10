@@ -1296,7 +1296,7 @@ modelbutton.flat arrow.right {
   color: #d6defc;
 }
 
-infobar.info *:link, infobar.info button:link, infobar.info button:visited, infobar.question *:link, infobar.question button:link, infobar.question button:visited, infobar.warning *:link, infobar.warning button:link, infobar.warning button:visited, infobar.error *:link, infobar.error button:link, infobar.error button:visited, *:link:selected, button:selected:link, button:selected:visited, .selection-mode headerbar .subtitle:link, headerbar.selection-mode .subtitle:link, .selection-mode .titlebar:not(headerbar) .subtitle:link,
+infobar.info :link, infobar.question :link, infobar.warning :link, infobar.error :link, *:link:selected, button:selected:link, button:selected:visited, .selection-mode headerbar .subtitle:link, headerbar.selection-mode .subtitle:link, .selection-mode .titlebar:not(headerbar) .subtitle:link,
 .selection-mode.titlebar:not(headerbar) .subtitle:link,
 *:selected *:link,
 *:selected button:link,
@@ -4426,7 +4426,7 @@ row.activatable:selected:active, .nemo-window .sidebar .view:selected:active, .n
   color: #ffffff;
 }
 
-row.activatable:selected.has-open-popup, .nemo-window .sidebar .view:selected.has-open-popup, .nemo-window .sidebar row:selected.has-open-popup, .budgie-menu button:selected.has-open-popup, row.activatable:selected:hover, .nemo-window .sidebar .view:selected:hover, .nemo-window .sidebar row:selected:hover, .budgie-menu button:selected:hover {
+row.activatable:selected.has-open-popup, .nemo-window .sidebar :selected.has-open-popup.view, .nemo-window .sidebar row:selected.has-open-popup, .budgie-menu button:selected.has-open-popup, row.activatable:selected:hover, .nemo-window .sidebar .view:selected:hover, .nemo-window .sidebar row:selected:hover, .budgie-menu button:selected:hover {
   background-color: #2c52d7;
 }
 
