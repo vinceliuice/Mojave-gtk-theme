@@ -734,12 +734,10 @@ $selected_slider_color: white;
 }
 
 .popup-separator-menu-item {
-  height: 1px; //not really the whole box
+  height: 0; //not really the whole box
   margin: 0 0;
-  background-color: $border_color;
-  border-color: transparent;
-  border-bottom-width: 0;
-  border-bottom-style: solid;
+  background: none;
+  border: none;
 }
 
 // a little unstructured mess:
@@ -768,9 +766,16 @@ $selected_slider_color: white;
 
 // system status popover menu
 .aggregate-menu {
-  min-width: 240px;
+  min-width: 20em;
 
   .popup-menu-icon { padding: 0 4px; }
+
+  .popup-sub-menu .popup-menu-item > :first-child {
+    &:ltr { /* 12px spacing + 2*4px padding */
+            padding-left: 12px; margin-left: 2em; }
+    &:rtl { /* 12px spacing + 2*4px padding */
+            padding-right: 12px; margin-right: 2em; }
+  }
 }
 
 .system-menu-action {

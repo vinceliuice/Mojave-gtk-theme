@@ -884,12 +884,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .popup-separator-menu-item {
-  height: 1px;
+  height: 0;
   margin: 0 0;
-  background-color: rgba(0, 0, 0, 0.12);
-  border-color: transparent;
-  border-bottom-width: 0;
-  border-bottom-style: solid;
+  background: none;
+  border: none;
 }
 
 .system-switch-user-submenu-icon.user-icon {
@@ -917,11 +915,23 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 .aggregate-menu {
-  min-width: 240px;
+  min-width: 20em;
 }
 
 .aggregate-menu .popup-menu-icon {
   padding: 0 4px;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:ltr {
+  /* 12px spacing + 2*4px padding */
+  padding-left: 12px;
+  margin-left: 2em;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
+  /* 12px spacing + 2*4px padding */
+  padding-right: 12px;
+  margin-right: 2em;
 }
 
 .system-menu-action {
