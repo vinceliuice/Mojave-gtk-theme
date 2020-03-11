@@ -1553,7 +1553,12 @@ $selected_slider_color: white;
 
   .nm-dialog-airplane-text { color: $fg_color; }
   .nm-dialog-header-icon { icon-size: 32px; }
-  .nm-dialog-scroll-view { border: none; }
+  .nm-dialog-scroll-view {
+    border: 1px solid $border_color;
+    padding: 0;
+    background-color: if($variant == 'light', rgba(black, 0.05), rgba(black, 0.1));
+    border-radius: $bt_radius;
+  }
   .nm-dialog-header { @include font(title); }
 
   .nm-dialog-item {
