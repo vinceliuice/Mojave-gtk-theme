@@ -1394,15 +1394,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-right-width: 0;
 }
 
-.datemenu-today-button,
-.world-clocks-button,
-.weather-button,
-.events-section-title {
-  min-height: 20px;
-  padding: 4px 8px;
-  border-radius: 8px;
-}
-
 .datemenu-today-button {
   min-height: 48px;
 }
@@ -1413,6 +1404,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .message-list-section-list:rtl {
   padding-right: 0;
+}
+
+.datemenu-today-button,
+.world-clocks-button,
+.weather-button,
+.events-section-title {
+  min-height: 20px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
 }
 
 .datemenu-today-button:hover, .datemenu-today-button:focus,
