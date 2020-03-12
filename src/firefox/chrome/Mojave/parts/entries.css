@@ -15,28 +15,22 @@
 	max-height: 28px !important;
 	margin: 0 0 !important;
 	padding: 2px 6px !important;
-	box-sizing: border-box;
-}
-
-#urlbar.megabar #urlbar-input-container,
-#urlbar:not(.megabar),
-#searchbar {
-	padding: 0 !important;
+	box-sizing: border-box !important;
 }
 
 #searchbar,
 #urlbar.megabar #urlbar-input-container,
-#urlbar:not(.megabar),
-#urlbar {
+#urlbar:not(.megabar) {
 	-moz-appearance: none !important;
 	background: var(--gnome-button-background) !important;
 	border: none !important;
 	box-shadow: var(--gnome-headerbar-button-box-shadow) !important;
 	border-radius: 5px !important;
 	color: var(--gnome-urlbar-color) !important;
+	padding: 0 0 !important;
 	height: 28px !important;
 	max-height: 28px !important;
-	box-sizing: border-box;
+	box-sizing: border-box !important;
 }
 
 /* Entries focused */
@@ -47,13 +41,13 @@
 	box-shadow: 0 0 0 2px var(--gnome-focused-urlbar-highlight-color) !important;
 }
 
-#urlbar.megabar[breakout][breakout-extend],
 #urlbar:not(.megabar)[focused],
-#searchbar:focus-within,
-#urlbar[focused] {
+#searchbar:focus-within {
+	border: none !important;
 	background: var(--gnome-urlbar-background) !important;
 	outline: 2px solid var(--gnome-focused-urlbar-highlight-color) !important;
 	outline-offset: -2px;
+	box-shadow: none !important;
 	-moz-outline-radius: 5px;
 }
 
@@ -91,21 +85,15 @@
 	padding: 0 !important;
 	margin: 0 3px !important;
 }
-
 #urlbar, #searchbar {
 	margin: 0 3px !important;
 	padding: 0 !important;
 }
-
 .searchbar-textbox {
 	border: 0 !important;
 	padding: 0 !important;
 	margin: 0 !important;
 	min-height: auto !important;
-}
-
-#searchbar > .searchbar-textbox[focused] .searchbar-search-button:not(#hack) {
-	margin: 0 !important;
 }
 
 /* Fixed for dark theme */
