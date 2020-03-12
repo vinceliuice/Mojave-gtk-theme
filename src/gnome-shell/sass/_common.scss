@@ -59,6 +59,7 @@ StEntry {
   border-radius: 0;
   border-width: 0;
   color: $fg_color;
+  caret-color: $fg_color;
   selection-background-color: $primary_color;
   selected-color: $inverse_fg_color;
   @include font(subheading);
@@ -70,6 +71,14 @@ StEntry {
     icon-size: 16px;
     warning-color: $warning_color;
     padding: 0 0;
+  }
+  StIcon.peek-password {
+    icon-size: 16px;
+    padding: 0 4px;
+  }
+  StLabel.hint-text {
+    margin-left: 2px;
+    color: transparentize($fg_color, 0.3);
   }
 }
 
@@ -602,7 +611,7 @@ $selected_slider_color: white;
 .popup-menu {
   min-width: 12em;
   color: $fg_color;
-  padding: 6px 0 6px 0;
+  padding: 9px 0 3px 0;
 
   @if $trans == 'true' {
     border-image: url("assets/menu.svg") 24 32 28 28;
@@ -622,12 +631,9 @@ $selected_slider_color: white;
   .popup-menu-content { padding: 1em 0; }
   .popup-menu-item {
     spacing: 12px;
-    transition-duration: 0s;
 
-//    &:ltr { padding: 0.4em 24px 0.4em 0; }
-//    &:rtl { padding: 0.4em 0 0.4em 24px; }
-  &:ltr { padding-right:1.75em; padding-left: 0; }
-  &:rtl { padding-right: 0; padding-left:1.75em; }
+    &:ltr { padding-right:1.5em; padding-left: 0; }
+    &:rtl { padding-right: 0; padding-left:1.5em; }
 
     &:checked {
       font-weight: normal;
@@ -736,18 +742,14 @@ $selected_slider_color: white;
 }
 
 .popup-separator-menu-item {
-  height: 0; //not really the whole box
-  margin: 0 0;
   background: none;
   border: none;
 
   .popup-separator-menu-item-separator {
-    height: 0; //not really the whole box
-    margin: 0 0;
+    margin: 6px;
     background: none;
 
     .popup-sub-menu & { //submenu separators
-      margin: 0 0;
       background: none;
     }
   }
@@ -783,16 +785,16 @@ $selected_slider_color: white;
 
   // lock screen, shutdown, etc. buttons
   .popup-menu-icon {
-    padding:0;
-    margin: 0 4px;
+    padding: 0;
+    margin: 0 0;
     -st-icon-style: symbolic;
   }
 
   .popup-sub-menu .popup-menu-item > :first-child {
     &:ltr { /* 12px spacing + 2*4px padding */
-            padding-left: 24px; margin-left: 1em; }
+            padding-left: 16px; margin-left: 1em; }
     &:rtl { /* 12px spacing + 2*4px padding */
-            padding-right: 24px; margin-right: 1em; }
+            padding-right: 16px; margin-right: 1em; }
   }
 }
 
@@ -816,7 +818,7 @@ $selected_slider_color: white;
 }
 
 // Background menu
-.background-menu { -boxpointer-gap: 8px; -arrow-rise: 0; }
+.background-menu { -boxpointer-gap: 4px; -arrow-rise: 0; }
 
 /* fallback menu
 - odd thing for styling App menu when apparently not running under shell. Light Adwaita styled
@@ -1630,6 +1632,7 @@ $selected_slider_color: white;
     padding: 0 8px;
     border: none;
     color: $inverse_hint_fg_color;
+    caret-color: $inverse_fg_color;
     selection-background-color: $inverse_track_color;
     selected-color: $inverse_fg_color;
     @include search_entry(normal, $fc:$inverse_track_color);
@@ -1641,7 +1644,11 @@ $selected_slider_color: white;
       color: $inverse_fg_color;
     }
 
-    .search-entry-icon { icon-size: 16px; padding: 0 0; color: $inverse_hint_fg_color; }
+    .search-entry-icon {
+      icon-size: 16px;
+      padding: 0 0;
+      color: $inverse_hint_fg_color;
+    }
 
     &:hover, &:focus {
       .search-entry-icon { color: $inverse_fg_color; }
@@ -1650,6 +1657,10 @@ $selected_slider_color: white;
     &:insensitive {
       border: none;
       color: $inverse_disabled_fg_color;
+    }
+
+    StLabel.hint-text {
+      color: $inverse_hint_fg_color;
     }
   }
 
