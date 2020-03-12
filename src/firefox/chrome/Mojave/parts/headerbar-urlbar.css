@@ -32,21 +32,25 @@
 /* Megabar breakout styles  */
 #urlbar.megabar[breakout][breakout-extend][open] {
 	border-radius: 5px 5px 9px 9px !important;
+	padding: 0 !important;
 }
 #urlbar.megabar[breakout][breakout-extend][open] #urlbar-input-container {
 	border-radius: 5px 5px 0 0 !important;
-	border: 2px solid var(--gnome-focused-urlbar-border-color) !important;
-	border-bottom-color: transparent !important;
-	box-shadow: none !important;
+	border: none !important;
+	box-shadow: 0 0 0 2px var(--gnome-focused-urlbar-border-color) !important;
 	background: var(--gnome-urlbar-background) !important;
+	padding: 0 !important;
 }
 #urlbar.megabar[breakout][breakout-extend][open] #identity-box {
 	padding-inline-start: 5px !important;
 }
 #urlbar.megabar[breakout][breakout-extend][open] .urlbarView {
 	border-radius: 0 0 5px 5px !important;
-	border-color: var(--gnome-focused-urlbar-border-color) !important;
-	border-width: 2px !important;
+	box-shadow: var(--gnome-popover-shadow),
+	            0 2px var(--gnome-focused-urlbar-border-color),
+	            2px 0 var(--gnome-focused-urlbar-border-color),
+							-2px 0 var(--gnome-focused-urlbar-border-color) !important;
+	border: none !important;
 }
 
 /* Center the URL bar */
@@ -99,7 +103,7 @@ toolbarspring {
 	max-height: 28vh !important;
 	overflow-x: auto;
 }
-	
+
 #urlbar .search-one-offs {
 	padding: 8px 0 0 0 !important;
 	margin-top: 8px !important;
