@@ -1415,6 +1415,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 8px;
   border: none;
   box-shadow: none;
+  background: none;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .datemenu-today-button:hover, .datemenu-today-button:focus,
@@ -1446,6 +1448,11 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .events-section-title {
   color: rgba(0, 0, 0, 0.54);
   font-weight: bold;
+}
+
+.weather-header.location {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.38);
 }
 
 .world-clocks-grid {
