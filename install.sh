@@ -18,8 +18,6 @@ fi
 THEME_NAME=Mojave
 COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
-ALT_VARIANTS=('' '-alt')
-SMALL_VARIANTS=('' '-small')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
 usage() {
@@ -42,14 +40,12 @@ install() {
   local name=${2}
   local color=${3}
   local opacity=${4}
-  local alt=${5}
-  local small=${6}
-  local icon=${7}
+  local icon=${5}
 
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
 
-  local THEME_DIR=${dest}/${name}${color}${opacity}${alt}
+  local THEME_DIR=${1}/${2}${3}${4}
 
   [[ -d ${THEME_DIR} ]] && rm -rf ${THEME_DIR}
 
@@ -60,62 +56,70 @@ install() {
 
   echo "[Desktop Entry]" >>                                                             ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme" >>                                                      ${THEME_DIR}/index.theme
-  echo "Name=${name}${color}${opacity}${alt}" >>                                        ${THEME_DIR}/index.theme
+  echo "Name=${name}${color}${opacity}" >>                                              ${THEME_DIR}/index.theme
   echo "Comment=An Stylish Gtk+ theme based on Elegant Design" >>                       ${THEME_DIR}/index.theme
   echo "Encoding=UTF-8" >>                                                              ${THEME_DIR}/index.theme
   echo "" >>                                                                            ${THEME_DIR}/index.theme
   echo "[X-GNOME-Metatheme]" >>                                                         ${THEME_DIR}/index.theme
-  echo "GtkTheme=${name}${color}${opacity}${alt}" >>                                    ${THEME_DIR}/index.theme
-  echo "MetacityTheme=${name}${color}${opacity}${alt}" >>                               ${THEME_DIR}/index.theme
+  echo "GtkTheme=${name}${color}${opacity}" >>                                          ${THEME_DIR}/index.theme
+  echo "MetacityTheme=${name}${color}${opacity}" >>                                     ${THEME_DIR}/index.theme
   echo "IconTheme=Adwaita" >>                                                           ${THEME_DIR}/index.theme
   echo "CursorTheme=Adwaita" >>                                                         ${THEME_DIR}/index.theme
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                   ${THEME_DIR}/index.theme
 
   mkdir -p                                                                              ${THEME_DIR}/gnome-shell
-  cp -ur ${SRC_DIR}/gnome-shell/{extensions,message-indicator-symbolic.svg,pad-osd.css} ${THEME_DIR}/gnome-shell
-  cp -ur ${SRC_DIR}/gnome-shell/gnome-shell${color}${opacity}.css                       ${THEME_DIR}/gnome-shell/gnome-shell.css
-  cp -ur ${SRC_DIR}/gnome-shell/common-assets                                           ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/*.svg                                    ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/*.png                                    ${THEME_DIR}/gnome-shell/assets
-  cp -ur ${SRC_DIR}/gnome-shell/assets${color}/activities/activities${icon}.svg         ${THEME_DIR}/gnome-shell/assets/activities.svg
+  cp -ur ${SRC_DIR}/main/gnome-shell/gnome-shell${color}${opacity}.css                  ${THEME_DIR}/gnome-shell/gnome-shell.css
+  cp -ur ${SRC_DIR}/assets/gnome-shell/common-assets                                    ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/assets/gnome-shell/assets${color}/*.svg                             ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/assets/gnome-shell/assets${color}/background.png                    ${THEME_DIR}/gnome-shell/assets
+  cp -ur ${SRC_DIR}/assets/gnome-shell/assets${color}/activities/activities${icon}.svg  ${THEME_DIR}/gnome-shell/assets/activities.svg
   cd ${THEME_DIR}/gnome-shell
   ln -s assets/no-events.svg no-events.svg
   ln -s assets/process-working.svg process-working.svg
   ln -s assets/no-notifications.svg no-notifications.svg
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/gtk-2.0/gtkrc${color}                                               ${THEME_DIR}/gtk-2.0/gtkrc
-  cp -ur ${SRC_DIR}/gtk-2.0/assets${color}                                              ${THEME_DIR}/gtk-2.0/assets
-  cp -ur ${SRC_DIR}/gtk-2.0/common/*.rc                                                 ${THEME_DIR}/gtk-2.0
-  cp -ur ${SRC_DIR}/gtk-2.0/menubar-toolbar${color}.rc                                  ${THEME_DIR}/gtk-2.0/menubar-toolbar.rc
+  cp -ur ${SRC_DIR}/main/gtk-2.0/gtkrc${color}                                          ${THEME_DIR}/gtk-2.0/gtkrc
+  cp -ur ${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc                             ${THEME_DIR}/gtk-2.0/menubar-toolbar.rc
+  cp -ur ${SRC_DIR}/main/gtk-2.0/common/*.rc                                            ${THEME_DIR}/gtk-2.0
+  cp -ur ${SRC_DIR}/assets/gtk-2.0/assets${color}                                       ${THEME_DIR}/gtk-2.0/assets
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/gtk-3.0/assets                                                      ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/gtk-3.0/windows-assets/titlebutton${alt}${small}                    ${THEME_DIR}/gtk-3.0/windows-assets
-  cp -ur ${SRC_DIR}/gtk-3.0/thumbnail${color}.png                                       ${THEME_DIR}/gtk-3.0/thumbnail.png
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk${color}${opacity}${alt}${small}.css                     ${THEME_DIR}/gtk-3.0/gtk.css
-  [[ ${color} != '-dark' ]] && \
-  cp -ur ${SRC_DIR}/gtk-3.0/gtk-dark${opacity}${alt}${small}.css                        ${THEME_DIR}/gtk-3.0/gtk-dark.css
+  cp -ur ${SRC_DIR}/assets/gtk-3.0/common-assets/assets                                 ${THEME_DIR}/gtk-3.0
+  cp -ur ${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton                           ${THEME_DIR}/gtk-3.0/windows-assets
+  cp -ur ${SRC_DIR}/assets/gtk-3.0/thumbnail${color}.png                                ${THEME_DIR}/gtk-3.0/thumbnail.png
+  cp -ur ${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}.css                                 ${THEME_DIR}/gtk-3.0/gtk-dark.css
+
+  if [[ ${color} == '-light' ]]; then
+    cp -ur ${SRC_DIR}/main/gtk-3.0/gtk-light${opacity}.css                              ${THEME_DIR}/gtk-3.0/gtk.css
+  else
+    cp -ur ${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}.css                               ${THEME_DIR}/gtk-3.0/gtk.css
+  fi
+
+  glib-compile-resources --sourcedir=${THEME_DIR}/gtk-3.0 --target=${THEME_DIR}/gtk-3.0/gtk.gresource ${SRC_DIR}/main/gtk-3.0/gtk.gresource.xml
+  rm -rf ${THEME_DIR}/gtk-3.0/{assets,windows-assets,gtk.css,gtk-dark.css}
+  echo '@import url("resource:///org/gnome/Mojave-theme/gtk.css");' >>                  ${THEME_DIR}/gtk-3.0/gtk.css
+  echo '@import url("resource:///org/gnome/Mojave-theme/gtk-dark.css");' >>             ${THEME_DIR}/gtk-3.0/gtk-dark.css
 
   mkdir -p                                                                              ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/metacity-theme${color}.xml                               ${THEME_DIR}/metacity-1/metacity-theme-1.xml
-  cp -ur ${SRC_DIR}/metacity-1/metacity-theme-3.xml                                     ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/assets/*.png                                             ${THEME_DIR}/metacity-1
-  cp -ur ${SRC_DIR}/metacity-1/thumbnail${color}.png                                    ${THEME_DIR}/metacity-1/thumbnail.png
+  cp -ur ${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml                          ${THEME_DIR}/metacity-1/metacity-theme-1.xml
+  cp -ur ${SRC_DIR}/main/metacity-1/metacity-theme-3.xml                                ${THEME_DIR}/metacity-1
+  cp -ur ${SRC_DIR}/assets/metacity-1/assets/*.png                                      ${THEME_DIR}/metacity-1
+  cp -ur ${SRC_DIR}/assets/metacity-1/thumbnail${color}.png                             ${THEME_DIR}/metacity-1/thumbnail.png
   cd ${THEME_DIR}/metacity-1 && ln -s metacity-theme-1.xml metacity-theme-2.xml
 
   mkdir -p                                                                              ${THEME_DIR}/xfwm4
-  cp -ur ${SRC_DIR}/xfwm4/assets${color}/*.png                                          ${THEME_DIR}/xfwm4
-  cp -ur ${SRC_DIR}/xfwm4/themerc${color}                                               ${THEME_DIR}/xfwm4/themerc
+  cp -ur ${SRC_DIR}/assets/xfwm4/assets${color}/*.png                                   ${THEME_DIR}/xfwm4
+  cp -ur ${SRC_DIR}/main/xfwm4/themerc${color}                                          ${THEME_DIR}/xfwm4/themerc
 
   mkdir -p                                                                              ${THEME_DIR}/cinnamon
-  cp -ur ${SRC_DIR}/cinnamon/cinnamon${color}${opacity}.css                             ${THEME_DIR}/cinnamon/cinnamon.css
-  cp -ur ${SRC_DIR}/cinnamon/common-assets                                              ${THEME_DIR}/cinnamon/assets
-  cp -ur ${SRC_DIR}/cinnamon/assets${color}/*.svg                                       ${THEME_DIR}/cinnamon/assets
-  cp -ur ${SRC_DIR}/cinnamon/thumbnail${color}.png                                      ${THEME_DIR}/cinnamon/thumbnail.png
+  cp -ur ${SRC_DIR}/main/cinnamon/cinnamon${color}${opacity}.css                        ${THEME_DIR}/cinnamon/cinnamon.css
+  cp -ur ${SRC_DIR}/assets/cinnamon/common-assets                                       ${THEME_DIR}/cinnamon/assets
+  cp -ur ${SRC_DIR}/assets/cinnamon/assets${color}/*.svg                                ${THEME_DIR}/cinnamon/assets
+  cp -ur ${SRC_DIR}/assets/cinnamon/thumbnail${color}.png                               ${THEME_DIR}/cinnamon/thumbnail.png
 
   mkdir -p                                                                              ${THEME_DIR}/plank
-  cp -ur ${SRC_DIR}/plank/${name}${color}/*.theme                                       ${THEME_DIR}/plank
+  cp -ur ${SRC_DIR}/other/plank/${name}${color}/*.theme                                 ${THEME_DIR}/plank
 }
 
 # Backup and install files related to GDM theme
@@ -248,52 +252,6 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
-    -a|--alt)
-      shift
-      for alt in "${@}"; do
-        case "${alt}" in
-          standard)
-            alts+=("${ALT_VARIANTS[0]}")
-            shift
-            ;;
-          alt)
-            alts+=("${ALT_VARIANTS[1]}")
-            shift
-            ;;
-          -*|--*)
-            break
-            ;;
-          *)
-            echo "ERROR: Unrecognized alt titlebutton variant '$1'."
-            echo "Try '$0 --help' for more information."
-            exit 1
-            ;;
-        esac
-      done
-      ;;
-    -s|--small)
-      shift
-      for small in "${@}"; do
-        case "${small}" in
-          standard)
-            smalls+=("${SMALL_VARIANTS[0]}")
-            shift
-            ;;
-          small)
-            smalls+=("${SMALL_VARIANTS[1]}")
-            shift
-            ;;
-          -*|--*)
-            break
-            ;;
-          *)
-            echo "ERROR: Unrecognized small titlebutton variant '$1'."
-            echo "Try '$0 --help' for more information."
-            exit 1
-            ;;
-        esac
-      done
-      ;;
     -i|--icon)
       shift
       for icon in "${@}"; do
@@ -360,16 +318,16 @@ done
 install_theme() {
 for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
-      for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
-        for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
-          install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
-        done
-      done
+    for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
+      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${icon}"
     done
   done
 done
 }
+
+./parse-sass.sh
+
+./render-assets.sh
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   install_theme
