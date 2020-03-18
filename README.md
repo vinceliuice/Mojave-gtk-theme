@@ -16,11 +16,11 @@ horst3180 - Arc gtk theme: https://github.com/horst3180/Arc-theme
 
 Fedora/RedHat distros:
 
-    yum install gtk-murrine-engine gtk2-engines
+    dnf install gtk-murrine-engine gtk2-engines
 
 Ubuntu/Mint/Debian distros:
 
-    sudo apt-get install gtk2-engines-murrine gtk2-engines-pixbuf
+    sudo apt install gtk2-engines-murrine gtk2-engines-pixbuf
 
 ArchLinux:
 
@@ -32,6 +32,26 @@ Search for the engines in your distributions repository or install the engines f
 ## Installation
 
 ### From source
+
+#### Depends requirment
+- sassc.
+- optipng.
+- inkscape.
+
+Fedora/RedHat distros:
+
+    dnf install sassc optipng inkscape
+
+Ubuntu/Mint/Debian distros:
+
+    sudo apt install sassc optipng inkscape
+
+ArchLinux:
+
+    pacman -S sassc optipng inkscape
+
+Other:
+Search for the depends in your distributions repository or install the depends from source.
 
 Run
 
@@ -74,7 +94,7 @@ Use "light theme" for webs on Firefox.
 3. and give it a value of `Mojave-light`. This will fix it.
 
 ### Firefox theme
-[Intall Firefox theme](src/firefox)
+[Intall Firefox theme](src/other/firefox)
 
 #### Preview
 ![01](https://github.com/vinceliuice/Mojave-gtk-theme/blob/images/firefox01.png?raw=true)
