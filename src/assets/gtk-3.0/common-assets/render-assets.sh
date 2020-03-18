@@ -7,6 +7,8 @@ SRC_FILE="assets.svg"
 ASSETS_DIR="assets"
 INDEX="assets.txt"
 
+mkdir -p $ASSETS_DIR
+
 for i in `cat $INDEX`
 do 
 if [ -f $ASSETS_DIR/$i.png ]; then
