@@ -329,6 +329,8 @@ done
 
 ./render-assets.sh
 
+cd ${SRC_DIR}/main/gtk-3.0 && ./make_gresource_xml.sh
+
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   install_theme
 fi
