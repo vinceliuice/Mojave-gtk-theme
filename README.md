@@ -37,6 +37,8 @@ Search for the engines in your distributions repository or install the engines f
 - sassc.
 - optipng.
 - inkscape.
+- libglib2.0-dev. `ubuntu 18.04`
+- libxml2-utils. `ubuntu 18.04`
 
 Fedora/RedHat distros:
 
