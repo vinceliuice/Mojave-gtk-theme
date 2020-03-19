@@ -140,7 +140,7 @@ install_gdm() {
     glib-compile-resources \
       --sourcedir="$GDM_THEME_DIR/gnome-shell" \
       --target="$GS_THEME_FILE" \
-      "${SRC_DIR}/gnome-shell/gnome-shell-theme.gresource.xml"
+      "${SRC_DIR}/main/gnome-shell/gnome-shell-theme.gresource.xml"
   fi
 
   if [[ -f "$UBUNTU_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then

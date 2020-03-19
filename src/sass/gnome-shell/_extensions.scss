@@ -95,9 +95,22 @@
 
 // * OpenWeather Extension *
 
+.openweather-button-box{
+  padding: 6px;
+  spacing: 12px;
+}
+
 .openweather-button-action {
   border: 1px solid transparent;
   background: none;
+  margin: 0 6px;
+  padding: 6px;
+}
+
+.openweather-button-action:hover,
+.openweather-button-action:focus {
+  border: none;
+  padding: 6px;
 }
 
 // * GPaste *

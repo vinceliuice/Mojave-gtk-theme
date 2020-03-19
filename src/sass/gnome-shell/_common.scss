@@ -631,6 +631,7 @@ $selected_slider_color: white;
   .popup-menu-content { padding: 1em 0; }
   .popup-menu-item {
     spacing: 12px;
+    padding: 6px;
     transition-duration: $shorter_duration / 2;
 
     &:ltr { padding-right:1.5em; padding-left: 0; }
@@ -697,7 +698,7 @@ $selected_slider_color: white;
   .popup-inactive-menu-item { //all icons and other graphical elements
     color: $fg_color;
 
-    &:insensitive { color: $hint_fg_color; }
+    &:insensitive { color: $disabled_fg_color; }
   }
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
@@ -1163,334 +1164,379 @@ $selected_slider_color: white;
   }
 }
 
-  // calendar popover
-  #calendarArea {
-    padding: 8px 16px;
+// calendar popover
+#calendarArea {
+  padding: 8px 16px;
+}
+
+.calendar {
+  margin-bottom: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.calendar,
+.datemenu-today-button,
+.datemenu-displays-box,
+.message-list-sections {
+  margin: 0 8px;
+}
+
+.datemenu-calendar-column { spacing: 8px; }
+.datemenu-displays-section { padding-bottom: 0; }
+.datemenu-displays-box { spacing: 8px; }
+
+.datemenu-calendar-column {
+  border: 0 solid $borders_color;
+  &:ltr { border-left-width: 0; }
+  &:rtl { border-right-width: 0; }
+}
+
+.datemenu-today-button {
+  min-height: $menuitem_size * 2 - 4px * 2;
+}
+
+.message-list-section-list:ltr {
+  padding-left: 0;
+}
+
+.message-list-section-list:rtl {
+  padding-right: 0;
+}
+
+.datemenu-today-button,
+.world-clocks-button,
+.weather-button,
+.events-section-title {
+  min-height: $menuitem_size - 4px * 2;
+  padding: 4px 8px;
+  border-radius: $bt_radius;
+  border: none;
+  box-shadow: none;
+  background: none;
+  color: $alt_fg_color;
+
+  &:hover,&:focus { color: $fg_color; background-color: $divider_color; }
+  &:active {
+    color: $fg_color;
+    background-color: $track_color;
+  }
+}
+
+.datemenu-today-button .day-label {
+}
+
+.datemenu-today-button .date-label {
+  @include font(headline);
+}
+
+.world-clocks-header,
+.weather-header,
+.events-section-title {
+  color: $alt_fg_color;
+  font-weight: bold;
+}
+
+.world-clocks-grid {
+  spacing-rows: 0.4em;
+}
+
+/* Weather */
+.weather-button {
+  padding: 12px;
+
+  .weather-box {
+    spacing: 0.5em;
   }
 
-  .calendar {
-    margin-bottom: 0;
-    border: none;
-    box-shadow: none;
-    background: none;
+  .weather-header-box {
+    spacing: 6px;
   }
 
-    .calendar,
-    .datemenu-today-button,
-    .datemenu-displays-box,
-    .message-list-sections {
-      margin: 0 8px;
-    }
+  .weather-header {
+    color: $alt_fg_color;
+    font-weight: bold;
 
-    .datemenu-calendar-column { spacing: 8px; }
-    .datemenu-displays-section { padding-bottom: 0; }
-    .datemenu-displays-box { spacing: 8px; }
-
-    .datemenu-calendar-column {
-      border: 0 solid $borders_color;
-      &:ltr { border-left-width: 0; }
-      &:rtl { border-right-width: 0; }
-    }
-
-    .datemenu-today-button {
-      min-height: $menuitem_size * 2 - 4px * 2;
-    }
-
-    .message-list-section-list:ltr {
-      padding-left: 0;
-    }
-
-    .message-list-section-list:rtl {
-      padding-right: 0;
-    }
-
-    .datemenu-today-button,
-    .world-clocks-button,
-    .weather-button,
-    .events-section-title {
-      min-height: $menuitem_size - 4px * 2;
-      padding: 4px 8px;
-      border-radius: $bt_radius;
-      border: none;
-      box-shadow: none;
-      background: none;
-      color: $alt_fg_color;
-
-      &:hover,&:focus { color: $fg_color; background-color: $divider_color; }
-      &:active {
-        color: $fg_color;
-        background-color: $track_color;
-      }
-    }
-
-    .datemenu-today-button .day-label {
-    }
-
-    .datemenu-today-button .date-label {
-      @include font(headline);
-    }
-
-    .world-clocks-header,
-    .weather-header,
-    .events-section-title {
-      color: $alt_fg_color;
-      font-weight: bold;
-    }
-
-    .weather-header.location {
+    &.location {
       font-weight: normal;
       color: $hint_fg_color;
     }
+  }
 
-    .world-clocks-grid {
-      spacing-rows: 0.4em;
+  .weather-grid {
+    spacing-rows: 6px;
+    spacing-columns: 12px;
+  }
+
+  .weather-forecast-time {
+    color: $alt_fg_color;
+    font-feature-settings: "tnum";
+    font-size: 9pt;
+    font-weight: normal;
+    padding-top: 0.2em;
+    padding-bottom: 0.4em;
+  }
+
+  .weather-forecast-icon {
+    icon-size: 32px;
+  }
+
+  .weather-forecast-temp {
+    font-weight: bold;
+  }
+}
+
+.calendar-month-label {
+  height: $menuitem_size - 4px * 2;
+  margin: 2px;
+  padding: 6px 16px;
+  border-radius: $bt_radius;
+  color: $fg_color;
+  font-weight: bold;
+  text-align: center;
+  &:focus { background-color: $divider_color; }
+}
+
+.pager-button {
+  width: $menuitem_size;
+  height: $menuitem_size;
+  margin: 2px;
+  border-radius: 100px;
+  background-color: transparent;
+  color: $fg_color;
+  &:hover, &:focus { background-color: $divider_color; }
+  &:active { background-color: $track_color; }
+}
+
+.calendar-change-month-back { //arrow back
+  padding: 0 2px;
+  background-image: url("assets/calendar-arrow-left.svg");
+  &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
+}
+.calendar-change-month-forward { //arrow foreward
+  padding: 0 2px;
+  background-image: url("assets/calendar-arrow-right.svg");
+  &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
+}
+
+// prev/next month icons
+.calendar-change-month-back StIcon,
+.calendar-change-month-forward StIcon {
+  icon-size: 16px;
+}
+
+.calendar-day-base {
+  @include font(caption);
+  text-align: center;
+  width: $menuitem_size;
+  height: $menuitem_size;
+  padding: 0;
+  margin: 2px;
+  border-radius: 100px;
+  color: $alt_fg_color;
+  &:hover,&:focus { background-color: $divider_color; }
+  &:active {
+    color: inherit;
+    background-color: $track_color;
+    border-color: transparent; //avoid jumparound due to today
+  }
+  &:selected {
+    color: $light_alt_fg_color;
+    background-color: $primary_color;
+    border-color: transparent; //avoid jumparound due to today
+  }
+  &.calendar-day-heading {  //day of week heading
+    width: $menuitem_size; height: $menuitem_size - 7px;
+    margin-top: 2px;
+    padding: 7px 0 0;
+    border-radius: 100px;
+    background-color: transparent;
+    color: $hint_fg_color;
+    @include font(caption);
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.calendar-day { //border collapse hack - see calendar.js
+  border-width: 0;
+}
+.calendar-day-top { border-top-width: 0; }
+.calendar-day-left { border-left-width: 0; }
+.calendar-work-day {
+
+}
+.calendar-nonwork-day {
+  color: $fg_color;
+}
+
+.calendar-today {
+  font-weight: bold !important;
+  color: $light_alt_fg_color;
+  background-color: $primary_color;
+  border: none;
+
+  &:hover, &:focus {
+    background-color:lighten($primary_color, 3%);
+    color: $light_alt_fg_color;
+  }
+
+  &:active, &:selected {
+    background-color: $primary_color;
+    color: $light_alt_fg_color;
+
+    &:hover, &:focus {
+      background-color:lighten($primary_color, 3%);
+      color: $light_alt_fg_color;
     }
+  }
+}
 
-    .weather-box {
-      spacing: 0.4em;
-    }
+.calendar-day-with-events {
+  color: $link_color;
+  font-weight: normal;
+  text-decoration: underline;
+  background-image: none;
+}
+.calendar-other-month-day {
+  color: $disabled_fg_color;
+  opacity: 0.5;
+}
+.calendar-week-number {
+  width: $menuitem_size; height: $menuitem_size - 7px;
+  margin: 2px;
+  padding: 7px 0 0;
+  border-radius: 100px;
+  background-color: transparent;
+  color: $hint_fg_color;
+  font-size: inherit;
+  font-weight: bold;
+  text-align: center;
+}
 
-    .calendar-month-label {
-      height: $menuitem_size - 4px * 2;
-      margin: 2px;
-      padding: 6px 16px;
-      border-radius: $bt_radius;
-      color: $fg_color;
-      font-weight: bold;
-      text-align: center;
-      &:focus { background-color: $divider_color; }
-    }
+/* Message list */
+.message-list {
+  width: 420px;
+}
 
-    .pager-button {
-      width: $menuitem_size;
-      height: $menuitem_size;
-      margin: 2px;
-      border-radius: 100px;
-      background-color: transparent;
-      color: $fg_color;
-      &:hover, &:focus { background-color: $divider_color; }
-      &:active { background-color: $track_color; }
-    }
+.message-list-clear-button.button {
+  background-color: transparent;
+  &:hover,&:focus { background-color: $divider_color; }
+  &:active { background-color: $track_color; }
+  margin: 8px 8px 0;
+}
 
-      .calendar-change-month-back { //arrow back
-        padding: 0 2px;
-        background-image: url("assets/calendar-arrow-left.svg");
-        &:rtl { background-image: url("assets/calendar-arrow-right.svg"); }
-      }
-      .calendar-change-month-forward { //arrow foreward
-        padding: 0 2px;
-        background-image: url("assets/calendar-arrow-right.svg");
-        &:rtl { background-image: url("assets/calendar-arrow-left.svg"); }
-      }
+.message-list-sections {
+  spacing: 8px;
+}
 
-    .calendar-day-base {
-      @include font(caption);
-      text-align: center;
-      width: $menuitem_size;
-      height: $menuitem_size;
-      padding: 0;
-      margin: 2px;
-      border-radius: 100px;
-      color: $alt_fg_color;
-      &:hover,&:focus { background-color: $divider_color; }
-      &:active {
-        color: inherit;
-        background-color: $track_color;
-        border-color: transparent; //avoid jumparound due to today
-      }
-      &:selected {
-        color: $light_alt_fg_color;
-        background-color: $primary_color;
-        border-color: transparent; //avoid jumparound due to today
-      }
-      &.calendar-day-heading {  //day of week heading
-        width: $menuitem_size; height: $menuitem_size - 7px;
-        margin-top: 2px;
-        padding: 7px 0 0;
-        border-radius: 100px;
-        background-color: transparent;
-        color: $hint_fg_color;
-        @include font(caption);
-        font-weight: bold;
-        text-align: center;
-      }
-    }
-      .calendar-day { //border collapse hack - see calendar.js
-        border-width: 0;
-      }
-      .calendar-day-top { border-top-width: 0; }
-      .calendar-day-left { border-left-width: 0; }
-      .calendar-work-day {
+.message-list-section,
+.message-list-section-list {
+  spacing: 8px;
+}
 
-      }
-      .calendar-nonwork-day {
-        color: $fg_color;
-      }
-      .calendar-today {
-        font-weight: bold !important;
-        color: $light_alt_fg_color;
-        background-color: $primary_color;
-        border: none;
+.message {
+  min-height: $menuitem_size * 2;
+  background-color: transparent;
+  border: 1px solid $borders_color;
 
-        &:hover,&:focus {
-          background-color:lighten($primary_color, 3%);
-          color: $light_alt_fg_color;
-        }
+  &:hover,&:focus { background-color: $divider_color; }
+  &:active { background-color: $track_color; }
+  border-radius: $bt_radius;
+}
 
-        &:active,&:selected {
-          background-color: $primary_color;
-          color: $light_alt_fg_color;
+.message-icon-bin {
+  padding: 8px 0px 8px 8px;
+  &:rtl { padding: 8px 8px 8px 0px; }
+}
 
-          &:hover,&:focus {
-            background-color:lighten($primary_color, 3%);
-            color: $light_alt_fg_color;
-          }
-        }
-      }
-      .calendar-day-with-events {
-        color: $link_color;
-        font-weight: normal;
-        text-decoration: underline;
-        background-image: none;
-      }
-      .calendar-other-month-day {
-        color: $disabled_fg_color;
-        opacity: 0.5;
-      }
-      .calendar-week-number {
-        width: $menuitem_size; height: $menuitem_size - 7px;
-        margin: 2px;
-        padding: 7px 0 0;
-        border-radius: 100px;
-        background-color: transparent;
-        color: $hint_fg_color;
-        font-size: inherit;
-        font-weight: bold;
-        text-align: center;
-      }
+.message-icon-bin > StIcon {
+  color: $fg_color;
+  icon-size: em(16px);
+  -st-icon-style: requested;
+  margin: 4px 0px 4px 4px;
+  &:rtl { margin: 4px 4px 4px 0px; }
+}
 
-      /* Message list */
-      .message-list {
-        width: 420px;
-      }
+.message-secondary-bin {
+  padding: 0 8px;
+}
 
-        .message-list-clear-button.button {
-          background-color: transparent;
-          &:hover,&:focus { background-color: $divider_color; }
-          &:active { background-color: $track_color; }
-          margin: 8px 8px 0;
-        }
+.message-secondary-bin > .event-time {
+  min-height: $small_size - 2px;
+  padding-top: 2px;
+  color: $alt_fg_color;
+  font-size: 1em;
+  /* HACK: the label should be baseline-aligned with a 1em label,
+           fake this with some bottom padding */
+  padding-bottom: 0;
+}
 
-        .message-list-sections {
-          spacing: 8px;
-        }
+.message-secondary-bin > StIcon {
+  icon-size: em(16px);
+}
 
-        .message-list-section,
-        .message-list-section-list {
-          spacing: 8px;
-        }
+.message-title {
+  min-height: $small_size - 2px;
+  padding-top: 2px;
+  color: $fg_color;
+  font-weight: bold;
+  font-size: 1em;
+}
 
-        .message {
-          min-height: $menuitem_size * 2;
-          background-color: transparent;
-          border: 1px solid $borders_color;
+.message-content {
+  min-height: $menuitem_size * 2 - 8px * 2;
+  padding: 8px;
+  color: $alt_fg_color;
+  font-size: 1em;
+}
 
-          &:hover,&:focus { background-color: $divider_color; }
-          &:active { background-color: $track_color; }
-          border-radius: $bt_radius;
-        }
+.message-content * > StIcon {
+  icon-size: 16px;
+  border-radius: 16px;
+  padding: ($small_size - 16px) / 2;
+  color: $alt_fg_color;
+}
 
-          .message-icon-bin {
-            padding: 8px 0px 8px 8px;
-            &:rtl { padding: 8px 8px 8px 0px; }
-          }
+/* FIXME: how do you do this in sass? */
+.message-content *:hover > StIcon,
+.message-content *:focus > StIcon {
+  color: $fg_color;
+  background-color: $divider_color;
+}
 
-          .message-icon-bin > StIcon {
-            color: $fg_color;
-            icon-size: em(16px);
-            -st-icon-style: requested;
-            margin: 4px 0px 4px 4px;
-            &:rtl { margin: 4px 4px 4px 0px; }
-          }
+.message-content *:active > StIcon {
+  color: $fg_color;
+  background-color: $track_color;
+}
 
-          .message-secondary-bin {
-            padding: 0 8px;
-          }
+.message-media-control {
+  margin: 16px 0;
+  padding: 8px;
+  border-radius: 100px;
+  color: $alt_fg_color;
+  &:hover,&:focus { color: $fg_color; background-color: $divider_color; }
+  &:active { color: $fg_color; background-color: $track_color; }
+  &:insensitive { color: $disabled_fg_color; }
 
-          .message-secondary-bin > .event-time {
-            min-height: $small_size - 2px;
-            padding-top: 2px;
-            color: $alt_fg_color;
-            font-size: 1em;
-            /* HACK: the label should be baseline-aligned with a 1em label,
-                     fake this with some bottom padding */
-            padding-bottom: 0;
-          }
+  &:last-child:ltr { margin-right: 16px; padding-right: 8px; }
+  &:last-child:rtl { margin-left: 16px; padding-left: 8px; }
+}
 
-          .message-secondary-bin > StIcon {
-            icon-size: em(16px);
-          }
-
-          .message-title {
-            min-height: $small_size - 2px;
-            padding-top: 2px;
-            color: $fg_color;
-            font-weight: bold;
-            font-size: 1em;
-          }
-
-          .message-content {
-            min-height: $menuitem_size * 2 - 8px * 2;
-            padding: 8px;
-            color: $alt_fg_color;
-            font-size: 1em;
-          }
-
-          .message-content * > StIcon {
-            icon-size: 16px;
-            border-radius: 16px;
-            padding: ($small_size - 16px) / 2;
-            color: $alt_fg_color;
-          }
-
-          /* FIXME: how do you do this in sass? */
-          .message-content *:hover > StIcon,
-          .message-content *:focus > StIcon {
-            color: $fg_color;
-            background-color: $divider_color;
-          }
-
-          .message-content *:active > StIcon {
-            color: $fg_color;
-            background-color: $track_color;
-          }
-
-          .message-media-control {
-            margin: 16px 0;
-            padding: 8px;
-            border-radius: 100px;
-            color: $alt_fg_color;
-            &:hover,&:focus { color: $fg_color; background-color: $divider_color; }
-            &:active { color: $fg_color; background-color: $track_color; }
-            &:insensitive { color: $disabled_fg_color; }
-
-            &:last-child:ltr { margin-right: 16px; padding-right: 8px; }
-            &:last-child:rtl { margin-left: 16px; padding-left: 8px; }
-          }
-
-          .media-message-cover-icon {
-            icon-size: 32px !important;
-            margin: 8px 0px 8px 4px !important;
-            &:rtl { margin: 8px 4px 8px 0px !important; }
-            &.fallback {
-              icon-size: 16px !important;
-              padding: 8px;
-              border: none;
-              border-radius: $bt_radius;
-              background-color: $divider_color;
-              color: $hint_fg_color;
-            }
-          }
+.media-message-cover-icon {
+  icon-size: 32px !important;
+  margin: 8px 0px 8px 4px !important;
+  &:rtl { margin: 8px 4px 8px 0px !important; }
+  &.fallback {
+    icon-size: 16px !important;
+    padding: 8px;
+    border: none;
+    border-radius: $bt_radius;
+    background-color: $divider_color;
+    color: $hint_fg_color;
+  }
+}
 
 
 //Activities Ripples
@@ -1546,47 +1592,47 @@ $selected_slider_color: white;
   min-width: 32em;
 }
 
-  .nm-dialog-content {
-    spacing: 20px;
-    padding: 24px;
-  }
-  .nm-dialog-header-hbox { spacing: 10px; }
-  .nm-dialog-airplane-box { spacing: 12px; }
+.nm-dialog-content {
+  spacing: 20px;
+  padding: 24px;
+}
+.nm-dialog-header-hbox { spacing: 10px; }
+.nm-dialog-airplane-box { spacing: 12px; }
 
-  .nm-dialog-airplane-headline {
-    font-weight: bold;
-    text-align: center;
-  }
+.nm-dialog-airplane-headline {
+  font-weight: bold;
+  text-align: center;
+}
 
-  .nm-dialog-airplane-text { color: $fg_color; }
-  .nm-dialog-header-icon { icon-size: 32px; }
-  .nm-dialog-scroll-view {
-    border: 1px solid $borders_color;
-    padding: 0;
-    background-color: if($variant == 'light', rgba(black, 0.05), rgba(black, 0.1));
-    border-radius: $bt_radius;
-  }
-  .nm-dialog-header { @include font(title); }
+.nm-dialog-airplane-text { color: $fg_color; }
+.nm-dialog-header-icon { icon-size: 32px; }
+.nm-dialog-scroll-view {
+  border: 1px solid $borders_color;
+  padding: 0;
+  background-color: if($variant == 'light', rgba(black, 0.05), rgba(black, 0.1));
+  border-radius: $bt_radius;
+}
+.nm-dialog-header { @include font(title); }
 
-  .nm-dialog-item {
-    font-size: 1em;
-    border-bottom: none;
-    border-radius: $bt_radius;
-    padding: 12px;
-    spacing: 20px;
-    &:hover, &:focus { background-color: $divider_color; }
-    &:active { background-color: $track_color; }
-  }
+.nm-dialog-item {
+  font-size: 1em;
+  border-bottom: none;
+  border-radius: $bt_radius;
+  padding: 12px;
+  spacing: 20px;
+  &:hover, &:focus { background-color: $divider_color; }
+  &:active { background-color: $track_color; }
+}
 
-  .nm-dialog-item:selected {
-    background-color: $primary_color;
-    color: $light_alt_fg_color;
-  }
+.nm-dialog-item:selected {
+  background-color: $primary_color;
+  color: $light_alt_fg_color;
+}
 
-  .nm-dialog-icons { spacing: .5em; }
-  .nm-dialog-icon { icon-size: 16px; }
-  .no-networks-label { color: $hint_fg_color; }
-  .no-networks-box { spacing: 12px; }
+.nm-dialog-icons { spacing: .5em; }
+.nm-dialog-icon { icon-size: 16px; }
+.no-networks-label { color: $hint_fg_color; }
+.no-networks-box { spacing: 12px; }
 
 /* OVERVIEW */
 
@@ -1599,336 +1645,376 @@ $selected_slider_color: white;
   padding-bottom: 32px;
 }
 
-  .window-picker { //container around window thumbnails
-    -horizontal-spacing: 16px;
-    -vertical-spacing: 16px;
-    padding: 0 16px 32px;
+.window-picker { //container around window thumbnails
+  -horizontal-spacing: 16px;
+  -vertical-spacing: 16px;
+  padding: 0 16px 32px;
 
-    &.external-monitor { padding: 16px; }
-  }
+  &.external-monitor { padding: 16px; }
+}
 
-  .window-clone-border {
-    border: 4px solid $light_track_color;
-    border-radius: $bt_radius;
-    // For window decorations with round corners we can't match
-    // the exact shape when the window is scaled. So apply a shadow
-    // to fix that case
-    box-shadow: inset 0 0 0 1px $light_track_color;
-  }
+.window-clone-border {
+  border: 4px solid $light_track_color;
+  border-radius: $bt_radius;
+  // For window decorations with round corners we can't match
+  // the exact shape when the window is scaled. So apply a shadow
+  // to fix that case
+  box-shadow: inset 0 0 0 1px $light_track_color;
+}
 
-  .window-caption {
-    spacing: 25px;
-    color: $light_alt_fg_color;
-    background-color: $dark_bg_color;
-    border-radius: $bt_radius;
-    padding: 4px 8px;
-    border: none;
-    font-weight: normal;
-    @include font(body);
-  }
+.window-caption {
+  spacing: 25px;
+  color: $light_alt_fg_color;
+  background-color: $dark_bg_color;
+  border-radius: $bt_radius;
+  padding: 4px 8px;
+  border: none;
+  font-weight: normal;
+  @include font(body);
+}
 
-  //search entry
-  %search-entry, .search-entry {
-    width: 320px - 8px * 2;
+//search entry
+%search-entry, .search-entry {
+  width: 320px - 8px * 2;
+  padding: 0 8px;
+  border: none;
+  color: $light_hint_fg_color;
+  caret-color: $light_alt_fg_color;
+  selection-background-color: $light_track_color;
+  selected-color: $light_alt_fg_color;
+  @include search_entry(normal, $fc:$light_track_color);
+
+  &:focus {
+    @include search_entry(focus, $fc:$light_alt_fg_color);
     padding: 0 8px;
     border: none;
+    color: $light_alt_fg_color;
+  }
+
+  .search-entry-icon {
+    icon-size: 16px;
+    padding: 0 0;
     color: $light_hint_fg_color;
-    caret-color: $light_alt_fg_color;
-    selection-background-color: $light_track_color;
-    selected-color: $light_alt_fg_color;
-    @include search_entry(normal, $fc:$light_track_color);
-
-    &:focus {
-      @include search_entry(focus, $fc:$light_alt_fg_color);
-      padding: 0 8px;
-      border: none;
-      color: $light_alt_fg_color;
-    }
-
-    .search-entry-icon {
-      icon-size: 16px;
-      padding: 0 0;
-      color: $light_hint_fg_color;
-    }
-
-    &:hover, &:focus {
-      .search-entry-icon { color: $light_alt_fg_color; }
-    }
-
-    &:insensitive {
-      border: none;
-      color: $light_disabled_fg_color;
-    }
-
-    StLabel.hint-text {
-      color: $light_hint_fg_color;
-    }
   }
 
-  //search results
-
-  // #searchResultsBin {
-  //   max-width: 1000px;
-  // }
-
-  #searchResultsContent {
-    max-width: 1000px;
-    padding-left: 20px;
-    padding-right: 20px;
-    spacing: 16px;
+  &:hover, &:focus {
+    .search-entry-icon { color: $light_alt_fg_color; }
   }
 
-  .search-section { spacing: 16px; } // This should be equal to #searchResultsContent spacing
-  .search-section-content { spacing: 32px; } // This is the space between the provider icon and the results container
-  .search-statustext { // "no results"
-    @extend %status_text;
-  }
-  .list-search-results { spacing: 3px; }
-
-  .search-section-separator { height: 1px; background-color: $light_divider_color; }
-
-  .list-search-result-content { spacing: 30px; }
-  .list-search-result-title { @include font(subheading); color: $light_alt_fg_color; spacing: 12px; }
-  .list-search-result-description { color: $light_alt_fg_color; }
-  .list-search-provider-details { width: 150px; color: $light_alt_fg_color; margin-top: 0.24em; }
-  .list-search-provider-content { spacing: 20px; }
-  .search-provider-icon { padding: 15px; }
-
-
-  /* DASHBOARD */
-
-  #dash {
-    font-size: 1em;
-    color: $light_alt_fg_color;
-    background-color: $light_divider_color;
-    padding: 3px 0;
+  &:insensitive {
     border: none;
-    border-left: 0px;
-    border-radius: 0px ($bd_radius * 1.5) ($bd_radius * 1.5) 0px;
-
-    &:rtl {
-      border-radius: ($bd_radius * 1.5)  0 0 ($bd_radius * 1.5);
-    }
-
-    .placeholder {
-      background-image: url("assets/dash-placeholder.svg");
-      background-size: contain;
-      height: 24px;
-    }
-
-    .empty-dash-drop-target {
-      width: 24px;
-      height: 24px;
-    }
-
+    color: $light_disabled_fg_color;
   }
 
-  .dash-item-container > StWidget {
-    padding: 3px 6px;
+  StLabel.hint-text {
+    color: $light_hint_fg_color;
   }
+}
 
-  .dash-label { //osd tooltip
-    // min-height: 32px - 6px * 2;
-    border-radius: $bt_radius;
-    padding: 7px 8px;
-    color: $fg_color;
-    background-color: $base_color;
-    box-shadow: $shadow_2;
-    text-align: center;
-    -x-offset: 8px;
-  }
+//search results
 
-  /* App Vault/Grid */
-  .icon-grid {
-    spacing: 30px;
-    -shell-grid-horizontal-item-size: 136px;
-    -shell-grid-vertical-item-size: 136px;
+// #searchResultsBin {
+//   max-width: 1000px;
+// }
 
-    .overview-icon { icon-size: 96px; }
-  }
-  //.app-display { spacing: 20px; }
+#searchResultsContent {
+  max-width: 1000px;
+  padding-left: 20px;
+  padding-right: 20px;
+  spacing: 16px;
+}
 
-  .system-action-icon {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); // FIXME: this should really have a highlight
-    background-color: $dark_bg_color;
-    color: white;
-    border-radius: 99px;
-    icon-size: 48px;
-  }
+.search-section {  // This should be equal to #searchResultsContent spacing
+  spacing: 16px;
 
-  .app-view-controls { //favorties | all toggle container
-    width: 320px;
-    padding-bottom: 32px;
-    margin: 0 0;
-  }
-  .app-view-control { //favorties | all toggle button
-    padding: 0 16px;
-    margin: 0 0;
-    font-weight: bold;
-    color: $light_alt_fg_color;
-    background-color: rgba($light_alt_fg_color, 0.15);
-    &:hover {
-      color: $light_alt_fg_color;
-      background-color: rgba($light_alt_fg_color, 0.22);
-    }
-    &:active {
-      color: $light_alt_fg_color;
-      background-color: darken($primary_color, 3%);
-    }
-    &:checked {
-      color: $light_alt_fg_color;
-      background-color: $primary_color;
-      box-shadow: none;
-    }
-    &:first-child {
-      border-right-width: 0;
-      border-radius: $bt_radius 0 0 $bt_radius;
-//      &:checked { border-radius: 0; }
-    }
-    &:last-child {
-      border-radius: 0 $bt_radius $bt_radius 0;
-//      &:checked { border-radius: 0; }
-    }
-  }
-
-  //Icon tile
-  .search-provider-icon,
-  .list-search-result {
-    @extend %icon_tile;
-    &:focus, &:selected, &:hover {
-      background-color: $light_divider_color;
-      transition-duration: 0ms;
-    }
-    &:active, &:checked {
-      background-color: $light_track_color;
-      transition-duration: $longer_duration;
-    }
-  }
-
-  .show-apps,
-  .app-well-app,
-  .app-well-app.app-folder,
-  .grid-search-result {
-    & .overview-icon {
-      @extend %icon_tile;
-    }
-    &:hover .overview-icon,
-    &:focus .overview-icon,
-    &:selected .overview-icon {
-      background-color: $light_divider_color;
-      transition-duration: 0ms;
-      border-image: none;
-      background-image: none;
-    }
-    &:active .overview-icon,
-    &:checked .overview-icon {
-      background-color: $light_track_color;
-      box-shadow: none;
-      transition-duration: $longer_duration;
-    }
-
-  }
-
-  .show-apps {
-    & .overview-icon {
-      // background-image: url("assets/startup.svg");
-      // background-size: contain;
-      color: transparent;
-    }
-  }
-
-  .app-well-app-running-dot { //running apps indicator
-    width: 5px; height: 5px;
-    border-radius: 3px;
-    background-color: $primary_color;
-    margin-bottom: 0;
-  }
-
-  %icon_tile {
-    color: $light_alt_fg_color;
-    border-radius: $bd_radius * 1.5;
-    padding: 6px;
-    border: none;
-    transition-duration: $longer_duration;
-    text-align: center;
-  }
-
-  .app-well-app.app-folder > .overview-icon {
+  .search-section-separator {
+    height: 1px;
     background-color: $light_divider_color;
   }
+}
 
-  .show-apps .show-apps-icon {
-    color: transparent;
-    background-image: url("assets/startup.svg");
+.search-section-content {  // This is the space between the provider icon and the results container
+  spacing: 32px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+  text-shadow: none;
+  color: $light_alt_fg_color;
+}
+
+.search-statustext { // "no results"
+  @extend %status_text;
+}
+
+// Search results with icons
+.grid-search-result {
+  @extend %app-well-app;
+}
+
+// search result provider
+.search-provider-icon {
+  @extend %app-well-app;
+
+  // content
+  .list-search-provider-content {
+    spacing: 12px;
+
+    // provider labels
+    .list-search-provider-details {
+      width: 120px;
+      margin-top: 0;
+      color: $light_hint_fg_color;
+      // font-weight: bold;
+    }
+  }
+}
+
+.list-search-results { spacing: 3px; }
+
+.list-search-result-content { spacing: 30px; }
+.list-search-result-title { @include font(subheading); color: $light_alt_fg_color; spacing: 12px; }
+.list-search-result-description { color: $light_alt_fg_color; }
+.list-search-provider-details { width: 150px; color: $light_alt_fg_color; margin-top: 0.24em; }
+.list-search-provider-content { spacing: 20px; }
+.search-provider-icon { padding: 15px; }
+
+
+/* DASHBOARD */
+
+#dash {
+  font-size: 1em;
+  color: $light_alt_fg_color;
+  background-color: $light_divider_color;
+  padding: 3px 0;
+  border: none;
+  border-left: 0px;
+  border-radius: 0px ($bd_radius * 1.5) ($bd_radius * 1.5) 0px;
+
+  &:rtl {
+    border-radius: ($bd_radius * 1.5)  0 0 ($bd_radius * 1.5);
+  }
+
+  .placeholder {
+    background-image: url("assets/dash-placeholder.svg");
     background-size: contain;
+    height: 24px;
   }
 
-  .show-apps:hover .show-apps-icon,
-  .show-apps:active .show-apps-icon,
-  .show-apps:checked .show-apps-icon,
-  .show-apps:focus .show-apps-icon {
-    color: transparent;
+  .empty-dash-drop-target {
+    width: 24px;
+    height: 24px;
+  }
+
+}
+
+.dash-item-container > StWidget {
+  padding: 3px 6px;
+}
+
+.dash-label { //osd tooltip
+  // min-height: 32px - 6px * 2;
+  border-radius: $bt_radius;
+  padding: 7px 8px;
+  color: $fg_color;
+  background-color: $base_color;
+  box-shadow: $shadow_2;
+  text-align: center;
+  border: none;
+  -x-offset: 8px;
+}
+
+/* App Vault/Grid */
+.icon-grid {
+  spacing: 30px;
+  -shell-grid-horizontal-item-size: 136px;
+  -shell-grid-vertical-item-size: 136px;
+
+  .overview-icon { icon-size: 96px; }
+}
+//.app-display { spacing: 20px; }
+
+.system-action-icon {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); // FIXME: this should really have a highlight
+  background-color: $dark_bg_color;
+  color: white;
+  border-radius: 99px;
+  icon-size: 48px;
+}
+
+.app-view-controls { //favorties | all toggle container
+  width: 320px;
+  padding-bottom: 32px;
+  margin: 0 0;
+}
+.app-view-control { //favorties | all toggle button
+  padding: 0 16px;
+  margin: 0 0;
+  font-weight: bold;
+  color: $light_alt_fg_color;
+  background-color: rgba($light_alt_fg_color, 0.15);
+  &:hover {
+    color: $light_alt_fg_color;
+    background-color: rgba($light_alt_fg_color, 0.22);
+  }
+  &:active {
+    color: $light_alt_fg_color;
+    background-color: darken($primary_color, 3%);
+  }
+  &:checked {
+    color: $light_alt_fg_color;
+    background-color: $primary_color;
+    box-shadow: none;
+  }
+  &:first-child {
+    border-right-width: 0;
+    border-radius: $bt_radius 0 0 $bt_radius;
+//      &:checked { border-radius: 0; }
+  }
+  &:last-child {
+    border-radius: 0 $bt_radius $bt_radius 0;
+//      &:checked { border-radius: 0; }
+  }
+}
+
+//Icon tile
+.search-provider-icon,
+.list-search-result {
+  @extend %icon_tile;
+  &:focus, &:selected, &:hover {
+    background-color: $light_divider_color;
+    transition-duration: 0ms;
+  }
+  &:active, &:checked {
+    background-color: $light_track_color;
     transition-duration: $longer_duration;
   }
+}
 
-
-  // Collections
-  .app-folder-popup { //expanded collection
-    -arrow-border-radius: $bd_radius * 2;
-    -arrow-background-color: $light_divider_color;
-    -arrow-base: 0;
-    -arrow-rise: 12px;
+%app-well-app,
+.show-apps,
+.app-well-app,
+.app-well-app.app-folder,
+.grid-search-result {
+  & .overview-icon {
+    @extend %icon_tile;
   }
-  .app-folder-popup-bin { padding: 5px; }
-  .app-folder-icon {
-    padding: 5px;
-    spacing-rows: 5px;
-    spacing-columns: 5px;
+  &:hover .overview-icon,
+  &:focus .overview-icon,
+  &:selected .overview-icon {
+    background-color: $light_divider_color;
+    transition-duration: 0ms;
+    border-image: none;
+    background-image: none;
   }
-
-  .page-indicator {
-    padding: 15px 20px;
-
-    .page-indicator-icon {
-      width: 12px;
-      height: 12px;
-      border-radius: 12px;
-      margin: 0;
-      padding: 0;
-      background-image: none;
-      color: transparent;
-      border: none;
-      box-shadow: none;
-      background-color: $light_alt_disabled_fg_color;
-    }
-    &:hover .page-indicator-icon {
-      background-image: none;
-      background-color: $light_disabled_fg_color;
-    }
-    &:active .page-indicator-icon {
-      margin: 0;
-      padding: 0;
-      background-image: none;
-      color: transparent;
-      border: none;
-      box-shadow: none;
-      background-color: $light_alt_fg_color;
-    }
-    &:checked .page-indicator-icon {
-      background-image: none;
-      background-color: $light_alt_fg_color;
-      transition-duration: 0ms;
-    }
-    &:checked:active { background-image: none; }
+  &:active .overview-icon,
+  &:checked .overview-icon {
+    background-color: $light_track_color;
+    box-shadow: none;
+    transition-duration: $longer_duration;
   }
+}
 
-  .no-frequent-applications-label { @extend %status_text; }
-
-  .app-well-app > .overview-icon.overview-icon-with-label,
-  .grid-search-result .overview-icon.overview-icon-with-label {
-    padding: 10px 8px 5px 8px;
-    spacing: 4px;
+.show-apps {
+  & .overview-icon {
+    // background-image: url("assets/startup.svg");
+    // background-size: contain;
+    color: transparent;
   }
+}
+
+.app-well-app-running-dot { //running apps indicator
+  width: 5px; height: 5px;
+  border-radius: 3px;
+  background-color: $primary_color;
+  margin-bottom: 0;
+}
+
+%icon_tile {
+  color: $light_alt_fg_color;
+  border-radius: $bd_radius * 1.5;
+  padding: 6px;
+  border: none;
+  transition-duration: $longer_duration;
+  text-align: center;
+}
+
+.app-well-app.app-folder > .overview-icon {
+  background-color: $light_divider_color;
+}
+
+.show-apps .show-apps-icon {
+  color: transparent;
+  background-image: url("assets/startup.svg");
+  background-size: contain;
+}
+
+.show-apps:hover .show-apps-icon,
+.show-apps:active .show-apps-icon,
+.show-apps:checked .show-apps-icon,
+.show-apps:focus .show-apps-icon {
+  color: transparent;
+  transition-duration: $longer_duration;
+}
+
+
+// Collections
+.app-folder-popup { //expanded collection
+  -arrow-border-radius: $bd_radius * 2;
+  -arrow-background-color: $light_divider_color;
+  -arrow-base: 0;
+  -arrow-rise: 12px;
+}
+.app-folder-popup-bin { padding: 5px; }
+.app-folder-icon {
+  padding: 5px;
+  spacing-rows: 5px;
+  spacing-columns: 5px;
+}
+
+.page-indicator {
+  padding: 15px 20px;
+
+  .page-indicator-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+    background-color: $light_alt_disabled_fg_color;
+  }
+  &:hover .page-indicator-icon {
+    background-image: none;
+    background-color: $light_disabled_fg_color;
+  }
+  &:active .page-indicator-icon {
+    margin: 0;
+    padding: 0;
+    background-image: none;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+    background-color: $light_alt_fg_color;
+  }
+  &:checked .page-indicator-icon {
+    background-image: none;
+    background-color: $light_alt_fg_color;
+    transition-duration: 0ms;
+  }
+  &:checked:active { background-image: none; }
+}
+
+.no-frequent-applications-label { @extend %status_text; }
+
+.app-well-app > .overview-icon.overview-icon-with-label,
+.grid-search-result .overview-icon.overview-icon-with-label {
+  padding: 10px 8px 5px 8px;
+  spacing: 4px;
+}
 
 /* App Folders */
 .app-folder {
@@ -2032,122 +2118,123 @@ $selected_slider_color: white;
 
 /* NOTIFICATIONS & MESSAGE TRAY */
 
-  .url-highlighter { link-color: $link_color; }
+.url-highlighter { link-color: $link_color; }
 
-  // Banners
-  .notification-banner {
-    font-size: 1em;
-    width: 34em;
-    min-height: $menuitem_size * 2;
-    margin: 5px;
-    border-radius: $bt_radius;
-    color: $fg_color;
-    background-color: rgba($base_color, 0.92);
-    border: none;
-    box-shadow: $shadow_2;
-    &:hover { background-color: rgba($base_color, 0.95); }
-    &:focus { background-color: $base_color; }
+// Banners
+.notification-banner {
+  font-size: 1em;
+  width: 34em;
+  min-height: $menuitem_size * 2;
+  margin: 5px;
+  border-radius: $bt_radius;
+  color: $fg_color;
+  background-color: rgba($base_color, 0.92);
+  border: none;
+  box-shadow: $shadow_2;
+  &:hover { background-color: rgba($base_color, 0.95); }
+  &:focus { background-color: $base_color; }
 
-    .notification-icon { padding: 5px; }
-    .notification-content { padding: 5px; spacing: 5px; }
-    .secondary-icon { icon-size: em(16px); }
-    .notification-actions {
-      background-color: transparent;
-      padding-top: 0;
-      border-top: 1px solid $borders_color;
-      spacing: 1px;
-    }
-    .notification-button {
-      min-height: 40px;
-      padding: 0 16px;
-      background-color: transparent;
-      color: $alt_fg_color;
-      font-weight: 500;
-      &:first-child { border-radius: 0 0 0 2px; }
-      &:last-child { border-radius: 0 0 2px 0; }
-      &:hover, &focus { background-color: $divider_color; color: $fg_color; }
-      &:active { background-color: $track_color; color: $fg_color; }
-    }
-  }
-  .summary-source-counter {
-    font-size: 1em;
-    font-weight: bold;
-    height: 1.6em; width: 1.6em;
-    -shell-counter-overlap-x: 3px;
-    -shell-counter-overlap-y: 3px;
-    background-color: $primary_color;
-    color: $light_alt_fg_color;
-    border: 2px solid $primary_color;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.5);
-    border-radius: 0.9em; // should be 0.8 but whatever; wish I could do 50%;
-  }
-
+  .notification-icon { padding: 5px; }
+  .notification-content { padding: 5px; spacing: 5px; }
   .secondary-icon { icon-size: em(16px); }
-
-  //chat bubbles
-  .chat-body { spacing: 5px; }
-  .chat-response { margin: 5px; }
-  .chat-log-message { color: $fg_color; }
-  .chat-new-group { padding-top: 1em; }
-  .chat-received {
-    padding-left: 4px;
-    &:rtl { padding-left: 0px; padding-right: 4px; }
+  .notification-actions {
+    background-color: transparent;
+    padding-top: 0;
+    border-top: 1px solid $borders_color;
+    spacing: 1px;
   }
-  .chat-sent {
-    padding-left: 18pt;
+  .notification-button {
+    min-height: 40px;
+    padding: 0 16px;
+    background-color: transparent;
     color: $alt_fg_color;
-    &:rtl { padding-left: 0; padding-right: 18pt; }
+    font-weight: 500;
+    &:first-child { border-radius: 0 0 0 2px; }
+    &:last-child { border-radius: 0 0 2px 0; }
+    &:hover, &focus { background-color: $divider_color; color: $fg_color; }
+    &:active { background-color: $track_color; color: $fg_color; }
   }
-  .chat-meta-message {
-    padding-left: 4px;
-    @include font(caption);
-    color: $hint_fg_color;
-    &:rtl { padding-left: 0; padding-right: 4px; }
-  }
+}
 
-  //hotplug
-  .hotplug-transient-box {
-    spacing: 6px;
-    padding: 2px 72px 2px 12px;
-  }
-    .hotplug-notification-item {
-      padding: 2px 10px;
-      &:focus { padding: 1px 71px 1px 11px; }
-    }
+.summary-source-counter {
+  font-size: 1em;
+  font-weight: bold;
+  height: 1.6em; width: 1.6em;
+  -shell-counter-overlap-x: 3px;
+  -shell-counter-overlap-y: 3px;
+  background-color: $primary_color;
+  color: $light_alt_fg_color;
+  border: 2px solid $primary_color;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.5);
+  border-radius: 0.9em; // should be 0.8 but whatever; wish I could do 50%;
+}
 
-    .hotplug-notification-item-icon {
-      icon-size: 24px;
-      padding: 2px 5px;
-    }
+.secondary-icon { icon-size: em(16px); }
 
-    .hotplug-resident-box { spacing: 8px; }
+//chat bubbles
+.chat-body { spacing: 5px; }
+.chat-response { margin: 5px; }
+.chat-log-message { color: $fg_color; }
+.chat-new-group { padding-top: 1em; }
+.chat-received {
+  padding-left: 4px;
+  &:rtl { padding-left: 0px; padding-right: 4px; }
+}
+.chat-sent {
+  padding-left: 18pt;
+  color: $alt_fg_color;
+  &:rtl { padding-left: 0; padding-right: 18pt; }
+}
+.chat-meta-message {
+  padding-left: 4px;
+  @include font(caption);
+  color: $hint_fg_color;
+  &:rtl { padding-left: 0; padding-right: 4px; }
+}
 
-    .hotplug-resident-mount {
-      spacing: 8px;
-      border-radius: $bt_radius;
-      &:hover { background-color: $divider_color; }
-      &:active { background-color: $track_color; }
-    }
+//hotplug
+.hotplug-transient-box {
+  spacing: 6px;
+  padding: 2px 72px 2px 12px;
+}
+.hotplug-notification-item {
+  padding: 2px 10px;
+  &:focus { padding: 1px 71px 1px 11px; }
+}
 
-    .hotplug-resident-mount-label {
-      color: inherit;
-      padding-left: 6px;
-    }
+.hotplug-notification-item-icon {
+  icon-size: 24px;
+  padding: 2px 5px;
+}
 
-    .hotplug-resident-mount-icon {
-      icon-size: 24px;
-      padding-left: 6px;
-    }
+.hotplug-resident-box { spacing: 8px; }
 
-    .hotplug-resident-eject-icon {
-      icon-size: 16px;
-    }
+.hotplug-resident-mount {
+  spacing: 8px;
+  border-radius: $bt_radius;
+  &:hover { background-color: $divider_color; }
+  &:active { background-color: $track_color; }
+}
 
-    .hotplug-resident-eject-button {
-      padding: 7px;
-      border-radius: $bt_radius;
-      color: $fg_color;
-    }
+.hotplug-resident-mount-label {
+  color: inherit;
+  padding-left: 6px;
+}
+
+.hotplug-resident-mount-icon {
+  icon-size: 24px;
+  padding-left: 6px;
+}
+
+.hotplug-resident-eject-icon {
+  icon-size: 16px;
+}
+
+.hotplug-resident-eject-button {
+  padding: 7px;
+  border-radius: $bt_radius;
+  color: $fg_color;
+}
 
 /* Eeeky things */
 
@@ -2170,77 +2257,77 @@ $selected_slider_color: white;
     background-color: rgba(black, 0.25);
 }
 
-  .keyboard-layout {
-    padding: 4px;
-    spacing: 4px;
-  }
+.keyboard-layout {
+  padding: 4px;
+  spacing: 4px;
+}
 
 //  .keyboard-row { spacing: 15px; }
 
-  .keyboard-key {
-    min-height: 2em;
-    min-width: 2em;
-    font-size: 14pt;
-    font-weight: bold;
-    border-radius: $bt_radius;
-    border: none;
-    color: inherit;
-    background-color: $solid_bg_color;
+.keyboard-key {
+  min-height: 2em;
+  min-width: 2em;
+  font-size: 14pt;
+  font-weight: bold;
+  border-radius: $bt_radius;
+  border: none;
+  color: inherit;
+  background-color: $solid_bg_color;
+  box-shadow: 0 1px rgba(black, 0.2);
+  &:focus, &:hover { color: $light_alt_fg_color; background-color: $primary_color; }
+  &:checked, &:active { color: $light_alt_fg_color; background-color: darken($primary_color, 6%); }
+  &:grayed { //FIXME
+    background-color: $alt_dark_bg_color;
+    color: $light_alt_fg_color;
+    border-color: $alt_dark_bg_color;
+  }
+
+  &.default-key { background-size: 20px; } // backspace button
+  &.default-key,
+  &.enter-key,
+  &.shift-key-lowercase,
+  &.shift-key-uppercase,
+  &.hide-key,
+  &.layout-key {
+    background-color: $alt_solid_bg_color;
     box-shadow: 0 1px rgba(black, 0.2);
-    &:focus, &:hover { color: $light_alt_fg_color; background-color: $primary_color; }
-    &:checked, &:active { color: $light_alt_fg_color; background-color: darken($primary_color, 6%); }
-    &:grayed { //FIXME
-      background-color: $alt_dark_bg_color;
-      color: $light_alt_fg_color;
-      border-color: $alt_dark_bg_color;
-    }
-
-    &.default-key { background-size: 20px; } // backspace button
-    &.default-key,
-    &.enter-key,
-    &.shift-key-lowercase,
-    &.shift-key-uppercase,
-    &.hide-key,
-    &.layout-key {
-      background-color: $alt_solid_bg_color;
-      box-shadow: 0 1px rgba(black, 0.2);
-      &:focus, &:hover { color: $light_fg_color; background-color: $solid_bg_color; }
-      &:checked, &:active { color: $light_fg_color; background-color: darken($solid_bg_color, 6%); }
-    }
-    &.enter-key {
-      background-color: $primary_color;
-      background-image: url("assets/key-enter.svg");
-      &:focus, &:hover { color: $light_alt_fg_color; background-color: lighten($primary_color, 5%); }
-      &:checked, &:active { color: $light_alt_fg_color; background-color: darken($primary_color, 10%); }
-    }
-    &.shift-key-lowercase {
-      background-image: url("assets/key-shift.svg");
-    }
-    &.shift-key-uppercase {
-      background-image: url("assets/key-shift-uppercase.svg");
-    }
-    &.shift-key-uppercase:latched {
-      background-image: url("assets/key-shift-latched-uppercase.svg");
-    }
-    &.hide-key {
-      background-image: url("assets/key-hide.svg");
-    }
-    &.layout-key {
-      background-image: url("assets/key-layout.svg");
-    }
+    &:focus, &:hover { color: $light_fg_color; background-color: $solid_bg_color; }
+    &:checked, &:active { color: $light_fg_color; background-color: darken($solid_bg_color, 6%); }
   }
-
-  .keyboard-subkeys { //long press on a key popup
-    color: inherit;
-    -arrow-border-radius: $bt_radius;
-    -arrow-background-color: rgba(black, 0.45);
-    -arrow-border-width: 0;
-    -arrow-border-color: transparent;
-    -arrow-base: 20px;
-    -arrow-rise: 10px;
-    -boxpointer-gap: 5px;
-    box-shadow: $shadow_2;
+  &.enter-key {
+    background-color: $primary_color;
+    background-image: url("assets/key-enter.svg");
+    &:focus, &:hover { color: $light_alt_fg_color; background-color: lighten($primary_color, 5%); }
+    &:checked, &:active { color: $light_alt_fg_color; background-color: darken($primary_color, 10%); }
   }
+  &.shift-key-lowercase {
+    background-image: url("assets/key-shift.svg");
+  }
+  &.shift-key-uppercase {
+    background-image: url("assets/key-shift-uppercase.svg");
+  }
+  &.shift-key-uppercase:latched {
+    background-image: url("assets/key-shift-latched-uppercase.svg");
+  }
+  &.hide-key {
+    background-image: url("assets/key-hide.svg");
+  }
+  &.layout-key {
+    background-image: url("assets/key-layout.svg");
+  }
+}
+
+.keyboard-subkeys { //long press on a key popup
+  color: inherit;
+  -arrow-border-radius: $bt_radius;
+  -arrow-background-color: rgba(black, 0.45);
+  -arrow-border-width: 0;
+  -arrow-border-color: transparent;
+  -arrow-base: 20px;
+  -arrow-rise: 10px;
+  -boxpointer-gap: 5px;
+  box-shadow: $shadow_2;
+}
 
 // IBus Candidate Popup
 
@@ -2249,37 +2336,37 @@ $selected_slider_color: white;
   spacing: 0;
 }
 
-  .candidate-index {
-    padding: 0 4px 0 0;
-    color: $hint_fg_color;
-    .candidate-box:selected & { color: $light_hint_fg_color; }
-  }
+.candidate-index {
+  padding: 0 4px 0 0;
+  color: $hint_fg_color;
+  .candidate-box:selected & { color: $light_hint_fg_color; }
+}
 
-  .candidate-box {
-    transition-duration: 0ms; // FIXME: needs more natural transitions
-    min-height: $menuitem_size;
-    padding: 0 8px;
-    border-radius: $bt_radius;
-    &:hover { background-color: $divider_color; color: $fg_color; }
-    &:active { background-color: $track_color; color: $fg_color; }
-    &:selected { background-color: $primary_color; color: $light_alt_fg_color; }
-  }
+.candidate-box {
+  transition-duration: 0ms; // FIXME: needs more natural transitions
+  min-height: $menuitem_size;
+  padding: 0 8px;
+  border-radius: $bt_radius;
+  &:hover { background-color: $divider_color; color: $fg_color; }
+  &:active { background-color: $track_color; color: $fg_color; }
+  &:selected { background-color: $primary_color; color: $light_alt_fg_color; }
+}
 
-  .candidate-page-button-box {
-    height: $menuitem_size;
-    .vertical & { padding-top: 0; }
-    .horizontal & { padding-left: 0; }
-  }
+.candidate-page-button-box {
+  height: $menuitem_size;
+  .vertical & { padding-top: 0; }
+  .horizontal & { padding-left: 0; }
+}
 
-  .candidate-page-button {
-    min-width: $menuitem_size;
-    min-height: $menuitem_size;
-    padding: 0;
-  }
+.candidate-page-button {
+  min-width: $menuitem_size;
+  min-height: $menuitem_size;
+  padding: 0;
+}
 
-  .candidate-page-button-previous { border-radius: $bt_radius; border-right-width: 0; }
-  .candidate-page-button-next { border-radius: $bt_radius;  }
-  .candidate-page-button-icon { icon-size: em(16px); }
+.candidate-page-button-previous { border-radius: $bt_radius; border-right-width: 0; }
+.candidate-page-button-next { border-radius: $bt_radius;  }
+.candidate-page-button-icon { icon-size: em(16px); }
 
 /* Auth Dialogs & Screen Shield */
 
