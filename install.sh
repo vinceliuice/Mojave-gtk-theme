@@ -146,16 +146,22 @@ install_gdm() {
   if [[ -f "$UBUNTU_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
     echo "Installing '$UBUNTU_THEME_FILE'..."
     cp -an "$UBUNTU_THEME_FILE" "$UBUNTU_THEME_FILE.bak"
-#    rm -rf "$GS_THEME_FILE"
-#    mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
+    # rm -rf "$GS_THEME_FILE"
+    # mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
     cp -af "$GDM_THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_THEME_FILE"
+  fi
+
+  if [[ -f "$UBUNTU_NEW_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
+    echo "Installing '$UBUNTU_NEW_THEME_FILE'..."
+    cp -an "$UBUNTU_NEW_THEME_FILE" "$UBUNTU_NEW_THEME_FILE.bak"
+    cp -af "$GDM_THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_NEW_THEME_FILE"
   fi
 
   if [[ -f "$ETC_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
     echo "Installing Ubuntu gnome-shell theme..."
     cp -an "$ETC_THEME_FILE" "$ETC_THEME_FILE.bak"
-    rm -rf "$ETC_THEME_FILE" "$GS_THEME_FILE"
-    mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
+    # rm -rf "$ETC_THEME_FILE" "$GS_THEME_FILE"
+    # mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
     [[ -d $SHELL_THEME_FOLDER/Mojave ]] && rm -rf $SHELL_THEME_FOLDER/Mojave
     cp -ur "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
     cd "$ETC_THEME_FOLDER"
@@ -176,6 +182,12 @@ revert_gdm() {
     mv "$UBUNTU_THEME_FILE.bak" "$UBUNTU_THEME_FILE"
   fi
 
+  if [[ -f "$UBUNTU_NEW_THEME_FILE.bak" ]]; then
+    echo "reverting '$UBUNTU_NEW_THEME_FILE'..."
+    rm -rf "$UBUNTU_NEW_THEME_FILE"
+    mv "$UBUNTU_NEW_THEME_FILE.bak" "$UBUNTU_NEW_THEME_FILE"
+  fi
+
   if [[ -f "$ETC_THEME_FILE.bak" ]]; then
     echo "reverting Ubuntu gnome-shell theme..."
     rm -rf "$ETC_THEME_FILE"
@@ -183,6 +195,7 @@ revert_gdm() {
     [[ -d $SHELL_THEME_FOLDER/Mojave ]] && rm -rf $SHELL_THEME_FOLDER/Mojave
   fi
 }
+
 
 while [[ $# -gt 0 ]]; do
   case "${1}" in
