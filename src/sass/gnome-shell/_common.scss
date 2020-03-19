@@ -643,7 +643,7 @@ $selected_slider_color: white;
     border: 1px solid $borders_color;
     border-radius: $bt_radius;
     &:hover, &:focus { background-color: $visit_color; }
-    &:active { 
+    &:active {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
     }
@@ -2035,7 +2035,7 @@ $selected_slider_color: white;
 
 .show-apps .show-apps-icon {
   color: transparent;
-  background-image: url("assets/startup.svg");
+  background-image: -gtk-scaled(url("assets/startup.svg"),url("assets/startup@2.svg"));
   background-size: contain;
 }
 
