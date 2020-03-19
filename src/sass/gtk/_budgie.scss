@@ -276,7 +276,7 @@ window.budgie-popover:not(.csd) {
   }
 
   button {
-    @extend row.activatable;
+    @extend %row_activatable;
     min-height: 32px;
     padding: 0 8px;
     border-radius: 0;
@@ -306,7 +306,7 @@ window.budgie-popover:not(.csd) {
 // Menu Button
 button.budgie-menu-launcher {
   // padding: 0 2px;
-  @extend button.flat;
+  @extend %flat_button;
 }
 
 // User Menu
@@ -525,7 +525,7 @@ popover.background.places-menu {
   // Icon Tasklist
   button.flat.launcher {
     padding: 0;
-    @extend button.flat;
+    @extend %flat_button;
     @extend %underscores;
 
     // for indicator colors
@@ -865,7 +865,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
     grid > label:first-child { min-height: 26px; } // workaround to fix vertical-align
 
     // for <10.4
-    spinbutton:not(.vertical) { @extend entry.flat; }
+    spinbutton:not(.vertical) { @extend %flat_entry; }
 
     // for <10.4
     // button.combo { }
@@ -1055,6 +1055,7 @@ calendar.raven-calendar {
 }
 
 // Notifications
+%budgie-notification-window,
 .budgie-notification-window {
   background-color: transparent;
   background-image: none;
@@ -1069,17 +1070,18 @@ calendar.raven-calendar {
   }
 }
 
+%budgie-notification,
 .budgie-notification {
   background-color: transparent;
   background-image: none;
 
   .notification-title { font-size: 120%; }
-  .notification-body { @extend .dim-label; }
+  .notification-body { @extend %dim-label; }
 }
 
 // On Screen Display in Budgie
 .budgie-osd-window {
-  @extend .budgie-notification-window;
+  @extend %budgie-notification-window;
 }
 
 // Internal part of the OSD
@@ -1091,7 +1093,7 @@ calendar.raven-calendar {
 
 // Alt+tab switcher in Budgie
 .budgie-switcher-window {
-  @extend .budgie-notification-window;
+  @extend %budgie-notification-window;
 }
 
 window.budgie-switcher-window {
@@ -1101,29 +1103,29 @@ window.budgie-switcher-window {
 
   // draw actual backgrounds and shadows
   .drop-shadow {
-    @extend .drop-shadow;
+    @extend %drop-shadow;
 
-    label.budgie-switcher-title { // bottom label for app titles
-    }
+    // label.budgie-switcher-title { // bottom label for app titles
+    // }
   }
 
   flowboxchild { // icon-tiles
     margin: 2px;
     border-radius: $wm_radius;
     -gtk-outline-radius: $wm_radius;
-//    background-color: transparent;
+    // background-color: transparent;
     background-image: none;
   }
 }
 
 // Internal part of the Switcher
 .budgie-switcher {
-  @extend .budgie-notification;
-//  background-color: transparent;
-//  background-image: none;
+  @extend %budgie-notification;
+  // background-color: transparent;
+  // background-image: none;
 }
 
-.drop-shadow {
+%drop-shadow, .drop-shadow {
   margin: 5px 9px;
   padding: 8px;
   border-radius: $wm_radius;

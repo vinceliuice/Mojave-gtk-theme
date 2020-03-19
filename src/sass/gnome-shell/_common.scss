@@ -1628,7 +1628,7 @@ $selected_slider_color: white;
   }
 
   //search entry
-  .search-entry {
+  %search-entry, .search-entry {
     width: 320px - 8px * 2;
     padding: 0 8px;
     border: none;
@@ -1704,10 +1704,10 @@ $selected_slider_color: white;
     padding: 3px 0;
     border: none;
     border-left: 0px;
-    border-radius: 0px $bd_radius $bd_radius 0px;
+    border-radius: 0px ($bd_radius * 1.5) ($bd_radius * 1.5) 0px;
 
     &:rtl {
-      border-radius: $bd_radius 0 0 $bd_radius;
+      border-radius: ($bd_radius * 1.5)  0 0 ($bd_radius * 1.5);
     }
 
     .placeholder {
@@ -1954,7 +1954,7 @@ $selected_slider_color: white;
     }
 
     & .folder-name-entry {
-      @extend .search-entry;
+      @extend %search-entry;
     }
 
     /* FIXME: this is to keep the label in sync with the entry */

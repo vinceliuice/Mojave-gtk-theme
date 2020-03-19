@@ -126,6 +126,7 @@ iconview {
   &, &:hover, &:selected { border-radius: $bt_radius; }
 }
 
+%rubberband,
 rubberband,
 .rubberband {
   border: 1px solid darken($selected_bg_color, 10%);
@@ -133,7 +134,7 @@ rubberband,
 }
 
 flowbox {
-  rubberband { @extend rubberband }
+  rubberband { @extend %rubberband; }
 
   flowboxchild {
     padding: 3px;
@@ -151,7 +152,7 @@ flowbox {
 
 label {
   &.separator {
-    @extend .dim-label;
+    @extend %dim-label;
 
     color: $fg_color;
   }
@@ -170,7 +171,7 @@ label {
   }
 }
 
-.dim-label {
+%dim-label, .dim-label {
   opacity: 0.55;
 }
 
@@ -268,7 +269,7 @@ entry {
     &.right { padding-right: 0; padding-left: 5px; }
   }
 
-  &.flat {
+  @at-root %flat_entry, &.flat {
     &, &:focus {
       min-height: 0;
       background-image: none;
@@ -491,7 +492,7 @@ button {
   //   @extend %outline_dashed;
   // }
 
-  &.flat {
+  @at-root %flat_button, &.flat {
     min-height: if($variant =='light', 24px, 24px);
     @include button(flat-normal);
     // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
@@ -1181,7 +1182,7 @@ combobox {
 //
 // Toolbars
 //
-toolbar {
+%toolbar, toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
   background-color: $header_bg;
@@ -1241,7 +1242,7 @@ toolbar {
 }
 
 .inline-toolbar {
-  @extend toolbar;
+  @extend %toolbar;
   background-color: darken($bg_color, 3%);
   border-style: solid;
   border-color: $borders_color;
@@ -1339,7 +1340,7 @@ headerbar,
     padding-left: 12px;
     padding-right: 12px;
     margin-top: -3px;
-    @extend .dim-label;
+    @extend %dim-label;
   }
 
   // Selectionmode
@@ -2048,7 +2049,7 @@ treeview.view {
   border-left-color: rgba($fg_color, 0.15); // this is actually the tree lines color,
   border-top-color: $borders_color; // while this is the grid lines color, better then nothing
 
-  rubberband { @extend rubberband; } // to avoid borders being overridden by the previously set props
+  rubberband { @extend %rubberband; } // to avoid borders being overridden by the previously set props
 
   acceleditor > label { background-color: $selected_bg_color; }
 
@@ -2101,7 +2102,7 @@ treeview.view {
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   }
 
-  &.progressbar, &.progressbar:focus { // progress bar in treeviews
+  @at-root %treeview_progressbar, &.progressbar, &.progressbar:focus { // progress bar in treeviews
     color: $selected_fg_color;
     border-radius: $bt_radius;
     background-color: $progress_color;
@@ -2113,7 +2114,7 @@ treeview.view {
     }
   }
 
-  &.trough { // progress bar trough in treeviews
+  @at-root %treeview_trough, &.trough { // progress bar trough in treeviews
     color: $fg_color;
     background-color: $button_border;
     border-radius: $bt_radius;
@@ -3440,6 +3441,24 @@ list {
   row { padding: 2px; }
 }
 
+%row_activatable {
+  &.has-open-popup,
+  &:hover { background-color: if($variant == 'light', transparentize(black, 0.95), transparentize(white, 0.97)); }
+
+  &:active { color: $fg_color; }
+  &:disabled {
+    color: $disabled_fg_color;
+    image { color: inherit; }
+  }
+
+  &:selected {
+    &:active { color: $selected_fg_color; }
+
+    &.has-open-popup,
+    &:hover { background-color: mix(black, $selected_bg_color, 10%); }
+  }
+}
+
 row {
   &:not(:hover) { transition: all 300ms $ease-out-quad; }
 
@@ -3452,21 +3471,7 @@ row {
   }
 
   &.activatable {
-    &.has-open-popup,
-    &:hover { background-color: if($variant == 'light', transparentize(black, 0.95), transparentize(white, 0.97)); }
-
-    &:active { color: $fg_color; }
-    &:disabled {
-      color: $disabled_fg_color;
-      image { color: inherit; }
-    }
-
-    &:selected {
-      &:active { color: $selected_fg_color; }
-
-      &.has-open-popup,
-      &:hover { background-color: mix(black, $selected_bg_color, 10%); }
-    }
+    @extend %row_activatable;
   }
 }
 
@@ -4092,7 +4097,7 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 
   &:hover { -gtk-icon-effect: highlight; }
 
-  rubberband { @extend rubberband; }
+  rubberband { @extend %rubberband; }
 }
 
 .scale-popup {

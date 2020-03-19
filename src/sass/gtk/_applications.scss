@@ -207,6 +207,7 @@ window.background.csd { // gnome-terminal 3.32 setting
 .nautilus-canvas-item { border-radius: 2px; }
 
 // .view.nautilus-desktop,
+%nautilus-desktop-canvas-item,
 .nautilus-desktop.nautilus-canvas-item {
   color: white;
   text-shadow: 1px 1px transparentize(black, 0.4);
@@ -316,7 +317,7 @@ $nautilus_radius: $wm_radius + 2px;
 }
 
 button.nautilus-circular-button.image-button {
-  @extend button.circular;
+  @extend %circular_button;
 }
 
 $disk_space_unknown: transparentize($fg_color, 0.5);
@@ -384,7 +385,7 @@ $disk_space_free: darken($bg_color, 3%);
 // Nemo
 //
 .nemo-desktop.nemo-canvas-item {
-  @extend .nautilus-desktop.nautilus-canvas-item;
+  @extend %nautilus-desktop-canvas-item;
 }
 
 .nemo-window {
@@ -1147,6 +1148,7 @@ button.documents-load-more {
   border-radius: 2px;
 }
 
+%documents-collection-icon,
 .documents-collection-icon {
   background-color: transparentize($fg_color, 0.7);
   border-radius: 2px;
@@ -1157,6 +1159,7 @@ button.documents-favorite:active:hover {
   color: lighten($selected_bg_color, 20%);
 }
 
+%documents-entry-tag,
 .documents-entry-tag {
   color: $selected_fg_color;
   background: $selected_bg_color;
@@ -1190,11 +1193,11 @@ button.documents-favorite:active:hover {
 // Gnome Photos
 //
 .photos-entry-tag {
-  @extend .documents-entry-tag;
+  @extend %documents-entry-tag;
 }
 
 .photos-collection-icon {
-  @extend .documents-collection-icon;
+  @extend %documents-collection-icon;
 }
 
 .photos-fade-in {
@@ -1371,11 +1374,11 @@ window#gnome-system-monitor.background.csd {
         @extend %view;
 
         &.progressbar, &.progressbar:focus { // progress bar in treeviews
-          @extend treeview.view.progressbar;
+          @extend %treeview_progressbar;
         }
 
         &.trough { // progress bar trough in treeviews
-          @extend treeview.view.trough;
+          @extend %treeview_trough;
         }
       }
     }
@@ -1963,7 +1966,7 @@ panel-toplevel.background {
   }
 
   button:not(#tasklist-button) {  // Panel buttons
-    @extend %panelbutton;
+    @extend %panel_button;
   }
 
   button,
@@ -1997,7 +2000,7 @@ panel-toplevel.background {
 // Caja
 //
 .caja-desktop {
-  @extend .nautilus-desktop.nautilus-canvas-item;
+  @extend %nautilus-desktop-canvas-item;
 }
 
 .caja-notebook {
@@ -2072,7 +2075,7 @@ $text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),
               0 1px 2px rgba(0, 0, 0, 0.32),
               0 2px 3px rgba(0, 0, 0, 0.12);
 
-%panelbutton {
+%panel_button {
   color: $panel_fg;
   border-radius: 0;
   border: none;
@@ -2106,7 +2109,7 @@ $text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),
   border: none;
 
   button, button.flat {
-    @extend %panelbutton;
+    @extend %panel_button;
   }
 }
 
@@ -2133,11 +2136,11 @@ $text_shadow: 0 0 1px rgba(0, 0, 0, 0.26),
     &, &.marching-ants { transition: none; } // unset transitions
   }
 
-  button.flat { @extend %panelbutton; }
+  button.flat { @extend %panel_button; }
 
   button {
     font-weight: 700;
-    @extend %panelbutton;
+    @extend %panel_button;
 
     &#launcher-arrow { // launcher applet
       // FIXME: quite weird pseudo-classe transitions, especially :hover
@@ -2184,7 +2187,7 @@ XfdesktopIconView.view {
     text-shadow: none;
   }
 
-  .rubberband { @extend rubberband; }
+  .rubberband { @extend %rubberband; }
 }
 
 window#whiskermenu-window {
@@ -3271,7 +3274,7 @@ window.background.csd {
             &:disabled { color: rgba($dark_sidebar_fg, 0.45); }
           }
 
-          &.trough { @extend treeview.view.trough }
+          &.trough { @extend %treeview_trough; }
         }
       }
     }
