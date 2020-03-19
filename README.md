@@ -37,8 +37,8 @@ Search for the engines in your distributions repository or install the engines f
 - sassc.
 - optipng.
 - inkscape.
-- libglib2.0-dev. `ubuntu 18.04`
-- libxml2-utils. `ubuntu 18.04`
+- libglib2.0-dev. `ubuntu 18.04` `debian 10.03`
+- libxml2-utils. `ubuntu 18.04` `debian 10.03`
 
 Fedora/RedHat distros:
 
@@ -47,6 +47,10 @@ Fedora/RedHat distros:
 Ubuntu/Mint/Debian distros:
 
     sudo apt install sassc optipng inkscape
+
+Debian 10:
+
+	sudo apt install sassc optipng inkscape libcanberra-gtk-module libglib2.0-dev
 
 ArchLinux:
 
