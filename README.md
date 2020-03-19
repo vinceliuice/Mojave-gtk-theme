@@ -53,7 +53,7 @@ ArchLinux:
 Other:
 Search for the depends in your distributions repository or install the depends from source.
 
-Run
+After depends all installed you can Run
 
     ./install.sh
 
