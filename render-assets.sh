@@ -6,6 +6,21 @@ OPTIPNG="/usr/bin/optipng"
 REPO_DIR=$(cd $(dirname $0) && pwd)
 ASRC_DIR=${REPO_DIR}/src/assets
 
+if [ ! "$(which inkscape 2> /dev/null)" ]; then
+  echo inkscape and optipng needs to be installed to generate the assets.
+  if has_command zypper; then
+    sudo zypper in inkscape optipng
+  elif has_command apt; then
+    sudo apt install inkscape optipng
+  elif has_command dnf; then
+    sudo dnf install -y inkscape optipng
+  elif has_command yum; then
+    sudo yum install inkscape optipng
+  elif has_command pacman; then
+    sudo pacman -S --noconfirm inkscape optipng
+  fi
+fi
+
 render_thumbnail() {
   local dest=$1
   local color=$2
