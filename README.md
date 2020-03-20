@@ -79,8 +79,6 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-n, --name           | Specify theme name (Default: Mojave)|
 |-c, --color          | Specify theme color variant(s) **[light/dark]** (Default: All variants)|
 |-o, --opacity        | Specify theme opacity variant(s) **[standard/solid]** (Default: All variants)|
-|-a, --alt            | Alt titlebutton theme opacity variant(s) **[standard/alt]** (Default: All variants)|
-|-s, --small          | small titlebutton theme opacity variant(s) **[standard/small]** (Default: standard variant)|
 |-i, --icon           | activities icon variant(s) **[standard/normal/gnome/ubuntu/arch/manjaro/fedora/debian/void]** (Default: standard variant)|
 |-g, --gdm            | Install GDM theme, you should run this with sudo!|
 |-r, --revert         | revert GDM theme, you should run this with sudo!|
