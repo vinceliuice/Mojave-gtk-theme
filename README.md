@@ -6,6 +6,12 @@ Mojave is a Mac OSX like theme for GTK 3, GTK 2 and Gnome-Shell which supports G
 This theme is based on Arc gtk theme of horst3180. Thanks horst3180 sincerely for his great job!
 horst3180 - Arc gtk theme: https://github.com/horst3180/Arc-theme
 
+## Last releases
+- [Mojave-dark](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-dark.tar.xz)
+- [Mojave-light](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-light.tar.xz)
+- [Mojave-dark-solid](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-dark-solid.tar.xz)
+- [Mojave-light-solid](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-light-solid.tar.xz)
+
 ## Info
 
 ### GTK+ 3.20 or later
@@ -50,7 +56,7 @@ Ubuntu/Mint/Debian distros:
 
 Debian 10:
 
-	sudo apt install sassc optipng inkscape libcanberra-gtk-module libglib2.0-dev
+    sudo apt install sassc optipng inkscape libcanberra-gtk-module libglib2.0-dev libxml2-utils
 
 ArchLinux:
 
