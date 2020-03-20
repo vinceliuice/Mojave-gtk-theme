@@ -111,8 +111,8 @@ $raven_padding: 8px;
   border-color: if($variant=='light', $borders_color, lighten($menu_bg, 8%));
   border-radius: $wm_radius;
   background-color: if($trans == 'true', rgba($bg_color, 0.95), $bg_color);
-  box-shadow: 0 1px 2px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
-              0 2px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
+  box-shadow: 0 1px 2px 0 if($variant == 'light', opacify($wm_shadow, 0.15), opacify($wm_shadow, 0.1)),
+              0 2px 3px 0 if($variant == 'light', opacify($wm_shadow, 0.15), opacify($wm_shadow, 0.1)),
               0 0 0 1px if($variant=='light', $borders_color, rgba($dark_borders_color, 0.55)),
               inset 0 0 0 1px if($variant=='light', rgba(black, 0.0), rgba(white, 0.08));
 
@@ -503,23 +503,6 @@ popover.background.places-menu {
   //   background-color: rgba(0,0,0,0.2);
   // }
 
-  // Tasklist
-  #tasklist-button {
-    padding: 0 4px;
-    @extend %underscores;
-    box-shadow: none;
-    background-image: none;
-    color: $fg_color;
-    &:active {
-      background-color: rgba($fg_color, 0.15);
-      color: if($variant=='light', darken($fg_color, 5%), lighten($fg_color, 5%));
-    }
-    &:checked {
-      background-color: rgba($fg_color, 0.12);
-      color: if($variant=='light', darken($fg_color, 5%), lighten($fg_color, 5%));
-    }
-  }
-
   &.vertical #tasklist-button { min-height: 32px; }
 
   // Icon Tasklist
@@ -561,6 +544,26 @@ popover.background.places-menu {
                                       #{$b_wid};
       }
     }
+  }
+}
+
+// Tasklist
+#tasklist-button {
+  padding: 0 4px;
+  box-shadow: none;
+  background-image: none;
+  color: $fg_color;
+
+  @extend %underscores;
+
+  &:active {
+    background-color: rgba($fg_color, 0.15);
+    color: if($variant=='light', darken($fg_color, 5%), lighten($fg_color, 5%));
+  }
+
+  &:checked {
+    background-color: rgba($fg_color, 0.12);
+    color: if($variant=='light', darken($fg_color, 5%), lighten($fg_color, 5%));
   }
 }
 
@@ -694,7 +697,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
       margin-top: -6px; // remove extra spaces, but not perfect :(
 
       button {
-        @extend %raven_button.flat;
+        @extend %raven_button, .flat;
         min-height: 32px;
         min-width: 32px;
         margin: 0;
@@ -827,8 +830,21 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
         padding-top: $raven_padding;
         padding-bottom: $raven_padding;
         border-top: 1px solid $dark_borders_color;
-        @extend %raven_button.linked;
         @extend %raven_middle_button;
+        @include button(undecorated);
+        background-color: $menu_bg;
+
+        &:hover {
+          background-color: if($variant =='light', darken($menu_bg, 5%), lighten($menu_bg, 5%));
+        }
+
+        &:active, &:checked {
+          color: $selected_fg_color;
+          background-color: $selected_bg_color;
+        }
+
+        &:disabled { @include button(flat-insensitive); }
+
         &:first-child{ @extend %raven_first_button; }
         &:last-child { @extend %raven_last_button; }
         &:only-child { @extend %raven_single_button; }
@@ -1130,7 +1146,7 @@ window.budgie-switcher-window {
   padding: 8px;
   border-radius: $wm_radius;
   box-shadow: 0 5px 5px 0 transparent, 0 8px 15px 0 transparent,
-              0 3px 3px 0 if($variant == 'light', opacify($_wm_shadow, 0.15), opacify($_wm_shadow, 0.1)),
+              0 3px 3px 0 if($variant == 'light', opacify($wm_shadow, 0.15), opacify($wm_shadow, 0.1)),
               0 0 0 1px if($variant=='light', rgba($borders_color, 0.15), rgba($dark_borders_color, 0.55)),
               inset 0 0 0 1px rgba(white, 0.06);
 

@@ -253,7 +253,7 @@ $nautilus_radius: $wm_radius + 2px;
     scrolledwindow {
       .view:not(:hover):not(:active):not(:selected) {
         background-color: transparent;
-        // @extend %view;
+        @extend %view;
       }
     }
 
@@ -312,7 +312,7 @@ $nautilus_radius: $wm_radius + 2px;
   treeview.view:not(:hover):not(:active):not(:selected) {
     background-color: transparent;
     border-radius: 0;
-    // @extend %view;
+    @extend %view;
   }
 }
 
@@ -417,7 +417,9 @@ $disk_space_free: darken($bg_color, 3%);
     box-shadow: none;
 
     &:selected {
-      &:focus, & { @extend %selected_items; }
+      @extend %selected_items;
+
+      &:focus { @extend %selected_items; }
     }
   }
 
@@ -429,7 +431,6 @@ $disk_space_free: darken($bg_color, 3%);
   }
 
   .primary-toolbar {
-    // @extend %header_widgets;
     padding-top: 0;
     padding-bottom: 0;
     border: none;
@@ -734,7 +735,7 @@ workbench.csd > stack.titlebar:not(headerbar) {
     &,
     &:first-child,
     &:last-child {
-      border-radius: $_header_radius $_header_radius 0 0;
+      border-radius: $wm_radius $wm_radius 0 0;
     }
   }
 }
@@ -1369,17 +1370,8 @@ window#gnome-system-monitor.background.csd {
     border-radius: 0 0 $wm_radius $wm_radius;
 
     > box.vertical > scrolledwindow {
-      treeview.view {
+      treeview.view:not(:hover):not(:selected):not(.progressbar):not(.trough) {
         background: none;
-        @extend %view;
-
-        &.progressbar, &.progressbar:focus { // progress bar in treeviews
-          @extend %treeview_progressbar;
-        }
-
-        &.trough { // progress bar trough in treeviews
-          @extend %treeview_trough;
-        }
       }
     }
   }
@@ -1884,7 +1876,7 @@ dialog.background.csd {
         background-color: $base_color;
 
         iconview.view:not(:hover):not(:selected):not(:active) { // Wallpaper setting window
-          // @extend %view;
+          @extend %view;
           background-color: transparent;
         }
       }
@@ -2315,7 +2307,25 @@ window.thunar {
       &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
 
       &, &:hover, &:active, &:checked, &:disabled {
-        @extend %linked_header;
+        border-radius: 0;
+        border-left-style: none;
+        border-right-style: solid;
+
+        &:first-child {
+          border-top-left-radius: $bt_radius;
+          border-bottom-left-radius: $bt_radius;
+          border-left-style: solid;
+        }
+
+        &:last-child {
+          border-top-right-radius: $bt_radius;
+          border-bottom-right-radius: $bt_radius;
+        }
+
+        &:only-child {
+          border-radius: $bt_radius;
+          border-style: solid;
+        }
       }
 
       @if $variant == 'light' {
@@ -2380,51 +2390,7 @@ window.thunar {
  /*********
   * Geary *
   *********/
-.geary-titlebar-left {
-  // remove unexpected "hardcoded" vertical separator
-  separator { opacity: 0; }
-
-  > button { // button
-    min-width: 22px;
-  }
-}
-
-.geary-titlebar-right {
-  // stop double-shadows on right paned header-bar
-  separator { opacity: 0; }
-  box-shadow: none;
-
-  > button { // button
-    min-width: 22px;
-  }
-
-  > box.linked.raised.horizontal > button.image-button {
-    border-right: 1px solid $borders_color;
-
-    &, &:hover, &:active, &:checked, &:disabled {
-      @extend %linked_header;
-    }
-
-    &:last-child {
-      border-radius: 0 $bt_radius $bt_radius 0;
-      border-left: none;
-
-      @if $variant == 'light' {
-        &:active { box-shadow: -1px 0 $header_button_active_bg; }
-        &:checked { box-shadow: -1px 0 $header_button_checked_bg; }
-      }
-
-      @if $variant == 'dark' {
-        border-right: none;
-      }
-    }
-  }
-}
-
-// .geary-composer-box {
-//   entry { margin: 0 2px 2px 2px; }
-// }
-
+.geary-main-window.background.csd,
 window#GearyMainWindow.background.csd {
   box.vertical > paned.horizontal > box.sidebar.vertical {
     border-bottom-left-radius: $wm_radius;
@@ -2866,7 +2832,7 @@ button.flat.-panel-button,
 button#tasklist-button.toggle.flat,
 // tasklist-arrow-button.toggle.flat.-panel-flat-button, // xfce tasklist button
 button.flat.-panel-icon-button {
-  @extend %budgie_icon_tasklist_button;
+  // @extend %budgie_icon_tasklist_button;
 
   &:hover {
     box-shadow: inset 0 -2px rgba($selected_bg_color, 0.5);
@@ -3123,7 +3089,19 @@ window.background.csd {
             &:disabled { color: rgba($dark_sidebar_fg, 0.45); }
           }
 
-          &.trough { @extend %treeview_trough; }
+          &.trough {
+            color: $fg_color;
+            background-color: $button_border;
+            border-radius: $bt_radius;
+            border-width: 0;
+
+            &:selected, &:selected:focus {
+              color: $selected_fg_color;
+              background-color: transparentize(black, 0.8);
+              border-radius: $bt_radius;
+              border-width: 0;
+            }
+          }
         }
       }
     }
@@ -3192,30 +3170,6 @@ headerbar.titlebar {
 
     + button.flat.image-button.toggle { margin-right: if($variant=='light', -6px, -5px); }
   }
-
-  // .linked.raised {
-  //   > button.toggle {
-  //     @extend %outline_dashed;
-  //     @include button(header-normal);
-  //     &:hover { @include button(header-hover); }
-  //     &:active { @include button(header-active); }
-  //     &:checked { @include button(header-checked); }
-  //     &:disabled { color: transparentize($header_fg, 0.4); }
-  //     &:backdrop { opacity: 0.7; background-image: none;}
-  //     &, &:hover, &:active, &:checked, &:disabled {
-  //       @extend %linked;
-  //       border-color: $borders_color;
-  //     }
-  //   }
-  //
-  //   fixed ugly border color
-  //   > button.toggle:not(:last-child) {
-  //     &:active { @if $variant=='light' { box-shadow: 1px 0 $header_button_active_bg; }}
-  //     &:checked { @if $variant=='light' { box-shadow: 1px 0 $header_button_checked_bg; }}
-  //   }
-  //
-  //   @include pathbar_linking_rules ($button_rules: 'header');
-  // }
 
   // Hide Code header format-bar
   > grid.linked.horizontal.format-bar {

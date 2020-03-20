@@ -190,7 +190,13 @@ $header_button_checked_image:       if($variant == 'light',
 
 $menubar_bg_image:                  linear-gradient(0deg, $header_bottom 0%, $header_middle 100%);
 
-//WM Buttons
+// WM colors
+$wm_border_light: 0 0 0 2px rgba(black, 0.03), 0 0 0 1px rgba(black, 0.12);
+$wm_border_dark: 0 0 0 2px rgba(black, 0.1), 0 0 0 1px rgba(black, 0.75);
+$wm_shadow: if($variant=='light', rgba(black, 0.15), rgba(black, 0.35));
+$wm_border: if($variant=='light', $wm_border_light, $wm_border_dark);
+
+// WM Buttons
 
 // Close
 $wm_button_close_bg:                if($variant == 'light', #f46067, #cc575d);

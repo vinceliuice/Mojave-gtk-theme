@@ -1151,7 +1151,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     padding: 10px;
     border: 1px solid rgba(0,0,0,0);
 
-    &:hover { @extend %button:hover; }
+    &:hover { @extend %button, :hover; }
   }
 
   &-places {
@@ -1179,7 +1179,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     &:highlighted { font-weight: bold; }
 
     &-selected {
-      @extend %button:active;
+      @extend %button, :active;
       padding: 6px;
       border-radius: 2px;
       border: none;
@@ -1223,11 +1223,11 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
 
     &-selected {
       padding: 6px;
-      @extend %button:hover;
+      @extend %button, :hover;
       border: 1px solid $button_borders;
     }
     &-hover {
-      @extend %button:hover;
+      @extend %button, :hover;
     }
     &-greyed {
       padding: 6px;
