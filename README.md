@@ -84,6 +84,9 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-r, --revert         | revert GDM theme, you should run this with sudo!|
 |-h, --help           | Show this help|
 
+#### AUR for ArchLinux/Manjaro
+Search `mojave-gtk-theme-git-new ` : https://aur.archlinux.org/packages/mojave-gtk-theme-git-new/
+
 ### Kde theme
 [McMojave-kde](https://github.com/vinceliuice/McMojave-kde)
 

@@ -2005,14 +2005,6 @@ $selected_slider_color: white;
   }
 }
 
-.show-apps {
-  & .overview-icon {
-    // background-image: url("assets/startup.svg");
-    // background-size: contain;
-    color: transparent;
-  }
-}
-
 .app-well-app-running-dot { //running apps indicator
   width: 5px; height: 5px;
   border-radius: 3px;
@@ -2035,8 +2027,12 @@ $selected_slider_color: white;
 
 .show-apps .show-apps-icon {
   color: transparent;
-  background-image: -gtk-scaled(url("assets/startup.svg"),url("assets/startup@2.svg"));
+  background-image: url("assets/startup@2.svg");
   background-size: contain;
+}
+
+.show-apps .overview-icon {
+  color: transparent;
 }
 
 .show-apps:hover .show-apps-icon,

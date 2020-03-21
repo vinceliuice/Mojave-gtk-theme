@@ -60,9 +60,11 @@
     <file>assets/menu-solid.svg</file>
     <file>assets/menu-active.svg</file>
     <file>assets/menu-hover.svg</file>
-    <file>no-events.svg</file>
-    <file>no-notifications.svg</file>
-    <file>process-working.svg</file>
+    <file>assets/submenu.svg</file>
+    <file>assets/submenu-open.svg</file>
+    <file alias="assets/no-events.svg">no-events.svg</file>
+    <file alias="assets/no-notifications.svg">no-notifications.svg</file>
+    <file alias="assets/process-working.svg">process-working.svg</file>
     <file>gnome-shell.css</file>
   </gresource>
 </gresources>
