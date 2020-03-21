@@ -132,7 +132,10 @@ UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
 UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
 
 install_gdm() {
-  local GDM_THEME_DIR="${1}/${2}${3}${4}"
+  local GDM_THEME_DIR="${1}/${2}${3}"
+
+  echo
+  echo "Installing ${2}${3} gdm theme..."
 
   if [[ -f "$GS_THEME_FILE" ]] && command -v glib-compile-resources >/dev/null ; then
     echo "Installing '$GS_THEME_FILE'..."
