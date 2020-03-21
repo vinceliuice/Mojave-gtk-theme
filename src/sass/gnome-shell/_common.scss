@@ -2536,7 +2536,7 @@ $selected_slider_color: white;
   padding-left: 2px;
   .login-dialog-not-listed-button:focus &,
   .login-dialog-not-listed-button:hover & {
-    color: $light_alt_fg_color;
+    color: $light_fg_color;
   }
 }
 
@@ -2576,26 +2576,19 @@ $selected_slider_color: white;
   &:focus .login-dialog-timed-login-indicator { background-color: $light_alt_fg_color; }
 }
 
-.login-dialog-username,
+// .login-dialog-username,
 .user-widget-label {
   color: $light_alt_fg_color;
-  @include font(title);
-  text-align: center;
-  padding-left: 15px;
-}
-
-.user-widget-label {
-  &:ltr { padding-left: 16px; }
-  &:rtl { padding-right: 16px; }
 }
 
 .user-widget.horizontal .user-widget-label {
+  // @include font(title);
   font-weight: bold;
-  text-align: center;
+  text-align: left;
   padding-left: 15px;
 
-  &:ltr { padding-left: 16px; }
-  &:rtl { padding-right: 16px; }
+  &:ltr { padding-left: 14px; }
+  &:rtl { padding-right: 14px; }
 }
 
 .user-widget.vertical .user-widget-label {
@@ -2609,10 +2602,10 @@ $selected_slider_color: white;
 }
 
 .login-dialog-prompt-layout {
-    padding-top: 24px;
-    padding-bottom: 12px;
-    spacing: 8px;
-    width: 23em;
+  padding-top: 24px;
+  padding-bottom: 12px;
+  spacing: 8px;
+  width: 23em;
 }
 
 .login-dialog-prompt-label {
@@ -2621,15 +2614,6 @@ $selected_slider_color: white;
     padding-top: 1em;
 }
 
-.login-dialog-session-list-button StIcon {
-    icon-size: 16px;
-}
-
-.login-dialog-session-list-button {
-    color: $light_alt_fg_color;
-    &:hover,&:focus { color: $light_alt_fg_color; }
-    &:active { color: $light_alt_fg_color; }
-}
 
 //SCREEN SHIELD
 
