@@ -2265,15 +2265,9 @@ window.thunar {
 
     button.path-bar-button {
       min-height: if($variant == 'light', 24px, 26px);
-      @if $variant=='dark' {
-        border: none;
-      }
-    }
-
-    @if $variant=='dark' {
-      button.path-bar-button {
-        border: none;
-      }
+      // @if $variant=='dark' {
+      //   border: none;
+      // }
     }
 
     button.flat {
@@ -2282,6 +2276,8 @@ window.thunar {
       border-width: 1px;
       margin-left: 0;
       margin-right: 0;
+      min-height: if($variant == 'light', 24px, 26px);
+      min-width: 22px;
       background-clip: padding-box;
 
       @if $variant=='dark' {
@@ -2368,9 +2364,9 @@ window.thunar {
 
     // FIXME: need to unset for weird allocation height
     entry {
-      min-height: if($variant == 'light', 16px, 16px);
+      // min-height: if($variant == 'light', 19px, 21px);
       margin-top: -2px;
-      margin-bottom: -2px;
+      margin-bottom: -1px;
     }
   }
 

@@ -10,8 +10,8 @@ $base_color:                        if($variant == 'light', #ffffff, #242424);
 $text_color:                        if($variant == 'light', #363636, #dadada);
 $bg_color:                          if($variant == 'light', #f5f5f5, #333333);
 $fg_color:                          if($variant == 'light', #242424, #dedede);
-$alt_fg_color:                      if($variant == 'light', #383838, #bbbbbb);
-$hint_fg_color:                     if($variant == 'light', #525252, #999999);
+$alt_fg_color:                      if($variant == 'light', #424242, #ababab);
+$hint_fg_color:                     if($variant == 'light', #565656, #888888);
 
 $track_color:                       if($variant == 'light', rgba(black, 0.20), rgba(white, 0.10));
 $visit_color:                       if($variant == 'light', rgba(black, 0.16), rgba(white, 0.08));
@@ -105,7 +105,7 @@ $osd_button_bg:                     rgba(lighten($osd_bg_color, 22%), 0.96);
 $osd_button_border:                 $dark_borders_color;
 $osd_entry_bg:                      rgba(lighten($osd_bg_color, 22%), 0.96);
 $osd_entry_border:                  $dark_borders_color;
-$osd_disabled_bg_color:          darken($osd_bg_color, 3%);
+$osd_disabled_bg_color:             darken($osd_bg_color, 3%);
 $osd_disabled_fg_color:             mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
 $osd_borders_color:                 $borders_color;
 
