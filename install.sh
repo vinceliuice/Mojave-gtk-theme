@@ -28,7 +28,6 @@ usage() {
   printf "  %-25s%s\n" "-o, --opacity VARIANTS" "Specify theme opacity variant(s) [standard|solid] (Default: All variants)"
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
-  printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify titilebutton size variant(s) [standard|small] (Default: standard variant)"
   printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian|void] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-r, --revert" "revert GDM theme, this option need root user authority! please run this with sudo"
@@ -40,12 +39,13 @@ install() {
   local name=${2}
   local color=${3}
   local opacity=${4}
-  local icon=${5}
+  local alt=${5}
+  local icon=${6}
 
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
 
-  local THEME_DIR=${1}/${2}${3}${4}
+  local THEME_DIR=${1}/${2}${3}${4}${5}
 
   [[ -d ${THEME_DIR} ]] && rm -rf ${THEME_DIR}
 
@@ -86,7 +86,7 @@ install() {
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/assets/gtk-3.0/common-assets/assets                                 ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton                           ${THEME_DIR}/gtk-3.0/windows-assets
+  cp -ur ${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton${alt}                     ${THEME_DIR}/gtk-3.0/windows-assets
   cp -ur ${SRC_DIR}/assets/gtk-3.0/thumbnail${color}.png                                ${THEME_DIR}/gtk-3.0/thumbnail.png
   cp -ur ${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}.css                                 ${THEME_DIR}/gtk-3.0/gtk-dark.css
 
@@ -222,6 +222,29 @@ while [[ $# -gt 0 ]]; do
       revert='true'
       shift 1
       ;;
+    -a|--alt)
+      shift
+      for alt in "${@}"; do
+        case "${alt}" in
+          standard)
+            alts+=("${ALT_VARIANTS[0]}")
+            shift
+            ;;
+          alt)
+            alts+=("${ALT_VARIANTS[1]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized opacity variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -o|--opacity)
       shift
       for opacity in "${@}"; do
@@ -334,8 +357,10 @@ done
 install_theme() {
 for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
-      install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${icon}"
+    for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
+      for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
+        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${icon}"
+      done
     done
   done
 done

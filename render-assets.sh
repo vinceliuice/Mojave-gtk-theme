@@ -48,7 +48,7 @@ cd $ASRC_DIR/gtk-2.0 && ./render-assets.sh
 
 echo Rendering gtk-3.0 assets
 cd $ASRC_DIR/gtk-3.0/common-assets && ./render-assets.sh
-cd $ASRC_DIR/gtk-3.0/windows-assets && ./render-assets.sh
+cd $ASRC_DIR/gtk-3.0/windows-assets && ./render-assets.sh && ./render-alt-assets.sh
 
 echo Rendering metacity-1 assets
 cd $ASRC_DIR/metacity-1 && ./render-assets.sh

@@ -395,76 +395,76 @@ $selected_slider_color: white;
   border: none;
 }
 
-  .end-session-dialog-list {
-      padding-top: 20px;
-  }
+.end-session-dialog-list {
+    padding-top: 20px;
+}
 
-  .end-session-dialog-layout {
-    padding-left: 17px;
-    &:rtl { padding-right: 17px; }
-  }
+.end-session-dialog-layout {
+  padding-left: 17px;
+  &:rtl { padding-right: 17px; }
+}
 
-  .end-session-dialog-description {
-    width: 28em;
-    padding-bottom: 10px;
-    &:rtl {
-      text-align: right;
-    }
+.end-session-dialog-description {
+  width: 28em;
+  padding-bottom: 10px;
+  &:rtl {
+    text-align: right;
   }
+}
 
-  .end-session-dialog-warning {
-    width: 28em;
-    color: $warning_color;
-    padding-top: 6px;
-    &:rtl {
-      text-align: right;
-    }
+.end-session-dialog-warning {
+  width: 28em;
+  color: $warning_color;
+  padding-top: 6px;
+  &:rtl {
+    text-align: right;
   }
+}
 
-  .end-session-dialog-logout-icon {
-    border-radius: 5px;
-    width: 48px;
-    height: 48px;
-    background-size: contain;
-  }
+.end-session-dialog-logout-icon {
+  border-radius: 5px;
+  width: 48px;
+  height: 48px;
+  background-size: contain;
+}
 
-  .end-session-dialog-shutdown-icon {
-    color: $hint_fg_color;
-    width: 48px;
-    height: 48px;
-  }
+.end-session-dialog-shutdown-icon {
+  color: $hint_fg_color;
+  width: 48px;
+  height: 48px;
+}
 
-  .end-session-dialog-inhibitor-layout {
-    spacing: 16px;
-    max-height: 200px;
-    padding-right: 65px;
-    padding-left: 65px;
-  }
+.end-session-dialog-inhibitor-layout {
+  spacing: 16px;
+  max-height: 200px;
+  padding-right: 65px;
+  padding-left: 65px;
+}
 
-  .end-session-dialog-session-list,
-  .end-session-dialog-app-list {
-    spacing: 1em;
-  }
+.end-session-dialog-session-list,
+.end-session-dialog-app-list {
+  spacing: 1em;
+}
 
-  .end-session-dialog-list-header {
-    font-weight: bold;
-    &:rtl { text-align: right; }
-  }
+.end-session-dialog-list-header {
+  font-weight: bold;
+  &:rtl { text-align: right; }
+}
 
-  .end-session-dialog-app-list-item,
-  .end-session-dialog-session-list-item {
-    spacing: 1em;
-  }
+.end-session-dialog-app-list-item,
+.end-session-dialog-session-list-item {
+  spacing: 1em;
+}
 
-  .end-session-dialog-app-list-item-name,
-  .end-session-dialog-session-list-item-name {
-    font-weight: bold;
-  }
+.end-session-dialog-app-list-item-name,
+.end-session-dialog-session-list-item-name {
+  font-weight: bold;
+}
 
-  .end-session-dialog-app-list-item-description {
-    color: $hint_fg_color;
-    font-size: 1em;
-  }
+.end-session-dialog-app-list-item-description {
+  color: $hint_fg_color;
+  font-size: 1em;
+}
 
 /* ShellMountOperation Dialogs */
 .shell-mount-operation-icon { icon-size: 48px; }
@@ -2514,8 +2514,8 @@ $selected_slider_color: white;
     border-radius: 100px;
     width: 32px;
     height: 32px;
-    border-color: transparentize($bg_color,0.7);
-    background-color: transparentize($bg_color,0.7);
+    border-color: transparentize($bg_color, 0.7);
+    background-color: transparentize($bg_color, 0.7);
 
     StIcon { icon-size: 16px; }
   }
@@ -2609,9 +2609,9 @@ $selected_slider_color: white;
 }
 
 .login-dialog-prompt-label {
-    color: $light_hint_fg_color;
-    font-size: 1em;
-    padding-top: 1em;
+  color: $light_hint_fg_color;
+  font-size: 1em;
+  padding-top: 1em;
 }
 
 
