@@ -2237,37 +2237,49 @@ window.background.csd.thunar {
       background-color: transparent;
     }
   }
-
-  > grid.horizontal > paned.horizontal > separator {
-    background-image: image($solid_borders_color);
-  }
 }
 
 window.thunar {
-  > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
-    border-top: none;
-    background-color: $dark_sidebar_bg;
-
-    treeview.view {
+  > grid.horizontal > paned.horizontal {
+    > scrolledwindow.frame.sidebar.shortcuts-pane {
+      border-top: none;
       background-color: $dark_sidebar_bg;
 
-      &:hover { background-color: if($variant == 'light', rgba(black, 0.08), rgba(white, 0.08)); }
+      treeview.view {
+        background-color: $dark_sidebar_bg;
 
-      &:selected, &:selected:hover, &:active:hover {
-        color: $fg_color;
-        background-color: $sidebar_theme_color;
+        &:hover { background-color: if($variant == 'light', rgba(black, 0.08), rgba(white, 0.08)); }
+
+        &:selected, &:selected:hover, &:active:hover {
+          color: $fg_color;
+          background-color: $sidebar_theme_color;
+        }
       }
+    }
+
+    > separator {
+      background-image: if($variant == 'light', image($solid_borders_color), image($header_border));
     }
   }
 
   toolbar#location-toolbar {
-    border-bottom: 1px solid $borders_color;
+    border-bottom: 1px solid $header_border;
 
     button.path-bar-button {
       min-height: if($variant == 'light', 24px, 26px);
-      // @if $variant=='dark' {
-      //   border: none;
-      // }
+      border-right: 1px solid $borders_color;
+
+      @if $variant == 'light' {
+        &:active, &:checked { box-shadow: -1px 0 darken($header_button_active_bg, 12%); }
+      }
+
+      @if $variant=='dark' {
+        border-width: 0 1px 0 0;
+
+        &:last-child {
+          border-right-width: 0;
+        }
+      }
     }
 
     button.flat {
@@ -2277,7 +2289,6 @@ window.thunar {
       margin-left: 0;
       margin-right: 0;
       min-height: if($variant == 'light', 24px, 26px);
-      min-width: 22px;
       background-clip: padding-box;
 
       @if $variant=='dark' {
@@ -2342,16 +2353,16 @@ window.thunar {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: none;
-      margin-left: 6px;
+      margin-left: 10px;
     }
 
     > toolbutton#open-home > button.image-button.flat:not(.toggle) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      margin-right: 6px;
+      margin-right: 10px;
 
       @if $variant=='dark' {
-        margin-left: 1px;
+        border-left: 1px solid $borders_color;
       }
     }
 
@@ -2380,6 +2391,14 @@ window.thunar {
     // an allocation height of label node affects to close button's
     // image height (it's quite weird).
     header.top tab.reorderable-page > box > label { min-height: 0; }
+  }
+}
+
+dialog.background:not(.csd) {
+  > .dialog-vbox > .dialog-action-box {
+    > .dialog-action-area {
+      margin: 0 6px 6px;
+    }
   }
 }
 

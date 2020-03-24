@@ -1584,7 +1584,7 @@ headerbar {
     > button:hover + button { box-shadow: inset 1px 0 $button_border; }
 
     > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
-    > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled { }
+    > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {}
 
     > button:first-child:hover:not(:active),
     > entry + button:not(:active):hover { box-shadow: none; }
