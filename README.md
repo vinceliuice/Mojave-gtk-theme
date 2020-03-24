@@ -7,10 +7,7 @@ This theme is based on Arc gtk theme of horst3180. Thanks horst3180 sincerely fo
 horst3180 - Arc gtk theme: https://github.com/horst3180/Arc-theme
 
 ## Last releases
-- [Mojave-dark](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-dark.tar.xz)
-- [Mojave-light](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-light.tar.xz)
-- [Mojave-dark-solid](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-dark-solid.tar.xz)
-- [Mojave-light-solid](https://github.com/vinceliuice/Mojave-gtk-theme/releases/download/2020-03-19/Mojave-light-solid.tar.xz)
+- [2020-03-24](https://github.com/vinceliuice/Mojave-gtk-theme/releases/tag/2020-03-24)
 
 ## Info
 
