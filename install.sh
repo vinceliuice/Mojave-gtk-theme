@@ -18,7 +18,7 @@ fi
 THEME_NAME=Mojave
 COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
-ALT_VARIANTS=('' '-alt'
+ALT_VARIANTS=('' '-alt')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
 usage() {
