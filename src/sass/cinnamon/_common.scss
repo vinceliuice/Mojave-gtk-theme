@@ -33,18 +33,15 @@ stage {
   min-height: 20px;
   padding: 5px 32px;
   transition-duration: 100ms;
-
-  &, &:focus, &:hover, &:hover:focus, &:active, &:active:focus, &:insensitive {
-    border-radius: 5px;
-  }
+  border-radius: 5px;
 
   @include button(normal);
 
-  &:focus { @include button(focus); }
-  &:hover { @include button(hover); }
-  &:hover:focus { @include button(focus-hover); }
-  &:active, &:active:focus { @include button(active); }
-  &:insensitive { @include button(insensitive); }
+  &:focus { @include button(focus); border-radius: 5px; }
+  &:hover { @include button(hover); border-radius: 5px; }
+  &:hover:focus { @include button(focus-hover); border-radius: 5px; }
+  &:active, &:active:focus { @include button(active); border-radius: 5px; }
+  &:insensitive { @include button(insensitive); border-radius: 5px; }
 }
 
 %osd_button {
@@ -1150,8 +1147,9 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   &-favorites-button {
     padding: 10px;
     border: 1px solid rgba(0,0,0,0);
+    border-radius: 5px;
 
-    &:hover { @extend %button, :hover; }
+    &:hover { @include button(hover); border-radius: 5px; }
   }
 
   &-places {
@@ -1179,7 +1177,7 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
     &:highlighted { font-weight: bold; }
 
     &-selected {
-      @extend %button, :active;
+      @include button(active);
       padding: 6px;
       border-radius: 2px;
       border: none;
@@ -1220,14 +1218,15 @@ $menu_border: if($variant=='light', darken($menu_bg, 18%), darken($menu_bg, 12%)
   &-category-button {
     padding: 6px;
     border: 1px solid rgba(0,0,0,0);
+    border-radius: 5px;
 
     &-selected {
       padding: 6px;
-      @extend %button, :hover;
       border: 1px solid $button_borders;
     }
-    &-hover {
-      @extend %button, :hover;
+    &-hover, &-selected {
+      @include button(hover);
+      border-radius: 5px;
     }
     &-greyed {
       padding: 6px;
