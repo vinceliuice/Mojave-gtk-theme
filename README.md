@@ -29,19 +29,13 @@ ArchLinux:
 
     pacman -S gtk-engine-murrine gtk-engines
 
-Other:
-Search for the engines in your distributions repository or install the engines from source.
 
-## Installation
-
-### From source
-
-#### Depends requirment
+### Installation Depends requirment
 - sassc.
 - optipng.
 - inkscape.
-- libglib2.0-dev. `ubuntu 18.04` `debian 10.03`
-- libxml2-utils. `ubuntu 18.04` `debian 10.03`
+- libglib2.0-dev. `ubuntu 18.04` `debian 10.03` `linux mint 19`
+- libxml2-utils. `ubuntu 18.04` `debian 10.03` `linux mint 19`
 
 Fedora/RedHat distros:
 
@@ -62,6 +56,10 @@ ArchLinux:
 Other:
 Search for the depends in your distributions repository or install the depends from source.
 
+## Installation
+
+### From source
+
 After depends all installed you can Run
 
     ./install.sh
@@ -77,6 +75,7 @@ Usage:  `./Install`  **[OPTIONS...]**
 |-c, --color          | Specify theme color variant(s) **[light/dark]** (Default: All variants)|
 |-o, --opacity        | Specify theme opacity variant(s) **[standard/solid]** (Default: All variants)|
 |-a, --alt            | Specify titlebutton variant(s) **[standard/alt]** (Default: All variants)|
+|-s, --small          | Specify titlebutton size variant(s) **[standard/small]** (Default: standard variants)|
 |-i, --icon           | activities icon variant(s) **[standard/normal/gnome/ubuntu/arch/manjaro/fedora/debian/void]** (Default: standard variant)|
 |-g, --gdm            | Install GDM theme, you should run this with sudo!|
 |-r, --revert         | revert GDM theme, you should run this with sudo!|

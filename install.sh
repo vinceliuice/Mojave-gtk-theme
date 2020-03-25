@@ -19,6 +19,7 @@ THEME_NAME=Mojave
 COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
+SMALL_VARIANTS=('' '-small')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
 usage() {
@@ -29,6 +30,7 @@ usage() {
   printf "  %-25s%s\n" "-o, --opacity VARIANTS" "Specify theme opacity variant(s) [standard|solid] (Default: All variants)"
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
+  printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify theme titilebutton size variant(s) [standard|small] (Default: All variants)"
   printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian|void] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-r, --revert" "revert GDM theme, this option need root user authority! please run this with sudo"
@@ -41,12 +43,13 @@ install() {
   local color=${3}
   local opacity=${4}
   local alt=${5}
-  local icon=${6}
+  local small=${6}
+  local icon=${7}
 
   [[ ${color} == '-light' ]] && local ELSE_LIGHT=${color}
   [[ ${color} == '-dark' ]] && local ELSE_DARK=${color}
 
-  local THEME_DIR=${1}/${2}${3}${4}${5}
+  local THEME_DIR=${1}/${2}${3}${4}${5}${6}
 
   [[ -d ${THEME_DIR} ]] && rm -rf ${THEME_DIR}
 
@@ -57,13 +60,13 @@ install() {
 
   echo "[Desktop Entry]" >>                                                             ${THEME_DIR}/index.theme
   echo "Type=X-GNOME-Metatheme" >>                                                      ${THEME_DIR}/index.theme
-  echo "Name=${name}${color}${opacity}" >>                                              ${THEME_DIR}/index.theme
+  echo "Name=${name}${color}${opacity}${alt}${small}" >>                                ${THEME_DIR}/index.theme
   echo "Comment=An Stylish Gtk+ theme based on Elegant Design" >>                       ${THEME_DIR}/index.theme
   echo "Encoding=UTF-8" >>                                                              ${THEME_DIR}/index.theme
   echo "" >>                                                                            ${THEME_DIR}/index.theme
   echo "[X-GNOME-Metatheme]" >>                                                         ${THEME_DIR}/index.theme
-  echo "GtkTheme=${name}${color}${opacity}" >>                                          ${THEME_DIR}/index.theme
-  echo "MetacityTheme=${name}${color}${opacity}" >>                                     ${THEME_DIR}/index.theme
+  echo "GtkTheme=${name}${color}${opacity}${alt}${small}" >>                            ${THEME_DIR}/index.theme
+  echo "MetacityTheme=${name}${color}${opacity}${alt}${small}" >>                       ${THEME_DIR}/index.theme
   echo "IconTheme=Adwaita" >>                                                           ${THEME_DIR}/index.theme
   echo "CursorTheme=Adwaita" >>                                                         ${THEME_DIR}/index.theme
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                   ${THEME_DIR}/index.theme
@@ -87,7 +90,7 @@ install() {
 
   mkdir -p                                                                              ${THEME_DIR}/gtk-3.0
   cp -ur ${SRC_DIR}/assets/gtk-3.0/common-assets/assets                                 ${THEME_DIR}/gtk-3.0
-  cp -ur ${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton${alt}                     ${THEME_DIR}/gtk-3.0/windows-assets
+  cp -ur ${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton${alt}${small}             ${THEME_DIR}/gtk-3.0/windows-assets
   cp -ur ${SRC_DIR}/assets/gtk-3.0/thumbnail${color}.png                                ${THEME_DIR}/gtk-3.0/thumbnail.png
   cp -ur ${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}.css                                 ${THEME_DIR}/gtk-3.0/gtk-dark.css
 
@@ -246,6 +249,29 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
+    -s|--small)
+      shift
+      for small in "${@}"; do
+        case "${small}" in
+          standard)
+            smalls+=("${SMALL_VARIANTS[0]}")
+            shift
+            ;;
+          small)
+            smalls+=("${SMALL_VARIANTS[1]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            echo "ERROR: Unrecognized opacity variant '$1'."
+            echo "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -o|--opacity)
       shift
       for opacity in "${@}"; do
@@ -359,8 +385,10 @@ install_theme() {
 for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
-      for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
-        install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${icon}"
+      for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+        for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
+          install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
+        done
       done
     done
   done
@@ -373,12 +401,16 @@ done
 
 cd ${SRC_DIR}/main/gtk-3.0 && ./make_gresource_xml.sh
 
+if [[ "${small:-}" == 'small' ]]; then
+  cd ${SRC_DIR}/assets/gtk-3.0/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
+fi
+
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   install_theme
 fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
-  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}"
+  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then
