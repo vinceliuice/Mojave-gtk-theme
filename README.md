@@ -84,6 +84,10 @@ Usage:  `./Install`  **[OPTIONS...]**
 #### AUR for ArchLinux/Manjaro
 Search `mojave-gtk-theme-git-new ` : https://aur.archlinux.org/packages/mojave-gtk-theme-git-new/
 
+    sudo pacman -Syu yaourt
+
+    sudo yaourt mojave-gtk-theme-git-new
+
 ### Kde theme
 [McMojave-kde](https://github.com/vinceliuice/McMojave-kde)
 
