@@ -1802,7 +1802,7 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   // @extend %titlebar;
 }
 
-headerbar, .titlebar {
+headerbar, .titlebar:not(.vertical) {
   button {
     min-height: if($variant == 'light', 24px, 26px);
     min-width: 22px;
