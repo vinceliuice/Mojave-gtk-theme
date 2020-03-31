@@ -92,7 +92,7 @@ window.background.csd { // gnome-terminal 3.32 setting
   }
 
   &:checked {
-    color: if($variant=='light', $selected_fg_color, $alt_fg_color);
+    color: if($variant=='light', $selected_fg_color, $bg_color);
     background-color: $header_button_checked_bg;
     background-image: $header_button_checked_image;
     border-radius: 0 $bt_radius $bt_radius 0;
@@ -100,7 +100,7 @@ window.background.csd { // gnome-terminal 3.32 setting
   }
 
   &:checked:hover {
-    color: if($variant=='light', $selected_fg_color, $alt_fg_color);
+    color: if($variant=='light', $selected_fg_color, $base_color);
   }
 
   &:disabled { color: rgba($header_fg, 0.45); }
