@@ -20,7 +20,6 @@
   outline-offset: -3px;
   outline-width: 1px;
   -gtk-outline-radius: $bt_radius;
-
   -gtk-secondary-caret-color: $selected_bg_color;
 }
 
@@ -1623,6 +1622,9 @@ headerbar {
   // Headerbar Switches
   switch {
     //  @extend %switch;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
     &:backdrop { opacity: 0.75; }
   }
 
