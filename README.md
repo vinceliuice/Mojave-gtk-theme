@@ -3,12 +3,6 @@
 
 Mojave is a Mac OSX like theme for GTK 3, GTK 2 and Gnome-Shell which supports GTK 3 and GTK 2 based desktop environments like Gnome, Pantheon, XFCE, Mate, etc.
 
-This theme is based on Arc gtk theme of horst3180. Thanks horst3180 sincerely for his great job!
-horst3180 - Arc gtk theme: https://github.com/horst3180/Arc-theme
-
-## Last releases
-- [2020-03-24](https://github.com/vinceliuice/Mojave-gtk-theme/releases/tag/2020-03-24)
-
 ## Info
 
 ### GTK+ 3.20 or later
