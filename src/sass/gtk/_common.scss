@@ -3732,12 +3732,14 @@ infobar {
   background-color: transparentize($selected_fg_color, 1);
   border-color: transparentize($selected_fg_color, 0.5);
   background-image: none;
+  box-shadow: none;
 
   &.flat {
     @include button(undecorated);
     color: $selected_fg_color;
     background-color: transparentize($selected_fg_color, 1);
     background-image: none;
+    box-shadow: none;
   }
 
   &.flat:disabled {
@@ -3745,12 +3747,14 @@ infobar {
   }
 
   &:hover {
+    box-shadow: none;
     color: $selected_fg_color;
     background-color: transparentize($selected_fg_color, 0.8);
     border-color: transparentize($selected_fg_color, 0.5);
   }
 
   &:active, &:active:hover, &:checked {
+    box-shadow: none;
     color: $selected_fg_color;
     background-color: transparentize($selected_fg_color, 0.6);
     border-color: transparentize($selected_fg_color, 0.5);
@@ -3760,6 +3764,7 @@ infobar {
     &, label { color: transparentize($selected_fg_color, 0.5); }
     background-color: transparentize($selected_fg_color, 1);
     border-color: transparentize($selected_fg_color, 0.6);
+    box-shadow: none;
   }
 
   &:disabled:active, &:disabled:checked {
