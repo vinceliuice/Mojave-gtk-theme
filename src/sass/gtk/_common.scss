@@ -1426,6 +1426,11 @@ headerbar,
     }
   }
 
+  // Headerbar Suggested and Destructive Action buttons
+  button.suggested-action, button.destructive-action {
+    &, &:hover, &:active, &:checked { box-shadow: none; }
+  }
+
   // Headerbar Switches
   switch {
     //  @extend %switch;

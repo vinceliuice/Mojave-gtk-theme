@@ -1344,6 +1344,17 @@ window.background.csd {
           }
         }
       }
+
+      > scrolledwindow > viewport > hdycolumn {
+        frame > list > row {
+          .row-header > button:not(.text-button) {
+            min-height: 28px;
+            min-width: 28px;
+            padding: 0;
+            margin: 4px 0;
+          }
+        }
+      }
     }
   }
 
