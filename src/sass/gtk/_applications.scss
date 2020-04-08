@@ -109,6 +109,19 @@ window.background.csd { // gnome-terminal 3.32 setting
 }
 
 .nautilus-window headerbar {
+
+  .linked.raised:not(.path-bar) > button.image-button {
+    @extend %outline_dashed;
+
+    &, &:hover, &:active, &:checked, &:disabled {
+      border-radius: $bt_radius;
+      margin-right: if($variant=='light', 0, 1px);
+      border-right: none;
+
+      @if $variant == 'light' { border: 1px solid $borders_color; }
+    }
+  }
+
   .path-bar-box {
     color: transparent;
     background: none;
@@ -398,7 +411,27 @@ $disk_space_free: darken($bg_color, 3%);
   }
 
   .sidebar {
+    color: $dark_sidebar_fg;
+    background-color: $dark_sidebar_bg;
+
     scrolledwindow.frame { border: none; } // Removed treeview double borders
+
+    .view, row {
+      background-color: transparent;
+      color: $dark_sidebar_fg;
+      @extend %row_activatable;
+
+      &.cell:selected {
+        color: $fg_color;
+        background-color: $sidebar_theme_color;
+      }
+
+      &.expander {
+        color: mix($dark_sidebar_fg, $dark_sidebar_bg, 50%);
+
+        &:hover { color: $dark_sidebar_fg; }
+      }
+    }
   }
 
   paned > separator { background-image: image($solid_borders_color); }
@@ -1274,7 +1307,7 @@ window.background.csd {
     border-right: none;
     background: none;
     min-width: 0;
-    // box-shadow: inset 0 -1px $header_border;
+    border-bottom: 1px solid $header_border;
   }
 
   > stack {

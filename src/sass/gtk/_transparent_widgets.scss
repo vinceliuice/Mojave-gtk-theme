@@ -117,34 +117,6 @@ filechooser {
   }
 }
 
-.nemo-window {
-  .sidebar {
-    color: $dark_sidebar_fg;
-    background-color: $dark_sidebar_bg;
-
-    .view, row {
-      background-color: transparent;
-      color: $dark_sidebar_fg;
-      @extend %row_activatable;
-
-      &.cell:selected {
-        color: $fg_color;
-        background-color: $sidebar_theme_color;
-      }
-
-      &.expander {
-        color: mix($dark_sidebar_fg, $dark_sidebar_bg, 50%);
-
-        &:hover { color: $dark_sidebar_fg; }
-      }
-    }
-
-    separator { background-color: transparent; }
-
-    scrollbar { @extend %dark_sidebar_scrollbar }
-  }
-}
-
 .caja-side-pane {
   &,
   > notebook > stack > widget > box,
@@ -164,40 +136,6 @@ filechooser {
 
   scrollbar { @extend %dark_sidebar_scrollbar; }
   junction { background-color: darken($dark_sidebar_bg, 5%); }
-}
-
-// Gedit
-.gedit-bottom-panel-paned { background-color: $base_color; }
-
-.gedit-side-panel-paned > separator { background-image: _solid($dark_sidebar_border); }
-.gedit-bottom-panel-paned > separator { background-image: _solid($borders_color); }
-
-.gedit-document-panel {
-  background-color: $dark_sidebar_bg;
-
-  .maximized & { background-color: opacify($dark_sidebar_bg, 1); }
-
-  row {
-    color: $dark_sidebar_fg;
-    background-color: transparentize($dark_sidebar_fg, 1);
-
-    &:hover {
-      background-color: transparentize($dark_sidebar_fg, 0.85);
-    }
-    &:active {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
-
-      button { color: $selected_fg_color; }
-    }
-    &:selected, &:selected:hover {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
-    }
-    &:hover:not(:selected) button:active {
-      color: $dark_sidebar_fg;
-    }
-  }
 }
 
 %dark_sidebar_button {

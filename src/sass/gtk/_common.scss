@@ -1294,7 +1294,6 @@ headerbar,
   min-height: 34px;
   padding: 0 8px;
   background-image: $headerbar_bg_image;
-
   color: $header_fg;
   background-color: $header_bg;
   border-bottom: 1px solid $header_border;
@@ -1318,16 +1317,6 @@ headerbar,
     }
   }
 
-  .maximized & {
-    background-color: $header_bg;
-    // border-bottom: 1px solid $header_border;
-
-    &:backdrop {
-      background-color: $header_bg_backdrop;
-      border-color: if($variant=='light', lighten($header_border, 15%), darken($header_border, 3%));
-    }
-  }
-
   .title {
     padding-left: 12px;
     padding-right: 12px;
@@ -1339,6 +1328,116 @@ headerbar,
     padding-right: 12px;
     margin-top: -3px;
     @extend %dim-label;
+  }
+
+  entry { @extend %headerbar_entrys; }
+
+  button { @extend %headerbar_buttons; }
+
+  button, spinbutton {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  // button.toggle.popup { margin-right: 3px; } // Nautilus 3.30 popup button
+
+  // Reset linked buttons
+  .linked:not(.vertical) > button {
+    min-width: 20px;
+    @extend %outline_dashed;
+    border-right: 1px solid $borders_color;
+
+    &, &:hover, &:active, &:checked, &:disabled {
+      @extend %linked_header;
+    }
+
+    @if $variant == 'light' {
+      &:not(:first-child) {
+        &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
+        &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
+      }
+    }
+
+    @if $variant=='dark' {
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  // Reset linking entrys
+  .linked:not(.vertical) > entry {
+    @include entry(header-normal);
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding: 0 8px;
+    border-radius: $bt_radius;
+
+    @if $variant == 'light' {
+      border-width: 1px;
+      border: 1px solid $borders_color;
+    }
+
+    &:focus {
+      @include entry(header-focus);
+      @if $variant == 'light' { border-color: $entry_highlight; }
+    }
+
+    &:disabled {
+      @include entry(header-insensitive);
+    }
+
+    &:backdrop { opacity: 0.65; background-image: none; }
+
+    &, &:focus, &:disabled {
+      @extend %linked_header;
+
+      @if $variant == 'dark' {
+        border: none;
+        border-right: 1px solid $borders_color;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  // special case for path-bars and stack-switchers
+  .linked:not(.vertical):not(.path-bar).stack-switcher,
+  .linked:not(.vertical).path-bar {
+    > button {
+      min-height: if($variant == 'light', 24px, 26px);
+      @extend %outline_dashed;
+      @include button(header-normal);
+      &:hover { @include button(header-hover); }
+      &:active { @include button(header-active); }
+      &:checked { @include button(header-checked); }
+      &:disabled { color: rgba($header_fg, 0.45); }
+      &:backdrop { opacity: 0.65; background-image: none; }
+
+      @if $variant=='dark' {
+        border-right: 1px solid $borders_color;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
+  // Headerbar Switches
+  switch {
+    //  @extend %switch;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+    &:backdrop { opacity: 0.75; }
+  }
+
+  &.titlebar headerbar:not(.titlebar) {
+    background: none;
+    box-shadow: none;
   }
 
   // Selectionmode
@@ -1354,6 +1453,12 @@ headerbar,
     &:backdrop {
       background-color: $selection_mode_bg;
       color: transparentize($light_fg_color, 0.4);
+      border-color: darken($selection_mode_bg, 4%);
+    }
+
+    button {
+      @include button(undecorated);
+      @extend %selected-button;
     }
 
     .subtitle:link { @extend %link_selected;  }
@@ -1383,7 +1488,10 @@ headerbar,
     border-color: opacify($header_border, 1);
     box-shadow: none;
 
-    &:backdrop { background-color: $header_bg_backdrop; }
+    &:backdrop {
+      background-color: $header_bg_backdrop;
+      border-color: if($variant=='light', lighten($header_border, 15%), darken($header_border, 3%));
+    }
   }
 
   &.default-decoration {
@@ -1423,273 +1531,6 @@ headerbar,
   }
 
   separator.titlebutton { @extend %header_separator; }
-}
-
-.titlebar {
-  &, &.background {
-    border-top-left-radius: $wm_radius;
-    border-top-right-radius: $wm_radius;
-  }
-
-  &, & headerbar {
-    box-shadow: inset 0 1px $highlight_color;
-
-    .tiled &,
-    .maximized &,
-    .fullscreen & { box-shadow: none; }
-  }
-
-  > .linked.raised:not(.path-bar) > button.image-button {
-    @extend %outline_dashed;
-
-    &, &:hover, &:active, &:checked, &:disabled {
-      border-radius: $bt_radius;
-      margin-right: if($variant=='light', 0, 1px);
-      border-right: none;
-
-      @if $variant == 'light' { border: 1px solid $borders_color; }
-    }
-  }
-}
-
-headerbar {
-  entry { @extend %headerbar_entrys; }
-
-  button { @extend %headerbar_buttons; }
-
-  // button.toggle.popup { margin-right: 3px; } // Nautilus 3.30 popup button
-
-  &.selection-mode button {
-    &, &.flat {
-      @include button(undecorated);
-      color: $light_fg_color;
-      background-color: transparentize($light_fg_color, 1);
-    }
-
-    &:hover { background-color: transparentize($selected_fg_color, 0.75); }
-
-    &:active, &:checked {
-      color: $selected_fg_color;
-      background-color: transparentize($selected_fg_color, 0.6);
-      border-color: transparentize($selected_fg_color, 0.5);
-      text-shadow: none;
-    }
-
-    &:disabled {
-      &, label { color: transparentize($selected_fg_color, 0.6); }
-
-      &:checked, &:active {
-        color: $selected_bg_color;
-        background-color: transparentize($selected_fg_color, 0.5);
-        border-color: transparentize($selected_fg_color, 0.6);
-      }
-    }
-  }
-
-  // Reset linked buttons
-  .linked:not(.vertical) > button {
-    min-width: 20px;
-    @extend %outline_dashed;
-    border-right: 1px solid $borders_color;
-
-    &, &:hover, &:active, &:checked, &:disabled {
-      @extend %linked_header;
-    }
-
-    @if $variant == 'light' {
-      &:not(:first-child) {
-        &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
-        &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
-      }
-    }
-
-    @if $variant=='dark' {
-      &:last-child {
-        border-right: none;
-      }
-    }
-  }
-
-  // special case for path-bars and stack-switchers
-  .linked:not(.vertical):not(.path-bar).stack-switcher,
-  .linked:not(.vertical).path-bar {
-    > button {
-      min-height: if($variant == 'light', 24px, 26px);
-      @extend %outline_dashed;
-      @include button(header-normal);
-      &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); }
-      &:checked { @include button(header-checked); }
-      &:disabled { color: rgba($header_fg, 0.45); }
-      &:backdrop { opacity: 0.65; background-image: none; }
-
-      @if $variant=='dark' {
-        border-right: 1px solid $borders_color;
-
-        &:last-child {
-          border-right: none;
-        }
-      }
-    }
-  }
-
-  // Headerbar Suggested and Destructive Action buttons
-  @each $b_type, $b_color, $b_fg in (suggested-action, $suggested_color, $light_fg_color),
-                                    (destructive-action, $destructive_color, $light_fg_color) {
-    button.#{$b_type} {
-      box-shadow: none;
-      @include button(suggested_destructive, $b_color, $b_fg);
-
-      &.flat {
-        @include button(undecorated);
-        color: $b_color;
-      }
-
-      &:hover {
-        @include button(suggested_destructive, lighten($b_color, 5%), $b_fg);
-      }
-
-      &:active, &:checked {
-        @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
-        box-shadow: none;
-      }
-
-      &.flat:disabled,
-      &:disabled { @include button(insensitive); }
-    }
-
-    button.#{$b_type}:backdrop {
-      opacity: 0.8;
-    }
-  }
-
-  // Headerbar Spinbuttons
-  spinbutton:not(.vertical) {
-    &:focus {
-      color: $header_fg;
-      caret-color: $header_fg;
-    }
-
-    button {
-      &, &:disabled { @include button(header-hover); }
-      &:hover { background-color: lighten($header_button_bg, 15%); }
-      &:active, &:checked { @include button(header-active); }
-      &:disabled { color: transparentize($header_fg, 0.4); }
-    }
-
-    > button + button { border-left-style: none; }
-
-    > button:hover:not(:active),
-    > button:hover + button { box-shadow: inset 1px 0 $button_border; }
-
-    > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
-    > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {}
-
-    > button:first-child:hover:not(:active),
-    > entry + button:not(:active):hover { box-shadow: none; }
-
-    > entry:focus + button { border-left-color: $entry_highlight; }
-  }
-
-  // Headerbar ComboBoxes
-  combobox {
-    &:disabled { color: transparentize($header_fg, 0.6); }
-
-    > .linked > button.combo {
-      border-radius: $bt_radius;
-      @include entry(header-normal);
-
-      &:hover { @include entry(header-focus); box-shadow: none; }
-      &:disabled { @include entry(header-insensitive); }
-    }
-
-    > .linked > entry.combo {
-      border-radius: $bt_radius;
-      &:dir(ltr) {
-        border-right-style: none;
-
-        &:focus { box-shadow: none; }
-      }
-
-      &:dir(rtl) {
-        border-left-style: none;
-
-        &:focus { box-shadow: none; }
-      }
-    }
-  }
-
-  // Headerbar Switches
-  switch {
-    //  @extend %switch;
-    margin-top: 8px;
-    margin-bottom: 8px;
-
-    &:backdrop { opacity: 0.75; }
-  }
-
-  progressbar {
-    trough { background-color: if($variant=='light', darken($header_bg, 10%), $borders_color); }
-
-    &:backdrop { opacity: 0.75; }
-  }
-
-  // Headerbar Scale
-  scale {
-    $_trough_bg: if($variant=='light', darken($header_bg, 10%), $borders_color);
-
-    &:backdrop { opacity: 0.75; }
-
-    slider {
-      $_slider_border: if($variant=='light', opacify($borders_color, 0.2), opacify($borders_color, 0.3));
-      $_slider_bg: if($variant=='light', opacify($header_button_bg,1), lighten(opacify($header_bg,1), 10%));
-
-      background-color: $_slider_bg;
-      border-color: $_slider_border;
-
-      &:hover {
-        background-color: lighten($_slider_bg, 5%);
-        border-color: $_slider_border;
-      }
-
-      &:active {
-        background-color: $_slider_bg;
-        border-color: $_slider_border;
-      }
-
-      &:disabled {
-        background-color: mix($_slider_bg, $header_bg, 70%);
-        border-color: $_slider_border;
-      }
-    }
-
-    trough {
-      background-color: $_trough_bg;
-
-      &:disabled { background-color: if($variant=='light', transparentize($_trough_bg, 0.05), transparentize($_trough_bg, 0.1)); }
-    }
-  }
-
-  button, spinbutton, separator:not(.sidebar) {
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
-
-  &.titlebar headerbar:not(.titlebar) {
-    // Drop the background of non-titlebar nested headerbars. This is needed to
-    // work around headerbar sliding animation issues without refactoring
-    // Adwaita's support of titlebars and headerbars as it may break
-    // applications.
-    // See https://gitlab.gnome.org/GNOME/gtk/issues/1264 for more information.
-    background: none;
-    box-shadow: none;
-  }
-
-  separator.sidebar {
-    background: none;
-    border-right: none;
-    box-shadow: inset 0 -1px $header_border;
-  }
 
   // Fixes split headerbars
   separator:first-child + &,
@@ -1749,6 +1590,21 @@ headerbar {
   }
 }
 
+.titlebar {
+  &, &.background {
+    border-top-left-radius: $wm_radius;
+    border-top-right-radius: $wm_radius;
+  }
+
+  &, & headerbar {
+    box-shadow: inset 0 1px $highlight_color;
+
+    .tiled &,
+    .maximized &,
+    .fullscreen & { box-shadow: none; }
+  }
+}
+
 window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar style for not CSD window
   &, &:backdrop { background-image: $menubar_bg_image; }
   border-radius: 0 0 0 0;
@@ -1782,29 +1638,14 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   }
 
   > separator {
-    min-width: 1px;
-    min-height: 1px;
-    background-color: $header_bg;
     background-image: $headerbar_bg_image;
-    box-shadow: inset 0 -1px $header_border, inset 0 1px $highlight_color;
-
-    &:backdrop {
-      transition: $backdrop_transition;
-      background-image: none;
-      background-color: $header_bg_backdrop;
-    }
-
-    .tiled &,
-    .maximized &,
-    .fullscreen & {
-      box-shadow: inset 0 -1px $header_border;
-    }
+    border-bottom: 1px solid $header_border;
   }
 
   // @extend %titlebar;
 }
 
-headerbar, .titlebar:not(.vertical) {
+headerbar, .titlebar {
   button {
     min-height: if($variant == 'light', 24px, 26px);
     min-width: 22px;
@@ -1818,43 +1659,6 @@ headerbar, .titlebar:not(.vertical) {
     margin-right: 0;
     padding: 2px 8px;
     border-radius: 7px;
-  }
-
-  .linked > entry { // Reset linking entrys
-    @include entry(header-normal);
-    margin-top: 6px;
-    margin-bottom: 6px;
-    padding: 0 8px;
-    border-radius: $bt_radius;
-
-    @if $variant == 'light' {
-      border-width: 1px;
-      border: 1px solid $borders_color;
-    }
-
-    &:focus {
-      @include entry(header-focus);
-      @if $variant == 'light' { border-color: $entry_highlight; }
-    }
-
-    &:disabled {
-      @include entry(header-insensitive);
-    }
-
-    &:backdrop { opacity: 0.65; background-image: none; }
-
-    &, &:focus, &:disabled {
-      @extend %linked_header;
-
-      @if $variant == 'dark' {
-        border: none;
-        border-right: 1px solid $borders_color;
-
-        &:last-child {
-          border-right: none;
-        }
-      }
-    }
   }
 }
 
@@ -1884,10 +1688,8 @@ headerbar, .titlebar:not(.vertical) {
 %header_separator {
   min-width: 0;
   min-height: 0;
-  background-color: transparent;
+  background: none;
   border: none;
-
-  &:backdrop { opacity: 0.65; }
 }
 
 // Headerbar Entries
