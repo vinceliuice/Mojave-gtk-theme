@@ -1177,6 +1177,37 @@ combobox {
     &:dir(ltr),
     &:dir(rtl) { @extend %linked_middle; } // specificity bump
   }
+
+  .linked:not(.vertical) > &:first-child > box > button.combo {
+    border-top-left-radius: $bt_radius;
+    border-bottom-left-radius: $bt_radius
+  }
+  .linked:not(.vertical) > &:last-child > box > button.combo {
+    border-top-right-radius: $bt_radius;
+    border-bottom-right-radius: $bt_radius;
+
+    arrow {
+      border-top-right-radius: $bt_radius;
+      border-bottom-right-radius: $bt_radius;
+    }
+  }
+  .linked:not(.vertical) > &:only-child > box > button.combo {
+    border-radius: $bt_radius;
+  }
+
+  // .linked.vertical > & > box > button.combo { @extend %linked_vertical_middle; }
+  .linked.vertical > &:first-child > box > button.combo {
+    border-top-left-radius: $bt_radius;
+    border-top-right-radius: $bt_radius;
+  }
+  .linked.vertical > &:last-child > box > button.combo {
+    border-bottom-left-radius: $bt_radius;
+    border-bottom-right-radius: $bt_radius;
+  }
+  .linked.vertical > &:only-child > box > button.combo {
+    border-radius: $bt_radius;
+  }
+}
 }
 
 //
