@@ -1239,7 +1239,7 @@ combobox {
     &.top,
     &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
 
-    button: { border: none; }
+    button { border: none; }
   }
 
   &:not(.inline-toolbar) {
