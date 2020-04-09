@@ -10,8 +10,8 @@ $base_color:                        if($variant == 'light', #ffffff, #242424);
 $text_color:                        if($variant == 'light', #363636, #dadada);
 $bg_color:                          if($variant == 'light', #f5f5f5, #333333);
 $fg_color:                          if($variant == 'light', #242424, #dedede);
-$alt_fg_color:                      if($variant == 'light', #424242, #ababab);
-$hint_fg_color:                     if($variant == 'light', #565656, #888888);
+$alt_fg_color:                      if($variant == 'light', #424242, #afafaf);
+$hint_fg_color:                     if($variant == 'light', #565656, #999999);
 
 $track_color:                       if($variant == 'light', rgba(black, 0.20), rgba(white, 0.10));
 $visit_color:                       if($variant == 'light', rgba(black, 0.16), rgba(white, 0.08));

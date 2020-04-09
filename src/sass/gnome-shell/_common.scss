@@ -1184,6 +1184,15 @@ $selected_slider_color: white;
     }
   }
 
+  .panel-button.clock-display {
+    &:active, &:overview, &:focus, &:checked {
+      .clock {
+        background: none;
+        box-shadow: none;
+      }
+    }
+  }
+
   .panel-status-indicators-box,
   .panel-status-menu-box {
     spacing: 2px;
@@ -1543,6 +1552,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   background-color: $message_bg;
   margin: 4px;
   box-shadow: if($variant == 'light', $shadow_2, inset 0 1px rgba(white, 0.06));
+  text-shadow: none;
 
   &:hover, &:focus { color: $fg_color; background-color: $visit_color; }
   &:active { color: $fg_color; background-color: $track_color; }
