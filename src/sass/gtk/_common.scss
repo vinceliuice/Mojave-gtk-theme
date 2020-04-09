@@ -1298,6 +1298,13 @@ searchbar {
     border-width: 0 0 1px;
   }
 
+  .linked:not(.vertical) {
+    > entry {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
   // Close button on searchbar
   button.flat {
     @extend %circular_button;
