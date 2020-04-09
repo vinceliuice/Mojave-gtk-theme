@@ -1208,7 +1208,6 @@ combobox {
     border-radius: $bt_radius;
   }
 }
-}
 
 //
 // Toolbars
@@ -1229,19 +1228,18 @@ combobox {
 
   &.osd {
     padding: 8px;
-    border: 1px solid $borders_color;
+    border: none;
     border-radius: $bt_radius;
-    background-color: $base_color;
+    background-color: $osd_bg_color;
+    color: $osd_fg_color;
+    box-shadow: $shadow_4;
 
     &.left,
     &.right,
     &.top,
     &.bottom { border-radius: 0; } // positional classes for `attached` osd toolbars
 
-    &.top { border-width: 0 0 1px 0; }
-    &.bottom { border-width: 1px 0 0 0; }
-    &.left { border-width: 0 1px 0 0; }
-    &.right { border-width: 0 0 0 1px; }
+    button: { border: none; }
   }
 
   &:not(.inline-toolbar) {
