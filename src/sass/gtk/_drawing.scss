@@ -393,7 +393,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-color: $actionb_bg;
     border-color: if($variant == 'light', darken($actionb_bg, 6%), $dark_borders_color);
     background-image: none;
-//    box-shadow: none;
+    box-shadow: if($variant=='light', none, (inset 0 1px rgba(white, 0.15), inset 0 -1px rgba(white, 0.03)));
   }
 
   @else if $t==undecorated {
