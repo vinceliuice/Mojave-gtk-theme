@@ -32,7 +32,8 @@ render_thumbnail() {
     echo Rendering $ASRC_DIR/$1/thumbnail$2.png
     $INKSCAPE --export-id=thumbnail$2 \
               --export-id-only \
-              --export-png=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
+	      --export-type="png" \
+              --export-file=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
     && $OPTIPNG -o7 --quiet $ASRC_DIR/$1/thumbnail$2.png
   fi
 }
