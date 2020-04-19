@@ -21,7 +21,10 @@ else
     echo Rendering $ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
-              --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
+              --export-type=png $ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
+    || $INKSCAPE --export-id=$i \
+                 --export-id-only \
+                 --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null \
     && $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
 fi
 if [ -f $DARK_ASSETS_DIR/$i.png ]; then
@@ -31,7 +34,10 @@ else
     echo Rendering $DARK_ASSETS_DIR/$i.png
     $INKSCAPE --export-id=$i \
               --export-id-only \
-              --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
+              --export-type=png $DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
+    || $INKSCAPE --export-id=$i \
+                 --export-id-only \
+                 --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
     && $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png 
 fi
 done

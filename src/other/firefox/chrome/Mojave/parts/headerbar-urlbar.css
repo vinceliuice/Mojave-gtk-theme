@@ -49,7 +49,7 @@
 	box-shadow: var(--gnome-popover-shadow),
 	            0 2px var(--gnome-focused-urlbar-border-color),
 	            2px 0 var(--gnome-focused-urlbar-border-color),
-							-2px 0 var(--gnome-focused-urlbar-border-color) !important;
+					        		-2px 0 var(--gnome-focused-urlbar-border-color) !important;
 	border: none !important;
 }
 
@@ -96,7 +96,7 @@ toolbarspring {
 	border-radius: 9px;
 	box-shadow: var(--gnome-popover-shadow) !important;
 	color: var(--gnome-toolbar-color) !important;
-	padding: 8px;
+	padding: 4px;
 }
 
 #urlbar .urlbarView-body-outer {
@@ -105,8 +105,8 @@ toolbarspring {
 }
 
 #urlbar .search-one-offs {
-	padding: 8px 0 0 0 !important;
-	margin-top: 8px !important;
+	padding: 4px 0 0 0 !important;
+	margin-top: 4px !important;
 	border-color: var(--gnome-popover-separator-color) !important;
 }
 
@@ -138,12 +138,12 @@ toolbarspring {
 	border: 0 !important;
 }
 #urlbar.megabar .urlbarView-row {
-	padding: 6px !important;
+	padding: 4px 8px !important;
 	border-radius: 5px !important;
 }
 #urlbar.megabar .search-one-offs {
 	margin-top: 6px !important;
-	padding: 8px !important;
+	padding: 4px 8px !important;
 	background: var(--gnome-popover-background) !important;
 	border-top: 1px solid var(--gnome-popover-separator-color) !important;
 }

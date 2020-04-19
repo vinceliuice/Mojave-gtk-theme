@@ -6,6 +6,11 @@ OPTIPNG="/usr/bin/optipng"
 REPO_DIR=$(cd $(dirname $0) && pwd)
 ASRC_DIR=${REPO_DIR}/src/assets
 
+# check command avalibility
+has_command() {
+  "$1" -v $1 > /dev/null 2>&1
+}
+
 if [ ! "$(which inkscape 2> /dev/null)" ]; then
   echo inkscape and optipng needs to be installed to generate the assets.
   if has_command zypper; then
@@ -32,7 +37,10 @@ render_thumbnail() {
     echo Rendering $ASRC_DIR/$1/thumbnail$2.png
     $INKSCAPE --export-id=thumbnail$2 \
               --export-id-only \
-              --export-png=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
+              --export-type=png $ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
+    || $INKSCAPE --export-id=thumbnail$2 \
+                 --export-id-only \
+                 --export-png=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
     && $OPTIPNG -o7 --quiet $ASRC_DIR/$1/thumbnail$2.png
   fi
 }
