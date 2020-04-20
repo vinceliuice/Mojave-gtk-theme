@@ -35,13 +35,18 @@ render_thumbnail() {
   else
     echo
     echo Rendering $ASRC_DIR/$1/thumbnail$2.png
-    $INKSCAPE --export-id=thumbnail$2 \
-              --export-id-only \
-              --export-type=png $ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
-    || $INKSCAPE --export-id=thumbnail$2 \
-                 --export-id-only \
-                 --export-png=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null \
-    && $OPTIPNG -o7 --quiet $ASRC_DIR/$1/thumbnail$2.png
+
+    if has_command dnf; then
+      $INKSCAPE --export-id=thumbnail$2 \
+                --export-id-only \
+                --export-type="png" $ASRC_DIR/$1/thumbnail.svg >/dev/null
+    else
+      $INKSCAPE --export-id=thumbnail$2 \
+                --export-id-only \
+                --export-png=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null
+    fi
+
+    $OPTIPNG -o7 --quiet $ASRC_DIR/$1/thumbnail$2.png
   fi
 }
 

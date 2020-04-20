@@ -11,6 +11,11 @@ DARK_ASSETS_DIR="assets-dark"
 
 INDEX="assets.txt"
 
+# check command avalibility
+has_command() {
+  "$1" -v $1 > /dev/null 2>&1
+}
+
 mkdir -p $LIGHT_ASSETS_DIR && mkdir -p $DARK_ASSETS_DIR
 
 for i in `cat $INDEX`
@@ -21,13 +26,18 @@ if [ -f $LIGHT_ASSETS_DIR/$i.png ]; then
 else
     echo
     echo Rendering $LIGHT_ASSETS_DIR/$i.png
-    $INKSCAPE --export-id=$i \
-              --export-id-only \
-              --export-type=png $LIGHT_ASSETS_DIR/$i.png $LIGHT_SRC_FILE >/dev/null \
-    || $INKSCAPE --export-id=$i \
-                 --export-id-only \
-                 --export-png=$LIGHT_ASSETS_DIR/$i.png $LIGHT_SRC_FILE >/dev/null \
-    && $OPTIPNG -o7 --quiet $LIGHT_ASSETS_DIR/$i.png 
+
+    if has_command dnf; then
+      $INKSCAPE --export-id=$i \
+                --export-id-only \
+                --export-type="png" $LIGHT_SRC_FILE >/dev/null
+    else
+      $INKSCAPE --export-id=$i \
+                --export-id-only \
+                --export-png=$LIGHT_ASSETS_DIR/$i.png $LIGHT_SRC_FILE >/dev/null
+    fi
+
+    $OPTIPNG -o7 --quiet $LIGHT_ASSETS_DIR/$i.png
 fi
 
 if [ -f $DARK_ASSETS_DIR/$i.png ]; then
@@ -35,13 +45,18 @@ if [ -f $DARK_ASSETS_DIR/$i.png ]; then
 else
     echo
     echo Rendering $DARK_ASSETS_DIR/$i.png
-    $INKSCAPE --export-id=$i \
-              --export-id-only \
-              --export-type=png $DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
-    || $INKSCAPE --export-id=$i \
-                 --export-id-only \
-                 --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null \
-    && $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png 
+
+    if has_command dnf; then
+      $INKSCAPE --export-id=$i \
+                --export-id-only \
+                --export-type="png" $DARK_SRC_FILE >/dev/null
+    else
+      $INKSCAPE --export-id=$i \
+                --export-id-only \
+                --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null
+    fi
+
+    $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png
 fi
 done
 
