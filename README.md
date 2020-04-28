@@ -37,7 +37,7 @@ Fedora/RedHat distros:
 
 Ubuntu/Mint/Debian distros:
 
-    sudo apt install sassc optipng inkscape
+    sudo apt install sassc optipng inkscape libcanberra-gtk-module libglib2.0-dev
 
 Debian 10:
 
