@@ -34,7 +34,7 @@ else
     else
       $INKSCAPE --export-id=$i \
                 --export-id-only \
-                --export-png=$LIGHT_ASSETS_DIR/$i.png $LIGHT_SRC_FILE >/dev/null
+                --export-filename=$LIGHT_ASSETS_DIR/$i.png $LIGHT_SRC_FILE >/dev/null
     fi
 
     $OPTIPNG -o7 --quiet $LIGHT_ASSETS_DIR/$i.png
@@ -53,7 +53,7 @@ else
     else
       $INKSCAPE --export-id=$i \
                 --export-id-only \
-                --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null
+                --export-filename=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null
     fi
 
     $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png

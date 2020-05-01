@@ -43,7 +43,7 @@ render_thumbnail() {
     else
       $INKSCAPE --export-id=thumbnail$2 \
                 --export-id-only \
-                --export-png=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null
+                --export-filename=$ASRC_DIR/$1/thumbnail$2.png $ASRC_DIR/$1/thumbnail.svg >/dev/null
     fi
 
     $OPTIPNG -o7 --quiet $ASRC_DIR/$1/thumbnail$2.png
