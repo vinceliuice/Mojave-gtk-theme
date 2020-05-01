@@ -58,7 +58,7 @@ After depends all installed you can Run
 
 #### Install tips
 
-Usage:  `./Install`  **[OPTIONS...]**
+Usage:  `./install.sh`  **[OPTIONS...]**
 
 |  OPTIONS:           | |
 |:--------------------|:-------------|
