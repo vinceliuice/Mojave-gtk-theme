@@ -26,26 +26,24 @@ ArchLinux:
 
 ### Installation Depends requirment
 - sassc.
-- optipng.
-- inkscape.
 - libglib2.0-dev. `ubuntu 18.04` `debian 10.03` `linux mint 19`
 - libxml2-utils. `ubuntu 18.04` `debian 10.03` `linux mint 19`
 
 Fedora/RedHat distros:
 
-    dnf install sassc optipng inkscape
+    dnf install sassc optipng
 
 Ubuntu/Mint/Debian distros:
 
-    sudo apt install sassc optipng inkscape libcanberra-gtk-module libglib2.0-dev
+    sudo apt install sassc libcanberra-gtk-module libglib2.0-dev
 
 Debian 10:
 
-    sudo apt install sassc optipng inkscape libcanberra-gtk-module libglib2.0-dev libxml2-utils
+    sudo apt install sassc libcanberra-gtk-module libglib2.0-dev libxml2-utils
 
 ArchLinux:
 
-    pacman -S sassc optipng inkscape
+    pacman -S sassc
 
 Other:
 Search for the depends in your distributions repository or install the depends from source.

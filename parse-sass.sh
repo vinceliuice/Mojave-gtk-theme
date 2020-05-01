@@ -1,5 +1,10 @@
 #! /bin/bash
 
+# check command avalibility
+has_command() {
+  "$1" -v $1 > /dev/null 2>&1
+}
+
 if [ ! "$(which sassc 2> /dev/null)" ]; then
   echo sassc needs to be installed to generate the css.
   if has_command zypper; then
