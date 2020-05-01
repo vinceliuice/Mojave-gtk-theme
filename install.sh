@@ -397,13 +397,13 @@ done
 
 ./parse-sass.sh
 
-./render-assets.sh
+#./render-assets.sh
 
 cd ${SRC_DIR}/main/gtk-3.0 && ./make_gresource_xml.sh
 
-if [[ "${small:-}" == 'small' ]]; then
-  cd ${SRC_DIR}/assets/gtk-3.0/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
-fi
+#if [[ "${small:-}" == 'small' ]]; then
+#  cd ${SRC_DIR}/assets/gtk-3.0/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
+#fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   install_theme
