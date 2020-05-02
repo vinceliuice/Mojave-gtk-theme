@@ -783,7 +783,7 @@ $selected_slider_color: white;
   .popup-inactive-menu-item { //all icons and other graphical elements
     color: $fg_color;
 
-    &:insensitive { color: $disabled_fg_color; }
+    &:insensitive { color: transparent; }
   }
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
@@ -800,12 +800,12 @@ $selected_slider_color: white;
 }
 
 .popup-menu-boxpointer {
-  -arrow-border-radius: 0;
+  -arrow-border-radius: 3px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 0;
-  -arrow-rise: 0;
+  -arrow-base: 64px;
+  -arrow-rise: 6px;
   -arrow-box-shadow: none; //dreaming. bug #689995
   background: transparent; // needs to reset?
 
@@ -821,28 +821,28 @@ $selected_slider_color: white;
   -arrow-background-color: $base_color;
   -arrow-border-width: 1px;
   -arrow-border-color: $dark_borders_color;
-  -arrow-base: 5;
-  -arrow-rise: 5;
+  -arrow-base: 5px;
+  -arrow-rise: 5px;
   background-color: transparent;
   border-radius: $bt_radius;
   box-shadow: $shadow_2;
 }
 
 .popup-separator-menu-item {
+  height: 0; //not really the whole box
+  margin: 0;
+  padding: 0 0;
   background: none;
   border: none;
-  padding: 0;
-  margin: 0;
 
   .popup-separator-menu-item-separator {
-    background: none;
-    padding: 0;
-    margin: 0;
+    height: 1px; //not really the whole box
+    margin: 0 40px 12px 40px;
+    background-color: $borders_color;
+    padding: 0 0;
 
     .popup-sub-menu & { //submenu separators
-      background: none;
-      padding: 0;
-      margin: 0;
+      margin: 0 58px 12px 24px;
     }
   }
 }
@@ -1161,17 +1161,17 @@ $selected_slider_color: white;
     }
 
     &:active, &:overview, &:focus, &:checked {
-      // Trick due to St limitations. It needs a background to draw
-      // a box-shadow
-      background-color: $primary_color;
-      color: $light_alt_fg_color;
-      text-shadow: 0 1px rgba(black, 0.45);
-      box-shadow: none;
+      &, &:hover {
+        background-color: $primary_color;
+        color: $light_alt_fg_color;
+        text-shadow: 0 1px rgba(black, 0.45);
+        box-shadow: none;
 
-      .system-status-icon,
-      .app-menu-icon > StIcon,
-      .popup-menu-arrow {
-        icon-shadow: 0 1px rgba(black, 0.45);
+        .system-status-icon,
+        .app-menu-icon > StIcon,
+        .popup-menu-arrow {
+          icon-shadow: 0 1px rgba(black, 0.45);
+        }
       }
     }
 
@@ -1629,7 +1629,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 }
 
 .message-media-control {
-  margin: 24px 4px;
+  margin: 16px 4px;
   padding: 8px;
   border-radius: 100px;
   color: $alt_fg_color;
@@ -1643,8 +1643,8 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 
 .media-message-cover-icon {
   icon-size: 32px !important;
-  margin: 8px 0px 8px 4px !important;
-  &:rtl { margin: 8px 4px 8px 0px !important; }
+  margin: 0 0px 0 4px !important;
+  &:rtl { margin: 0 4px 0 0px !important; }
   &.fallback {
     icon-size: 16px !important;
     padding: 8px;
