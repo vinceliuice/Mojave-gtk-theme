@@ -19,8 +19,8 @@ if [ ! "$(which inkscape 2> /dev/null)" ]; then
     sudo apt install inkscape optipng
   elif has_command dnf; then
     sudo dnf install -y inkscape optipng
-  elif has_command yum; then
-    sudo yum install inkscape optipng
+  elif has_command dnf; then
+    sudo dnf install inkscape optipng
   elif has_command pacman; then
     sudo pacman -S --noconfirm inkscape optipng
   fi

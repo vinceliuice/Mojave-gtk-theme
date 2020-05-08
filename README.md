@@ -28,10 +28,11 @@ ArchLinux:
 - sassc.
 - libglib2.0-dev. `ubuntu 18.04` `debian 10.03` `linux mint 19`
 - libxml2-utils. `ubuntu 18.04` `debian 10.03` `linux mint 19`
+- glib2-devel. `fedora`
 
 Fedora/RedHat distros:
 
-    dnf install sassc optipng
+    sudo dnf install sassc glib2-devel
 
 Ubuntu/Mint/Debian distros:
 
@@ -43,7 +44,7 @@ Debian 10:
 
 ArchLinux:
 
-    pacman -S sassc
+    sudo pacman -S sassc
 
 Other:
 Search for the depends in your distributions repository or install the depends from source.
