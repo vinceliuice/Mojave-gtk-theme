@@ -13,7 +13,7 @@ Mojave is a Mac OSX like theme for GTK 3, GTK 2 and Gnome-Shell which supports G
 
 Fedora/RedHat distros:
 
-    dnf install gtk-murrine-engine gtk2-engines
+    sudo dnf install gtk-murrine-engine gtk2-engines
 
 Ubuntu/Mint/Debian distros:
 
@@ -21,7 +21,7 @@ Ubuntu/Mint/Debian distros:
 
 ArchLinux:
 
-    pacman -S gtk-engine-murrine gtk-engines
+    sudo pacman -S gtk-engine-murrine gtk-engines
 
 
 ### Installation Depends requirment
