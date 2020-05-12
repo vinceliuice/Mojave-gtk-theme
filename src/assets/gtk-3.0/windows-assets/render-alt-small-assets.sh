@@ -24,15 +24,9 @@ else
     echo
     echo Rendering $ASSETS_DIR/$i$d.png
 
-    if has_command dnf; then
-      $INKSCAPE --export-id=$i-alt-small$d \
-                --export-id-only \
-                --export-type="png" $SRC_FILE >/dev/null
-    else
-      $INKSCAPE --export-id=$i-alt-small$d \
-                --export-id-only \
-                --export-png=$ASSETS_DIR/$i$d.png $SRC_FILE >/dev/null
-    fi
+    $INKSCAPE --export-id=$i-alt-small$d \
+              --export-id-only \
+              --export-filename=$ASSETS_DIR/$i$d.png $SRC_FILE >/dev/null
 
     $OPTIPNG -o7 --quiet $ASSETS_DIR/$i$d.png 
 fi
@@ -43,17 +37,10 @@ else
     echo
     echo Rendering $ASSETS_DIR/$i$d@2.png
 
-    if has_command dnf; then
-      $INKSCAPE --export-id=$i-alt-small$d \
-                --export-dpi=180 \
-                --export-id-only \
-                --export-type="png" $SRC_FILE >/dev/null
-    else
-      $INKSCAPE --export-id=$i-alt-small$d \
-                --export-dpi=180 \
-                --export-id-only \
-                --export-png=$ASSETS_DIR/$i$d@2.png $SRC_FILE >/dev/null
-    fi
+    $INKSCAPE --export-id=$i-alt-small$d \
+              --export-dpi=180 \
+              --export-id-only \
+              --export-filename=$ASSETS_DIR/$i$d@2.png $SRC_FILE >/dev/null
 
     $OPTIPNG -o7 --quiet $ASSETS_DIR/$i$d@2.png 
 fi

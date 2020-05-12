@@ -25,16 +25,9 @@ else
     echo
     echo Rendering $ASSETS_DIR/$i.png
 
-    if has_command dnf; then
-      $INKSCAPE --export-id=$i \
-                --export-id-only \
-                --export-type="png" $SRC_FILE >/dev/null
-    else
-      $INKSCAPE --export-id=$i \
-                --export-id-only \
-                --export-png=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-    fi
-
+    $INKSCAPE --export-id=$i \
+              --export-id-only \
+              --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
     $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
 fi
 if [ -f $DARK_ASSETS_DIR/$i.png ]; then
@@ -43,15 +36,9 @@ else
     echo
     echo Rendering $DARK_ASSETS_DIR/$i.png
 
-    if has_command dnf; then
-      $INKSCAPE --export-id=$i \
-                --export-id-only \
-                --export-type="png" $DARK_SRC_FILE >/dev/null
-    else
-      $INKSCAPE --export-id=$i \
-                --export-id-only \
-                --export-png=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null
-    fi
+    $INKSCAPE --export-id=$i \
+              --export-id-only \
+              --export-filename=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null
 
     $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png
 fi
