@@ -19,8 +19,7 @@
 }
 
 #searchbar,
-#urlbar.megabar #urlbar-input-container,
-#urlbar:not(.megabar) {
+#urlbar #urlbar-input-container {
 	-moz-appearance: none !important;
 	background: var(--gnome-button-background) !important;
 	border: none !important;
@@ -33,6 +32,14 @@
 	box-sizing: border-box !important;
 }
 
+#urlbar:not(.megabar) {
+	background: none !important;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius: 5px !important;
+	color: var(--gnome-urlbar-color) !important;
+}
+
 /* Entries focused */
 #search-box[focused],
 .findbar-textbox[focused],
@@ -41,7 +48,6 @@
 	box-shadow: 0 0 0 2px var(--gnome-focused-urlbar-highlight-color) !important;
 }
 
-#urlbar:not(.megabar)[focused],
 #searchbar:focus-within {
 	border: none !important;
 	background: var(--gnome-urlbar-background) !important;
@@ -61,9 +67,8 @@
 }
 
 #urlbar.megabar #urlbar-input-container:-moz-window-inactive,
-#urlbar:not(.megabar):-moz-window-inactive,
-#searchbar:-moz-window-inactive,
-#urlbar:-moz-window-inactive {
+#urlbar #urlbar-input-container:-moz-window-inactive,
+#searchbar:-moz-window-inactive {
 	background: var(--gnome-inactive-button-background) !important;
 	box-shadow: inset 0 0 0 1px var(--gnome-inactive-button-border-color) !important;
 	color: var(--gnome-inactive-urlbar-color) !important;
@@ -78,6 +83,9 @@
 
 .findbar-textbox:not(.minimal)[focused], .findbar-textbox:not(.minimal):focus {
 	-moz-outline-radius: 5px 0 0 5px !important;
+	border-color: var(--gnome-focused-urlbar-border-color) !important;
+	border-right: none !important;
+	box-shadow: inset 0 0 0 1px var(--gnome-focused-urlbar-highlight-color) !important;
 }
 
 /* Entries fixes */

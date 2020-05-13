@@ -3,53 +3,53 @@
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
 #urlbar {
-	--urlbar-height: 28.00px;
-	--urlbar-toolbar-height: 28.00px !important;
-}
-
-/* Megabar reset  */
-#urlbar.megabar {
+	--urlbar-height: 28px;
+	--urlbar-toolbar-height: 28px !important;
 	border: 0 !important;
 	box-shadow: none !important;
 	border-radius: 0 !important;
 	background: transparent !important;
+	padding: 0 !important;
 }
+
 #urlbar-background {
 	display: none !important;
 }
-#urlbar.megabar[breakout][breakout-extend][breakout-extend-animate]  > .urlbarView {
+#urlbar[breakout][breakout-extend][breakout-extend-animate]  > .urlbarView {
 	animation: none !important;
 }
-#urlbar.megabar[breakout][breakout-extend] {
+#urlbar[breakout][breakout-extend] {
 	left: 0 !important;
 	top: 0 !important;
 	width: 100% !important;
+	padding: 0 !important;
 }
-#urlbar.megabar[breakout][breakout-extend]:not([open]) {
+#urlbar[breakout][breakout-extend]:not([open]) {
 	height: 28px !important;
+	padding: 0 !important;
 }
 
 /* Megabar breakout styles  */
-#urlbar.megabar[breakout][breakout-extend][open] {
+#urlbar[breakout][breakout-extend][open] {
 	border-radius: 5px 5px 9px 9px !important;
 	padding: 0 !important;
 }
-#urlbar.megabar[breakout][breakout-extend][open] #urlbar-input-container {
+#urlbar[breakout][breakout-extend][open] #urlbar-input-container {
 	border-radius: 5px 5px 0 0 !important;
 	border: none !important;
 	box-shadow: 0 0 0 2px var(--gnome-focused-urlbar-border-color) !important;
 	background: var(--gnome-urlbar-background) !important;
 	padding: 0 !important;
 }
-#urlbar.megabar[breakout][breakout-extend][open] #identity-box {
+#urlbar[breakout][breakout-extend][open] #identity-box {
 	padding-inline-start: 5px !important;
 }
-#urlbar.megabar[breakout][breakout-extend][open] .urlbarView {
+#urlbar[breakout][breakout-extend][open] .urlbarView {
 	border-radius: 0 0 5px 5px !important;
 	box-shadow: var(--gnome-popover-shadow),
 	            0 2px var(--gnome-focused-urlbar-border-color),
 	            2px 0 var(--gnome-focused-urlbar-border-color),
-					        		-2px 0 var(--gnome-focused-urlbar-border-color) !important;
+	            -2px 0 var(--gnome-focused-urlbar-border-color) !important;
 	border: none !important;
 }
 
@@ -87,27 +87,32 @@ toolbarspring {
 #urlbar .urlbarView {
 	left: calc(var(--item-padding-start) - 6px) !important;
 	right: var(--item-padding-end) !important;
-	top: 40px !important;
 	z-index: 10 !important;
-	max-width: 100% !important;
-	background: var(--gnome-popover-background) !important;
 	border: 1px solid !important;
-	border-color: var(--gnome-popover-border-color) !important;
 	border-radius: 9px;
 	box-shadow: var(--gnome-popover-shadow) !important;
 	color: var(--gnome-toolbar-color) !important;
-	padding: 4px;
+	background: var(--gnome-urlbar-background) !important;
+	width: 100% !important;
+	margin: 0 !important;
+	box-shadow: none !important;
+	border-top: 0 !important;
+	padding: 0px !important;
+	border-color: var(--gnome-urlbar-border-color) !important;
 }
 
 #urlbar .urlbarView-body-outer {
 	max-height: 28vh !important;
 	overflow-x: auto;
+	padding: 0 8px !important;
 }
 
 #urlbar .search-one-offs {
-	padding: 4px 0 0 0 !important;
-	margin-top: 4px !important;
 	border-color: var(--gnome-popover-separator-color) !important;
+	margin-top: 4px !important;
+	padding: 4px 8px !important;
+	background: var(--gnome-popover-background) !important;
+	border-top: 1px solid var(--gnome-popover-separator-color) !important;
 }
 
 #urlbar .search-panel-header > label {
@@ -120,32 +125,12 @@ toolbarspring {
 	--item-padding-end: 0 !important;
 }
 
-/* URL bar results megabar fixes */
-#urlbar.megabar .urlbarView {
-	background: var(--gnome-urlbar-background) !important;
-	width: 100% !important;
-	margin: 0 !important;
-	margin-top: -42px !important;
-	box-shadow: none !important;
-	border-top: 0 !important;
-	padding: 0px !important;
-	border-color: var(--gnome-urlbar-border-color) !important;
-}
-#urlbar.megabar .urlbarView-body-outer {
-	padding: 0 8px !important;
-}
-#urlbar.megabar .urlbarView-body-inner {
+#urlbar .urlbarView-body-inner {
 	border: 0 !important;
 }
-#urlbar.megabar .urlbarView-row {
-	padding: 4px 8px !important;
+#urlbar .urlbarView-row {
+	padding: 0 8px !important;
 	border-radius: 5px !important;
-}
-#urlbar.megabar .search-one-offs {
-	margin-top: 6px !important;
-	padding: 4px 8px !important;
-	background: var(--gnome-popover-background) !important;
-	border-top: 1px solid var(--gnome-popover-separator-color) !important;
 }
 
 /* Search engines buttons */

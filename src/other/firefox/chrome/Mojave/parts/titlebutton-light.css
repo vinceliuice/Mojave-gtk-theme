@@ -13,6 +13,9 @@
 	background: url("../titlebuttons/titlebutton-minimize.svg") no-repeat;
 	background-size: contain;
 }
+
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-restore,
+:root[tabsintitlebar] #titlebar #titlebar-restore,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar .titlebar-buttonbox .titlebar-max,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar #titlebar-max {
 	background: url("../titlebuttons/titlebutton-maximize.svg") no-repeat;
@@ -51,6 +54,8 @@
 	background-size: contain;
 	transition: background-size 300ms cubic-bezier(0.0, 0.0, 0.2, 1);
 }
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox:hover .titlebar-restore,
+:root[tabsintitlebar] #titlebar #titlebar-restore:hover,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar .titlebar-buttonbox:hover .titlebar-max,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar #titlebar-max:hover {
 	background: url("../titlebuttons/titlebutton-unmaximize-hover.svg") no-repeat;
@@ -71,6 +76,8 @@
 	background: url("../titlebuttons/titlebutton-minimize-active.svg") no-repeat;
 	background-size: contain;
 }
+:root[tabsintitlebar] #titlebar .titlebar-buttonbox:active .titlebar-restore,
+:root[tabsintitlebar] #titlebar #titlebar-restore:active,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar .titlebar-buttonbox:active .titlebar-max:active,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar #titlebar-max:active {
 	background: url("../titlebuttons/titlebutton-unmaximize-active.svg") no-repeat;
@@ -91,6 +98,8 @@
 	background: url("../titlebuttons/titlebutton-backdrop.svg") no-repeat;
 	background-size: contain;
 }
+:root[tabsintitlebar] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-restore,
+:root[tabsintitlebar] #titlebar:-moz-window-inactive #titlebar-restore,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar:-moz-window-inactive .titlebar-buttonbox .titlebar-max,
 :root[tabsintitlebar][sizemode="maximized"] #titlebar:-moz-window-inactive #titlebar-max {
 	background: url("../titlebuttons/titlebutton-backdrop.svg") no-repeat;

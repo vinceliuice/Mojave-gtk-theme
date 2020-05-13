@@ -106,6 +106,8 @@ panelview {
 .protections-popup-category[disabled],
 .identity-popup-content-blocking-category[disabled] {
 	opacity: 0.5 !important;
+	color: var(--gnome-inactive-toolbar-color) !important;
+	background: none !important;
 }
 
 .subviewbutton[shortcut]:after {
@@ -114,7 +116,7 @@ panelview {
 
 .subviewbutton:not([disabled]):hover, .toolbarbutton-1:not([disabled]):hover, .protections-popup-category:not([disabled]):hover,
 .identity-popup-content-blocking-category:not([disabled]):hover {
-	background-color: var(--gnome-popover-button-hover-background) !important;
+	background: var(--gnome-popover-button-hover-background) !important;
 }
 
 /* Style popover separators */
