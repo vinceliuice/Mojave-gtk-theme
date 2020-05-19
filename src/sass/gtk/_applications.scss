@@ -581,6 +581,59 @@ $disk_space_free: darken($bg_color, 3%);
 //
 // Gedit
 //
+window.org-gnome-gedit {
+  > paned.titlebar {
+    > headerbar {
+      button.flat.toggle.popup:not(.image-button) { // left-pane header button
+        @extend %headerbar_buttons;
+
+        box > .title {
+          padding: 0; // remove lateral padding
+          margin: -2px 0;
+        }
+      }
+    }
+  }
+
+  > overlay > box.vertical {
+    > paned.gedit-side-panel-paned {
+      > separator {
+        background-image: if($variant == 'light', _solid($solid_borders_color), _solid($header_border));
+      }
+
+      // 'file-browser' pane
+      > box.vertical > stack > grid.horizontal {
+        > box.horizontal {  // header-part
+          margin: 4px 0;
+        }
+
+        > scrolledwindow { // raised widget
+          border-bottom-left-radius: $wm_radius;
+
+          treeview.view:not(:hover):not(:selected) {
+            background: none;
+          }
+
+          treeview.view {
+            @extend %row_activatable;
+          }
+        }
+      }
+
+      // 'files' pane
+      stack {
+        scrolledwindow {
+          viewport.frame {
+            list.gedit-document-panel {
+              background: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .open-document-selector-treeview.view {
   padding: 3px 6px 3px 6px;
   border-color: $base_color; // disable borders, making them transparent doesn't work for some reason
@@ -594,9 +647,7 @@ $disk_space_free: darken($bg_color, 3%);
   }
 }
 
-.open-document-selector-name-label {
-  color: $fg_color;
-}
+.open-document-selector-name-label { color: $fg_color; }
 
 .open-document-selector-path-label {
   color: mix($fg_color, $base_color, 50%);
@@ -688,65 +739,25 @@ $disk_space_free: darken($bg_color, 3%);
   }
 }
 
-.gedit-side-panel-paned.horizontal {
-  // 'file-browser' pane
-  > box.vertical > stack > grid.horizontal {
-    > box.horizontal {  // header-part
-      margin: 4px 0;
-    }
-    > scrolledwindow { // raised widget
-      margin: 0 6px 6px 6px;
-      border-radius: 0;
-      box-shadow: $shadow_5;
-    }
-  }
-
-  // 'files' pane
-  stack {
-    scrolledwindow {
-      viewport.frame {
-        list.gedit-document-panel {
-          background: none;
-        }
-      }
-    }
-  }
-}
-
-paned.titlebar.horizontal {
-  headerbar {
-    box-shadow: inset 0 1px $highlight_color;
-
-    button.flat.toggle.popup:not(.image-button) { // left-pane header button
-      @extend %headerbar_buttons;
-
-      box > .title {
-        padding: 0; // remove lateral padding
-        margin: -2px 0;
-      }
-    }
-  }
-}
-
 
 //
 // Pluma
 //
 .pluma-window statusbar frame > border {
-    border: none;
+  border: none;
 }
 
 .pluma-window notebook > stack scrolledwindow {
-    border-width: 0 0 1px 0;
+  border-width: 0 0 1px 0;
 }
 
 #pluma-status-combo-button {
-    min-height: 0;
-    padding: 0;
+  min-height: 0;
+  padding: 0;
 
-    border-top: none;
-    border-bottom: none;
-    border-radius: 0;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
 }
 
 //
@@ -1297,6 +1308,14 @@ list#AutostartListBoxTweakGroup {
 
 .tweak-titlebar-right,
 dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }
+
+window.background.csd {
+  > hdyleaflet {
+    > separator.vertical {
+      background-color: if($variant == 'light', $borders_color, $header_border);
+    }
+  }
+}
 
 //
 //  Gnome Control Center

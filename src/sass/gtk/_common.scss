@@ -1676,6 +1676,13 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
   > separator {
     background-image: $headerbar_bg_image;
     border-bottom: 1px solid $header_border;
+    box-shadow: inset 0 1px $highlight_color;
+
+    &:backdrop {
+      transition: $backdrop_transition;
+      background-image: none;
+      background-image: image($header_bg_backdrop);
+    }
   }
 
   // @extend %titlebar;
@@ -1790,6 +1797,10 @@ headerbar, .titlebar {
 %headerbar_buttons {
   @include button(header-normal);
   @extend %outline_solid;
+
+  @if $variant == 'light' {
+    box-shadow: none;
+  }
 
   // &.circular { @extend %circular_button; }
 

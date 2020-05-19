@@ -164,12 +164,12 @@ menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
 #sidebar-button .toolbarbutton-icon {
 	list-style-image: url("../icons/toggle-right-sidebar-symbolic.svg");
 }
-/* Back button */	
+/* Back button */
 #nav-bar #back-button,
 #context-back { 
 	list-style-image: url("../icons/go-previous-symbolic.svg") !important;
 }
-/* Forward button */	
+/* Forward button */
 #nav-bar #forward-button,
 #context-forward { 
 	list-style-image: url("../icons/go-next-symbolic.svg") !important;
