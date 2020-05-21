@@ -800,12 +800,12 @@ $selected_slider_color: white;
 }
 
 .popup-menu-boxpointer {
-  -arrow-border-radius: 3px;
+  -arrow-border-radius: 2px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 64px;
-  -arrow-rise: 6px;
+  -arrow-rise: 0;
   -arrow-box-shadow: none; //dreaming. bug #689995
   background: transparent; // needs to reset?
 
@@ -2035,8 +2035,12 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 .app-well-app-running-dot { //running apps indicator
   width: 5px; height: 5px;
   border-radius: 3px;
-  background-color: $primary_color;
+  background-color: $light_alt_fg_color;
   margin-bottom: 0;
+}
+
+StWidget.focused .app-well-app-running-dot {
+  background-color: $primary_color;
 }
 
 %icon_tile {
@@ -2129,15 +2133,15 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   spacing: 4px;
 }
 
-/* App Folders */
-.app-folder {
-  .overview-icon {
-  }
-}
+// App Folders
+
+// .app-folder {
+//   .overview-icon { }
+// }
 
 // expanded folder
 .app-folder-dialog {
-  border-radius: $bd_radius * 2;
+  border-radius: $bd_radius * 4;
   border: none;
   spacing: 12px;
   background-color: $dark_bg_color;
