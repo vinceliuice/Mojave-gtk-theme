@@ -54,8 +54,8 @@ findbar:-moz-window-inactive label,
 }
 
 #PersonalToolbar {
-	padding-top: 2px !important;
-	height: 28px;
+	padding: 2px 4px 0 4px !important;
+	height: 32px !important;
 }
 
 /* Overrides: Remove border below the menu bar / above the header bar */
@@ -93,4 +93,12 @@ findbar:-moz-window-inactive label,
 }
 #TabsToolbar[movingtab] + #nav-bar {
 	margin-top: 0 !important;
+}
+
+/* bookmark-item */
+toolbarbutton.bookmark-item {
+	padding: 0 4px; !important;
+	margin: 0 2px !important;
+	border-radius: 3px !important;
+	max-height: 20px !important;
 }
