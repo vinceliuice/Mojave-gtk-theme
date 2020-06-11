@@ -158,20 +158,20 @@ menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
 	list-style-image: url("../icons/user-not-tracked.svg") !important;
 }
 /* Sidebar button */
-#sidebar-button:-moz-locale-dir(ltr):not([positionend])  .toolbarbutton-icon, #sidebar-button:-moz-locale-dir(rtl)[positionend]  .toolbarbutton-icon {
+#sidebar-button:-moz-locale-dir(ltr):not([positionend]) .toolbarbutton-icon, #sidebar-button:-moz-locale-dir(rtl)[positionend]  .toolbarbutton-icon {
 	list-style-image: url("../icons/toggle-sidebar-symbolic.svg") !important;
 }
 #sidebar-button .toolbarbutton-icon {
 	list-style-image: url("../icons/toggle-right-sidebar-symbolic.svg");
 }
 /* Back button */
-#nav-bar #back-button,
-#context-back { 
+#nav-bar #back-button .toolbarbutton-icon,
+#context-back {
 	list-style-image: url("../icons/go-previous-symbolic.svg") !important;
 }
 /* Forward button */
-#nav-bar #forward-button,
-#context-forward { 
+#nav-bar #forward-button .toolbarbutton-icon,
+#context-forward {
 	list-style-image: url("../icons/go-next-symbolic.svg") !important;
 }
 /* Menu button */
@@ -309,9 +309,9 @@ menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
 	:root[tabsintitlebar][inFullscreen] #window-controls #restore-button .toolbarbutton-icon,
 
 	#privatebrowsing-button .toolbarbutton-icon,
-	#sidebar-button:-moz-locale-dir(ltr):not([positionend])  .toolbarbutton-icon, 
-	#sidebar-button:-moz-locale-dir(rtl)[positionend]  .toolbarbutton-icon,
-	#sidebar-button  .toolbarbutton-icon,
+	#sidebar-button:-moz-locale-dir(ltr):not([positionend]) .toolbarbutton-icon, 
+	#sidebar-button:-moz-locale-dir(rtl)[positionend] .toolbarbutton-icon,
+	#sidebar-button .toolbarbutton-icon,
 	#nav-bar #back-button .toolbarbutton-icon,
 	#context-back .menu-iconic-icon,
 	#nav-bar #forward-button .toolbarbutton-icon,
@@ -357,7 +357,7 @@ menuitem[type="radio"]:not([disabled="true"]):hover .menu-iconic-icon {
 		list-style-image: url("../icons/preferences-system-time-symbolic-light.svg") !important;
 	}
 
-	/* Fix for extensions icons */	
+	/* Fix for extensions icons */
 	.webextension-browser-action {
 		list-style-image: var(--webextension-menupanel-image-light, inherit) !important;
 	}
