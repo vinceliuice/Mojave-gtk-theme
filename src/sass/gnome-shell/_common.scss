@@ -783,7 +783,7 @@ $selected_slider_color: white;
   .popup-inactive-menu-item { //all icons and other graphical elements
     color: $fg_color;
 
-    &:insensitive { color: transparent; }
+    &:insensitive { color: $disabled_fg_color; }
   }
 
   //.popup-status-menu-item { font-weight: normal;  color: pink; } //dunno what that is
