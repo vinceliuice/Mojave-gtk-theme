@@ -717,10 +717,18 @@ $selected_slider_color: white;
   .popup-menu-item {
     spacing: 12px;
     padding: 6px;
+    color: $fg_color;
+    text-shadow: none;
     transition-duration: $shorter_duration / 2;
 
     &:ltr { padding-right: 1.5em; padding-left: 0; }
     &:rtl { padding-right: 0; padding-left: 1.5em; }
+
+    .popup-menu-icon,
+    .app-menu-icon > StIcon,
+    .popup-menu-arrow {
+      icon-shadow: 0 0 rgba(black, 0.0);
+    }
 
     &:checked {
       font-weight: normal;
