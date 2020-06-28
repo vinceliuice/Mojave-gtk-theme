@@ -1006,6 +1006,14 @@ window.org-gnome-Builder.workspace > popover.dzlmenubutton {
   }
 }
 
+ideeditorsidebar.left.pinned.dzldockbinedge {
+  border-bottom-left-radius: $wm_radius + 2px;
+}
+
+treeview.view.project-tree.i-wanna-be-list-box:not(:selected):not(:hover) {
+  background: none;
+}
+
 window.org-gnome-Builder.workspace > stack#titlebar_container.titlebar {
   > headerbar > omnibar {
     > .linked > entry {
