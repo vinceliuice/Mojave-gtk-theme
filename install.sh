@@ -395,7 +395,7 @@ for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
 done
 }
 
-./parse-sass.sh
+${REPO_DIR}/parse-sass.sh
 
 #./render-assets.sh
 
