@@ -1,5 +1,7 @@
 #! /bin/bash
 
+REPO_DIR=$(cd $(dirname $0) && pwd)
+
 # check command avalibility
 has_command() {
   "$1" -v $1 > /dev/null 2>&1
@@ -34,11 +36,11 @@ fi
 
 for color in "${_COLOR_VARIANTS[@]}"; do
   for trans in "${_TRANS_VARIANTS[@]}"; do
-    sassc $SASSC_OPT src/main/gtk-3.0/gtk${color}${trans}.{scss,css}
+    sassc $SASSC_OPT $REPO_DIR/src/main/gtk-3.0/gtk${color}${trans}.{scss,css}
     echo "==> Generating the gtk${color}${trans}.css..."
-    sassc $SASSC_OPT src/main/gnome-shell/gnome-shell${color}${trans}.{scss,css}
+    sassc $SASSC_OPT $REPO_DIR/src/main/gnome-shell/gnome-shell${color}${trans}.{scss,css}
     echo "==> Generating the gnome-shell${color}${trans}.css..."
-    sassc $SASSC_OPT src/main/cinnamon/cinnamon${color}${trans}.{scss,css}
+    sassc $SASSC_OPT $REPO_DIR/src/main/cinnamon/cinnamon${color}${trans}.{scss,css}
     echo "==> Generating the cinnamon${color}${trans}.css..."
   done
 done
