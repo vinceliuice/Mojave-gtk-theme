@@ -2592,10 +2592,16 @@ StWidget.focused .app-well-app-running-dot {
     StIcon { icon-size: 16px; }
   }
 
-  .caps-lock-warning-label,
   .login-dialog-message-warning {
     color: $light_alt_fg_color;
   }
+}
+
+// Caps-lock warning
+.caps-lock-warning-label {
+  text-align: center;
+  padding-bottom: 8px;
+  color: $warning_color;
 }
 
 .login-dialog-logo-bin { padding: 24px 0px; }
@@ -2648,25 +2654,66 @@ StWidget.focused .app-well-app-running-dot {
   &:focus .login-dialog-timed-login-indicator { background-color: $light_alt_fg_color; }
 }
 
+.user-icon {
+  background-size: contain;
+  color: $light_alt_fg_color;
+  border-radius: $circular_radius;
+
+  &:hover {
+    color: $light_fg_color;
+  }
+
+  StIcon {
+    background-color: rgba(white, 0.05);
+    border-radius: $circular_radius;
+  }
+}
+
 // .login-dialog-username,
 .user-widget-label {
   color: $light_alt_fg_color;
 }
 
-.user-widget.horizontal .user-widget-label {
-  // @include font(title);
-  font-weight: bold;
-  text-align: left;
-  padding-left: 15px;
+.user-widget.horizontal {
+  .user-widget-label {
+    // @include font(title);
+    font-weight: bold;
+    text-align: left;
+    padding-left: 15px;
 
-  &:ltr { padding-left: 14px; }
-  &:rtl { padding-right: 14px; }
+    &:ltr { padding-left: 14px; }
+    &:rtl { padding-right: 14px; }
+  }
+
+  .user-icon {
+    icon-size: 64px; // 64px
+
+    & StIcon {
+      padding: 12px; // 12px
+      width: 40px;
+      height: 40px; // 40px;
+    }
+  }
 }
 
-.user-widget.vertical .user-widget-label {
-  text-align: center;
-  font-weight: normal;
-  padding-top: 16px;
+.user-widget.vertical {
+  .user-widget-label {
+    text-align: center;
+    font-weight: normal;
+    padding-top: 16px;
+  }
+
+  .user-icon {
+    icon-size: 96px; // 128px
+
+    & StIcon {
+      padding: 20px; // 20px
+      padding-top: 18px; // 18 px
+      padding-bottom: 22px; // 22px
+      width: 88px;
+      height: 88px; // 88px;
+    }
+  }
 }
 
 .login-dialog-prompt-entry {
