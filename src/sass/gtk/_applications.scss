@@ -1581,6 +1581,17 @@ gf-candidate-box {
   * rhythmbox *
   *************/
 
+%toolbar_radio_button {
+  @if $variant == 'dark' { border: none; }
+
+  &:active, &:checked {
+    background-image: none;
+    color: if($variant=='light', $selected_fg_color, $base_color);
+    background-color: if($variant=='light', rgba(black, 0.5), darken(white, 25%));
+    border-color: $borders_color;
+  }
+}
+
 // add top-border to inline-toolbar
 .sidebar-paned .inline-toolbar.horizontal.sidebar-toolbar {
   box-shadow: inset 0 1px $borders_color;
@@ -1588,11 +1599,7 @@ gf-candidate-box {
   background-color: darken($bg_color, 3%);
 
   button.image-button {
-//    min-width: 24px;
-//    min-width: 24px;
-//    padding: 2px;
-    @if $variant == 'dark' { border: none; }
-    &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
+    @extend %toolbar_radio_button;
 
     > widget > box > image { padding: 0; }
   }
@@ -1622,9 +1629,8 @@ window.solid-csd > box.vertical > box.vertical {
       padding: 0;
       margin-top: 8px;
       margin-bottom: 8px;
-      @if $variant == 'dark' { border: none; }
-      // &:hover { @include button(flat-hover); }
-      &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
+
+      @extend %toolbar_radio_button;
     }
   }
 
@@ -1645,9 +1651,8 @@ window.background > box.vertical > toolbar.primary-toolbar {
       min-width: 36px;
       padding: 0;
       margin: 0;
-      @if $variant == 'dark' { border: none; }
-      // &:hover { @include button(flat-hover); }
-      &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
+      @extend %toolbar_radio_button;
+
       > widget > box > image { padding: 0; }
     }
 
@@ -1665,9 +1670,7 @@ window.background > box.vertical > toolbar.primary-toolbar {
       min-width: 28px;
       padding: 0;
       margin: 0;
-      @if $variant == 'dark' { border: none; }
-      // &:hover { @include button(flat-hover); }
-      &:active, &:checked { @include button(flat-active); border-color: $borders_color; }
+      @extend %toolbar_radio_button;
     }
   }
 }
@@ -1910,6 +1913,23 @@ window.background.csd {
     > scrolledwindow {
       treeview.view {
         border-bottom-left-radius: $wm_radius;
+      }
+    }
+  }
+}
+
+//
+// Lollypop
+//
+window.background.csd {
+  > grid.vertical > overlay > grid.vertical {
+    > grid.horizontal {
+      > .sidebar {
+        border-bottom-left-radius: $wm_radius;
+      }
+
+      > paned.horizontal > stack {
+        border-bottom-right-radius: $wm_radius;
       }
     }
   }
