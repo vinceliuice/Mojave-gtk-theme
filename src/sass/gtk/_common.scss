@@ -258,7 +258,7 @@ entry {
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"));
+  border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"),url("assets/entry#{$asset_suffix}@2.png"));
 
   image { // icons inside the entry
     color: mix($fg_color,$base_color,80%);
@@ -280,13 +280,13 @@ entry {
     @include entry(focus);
     border-radius: 7px;
     transition: border-image 200ms ease-out, box-shadow 200ms ease-out;
-    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"));
+    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
   }
 
   &:disabled {
     @include entry(insensitive);
     border-radius: 7px;
-    border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"));
+    border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"),url("assets/entry-disabled#{$asset_suffix}@2.png"));
   }
 
   row &
@@ -1229,10 +1229,24 @@ combobox {
   &.osd {
     padding: 8px;
     border: none;
-    border-radius: $bt_radius;
+    border-radius: $bt_radius + 4px;
     background-color: $osd_bg_color;
     color: $osd_fg_color;
     box-shadow: $shadow_4;
+
+    &.toolbar {
+      padding: 0;
+      margin: 6px 8px 10px;
+      box-shadow: none;
+      background: none;
+
+      > box.horizontal {
+        padding: 8px;
+        border-radius: $bt_radius + 4px;
+        background-color: $osd_bg_color;
+        box-shadow: $shadow_4;
+      }
+    }
 
     &.left,
     &.right,
@@ -1744,7 +1758,7 @@ headerbar, .titlebar {
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
   background-clip: padding-box;
-  border-image-source: -gtk-scaled(url("assets/header-entry.png"));
+  border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
 
   &:backdrop { opacity: 0.65; background-image: none; }
 
@@ -1752,14 +1766,14 @@ headerbar, .titlebar {
     @include entry(header-focus);
     box-shadow: none;
     border-radius: 7px;
-    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"));
+    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
   }
 
   &:disabled {
     @include entry(header-insensitive);
     border-radius: 7px;
     border: 3px solid transparent;
-    border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"));
+    border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
   }
 
   selection:focus {

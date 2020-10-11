@@ -1710,9 +1710,9 @@ window.background {
   }
 }
 
-/************
- * Epiphany *
- ************/
+//
+// Epiphany
+//
 
 $question_bg_color: #FFEA00;
 
@@ -1827,23 +1827,44 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Fractal
+//
+.background.csd.main-window {
+  .sidebar.rooms-sidebar {
+    border-bottom-left-radius: $wm_radius;
+  }
+}
+
+//
 // documents-scrolledwi (Totem, Documents, EvView)
 //
 .documents-scrolledwin {
   background-color: transparent;
 
-  .content-view {
+  .content-view:not(:selected):not(:hover) {
     background-color: transparent;
-    border-radius: 0 0 $wm_radius $wm_radius;
+    // border-radius: 0 0 $wm_radius $wm_radius;
   }
+
+  .content-view:hover { background-color: rgba($fg_color, 0.08); }
 
   viewport.frame { // Documents
     background-color: transparent;
 
-    widget > frame.content-view {
+    widget > frame.content-view:not(:selected):not(:hover) {
       border { border: none; }
 
       background-color: transparent;
+      // border-radius: 0 0 $wm_radius $wm_radius;
+    }
+  }
+}
+
+// Documents
+
+window.background.csd { // Documents actionbar
+  > box.vertical > overlay > stack > box.vertical {
+    > actionbar {
       border-radius: 0 0 $wm_radius $wm_radius;
     }
   }
