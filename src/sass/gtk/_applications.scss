@@ -1827,6 +1827,30 @@ flowboxchild.bookmark-tag-widget {
 }
 
 //
+// Gnome Weather
+//
+
+#weather-page,
+#weekly-forecast-frame {
+	border-bottom-right-radius: $wm_radius;
+}
+
+#weather-page-content-view {
+	border-bottom-right-radius: $wm_radius;
+	border-bottom-left-radius: $wm_radius;
+}
+
+//
+// Gnome Music
+//
+
+window.background.csd {
+  > box.vertical > overlay > stack.background {
+    border-radius: 0 0 $wm_radius $wm_radius;
+  }
+}
+
+//
 // Fractal
 //
 .background.csd.main-window {

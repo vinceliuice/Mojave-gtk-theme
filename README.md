@@ -74,6 +74,25 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 |-r, --revert         | revert GDM theme, you should run this with sudo!|
 |-h, --help           | Show this help|
 
+### On Snapcraft
+
+<a href="https://snapcraft.io/mojave-themes">
+<img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+</a>
+
+You can install the theme from the Snap Store оr by running:
+
+```
+sudo snap install mojave-themes
+```
+To connect the theme to an app run:
+```
+sudo snap connect [other snap]:gtk-3-themes mojave-themes:gtk-3-themes
+```
+To connect the theme to all apps which have available plugs to gtk-common-themes you can run:
+``` for i in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}'); do sudo snap connect $i mojave-themes:gtk-3-themes; done
+```
+
 #### AUR for ArchLinux/Manjaro
 Search `mojave-gtk-theme-git` : https://aur.archlinux.org/packages/mojave-gtk-theme-git/
 
