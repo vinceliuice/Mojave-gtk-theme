@@ -1330,7 +1330,8 @@ window.background.csd {
 //
 window.background.csd {
   > headerbar.titlebar > box.horizontal > separator.sidebar, // > 3.22
-  > headerbar.titlebar > hdyleaflet > separator.sidebar {
+  > headerbar.titlebar > hdyleaflet > separator.sidebar, // > 3.34
+  > headerbar.titlebar > leaflet > separator.sidebar { // > 3.38
     border-right: none;
     background: none;
     min-width: 0;
@@ -1345,6 +1346,7 @@ window.background.csd {
     background-color: if($variant=='light', $borders_color, $header_border);
   }
 
+  > leaflet > stack.background, // > 3.38.0
   > hdyleaflet > stack.background, // > 3.34.0
   > box.horizontal > stack.background {
     background: none;
@@ -1385,6 +1387,7 @@ window.background.csd {
     }
   }
 
+  > leaflet > box.vertical > scrolledwindow.view, // > 3.38.0
   > hdyleaflet > box.vertical > scrolledwindow.view, // > 3.34.0
   > box.horizontal > box.vertical > scrolledwindow.view { // > 3.25.90
     background-color: $base_color;
@@ -1403,6 +1406,7 @@ window.background.csd {
     }
   }
 
+  > leaflet > separator.sidebar,
   > hdyleaflet > separator.sidebar {
     background: none;
     min-width: 0;
@@ -1411,7 +1415,8 @@ window.background.csd {
 }
 
 box.horizontal > separator.sidebar,
-hdyleaflet > separator.sidebar { // reset
+hdyleaflet > separator.sidebar,
+leaflet > separator.sidebar { // reset
   background: none;
   min-width: 0;
   border-right-color: if($variant=='light', $borders_color, $header_border);
@@ -1961,6 +1966,43 @@ window.background.csd {
       }
     }
   }
+}
+
+//
+// Gnome Clocks
+//
+window.background.csd.unified {
+  border-top-left-radius: $wm_radius;
+  border-top-right-radius: $wm_radius;
+
+  > deck > deck > deck {
+    > box.vertical > headerbar.titlebar.windowhandle {
+      > viewswitchertitle > squeezer {
+        > viewswitcher > box.horizontal {
+          > button.radio {
+            margin: 0;
+            border-radius: 0;
+
+            &:not(:hover):not(:active):not(:checked) {
+              background: none;
+              box-shadow: none;
+              border: none;
+            }
+
+            &:hover, &:checked {
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+hdyviewswitcherbar > actionbar,
+viewswitcherbar > actionbar { // Gnome 3.38
+  background: none;
+  border: none;
 }
 
 //

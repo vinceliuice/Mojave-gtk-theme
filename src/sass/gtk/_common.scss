@@ -4119,6 +4119,9 @@ decoration {
 //
 headerbar,
 .titlebar {
+  > .left { margin-left: 3px; }
+  > .right { margin-right: 3px; }
+
   button.titlebutton {
     &.appmenu {
       transition: background-color 0.1s $ease-out-quad,

@@ -1329,6 +1329,7 @@ $selected_slider_color: white;
 .datemenu-today-button,
 .world-clocks-button,
 .weather-button,
+.events-button,
 .events-section-title {
   min-height: $menuitem_size - 4px * 2;
   padding: 4px 8px;
@@ -1351,6 +1352,30 @@ $selected_slider_color: white;
 .events-section-title {
   color: $alt_fg_color;
   font-weight: bold;
+}
+
+/* Events */
+.events-button {
+  .events-box {
+    spacing: 6px;
+  }
+
+  .events-list {
+    spacing: 12px;
+    text-shadow: none;
+  }
+
+  .events-title {
+    color: $hint_fg_color;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-shadow: none;
+  }
+
+  .event-time {
+    color: $hint_fg_color;
+    font-feature-settings: "tnum";
+  }
 }
 
 /* World Clock */
@@ -1431,6 +1456,7 @@ $selected_slider_color: white;
   color: $fg_color;
   font-weight: bold;
   text-align: center;
+  text-shadow: none;
   &:focus { background-color: $divider_color; }
 }
 
@@ -1474,13 +1500,13 @@ $selected_slider_color: white;
   font-feature-settings: "tnum";
   &:hover, &:focus { background-color: $divider_color; }
   &:active {
-    color: inherit;
+    color: $alt_fg_color;
     background-color: $track_color;
     border-color: transparent; //avoid jumparound due to today
   }
   &:selected {
-    color: $light_alt_fg_color;
-    background-color: $primary_color;
+    color: $fg_color;
+    background-color: $track_color;
     border-color: transparent; //avoid jumparound due to today
   }
   &.calendar-day-heading {  //day of week heading
@@ -1528,20 +1554,20 @@ $selected_slider_color: white;
 }
 
 .calendar-day-with-events {
-  color: $link_color;
-  font-weight: normal;
-  text-decoration: underline;
-  background-image: none;
+  color: $hint_fg_color;
+  background-image: url("assets/calendar-today.svg");
 
   &.calendar-work-day {
     color: $hint_fg_color;
     font-weight: bold;
   }
 }
+
 .calendar-other-month-day {
   color: $disabled_fg_color;
   opacity: 0.5;
 }
+
 .calendar-week-number {
   width: $menuitem_size; height: $menuitem_size - 7px;
   margin: 2px;
@@ -2176,16 +2202,17 @@ StWidget.focused .app-well-app-running-dot {
 
 // App Folders
 
-// .app-folder {
-//   .overview-icon { }
-// }
+.app-folder {
+  background: none;
+  // .overview-icon { }
+}
 
 // expanded folder
 .app-folder-dialog {
   border-radius: $bd_radius * 4;
   border: none;
   spacing: 12px;
-  background-color: $dark_bg_color;
+  background-color: rgba(black, 0.85);
 
   & .folder-name-container {
     padding: 24px 36px 0;
