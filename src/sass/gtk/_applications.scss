@@ -1318,7 +1318,7 @@ list#AutostartListBoxTweakGroup {
 dialog.csd > headerbar.titlebar { > switch { margin: 8px 0; } }
 
 window.background.csd {
-  > hdyleaflet {
+  > hdyleaflet, > leaflet {
     > separator.vertical {
       background-color: if($variant == 'light', $borders_color, $header_border);
     }
@@ -1494,9 +1494,16 @@ window.background.csd {
 //
 // Polari
 //
+.polari-room-list {
+  .sidebar {
+    background: none;
+  }
+}
+
 stack.view.polari-entry-area {
   background-color: $bg_color;
   border-top: 1px solid $borders_color;
+  border-bottom-right-radius: $wm_radius;
 
   button.popup.flat.toggle.polari-nick-button {
     &:hover {
@@ -2723,13 +2730,6 @@ window.background:not(.csd) {
       &:hover:active { background-color: mix($fg_color, $bg_color, 75%); }
       &:disabled { background-color: transparent; }
     }
-  }
-
-  *:not(menuitem):hover, // exclude menuitem node
-  *:focus,
-  *:active,
-  *:checked {
-    &, button { color: $fg_color; } // enforce opaque foregrounds
   }
 
   > window.background > menu { // context-menus

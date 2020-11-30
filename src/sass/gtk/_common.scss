@@ -1325,7 +1325,7 @@ searchbar {
   }
 }
 
-actionbar {
+actionbar > revealer > box {
   padding: 6px;
   border-top: 1px solid $borders_color;
   background-color: darken($bg_color, 3%);
@@ -3757,16 +3757,17 @@ paned {
 infobar {
   border-style: none;
   background-color: $bg_color;
+  margin-bottom: 0;
 
-  &.info { background-color: $selected_bg_color; }
-  &.question { background-color: $suggested_color; }
-  &.warning { background-color: $warning_color; }
-  &.error { background-color: $error_color; }
+  &.info > revealer > box { background-color: $selected_bg_color; }
+  &.question > revealer > box { background-color: $suggested_color; }
+  &.warning > revealer > box { background-color: $warning_color; }
+  &.error > revealer > box { background-color: $error_color; }
 
-  &.info,
-  &.question,
-  &.warning,
-  &.error {
+  &.info > revealer > box,
+  &.question > revealer > box,
+  &.warning > revealer > box,
+  &.error > revealer > box {
     color: $selected_fg_color;
     caret-color: currentColor;
 

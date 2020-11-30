@@ -2120,7 +2120,11 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .app-well-app.app-folder > .overview-icon {
-  background-color: $light_divider_color;
+  background-color: rgba(white, 0.15);
+}
+
+.app-well-app.app-folder:hover > .overview-icon {
+  background-color: rgba(white, 0.2);
 }
 
 .show-apps .show-apps-icon {
@@ -2212,7 +2216,7 @@ StWidget.focused .app-well-app-running-dot {
   border-radius: $bd_radius * 4;
   border: none;
   spacing: 12px;
-  background-color: rgba(black, 0.85);
+  background-color: rgba(#242424, 0.92);
 
   & .folder-name-container {
     padding: 24px 36px 0;
@@ -2254,7 +2258,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 .app-folder-dialog-container {
   padding: 12px;
-  width: 800px;
+  width: 600px;
   height: 600px;
 }
 
