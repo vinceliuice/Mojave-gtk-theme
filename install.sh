@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 set -ueo pipefail
 set -o physical
 #set -x
@@ -219,11 +219,12 @@ revert_gdm() {
 while [[ $# -gt 0 ]]; do
   case "${1}" in
     -d|--dest)
-      dest="$(cd "${2}"; pwd)"
+      dest="${2}"
       if [[ ! -d "${dest}" ]]; then
         echo "Destination directory does not exist. Let's make a new one..."
         mkdir -p "${dest}"
       fi
+      dest="$(cd "${dest}"; pwd)"
       shift 2
       ;;
     -n|--name)
