@@ -19,6 +19,8 @@ if [ ! "$(which sassc 2> /dev/null)" ]; then
     sudo yum install sassc
   elif has_command pacman; then
     sudo pacman -S --noconfirm sassc
+  else
+    exit 1
   fi
 fi
 
