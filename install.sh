@@ -1,5 +1,6 @@
 #!/bin/bash
 set -ueo pipefail
+set -o physical
 #set -x
 
 REPO_DIR=$(cd $(dirname $0) && pwd)
@@ -218,10 +219,10 @@ revert_gdm() {
 while [[ $# -gt 0 ]]; do
   case "${1}" in
     -d|--dest)
-      dest="${2}"
+      dest="$(cd "${2}"; pwd)"
       if [[ ! -d "${dest}" ]]; then
         echo "Destination directory does not exist. Let's make a new one..."
-        mkdir -p ${dest}
+        mkdir -p "${dest}"
       fi
       shift 2
       ;;
