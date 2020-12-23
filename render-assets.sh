@@ -9,7 +9,7 @@ ASRC_DIR="${REPO_DIR}/src/assets"
 
 # check command avalibility
 has_command() {
-  "$1" -v "$1" > /dev/null 2>&1
+  command -v "${1}" > /dev/null 2>&1
 }
 
 if [ ! "$(which inkscape 2> /dev/null)" ]; then
