@@ -1,10 +1,11 @@
 #! /usr/bin/env bash
+set -o physical
 
 INKSCAPE="/usr/bin/inkscape"
 OPTIPNG="/usr/bin/optipng"
 
-REPO_DIR=$(cd $(dirname $0) && pwd)
-ASRC_DIR=${REPO_DIR}/src/assets
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+ASRC_DIR="${REPO_DIR}/src/assets"
 
 # check command avalibility
 has_command() {

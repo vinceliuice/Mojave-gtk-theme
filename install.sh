@@ -3,8 +3,8 @@ set -ueo pipefail
 set -o physical
 #set -x
 
-REPO_DIR=$(cd $(dirname $0) && pwd)
-SRC_DIR=${REPO_DIR}/src
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+SRC_DIR="${REPO_DIR}/src"
 
 ROOT_UID=0
 DEST_DIR=

@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
+set -o physical
 
-REPO_DIR=$(cd $(dirname $0) && pwd)
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # check command avalibility
 has_command() {
