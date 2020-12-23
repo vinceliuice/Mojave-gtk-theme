@@ -1,10 +1,12 @@
-#! /bin/bash
+#! /usr/bin/env bash
+set -ueo pipefail
+set -o physical
 
-REPO_DIR=$(cd $(dirname $0) && pwd)
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 # check command avalibility
 has_command() {
-  "$1" -v $1 > /dev/null 2>&1
+  command -v "${1}" > /dev/null 2>&1
 }
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
@@ -19,10 +21,14 @@ if [ ! "$(which sassc 2> /dev/null)" ]; then
     sudo yum install sassc
   elif has_command pacman; then
     sudo pacman -S --noconfirm sassc
+  elif had_command brew; then
+    brew install sassc
+  else
+    exit 1
   fi
 fi
 
-SASSC_OPT="-M -t expanded"
+SASSC_OPT=(-M -t expanded)
 
 _COLOR_VARIANTS=('-light' '-dark')
 if [ ! -z "${COLOR_VARIANTS:-}" ]; then
@@ -36,11 +42,11 @@ fi
 
 for color in "${_COLOR_VARIANTS[@]}"; do
   for trans in "${_TRANS_VARIANTS[@]}"; do
-    sassc $SASSC_OPT $REPO_DIR/src/main/gtk-3.0/gtk${color}${trans}.{scss,css}
+    sassc "${SASSC_OPT[@]}" "$REPO_DIR/src/main/gtk-3.0/gtk${color}${trans}."{scss,css}
     echo "==> Generating the gtk${color}${trans}.css..."
-    sassc $SASSC_OPT $REPO_DIR/src/main/gnome-shell/gnome-shell${color}${trans}.{scss,css}
+    sassc "${SASSC_OPT[@]}" "$REPO_DIR/src/main/gnome-shell/gnome-shell${color}${trans}."{scss,css}
     echo "==> Generating the gnome-shell${color}${trans}.css..."
-    sassc $SASSC_OPT $REPO_DIR/src/main/cinnamon/cinnamon${color}${trans}.{scss,css}
+    sassc "${SASSC_OPT[@]}" "$REPO_DIR/src/main/cinnamon/cinnamon${color}${trans}."{scss,css}
     echo "==> Generating the cinnamon${color}${trans}.css..."
   done
 done
