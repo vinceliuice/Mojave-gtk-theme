@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
+set -ueo pipefail
 set -o physical
 
 INKSCAPE="/usr/bin/inkscape"
