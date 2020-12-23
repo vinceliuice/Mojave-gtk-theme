@@ -20,6 +20,8 @@ if [ ! "$(which sassc 2> /dev/null)" ]; then
     sudo yum install sassc
   elif has_command pacman; then
     sudo pacman -S --noconfirm sassc
+  elif had_command brew; then
+    brew install sassc
   else
     exit 1
   fi

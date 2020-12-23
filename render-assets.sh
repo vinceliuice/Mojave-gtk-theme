@@ -24,6 +24,9 @@ if [ ! "$(which inkscape 2> /dev/null)" ]; then
     sudo dnf install inkscape optipng
   elif has_command pacman; then
     sudo pacman -S --noconfirm inkscape optipng
+  elif had_command brew; then
+    brew install --cask inkscape
+    brew install optipng
   else
     exit 1
   fi
