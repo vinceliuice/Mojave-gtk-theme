@@ -24,14 +24,14 @@ SMALL_VARIANTS=('' '-small')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
 copy_r() {
-	case "$(uname -s)" in
-		'FreeBSD'|'Darwin')
-			cp -r "${@}"
-			;;
-		*)
-			cp -ur "${@}"
-			;;
-	esac
+  case "$(uname -s)" in
+    'FreeBSD'|'Darwin')
+      cp -r "${@}"
+      ;;
+    *)
+      cp -ur "${@}"
+      ;;
+  esac
 }
 
 usage() {
