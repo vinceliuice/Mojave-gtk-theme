@@ -82,6 +82,7 @@ filechooser {
     color: $dark_sidebar_fg;
     background-color: $dark_sidebar_bg;
     border-color: $borders_color;
+    border-radius: 0 0 $wm_radius 0;
 
     button { @extend %dark_sidebar_button; }
     entry { @extend %dark_sidebar_entry; }

@@ -1267,27 +1267,35 @@ button.documents-favorite:active:hover {
 //
 // Gnome Tweak Tool ( Gnome tweaks )
 //
-row#Focus,
-row#ClickMethod,
-row#StaticWorkspaceTweak, // for 3.26.0
-row#dynamic-workspaces,
-row#PrimaryWorkspaceTweak, // for 3.26.0
-row#workspaces-only-on-primary {
-  padding: 0;
-  border: 1px solid $borders_color;
 
-  row:not(:last-child) { border-bottom: 1px solid $borders_color; }
+$list_shadow: if($variant == 'light',
+                (inset 0 0 8px rgba(black, 0.02), inset 0 0 3px rgba(black, 0.01), inset 0 0 0 1px rgba(black, 0.04), inset 0 1px rgba(black, 0.05)),
+                (inset 0 0 8px rgba(white, 0.03), inset 0 0 3px rgba(white, 0.02), inset 0 0 0 1px rgba(white, 0.04), inset 0 1px rgba(white, 0.06)));
 
-  &.tweak > list {
-    margin-top: -3px;
-  }
+%circular_list {
+  border-radius: $wm_radius;
+  box-shadow: $list_shadow;
+  background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
+  border: none;
+
+  > separator { background: none; min-height: 0; }
 }
 
-// Add more spaces between title and list
-row#Focus,
-row#ClickMethod,
-row#PrimaryWorkspaceTweak, // for 3.26.0
-row#workspaces-only-on-primary { margin-top: 4px; }
+%circular_row {
+  &:first-child {
+    border-top-left-radius: $wm_radius;
+    border-top-right-radius: $wm_radius;
+  }
+
+  &:last-child { // Not use ?
+    border-bottom-left-radius: $wm_radius;
+    border-bottom-right-radius: $wm_radius;
+  }
+
+  &:only-child {
+    border-radius: $wm_radius;
+  }
+}
 
 row#AutostartTitle.tweak {
   padding: 3px;
@@ -1323,6 +1331,60 @@ window.background.csd {
   > hdyleaflet, > leaflet {
     > separator.vertical {
       background-color: if($variant == 'light', $borders_color, $header_border);
+    }
+
+    frame > border { border: none; }
+
+    frame:not(.view) list:not(.contacts-contact-list) { // Don't set this to Gnome-Contacts
+      @extend %circular_list;
+
+      row.activatable {
+        @extend %circular_row;
+
+        .row-header > button:not(.text-button) {
+          min-height: 28px;
+          min-width: 28px;
+          padding: 0;
+          margin: 4px 0;
+        }
+      }
+    }
+
+    frame.view {
+      @extend %circular_list;
+
+      list {
+        background: none;
+
+        > separator {
+          background: none;
+          min-height: 0;
+        }
+
+        row.activatable { @extend %circular_row; }
+      }
+    }
+
+    list.view, list.frame {
+      @extend %circular_list;
+
+      row.activatable { @extend %circular_row; }
+    }
+
+    list.tweak-group {
+      list {
+        @extend %circular_list;
+
+        row.activatable { @extend %circular_row; }
+      }
+    }
+
+    .tweak-group-startup {
+      @extend %circular_list;
+
+      > row.tweak-startup {
+        background: none;
+      }
     }
   }
 }
@@ -2005,6 +2067,12 @@ window.background.csd.unified {
         }
       }
     }
+
+    list {
+      @extend %circular_list;
+
+      row.activatable { @extend %circular_row; }
+    }
   }
 }
 
@@ -2106,6 +2174,41 @@ dialog.background.csd {
   }
 
   // entry.search { margin: 2px; }
+}
+
+//
+// Gnome Extensions
+//
+window.background.csd {
+  > stack, // GameMode setting
+  > stack > scrolledwindow > viewport > box, // User Themes (Workspace) setting
+  > box > stack > scrolledwindow > viewport > box {
+    > list {
+      @extend %circular_list;
+
+      row.activatable { @extend %circular_row; }
+    }
+  }
+
+  stack stack stack frame, // ArcMenu setting
+  > stack > stack > box > frame, // Night Theme Switcher setting
+  > stack > stack > box > box > frame, // Night Theme Switcher setting bottom lists
+  > stack > box > stack > box > frame, // ArcMenu setting
+  > stack > box > stack > scrolledwindow > viewport frame, // ArcMenu setting
+  > stack > box > stack > box > scrolledwindow > viewport > frame, // ArcMenu setting
+  > stack > grid > scrolledwindow > viewport > box > frame { // GSConnect setting
+    > border { border: none; }
+
+    > list {
+      @extend %circular_list;
+
+      row.activatable { @extend %circular_row; }
+    }
+  }
+
+  > stack > box > box > list { // ArcMenu setting sidebar
+    border-bottom-left-radius: $wm_radius;
+  }
 }
 
 //
@@ -2411,9 +2514,8 @@ dialog.background {
 }
 
 //
-//  * Thunar *
+// Thunar
 //
-
 window.background.csd.thunar {
   > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane {
     border-bottom-left-radius: $wm_radius;
@@ -2588,9 +2690,9 @@ dialog.background:not(.csd) {
   }
 }
 
- /*********
-  * Geary *
-  *********/
+//
+// Geary
+//
 .geary-main-window.background.csd,
 window#GearyMainWindow.background.csd {
   box.vertical > paned.horizontal > box.sidebar.vertical {
@@ -2615,10 +2717,23 @@ window#GearyMainWindow.background.csd {
   }
 }
 
-//
-// * Firefox and Thunderbird *
-//
+preferencesgroup, .geary-accounts-editor-pane {
+  list {
+    @extend %circular_list;
 
+    row.activatable { @extend %circular_row; }
+  }
+}
+
+.geary-accounts-editor-pane {
+  frame:not(.geary-signature) > border,
+  scrolledwindow.frame { border: none; }
+}
+
+
+//
+// Firefox and Thunderbird
+//
 window.background:not(.csd) {
   > widget {
     // for the bookmark toolbar's separators
@@ -2706,9 +2821,9 @@ window.background:not(.csd) {
   }
 }
 
-// /*******************
-//  * Firefox Quantum *
-//  *******************/
+//
+// Firefox Quantum
+//
 
 #MozillaGtkWidget.background {
   // blend with weird toolbar backgrounds
@@ -2769,9 +2884,9 @@ window.background:not(.csd) {
   }
 }
 
-/***************
- * Chrome(ium) *
- ***************/
+//
+// Chrome(ium)
+//
 
 $chrome_bg_color: $bg_color;
 $chrome_fg_color: $text_color;
@@ -2831,41 +2946,11 @@ window.background.chromium {
   }
 
   > menubar { background-color: $header_bg; }
-
-  // > menu {
-  //   border: 1px solid $solid_borders_color;
-  //   color: $chrome_menu_fg_color;
-  //   background-color: $chrome_menu_bg_color;
-  //
-  //   > separator, .separator {
-  //     margin: 2px 0;
-  //     min-height: 0;
-  //     border-bottom: 2px solid $menu_bd;
-  //     background: none;
-  //   }
-  //
-  //   > menuitem {
-  //     color: $chrome_menu_fg_color;
-  //
-  //     &:hover {
-  //       color: $selected_fg_color;
-  //       background-color: $selected_bg_color;
-  //     }
-  //
-  //     &:disabled {
-  //       color: rgba($chrome_menu_fg_color, 0.45);
-  //     }
-  //
-  //     // label { &:disabled { color: rgba($chrome_menu_fg_color, 0.45); } }
-  //
-  //     accelerator { color: rgba($chrome_menu_fg_color, 0.45); }
-  //   }
-  // }
 }
 
-/****************
- * Libre-Office *
- ****************/
+//
+// Libre-Office
+//
 window.background:not(.solid-csd) {
   // reserved area at the most-right side of GtkMenuBar
   > grid.horizontal > grid.horizontal {
@@ -2911,9 +2996,9 @@ window.background:not(.solid-csd) {
   }
 }
 
-// /*********
-//  * Tilix *
-//  *********/
+//
+// Tilix
+//
 
 // in-line titlebars
 widget > box.terminal-titlebar {
@@ -2978,14 +3063,10 @@ window.background.csd {
   }
 }
 
-//
-// Pamac
-//
 
-
-// /************
-//  * Synaptic *
-//  ************/
+//
+// Synaptic
+//
 window > box.vertical > box.horizontal {
   > toolbar {
     background-color: transparent;
@@ -3068,23 +3149,6 @@ button.flat.-panel-icon-button {
     color: if($variant == 'light', darken($panel_fg, 5%), $selected_fg_color);
   }
 }
-
-// vala-panel-appmenu
-// menubar.-vala-panel-appmenu-private, // xfce4 appmenu plugin
-// menubar.-vala-panel-background {
-//   background: none;
-//   border: none;
-//   box-shadow: none;
-//
-//   > menuitem {
-//     color: $panel_fg;
-//     font-weight: normal;
-//     &:hover { color: $selected_fg_color; }
-//
-//     // > window.background.popup > decoration,
-//     // > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
-//   }
-// }
 
 // * Elementary Apps *
 

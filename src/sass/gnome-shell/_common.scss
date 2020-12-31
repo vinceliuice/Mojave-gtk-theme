@@ -691,7 +691,7 @@ $selected_slider_color: white;
   spacing-columns: 1em;
 }
 
-/* Popovers/Menus */
+// Popovers/Menus
 
 .popup-menu {
   min-width: 12em;
@@ -1251,7 +1251,6 @@ $selected_slider_color: white;
 
 // Activities button
 #panel #panelActivities.panel-button {
-
   > * {
     background-image: url("assets/activities.svg");
     background-position: center top;
