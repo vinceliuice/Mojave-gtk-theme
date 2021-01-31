@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
-set -ueo pipefail
 set -o physical
-#set -x
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 SRC_DIR="${REPO_DIR}/src"
@@ -21,18 +19,8 @@ COLOR_VARIANTS=('-light' '-dark')
 OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
 SMALL_VARIANTS=('' '-small')
+THEME_VARIANTS=('' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
-
-copy_r() {
-  case "$(uname -s)" in
-    'FreeBSD'|'Darwin')
-      cp -r "${@}"
-      ;;
-    *)
-      cp -ur "${@}"
-      ;;
-  esac
-}
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -56,105 +44,136 @@ install() {
   local opacity="${4}"
   local alt="${5}"
   local small="${6}"
-  local icon="${7}"
+  local theme="${7}"
+  local icon="${8}"
 
   [[ "${color}" == '-light' ]] && local ELSE_LIGHT="${color}"
   [[ "${color}" == '-dark' ]] && local ELSE_DARK="${color}"
 
-  local THEME_DIR="${1}/${2}${3}${4}${5}${6}"
+  local THEME_DIR="${1}/${2}${3}${4}${5}${6}${7}"
 
   [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"
 
   echo "Installing '${THEME_DIR}'..."
 
-  mkdir -p                                                                                  "${THEME_DIR}"
-  copy_r "${REPO_DIR}/COPYING"                                                              "${THEME_DIR}"
+  mkdir -p                                                                                   "${THEME_DIR}"
+  cp -r "${REPO_DIR}/COPYING"                                                                "${THEME_DIR}"
 
-  echo "[Desktop Entry]" >>                                                                 "${THEME_DIR}/index.theme"
-  echo "Type=X-GNOME-Metatheme" >>                                                          "${THEME_DIR}/index.theme"
-  echo "Name=${name}${color}${opacity}${alt}${small}" >>                                    "${THEME_DIR}/index.theme"
-  echo "Comment=An Stylish Gtk+ theme based on Elegant Design" >>                           "${THEME_DIR}/index.theme"
-  echo "Encoding=UTF-8" >>                                                                  "${THEME_DIR}/index.theme"
-  echo "" >>                                                                                "${THEME_DIR}/index.theme"
-  echo "[X-GNOME-Metatheme]" >>                                                             "${THEME_DIR}/index.theme"
-  echo "GtkTheme=${name}${color}${opacity}${alt}${small}" >>                                "${THEME_DIR}/index.theme"
-  echo "MetacityTheme=${name}${color}${opacity}${alt}${small}" >>                           "${THEME_DIR}/index.theme"
-  echo "IconTheme=Adwaita" >>                                                               "${THEME_DIR}/index.theme"
-  echo "CursorTheme=Adwaita" >>                                                             "${THEME_DIR}/index.theme"
-  echo "ButtonLayout=close,minimize,maximize:menu" >>                                       "${THEME_DIR}/index.theme"
+  echo "[Desktop Entry]" >>                                                                  "${THEME_DIR}/index.theme"
+  echo "Type=X-GNOME-Metatheme" >>                                                           "${THEME_DIR}/index.theme"
+  echo "Name=${2}${3}${4}${5}${6}${7}" >>                                                    "${THEME_DIR}/index.theme"
+  echo "Comment=An Stylish Gtk+ theme based on Elegant Design" >>                            "${THEME_DIR}/index.theme"
+  echo "Encoding=UTF-8" >>                                                                   "${THEME_DIR}/index.theme"
+  echo "" >>                                                                                 "${THEME_DIR}/index.theme"
+  echo "[X-GNOME-Metatheme]" >>                                                              "${THEME_DIR}/index.theme"
+  echo "GtkTheme=${2}${3}${4}${5}${6}${7}" >>                                                "${THEME_DIR}/index.theme"
+  echo "MetacityTheme=${2}${3}${4}${5}${6}${7}" >>                                           "${THEME_DIR}/index.theme"
+  echo "IconTheme=Mc${2}-circle${3}" >>                                                      "${THEME_DIR}/index.theme"
+  echo "CursorTheme=McMojave Cursors" >>                                                     "${THEME_DIR}/index.theme"
+  echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 
-  mkdir -p                                                                                  "${THEME_DIR}/gnome-shell"
-  copy_r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}${opacity}.css"                    "${THEME_DIR}/gnome-shell/gnome-shell.css"
-  copy_r "${SRC_DIR}/assets/gnome-shell/common-assets"                                      "${THEME_DIR}/gnome-shell/assets"
-  copy_r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                             "${THEME_DIR}/gnome-shell/assets"
-  copy_r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                      "${THEME_DIR}/gnome-shell/assets"
-  copy_r "${SRC_DIR}/assets/gnome-shell/assets${color}/activities/activities${icon}.svg"    "${THEME_DIR}/gnome-shell/assets/activities.svg"
+  mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
+  cp -r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}${opacity}${theme}.css"              "${THEME_DIR}/gnome-shell/gnome-shell.css"
+  cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
+
+  if [[ ${theme} != '-default' ]]; then
+    cp -r ${SRC_DIR}/assets/gnome-shell/common-assets${theme}/*'.svg'                        "${THEME_DIR}/gnome-shell/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                               "${THEME_DIR}/gnome-shell/assets"
+  cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                        "${THEME_DIR}/gnome-shell/assets"
+  cp -r "${SRC_DIR}/assets/gnome-shell/activities${color}/activities${icon}.svg"             "${THEME_DIR}/gnome-shell/assets/activities.svg"
+
   cd "${THEME_DIR}/gnome-shell"
-  ln -s assets/no-events.svg no-events.svg
-  ln -s assets/process-working.svg process-working.svg
-  ln -s assets/no-notifications.svg no-notifications.svg
+  mv -f assets/no-events.svg no-events.svg
+  mv -f assets/process-working.svg process-working.svg
+  mv -f assets/no-notifications.svg no-notifications.svg
 
-  mkdir -p                                                                                  "${THEME_DIR}/gtk-2.0"
-  copy_r "${SRC_DIR}/main/gtk-2.0/gtkrc${color}"                                            "${THEME_DIR}/gtk-2.0/gtkrc"
-  copy_r "${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc"                               "${THEME_DIR}/gtk-2.0/menubar-toolbar.rc"
-  copy_r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                            "${THEME_DIR}/gtk-2.0"
-  copy_r "${SRC_DIR}/assets/gtk-2.0/assets${color}"                                         "${THEME_DIR}/gtk-2.0/assets"
+  mkdir -p                                                                                   "${THEME_DIR}/gtk-2.0"
+  cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${color}${theme}"                                      "${THEME_DIR}/gtk-2.0/gtkrc"
+  cp -r "${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc"                                 "${THEME_DIR}/gtk-2.0/menubar-toolbar.rc"
+  cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                              "${THEME_DIR}/gtk-2.0"
+  cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}"                                           "${THEME_DIR}/gtk-2.0/assets"
 
-  mkdir -p                                                                                  "${THEME_DIR}/gtk-3.0"
-  copy_r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets"                                   "${THEME_DIR}/gtk-3.0"
-  copy_r "${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton${alt}${small}"               "${THEME_DIR}/gtk-3.0/windows-assets"
-  copy_r "${SRC_DIR}/assets/gtk-3.0/thumbnail${color}.png"                                  "${THEME_DIR}/gtk-3.0/thumbnail.png"
-  copy_r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}.css"                                   "${THEME_DIR}/gtk-3.0/gtk-dark.css"
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}${theme}/"*'.png'                         "${THEME_DIR}/gtk-2.0/assets"
+  fi
+
+  mkdir -p                                                                                   "${THEME_DIR}/gtk-3.0"
+  cp -r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets"                                     "${THEME_DIR}/gtk-3.0"
+
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets${theme}/"*'.png'                   "${THEME_DIR}/gtk-3.0/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton${alt}${small}"                 "${THEME_DIR}/gtk-3.0/windows-assets"
+  cp -r "${SRC_DIR}/assets/gtk-3.0/thumbnails/thumbnail${color}${theme}.png"                 "${THEME_DIR}/gtk-3.0/thumbnail.png"
+  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   if [[ "${color}" == '-light' ]]; then
-    copy_r "${SRC_DIR}/main/gtk-3.0/gtk-light${opacity}.css"                                "${THEME_DIR}/gtk-3.0/gtk.css"
+    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light${opacity}${theme}.css"                         "${THEME_DIR}/gtk-3.0/gtk.css"
   else
-    copy_r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}.css"                                 "${THEME_DIR}/gtk-3.0/gtk.css"
+    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                          "${THEME_DIR}/gtk-3.0/gtk.css"
   fi
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-3.0" --target="${THEME_DIR}/gtk-3.0/gtk.gresource" "${SRC_DIR}/main/gtk-3.0/gtk.gresource.xml"
   rm -rf "${THEME_DIR}/gtk-3.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
-  echo '@import url("resource:///org/gnome/Mojave-theme/gtk.css");' >>                      "${THEME_DIR}/gtk-3.0/gtk.css"
-  echo '@import url("resource:///org/gnome/Mojave-theme/gtk-dark.css");' >>                 "${THEME_DIR}/gtk-3.0/gtk-dark.css"
+  echo '@import url("resource:///org/gnome/theme/gtk.css");' >>                              "${THEME_DIR}/gtk-3.0/gtk.css"
+  echo '@import url("resource:///org/gnome/theme/gtk-dark.css");' >>                         "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
-  mkdir -p                                                                                  "${THEME_DIR}/metacity-1"
-  copy_r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                            "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
-  copy_r "${SRC_DIR}/main/metacity-1/metacity-theme-3.xml"                                  "${THEME_DIR}/metacity-1"
-  copy_r "${SRC_DIR}/assets/metacity-1/assets/"*'.png'                                      "${THEME_DIR}/metacity-1"
-  copy_r "${SRC_DIR}/assets/metacity-1/thumbnail${color}.png"                               "${THEME_DIR}/metacity-1/thumbnail.png"
+  mkdir -p                                                                                   "${THEME_DIR}/metacity-1"
+  cp -r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                              "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
+  cp -r "${SRC_DIR}/main/metacity-1/metacity-theme-3.xml"                                    "${THEME_DIR}/metacity-1"
+  cp -r "${SRC_DIR}/assets/metacity-1/assets/"*'.png'                                        "${THEME_DIR}/metacity-1"
+  cp -r "${SRC_DIR}/assets/metacity-1/thumbnail${color}.png"                                 "${THEME_DIR}/metacity-1/thumbnail.png"
   cd "${THEME_DIR}/metacity-1" && ln -s metacity-theme-1.xml metacity-theme-2.xml
 
-  mkdir -p                                                                                  "${THEME_DIR}/xfwm4"
-  copy_r "${SRC_DIR}/assets/xfwm4/assets${color}/"*'.png'                                   "${THEME_DIR}/xfwm4"
-  copy_r "${SRC_DIR}/main/xfwm4/themerc${color}"                                            "${THEME_DIR}/xfwm4/themerc"
+  mkdir -p                                                                                   "${THEME_DIR}/xfwm4"
+  cp -r "${SRC_DIR}/assets/xfwm4/assets${color}/"*'.png'                                     "${THEME_DIR}/xfwm4"
+  cp -r "${SRC_DIR}/main/xfwm4/themerc${color}"                                              "${THEME_DIR}/xfwm4/themerc"
 
-  mkdir -p                                                                                  "${THEME_DIR}/cinnamon"
-  copy_r "${SRC_DIR}/main/cinnamon/cinnamon${color}${opacity}.css"                          "${THEME_DIR}/cinnamon/cinnamon.css"
-  copy_r "${SRC_DIR}/assets/cinnamon/common-assets"                                         "${THEME_DIR}/cinnamon/assets"
-  copy_r "${SRC_DIR}/assets/cinnamon/assets${color}/"*'.svg'                                "${THEME_DIR}/cinnamon/assets"
-  copy_r "${SRC_DIR}/assets/cinnamon/thumbnail${color}.png"                                 "${THEME_DIR}/cinnamon/thumbnail.png"
+  mkdir -p                                                                                   "${THEME_DIR}/cinnamon"
+  cp -r "${SRC_DIR}/main/cinnamon/cinnamon${color}${opacity}${theme}.css"                    "${THEME_DIR}/cinnamon/cinnamon.css"
+  cp -r "${SRC_DIR}/assets/cinnamon/common-assets"                                           "${THEME_DIR}/cinnamon/assets"
 
-  mkdir -p                                                                                  "${THEME_DIR}/plank"
-  copy_r "${SRC_DIR}/other/plank/${name}${color}/"*'.theme'                                 "${THEME_DIR}/plank"
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/cinnamon/common-assets${theme}/"*'.svg'                         "${THEME_DIR}/cinnamon/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/cinnamon/assets${color}/"*'.svg'                                  "${THEME_DIR}/cinnamon/assets"
+  cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${color}${theme}.png"                "${THEME_DIR}/cinnamon/thumbnail.png"
+
+  mkdir -p                                                                                   "${THEME_DIR}/plank"
+  cp -r "${SRC_DIR}/other/plank/${name}${color}/"*'.theme'                                   "${THEME_DIR}/plank"
 }
 
 # Backup and install files related to GDM theme
-
 GS_THEME_FILE="/usr/share/gnome-shell/gnome-shell-theme.gresource"
 SHELL_THEME_FOLDER="/usr/share/gnome-shell/theme"
 ETC_THEME_FOLDER="/etc/alternatives"
 ETC_THEME_FILE="/etc/alternatives/gdm3.css"
+ETC_NEW_THEME_FILE="/etc/alternatives/gdm3-theme.gresource"
 UBUNTU_THEME_FILE="/usr/share/gnome-shell/theme/ubuntu.css"
 UBUNTU_NEW_THEME_FILE="/usr/share/gnome-shell/theme/gnome-shell.css"
+UBUNTU_YARU_THEME_FILE="/usr/share/gnome-shell/theme/Yaru/gnome-shell-theme.gresource"
+POP_OS_THEME_FILE="/usr/share/gnome-shell/theme/Pop/gnome-shell-theme.gresource"
 
 install_gdm() {
-  local GDM_THEME_DIR="${1}/${2}${3}"
+  local dest="${1}"
+  local name="${2}"
+  local color="${3}"
+  local opacity="${4}"
+  local theme="${5}"
+
+  local GDM_THEME_DIR="${1}/${2}${3}${4}${5}"
+  local YARU_GDM_THEME_DIR="$SHELL_THEME_FOLDER/Yaru/${2}${3}${4}${5}"
+  local POP_GDM_THEME_DIR="$SHELL_THEME_FOLDER/Pop/${2}${3}${4}${5}"
 
   echo
-  echo "Installing ${2}${3} gdm theme..."
+  prompt -i "Installing ${2}${3}${4}${5} gdm theme..."
 
   if [[ -f "$GS_THEME_FILE" ]] && command -v glib-compile-resources >/dev/null ; then
-    echo "Installing '$GS_THEME_FILE'..."
+    prompt -i "Installing '$GS_THEME_FILE'..."
     cp -an "$GS_THEME_FILE" "$GS_THEME_FILE.bak"
     glib-compile-resources \
       --sourcedir="$GDM_THEME_DIR/gnome-shell" \
@@ -163,58 +182,130 @@ install_gdm() {
   fi
 
   if [[ -f "$UBUNTU_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing '$UBUNTU_THEME_FILE'..."
+    prompt -i "Installing '$UBUNTU_THEME_FILE'..."
     cp -an "$UBUNTU_THEME_FILE" "$UBUNTU_THEME_FILE.bak"
-    # rm -rf "$GS_THEME_FILE"
-    # mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
     cp -af "$GDM_THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_THEME_FILE"
   fi
 
   if [[ -f "$UBUNTU_NEW_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing '$UBUNTU_NEW_THEME_FILE'..."
+    prompt -i "Installing '$UBUNTU_NEW_THEME_FILE'..."
     cp -an "$UBUNTU_NEW_THEME_FILE" "$UBUNTU_NEW_THEME_FILE.bak"
-    cp -af "$GDM_THEME_DIR/gnome-shell/gnome-shell.css" "$UBUNTU_NEW_THEME_FILE"
+    cp -af "$GDM_THEME_DIR"/gnome-shell/* "$SHELL_THEME_FOLDER"
   fi
 
+  # > Ubuntu 18.04
   if [[ -f "$ETC_THEME_FILE" && -f "$GS_THEME_FILE.bak" ]]; then
-    echo "Installing Ubuntu gnome-shell theme..."
+    prompt -i "Installing Ubuntu GDM theme..."
     cp -an "$ETC_THEME_FILE" "$ETC_THEME_FILE.bak"
-    # rm -rf "$ETC_THEME_FILE" "$GS_THEME_FILE"
-    # mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
-    [[ -d "$SHELL_THEME_FOLDER/Mojave" ]] && rm -rf "$SHELL_THEME_FOLDER/Mojave"
-    copy_r "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/Mojave"
+    [[ -d "$SHELL_THEME_FOLDER/$THEME_NAME" ]] && rm -rf "$SHELL_THEME_FOLDER/$THEME_NAME"
+    cp -r "$GDM_THEME_DIR/gnome-shell" "$SHELL_THEME_FOLDER/$THEME_NAME"
     cd "$ETC_THEME_FOLDER"
-    ln -s "$SHELL_THEME_FOLDER/Mojave/gnome-shell.css" gdm3.css
+    [[ -f "$ETC_THEME_FILE.bak" ]] && ln -sf "$SHELL_THEME_FOLDER/$THEME_NAME/gnome-shell.css" gdm3.css
+  fi
+
+  # > Ubuntu 20.04
+  if [[ -d "$SHELL_THEME_FOLDER/Yaru" && -f "$GS_THEME_FILE.bak" ]]; then
+    prompt -i "Installing Ubuntu GDM theme..."
+    cp -an "$UBUNTU_YARU_THEME_FILE" "$UBUNTU_YARU_THEME_FILE.bak"
+    rm -rf "$UBUNTU_YARU_THEME_FILE"
+    rm -rf "$YARU_GDM_THEME_DIR" && mkdir -p "$YARU_GDM_THEME_DIR"
+
+    mkdir -p                                                                              "$YARU_GDM_THEME_DIR"/gnome-shell
+    mkdir -p                                                                              "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru
+    cp -r "$SRC_DIR"/assets/gnome-shell/icons                                             "$YARU_GDM_THEME_DIR"/gnome-shell
+    cp -r "$SRC_DIR"/main/gnome-shell/pad-osd.css                                         "$YARU_GDM_THEME_DIR"/gnome-shell
+    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$YARU_GDM_THEME_DIR"/gnome-shell/gdm3.css
+    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru/gnome-shell.css
+    cp -r "$SRC_DIR"/assets/gnome-shell/common-assets                                     "$YARU_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/*.svg                              "$YARU_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/activities/activities.svg                         "$YARU_GDM_THEME_DIR"/gnome-shell/assets
+
+    cd "$YARU_GDM_THEME_DIR"/gnome-shell
+    mv -f assets/no-events.svg no-events.svg
+    mv -f assets/process-working.svg process-working.svg
+    mv -f assets/no-notifications.svg no-notifications.svg
+
+    glib-compile-resources \
+      --sourcedir="$YARU_GDM_THEME_DIR"/gnome-shell \
+      --target="$UBUNTU_YARU_THEME_FILE" \
+      "$SRC_DIR"/main/gnome-shell/gnome-shell-yaru-theme.gresource.xml
+
+    rm -rf "$YARU_GDM_THEME_DIR"
+  fi
+
+  # > Pop_OS 20.04
+  if [[ -d "$SHELL_THEME_FOLDER/Pop" && -f "$GS_THEME_FILE.bak" ]]; then
+    prompt -i "Installing Pop_OS GDM theme..."
+    cp -an "$POP_OS_THEME_FILE" "$POP_OS_THEME_FILE.bak"
+    rm -rf "$POP_OS_THEME_FILE"
+    rm -rf "$POP_GDM_THEME_DIR" && mkdir -p "$POP_GDM_THEME_DIR"
+
+    mkdir -p                                                                              "$POP_GDM_THEME_DIR"/gnome-shell
+    cp -r "$SRC_DIR"/assets/gnome-shell/icons                                             "$POP_GDM_THEME_DIR"/gnome-shell
+    cp -r "$SRC_DIR"/main/gnome-shell/pad-osd.css                                         "$POP_GDM_THEME_DIR"/gnome-shell
+    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$POP_GDM_THEME_DIR"/gnome-shell/gdm3.css
+    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$POP_GDM_THEME_DIR"/gnome-shell/gnome-shell.css
+    cp -r "$SRC_DIR"/assets/gnome-shell/common-assets                                     "$POP_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/*.svg                              "$POP_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/activities/activities.svg                         "$POP_GDM_THEME_DIR"/gnome-shell/assets
+
+    cd "$POP_GDM_THEME_DIR"/gnome-shell
+    mv -f assets/no-events.svg no-events.svg
+    mv -f assets/process-working.svg process-working.svg
+    mv -f assets/no-notifications.svg no-notifications.svg
+
+    glib-compile-resources \
+      --sourcedir="$POP_GDM_THEME_DIR"/gnome-shell \
+      --target="$POP_OS_THEME_FILE" \
+      "$SRC_DIR"/main/gnome-shell/gnome-shell-pop-theme.gresource.xml
+
+    rm -rf "$POP_GDM_THEME_DIR"
   fi
 }
 
 revert_gdm() {
   if [[ -f "$GS_THEME_FILE.bak" ]]; then
-    echo "reverting '$GS_THEME_FILE'..."
+    prompt -w "Reverting '$GS_THEME_FILE'..."
     rm -rf "$GS_THEME_FILE"
     mv "$GS_THEME_FILE.bak" "$GS_THEME_FILE"
   fi
 
   if [[ -f "$UBUNTU_THEME_FILE.bak" ]]; then
-    echo "reverting '$UBUNTU_THEME_FILE'..."
+    prompt -w "Reverting '$UBUNTU_THEME_FILE'..."
     rm -rf "$UBUNTU_THEME_FILE"
     mv "$UBUNTU_THEME_FILE.bak" "$UBUNTU_THEME_FILE"
   fi
 
   if [[ -f "$UBUNTU_NEW_THEME_FILE.bak" ]]; then
-    echo "reverting '$UBUNTU_NEW_THEME_FILE'..."
-    rm -rf "$UBUNTU_NEW_THEME_FILE"
+    prompt -w "Reverting '$UBUNTU_NEW_THEME_FILE'..."
+    rm -rf "$UBUNTU_NEW_THEME_FILE" "$SHELL_THEME_FOLDER"/{assets,no-events.svg,process-working.svg,no-notifications.svg}
     mv "$UBUNTU_NEW_THEME_FILE.bak" "$UBUNTU_NEW_THEME_FILE"
   fi
 
+  # > Ubuntu 18.04
   if [[ -f "$ETC_THEME_FILE.bak" ]]; then
-    echo "reverting Ubuntu gnome-shell theme..."
+
+    prompt -w "reverting Ubuntu GDM theme..."
+
     rm -rf "$ETC_THEME_FILE"
     mv "$ETC_THEME_FILE.bak" "$ETC_THEME_FILE"
-    [[ -d "$SHELL_THEME_FOLDER/Mojave" ]] && rm -rf "$SHELL_THEME_FOLDER/Mojave"
+    [[ -d $SHELL_THEME_FOLDER/$THEME_NAME ]] && rm -rf $SHELL_THEME_FOLDER/$THEME_NAME
+  fi
+
+  # > Ubuntu 20.04
+  if [[ -f "$UBUNTU_YARU_THEME_FILE.bak" ]]; then
+    prompt -w "reverting Ubuntu GDM theme..."
+    rm -rf "$UBUNTU_YARU_THEME_FILE"
+    mv "$UBUNTU_YARU_THEME_FILE.bak" "$UBUNTU_YARU_THEME_FILE"
+  fi
+
+  # > Pop_OS 20.04
+  if [[ -f "$POP_OS_THEME_FILE.bak" ]]; then
+    prompt -w "reverting Pop_OS GDM theme..."
+    rm -rf "$POP_OS_THEME_FILE"
+    mv "$POP_OS_THEME_FILE.bak" "$POP_OS_THEME_FILE"
   fi
 }
-
 
 while [[ $# -gt 0 ]]; do
   case "${1}" in
@@ -331,6 +422,61 @@ while [[ $# -gt 0 ]]; do
         esac
       done
       ;;
+    -t|--theme)
+      shift
+      for theme in "${@}"; do
+        case "${theme}" in
+          default)
+            themes+=("${THEME_VARIANTS[0]}")
+            shift
+            ;;
+          blue)
+            themes+=("${THEME_VARIANTS[1]}")
+            shift
+            ;;
+          purple)
+            themes+=("${THEME_VARIANTS[2]}")
+            shift
+            ;;
+          pink)
+            themes+=("${THEME_VARIANTS[3]}")
+            shift
+            ;;
+          red)
+            themes+=("${THEME_VARIANTS[4]}")
+            shift
+            ;;
+          orange)
+            themes+=("${THEME_VARIANTS[5]}")
+            shift
+            ;;
+          yellow)
+            themes+=("${THEME_VARIANTS[6]}")
+            shift
+            ;;
+          green)
+            themes+=("${THEME_VARIANTS[7]}")
+            shift
+            ;;
+          grey)
+            themes+=("${THEME_VARIANTS[8]}")
+            shift
+            ;;
+          all)
+            themes+=("${THEME_VARIANTS[@]}")
+            shift
+            ;;
+          -*|--*)
+            break
+            ;;
+          *)
+            prompt -e "ERROR: Unrecognized theme variant '$1'."
+            prompt -i "Try '$0 --help' for more information."
+            exit 1
+            ;;
+        esac
+      done
+      ;;
     -i|--icon)
       shift
       for icon in "${@}"; do
@@ -395,35 +541,35 @@ while [[ $# -gt 0 ]]; do
 done
 
 install_theme() {
-for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
-      for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
-        for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
-          install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
+    for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
+      for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
+        for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
+          for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+            for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
+              install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
+            done
+          done
         done
       done
     done
   done
-done
 }
 
-"${REPO_DIR}/parse-sass.sh"
-
-#./render-assets.sh
+# "${REPO_DIR}/parse-sass.sh"
 
 cd "${SRC_DIR}/main/gtk-3.0" && ./make_gresource_xml.sh
 
-#if [[ "${small:-}" == 'small' ]]; then
-#  cd ${SRC_DIR}/assets/gtk-3.0/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
-#fi
+if [[ "${small:-}" == 'small' ]]; then
+  cd ${SRC_DIR}/assets/gtk-3.0/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
+fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   install_theme
 fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
-  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${icon}"
+  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then

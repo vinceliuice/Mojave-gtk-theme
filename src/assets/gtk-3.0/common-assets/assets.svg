@@ -1,5 +1,9 @@
 <svg width="240" height="270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:osb="http://www.openswatchbook.org/uri/2009/osb" xmlns:xlink="http://www.w3.org/1999/xlink">
- <defs id="mojave_theme">
+ <defs id="theme_colors">
+  <linearGradient id="dark_shade" osb:paint="gradient">
+   <stop stop-color="#000000" stop-opacity=".25" offset="0"/>
+   <stop stop-color="#000000" stop-opacity=".1" offset="1"/>
+  </linearGradient>
   <linearGradient id="theme_darker_color" osb:paint="solid">
    <stop stop-color="#4d4d4d" offset="0"/>
   </linearGradient>
@@ -10,976 +14,690 @@
    <stop stop-color="#6a6a6a" offset="0"/>
    <stop stop-color="#545454" offset="1"/>
   </linearGradient>
-  <linearGradient id="hightlight" osb:paint="solid">
-   <stop stop-color="#5887fc" offset="0"/>
-  </linearGradient>
-  <linearGradient id="dark_checked_bg" osb:paint="gradient">
-   <stop stop-color="#3458c0" offset="0"/>
-   <stop stop-color="#3d67e3" offset="1"/>
-  </linearGradient>
   <linearGradient id="selected_fg_color" osb:paint="solid">
-   <stop stop-color="#ffffffgit" offset="0"/>
+   <stop stop-color="#ffffff" offset="0"/>
   </linearGradient>
   <linearGradient id="selected_bg_color" osb:paint="solid">
-   <stop stop-color="#5683fa" offset="0"/>
+   <stop stop-color="#315bef" offset="0"/>
   </linearGradient>
-  <filter id="bq" color-interpolation-filters="sRGB">
-   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".35294" result="flood"/>
-   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
-   <feGaussianBlur in="composite1" result="blur"/>
-   <feOffset dx="0" dy="0.5" result="offset"/>
-   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
-  </filter>
-  <filter id="bp" color-interpolation-filters="sRGB">
-   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".35294" result="flood"/>
-   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
-   <feGaussianBlur in="composite1" result="blur"/>
-   <feOffset dx="0" dy="0.5" result="offset"/>
-   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
-  </filter>
-  <filter id="bo" color-interpolation-filters="sRGB">
-   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".35294" result="flood"/>
-   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
-   <feGaussianBlur in="composite1" result="blur"/>
-   <feOffset dx="0" dy="0.5" result="offset"/>
-   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
-  </filter>
-  <filter id="bn" color-interpolation-filters="sRGB">
-   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".35294" result="flood"/>
-   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
-   <feGaussianBlur in="composite1" result="blur"/>
-   <feOffset dx="0" dy="0.5" result="offset"/>
-   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
-  </filter>
-  <linearGradient id="a" x1="41" x2="41" y1="1032.4" y2="1050.4" gradientTransform="translate(180.26 -1149.5)" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <filter id="n" x="-.096" y="-.096" width="1.192" height="1.192" color-interpolation-filters="sRGB">
-   <feGaussianBlur stdDeviation="0.72"/>
-  </filter>
-  <filter id="m" x="-.096" y="-.096" width="1.192" height="1.192" color-interpolation-filters="sRGB">
-   <feGaussianBlur stdDeviation="0.72"/>
-  </filter>
-  <filter id="bj" x="-.12" y="-.12" width="1.24" height="1.24" color-interpolation-filters="sRGB">
-   <feGaussianBlur stdDeviation="0.9"/>
-  </filter>
-  <filter id="bi" x="-.12" y="-.12" width="1.24" height="1.24" color-interpolation-filters="sRGB">
-   <feGaussianBlur stdDeviation="0.9"/>
-  </filter>
   <linearGradient id="p" x1="66.312" x2="66.312" y1="126.56" y2="155.48" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
   <linearGradient id="r" x1="25" x2="25" y1="31.362" y2="45.362" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
   <linearGradient id="d" x1="66.303" x2="66.303" y1="126.56" y2="155.48" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="c" x1="66.303" x2="66.303" y1="126.56" y2="155.48" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="b" x1="25" x2="25" y1="31.362" y2="45.362" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="o" x1="66.312" x2="66.312" y1="126.56" y2="155.48" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="q" x1="25" x2="25" y1="31.362" y2="45.362" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
   <linearGradient id="v" x1="-8.3622" x2="-8.3622" y1="139" y2="147" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="u" x1="124" x2="124" y1="6.3622" y2="10.362" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <filter id="bm" color-interpolation-filters="sRGB">
-   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".35294" result="flood"/>
-   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
-   <feGaussianBlur in="composite1" result="blur"/>
-   <feOffset dx="0" dy="0.5" result="offset"/>
-   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
-  </filter>
-  <linearGradient id="t" x1="-737.8" x2="-737.8" y1="-725.95" y2="-717.95" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="s" x1="10.5" x2="10.5" y1="1033.4" y2="1035.4" gradientTransform="rotate(45 1243.6 548.31)" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <filter id="br" color-interpolation-filters="sRGB">
-   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".49804" result="flood"/>
-   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
-   <feGaussianBlur in="composite1" result="blur"/>
-   <feOffset dx="0" dy="0.5" result="offset"/>
-   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
-  </filter>
+  <linearGradient id="u" x1="124" x2="124" y1="6.3622" y2="10.362" gradientTransform="matrix(1.5001 0 0 1.5001 -62.011 -4.1838)" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
+  <linearGradient id="t" x1="-737.8" x2="-737.8" y1="-725.95" y2="-717.95" gradientTransform="translate(0 -.031392)" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
+  <linearGradient id="s" x1="10.5" x2="10.5" y1="1033.4" y2="1035.4" gradientTransform="rotate(45,1243.6,548.31)" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
   <linearGradient id="w" x1="484.2" x2="484.2" y1="188.95" y2="204.89" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="be" x1="24" x2="24" y1="45.362" y2="32.253" gradientTransform="matrix(1 0 0 .99168 0 .3776)" gradientUnits="userSpaceOnUse" xlink:href="#dark_checked_bg"/>
-  <linearGradient id="az" x1="18" x2="32" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#hightlight"/>
-  <linearGradient id="ay" x1="18" x2="32" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#hightlight"/>
-  <linearGradient id="ax" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#hightlight"/>
-  <linearGradient id="av" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#hightlight"/>
-  <linearGradient id="bh" x1="18" x2="32" y1="38.362" y2="38.362" gradientTransform="matrix(1 0 0 .92857 0 3.2401)" gradientUnits="userSpaceOnUse" xlink:href="#dark_checked_bg"/>
-  <linearGradient id="bg" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientTransform="matrix(1 0 0 .92857 0 11.106)" gradientUnits="userSpaceOnUse" xlink:href="#dark_checked_bg"/>
-  <linearGradient id="bf" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientTransform="matrix(1 0 0 .92857 0 11.106)" gradientUnits="userSpaceOnUse" xlink:href="#dark_checked_bg"/>
-  <linearGradient id="bd" x1="479.12" x2="479.12" y1="215.25" y2="183.36" gradientTransform="matrix(.94432 0 0 .90966 26.837 18.565)" gradientUnits="userSpaceOnUse" xlink:href="#dark_checked_bg"/>
+  <linearGradient id="be" x1="24" x2="24" y1="45.362" y2="32.253" gradientTransform="matrix(1 0 0 .99168 0 .3776)" gradientUnits="userSpaceOnUse" xlink:href="#dark_shade"/>
+  <linearGradient id="ax" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
+  <linearGradient id="bh" x1="25" x2="25" y1="45.36" y2="31.36" gradientTransform="matrix(1 0 0 .92857 0 3.2401)" gradientUnits="userSpaceOnUse" xlink:href="#dark_shade"/>
+  <linearGradient id="bg" x1="66.31" x2="66.31" y1="155.48" y2="126.56" gradientTransform="matrix(1 0 0 .92857 0 11.106)" gradientUnits="userSpaceOnUse" xlink:href="#dark_shade"/>
+  <linearGradient id="bd" x1="479.12" x2="479.12" y1="215.25" y2="183.36" gradientTransform="matrix(.93751 0 0 .90625 30.122 19.19)" gradientUnits="userSpaceOnUse" xlink:href="#dark_shade"/>
   <linearGradient id="ba" x1="24" x2="24" y1="45.362" y2="31.362" gradientTransform="matrix(1 0 0 .92857 0 3.2402)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
   <linearGradient id="aw" x1="18" x2="32" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
   <linearGradient id="au" x1="17.879" x2="31.879" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
-  <linearGradient id="at" x1="17.879" x2="31.879" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
   <linearGradient id="ar" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
-  <linearGradient id="l" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
-  <linearGradient id="aq" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
-  <linearGradient id="ap" x1="18" x2="32" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#unchecked_highlight"/>
   <linearGradient id="ao" x1="66.303" x2="66.303" y1="155.48" y2="126.56" gradientTransform="matrix(1 0 0 .92857 0 11.106)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
   <linearGradient id="an" x1="24.879" x2="24.879" y1="45.362" y2="31.362" gradientTransform="matrix(1 0 0 .92857 0 3.2402)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
-  <linearGradient id="am" x1="24.879" x2="24.879" y1="45.362" y2="31.362" gradientTransform="matrix(1 0 0 .92857 0 3.2402)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
-  <linearGradient id="k" x1="66.303" x2="66.303" y1="155.48" y2="126.56" gradientTransform="matrix(1 0 0 .92857 0 11.106)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
-  <linearGradient id="al" x1="24" x2="24" y1="45.362" y2="31.362" gradientTransform="matrix(1 0 0 .92857 0 3.2402)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
-  <linearGradient id="ak" x1="66.303" x2="66.303" y1="155.48" y2="126.56" gradientTransform="matrix(1 0 0 .92857 0 11.106)" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
   <linearGradient id="aj" x1="481.12" x2="481.12" y1="214.25" y2="184.25" gradientUnits="userSpaceOnUse" xlink:href="#dark_unchecked_bg"/>
   <linearGradient id="j" x1="18" x2="32" y1="38.362" y2="38.362" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
-  <linearGradient id="ai" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
-  <linearGradient id="ah" x1="51.611" x2="80.996" y1="141.02" y2="141.02" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
   <linearGradient id="ag" x1="466" x2="498" y1="199.36" y2="199.36" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
-  <linearGradient id="af" x1="-8" x2="113" y1="-150.06" y2="-150.06" gradientTransform="matrix(1 0 0 1.0052 2.2411e-5 1.1923)" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
-  <linearGradient id="bc" x1="212.26" x2="230.26" y1="-108.14" y2="-108.14" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
+  <linearGradient id="af" x1="-8" x2="113" y1="-150.06" y2="-150.06" gradientTransform="matrix(1 0 0 1.0052 8 280.83)" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
   <linearGradient id="bb" x1="466" x2="498" y1="199.36" y2="199.36" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
-  <linearGradient id="x" x1="92" x2="92" y1="-195.64" y2="-223.64" gradientTransform="translate(0 1)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#3d6ffc" offset="0"/>
-   <stop stop-color="#7ba3f7" offset="1"/>
-  </linearGradient>
   <linearGradient id="i" x1="-9.3622" x2="-7.3622" y1="143" y2="143" gradientUnits="userSpaceOnUse" xlink:href="#theme_darker_color"/>
-  <linearGradient id="h" x1="122" x2="126" y1="8.3622" y2="8.3622" gradientUnits="userSpaceOnUse" xlink:href="#theme_darker_color"/>
+  <linearGradient id="h" x1="122" x2="126" y1="8.3622" y2="8.3622" gradientTransform="matrix(1.5 0 0 1.5 -62 -4.1833)" gradientUnits="userSpaceOnUse" xlink:href="#theme_darker_color"/>
   <linearGradient id="g" x1="-738.8" x2="-736.8" y1="-721.95" y2="-721.95" gradientUnits="userSpaceOnUse" xlink:href="#theme_darker_color"/>
   <linearGradient id="f" x1="8" x2="13" y1="1034.4" y2="1034.4" gradientUnits="userSpaceOnUse" xlink:href="#theme_darker_color"/>
   <linearGradient id="e" x1="11" x2="13" y1="1031.4" y2="1031.4" gradientUnits="userSpaceOnUse" xlink:href="#theme_darker_color"/>
-  <linearGradient id="ae" x1="466" x2="498" y1="199.36" y2="199.36" gradientTransform="matrix(.94432 0 0 .94432 26.837 11.1)" gradientUnits="userSpaceOnUse" xlink:href="#hightlight"/>
-  <linearGradient id="ad" x1="534.83" x2="534.83" y1="-248.98" y2="-274.64" gradientTransform="matrix(1.0591 0 0 1.0913 -81.435 25.086)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#f1f1f1" offset="0"/>
-   <stop stop-color="#fefefe" offset="1"/>
-  </linearGradient>
-  <linearGradient id="ac" x1="534.83" x2="534.83" y1="-248.98" y2="-274.64" gradientTransform="matrix(1.0591 0 0 1.0913 -81.435 60.086)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#636363" offset="0"/>
-   <stop stop-color="#696969" offset="1"/>
-  </linearGradient>
-  <linearGradient id="ab" x1="15" x2="15" y1="1050.4" y2="1034.4" gradientTransform="translate(14.787 .11552)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#004bdb" offset="0"/>
-   <stop stop-color="#498dd5" offset="1"/>
-  </linearGradient>
-  <linearGradient id="z" x1="19" x2="19" y1="1050.4" y2="1034.4" gradientTransform="translate(14.787 .11552)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#2100db" offset="0"/>
-   <stop stop-color="#277bd6" offset="1"/>
-  </linearGradient>
-  <filter id="bl" x="-.035893" y="-.036107" width="1.0718" height="1.0722" color-interpolation-filters="sRGB">
-   <feGaussianBlur stdDeviation="0.21888099"/>
+  <linearGradient id="linearGradient1903" x1="210" x2="238" y1="71" y2="71" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
+  <linearGradient id="linearGradient2482" x1="466.89" x2="497.11" y1="199.36" y2="199.36" gradientTransform="matrix(.99279 0 0 .99279 3.4782 1.4392)" gradientUnits="userSpaceOnUse" xlink:href="#selected_bg_color"/>
+  <filter id="filter1747" x="-.094372" y="-.12623" width="1.1887" height="1.2525" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.32963489"/>
   </filter>
-  <linearGradient id="aa" x1="15" x2="15" y1="1050.4" y2="1034.4" gradientTransform="translate(14.787 .11552)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#005cd4" offset="0"/>
-   <stop stop-color="#6fb3ff" offset="1"/>
-  </linearGradient>
-  <linearGradient id="y" x1="19" x2="19" y1="1050.4" y2="1034.4" gradientTransform="translate(14.787 .11552)" gradientUnits="userSpaceOnUse">
-   <stop stop-color="#00429b" offset="0"/>
-   <stop stop-color="#499aff" offset="1"/>
-  </linearGradient>
-  <filter id="bk" x="-.035893" y="-.036107" width="1.0718" height="1.0722" color-interpolation-filters="sRGB">
-   <feGaussianBlur stdDeviation="0.21888099"/>
+  <filter id="filter1765" x="-.0675" y="-.26999" width="1.135" height="1.54" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.22500211"/>
+  </filter>
+  <filter id="filter1868" x="-.0675" y="-.27" width="1.135" height="1.54" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.225"/>
+  </filter>
+  <filter id="filter1754" x="-.108" y="-.108" width="1.216" height="1.216" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.27000675"/>
   </filter>
   <linearGradient id="as" x1="310" x2="310" y1="-77.638" y2="-109.64" gradientUnits="userSpaceOnUse">
    <stop stop-opacity=".26667" offset="0"/>
    <stop stop-opacity=".14902" offset="1"/>
   </linearGradient>
  </defs>
- <g transform="translate(8 279.64)">
-  <rect x="240" y="-279.64" width="126" height="268" rx="0" ry="0" fill="#fff" fill-rule="evenodd" style="paint-order:fill markers stroke"/>
-  <rect x="365" y="-279.64" width="126" height="268" rx="0" ry="0" fill="#333" fill-rule="evenodd" style="paint-order:fill markers stroke"/>
-  <g>
-   <rect transform="scale(1,-1)" x="113" y="10.638" width="121" height="165" rx="0" ry="0" color="#000000" fill="#f9fafb"/>
-   <rect transform="scale(1,-1)" x="113" y="175.64" width="121" height="103" rx="0" ry="0" color="#000000" fill="#333"/>
-   <rect transform="scale(1,-1)" x="-8" y="10.638" width="121" height="113" rx="0" ry="0" color="#000000" fill="#ececec"/>
-   <rect transform="scale(1,-1)" x="-8" y="175.64" width="121" height="103" rx="0" ry="0" color="#000000" fill="#f9fafb"/>
-   <rect x="-8" y="-175.64" width="121" height="52" rx="0" ry="0" color="#000000" fill="url(#af)"/>
+ <rect transform="scale(1,-1)" x="121" y="-232.55" width="121" height="128.55" rx="0" ry="0" color="#000000" fill="#f9fafb" stroke-width=".88267"/>
+ <rect transform="scale(1,-1)" x="121" y="-104" width="121" height="103" rx="0" ry="0" color="#000000" fill="#333333"/>
+ <rect transform="scale(1,-1)" y="-104" width="121" height="103" rx="0" ry="0" color="#000000" fill="#f9fafb"/>
+ <rect y="104" width="121" height="52" rx="0" ry="0" color="#000000" fill="url(#af)"/>
+ <rect x="210" y="57" width="28" height="28" rx="0" ry="6" fill="url(#linearGradient1903)" opacity=".15" stroke="#000000" stroke-width="2" style="paint-order:stroke fill markers"/>
+ <g id="checkbox-checked-dark" transform="translate(107,11.64)">
+  <g transform="translate(19)">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="17" y="30.362" width="16" height="16" rx="4" ry="4" color="#000000" opacity=".12" style="paint-order:fill markers stroke"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="url(#j)" style="paint-order:fill markers stroke"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="#ffffff" opacity=".15" style="paint-order:fill markers stroke"/>
+    <rect x="18" y="32.362" width="14" height="13" rx="3" ry="3" color="#000000" fill="url(#be)" style="paint-order:fill markers stroke"/>
+   </g>
+  </g>
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)" fill="#3b3c3e">
+      <path transform="rotate(-45,1304,694.22)" d="m154.16 15.881c-0.25562 0-0.51116 0.0971-0.70703 0.29297l-3.5352 3.5352-1.4785-1.4766c-0.35638-0.35638-0.95788-0.32923-1.3496 0.0625-0.39174 0.39173-0.42083 0.99519-0.0645 1.3516l2.1856 2.1836 0.0644 0.06445c0.35638 0.35638 0.95788 0.32728 1.3496-0.06445l4.2422-4.2422c0.39174-0.39174 0.39174-1.0223 0-1.4141-0.19587-0.19587-0.45141-0.29297-0.70703-0.29297z" fill="#ffffff" filter="url(#bn)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
   </g>
  </g>
- <g transform="translate(8 279.64)">
-  <g id="checkbox-checked-dark" transform="translate(99,-268)">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <g>
-      <rect x="17" y="30.362" width="16" height="16" rx="2.2857" ry="2.2857" color="#000000" opacity=".12" style="paint-order:fill markers stroke"/>
-      <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#ay)" style="paint-order:fill markers stroke"/>
-      <rect x="18" y="32.362" width="14" height="13" rx="2" ry="1.8571" color="#000000" fill="url(#be)" style="paint-order:fill markers stroke"/>
-     </g>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)" fill="#3b3c3e">
-       <path transform="rotate(-45 1304 694.22)" d="m154.16 15.881c-0.25562 0-0.51116 0.0971-0.70703 0.29297l-3.5352 3.5352-1.4785-1.4766c-0.35638-0.35638-0.95788-0.32923-1.3496 0.0625-0.39174 0.39173-0.42083 0.99519-0.0645 1.3516l2.1856 2.1836 0.0644 0.06445c0.35638 0.35638 0.95788 0.32728 1.3496-0.06445l4.2422-4.2422c0.39174-0.39174 0.39174-1.0223 0-1.4141-0.19587-0.19587-0.45141-0.29297-0.70703-0.29297z" fill="#fff" filter="url(#bn)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="checkbox-mixed-dark" transform="translate(118,-268)">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <g>
-      <rect x="17" y="30.362" width="16" height="16" rx="2.2857" ry="2.2857" color="#000000" opacity=".12"/>
-      <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#az)" stroke-width="0"/>
-      <rect x="18" y="32.362" width="14" height="13" rx="2" ry="1.8571" color="#000000" fill="url(#bh)" stroke-width="0"/>
-     </g>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)">
-       <rect transform="rotate(225)" x="-739.28" y="-725.95" width="2" height="8" ry="1" opacity=".35"/>
-       <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="#fff"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="radio-checked-dark" transform="translate(80,-268)">
-   <g transform="translate(19.004 -4.6993e-6)">
-    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-     <g transform="translate(0 1.0688)" opacity=".06">
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)"></g>
-     </g>
-     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <g>
-       <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.791" ry="16.525" color="#000000" opacity=".12"/>
-       <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#av)" stroke-width="0"/>
-       <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.692" ry="13.427" color="#000000" fill="url(#bg)" stroke-width="0"/>
-      </g>
-     </g>
-    </g>
-   </g>
-   <rect x="122" y="6.3622" width="4" height="4" rx="1.9989" ry="2" color="#000000" fill="#fff" filter="url(#bp)"/>
-  </g>
-  <g id="radio-mixed-dark" transform="translate(80,-268)">
-   <g transform="translate(19 -4.6993e-6)">
-    <g transform="translate(19.004 -4.6993e-6)">
-     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-       <g>
-        <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ax)" stroke-width="0"/>
-        <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.692" ry="13.427" color="#000000" fill="url(#bf)" stroke-width="0"/>
-        <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.791" ry="16.525" color="#000000" opacity=".12"/>
-       </g>
-      </g>
-     </g>
-    </g>
-   </g>
-   <rect transform="rotate(-90)" x="-9.8375" y="139" width="2" height="8" ry="1" opacity=".35"/>
-   <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="#fff"/>
-  </g>
-  <g id="checkbox-unchecked-dark" transform="translate(99,-268)">
+ <g id="checkbox-mixed-dark" transform="translate(126,11.64)">
+  <g transform="translate(19)">
    <g transform="translate(0,-30)">
-    <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-     <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-    </g>
     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-    <g>
-     <rect x="17" y="30.362" width="16" height="16" rx="2.4615" ry="2.4615" color="#000000" opacity=".12"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2.1538" ry="2.1538" color="#000000" fill="url(#ap)"/>
-     <rect x="18" y="32.362" width="14" height="13" rx="2.1538" ry="2" color="#000000" fill="url(#ba)"/>
+    <rect x="17" y="30.362" width="16" height="16" rx="4" ry="4" color="#000000" opacity=".12"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="url(#j)" stroke-width="0"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="#ffffff" opacity=".15" stroke-width="0"/>
+    <rect x="18" y="32.362" width="14" height="13" rx="3" ry="3" color="#000000" fill="url(#bh)" stroke-width="0"/>
+   </g>
+  </g>
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)">
+      <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="#ffffff"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
     </g>
    </g>
   </g>
-  <g id="radio-unchecked-dark" transform="translate(79.004 -268)">
+ </g>
+ <g id="radio-checked-dark" transform="translate(88,11.64)">
+  <g transform="translate(19.004)">
    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-     <g>
-      <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.791" ry="16.314" color="#000000" opacity=".12"/>
-      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.693" ry="14.274" color="#000000" fill="url(#aq)"/>
-      <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.693" ry="13.427" color="#000000" fill="url(#ao)"/>
-     </g>
+     <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.791" ry="16.525" color="#000000" opacity=".12"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ax)" stroke-width="0"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="#ffffff" opacity=".15" stroke-width="0"/>
+     <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.692" ry="13.427" color="#000000" fill="url(#bg)" stroke-width="0"/>
     </g>
    </g>
   </g>
-  <g id="checkbox-checked-insensitive-dark" transform="translate(.12131 -.10911)">
-   <g transform="translate(118 -248.89)" opacity=".6">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <g>
-      <rect x="16.879" y="30.362" width="16" height="16" rx="2.4615" ry="2.4615" color="#000000" opacity=".24"/>
-      <rect x="17.879" y="31.362" width="14" height="14" rx="2.1538" ry="2.1538" color="#000000" fill="url(#au)"/>
-      <rect x="17.879" y="32.362" width="14" height="13" rx="2.1538" ry="2" color="#000000" fill="url(#an)"/>
-     </g>
-    </g>
-   </g>
-   <g transform="translate(134.91 -1284.9)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)" fill="#3b3c3e">
-       <path transform="rotate(-45 1281.1 703.72)" d="m154.16 34.881c-0.25562 0-0.51116 0.0971-0.70703 0.29297l-3.5352 3.5352-1.4316-1.4297c-0.38234-0.38234-1.0048-0.37611-1.3965 0.01563-0.39174 0.39173-0.39992 1.0161-0.0176 1.3984l2.1387 2.1367 0.0176 0.01758c0.38234 0.38234 1.0048 0.37416 1.3965-0.01758l4.2422-4.2422c0.39174-0.39174 0.39174-1.0223 0-1.4141-0.19587-0.19587-0.45141-0.29297-0.70703-0.29297z" fill="#ccc" filter="url(#bo)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="checkbox-mixed-insensitive-dark" transform="translate(.12131 -.10911)">
-   <g transform="translate(137 -248.89)" opacity=".6">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <g>
-      <rect x="16.879" y="30.362" width="16" height="16" rx="2.4615" ry="2.4615" color="#000000" opacity=".24"/>
-      <rect x="17.879" y="31.362" width="14" height="14" rx="2.1538" ry="2.1538" color="#000000" fill="url(#at)"/>
-      <rect x="17.879" y="32.362" width="14" height="13" rx="2.1538" ry="2" color="#000000" fill="url(#am)"/>
-     </g>
-    </g>
-   </g>
-   <g transform="translate(154 -1284.9)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)">
-       <rect transform="rotate(225)" x="-739.28" y="-725.95" width="2" height="8" ry="1" opacity=".35"/>
-       <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="#ccc"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="radio-checked-insensitive-dark" transform="translate(3.3296e-7 -.10913)">
-   <g transform="translate(99.004 -248.89)" opacity=".6">
+  <rect x="121" y="5.36" width="6" height="6" rx="2.9984" ry="3" color="#000000" fill="#ffffff" filter="url(#bp)" stroke-width="1.5"/>
+ </g>
+ <g id="radio-mixed-dark" transform="translate(88,11.64)">
+  <g transform="translate(19)">
+   <g transform="translate(19.004)">
     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <g>
-       <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.265" ry="16.314" color="#000000" opacity=".24"/>
-       <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.232" ry="14.274" color="#000000" fill="url(#l)"/>
-       <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.693" ry="13.427" color="#000000" fill="url(#k)"/>
-      </g>
+      <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.791" ry="16.525" color="#000000" opacity=".12"/>
+      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ax)" stroke-width="0"/>
+      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="#ffffff" opacity=".15" stroke-width="0"/>
+      <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.692" ry="13.427" color="#000000" fill="url(#bg)" stroke-width="0"/>
      </g>
     </g>
    </g>
-   <rect x="202" y="-242.53" width="4" height="4" rx="1.9989" ry="2" color="#000000" fill="#ccc" filter="url(#bq)"/>
   </g>
-  <g id="radio-mixed-insensitive-dark" transform="translate(4.6598e-6 -.10913)">
-   <g transform="translate(118 -248.89)" opacity=".6">
-    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <g>
-       <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.265" ry="16.525" color="#000000" opacity=".24"/>
-       <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.232" ry="14.46" color="#000000" fill="url(#l)"/>
-       <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.693" ry="13.255" color="#000000" fill="url(#k)"/>
-      </g>
-     </g>
-    </g>
-   </g>
-   <g transform="translate(3.9233e-6 54.871)">
-    <rect transform="rotate(-90)" x="294.16" y="219" width="2" height="8" ry="1" opacity=".35"/>
-    <rect transform="rotate(-90)" x="294.64" y="219" width="2" height="8" ry="1" fill="#ccc"/>
+  <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="#ffffff"/>
+ </g>
+ <g id="checkbox-unchecked-dark" transform="translate(107,11.64)">
+  <g transform="translate(0,-30)">
+   <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+   <rect x="17" y="30.362" width="16" height="16" rx="4" ry="4" color="#000000" opacity=".12"/>
+   <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="url(#aw)"/>
+   <rect x="18" y="32.362" width="14" height="13" rx="3" ry="3" color="#000000" fill="url(#ba)"/>
+  </g>
+ </g>
+ <g id="radio-unchecked-dark" transform="translate(87.004,11.64)">
+  <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+   <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+   <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+    <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.791" ry="16.314" color="#000000" opacity=".12"/>
+    <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.693" ry="14.274" color="#000000" fill="url(#ar)"/>
+    <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.693" ry="13.427" color="#000000" fill="url(#ao)"/>
    </g>
   </g>
-  <g id="checkbox-unchecked-insensitive-dark" transform="translate(99,-249)" opacity=".6">
+ </g>
+ <g id="checkbox-checked-insensitive-dark" transform="translate(8.1213,279.53)">
+  <g transform="translate(118,-248.89)" opacity=".6">
    <g transform="translate(0,-30)">
-    <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-     <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-    </g>
     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-    <g>
-     <rect x="17" y="30.362" width="16" height="16" rx="2.4615" ry="2.4615" color="#000000" opacity=".24"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2.1538" ry="2.1538" color="#000000" fill="url(#aw)"/>
-     <rect x="18" y="32.362" width="14" height="13" rx="2.1538" ry="2" color="#000000" fill="url(#al)"/>
+    <rect x="16.879" y="30.362" width="16" height="16" rx="4.0003" ry="4.0003" color="#000000" opacity=".24"/>
+    <rect x="17.879" y="31.362" width="14" height="14" rx="3.0003" ry="3.0003" color="#000000" fill="url(#au)"/>
+    <rect x="17.879" y="32.362" width="14" height="13" rx="3.0003" ry="3.0003" color="#000000" fill="url(#an)"/>
+   </g>
+  </g>
+  <g transform="translate(134.91,-1284.9)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)" fill="#3b3c3e">
+      <path transform="rotate(-45,1281.1,703.72)" d="m154.16 34.881c-0.25562 0-0.51116 0.0971-0.70703 0.29297l-3.5352 3.5352-1.4316-1.4297c-0.38234-0.38234-1.0048-0.37611-1.3965 0.01563-0.39174 0.39173-0.39992 1.0161-0.0176 1.3984l2.1387 2.1367 0.0176 0.01758c0.38234 0.38234 1.0048 0.37416 1.3965-0.01758l4.2422-4.2422c0.39174-0.39174 0.39174-1.0223 0-1.4141-0.19587-0.19587-0.45141-0.29297-0.70703-0.29297z" fill="#cccccc" filter="url(#bo)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
     </g>
    </g>
   </g>
-  <g id="radio-unchecked-insensitive-dark" transform="translate(79.004 -249)" opacity=".6">
+ </g>
+ <g id="checkbox-mixed-insensitive-dark" transform="translate(8.1213,279.53)">
+  <g transform="translate(137,-248.89)" opacity=".6">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="16.879" y="30.362" width="16" height="16" rx="4.0003" ry="4.0003" color="#000000" opacity=".24"/>
+    <rect x="17.879" y="31.362" width="14" height="14" rx="3.0003" ry="3.0003" color="#000000" fill="url(#au)"/>
+    <rect x="17.879" y="32.362" width="14" height="13" rx="3.0003" ry="3.0003" color="#000000" fill="url(#an)"/>
+   </g>
+  </g>
+  <g transform="translate(154,-1284.9)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)">
+      <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="#cccccc"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="radio-checked-insensitive-dark" transform="translate(8,279.53)">
+  <g transform="translate(99.004,-248.89)" opacity=".6">
    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-     <g>
-      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.232" ry="14.274" color="#000000" fill="url(#ar)"/>
-      <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.692" ry="13.255" color="#000000" fill="url(#ak)"/>
-      <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.265" ry="16.314" color="#000000" opacity=".24"/>
-     </g>
+     <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.265" ry="16.314" color="#000000" opacity=".24"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.232" ry="14.274" color="#000000" fill="url(#ar)"/>
+     <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.693" ry="13.427" color="#000000" fill="url(#ao)"/>
     </g>
    </g>
   </g>
-  <g id="checkbox-checked-selectionmode-dark" transform="translate(-349 -408)">
-   <g>
-    <rect x="466" y="183.36" width="32" height="32" rx="2" ry="2" opacity=".12"/>
-    <rect x="466.89" y="184.25" width="30.218" height="30.218" rx="1.8886" ry="1.8886" fill="url(#ae)" stroke-width="0"/>
-    <rect x="466.89" y="185.36" width="30.218" height="29.109" rx="1.8886" ry="1.8193" fill="url(#bd)" stroke-width="0"/>
-   </g>
-   <g transform="translate(-2.2045 1.973)">
-    <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="#fff"/>
-   </g>
-   <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
-  </g>
-  <g id="checkbox-selectionmode-dark" transform="translate(-304 -408)">
-   <rect x="466.5" y="183.86" width="31" height="31" rx="2" ry="2" fill="url(#aj)" stroke="#2b2b2b" style="paint-order:normal"/>
-   <g transform="translate(-2.2045 1.973)">
-    <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="#ccc" opacity=".55"/>
-   </g>
-   <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
-  </g>
-  <g id="switch-active" transform="translate(-2e-7 -14)">
-   <rect x="6" y="-65.638" width="40" height="24" opacity="0" stroke-width=".87706"/>
-   <g transform="translate(-172.39 55.298)">
-    <path d="m190.39-119.94h16c6.094 0 11 4.46 11 10s-4.906 10-11 10h-16c-6.094 0-11-4.46-11-10s4.906-10 11-10z" fill="#71c837"/>
-    <circle transform="matrix(.93214 0 0 .93214 .14024 -8.1317)" cx="221.26" cy="-108.14" r="9" filter="url(#m)" opacity=".3"/>
-    <circle transform="matrix(.92593 0 0 .92593 2.1887 -9.8037)" cx="221.26" cy="-108.14" r="9" fill="url(#a)"/>
-   </g>
-  </g>
-  <g id="switch-active-hover" transform="translate(-125 -76)">
-   <rect x="185" y="-3.6378" width="40" height="22" opacity="0" stroke-width=".83972"/>
-   <g transform="translate(6.6118 117.3)">
-    <path d="m190.39-119.94h16c6.094 0 11 4.46 11 10s-4.906 10-11 10h-16c-6.094 0-11-4.46-11-10s4.906-10 11-10z" fill="#71c837"/>
-    <circle transform="matrix(1.0301 0 0 1.0305 -21.031 3.0016)" cx="221.26" cy="-108.14" r="9" filter="url(#bj)" opacity=".25"/>
-    <circle transform="matrix(.92593 0 0 .92593 2.1887 -9.8037)" cx="221.26" cy="-108.14" r="9" fill="url(#a)"/>
-   </g>
-  </g>
-  <g id="switch-hover" transform="translate(-125 -82)">
-   <rect x="185" y="-28.638" width="40" height="22" opacity="0" stroke-width=".83972"/>
-   <g transform="translate(6.6118 92.298)">
-    <path d="m190.39-119.94h16c6.094 0 11 4.46 11 10s-4.906 10-11 10h-16c-6.094 0-11-4.46-11-10s4.906-10 11-10z" fill="#b3b3b3"/>
-    <circle transform="matrix(1.0305 0 0 1.0305 -37.113 3.0016)" cx="221.26" cy="-108.14" r="9" filter="url(#bi)" opacity=".25"/>
-    <circle transform="matrix(.92593 0 0 .92593 -15.153 -9.8037)" cx="221.26" cy="-108.14" r="9" fill="url(#bc)"/>
-   </g>
-  </g>
-  <g id="switch" transform="translate(0 5)">
-   <rect x="6" y="-115.64" width="40" height="24" opacity="0" stroke-width=".87706"/>
-   <g transform="translate(-172.39 5.2981)">
-    <path d="m190.39-119.94h16c6.094 0 11 4.46 11 10s-4.906 10-11 10h-16c-6.094 0-11-4.46-11-10s4.906-10 11-10z" fill="#b3b3b3"/>
-    <circle transform="matrix(.97875 0 0 .97875 -26.23 -3.5914)" cx="221.26" cy="-108.14" r="9" filter="url(#n)" opacity=".25"/>
-    <circle transform="matrix(.92593 0 0 .92593 -15.153 -9.8037)" cx="221.26" cy="-108.14" r="9" fill="url(#a)"/>
-   </g>
-  </g>
-  <g id="switch-active-insensitive" transform="translate(6.6238 16)" opacity=".5">
-   <rect x="53.376" y="-65.638" width="40" height="24" opacity="0" stroke-width=".87706"/>
-   <g transform="translate(-125.01 55.298)">
-    <path d="m190.39-119.94h16c6.094 0 11 4.46 11 10s-4.906 10-11 10h-16c-6.094 0-11-4.46-11-10s4.906-10 11-10z" fill="#71c837"/>
-    <circle transform="matrix(.93214 0 0 .93214 .76408 -8.1317)" cx="221.26" cy="-108.14" r="9" filter="url(#m)" opacity=".35"/>
-    <circle transform="matrix(.92593 0 0 .92593 2.1887 -9.8037)" cx="221.26" cy="-108.14" r="9" fill="url(#a)"/>
-   </g>
-  </g>
-  <g id="switch-insensitive" transform="translate(-47.376 66)" opacity=".5">
-   <rect x="53.376" y="-115.64" width="40" height="24" opacity="0" stroke-width=".87706"/>
-   <g transform="translate(-125.01 5.2981)">
-    <path d="m190.39-119.94h16c6.094 0 11 4.46 11 10s-4.906 10-11 10h-16c-6.094 0-11-4.46-11-10s4.906-10 11-10z" fill="#b3b3b3"/>
-    <circle transform="matrix(.97875 0 0 .97875 -26.23 -3.5914)" cx="221.26" cy="-108.14" r="9" filter="url(#n)" opacity=".25"/>
-    <circle transform="matrix(.92593 0 0 .92593 -15.153 -9.8037)" cx="221.26" cy="-108.14" r="9" fill="url(#a)"/>
-   </g>
-  </g>
-  <g id="checkbox-checked-insensitive" transform="translate(5e-7,1e-5)">
-   <g transform="translate(-3,-249)" opacity=".55">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#fff" stroke="#8e8e8e" stroke-linejoin="round"/>
-    </g>
-   </g>
-   <g transform="translate(13.903 -1285)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)" fill="#3b3c3e">
-       <path transform="rotate(-45 1220.7 557.81)" d="m33.277 34.881c-0.25562 0-0.51116 0.0971-0.70703 0.29297l-3.5352 3.5352-1.4082-1.4062c-0.39533-0.39533-1.0282-0.39955-1.4199-0.0078-0.39173 0.39173-0.38947 1.0265 0.0059 1.4219l2.1094 2.1074c0.0011 0.0011 0.0028 8.92e-4 0.0039 2e-3 0.0011 0.0011 8.84e-4 0.0028 2e-3 0.0039 0.0966 0.0966 0.20962 0.16784 0.32812 0.2168 0.24131 0.09969 0.51204 0.10177 0.75391 0.0039 0.12067-0.04864 0.2341-0.12277 0.33203-0.2207l4.2422-4.2422c0.39174-0.39174 0.39174-1.0223 0-1.4141-0.19587-0.19587-0.45141-0.29297-0.70703-0.29297z" fill="#8e8e8e"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="checkbox-mixed-insensitive" transform="translate(5e-7,1e-5)">
-   <g transform="translate(16,-249)" opacity=".55">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#fff" stroke="#8e8e8e" stroke-linejoin="round"/>
-    </g>
-   </g>
-   <g transform="rotate(45 1559.2 435.97)" fill="#3b3c3e">
-    <rect transform="rotate(225)" x="-735.18" y="-727.95" width="2" height="8" ry="1" fill="#8e8e8e"/>
-   </g>
-  </g>
-  <g id="checkbox-checked-selectionmode" transform="translate(-470,-408)">
-   <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
-   <rect x="466" y="183.36" width="32" height="32" rx="2" ry="2" fill="url(#ag)" stroke-width="0"/>
-   <g transform="translate(-2.2045 1.973)">
-    <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="url(#w)"/>
-   </g>
-  </g>
-  <g id="checkbox-selectionmode" transform="translate(-425,-408)">
-   <rect x="466.5" y="183.86" width="31" height="31" rx="2" ry="2" fill="url(#bb)" stroke="#cfd6e6"/>
-   <g transform="translate(-2.2045 1.973)">
-    <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="#cfd6e6" opacity=".4"/>
-   </g>
-   <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
-  </g>
-  <g id="checkbox-checked" transform="translate(-22 -268)">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#j)" stroke-width="0"/>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)" fill="#3b3c3e">
-       <path transform="rotate(-45 1243.6 548.31)" d="m33.277 15.869c-0.24853 0-0.49706 0.09472-0.6875 0.28516l-3.5547 3.5547-1.4316-1.4297c-0.38234-0.38234-1.0048-0.37611-1.3965 0.01563-0.39173 0.39173-0.39992 1.0161-0.01758 1.3984l2.1191 2.1172 0.03911 0.03911c0.38088 0.38088 0.99412 0.38088 1.375 0l0.01953-0.01953 4.2637-4.2617c0.38088-0.38088 0.38088-0.99412 0-1.375l-0.04102-0.03906c-0.19044-0.19044-0.43897-0.28516-0.6875-0.28516z" fill="url(#s)" filter="url(#br)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="checkbox-mixed" transform="translate(-3 -268)">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#j)" stroke-width="0"/>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)">
-       <rect transform="rotate(225)" x="-739.28" y="-725.95" width="2" height="8" ry="1" opacity=".35"/>
-       <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="url(#t)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="radio-checked" transform="translate(-41 -268)">
-   <g transform="translate(19.004 -4.6993e-6)">
-    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-     <g transform="translate(0 1.0688)" opacity=".06">
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)"></g>
-     </g>
-     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ai)" stroke-width="0"/>
-     </g>
-    </g>
-   </g>
-   <rect x="122" y="6.3622" width="4" height="4" rx="1.9989" ry="2" color="#000000" fill="url(#u)" filter="url(#bm)"/>
-  </g>
-  <g id="radio-mixed" transform="translate(-41 -268)">
-   <g transform="translate(19 -4.6993e-6)">
-    <g transform="translate(19.004 -4.6993e-6)">
-     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-       <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ah)" stroke-width="0"/>
-      </g>
-     </g>
-    </g>
-   </g>
-   <rect transform="rotate(-90)" x="-9.8375" y="139" width="2" height="8" ry="1" opacity=".35"/>
-   <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="url(#v)"/>
-  </g>
-  <g id="checkbox-unchecked" transform="translate(-22 -268)">
-   <g transform="translate(0,-30)">
-    <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-     <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-    </g>
-    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-    <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#fff" stroke="#a4a4a4" stroke-linejoin="round" stroke-opacity=".80392"/>
-   </g>
-  </g>
-  <g id="radio-unchecked" transform="translate(-41.996 -268)">
+  <rect x="201" y="-243.53" width="6" height="6" rx="2.9984" ry="3" color="#000000" fill="#cccccc" filter="url(#bq)" stroke-width="1.5"/>
+ </g>
+ <g id="radio-mixed-insensitive-dark" transform="translate(8,279.53)">
+  <g transform="translate(118,-248.89)" opacity=".6">
    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-     <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#fff" stroke="#a4a4a4" stroke-linejoin="round" stroke-opacity=".80392" stroke-width="2.0822"/>
+     <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.265" ry="16.525" color="#000000" opacity=".24"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.232" ry="14.46" color="#000000" fill="url(#ar)"/>
+     <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.693" ry="13.255" color="#000000" fill="url(#ao)"/>
     </g>
    </g>
   </g>
-  <g id="checkbox-unchecked-insensitive" transform="translate(-22,-249)" opacity=".55">
+  <g transform="translate(3.9233e-6,54.871)">
+   <rect transform="rotate(-90)" x="294.64" y="219" width="2" height="8" ry="1" fill="#cccccc"/>
+  </g>
+ </g>
+ <g id="checkbox-unchecked-insensitive-dark" transform="translate(107,30.64)" opacity=".6">
+  <g transform="translate(0,-30)">
+   <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+   <rect x="17" y="30.362" width="16" height="16" rx="4" ry="4" color="#000000" opacity=".24"/>
+   <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="url(#aw)"/>
+   <rect x="18" y="32.362" width="14" height="13" rx="3" ry="3" color="#000000" fill="url(#ba)"/>
+  </g>
+ </g>
+ <g id="radio-unchecked-insensitive-dark" transform="translate(87.004,30.64)" opacity=".6">
+  <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+   <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+   <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+    <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.232" ry="14.274" color="#000000" fill="url(#ar)"/>
+    <rect x="51.611" y="128.63" width="29.385" height="26.853" rx="14.692" ry="13.255" color="#000000" fill="url(#ao)"/>
+    <rect x="49.512" y="124.5" width="33.583" height="33.05" rx="16.265" ry="16.314" color="#000000" opacity=".24"/>
+   </g>
+  </g>
+ </g>
+ <g id="checkbox-checked-selectionmode-dark" transform="translate(-341,-128.36)">
+  <rect x="466" y="183.36" width="32" height="32" rx="7" ry="7" opacity=".12"/>
+  <rect x="467" y="184.36" width="30" height="30" rx="6" ry="6" fill="url(#linearGradient2482)" stroke-width="0"/>
+  <rect x="467" y="184.36" width="30" height="30" rx="6" ry="6" fill="#ffffff" opacity=".15" stroke-width="0"/>
+  <rect x="467" y="185.36" width="30" height="29" rx="6" ry="6" fill="url(#bd)" stroke-width="0"/>
+  <g transform="translate(-2.2045,1.973)">
+   <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="#ffffff"/>
+  </g>
+  <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
+ </g>
+ <g id="checkbox-selectionmode-dark" transform="translate(-296,-128.36)">
+  <rect x="466.5" y="183.86" width="31" height="31" rx="5.5" ry="5.5" fill="url(#aj)" stroke="#2b2b2b" style="paint-order:normal"/>
+  <g transform="translate(-2.2045,1.973)">
+   <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="#cccccc" opacity=".55"/>
+  </g>
+  <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
+ </g>
+ <g id="checkbox-checked-insensitive" transform="translate(8,279.64)">
+  <g transform="translate(-3,-249)" opacity=".55">
    <g transform="translate(0,-30)">
-    <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-     <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-    </g>
     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-    <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#fff" stroke="#8e8e8e" stroke-linejoin="round"/>
+    <rect x="18.5" y="31.862" width="13" height="13" rx="2.5" ry="2.5" color="#000000" fill="#ffffff" stroke="#8e8e8e" stroke-linejoin="round"/>
    </g>
   </g>
-  <g id="radio-unchecked-insensitive" transform="translate(-41.996 -249)" opacity=".55">
+  <g transform="translate(13.903,-1285)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)" fill="#3b3c3e">
+      <path transform="rotate(-45,1220.7,557.81)" d="m33.277 34.881c-0.25562 0-0.51116 0.0971-0.70703 0.29297l-3.5352 3.5352-1.4082-1.4062c-0.39533-0.39533-1.0282-0.39955-1.4199-0.0078-0.39173 0.39173-0.38947 1.0265 0.0059 1.4219l2.1094 2.1074c0.0011 0.0011 0.0028 8.92e-4 0.0039 2e-3 0.0011 0.0011 8.84e-4 0.0028 2e-3 0.0039 0.0966 0.0966 0.20962 0.16784 0.32812 0.2168 0.24131 0.09969 0.51204 0.10177 0.75391 0.0039 0.12067-0.04864 0.2341-0.12277 0.33203-0.2207l4.2422-4.2422c0.39174-0.39174 0.39174-1.0223 0-1.4141-0.19587-0.19587-0.45141-0.29297-0.70703-0.29297z" fill="#8e8e8e"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="checkbox-mixed-insensitive" transform="translate(8,279.64)">
+  <g transform="translate(16,-249)" opacity=".55">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="18.5" y="31.862" width="13" height="13" rx="2.5" ry="2.5" color="#000000" fill="#ffffff" stroke="#8e8e8e" stroke-linejoin="round"/>
+   </g>
+  </g>
+  <g transform="rotate(45,1559.2,435.97)" fill="#3b3c3e">
+   <rect transform="rotate(225)" x="-735.18" y="-727.95" width="2" height="8" ry="1" fill="#8e8e8e"/>
+  </g>
+ </g>
+ <g id="checkbox-checked-selectionmode" transform="translate(-462,-128.36)">
+  <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
+  <rect x="466" y="183.36" width="32" height="32" rx="6" ry="6" fill="url(#ag)" stroke-width="0"/>
+  <g transform="translate(-2.2045,1.973)">
+   <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="url(#w)"/>
+  </g>
+ </g>
+ <g id="checkbox-selectionmode" transform="translate(-417,-128.36)">
+  <rect x="466.5" y="183.86" width="31" height="31" rx="5.5" ry="5.5" fill="url(#bb)" stroke="#cccccc"/>
+  <g transform="translate(-2.2045,1.973)">
+   <path d="m491.36 188.95-9.5312 9.5625-4.7812-4.7812-3.1876 3.1875 4.7813 4.7812 3.1875 3.1875 3.1562-3.1875 9.5626-9.5625z" fill="#adadad" opacity=".4"/>
+  </g>
+  <rect x="462" y="179.36" width="40" height="40" rx="2" ry="2" fill="none" stroke-width="0"/>
+ </g>
+ <g id="checkbox-checked" transform="translate(-14,11.64)">
+  <g transform="translate(19)">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="url(#j)" stroke-width="0"/>
+   </g>
+  </g>
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)">
+      <path d="m11.69 1028.1c-0.17574 0.1758-0.2845 0.4185-0.2845 0.6878v5.0271h-2.0232c-0.54071 0-0.97645 0.4446-0.97642 0.9986 0 0.554 0.43571 1.0012 0.97639 1.0012h3.0508c0.53865 0 0.97227-0.4337 0.97227-0.9723v-0.028l0.0014-6.0284c0-0.5386-0.43363-0.9723-0.97227-0.9723h-0.05663c-0.26932 0-0.51204 0.1088-0.68778 0.2845z" fill="#000000" filter="url(#filter1747)" opacity=".15"/>
+      <path transform="rotate(-45,1243.6,548.31)" d="m33.277 15.869c-0.24853 0-0.49706 0.09472-0.6875 0.28516l-3.5547 3.5547-1.4316-1.4297c-0.38234-0.38234-1.0048-0.37611-1.3965 0.01563-0.39173 0.39173-0.39992 1.0161-0.01758 1.3984l2.1191 2.1172 0.03911 0.03911c0.38088 0.38088 0.99412 0.38088 1.375 0l0.01953-0.01953 4.2637-4.2617c0.38088-0.38088 0.38088-0.99412 0-1.375l-0.04102-0.03906c-0.19044-0.19044-0.43897-0.28516-0.6875-0.28516z" fill="url(#s)" filter="url(#br)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="checkbox-mixed" transform="translate(5,11.64)">
+  <g transform="translate(19)">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="3" ry="3" color="#000000" fill="url(#j)" stroke-width="0"/>
+   </g>
+  </g>
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)">
+      <path d="m8.6664 1035.4c-0.39174-0.3917-0.39174-1.0225 0-1.4142l4.2426-4.2427c0.39174-0.3917 1.0225-0.3917 1.4142 0 0.39174 0.3918 0.39174 1.0225 0 1.4143l-4.2426 4.2426c-0.39174 0.3917-1.0225 0.3917-1.4142 0z" fill="#000000" filter="url(#filter1765)" opacity=".15"/>
+      <path transform="rotate(225)" d="m-737.8-725.98c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1s-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="url(#t)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="radio-checked" transform="translate(-33,11.64)">
+  <g transform="translate(19.004)">
    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-     <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#fff" stroke="#8e8e8e" stroke-linejoin="round" stroke-width="2.0822"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ax)" stroke-width="0"/>
     </g>
    </g>
   </g>
-  <g id="checkbox-checked-selected" transform="translate(-22,-169)">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#b)" stroke-width="0"/>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)">
-       <rect x="8" y="1033.4" width="5" height="2" rx="1.026" ry=".99999" fill="url(#f)"/>
-       <rect x="11" y="1027.4" width="2" height="8" ry="1" fill="url(#e)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="checkbox-mixed-selected" transform="translate(-3,-169)">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#b)" stroke-width="0"/>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)" fill="#3b3c3e">
-       <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="url(#g)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="radio-checked-selected" transform="translate(-41,-169)">
-   <g transform="translate(19.004 -4.6993e-6)">
+  <path d="m124 5.7962h3e-3c1.6612 0 2.9985 1.3381 2.9985 3.0001 0 1.6621-1.3373 3.0002-2.9985 3.0002h-3e-3c-1.6612 0-2.9985-1.3381-2.9985-3.0002s1.3373-3.0001 2.9985-3.0001z" color="#000000" fill="#000000" filter="url(#filter1754)" opacity=".15" stroke-width="1.5001"/>
+  <path d="m124 5.36h3e-3c1.6612 0 2.9985 1.3381 2.9985 3.0001 0 1.6621-1.3373 3.0002-2.9985 3.0002h-3e-3c-1.6612 0-2.9985-1.3381-2.9985-3.0002s1.3373-3.0001 2.9985-3.0001z" color="#000000" fill="url(#u)" filter="url(#bm)" stroke-width="1.5001"/>
+ </g>
+ <g id="radio-mixed" transform="translate(-33,11.64)">
+  <g transform="translate(19)">
+   <g transform="translate(19.004)">
     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-     <g transform="translate(0 1.0688)" opacity=".06">
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)"></g>
-     </g>
      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#c)" stroke-width="0"/>
+      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#ax)" stroke-width="0"/>
      </g>
     </g>
    </g>
-   <rect x="122" y="6.3622" width="4" height="4" rx="1.9989" ry="2" color="#000000" fill="url(#h)"/>
   </g>
-  <g id="radio-mixed-selected" transform="translate(-41,-169)">
-   <g transform="translate(19 -4.6993e-6)">
-    <g transform="translate(19.004 -4.6993e-6)">
-     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-       <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#d)" stroke-width="0"/>
-      </g>
-     </g>
-    </g>
+  <path d="m139 8.8152c0-0.554 0.446-1 1-1h6c0.554 0 1 0.446 1 1s-0.446 1-1 1h-6c-0.554 0-1-0.446-1-1z" fill="#000000" filter="url(#filter1868)" opacity=".15"/>
+  <path transform="rotate(-90)" d="m-8.3622 139c0.554 0 1 0.446 1 1v6c0 0.554-0.446 1-1 1s-1-0.446-1-1v-6c0-0.554 0.446-1 1-1z" fill="url(#v)"/>
+ </g>
+ <g id="checkbox-unchecked" transform="translate(-14,11.64)">
+  <g transform="translate(0,-30)">
+   <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+   <rect x="18.5" y="31.862" width="13" height="13" rx="2.5" ry="2.5" color="#000000" fill="#ffffff" stroke="#a4a4a4" stroke-linejoin="round" stroke-opacity=".80392"/>
+  </g>
+ </g>
+ <g id="radio-unchecked" transform="translate(-33.996,11.64)">
+  <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+   <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+   <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+    <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#ffffff" stroke="#a4a4a4" stroke-linejoin="round" stroke-opacity=".80392" stroke-width="2.0822"/>
    </g>
-   <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="url(#i)"/>
   </g>
-  <g id="checkbox-unchecked-selected" transform="translate(-22 -169)">
+ </g>
+ <g id="checkbox-unchecked-insensitive" transform="translate(-14,30.64)" opacity=".55">
+  <g transform="translate(0,-30)">
+   <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+   <rect x="18.5" y="31.862" width="13" height="13" rx="2.5" ry="2.5" color="#000000" fill="#ffffff" stroke="#8e8e8e" stroke-linejoin="round"/>
+  </g>
+ </g>
+ <g id="radio-unchecked-insensitive" transform="translate(-33.996,30.64)" opacity=".55">
+  <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+   <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+   <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+    <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#ffffff" stroke="#8e8e8e" stroke-linejoin="round" stroke-width="2.0822"/>
+   </g>
+  </g>
+ </g>
+ <g id="checkbox-checked-selected" transform="translate(-14,110.64)">
+  <g transform="translate(19)">
    <g transform="translate(0,-30)">
-    <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-     <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-    </g>
     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-    <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#fff" fill-opacity=".39216" opacity=".75" stroke="url(#q)" stroke-linejoin="round"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#r)" stroke-width="0"/>
    </g>
   </g>
-  <g id="radio-unchecked-selected" transform="translate(-41.996 -169)">
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)">
+      <rect x="8" y="1033.4" width="5" height="2" rx="1.026" ry=".99999" fill="url(#f)"/>
+      <rect x="11" y="1027.4" width="2" height="8" ry="1" fill="url(#e)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="checkbox-mixed-selected" transform="translate(5,110.64)">
+  <g transform="translate(19)">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#r)" stroke-width="0"/>
+   </g>
+  </g>
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)" fill="#3b3c3e">
+      <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="url(#g)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="radio-checked-selected" transform="translate(-33,110.64)">
+  <g transform="translate(19.004)">
    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-     <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#fff" fill-opacity=".39216" opacity=".75" stroke="url(#o)" stroke-linejoin="round" stroke-width="2.0822"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#d)" stroke-width="0"/>
     </g>
    </g>
   </g>
-  <g id="checkbox-checked-insensitive-selected" transform="translate(-22,-150)" opacity=".55">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#b)" stroke-width="0"/>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)">
-       <rect x="8" y="1033.4" width="5" height="2" rx="1.0338" ry=".99999" fill="url(#f)"/>
-       <rect x="11" y="1027.4" width="2" height="8" ry="1" fill="url(#e)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="checkbox-mixed-insensitive-selected" transform="translate(-3,-150)" opacity=".55">
-   <g transform="translate(19)">
-    <g transform="translate(0,-30)">
-     <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-      <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-     </g>
-     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-     <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#b)" stroke-width="0"/>
-    </g>
-   </g>
-   <g transform="translate(36,-1036)">
-    <g transform="rotate(45 7.5 1026.4)">
-     <g transform="translate(12.374 11.531)">
-      <g transform="translate(-3 -5)" fill="#3b3c3e">
-       <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="url(#g)"/>
-      </g>
-      <rect transform="translate(0 1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
-     </g>
-    </g>
-   </g>
-  </g>
-  <g id="radio-checked-insensitive-selected" transform="translate(-41,-150)" opacity=".55">
-   <g transform="translate(19.004 -4.6993e-6)">
+  <rect x="121" y="5.36" width="6" height="6" rx="2.9984" ry="3" color="#000000" fill="url(#h)" stroke-width="1.5"/>
+ </g>
+ <g id="radio-mixed-selected" transform="translate(-33,110.64)">
+  <g transform="translate(19)">
+   <g transform="translate(19.004)">
     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-     <g transform="translate(0 1.0688)" opacity=".06">
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)"></g>
-     </g>
      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#c)" stroke-width="0"/>
+      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#d)" stroke-width="0"/>
      </g>
     </g>
    </g>
-   <rect x="122" y="6.3622" width="4" height="4" rx="1.9989" ry="2" color="#000000" fill="url(#h)"/>
   </g>
-  <g id="radio-mixed-insensitive-selected" transform="translate(-41 -150)" opacity=".55">
-   <g transform="translate(19 -4.6993e-6)">
-    <g transform="translate(19.004 -4.6993e-6)">
-     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-       <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#d)" stroke-width="0"/>
-      </g>
-     </g>
-    </g>
+  <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="url(#i)"/>
+ </g>
+ <g id="checkbox-unchecked-selected" transform="translate(-14,110.64)">
+  <g transform="translate(0,-30)">
+   <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+   <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#ffffff" fill-opacity=".39216" opacity=".75" stroke="url(#r)" stroke-linejoin="round"/>
+  </g>
+ </g>
+ <g id="radio-unchecked-selected" transform="translate(-33.996,110.64)">
+  <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+   <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+   <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+    <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#ffffff" fill-opacity=".39216" opacity=".75" stroke="url(#p)" stroke-linejoin="round" stroke-width="2.0822"/>
    </g>
-   <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="url(#i)"/>
   </g>
-  <g id="checkbox-unchecked-insensitive-selected" transform="translate(-22,-150)" opacity=".55">
+ </g>
+ <g id="checkbox-checked-insensitive-selected" transform="translate(-14,129.64)" opacity=".55">
+  <g transform="translate(19)">
    <g transform="translate(0,-30)">
-    <g transform="matrix(.92952 0 0 .92914 -156.75 -212.96)">
-     <g transform="matrix(.50892 0 0 .5174 161.79 197.56)"></g>
-    </g>
     <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
-    <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#fff" fill-opacity=".39216" opacity=".5" stroke="url(#r)" stroke-linejoin="round"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#r)" stroke-width="0"/>
    </g>
   </g>
-  <g id="radio-unchecked-insensitive-selected" transform="translate(-41.996 -150)" opacity=".55">
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)">
+      <rect x="8" y="1033.4" width="5" height="2" rx="1.0338" ry=".99999" fill="url(#f)"/>
+      <rect x="11" y="1027.4" width="2" height="8" ry="1" fill="url(#e)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="checkbox-mixed-insensitive-selected" transform="translate(5,129.64)" opacity=".55">
+  <g transform="translate(19)">
+   <g transform="translate(0,-30)">
+    <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+    <rect x="18" y="31.362" width="14" height="14" rx="2" ry="2" color="#000000" fill="url(#r)" stroke-width="0"/>
+   </g>
+  </g>
+  <g transform="translate(36,-1036)">
+   <g transform="rotate(45,7.5,1026.4)">
+    <g transform="translate(12.374,11.531)">
+     <g transform="translate(-3,-5)" fill="#3b3c3e">
+      <rect transform="rotate(225)" x="-738.8" y="-725.95" width="2" height="8" ry="1" fill="url(#g)"/>
+     </g>
+     <rect transform="translate(0,1036.4)" x="5" y="-8" width="3" height="1" fill-opacity="0"/>
+    </g>
+   </g>
+  </g>
+ </g>
+ <g id="radio-checked-insensitive-selected" transform="translate(-33,129.64)" opacity=".55">
+  <g transform="translate(19.004)">
    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-     <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#fff" fill-opacity=".39216" opacity=".5" stroke="url(#p)" stroke-linejoin="round" stroke-width="2.0822"/>
+     <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#d)" stroke-width="0"/>
     </g>
    </g>
   </g>
-  <rect x="82" y="-222.64" width="20" height="28" rx="0" ry="0" fill="url(#x)" style="paint-order:stroke fill markers"/>
-  <g id="combobox-arrow" transform="translate(-1 -.69306)">
-   <rect x="83" y="-221.94" width="20" height="28" opacity="0" stroke-width="1.3155" style="paint-order:markers fill stroke"/>
-   <g transform="matrix(1.1178 0 0 1.1178 -7.7233 20.309)" fill="#fff" fill-rule="evenodd">
-    <path d="m89.779-212.11-4.5681 4.2826s0 1.2236 1.3094 1.2193l3.585-3.6665 3.5892 3.6708c1.3052 0 1.3052-1.2236 1.3052-1.2236l-4.5681-4.2826s-0.32629-0.30589-0.65258 0z"/>
-    <path d="m89.779-197.18-4.5681-4.2826s0-1.2236 1.3094-1.2193l3.585 3.6665 3.5892-3.6708c1.3052 0 1.3052 1.2236 1.3052 1.2236l-4.5681 4.2826s-0.32629 0.30589-0.65258 0z"/>
-   </g>
-  </g>
-  <g id="radio-checked-insensitive" transform="translate(5e-7,1e-5)">
-   <g transform="translate(-21.996 -249)" opacity=".55">
+  <rect x="121" y="5.36" width="6" height="6" rx="2.9984" ry="3" color="#000000" fill="url(#h)" stroke-width="1.5"/>
+ </g>
+ <g id="radio-mixed-insensitive-selected" transform="translate(-33,129.64)" opacity=".55">
+  <g transform="translate(19)">
+   <g transform="translate(19.004)">
     <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
      <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
      <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#fff" stroke="#8e8e8e" stroke-linejoin="round" stroke-width="2.0822"/>
-     </g>
-    </g>
-   </g>
-   <rect x="81" y="-242.64" width="4" height="4" rx="1.9989" ry="2" color="#000000" fill="#8e8e8e"/>
-  </g>
-  <g id="radio-mixed-insensitive" transform="translate(5e-7,1e-5)">
-   <g transform="translate(-2.9957 -249)" opacity=".55">
-    <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
-     <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
-     <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
-      <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#fff" stroke="#8e8e8e" stroke-linejoin="round" stroke-width="2.0822"/>
-     </g>
-    </g>
-   </g>
-   <rect transform="rotate(-90)" x="239.64" y="98" width="2" height="8" ry="1" fill="#8e8e8e"/>
-  </g>
-  <g id="setting" transform="translate(-88 2)" fill-rule="evenodd">
-   <rect x="464" y="-274.64" width="42" height="28" fill="url(#ad)" style="paint-order:stroke markers fill"/>
-   <path id="setting-img" d="m492.95-261.53c-0.0253-0.22491-0.28755-0.39393-0.51431-0.39393-0.73315 0-1.3837-0.43047-1.6566-1.0962-0.27874-0.68189-0.099-1.4771 0.44739-1.9783 0.17199-0.15722 0.19289-0.42042 0.0486-0.60324-0.37524-0.4765-0.80173-0.90691-1.2674-1.2799-0.18235-0.14634-0.44989-0.12598-0.60801 0.0491-0.47686 0.52811-1.3334 0.72439-1.9953 0.44821-0.6888-0.28974-1.1232-0.98769-1.0806-1.7369 0.014-0.23533-0.158-0.43994-0.39262-0.46727-0.59759-0.0691-1.2004-0.0713-1.7998-5e-3 -0.23194 0.0256-0.40393 0.22539-0.39613 0.45775 0.026 0.74183-0.41352 1.4276-1.0955 1.7069-0.65397 0.26711-1.5045 0.0725-1.9804-0.4509-0.15729-0.17241-0.42048-0.1936-0.60373-0.0508-0.47948 0.37618-0.91556 0.80695-1.2942 1.2795-0.1477 0.18371-0.12597 0.45 0.0477 0.60806 0.55682 0.50423 0.73661 1.3064 0.44734 1.9961-0.27618 0.65759-0.95903 1.0814-1.7408 1.0814-0.25367-8e-3 -0.43435 0.1621-0.4621 0.39273-0.0704 0.60104-0.0712 1.2134-4e-3 1.8194 0.0251 0.22587 0.29535 0.39339 0.52461 0.39339 0.69666-0.0178 1.3655 0.41351 1.6461 1.0963 0.27968 0.68188 0.0999 1.4766-0.44734 1.9782-0.17116 0.15723-0.19288 0.42-0.0486 0.60283 0.37173 0.47346 0.79828 0.90429 1.2656 1.2804 0.1833 0.1477 0.45001 0.12686 0.60891-0.0482 0.47864-0.52942 1.3352-0.72534 1.9944-0.44864 0.69053 0.28885 1.1249 0.98675 1.0824 1.7364-0.0138 0.23545 0.15895 0.44042 0.39262 0.46733 0.3057 0.0357 0.61325 0.0535 0.92164 0.0535 0.29272 0 0.5855-0.0161 0.87823-0.0486 0.232-0.0256 0.40387-0.22539 0.39608-0.45816-0.0268-0.74142 0.41351-1.4272 1.0946-1.706 0.65838-0.26891 1.5054-0.0721 1.9813 0.45078 0.15818 0.17205 0.41953 0.19282 0.60379 0.0505 0.47859-0.37529 0.91377-0.80571 1.2942-1.2796 0.14764-0.18331 0.12681-0.45001-0.0478-0.60801-0.55681-0.50424-0.7375-1.3065-0.44823-1.9958 0.27195-0.64884 0.92944-1.0845 1.6366-1.0845l0.0989 2e-3c0.22938 0.0187 0.44043-0.15806 0.46823-0.3922 0.0705-0.60157 0.0713-1.2134 3e-3 -1.8194zm-7.9373 3.5737c-1.4716 0-2.6685-1.197-2.6685-2.6685 0-1.4715 1.197-2.6685 2.6685-2.6685 1.4715 0 2.6685 1.197 2.6685 2.6685 0 1.4715-1.197 2.6685-2.6685 2.6685z" clip-rule="evenodd" fill="#575757" stroke-width=".07843"/>
-  </g>
-  <g id="setting-dark" transform="translate(-189 -33)" fill-rule="evenodd">
-   <rect x="464" y="-239.64" width="42" height="28" fill="url(#ac)" style="paint-order:stroke markers fill"/>
-   <path d="m492.95-226.53c-0.0253-0.22491-0.28755-0.39393-0.51431-0.39393-0.73315 0-1.3837-0.43047-1.6566-1.0962-0.27874-0.68189-0.099-1.4771 0.44739-1.9783 0.17199-0.15722 0.19289-0.42042 0.0486-0.60324-0.37524-0.4765-0.80173-0.90691-1.2674-1.2799-0.18235-0.14634-0.44989-0.12598-0.60801 0.0491-0.47686 0.52811-1.3334 0.72439-1.9953 0.44821-0.6888-0.28974-1.1232-0.98769-1.0806-1.7369 0.014-0.23533-0.158-0.43994-0.39262-0.46727-0.59759-0.0691-1.2004-0.0713-1.7998-5e-3 -0.23194 0.0256-0.40393 0.22539-0.39613 0.45775 0.026 0.74183-0.41352 1.4276-1.0955 1.7069-0.65397 0.26711-1.5045 0.0725-1.9804-0.4509-0.15729-0.17241-0.42048-0.1936-0.60373-0.0508-0.47948 0.37618-0.91556 0.80695-1.2942 1.2795-0.1477 0.18371-0.12597 0.45 0.0477 0.60806 0.55682 0.50423 0.73661 1.3064 0.44734 1.9961-0.27618 0.65759-0.95903 1.0814-1.7408 1.0814-0.25367-8e-3 -0.43435 0.1621-0.4621 0.39273-0.0704 0.60104-0.0712 1.2134-4e-3 1.8194 0.0251 0.22587 0.29535 0.39339 0.52461 0.39339 0.69666-0.0178 1.3655 0.41351 1.6461 1.0963 0.27968 0.68188 0.0999 1.4766-0.44734 1.9782-0.17116 0.15723-0.19288 0.42-0.0486 0.60283 0.37173 0.47346 0.79828 0.90429 1.2656 1.2804 0.1833 0.1477 0.45001 0.12686 0.60891-0.0482 0.47864-0.52942 1.3352-0.72534 1.9944-0.44864 0.69053 0.28885 1.1249 0.98675 1.0824 1.7364-0.0138 0.23545 0.15895 0.44042 0.39262 0.46733 0.3057 0.0357 0.61325 0.0535 0.92164 0.0535 0.29272 0 0.5855-0.0161 0.87823-0.0486 0.232-0.0256 0.40387-0.22539 0.39608-0.45816-0.0268-0.74142 0.41351-1.4272 1.0946-1.706 0.65838-0.26891 1.5054-0.0721 1.9813 0.45078 0.15818 0.17205 0.41953 0.19282 0.60379 0.0505 0.47859-0.37529 0.91377-0.80571 1.2942-1.2796 0.14764-0.18331 0.12681-0.45001-0.0478-0.60801-0.55681-0.50424-0.7375-1.3065-0.44823-1.9958 0.27195-0.64884 0.92944-1.0845 1.6366-1.0845l0.0989 2e-3c0.22938 0.0187 0.44043-0.15806 0.46823-0.3922 0.0705-0.60157 0.0713-1.2134 3e-3 -1.8194zm-7.9373 3.5737c-1.4716 0-2.6685-1.197-2.6685-2.6685 0-1.4715 1.197-2.6685 2.6685-2.6685 1.4715 0 2.6685 1.197 2.6685 2.6685 0 1.4715-1.197 2.6685-2.6685 2.6685z" clip-rule="evenodd" fill="#fdfdfd" stroke-width=".07843"/>
-  </g>
-  <path id="setting-icon" d="m453.94-259.53c-0.0253-0.22491-0.28755-0.39393-0.51431-0.39393-0.73315 0-1.3837-0.43047-1.6566-1.0962-0.27874-0.68189-0.099-1.4771 0.44739-1.9783 0.17199-0.15722 0.19289-0.42042 0.0486-0.60324-0.37524-0.4765-0.80173-0.90691-1.2674-1.2799-0.18235-0.14634-0.44989-0.12598-0.60801 0.0491-0.47686 0.52811-1.3334 0.72439-1.9953 0.44821-0.6888-0.28974-1.1232-0.98769-1.0806-1.7369 0.014-0.23533-0.158-0.43994-0.39262-0.46727-0.59759-0.0691-1.2004-0.0713-1.7998-5e-3 -0.23194 0.0256-0.40393 0.22539-0.39613 0.45775 0.026 0.74183-0.41352 1.4276-1.0955 1.7069-0.65397 0.26711-1.5045 0.0725-1.9804-0.4509-0.15729-0.17241-0.42048-0.1936-0.60373-0.0508-0.47948 0.37618-0.91556 0.80695-1.2942 1.2795-0.1477 0.18371-0.12597 0.45 0.0477 0.60806 0.55682 0.50423 0.73661 1.3064 0.44734 1.9961-0.27618 0.65759-0.95903 1.0814-1.7408 1.0814-0.25367-8e-3 -0.43435 0.1621-0.4621 0.39273-0.0704 0.60104-0.0712 1.2134-4e-3 1.8194 0.0251 0.22587 0.29535 0.39339 0.52461 0.39339 0.69666-0.0178 1.3655 0.41351 1.6461 1.0963 0.27968 0.68188 0.0999 1.4766-0.44734 1.9782-0.17116 0.15723-0.19288 0.42-0.0486 0.60283 0.37173 0.47346 0.79828 0.90429 1.2656 1.2804 0.1833 0.1477 0.45001 0.12686 0.60891-0.0482 0.47864-0.52942 1.3352-0.72534 1.9944-0.44864 0.69053 0.28885 1.1249 0.98675 1.0824 1.7364-0.0138 0.23545 0.15895 0.44042 0.39262 0.46733 0.3057 0.0357 0.61325 0.0535 0.92164 0.0535 0.29272 0 0.5855-0.0161 0.87823-0.0486 0.232-0.0256 0.40387-0.22539 0.39608-0.45816-0.0268-0.74142 0.41351-1.4272 1.0946-1.706 0.65838-0.26891 1.5054-0.0721 1.9813 0.45078 0.15818 0.17205 0.41953 0.19282 0.60379 0.0505 0.47859-0.37529 0.91377-0.80571 1.2942-1.2796 0.14764-0.18331 0.12681-0.45001-0.0478-0.60801-0.55681-0.50424-0.7375-1.3065-0.44823-1.9958 0.27195-0.64884 0.92944-1.0845 1.6366-1.0845l0.0989 2e-3c0.22938 0.0187 0.44043-0.15806 0.46823-0.3922 0.0705-0.60157 0.0713-1.2134 3e-3 -1.8194zm-7.9373 3.5737c-1.4716 0-2.6685-1.197-2.6685-2.6685 0-1.4715 1.197-2.6685 2.6685-2.6685 1.4715 0 2.6685 1.197 2.6685 2.6685 0 1.4715-1.197 2.6685-2.6685 2.6685z" clip-rule="evenodd" fill="#fdfdfd" fill-rule="evenodd" stroke-width=".07843"/>
-  <path id="setting-icon-dark" d="m352.94-259.53c-0.0253-0.22491-0.28755-0.39393-0.51431-0.39393-0.73315 0-1.3837-0.43047-1.6566-1.0962-0.27874-0.68189-0.099-1.4771 0.44739-1.9783 0.17199-0.15722 0.19289-0.42042 0.0486-0.60324-0.37524-0.4765-0.80173-0.90691-1.2674-1.2799-0.18235-0.14634-0.44989-0.12598-0.60801 0.0491-0.47686 0.52811-1.3334 0.72439-1.9953 0.44821-0.6888-0.28974-1.1232-0.98769-1.0806-1.7369 0.014-0.23533-0.158-0.43994-0.39262-0.46727-0.59759-0.0691-1.2004-0.0713-1.7998-5e-3 -0.23194 0.0256-0.40393 0.22539-0.39613 0.45775 0.026 0.74183-0.41352 1.4276-1.0955 1.7069-0.65397 0.26711-1.5045 0.0725-1.9804-0.4509-0.15729-0.17241-0.42048-0.1936-0.60373-0.0508-0.47948 0.37618-0.91556 0.80695-1.2942 1.2795-0.1477 0.18371-0.12597 0.45 0.0477 0.60806 0.55682 0.50423 0.73661 1.3064 0.44734 1.9961-0.27618 0.65759-0.95903 1.0814-1.7408 1.0814-0.25367-8e-3 -0.43435 0.1621-0.4621 0.39273-0.0704 0.60104-0.0712 1.2134-4e-3 1.8194 0.0251 0.22587 0.29535 0.39339 0.52461 0.39339 0.69666-0.0178 1.3655 0.41351 1.6461 1.0963 0.27968 0.68188 0.0999 1.4766-0.44734 1.9782-0.17116 0.15723-0.19288 0.42-0.0486 0.60283 0.37173 0.47346 0.79828 0.90429 1.2656 1.2804 0.1833 0.1477 0.45001 0.12686 0.60891-0.0482 0.47864-0.52942 1.3352-0.72534 1.9944-0.44864 0.69053 0.28885 1.1249 0.98675 1.0824 1.7364-0.0138 0.23545 0.15895 0.44042 0.39262 0.46733 0.3057 0.0357 0.61325 0.0535 0.92164 0.0535 0.29272 0 0.5855-0.0161 0.87823-0.0486 0.232-0.0256 0.40387-0.22539 0.39608-0.45816-0.0268-0.74142 0.41351-1.4272 1.0946-1.706 0.65838-0.26891 1.5054-0.0721 1.9813 0.45078 0.15818 0.17205 0.41953 0.19282 0.60379 0.0505 0.47859-0.37529 0.91377-0.80571 1.2942-1.2796 0.14764-0.18331 0.12681-0.45001-0.0478-0.60801-0.55681-0.50424-0.7375-1.3065-0.44823-1.9958 0.27195-0.64884 0.92944-1.0845 1.6366-1.0845l0.0989 2e-3c0.22938 0.0187 0.44043-0.15806 0.46823-0.3922 0.0705-0.60157 0.0713-1.2134 3e-3 -1.8194zm-7.9373 3.5737c-1.4716 0-2.6685-1.197-2.6685-2.6685 0-1.4715 1.197-2.6685 2.6685-2.6685 1.4715 0 2.6685 1.197 2.6685 2.6685 0 1.4715-1.197 2.6685-2.6685 2.6685z" clip-rule="evenodd" fill="#575757" fill-rule="evenodd" stroke-width=".07843"/>
-  <g id="slider-horz-scale-has-marks-below" transform="translate(-149 -21)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#fff" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-below-hover" transform="translate(-119 -21)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-below-active" transform="translate(-89 -21)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-below-insensitive" transform="translate(-59 -21)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-above" transform="matrix(1 0 0 -1 -149 -264.28)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#fff" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-above-hover" transform="matrix(1 0 0 -1 -119 -264.28)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-above-active" transform="matrix(1 0 0 -1 -89 -264.28)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-horz-scale-has-marks-above-insensitive" transform="matrix(1 0 0 -1 -59 -264.28)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-below" transform="rotate(-90 222 -42.638)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#fff" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-below-hover" transform="rotate(-90 237 -57.638)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-below-active" transform="rotate(-90 252 -72.638)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-below-insensitive" transform="rotate(-90 267 -87.638)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-above" transform="matrix(0 -1 -1 0 -8.6378 209.36)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#fff" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-above-hover" transform="matrix(0 -1 -1 0 21.362 209.36)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-above-active" transform="matrix(0 -1 -1 0 51.362 209.36)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="slider-vert-scale-has-marks-above-insensitive" transform="matrix(0 -1 -1 0 81.362 209.36)">
-   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
-   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
-  </g>
-  <g id="toggle-off" transform="translate(305.02 -1272.2)">
-   <g transform="translate(-5.1852 -.59123)">
-    <g transform="matrix(1.011 0 0 .96971 -.43462 32.056)">
-     <path d="m15.787 1034.5h29c4.432 0 8 3.568 8 8s-3.568 8-8 8h-29c-4.432 0-8-3.568-8-8s3.568-8 8-8z" fill="#535353" stroke="#555" stroke-width=".5"/>
-     <circle cx="15.745" cy="1042.5" r="8.2499" fill="#333" opacity=".35"/>
-     <circle cx="15.745" cy="1042.5" r="7.2187" fill="#d8d8d8"/>
-    </g>
-   </g>
-  </g>
-  <g id="toggle-off-disabled" transform="translate(305.02 -1247.2)">
-   <g transform="translate(-5.1852 -.59123)" opacity=".5">
-    <g transform="matrix(1.011 0 0 .96971 -.43462 32.056)">
-     <path d="m15.787 1034.5h29c4.432 0 8 3.568 8 8s-3.568 8-8 8h-29c-4.432 0-8-3.568-8-8s3.568-8 8-8z" fill="#535353" stroke="#555" stroke-width=".5"/>
-     <circle cx="15.745" cy="1042.5" r="8.2499" fill="#333" opacity=".35"/>
-     <circle cx="15.745" cy="1042.5" r="7.2187" fill="#d8d8d8"/>
-    </g>
-   </g>
-  </g>
-  <g id="toggle-on" transform="translate(250 -1272.2)">
-   <g transform="translate(-5.1852 -.59123)">
-    <g transform="matrix(1.011 0 0 .96971 -.43462 32.056)">
-     <path d="m15.787 1034.5h29c4.432 0 8 3.568 8 8s-3.568 8-8 8h-29c-4.432 0-8-3.568-8-8s3.568-8 8-8z" fill="url(#ab)" stroke="url(#z)" stroke-width=".5"/>
-     <ellipse transform="matrix(1.0074 0 0 1.0074 14.206 -7.5824)" cx="30.144" cy="1042.7" rx="7.3177" ry="7.2744" fill="#00429b" filter="url(#bl)"/>
-     <circle cx="44.787" cy="1042.5" r="7" fill="#fff"/>
-    </g>
-   </g>
-  </g>
-  <g id="toggle-on-disabled" transform="translate(250 -1247.2)">
-   <g opacity=".5">
-    <g transform="translate(-5.1852 -.59123)">
-     <g transform="matrix(1.011 0 0 .96971 -.43462 32.056)">
-      <path d="m15.787 1034.5h29c4.432 0 8 3.568 8 8s-3.568 8-8 8h-29c-4.432 0-8-3.568-8-8s3.568-8 8-8z" fill="url(#aa)" stroke="url(#y)" stroke-width=".5"/>
-      <ellipse transform="matrix(1.0074 0 0 1.0074 14.206 -7.5824)" cx="30.144" cy="1042.7" rx="7.3177" ry="7.2744" fill="#00429b" filter="url(#bk)"/>
-      <circle cx="44.787" cy="1042.5" r="7" fill="#fff"/>
+      <rect x="51.611" y="126.56" width="29.385" height="28.919" rx="14.692" ry="14.46" color="#000000" fill="url(#d)" stroke-width="0"/>
      </g>
     </g>
    </g>
   </g>
-  <g id="entry-focus" transform="translate(0,13)" fill-rule="evenodd">
-   <path d="m266-64.638c-3.878 0-7 3.122-7 7v22c0 3.878 3.122 7 7 7h82c3.878 0 7-3.122 7-7v-22c0-3.878-3.122-7-7-7zm0 3h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#67a4e9" opacity=".75" style="paint-order:fill markers stroke"/>
-   <path d="m266-62.638c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#7ab1ee" style="paint-order:fill markers stroke"/>
+  <rect transform="rotate(-90)" x="-9.3622" y="139" width="2" height="8" ry="1" fill="url(#i)"/>
+ </g>
+ <g id="checkbox-unchecked-insensitive-selected" transform="translate(-14,129.64)" opacity=".55">
+  <g transform="translate(0,-30)">
+   <rect x="17" y="30.362" width="16" height="16" color="#000000" fill="none"/>
+   <rect x="18.5" y="31.862" width="13" height="13" rx="2" ry="2" color="#000000" fill="#ffffff" fill-opacity=".39216" opacity=".5" stroke="url(#r)" stroke-linejoin="round"/>
   </g>
-  <g id="entry" transform="translate(0,19)">
-   <rect x="260" y="-111.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
-   <path d="m265.95-109.52c-0.25028 0.055-0.49189 0.13281-0.72657 0.22461 0.23556-0.0896 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.0536 0.49101 0.13504 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" fill-rule="evenodd" opacity=".035" style="paint-order:fill markers stroke"/>
-   <path d="m267-109.64c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="url(#as)" fill-rule="evenodd" style="paint-order:fill markers stroke"/>
-  </g>
-  <g id="entry-focus-dark" transform="translate(-38 194)" fill-rule="evenodd">
-   <path transform="translate(-8 -279.64)" d="m427 34c-3.878 0-7 3.122-7 7v22c0 3.878 3.122 7 7 7h82c3.878 0 7-3.122 7-7v-22c0-3.878-3.122-7-7-7zm0 3h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#6887cd" opacity=".75" style="paint-order:fill markers stroke"/>
-   <path transform="translate(-8 -279.64)" d="m427 36c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#5683fa" style="paint-order:fill markers stroke"/>
-  </g>
-  <g id="entry-dark" transform="translate(-37 193)">
-   <rect x="412" y="-285.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
-   <g fill-rule="evenodd" style="">
-    <path transform="translate(-8 -279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
-    <path transform="translate(-8 -279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#fff" opacity=".15" style="paint-order:fill markers stroke"/>
+ </g>
+ <g id="radio-unchecked-insensitive-selected" transform="translate(-33.996,129.64)" opacity=".55">
+  <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+   <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+   <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+    <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#ffffff" fill-opacity=".39216" opacity=".5" stroke="url(#p)" stroke-linejoin="round" stroke-width="2.0822"/>
    </g>
   </g>
-  <g id="header-entry" transform="translate(115,-16)">
-   <rect x="260" y="-156.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
-   <g transform="translate(-152,129)" fill-rule="evenodd">
-    <path transform="translate(-8 -279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
-    <path transform="translate(-8 -279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" opacity=".15" style="paint-order:fill markers stroke"/>
+ </g>
+ <rect x="210" y="57" width="28" height="28" rx="0" ry="6" fill="url(#linearGradient1903)" stroke-width="1.1832" style="paint-order:stroke fill markers"/>
+ <g id="combobox-arrow-dark" transform="translate(116 -.007)">
+  <rect x="94" y="57.007" width="28" height="28" opacity="0" stroke-width="1.5565" style="paint-order:markers fill stroke"/>
+  <g transform="matrix(1.1178,0,0,1.1178,7.2803,299.26)" fill="#ffffff" fill-rule="evenodd">
+   <path d="m89.779-212.11-4.5681 4.2826s0 1.2236 1.3094 1.2193l3.585-3.6665 3.5892 3.6708c1.3052 0 1.3052-1.2236 1.3052-1.2236l-4.5681-4.2826s-0.32629-0.30589-0.65258 0z"/>
+   <path d="m89.779-197.18-4.5681-4.2826s0-1.2236 1.3094-1.2193l3.585 3.6665 3.5892-3.6708c1.3052 0 1.3052 1.2236 1.3052 1.2236l-4.5681 4.2826s-0.32629 0.30589-0.65258 0z"/>
+  </g>
+ </g>
+ <g id="radio-checked-insensitive" transform="translate(8,279.64)">
+  <g transform="translate(-21.996,-249)" opacity=".55">
+   <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+    <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+    <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+     <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#ffffff" stroke="#8e8e8e" stroke-linejoin="round" stroke-width="2.0822"/>
+    </g>
    </g>
   </g>
-  <g id="header-entry-disabled" transform="translate(-37 73)" opacity=".5">
-   <rect x="412" y="-285.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
-   <g fill-rule="evenodd">
-    <path transform="translate(-8 -279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
-    <path transform="translate(-8 -279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" opacity=".15" style="paint-order:fill markers stroke"/>
+  <rect x="80" y="-243.64" width="6" height="6" rx="2.9983" ry="3" color="#000000" fill="#8e8e8e" stroke-width="1.5"/>
+ </g>
+ <g id="radio-mixed-insensitive" transform="translate(8,279.64)">
+  <g transform="translate(-2.9957,-249)" opacity=".55">
+   <g transform="matrix(.93617 0 0 .93566 -96.783 -244.76)">
+    <rect x="206.99" y="261.98" width="17.091" height="17.1" color="#000000" fill="none"/>
+    <g transform="matrix(.50892 0 0 .5174 181.79 197.56)">
+     <rect x="52.66" y="127.6" width="27.304" height="26.836" rx="13.224" ry="13.246" color="#000000" fill="#ffffff" stroke="#8e8e8e" stroke-linejoin="round" stroke-width="2.0822"/>
+    </g>
    </g>
   </g>
-  <g id="entry-disabled" transform="translate(0,-21)" opacity=".5">
-   <rect x="260" y="-111.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
-   <path d="m265.95-109.52c-0.25028 0.055-0.49189 0.13281-0.72657 0.22461 0.23556-0.0896 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.0536 0.49101 0.13504 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" fill-rule="evenodd" opacity=".035" style="paint-order:fill markers stroke"/>
-   <path d="m267-109.64c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill-rule="evenodd" opacity=".15" style="paint-order:fill markers stroke"/>
+  <rect transform="rotate(-90)" x="239.64" y="98" width="2" height="8" ry="1" fill="#8e8e8e"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-below" transform="translate(-141,258.64)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ffffff" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-below-hover" transform="translate(-111,258.64)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-below-active" transform="translate(-81,258.64)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-below-insensitive" transform="translate(-51,258.64)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-above" transform="matrix(1,0,0,-1,-141,15.36)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ffffff" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-above-hover" transform="matrix(1,0,0,-1,-111,15.36)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-above-active" transform="matrix(1,0,0,-1,-81,15.36)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-horz-scale-has-marks-above-insensitive" transform="matrix(1,0,0,-1,-51,15.36)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-below" transform="rotate(-90,365.82,93.182)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ffffff" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-below-hover" transform="rotate(-90,380.82,78.182)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-below-active" transform="rotate(-90,395.82,63.182)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-below-insensitive" transform="rotate(-90,410.82,48.182)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-above" transform="matrix(0 -1 -1 0 -.6378 489)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ffffff" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-above-hover" transform="matrix(0,-1,-1,0,29.362,489)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f9f9f9" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-above-active" transform="matrix(0,-1,-1,0,59.362,489)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#f2f2f2" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="slider-vert-scale-has-marks-above-insensitive" transform="matrix(0,-1,-1,0,89.362,489)">
+  <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
+  <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
+ </g>
+ <g id="combobox-arrow" transform="translate(-7.012)">
+  <rect x="94" y="57.007" width="28" height="28" opacity="0" stroke-width="1.5565" style="paint-order:markers fill stroke"/>
+  <g transform="matrix(1.1178,0,0,1.1178,7.2803,299.26)" fill="#4d4d4d" fill-rule="evenodd">
+   <path d="m89.779-212.11-4.5681 4.2826s0 1.2236 1.3094 1.2193l3.585-3.6665 3.5892 3.6708c1.3052 0 1.3052-1.2236 1.3052-1.2236l-4.5681-4.2826s-0.32629-0.30589-0.65258 0z"/>
+   <path d="m89.779-197.18-4.5681-4.2826s0-1.2236 1.3094-1.2193l3.585 3.6665 3.5892-3.6708c1.3052 0 1.3052 1.2236 1.3052 1.2236l-4.5681 4.2826s-0.32629 0.30589-0.65258 0z"/>
   </g>
-  <g id="entry-disabled-dark" transform="translate(-37 153)" opacity=".5">
-   <rect x="412" y="-285.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
-   <g fill-rule="evenodd">
-    <path transform="translate(-8 -279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
-    <path transform="translate(-8 -279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#fff" opacity=".15" style="paint-order:fill markers stroke"/>
-   </g>
+ </g>
+ <path d="m216 57c-3.324 0-6 2.676-6 6v0.78516c0-3.2053 2.5799-5.7852 5.7852-5.7852h16.43c3.2053 0 5.7852 2.5799 5.7852 5.7852v-0.78516c0-3.324-2.676-6-6-6h-16z" fill="#ffffff" opacity=".15" stroke-width="1.1832" style="paint-order:stroke fill markers"/>
+ <rect x="374.89" y="-5.4774" width="126" height="268" rx="0" ry="0" fill="#333333" fill-rule="evenodd" style="paint-order:fill markers stroke"/>
+ <g id="entry-focus" transform="translate(9.8896 287.16)" fill-rule="evenodd">
+  <path d="m266-64.638c-3.878 0-7 3.122-7 7v22c0 3.878 3.122 7 7 7h82c3.878 0 7-3.122 7-7v-22c0-3.878-3.122-7-7-7zm0 3h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#67a4e9" opacity=".75" style="paint-order:fill markers stroke"/>
+  <path d="m266-62.638c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#7ab1ee" style="paint-order:fill markers stroke"/>
+ </g>
+ <g id="entry" transform="translate(9.8896 293.16)">
+  <rect x="260" y="-111.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
+  <path d="m265.95-109.52c-0.25028 0.055-0.49189 0.13281-0.72657 0.22461 0.23556-0.0896 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.0536 0.49101 0.13504 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" fill-rule="evenodd" opacity=".035" style="paint-order:fill markers stroke"/>
+  <path d="m267-109.64c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="url(#as)" fill-rule="evenodd" style="paint-order:fill markers stroke"/>
+ </g>
+ <g id="entry-focus-dark" transform="translate(-28.11 468.16)" fill-rule="evenodd">
+  <path transform="translate(-8,-279.64)" d="m427 34c-3.878 0-7 3.122-7 7v22c0 3.878 3.122 7 7 7h82c3.878 0 7-3.122 7-7v-22c0-3.878-3.122-7-7-7zm0 3h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#6887cd" opacity=".75" style="paint-order:fill markers stroke"/>
+  <path transform="translate(-8,-279.64)" d="m427 36c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#5683fa" style="paint-order:fill markers stroke"/>
+ </g>
+ <g id="entry-dark" transform="translate(-27.11 467.16)">
+  <rect x="412" y="-285.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
+  <g fill-rule="evenodd">
+   <path transform="translate(-8,-279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
+   <path transform="translate(-8,-279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#ffffff" opacity=".15" style="paint-order:fill markers stroke"/>
+  </g>
+ </g>
+ <g id="header-entry" transform="translate(124.89 258.16)">
+  <rect x="260" y="-156.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
+  <g transform="translate(-152,129)" fill-rule="evenodd">
+   <path transform="translate(-8,-279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
+   <path transform="translate(-8,-279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" opacity=".15" style="paint-order:fill markers stroke"/>
+  </g>
+ </g>
+ <g id="header-entry-disabled" transform="translate(-27.11 347.16)" opacity=".5">
+  <rect x="412" y="-285.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
+  <g fill-rule="evenodd">
+   <path transform="translate(-8,-279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
+   <path transform="translate(-8,-279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" opacity=".15" style="paint-order:fill markers stroke"/>
+  </g>
+ </g>
+ <g id="entry-disabled" transform="translate(9.8896 253.16)" opacity=".5">
+  <rect x="260" y="-111.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
+  <path d="m265.95-109.52c-0.25028 0.055-0.49189 0.13281-0.72657 0.22461 0.23556-0.0896 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.0536 0.49101 0.13504 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" fill-rule="evenodd" opacity=".035" style="paint-order:fill markers stroke"/>
+  <path d="m267-109.64c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill-rule="evenodd" opacity=".15" style="paint-order:fill markers stroke"/>
+ </g>
+ <g id="entry-disabled-dark" transform="translate(-27.11 427.16)" opacity=".5">
+  <rect x="412" y="-285.64" width="96" height="36" rx="0" ry="0" opacity="0" stroke-width="6" style="paint-order:fill markers stroke"/>
+  <g fill-rule="evenodd">
+   <path transform="translate(-8,-279.64)" d="m425.95-3.8848c-0.25028 0.054958-0.49189 0.13281-0.72657 0.22461 0.23556-0.089578 0.47527-0.17104 0.72657-0.22461zm84.105 0c0.2513 0.053565 0.49101 0.13503 0.72657 0.22461-0.23468-0.0918-0.47629-0.16965-0.72657-0.22461zm-88.053 26.885v0.84375c0 2.8566 2.23 5.1562 5 5.1562h82c2.77 0 5-2.2997 5-5.1562v-0.84375c0 2.77-2.23 5-5 5h-82c-2.77 0-5-2.23-5-5z" opacity=".035" style="paint-order:fill markers stroke"/>
+   <path transform="translate(-8,-279.64)" d="m427-4c-2.77 0-5 2.23-5 5v22c0 2.77 2.23 5 5 5h82c2.77 0 5-2.23 5-5v-22c0-2.77-2.23-5-5-5zm0 1h82c2.216 0 4 1.784 4 4v22c0 2.216-1.784 4-4 4h-82c-2.216 0-4-1.784-4-4v-22c0-2.216 1.784-4 4-4z" fill="#ffffff" opacity=".15" style="paint-order:fill markers stroke"/>
   </g>
  </g>
 </svg>

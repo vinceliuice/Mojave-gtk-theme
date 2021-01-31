@@ -1127,7 +1127,7 @@ spinbutton {
 combobox {
   button.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
-    min-height: 20px;
+    min-height: 16px;
     // margin: 0;
     padding-left: 12px;
     padding-right: 12px;
@@ -1142,8 +1142,8 @@ combobox {
   .background & button.combo arrow {
     @include button(active);
     -gtk-icon-source: -gtk-scaled(
-                       url("assets/combobox-arrow.png"),
-                       url("assets/combobox-arrow@2.png"));
+                       url("assets/combobox-arrow-dark.png"),
+                       url("assets/combobox-arrow-dark@2.png"));
     min-height: 16px;
     min-width: 16px;
     padding: 0;
@@ -1153,10 +1153,6 @@ combobox {
     border-style: solid;
     border-left-style: none;
   }
-
-  // .background & menu arrow { // Reset menu overflow arrow
-  //   @extend %menu_overflow_arrow;
-  // }
 
   decoration,
   button.combo:checked,
@@ -1169,28 +1165,46 @@ combobox {
   }
 
   .linked:not(.vertical) > & > box > button.combo {
-    // the combobox is a composite widget so the way we do button linking doesn't
-    // work, special case needed.
-
-    arrow { border-radius: 0; }
+    arrow {
+      border: none;
+      background: none;
+      box-shadow: none;
+      -gtk-icon-source: -gtk-scaled(
+                         url("assets/combobox-arrow#{$asset_suffix}.png"),
+                         url("assets/combobox-arrow#{$asset_suffix}@2.png"));
+    }
 
     &:dir(ltr),
     &:dir(rtl) { @extend %linked_middle; } // specificity bump
+  }
+
+  .linked:not(.vertical) > entry + button.combo:checked,
+  .linked:not(.vertical) > & > box > button.combo:checked {
+    arrow {
+      border-radius: 0;
+      background-color: transparent;
+      -gtk-icon-source: -gtk-scaled(
+                         url("assets/combobox-arrow-dark.png"),
+                         url("assets/combobox-arrow-dark@2.png"));
+    }
   }
 
   .linked:not(.vertical) > &:first-child > box > button.combo {
     border-top-left-radius: $bt_radius;
     border-bottom-left-radius: $bt_radius
   }
+
   .linked:not(.vertical) > &:last-child > box > button.combo {
     border-top-right-radius: $bt_radius;
     border-bottom-right-radius: $bt_radius;
+    border-right: 1px solid $borders_color;
 
     arrow {
       border-top-right-radius: $bt_radius;
       border-bottom-right-radius: $bt_radius;
     }
   }
+
   .linked:not(.vertical) > &:only-child > box > button.combo {
     border-radius: $bt_radius;
   }
@@ -1200,10 +1214,12 @@ combobox {
     border-top-left-radius: $bt_radius;
     border-top-right-radius: $bt_radius;
   }
+
   .linked.vertical > &:last-child > box > button.combo {
     border-bottom-left-radius: $bt_radius;
     border-bottom-right-radius: $bt_radius;
   }
+
   .linked.vertical > &:only-child > box > button.combo {
     border-radius: $bt_radius;
   }
@@ -1357,7 +1373,7 @@ headerbar,
   &:backdrop {
     transition: $backdrop_transition;
     color: transparentize($header_fg, 0.3);
-    background-image: none;
+    background-image: linear-gradient(0deg, $header_bg_backdrop 0%, $header_bg_backdrop 100%);
     background-color: $header_bg_backdrop;
     border-color: if($variant=='light', lighten($header_border, 15%), darken($header_border, 3%));
 
@@ -2585,44 +2601,52 @@ scrollbar {
 //
 switch {
   transition: $longer_transition;
-  // margin: 6px 0;
-  border-radius: 50px;
-  background-color: rgba($fg_color, 0.3);
+  border-radius: $circular_radius;
+  background-color: transparent;
   background-clip: padding-box;
-  color: rgba($fg_color, 0.3);
+  color: transparent;
+  min-width: 40px;
+  min-height: 24px;
   font-size: 0;
+  box-shadow: inset 0 1px 2px rgba(black, 0.1);
+  background-image: $switch_image, radial-gradient(circle farthest-corner at center, transparent 0%, transparent 0%);
 
   &:disabled {
-    color: rgba($fg_color, 0.15);
-    background-color: rgba($fg_color, 0.15);
+    color: transparent;
+    background-color: transparent;
+    background-image: $switch_disabled_image;
   }
 
   &:checked {
     animation: $switch_animation;
-    background-color: $success_color;
-    color: rgba(white, 0.65);
+    background-color: transparent;
+    color: transparent;
+    box-shadow: inset 0 1px 2px rgba(black, 0.15);
+    transition: background-image 0.3s, box-shadow 0;
+    background-image: $switch_checked_image, radial-gradient(circle farthest-corner at center, rgba($selected_bg_color, 0.75) 100%, transparent 0%);
 
     &:disabled {
-      background-color: rgba($success_color, 0.5);
-      color: rgba(white, 0.35);
+      background-color: transparent;
+      background-image: $switch_checked_disabled_image;
+      color: transparent;
     }
   }
 
   slider {
     transition: $longer_transition, $shadow_transition, margin 0;
-    min-width: 18px;
-    min-height: 18px;
-    margin: 2px 0 2px 2px;
-    border-radius: 50px;
-    -gtk-outline-radius: 50px;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 1px 0 1px 1px;
+    border-radius: $circular_radius;
+    -gtk-outline-radius: $circular_radius;
     background-color: white;
-    box-shadow: $shadow_5;
+    box-shadow: 0 1px 2px rgba(black, 0.15);
   }
 
-  &:hover slider { box-shadow: $shadow_4; }
+  &:hover slider { box-shadow: $shadow_5; }
 
   &:checked slider {
-    margin: 2px 2px 2px 0;
+    margin: 1px 1px 1px 0;
     background-color: $selected_fg_color;
   }
 
@@ -2708,11 +2732,6 @@ radio {
   &:only-child,
   menu menuitem & { margin: 0; }
 }
-
-//checkbutton > check,
-//radiobutton > radio {
-//  &:hover, &:active { }
-//}
 
 //
 // GtkScale

@@ -5,6 +5,21 @@
   @return unquote("alpha(#{$c},#{$a})");
 }
 
+// colors palette
+@import 'colors-palette';
+
+@function theme($color) {
+  @if ($theme == 'default') { @return $theme_color_default; }
+  @if ($theme == 'blue') { @return $theme_color_blue; }
+  @if ($theme == 'purple') { @return $theme_color_purple; }
+  @if ($theme == 'pink') { @return $theme_color_pink; }
+  @if ($theme == 'red') { @return $theme_color_red; }
+  @if ($theme == 'orange') { @return $theme_color_orange; }
+  @if ($theme == 'yellow') { @return $theme_color_yellow; }
+  @if ($theme == 'green') { @return $theme_color_green; }
+  @if ($theme == 'grey') { @return $theme_color_grey; }
+}
+
 // Base colors
 $base_color:                        if($variant == 'light', #ffffff, #242424);
 $text_color:                        if($variant == 'light', #363636, #dadada);
@@ -26,7 +41,7 @@ $light_track_color:                 rgba(white, 0.30);
 $light_divider_color:               rgba(white, 0.15);
 
 $selected_fg_color:                 $light_fg_color;
-$selected_bg_color:                 if($variant == 'light', #315bef, #315bef);
+$selected_bg_color:                 theme(color);
 $primary_color:                     $selected_bg_color;
 
 $selected_borders_color:            darken($selected_bg_color, 20%);
@@ -133,20 +148,20 @@ $panel_border_color:                if($variant =='light', rgba(black, 0.2), rgb
 $entry_bg:                          if($variant == 'light', $base_color, lighten($base_color, 0%));
 $entry_border:                      $borders_color;
 $entry_bottom_border:               $borders_bottom_color;
-$entry_highlight:                   if($variant == 'light', rgba(#67a4e9, 0.75), rgba($selection_mode_bg, 0.75));
+$entry_highlight:                   if($variant == 'light', lighten($selected_bg_color, 15%), lighten($selected_bg_color, 10%));
 
 // Button colors
 $button_bg:                         if($variant == 'light', white, #656565);
-$button_active_top:                 if($variant == 'light', #7ba3f7, #3d6be3);
-$button_active_bottom:              if($variant == 'light', #3d6ffc, #3861ca);
-$button_active_hover_top:           if($variant == 'light', #82a8f7, #3b65e3);
-$button_active_hover_bottom:        if($variant == 'light', #4675f7, #365cca);
+$button_active_top:                 lighten($selected_bg_color, 8%);
+$button_active_bottom:              darken($selected_bg_color, 3%);
+$button_active_hover_top:           lighten($selected_bg_color, 12%);
+$button_active_hover_bottom:        lighten($selected_bg_color, 2%);
 
 $button_border:                     $borders_color;
 $button_bottom_border:              $entry_bottom_border;
-$button_active_border:              #487afa;
-$button_active_top_border:          #6290f7;
-$button_active_bottom_border:       #3767fc;
+$button_active_border:              darken($selected_bg_color, 3%);
+$button_active_top_border:          lighten($selected_bg_color, 3%);
+$button_active_bottom_border:       darken($selected_bg_color, 8%);
 
 $header_button_bg:                  if($variant == 'dark', lighten($header_bg, 15%), white);
 $header_button_hover_bg:            if($variant == 'dark', lighten($header_bg, 25%), #fafafa);
@@ -189,6 +204,11 @@ $header_button_checked_image:       if($variant == 'light',
                                     linear-gradient( 0deg, #c1c1c1 0%, #c6c6c6 100%));
 
 $menubar_bg_image:                  linear-gradient(0deg, $header_bottom 0%, $header_middle 100%);
+
+$switch_image: linear-gradient(0deg, rgba($fg_color, 0.25) 0%, rgba($fg_color, 0.35) 100%);
+$switch_disabled_image: linear-gradient(0deg, rgba($fg_color, 0.1) 0%, rgba($fg_color, 0.15) 100%);
+$switch_checked_image: linear-gradient(0deg, lighten($selected_bg_color, 10%) 0%, $selected_bg_color 100%);
+$switch_checked_disabled_image: linear-gradient(0deg, lighten($selected_bg_color, 35%) 0%, lighten($selected_bg_color, 25%) 100%);
 
 // WM colors
 $wm_border_light: 0 0 0 2px rgba(black, 0.03), 0 0 0 1px rgba(black, 0.12);

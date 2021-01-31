@@ -1,38 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/shell/theme">
-    <file>assets/dash/bottom-running1.svg</file>
-    <file>assets/dash/bottom-running1-focused.svg</file>
-    <file>assets/dash/bottom-running2.svg</file>
-    <file>assets/dash/bottom-running2-focused.svg</file>
-    <file>assets/dash/bottom-running3.svg</file>
-    <file>assets/dash/bottom-running3-focused.svg</file>
-    <file>assets/dash/bottom-running4.svg</file>
-    <file>assets/dash/bottom-running4-focused.svg</file>
-    <file>assets/dash/left-running1.svg</file>
-    <file>assets/dash/left-running1-focused.svg</file>
-    <file>assets/dash/left-running2.svg</file>
-    <file>assets/dash/left-running2-focused.svg</file>
-    <file>assets/dash/left-running3.svg</file>
-    <file>assets/dash/left-running3-focused.svg</file>
-    <file>assets/dash/left-running4.svg</file>
-    <file>assets/dash/left-running4-focused.svg</file>
-    <file>assets/dash/right-running1.svg</file>
-    <file>assets/dash/right-running1-focused.svg</file>
-    <file>assets/dash/right-running2.svg</file>
-    <file>assets/dash/right-running2-focused.svg</file>
-    <file>assets/dash/right-running3.svg</file>
-    <file>assets/dash/right-running3-focused.svg</file>
-    <file>assets/dash/right-running4.svg</file>
-    <file>assets/dash/right-running4-focused.svg</file>
-    <file>assets/dash/top-running1.svg</file>
-    <file>assets/dash/top-running1-focused.svg</file>
-    <file>assets/dash/top-running2.svg</file>
-    <file>assets/dash/top-running2-focused.svg</file>
-    <file>assets/dash/top-running3.svg</file>
-    <file>assets/dash/top-running3-focused.svg</file>
-    <file>assets/dash/top-running4.svg</file>
-    <file>assets/dash/top-running4-focused.svg</file>
+    <file>icons/scalable/actions/color-pick.svg</file>
+    <file>icons/scalable/status/eye-not-looking-symbolic.svg</file>
+    <file>icons/scalable/status/eye-open-negative-filled-symbolic.svg</file>
+    <file>icons/scalable/status/keyboard-caps-lock-filled-symbolic.svg</file>
+    <file>icons/scalable/status/keyboard-enter-symbolic.svg</file>
+    <file>icons/scalable/status/keyboard-hide-symbolic.svg</file>
+    <file>icons/scalable/status/keyboard-layout-filled-symbolic.svg</file>
+    <file>icons/scalable/status/keyboard-shift-filled-symbolic.svg</file>
+    <file>icons/scalable/status/message-indicator-symbolic.svg</file>
+    <file>icons/scalable/actions/pointer-double-click-symbolic.svg</file>
+    <file>icons/scalable/actions/pointer-drag-symbolic.svg</file>
+    <file>icons/scalable/actions/pointer-primary-click-symbolic.svg</file>
+    <file>icons/scalable/actions/pointer-secondary-click-symbolic.svg</file>
     <file>assets/calendar-arrow-left.svg</file>
     <file>assets/calendar-arrow-right.svg</file>
     <file>assets/calendar-today.svg</file>
@@ -57,9 +38,9 @@
     <file>assets/menu-hover.svg</file>
     <file>assets/submenu.svg</file>
     <file>assets/submenu-open.svg</file>
-    <file alias="assets/no-events.svg">no-events.svg</file>
-    <file alias="assets/no-notifications.svg">no-notifications.svg</file>
-    <file alias="assets/process-working.svg">process-working.svg</file>
+    <file>no-events.svg</file>
+    <file>no-notifications.svg</file>
+    <file>process-working.svg</file>
     <file>gnome-shell.css</file>
   </gresource>
 </gresources>
