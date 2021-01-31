@@ -552,9 +552,9 @@
   </g>
  </g>
  <rect x="210" y="57" width="28" height="28" rx="0" ry="6" fill="url(#linearGradient1903)" stroke-width="1.1832" style="paint-order:stroke fill markers"/>
- <g id="combobox-arrow-dark" transform="translate(116 -.007)">
-  <rect x="94" y="57.007" width="28" height="28" opacity="0" stroke-width="1.5565" style="paint-order:markers fill stroke"/>
-  <g transform="matrix(1.1178,0,0,1.1178,7.2803,299.26)" fill="#ffffff" fill-rule="evenodd">
+ <g id="combobox-arrow-dark" transform="translate(1.9887)">
+  <rect x="210" y="57" width="24" height="28" opacity="0" stroke-width="1.441" style="paint-order:markers fill stroke"/>
+  <g transform="matrix(1.1178 0 0 1.1178 121.28 299.75)" fill="#ffffff" fill-rule="evenodd">
    <path d="m89.779-212.11-4.5681 4.2826s0 1.2236 1.3094 1.2193l3.585-3.6665 3.5892 3.6708c1.3052 0 1.3052-1.2236 1.3052-1.2236l-4.5681-4.2826s-0.32629-0.30589-0.65258 0z"/>
    <path d="m89.779-197.18-4.5681-4.2826s0-1.2236 1.3094-1.2193l3.585 3.6665 3.5892-3.6708c1.3052 0 1.3052 1.2236 1.3052 1.2236l-4.5681 4.2826s-0.32629 0.30589-0.65258 0z"/>
   </g>
@@ -645,9 +645,9 @@
   <rect x="265" y="-148.64" width="24" height="24" opacity="0" stroke-width=".56569" style="paint-order:fill markers stroke"/>
   <path d="m272-145.64c-2 0-3 2-3 3v6l8 9 8-9v-6c0-1-1-3-3-3z" fill="#ececec" stroke="#000000" stroke-linecap="square" stroke-opacity=".19608" stroke-width="2" style="paint-order:stroke markers fill"/>
  </g>
- <g id="combobox-arrow" transform="translate(-7.012)">
-  <rect x="94" y="57.007" width="28" height="28" opacity="0" stroke-width="1.5565" style="paint-order:markers fill stroke"/>
-  <g transform="matrix(1.1178,0,0,1.1178,7.2803,299.26)" fill="#4d4d4d" fill-rule="evenodd">
+ <g id="combobox-arrow">
+  <rect x="86.988" y="57.007" width="24" height="28" opacity="0" stroke-width="1.441" style="paint-order:markers fill stroke"/>
+  <g transform="matrix(1.1178 0 0 1.1178 -1.7317 299.76)" fill="#4d4d4d" fill-rule="evenodd">
    <path d="m89.779-212.11-4.5681 4.2826s0 1.2236 1.3094 1.2193l3.585-3.6665 3.5892 3.6708c1.3052 0 1.3052-1.2236 1.3052-1.2236l-4.5681-4.2826s-0.32629-0.30589-0.65258 0z"/>
    <path d="m89.779-197.18-4.5681-4.2826s0-1.2236 1.3094-1.2193l3.585 3.6665 3.5892-3.6708c1.3052 0 1.3052 1.2236 1.3052 1.2236l-4.5681 4.2826s-0.32629 0.30589-0.65258 0z"/>
   </g>
