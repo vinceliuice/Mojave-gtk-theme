@@ -3,51 +3,28 @@
 
 Mojave is a Mac OSX like theme for GTK 3, GTK 2 and Gnome-Shell which supports GTK 3 and GTK 2 based desktop environments like Gnome, Pantheon, XFCE, Mate, etc.
 
-## Info
+## Requirements
+### GTK2 Murrine engine requirements.
 
-### GTK+ 3.20 or later
+- gtk-murrine-engine  `Fedora/RedHat`
+- gtk2-engines-murrine  `Ubuntu/Mint/Debian`
+- gtk-engine-murrine  `Arch/Manjaro`
 
-### GTK2 engines requirment
-- GTK2 engine Murrine 0.98.1.1 or later.
-- GTK2 pixbuf engine or the gtk(2)-engines package.
+### GTK2 pixbuf engine requirements.
 
-Fedora/RedHat distros:
+- gtk2-engines  `Fedora/RedHat`
+- gtk2-engines-pixbuf  `Ubuntu/Mint/Debian`
+- gtk-engines  `Arch/Manjaro`
 
-    sudo dnf install gtk-murrine-engine gtk2-engines
+### Installed Dependency requirements.
 
-Ubuntu/Mint/Debian distros:
-
-    sudo apt install gtk2-engines-murrine gtk2-engines-pixbuf
-
-ArchLinux:
-
-    sudo pacman -S gtk-engine-murrine gtk-engines
-
-
-### Installation Depends requirment
-- sassc.
-- libglib2.0-dev. `ubuntu 18.04` `debian 10.03` `linux mint 19`
-- libxml2-utils. `ubuntu 18.04` `debian 10.03` `linux mint 19`
-- glib2-devel. `fedora`
-
-Fedora/RedHat distros:
-
-    sudo dnf install sassc glib2-devel
-
-Ubuntu/Mint/Debian distros:
-
-    sudo apt install sassc libcanberra-gtk-module libglib2.0-dev
-
-Debian 10:
-
-    sudo apt install sassc libcanberra-gtk-module libglib2.0-dev libxml2-utils
-
-ArchLinux:
-
-    sudo pacman -S sassc
-
-Other:
-Search for the depends in your distributions repository or install the depends from source.
+- sassc
+- optipng
+- inkscape
+- libglib2.0-dev-bin  `ubuntu 20.04`
+- libglib2.0-dev  `ubuntu 18.04` `debian 10.03` `linux mint 19`
+- libxml2-utils  `ubuntu 18.04` `debian 10.03` `linux mint 19`
+- glib2-devel  `Fedora` `Redhat`
 
 ## Installation
 
@@ -55,7 +32,9 @@ Search for the depends in your distributions repository or install the depends f
 
 After depends all installed you can Run
 
-    ./install.sh
+```bash
+./install.sh
+```
 
 #### Install tips
 
@@ -69,6 +48,7 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 |-o, --opacity        | Specify theme opacity variant(s) **[standard/solid]** (Default: All variants)|
 |-a, --alt            | Specify titlebutton variant(s) **[standard/alt]** (Default: All variants)|
 |-s, --small          | Specify titlebutton size variant(s) **[standard/small]** (Default: standard variants)|
+|-t, --theme          | Specify primary theme color variant(s) **[default/blue/purple/pink/red/orange/yellow/green/grey/all]** (Default: MacOS blue)|
 |-i, --icon           | activities icon variant(s) **[standard/normal/gnome/ubuntu/arch/manjaro/fedora/debian/void]** (Default: standard variant)|
 |-g, --gdm            | Install GDM theme, you should run this with sudo!|
 |-r, --revert         | revert GDM theme, you should run this with sudo!|

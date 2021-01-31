@@ -31,6 +31,7 @@ usage() {
   printf "  %-25s%s\n" "-c, --color VARIANTS" "Specify theme color variant(s) [light|dark] (Default: All variants)"
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
   printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify theme titilebutton size variant(s) [standard|small] (Default: All variants)"
+  printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify primary theme color [blue|purple|pink|red|orange|yellow|green|grey|all] (Default: MacOS blue)"
   printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian|void] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-r, --revert" "revert GDM theme, this option need root user authority! please run this with sudo"
