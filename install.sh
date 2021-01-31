@@ -541,6 +541,43 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+# Check command availability
+function has_command() {
+  command -v $1 > /dev/null
+}
+
+if [ ! "$(which sassc 2> /dev/null)" ]; then
+  echo sassc needs to be installed to generate the css.
+  if has_command zypper; then
+    sudo zypper in sassc
+  elif has_command apt; then
+    sudo apt install sassc
+  elif has_command dnf; then
+    sudo dnf install -y sassc
+  elif has_command yum; then
+    sudo yum install sassc
+  elif has_command pacman; then
+    sudo pacman -S --noconfirm sassc
+  fi
+fi
+
+SASSC_OPT="-M -t expanded"
+
+parse_theme() {
+  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+    for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
+      for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
+        sassc $SASSC_OPT $SRC_DIR/main/gtk-3.0/gtk${color}${trans}${theme}.{scss,css}
+        echo "==> Generating the gtk${color}${trans}${theme}.css..."
+        sassc $SASSC_OPT $SRC_DIR/main/gnome-shell/gnome-shell${color}${trans}${theme}.{scss,css}
+        echo "==> Generating the gnome-shell${color}${trans}${theme}.css..."
+        sassc $SASSC_OPT $SRC_DIR/main/cinnamon/cinnamon${color}${trans}${theme}.{scss,css}
+        echo "==> Generating the cinnamon${color}${trans}${theme}.css..."
+      done
+    done
+  done
+}
+
 install_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
@@ -557,8 +594,6 @@ install_theme() {
   done
 }
 
-# "${REPO_DIR}/parse-sass.sh"
-
 cd "${SRC_DIR}/main/gtk-3.0" && ./make_gresource_xml.sh
 
 if [[ "${small:-}" == 'small' ]]; then
@@ -566,11 +601,11 @@ if [[ "${small:-}" == 'small' ]]; then
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
-  install_theme
+  parse_theme && install_theme "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
 fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
-  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
+  parse_theme && install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then

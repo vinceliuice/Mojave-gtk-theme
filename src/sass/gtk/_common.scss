@@ -1197,7 +1197,7 @@ combobox {
   .linked:not(.vertical) > &:last-child > box > button.combo {
     border-top-right-radius: $bt_radius;
     border-bottom-right-radius: $bt_radius;
-    border-right: 1px solid $borders_color;
+    border-right: 1px solid $dark_borders_color;
 
     arrow {
       border-top-right-radius: $bt_radius;
