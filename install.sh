@@ -567,12 +567,12 @@ parse_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
       for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
-        sassc $SASSC_OPT $SRC_DIR/main/gtk-3.0/gtk${color}${trans}${theme}.{scss,css}
-        echo "==> Generating the gtk${color}${trans}${theme}.css..."
-        sassc $SASSC_OPT $SRC_DIR/main/gnome-shell/gnome-shell${color}${trans}${theme}.{scss,css}
-        echo "==> Generating the gnome-shell${color}${trans}${theme}.css..."
-        sassc $SASSC_OPT $SRC_DIR/main/cinnamon/cinnamon${color}${trans}${theme}.{scss,css}
-        echo "==> Generating the cinnamon${color}${trans}${theme}.css..."
+        sassc $SASSC_OPT $SRC_DIR/main/gtk-3.0/gtk${color}${opacity}${theme}.{scss,css}
+        echo "==> Generating the gtk${color}${opacity}${theme}.css..."
+        sassc $SASSC_OPT $SRC_DIR/main/gnome-shell/gnome-shell${color}${opacity}${theme}.{scss,css}
+        echo "==> Generating the gnome-shell${color}${opacity}${theme}.css..."
+        sassc $SASSC_OPT $SRC_DIR/main/cinnamon/cinnamon${color}${opacity}${theme}.{scss,css}
+        echo "==> Generating the cinnamon${color}${opacity}${theme}.css..."
       done
     done
   done
