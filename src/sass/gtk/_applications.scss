@@ -2206,7 +2206,8 @@ window.background.csd {
     }
   }
 
-  > stack > box > box > list { // ArcMenu setting sidebar
+  > stack > box > box > list,
+  > stack > box > stack > scrolledwindow > viewport > list { // ArcMenu setting sidebar
     border-bottom-left-radius: $wm_radius;
   }
 }

@@ -812,18 +812,6 @@ $selected_slider_color: white;
   }
 }
 
-.candidate-popup-boxpointer {
-  -arrow-border-radius: 2px;
-  -arrow-background-color: $base_color;
-  -arrow-border-width: 1px;
-  -arrow-border-color: $dark_borders_color;
-  -arrow-base: 5px;
-  -arrow-rise: 5px;
-  background-color: transparent;
-  border-radius: $bt_radius;
-  box-shadow: $shadow_2;
-}
-
 .popup-separator-menu-item {
   margin: 0;
   padding: 0 0;
@@ -2255,9 +2243,10 @@ StWidget.focused .app-well-app-running-dot {
 
     & .folder-name-entry {
       @extend %search-entry;
+      box-shadow: none;
     }
 
-    /* FIXME: this is to keep the label in sync with the entry */
+    // FIXME: this is to keep the label in sync with the entry
     & .folder-name-label { padding: 5px 7px; color: $light_alt_fg_color; }
 
     & .edit-folder-button {
@@ -2557,47 +2546,64 @@ StWidget.focused .app-well-app-running-dot {
   box-shadow: $shadow_2;
 }
 
+//
 // IBus Candidate Popup
+//
+.candidate-popup-boxpointer {
+  -arrow-border-radius: 2px;
+  -arrow-background-color: transparent;
+  -arrow-border-width: 1px;
+  -arrow-border-color: transparent;
+  -arrow-base: 64px;
+  -arrow-rise: 0;
+  background-color: transparent;
+}
 
 .candidate-popup-content {
-  padding: 8px;
-  spacing: 0;
+  padding: ($container_padding * 1.5) ($container_padding * 2 - 1px) ($container_padding * 2.5);
+  spacing: $container_padding;
+  margin: ($container_padding * 1.5) ($container_padding / 2) ($container_padding / 2);
+
+  @if $trans == 'true' {
+    border-image: url("assets/menu.svg") 24 32 28 28;
+  }
+
+  @else {
+    border-image: url("assets/menu-solid.svg") 24 32 28 28;
+  }
 }
 
 .candidate-index {
-  padding: 0 4px 0 0;
+  padding: 0 0.5em 0 0;
   color: $hint_fg_color;
   .candidate-box:selected & { color: $light_hint_fg_color; }
 }
 
 .candidate-box {
   transition-duration: 0ms; // FIXME: needs more natural transitions
-  min-height: $menuitem_size;
-  padding: 0 8px;
+  padding: 0.3em 0.5em 0.3em 0.5em;
   border-radius: $bt_radius;
+  margin: 0 1px;
   &:hover { background-color: $divider_color; color: $fg_color; }
   &:active { background-color: $track_color; color: $fg_color; }
   &:selected { background-color: $primary_color; color: $light_alt_fg_color; }
 }
 
 .candidate-page-button-box {
-  height: $menuitem_size;
-  .vertical & { padding-top: 0; }
-  .horizontal & { padding-left: 0; }
+  height: 2em;
+  .vertical & { padding-top: 0.5em; }
+  .horizontal & { padding-left: 0.5em; }
 }
 
 .candidate-page-button {
-  min-width: $menuitem_size;
-  min-height: $menuitem_size;
-  padding: 0;
+  padding: 4px;
 }
 
 .candidate-page-button-previous { border-radius: $bt_radius; border-right-width: 0; }
 .candidate-page-button-next { border-radius: $bt_radius;  }
-.candidate-page-button-icon { icon-size: em(16px); }
+.candidate-page-button-icon { icon-size: 1em; }
 
-/* Auth Dialogs & Screen Shield */
-
+// Auth Dialogs & Screen Shield
 .framed-user-icon {
   background-size: contain;
   border: none;
@@ -2609,8 +2615,9 @@ StWidget.focused .app-well-app-running-dot {
   }
 }
 
+//
 // LOGIN DIALOG
-
+//
 .login-dialog-banner-view {
   padding-top: 24px;
   max-width: 23em;
