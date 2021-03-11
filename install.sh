@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-set -o physical
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 SRC_DIR="${REPO_DIR}/src"
@@ -21,6 +20,35 @@ ALT_VARIANTS=('' '-alt')
 SMALL_VARIANTS=('' '-small')
 THEME_VARIANTS=('' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
+
+# COLORS
+CDEF=" \033[0m"                                     # default color
+CCIN=" \033[0;36m"                                  # info color
+CGSC=" \033[0;32m"                                  # success color
+CRER=" \033[0;31m"                                  # error color
+CWAR=" \033[0;33m"                                  # warning color
+b_CDEF=" \033[1;37m"                                # bold default color
+b_CCIN=" \033[1;36m"                                # bold info color
+b_CGSC=" \033[1;32m"                                # bold success color
+b_CRER=" \033[1;31m"                                # bold error color
+b_CWAR=" \033[1;33m"                                # bold warning color
+
+# Echo like ... with flag type and display message colors
+prompt () {
+  case ${1} in
+    "-s"|"--success")
+      echo -e "${b_CGSC}${@/-s/}${CDEF}";;    # print success message
+    "-e"|"--error")
+      echo -e "${b_CRER}${@/-e/}${CDEF}";;    # print error message
+    "-w"|"--warning")
+      echo -e "${b_CWAR}${@/-w/}${CDEF}";;    # print warning message
+    "-i"|"--info")
+      echo -e "${b_CCIN}${@/-i/}${CDEF}";;    # print info message
+    *)
+    echo -e "$@"
+    ;;
+  esac
+}
 
 usage() {
   printf "%s\n" "Usage: $0 [OPTIONS...]"
@@ -55,7 +83,7 @@ install() {
 
   [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"
 
-  echo "Installing '${THEME_DIR}'..."
+  prompt -i "Installing '${THEME_DIR}'..."
 
   mkdir -p                                                                                   "${THEME_DIR}"
   cp -r "${REPO_DIR}/COPYING"                                                                "${THEME_DIR}"
@@ -74,6 +102,8 @@ install() {
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 
   mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
+  cp -r "${SRC_DIR}/assets/gnome-shell/icons"                                                "${THEME_DIR}/gnome-shell"
+  cp -r "${SRC_DIR}/main/gnome-shell/pad-osd.css"                                            "${THEME_DIR}/gnome-shell"
   cp -r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}${opacity}${theme}.css"              "${THEME_DIR}/gnome-shell/gnome-shell.css"
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
 
@@ -219,7 +249,8 @@ install_gdm() {
     cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru/gnome-shell.css
     cp -r "$SRC_DIR"/assets/gnome-shell/common-assets                                     "$YARU_GDM_THEME_DIR"/gnome-shell/assets
     cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/*.svg                              "$YARU_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/activities/activities.svg                         "$YARU_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/background.png                     "$YARU_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/activities${color}/activities.svg                 "$YARU_GDM_THEME_DIR"/gnome-shell/assets
 
     cd "$YARU_GDM_THEME_DIR"/gnome-shell
     mv -f assets/no-events.svg no-events.svg
@@ -248,7 +279,8 @@ install_gdm() {
     cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$POP_GDM_THEME_DIR"/gnome-shell/gnome-shell.css
     cp -r "$SRC_DIR"/assets/gnome-shell/common-assets                                     "$POP_GDM_THEME_DIR"/gnome-shell/assets
     cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/*.svg                              "$POP_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/activities/activities.svg                         "$POP_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/background.png                     "$POP_GDM_THEME_DIR"/gnome-shell/assets
+    cp -r "$SRC_DIR"/assets/gnome-shell/activities${color}/activities.svg                 "$POP_GDM_THEME_DIR"/gnome-shell/assets
 
     cd "$POP_GDM_THEME_DIR"/gnome-shell
     mv -f assets/no-events.svg no-events.svg
@@ -313,7 +345,7 @@ while [[ $# -gt 0 ]]; do
     -d|--dest)
       dest="${2}"
       if [[ ! -d "${dest}" ]]; then
-        echo "Destination directory does not exist. Let's make a new one..."
+        prompt -i "Destination directory does not exist. Let's make a new one..."
         mkdir -p "${dest}"
       fi
       dest="$(cd "${dest}"; pwd)"
@@ -347,8 +379,8 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized opacity variant '$1'."
-            echo "Try '$0 --help' for more information."
+            prompt -e "ERROR: Unrecognized opacity variant '$1'."
+            prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
         esac
@@ -370,8 +402,8 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized opacity variant '$1'."
-            echo "Try '$0 --help' for more information."
+            prompt -e "ERROR: Unrecognized opacity variant '$1'."
+            prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
         esac
@@ -393,8 +425,8 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized opacity variant '$1'."
-            echo "Try '$0 --help' for more information."
+            prompt -e "ERROR: Unrecognized opacity variant '$1'."
+            prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
         esac
@@ -416,8 +448,8 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized color variant '$1'."
-            echo "Try '$0 --help' for more information."
+            prompt -e "ERROR: Unrecognized color variant '$1'."
+            prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
         esac
@@ -522,8 +554,8 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            echo "ERROR: Unrecognized icon variant '$1'."
-            echo "Try '$0 --help' for more information."
+            prompt -e "ERROR: Unrecognized icon variant '$1'."
+            prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
         esac
@@ -534,8 +566,8 @@ while [[ $# -gt 0 ]]; do
       exit 0
       ;;
     *)
-      echo "ERROR: Unrecognized installation option '$1'."
-      echo "Try '$0 --help' for more information."
+      prompt -e "ERROR: Unrecognized installation option '$1'."
+      prompt -i "Try '$0 --help' for more information."
       exit 1
       ;;
   esac
@@ -547,7 +579,7 @@ function has_command() {
 }
 
 if [ ! "$(which sassc 2> /dev/null)" ]; then
-  echo sassc needs to be installed to generate the css.
+  prompt -i "sassc needs to be installed to generate the css."
   if has_command zypper; then
     sudo zypper in sassc
   elif has_command apt; then
@@ -568,11 +600,11 @@ parse_theme() {
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
       for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
         sassc $SASSC_OPT $SRC_DIR/main/gtk-3.0/gtk${color}${opacity}${theme}.{scss,css}
-        echo "==> Generating the gtk${color}${opacity}${theme}.css..."
+        prompt -i "==> Generating the gtk${color}${opacity}${theme}.css..."
         sassc $SASSC_OPT $SRC_DIR/main/gnome-shell/gnome-shell${color}${opacity}${theme}.{scss,css}
-        echo "==> Generating the gnome-shell${color}${opacity}${theme}.css..."
+        prompt -i "==> Generating the gnome-shell${color}${opacity}${theme}.css..."
         sassc $SASSC_OPT $SRC_DIR/main/cinnamon/cinnamon${color}${opacity}${theme}.{scss,css}
-        echo "==> Generating the cinnamon${color}${opacity}${theme}.css..."
+        prompt -i "==> Generating the cinnamon${color}${opacity}${theme}.css..."
       done
     done
   done
@@ -612,5 +644,4 @@ if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" 
   revert_gdm
 fi
 
-echo
-echo Done.
+prompt -s "\n Done!"
