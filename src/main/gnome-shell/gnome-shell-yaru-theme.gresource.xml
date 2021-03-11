@@ -42,6 +42,7 @@
     <file>process-working.svg</file>
     <file>pad-osd.css</file>
     <file>Yaru/gnome-shell.css</file>
+    <file>Yaru-dark/gnome-shell.css</file>
     <file>gdm3.css</file>
   </gresource>
 </gresources>
