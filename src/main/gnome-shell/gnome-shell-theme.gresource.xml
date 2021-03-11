@@ -42,5 +42,6 @@
     <file>process-working.svg</file>
     <file>pad-osd.css</file>
     <file>gnome-shell.css</file>
+    <file>gdm3.css</file>
   </gresource>
 </gresources>
