@@ -42,7 +42,7 @@ install() {
   echo "Installing '${THEME_DIR}'..."
 
   mkdir -p                                                                                   "${THEME_DIR}"
-  cp -r "${REPO_DIR}/COPYING"                                                              "${THEME_DIR}"
+  cp -r "${REPO_DIR}/COPYING"                                                                "${THEME_DIR}"
 
   echo "[Desktop Entry]" >>                                                                  "${THEME_DIR}/index.theme"
   echo "Type=X-GNOME-Metatheme" >>                                                           "${THEME_DIR}/index.theme"
@@ -58,11 +58,11 @@ install() {
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 
   mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
-  cp -r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}.css"                              "${THEME_DIR}/gnome-shell/gnome-shell.css"
-  cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                      "${THEME_DIR}/gnome-shell/assets"
-  cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                             "${THEME_DIR}/gnome-shell/assets"
-  cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                      "${THEME_DIR}/gnome-shell/assets"
-  cp -r "${SRC_DIR}/assets/gnome-shell/activities${color}/activities.svg"                  "${THEME_DIR}/gnome-shell/assets/activities.svg"
+  cp -r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}.css"                                "${THEME_DIR}/gnome-shell/gnome-shell.css"
+  cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
+  cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                               "${THEME_DIR}/gnome-shell/assets"
+  cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                        "${THEME_DIR}/gnome-shell/assets"
+  cp -r "${SRC_DIR}/assets/gnome-shell/activities${color}/activities.svg"                    "${THEME_DIR}/gnome-shell/assets/activities.svg"
 
   cd "${THEME_DIR}/gnome-shell"
   mv -f assets/no-events.svg no-events.svg
@@ -70,21 +70,21 @@ install() {
   mv -f assets/no-notifications.svg no-notifications.svg
 
   mkdir -p                                                                                   "${THEME_DIR}/gtk-2.0"
-  cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${color}"                                            "${THEME_DIR}/gtk-2.0/gtkrc"
-  cp -r "${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc"                               "${THEME_DIR}/gtk-2.0/menubar-toolbar.rc"
-  cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                            "${THEME_DIR}/gtk-2.0"
-  cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}"                                         "${THEME_DIR}/gtk-2.0/assets"
+  cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${color}"                                              "${THEME_DIR}/gtk-2.0/gtkrc"
+  cp -r "${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc"                                 "${THEME_DIR}/gtk-2.0/menubar-toolbar.rc"
+  cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                              "${THEME_DIR}/gtk-2.0"
+  cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}"                                           "${THEME_DIR}/gtk-2.0/assets"
 
   mkdir -p                                                                                   "${THEME_DIR}/gtk-3.0"
-  cp -r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets"                                   "${THEME_DIR}/gtk-3.0"
-  cp -r "${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton"                             "${THEME_DIR}/gtk-3.0/windows-assets"
-  cp -r "${SRC_DIR}/assets/gtk-3.0/thumbnails/thumbnail${color}.png"                       "${THEME_DIR}/gtk-3.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark.css"                                             "${THEME_DIR}/gtk-3.0/gtk-dark.css"
+  cp -r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets"                                     "${THEME_DIR}/gtk-3.0"
+  cp -r "${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton"                               "${THEME_DIR}/gtk-3.0/windows-assets"
+  cp -r "${SRC_DIR}/assets/gtk-3.0/thumbnails/thumbnail${color}.png"                         "${THEME_DIR}/gtk-3.0/thumbnail.png"
+  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark.css"                                               "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   if [[ "${color}" == '-light' ]]; then
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light.css"                                          "${THEME_DIR}/gtk-3.0/gtk.css"
+    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light.css"                                            "${THEME_DIR}/gtk-3.0/gtk.css"
   else
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark.css"                                           "${THEME_DIR}/gtk-3.0/gtk.css"
+    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark.css"                                             "${THEME_DIR}/gtk-3.0/gtk.css"
   fi
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-3.0" --target="${THEME_DIR}/gtk-3.0/gtk.gresource" "${SRC_DIR}/main/gtk-3.0/gtk.gresource.xml"
@@ -93,24 +93,24 @@ install() {
   echo '@import url("resource:///org/gnome/theme/gtk-dark.css");' >>                         "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/metacity-1"
-  cp -r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                            "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
-  cp -r "${SRC_DIR}/main/metacity-1/metacity-theme-3.xml"                                  "${THEME_DIR}/metacity-1"
-  cp -r "${SRC_DIR}/assets/metacity-1/assets/"*'.png'                                      "${THEME_DIR}/metacity-1"
-  cp -r "${SRC_DIR}/assets/metacity-1/thumbnail${color}.png"                               "${THEME_DIR}/metacity-1/thumbnail.png"
+  cp -r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                              "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
+  cp -r "${SRC_DIR}/main/metacity-1/metacity-theme-3.xml"                                    "${THEME_DIR}/metacity-1"
+  cp -r "${SRC_DIR}/assets/metacity-1/assets/"*'.png'                                        "${THEME_DIR}/metacity-1"
+  cp -r "${SRC_DIR}/assets/metacity-1/thumbnail${color}.png"                                 "${THEME_DIR}/metacity-1/thumbnail.png"
   cd "${THEME_DIR}/metacity-1" && ln -s metacity-theme-1.xml metacity-theme-2.xml
 
   mkdir -p                                                                                   "${THEME_DIR}/xfwm4"
-  cp -r "${SRC_DIR}/assets/xfwm4/assets${color}/"*'.png'                                   "${THEME_DIR}/xfwm4"
-  cp -r "${SRC_DIR}/main/xfwm4/themerc${color}"                                            "${THEME_DIR}/xfwm4/themerc"
+  cp -r "${SRC_DIR}/assets/xfwm4/assets${color}/"*'.png'                                     "${THEME_DIR}/xfwm4"
+  cp -r "${SRC_DIR}/main/xfwm4/themerc${color}"                                              "${THEME_DIR}/xfwm4/themerc"
 
   mkdir -p                                                                                   "${THEME_DIR}/cinnamon"
-  cp -r "${SRC_DIR}/main/cinnamon/cinnamon${color}.css"                                    "${THEME_DIR}/cinnamon/cinnamon.css"
-  cp -r "${SRC_DIR}/assets/cinnamon/common-assets"                                         "${THEME_DIR}/cinnamon/assets"
-  cp -r "${SRC_DIR}/assets/cinnamon/assets${color}/"*.'svg'                                "${THEME_DIR}/cinnamon/assets"
-  cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${color}.png"                      "${THEME_DIR}/cinnamon/thumbnail.png"
+  cp -r "${SRC_DIR}/main/cinnamon/cinnamon${color}.css"                                      "${THEME_DIR}/cinnamon/cinnamon.css"
+  cp -r "${SRC_DIR}/assets/cinnamon/common-assets"                                           "${THEME_DIR}/cinnamon/assets"
+  cp -r "${SRC_DIR}/assets/cinnamon/assets${color}/"*.'svg'                                  "${THEME_DIR}/cinnamon/assets"
+  cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${color}.png"                        "${THEME_DIR}/cinnamon/thumbnail.png"
 
   mkdir -p                                                                                   "${THEME_DIR}/plank"
-  cp -r "${SRC_DIR}/other/plank/${name}${color}/"*'.theme'                                 "${THEME_DIR}/plank"
+  cp -r "${SRC_DIR}/other/plank/${name}${color}/"*'.theme'                                   "${THEME_DIR}/plank"
 }
 
 # Backup and install files related to GDM theme

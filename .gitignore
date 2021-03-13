@@ -1,4 +1,0 @@
-src/main/cinnamon/*.css
-src/main/gnome-shell/*.css
-src/main/gtk-3.0/*.css
-src/main/gtk-3.0/gtk.gresource.xml
