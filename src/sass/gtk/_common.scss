@@ -110,6 +110,8 @@ textview {
 
   text {
     // @extend %view;
+    background-color: $base_color;
+
     selection { &:focus, & { @extend %selected_items; }}
   }
 

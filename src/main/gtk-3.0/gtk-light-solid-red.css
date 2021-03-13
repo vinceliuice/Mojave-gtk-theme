@@ -118,6 +118,10 @@ textview {
   background-color: #ffffff;
 }
 
+textview text {
+  background-color: #ffffff;
+}
+
 textview border {
   background-color: #fafafa;
 }
