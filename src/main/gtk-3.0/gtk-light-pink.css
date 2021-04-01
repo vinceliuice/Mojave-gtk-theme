@@ -9228,18 +9228,23 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   border: none;
 }
 
-.budgie-popover list {
-  background-color: transparent;
-}
-
 .budgie-popover row {
   padding: 0;
-  background-color: transparent;
+  transition: none;
 }
 
 .budgie-popover row:hover {
   box-shadow: none;
   background-color: transparent;
+}
+
+.budgie-popover row:selected, .budgie-popover row:selected:hover, .budgie-popover row:selected:focused {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #363636;
+}
+
+.budgie-popover row:selected label, .budgie-popover row:selected:hover label, .budgie-popover row:selected:focused label {
+  color: #363636;
 }
 
 .budgie-popover switch {
@@ -9258,6 +9263,64 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   color: rgba(36, 36, 36, 0.45);
 }
 
+.budgie-popover treeview.view.sidebar {
+  background: none;
+  border-right: none;
+  color: #363636;
+}
+
+.budgie-popover treeview.view.sidebar label {
+  padding: 3px 6px;
+}
+
+.budgie-popover treeview.view.sidebar:hover {
+  background-color: rgba(0, 0, 0, 0.16);
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories) {
+  background: none;
+  border-right: none;
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories), .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable {
+  transition: none;
+  color: #363636;
+  padding: 6px 3px;
+  border-radius: 5px;
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories) label, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable label {
+  padding: 3px 6px;
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories) label, .budgie-popover scrolledwindow.sidebar:not(.categories) label:active, .budgie-popover scrolledwindow.sidebar:not(.categories) label:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) label:selected, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable label, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable label:active, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable label:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable label:selected {
+  color: #363636;
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories):hover, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:hover {
+  background-color: rgba(0, 0, 0, 0.16);
+  color: #363636;
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories):active, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:active {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #363636;
+}
+
+.budgie-popover scrolledwindow.sidebar:not(.categories):selected, .budgie-popover scrolledwindow.sidebar:not(.categories):selected:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:selected, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:selected:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #363636;
+}
+
+.budgie-popover > frame.container > grid.horizontal > grid.horizontal > widget > grid.horizontal > stack {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.budgie-popover.bottom > frame.container > grid.horizontal > grid.horizontal > widget > grid.horizontal > stack {
+  border-top: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
 .budgie-popover.budgie-menu .container {
   padding: 0;
 }
@@ -9268,6 +9331,12 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 
 .budgie-popover.user-menu separator {
   margin: 4px 0;
+}
+
+.budgie-popover.user-menu list, .budgie-popover.user-menu row {
+  border: none;
+  background: none;
+  box-shadow: none;
 }
 
 .budgie-popover.sound-popover separator {

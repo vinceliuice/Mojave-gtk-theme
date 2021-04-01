@@ -118,13 +118,20 @@ $raven_padding: 8px;
 
   .container { padding: 2px; border: none; }
   border { border: none; }
-  list { background-color: transparent; }
 
   row {
     padding: 0;
-    background-color: transparent;
+    // background-color: transparent;
+    transition: none;
 
     &:hover { box-shadow: none; background-color: transparent; }
+
+    &:selected, &:selected:hover, &:selected:focused {
+      background-color: $track_color;
+      color: $panel_fg;
+
+      label { color: $panel_fg; }
+    }
   }
 
   switch { margin-left: 56px; margin-right: 6px; }
@@ -139,6 +146,60 @@ $raven_padding: 8px;
     &:disabled { color: $disabled_fg_color; }
   }
 
+  treeview.view.sidebar { //AppMenu (budgie)
+    // min-height: 36px;
+    background: none;
+    border-right: none;
+    color: $panel_fg;
+
+    label { padding: $container_padding / 2 $container_padding;  }
+
+    &:hover { background-color: $visit_color; }
+  }
+
+  scrolledwindow.sidebar:not(.categories) { //AppMenu (Elementary)
+    // min-height: 36px;
+    background: none;
+    border-right: none;
+
+    &, row.activatable {
+      transition: none;
+      color: $panel_fg;
+      padding: $container_padding $container_padding / 2;
+      border-radius: $bt_radius;
+
+      label {
+        padding: $container_padding / 2 $container_padding;
+
+        &, &:active, &:hover, &:selected {
+          color: $panel_fg;
+        }
+      }
+
+      &:hover { background-color: $visit_color; color: $panel_fg; }
+
+      &:active { background-color: $track_color; color: $panel_fg; }
+
+      &:selected, &:selected:hover {
+        background-color: $track_color;
+        color: $panel_fg;
+      }
+    }
+  }
+
+  > frame.container > grid.horizontal > grid.horizontal {
+    > widget > grid.horizontal > stack {
+      border-top: 1px solid $borders_color;
+    }
+  }
+
+  &.bottom > frame.container > grid.horizontal > grid.horizontal {
+    > widget > grid.horizontal > stack {
+      border-top: none;
+      border-bottom: 1px solid $borders_color;
+    }
+  }
+
   &.budgie-menu {
     .container { padding: 0; }
   }
@@ -146,6 +207,12 @@ $raven_padding: 8px;
   &.user-menu {
     .container { padding: 8px; }
     separator { margin: 4px 0; }
+
+    list, row { // reset styling
+      border: none;
+      background: none;
+      box-shadow: none;
+    }
   }
 
   &.sound-popover {
