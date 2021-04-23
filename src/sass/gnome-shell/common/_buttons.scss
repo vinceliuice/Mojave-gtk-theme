@@ -1,0 +1,16 @@
+/* Buttons */
+
+.button {
+  min-height: $medium_size;
+  padding: 0 16px;
+  border-radius: $bt_radius;
+
+  &, .popup-menu & {
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:insensitive { @include button(flat-insensitive); }
+    &:focus { @include button(flat-focus); }
+    border: none;
+  }
+}

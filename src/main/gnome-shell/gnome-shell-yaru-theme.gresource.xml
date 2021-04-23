@@ -19,15 +19,11 @@
     <file>assets/calendar-today.svg</file>
     <file>assets/checkbox.svg</file>
     <file>assets/checkbox-off.svg</file>
-    <file>assets/close.svg</file>
     <file>assets/dash-placeholder.svg</file>
     <file>assets/more-results.svg</file>
     <file>assets/noise-texture.svg</file>
     <file>assets/toggle-off.svg</file>
     <file>assets/toggle-on.svg</file>
-    <file>assets/window-close.svg</file>
-    <file>assets/window-close-hover.svg</file>
-    <file>assets/window-close-active.svg</file>
     <file>assets/activities.svg</file>
     <file>assets/startup.svg</file>
     <file>assets/background.png</file>
@@ -37,6 +33,9 @@
     <file>assets/menu-hover.svg</file>
     <file>assets/submenu.svg</file>
     <file>assets/submenu-open.svg</file>
+    <file>assets/window-close.svg</file>
+    <file>assets/window-close-hover.svg</file>
+    <file>assets/window-close-active.svg</file>
     <file>no-events.svg</file>
     <file>no-notifications.svg</file>
     <file>process-working.svg</file>

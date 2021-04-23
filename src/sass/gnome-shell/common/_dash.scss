@@ -1,0 +1,49 @@
+/* Dash */
+
+$dash_placeholder_size: 32px;
+
+#dash {
+  @include fontsize($base_font_size - 2);
+
+  .empty-dash-drop-target {
+    width: $dash_placeholder_size;
+    height: $dash_placeholder_size;
+  }
+}
+
+// OSD Tooltip
+.dash-label {
+  color: rgba(white, 0.9);
+  background-color: rgba(#222, 0.95);
+  border-radius: $bt_radius;
+  padding: $base_padding $base_padding * 2;
+  box-shadow: none;
+  border: none;
+  text-align: center;
+  -y-offset: $base_margin * 3; // distance from the dash edge
+  -x-offset: 8px;
+}
+
+%show_apps_bigsur {
+  .show-apps-icon {
+    color: transparent;
+    background-image: url("assets/startup.svg");
+    background-size: contain;
+  }
+
+  .overview-icon { color: transparent; }
+
+  &:hover,
+  &:active,
+  &:checked,
+  &:focus {
+    .show-apps-icon { color: transparent; }
+  }
+}
+
+// Show apps button
+.show-apps {
+  @if $showapps_button == "bigsur" {
+    @extend %show_apps_bigsur;
+  }
+}

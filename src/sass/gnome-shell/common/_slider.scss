@@ -1,0 +1,39 @@
+/* Slider */
+
+$slider_color: if($variant == 'light', white, white);
+$selected_slider_color: white;
+
+.slider {
+  height: 20px;
+  color: $slider_color;
+  -slider-height: 2px;
+  -slider-background-color: $track_color; //background of the trough
+  -slider-border-color: transparent; //trough border color
+  -slider-active-background-color: $primary_color; //active trough fill
+  -slider-active-border-color: transparent; //active trough border
+  -slider-border-width: 0;
+  -slider-handle-radius: 7px;
+  -slider-handle-border-width: 1px;
+  -slider-handle-border-color: $dark_borders_color;
+
+  // barlevels are for >= 3.29.90
+  -barlevel-height: 2px;
+  -barlevel-background-color: $track_color;
+  -barlevel-border-color: transparent;
+  -barlevel-active-background-color: $primary_color;
+  -barlevel-active-border-color: transparent;
+  -barlevel-overdrive-color: $destructive_color;
+  -barlevel-overdrive-border-color: transparent;
+  -barlevel-overdrive-separator-width: 2px;
+  -barlevel-border-width: 0;
+
+  .popup-menu-item.selected & {
+    color: $selected_slider_color;
+    -slider-background-color: $track_color;
+    -slider-active-background-color: rgba($light_alt_fg_color, 0.45);
+
+    // barlevels are for >= 3.29.90
+    -barlevel-background-color: $track_color;
+    -barlevel-active-background-color: rgba($light_alt_fg_color, 0.45);
+  }
+}

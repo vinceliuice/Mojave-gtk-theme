@@ -21,6 +21,18 @@ SMALL_VARIANTS=('' '-small')
 THEME_VARIANTS=('' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
+if [[ "$(command -v gnome-shell)" ]]; then
+  SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
+  if [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
+    GS_VERSION="new"
+  else
+    GS_VERSION="old"
+  fi
+  else
+    echo "'gnome-shell' not found, using styles for last gnome-shell version available."
+    GS_VERSION="new"
+fi
+
 # COLORS
 CDEF=" \033[0m"                                     # default color
 CCIN=" \033[0;36m"                                  # info color
@@ -97,15 +109,22 @@ install() {
   echo "[X-GNOME-Metatheme]" >>                                                              "${THEME_DIR}/index.theme"
   echo "GtkTheme=${2}${3}${4}${5}${6}${7}" >>                                                "${THEME_DIR}/index.theme"
   echo "MetacityTheme=${2}${3}${4}${5}${6}${7}" >>                                           "${THEME_DIR}/index.theme"
-  echo "IconTheme=Mc${2}-circle${3}" >>                                                      "${THEME_DIR}/index.theme"
+  echo "IconTheme=McMojave-circle${2}${3}" >>                                              s  "${THEME_DIR}/index.theme"
   echo "CursorTheme=McMojave Cursors" >>                                                     "${THEME_DIR}/index.theme"
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 
   mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
   cp -r "${SRC_DIR}/assets/gnome-shell/icons"                                                "${THEME_DIR}/gnome-shell"
   cp -r "${SRC_DIR}/main/gnome-shell/pad-osd.css"                                            "${THEME_DIR}/gnome-shell"
-  cp -r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}${opacity}${theme}.css"              "${THEME_DIR}/gnome-shell/gnome-shell.css"
-  cp -r "${SRC_DIR}/main/gnome-shell/gnome-shell${color}${opacity}${theme}.css"              "${THEME_DIR}/gnome-shell/gdm3.css"
+
+  if [[ "${GS_VERSION:-}" == 'new' ]]; then
+    cp -r "${SRC_DIR}/main/gnome-shell/shell-40-0/gnome-shell${color}${opacity}${theme}.css" "${THEME_DIR}/gnome-shell/gnome-shell.css"
+  else
+    cp -r "${SRC_DIR}/main/gnome-shell/shell-3-28/gnome-shell${color}${opacity}${theme}.css" "${THEME_DIR}/gnome-shell/gnome-shell.css"
+  fi
+
+  cp -r "${THEME_DIR}/gnome-shell/gnome-shell.css"                                           "${THEME_DIR}/gnome-shell/gdm3.css"
+
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
 
   if [[ ${theme} != '-default' ]]; then
@@ -132,26 +151,48 @@ install() {
   fi
 
   mkdir -p                                                                                   "${THEME_DIR}/gtk-3.0"
-  cp -r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets"                                     "${THEME_DIR}/gtk-3.0"
+  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "${THEME_DIR}/gtk-3.0"
 
   if [[ ${theme} != '-default' ]]; then
-    cp -r "${SRC_DIR}/assets/gtk-3.0/common-assets/assets${theme}/"*'.png'                   "${THEME_DIR}/gtk-3.0/assets"
+    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "${THEME_DIR}/gtk-3.0/assets"
   fi
 
-  cp -r "${SRC_DIR}/assets/gtk-3.0/windows-assets/titlebutton${alt}${small}"                 "${THEME_DIR}/gtk-3.0/windows-assets"
-  cp -r "${SRC_DIR}/assets/gtk-3.0/thumbnails/thumbnail${color}${theme}.png"                 "${THEME_DIR}/gtk-3.0/thumbnail.png"
+  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "${THEME_DIR}/gtk-3.0/windows-assets"
+  cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}${theme}.png"                     "${THEME_DIR}/gtk-3.0/thumbnail.png"
   cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   if [[ "${color}" == '-light' ]]; then
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light${opacity}${theme}.css"                         "${THEME_DIR}/gtk-3.0/gtk.css"
+    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light${opacity}${theme}.css"                          "${THEME_DIR}/gtk-3.0/gtk.css"
   else
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                          "${THEME_DIR}/gtk-3.0/gtk.css"
+    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                           "${THEME_DIR}/gtk-3.0/gtk.css"
   fi
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-3.0" --target="${THEME_DIR}/gtk-3.0/gtk.gresource" "${SRC_DIR}/main/gtk-3.0/gtk.gresource.xml"
   rm -rf "${THEME_DIR}/gtk-3.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
   echo '@import url("resource:///org/gnome/theme/gtk.css");' >>                              "${THEME_DIR}/gtk-3.0/gtk.css"
   echo '@import url("resource:///org/gnome/theme/gtk-dark.css");' >>                         "${THEME_DIR}/gtk-3.0/gtk-dark.css"
+
+  mkdir -p                                                                                   "${THEME_DIR}/gtk-4.0"
+  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "${THEME_DIR}/gtk-4.0"
+
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "${THEME_DIR}/gtk-4.0/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "${THEME_DIR}/gtk-4.0/windows-assets"
+  cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}${theme}.png"                     "${THEME_DIR}/gtk-4.0/thumbnail.png"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-4.0/gtk-dark.css"
+
+  if [[ "${color}" == '-light' ]]; then
+    cp -r "${SRC_DIR}/main/gtk-4.0/gtk-light${opacity}${theme}.css"                          "${THEME_DIR}/gtk-4.0/gtk.css"
+  else
+    cp -r "${SRC_DIR}/main/gtk-4.0/gtk-dark${opacity}${theme}.css"                           "${THEME_DIR}/gtk-4.0/gtk.css"
+  fi
+
+  glib-compile-resources --sourcedir="${THEME_DIR}/gtk-4.0" --target="${THEME_DIR}/gtk-4.0/gtk.gresource" "${SRC_DIR}/main/gtk-4.0/gtk.gresource.xml"
+  rm -rf "${THEME_DIR}/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
+  echo '@import url("resource:///org/gnome/theme/gtk.css");' >>                              "${THEME_DIR}/gtk-4.0/gtk.css"
+  echo '@import url("resource:///org/gnome/theme/gtk-dark.css");' >>                         "${THEME_DIR}/gtk-4.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/metacity-1"
   cp -r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                              "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
@@ -593,9 +634,10 @@ install_theme() {
 }
 
 cd "${SRC_DIR}/main/gtk-3.0" && ./make_gresource_xml.sh
+cd "${SRC_DIR}/main/gtk-4.0" && ./make_gresource_xml.sh
 
 if [[ "${small:-}" == 'small' ]]; then
-  cd ${SRC_DIR}/assets/gtk-3.0/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
+  cd ${SRC_DIR}/assets/gtk/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then

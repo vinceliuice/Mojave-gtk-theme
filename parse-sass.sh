@@ -41,9 +41,13 @@ for color in "${_COLOR_VARIANTS[@]}"; do
   for trans in "${_TRANS_VARIANTS[@]}"; do
     for theme in "${_THEME_VARIANTS[@]}"; do
       sassc $SASSC_OPT src/main/gtk-3.0/gtk${color}${trans}${theme}.{scss,css}
-      echo "==> Generating the gtk${color}${trans}${theme}.css..."
-      sassc $SASSC_OPT src/main/gnome-shell/gnome-shell${color}${trans}${theme}.{scss,css}
-      echo "==> Generating the gnome-shell${color}${trans}${theme}.css..."
+      echo "==> Generating the 3.0 gtk${color}${trans}${theme}.css..."
+      sassc $SASSC_OPT src/main/gtk-4.0/gtk${color}${trans}${theme}.{scss,css}
+      echo "==> Generating the 4.0 gtk${color}${trans}${theme}.css..."
+      sassc $SASSC_OPT src/main/gnome-shell/shell-3-28/gnome-shell${color}${trans}${theme}.{scss,css}
+      echo "==> Generating the 3.28 gnome-shell${color}${trans}${theme}.css..."
+      sassc $SASSC_OPT src/main/gnome-shell/shell-40-0/gnome-shell${color}${trans}${theme}.{scss,css}
+      echo "==> Generating the 40.0 gnome-shell${color}${trans}${theme}.css..."
       sassc $SASSC_OPT src/main/cinnamon/cinnamon${color}${trans}${theme}.{scss,css}
       echo "==> Generating the cinnamon${color}${trans}${theme}.css..."
     done
