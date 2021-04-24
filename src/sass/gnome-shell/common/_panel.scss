@@ -187,4 +187,10 @@
 
     // > * { background-image: url("assets/activities-active.svg"); }
   }
+
+  @if $variant == 'light' {
+    &:overview {
+      > * { background-image: url("assets/activities-white.svg"); }
+    }
+  }
 }

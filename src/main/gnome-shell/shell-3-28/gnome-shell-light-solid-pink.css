@@ -2444,6 +2444,10 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   border: none;
 }
 
+#panel #panelActivities.panel-button:overview > * {
+  background-image: url("assets/activities-white.svg");
+}
+
 /* Popovers/Menus */
 .popup-menu-boxpointer {
   -arrow-border-radius: 2px;

@@ -81,7 +81,7 @@ install() {
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                               "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/activities${color}/activities.svg"                    "${THEME_DIR}/gnome-shell/assets/activities.svg"
-
+  cp -r "${SRC_DIR}/assets/gnome-shell/activities-dark/activities${icon}.svg"                "${THEME_DIR}/gnome-shell/assets/activities-white.svg"
   cd "${THEME_DIR}/gnome-shell"
   mv -f assets/no-events.svg no-events.svg
   mv -f assets/process-working.svg process-working.svg
