@@ -1495,6 +1495,47 @@ headerbar,
     }
   }
 
+  &.windowhandle {
+    viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
+      border-radius: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      background: none;
+      border: none;
+
+      &:not(:hover):not(:active):not(:checked) {
+        background: none;
+        box-shadow: none;
+      }
+
+      &:hover {
+        @include button(header-hover);
+      }
+
+      &:active {
+        @include button(header-active);
+      }
+
+      &:checked {
+        @include button(header-checked);
+      }
+    }
+
+    > button.popup {
+      &:hover {
+        @include button(header-hover);
+      }
+
+      &:active {
+        @include button(header-active);
+      }
+
+      &:checked {
+        @include button(header-checked);
+      }
+    }
+  }
+
   // Headerbar Switches
   switch {
     margin-top: 8px;
@@ -1716,8 +1757,6 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
       background-image: image($header_bg_backdrop);
     }
   }
-
-  // @extend %titlebar;
 }
 
 headerbar, .titlebar {
@@ -3424,20 +3463,6 @@ messagedialog { // Message Dialog styling
 // Filechooser
 //
 filechooser {
-  actionbar {
-    color: $dark_sidebar_fg;
-    background-color: $dark_sidebar_bg;
-    border-color: $borders_color;
-    border-radius: 0 0 $wm_radius 0;
-
-    button { @extend %dark_sidebar_button; }
-    entry { @extend %dark_sidebar_entry; }
-
-    @extend %osd_check_radio;
-
-    label, combobox { color: $dark_sidebar_fg; }
-  }
-
   box#pathbarbox.view {
     stack {
       entry.search {
