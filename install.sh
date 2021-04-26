@@ -109,7 +109,7 @@ install() {
   echo "[X-GNOME-Metatheme]" >>                                                              "${THEME_DIR}/index.theme"
   echo "GtkTheme=${2}${3}${4}${5}${6}${7}" >>                                                "${THEME_DIR}/index.theme"
   echo "MetacityTheme=${2}${3}${4}${5}${6}${7}" >>                                           "${THEME_DIR}/index.theme"
-  echo "IconTheme=McMojave-circle${2}${3}" >>                                              s  "${THEME_DIR}/index.theme"
+  echo "IconTheme=McMojave-circle${2}${3}" >>                                                "${THEME_DIR}/index.theme"
   echo "CursorTheme=McMojave Cursors" >>                                                     "${THEME_DIR}/index.theme"
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 

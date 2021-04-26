@@ -2146,21 +2146,21 @@ headerbar button.flat {
   box-shadow: none;
 }
 
-.path-bar > button {
+path-bar > button {
   min-width: 12px;
   min-height: 20px;
 }
 
-.path-bar > button.text-button, .path-bar > button.image-button, .path-bar > button {
+path-bar > button.text-button, path-bar > button.image-button, path-bar > button {
   padding-left: 6px;
   padding-right: 6px;
 }
 
-.path-bar > button:hover {
+path-bar > button:hover {
   box-shadow: none;
 }
 
-.path-bar > button:active, .path-bar > button:checked {
+path-bar > button:active, path-bar > button:checked {
   color: white;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
@@ -2168,29 +2168,29 @@ headerbar button.flat {
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-.path-bar > button:disabled {
+path-bar > button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-.path-bar > button.text-button.image-button label {
+path-bar > button.text-button.image-button label {
   padding-left: 0;
   padding-right: 0;
 }
 
-.path-bar > button.text-button.image-button label:last-child, .path-bar > button label:last-child {
+path-bar > button.text-button.image-button label:last-child, path-bar > button label:last-child {
   padding-right: 10px;
 }
 
-.path-bar > button.text-button.image-button label:first-child, .path-bar > button label:first-child {
+path-bar > button.text-button.image-button label:first-child, path-bar > button label:first-child {
   padding-left: 10px;
 }
 
-.path-bar > button.slider-button, .path-bar > button:not(.image-button):not(.text-button) {
+path-bar > button.slider-button, path-bar > button:not(.image-button):not(.text-button) {
   padding-left: 1px;
   padding-right: 1px;
 }
 
-.path-bar > button image {
+path-bar > button image {
   padding-left: 4px;
   padding-right: 4px;
 }
