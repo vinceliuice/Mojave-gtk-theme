@@ -126,7 +126,7 @@ $raven_padding: 8px;
 
     &:hover { box-shadow: none; background-color: transparent; }
 
-    &:selected, &:selected:hover, &:selected:focused {
+    &:selected, &:selected:hover, &:selected:focus {
       background-color: $track_color;
       color: $panel_fg;
 

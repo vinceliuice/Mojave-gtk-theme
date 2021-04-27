@@ -100,7 +100,6 @@ window.background.csd { // gnome-terminal 3.32 setting
 }
 
 .nautilus-window headerbar {
-
   .linked.raised:not(.path-bar) > button.image-button {
     @extend %outline_dashed;
 

@@ -9265,12 +9265,12 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   background-color: transparent;
 }
 
-.budgie-popover row:selected, .budgie-popover row:selected:hover, .budgie-popover row:selected:focused {
+.budgie-popover row:selected, .budgie-popover row:selected:hover, .budgie-popover row:selected:focus {
   background-color: rgba(255, 255, 255, 0.1);
   color: #dadada;
 }
 
-.budgie-popover row:selected label, .budgie-popover row:selected:hover label, .budgie-popover row:selected:focused label {
+.budgie-popover row:selected label, .budgie-popover row:selected:hover label, .budgie-popover row:selected:focus label {
   color: #dadada;
 }
 

@@ -32,7 +32,7 @@
 	box-sizing: border-box !important;
 }
 
-#urlbar:not(.megabar) {
+#urlbar[breakout][breakout-extend] #urlbar-input-container {
 	background: none !important;
 	border: none !important;
 	box-shadow: none !important;
@@ -48,6 +48,7 @@
 	box-shadow: 0 0 0 2px var(--gnome-focused-urlbar-highlight-color) !important;
 }
 
+#urlbar[breakout][breakout-extend],
 #searchbar:focus-within {
 	border: none !important;
 	background: var(--gnome-urlbar-background) !important;

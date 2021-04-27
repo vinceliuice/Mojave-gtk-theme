@@ -9214,12 +9214,12 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   background-color: transparent;
 }
 
-.budgie-popover row:selected, .budgie-popover row:selected:hover, .budgie-popover row:selected:focused {
+.budgie-popover row:selected, .budgie-popover row:selected:hover, .budgie-popover row:selected:focus {
   background-color: rgba(0, 0, 0, 0.2);
   color: #363636;
 }
 
-.budgie-popover row:selected label, .budgie-popover row:selected:hover label, .budgie-popover row:selected:focused label {
+.budgie-popover row:selected label, .budgie-popover row:selected:hover label, .budgie-popover row:selected:focus label {
   color: #363636;
 }
 
