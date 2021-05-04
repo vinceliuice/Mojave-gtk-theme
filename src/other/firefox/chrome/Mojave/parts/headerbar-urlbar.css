@@ -14,7 +14,7 @@ toolbarspring {
 
 #urlbar {
 	box-shadow: none !important;
-	background: var(--gnome-popover-background) !important;
+	background: none !important;
 	border-radius: 5px !important;
 }
 

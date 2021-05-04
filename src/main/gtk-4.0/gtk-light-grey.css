@@ -3223,14 +3223,6 @@ scale {
   padding: 3px;
 }
 
-scale.horizontal > trough {
-  padding: 0 4px;
-}
-
-scale.vertical > trough {
-  padding: 4px 0;
-}
-
 scale > trough > slider {
   min-height: 15px;
   min-width: 15px;

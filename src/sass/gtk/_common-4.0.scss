@@ -2753,14 +2753,6 @@ scale {
   min-width: 15px;
   padding: 3px;
 
-  &.horizontal {
-    > trough { padding: 0 4px; }
-  }
-
-  &.vertical {
-    > trough { padding: 4px 0; }
-  }
-
   // The slider is inside the trough, negative margin to make it bigger
   > trough > slider {
     min-height: 15px;
