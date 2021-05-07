@@ -76,9 +76,7 @@ To connect the theme to all apps which have available plugs to gtk-common-themes
 #### AUR for ArchLinux/Manjaro
 Search `mojave-gtk-theme-git` : https://aur.archlinux.org/packages/mojave-gtk-theme-git/
 
-    sudo pacman -Syu yaourt
-
-    sudo yaourt mojave-gtk-theme-git
+    yay -S mojave-gtk-theme-git
 
 ### Kde theme
 [McMojave-kde](https://github.com/vinceliuice/McMojave-kde)
