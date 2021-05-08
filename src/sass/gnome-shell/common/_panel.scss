@@ -7,9 +7,10 @@
   height: $menuitem_size;
   box-shadow: $shadow_6;
   color: $panel_fg;
-  font-feature-settings: "tnum";
+  // font-feature-settings: "tnum";
   transition-duration: 250ms;
   text-shadow: none;
+  @include font(body-1);
 
   // transparent panel on lock & login screens
   &:overview,

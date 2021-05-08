@@ -80,7 +80,20 @@ $dash_radius: 18px;
       background-color: $primary_color;
     }
 
-    & .show-apps, & .show-apps .show-apps-icon, & .show-apps .overview-icon {
+    .app-well-app,
+    .show-apps {
+      &:hover .overview-icon,
+      &:focus .overview-icon,
+      &:selected .overview-icon {
+        background-color: rgba($fg_color, 0.15);
+      }
+      &:active .overview-icon,
+      &:checked .overview-icon {
+        background-color: rgba($fg_color, 0.25);
+      }
+    }
+
+    .show-apps, .show-apps .show-apps-icon, .show-apps .overview-icon {
       color: $fg_color;
     }
   }
@@ -95,7 +108,20 @@ $dash_radius: 18px;
   &:overview #dash { // overview-mode #1
     background: none;
 
-    & .show-apps, & .show-apps .show-apps-icon, & .show-apps .overview-icon {
+    .app-well-app,
+    .show-apps {
+      &:hover .overview-icon,
+      &:focus .overview-icon,
+      &:selected .overview-icon {
+        background-color: $light_divider_color;
+      }
+      &:active .overview-icon,
+      &:checked .overview-icon {
+        background-color: $light_track_color;
+      }
+    }
+
+    .show-apps, .show-apps .show-apps-icon, .show-apps .overview-icon {
       color: $light_alt_fg_color;
     }
 
@@ -132,10 +158,6 @@ $dash_radius: 18px;
     #dash {
       background: none;
     }
-
-    // .dash-background {
-    //   background-color: $light_divider_color;
-    // }
   }
 
   &.running-dots,

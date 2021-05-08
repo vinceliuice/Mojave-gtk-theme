@@ -23,6 +23,13 @@
 }
 
 /* App Icons */
+.show-apps,
+.app-well-app,
+.grid-search-result {
+  font-size: 9.75pt;
+  font-weight: 400;
+}
+
 .show-apps .overview-icon,
 .app-well-app .overview-icon,
 .grid-search-result .overview-icon {
@@ -146,6 +153,43 @@
 
 StWidget.focused .app-well-app-running-dot {
   background-color: #017AFF;
+}
+
+.page-indicator {
+  padding: 16px 20px;
+}
+
+.page-indicator .page-indicator-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-image: none;
+  color: transparent;
+  border: none;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.page-indicator:hover .page-indicator-icon {
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.page-indicator:active .page-indicator-icon {
+  background-image: none;
+  color: transparent;
+  border: none;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.page-indicator:checked .page-indicator-icon {
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.page-indicator:checked:active {
+  background-image: none;
 }
 
 .app-menu,
@@ -685,7 +729,8 @@ StWidget.focused .app-well-app-running-dot {
 
 /* Dash */
 #dash {
-  font-size: 9pt;
+  font-size: 9.75pt;
+  font-weight: 400;
 }
 
 #dash .empty-dash-drop-target {
@@ -703,6 +748,8 @@ StWidget.focused .app-well-app-running-dot {
   text-align: center;
   -y-offset: 12px;
   -x-offset: 8px;
+  font-size: 9.75pt;
+  font-weight: 400;
 }
 
 /* Modal Dialogs */
@@ -2289,9 +2336,10 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   height: 28px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.3);
   color: #dadada;
-  font-feature-settings: "tnum";
   transition-duration: 250ms;
   text-shadow: none;
+  font-size: 9.75pt;
+  font-weight: 400;
 }
 
 #panel:overview, #panel.unlock-screen, #panel.login-screen, #panel.lock-screen {
@@ -2461,6 +2509,8 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   color: #dedede;
   font-weight: normal;
   padding: 3px 0;
+  font-size: 9.75pt;
+  font-weight: 400;
   border-image: url("assets/menu-solid.svg") 24 32 28 28;
 }
 
@@ -2824,6 +2874,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 #searchResultsContent {
   max-width: 1024px;
   spacing: 8px;
+  font-size: 9.75pt;
+  font-weight: 400;
 }
 
 .search-section {
@@ -3069,47 +3121,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .app-folder-dialog StButton#vhandle, .app-folder-dialog StButton#vhandle:hover, .app-folder-dialog StButton#vhandle:active {
   background-color: transparent;
-}
-
-.page-indicator {
-  padding: 15px 20px;
-}
-
-.page-indicator .page-indicator-icon {
-  width: 12px;
-  height: 12px;
-  border-radius: 12px;
-  margin: 0;
-  padding: 0;
-  background-image: none;
-  color: transparent;
-  border: none;
-  box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.35);
-}
-
-.page-indicator:hover .page-indicator-icon {
-  background-image: none;
-  background-color: rgba(255, 255, 255, 0.45);
-}
-
-.page-indicator:active .page-indicator-icon {
-  margin: 0;
-  padding: 0;
-  background-image: none;
-  color: transparent;
-  border: none;
-  box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
-.page-indicator:checked .page-indicator-icon {
-  background-image: none;
-  background-color: rgba(255, 255, 255, 0.85);
-}
-
-.page-indicator:checked:active {
-  background-image: none;
 }
 
 .all-apps,
@@ -3581,6 +3592,8 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 4px 8px;
   border: none;
   font-weight: normal;
+  font-size: 9.75pt;
+  font-weight: 400;
 }
 
 .window-clone-border {

@@ -4,6 +4,8 @@
 .show-apps,
 .app-well-app,
 %app-well-app {
+  @include font(body-1);
+
   & .overview-icon {
     color: $light_alt_fg_color;
     border-radius: $bd_radius * 1.5;
@@ -114,6 +116,37 @@
   StWidget.focused & {
     background-color: $primary_color;
   }
+}
+
+.page-indicator {
+  padding: 16px 20px;
+
+  .page-indicator-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: $circular_radius;
+    background-image: none;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+    background-color: $light_alt_disabled_fg_color;
+  }
+  &:hover .page-indicator-icon {
+    background-image: none;
+    background-color: $light_disabled_fg_color;
+  }
+  &:active .page-indicator-icon {
+    background-image: none;
+    color: transparent;
+    border: none;
+    box-shadow: none;
+    background-color: $light_alt_fg_color;
+  }
+  &:checked .page-indicator-icon {
+    background-image: none;
+    background-color: $light_alt_fg_color;
+  }
+  &:checked:active { background-image: none; }
 }
 
 // right-click app menu

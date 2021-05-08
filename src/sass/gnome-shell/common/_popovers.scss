@@ -20,6 +20,7 @@ $popop_menuitem_radius: $wm_radius - 4px;
   color: $fg_color;
   font-weight: normal;
   padding: 3px 0;
+  @include font(body-1);
 
   @if $trans == 'true' {
     border-image: url("assets/menu.svg") 24 32 28 28;
