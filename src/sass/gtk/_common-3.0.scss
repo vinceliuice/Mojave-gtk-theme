@@ -39,6 +39,20 @@
   -gtk-outline-radius: $bt_radius + 1px;
 }
 
+// catch all extend
+%selected_items {
+  background-color: $selected_bg_color;
+  color: $selected_fg_color;
+
+  &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+}
+
+%nobg_selected_items {
+  color: $selected_fg_color;
+
+  &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
+}
+
 //
 // Base States
 //
@@ -167,7 +181,7 @@ label {
 
   &:disabled {
     color: $disabled_fg_color;
-    selection { @extend %selected_items, :disabled; }
+    selection { color: mix($selected_fg_color, $selected_bg_color, 50%); }
   }
 }
 
@@ -225,6 +239,67 @@ spinner {
 //
 // Text Entries
 //
+
+%linked_middle {
+  border-radius: 0;
+  border-right-style: none;
+}
+
+%linked {
+  @extend %linked_middle;
+  &:first-child {
+    border-top-left-radius: $bt_radius;
+    border-bottom-left-radius: $bt_radius;
+  }
+  &:last-child {
+    border-top-right-radius: $bt_radius;
+    border-bottom-right-radius: $bt_radius;
+    border-right-style: solid;
+  }
+  &:only-child {
+    border-radius: $bt_radius;
+    border-style: solid;
+  }
+}
+
+%linked-flat {
+  @extend %linked_middle;
+  &:first-child {
+    border-top-left-radius: $bt_radius;
+    border-bottom-left-radius: 0;
+  }
+  &:last-child {
+    border-top-right-radius: $bt_radius;
+    border-bottom-right-radius: 0;
+    border-right-style: solid;
+  }
+  &:only-child {
+    border-radius: $bt_radius $bt_radius 0 0;
+    border-style: solid;
+  }
+}
+
+%linked_vertical_middle {
+  border-radius: 0;
+  border-bottom-style: none;
+}
+
+%linked_vertical{
+  @extend %linked_vertical_middle;
+  &:first-child {
+    border-top-left-radius: $bt_radius;
+    border-top-right-radius: $bt_radius;
+  }
+  &:last-child {
+    border-bottom-left-radius: $bt_radius;
+    border-bottom-right-radius: $bt_radius;
+    border-bottom-style: solid;
+  }
+  &:only-child {
+    border-radius: $bt_radius;
+    border-style: solid;
+  }
+}
 
 %Linked_entrys {
   @include entry(normal);
@@ -477,8 +552,87 @@ $_dot_color: $selected_bg_color;
   }
 }
 
+%circular_button {
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
+  padding: 0 0 0 0;
+  min-height: 28px;
+  min-width: 28px;
+
+  &:active, &:checked {
+    @if $variant=='light' {
+      @include button(flat-active);
+      border-color: rgba(black, 0.2);
+    }
+  }
+
+  // label { padding: 0; }
+}
+
+%undecorated_button {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+// Buttons on selected backgrounds
+%selected-button {
+  color: $selected_fg_color;
+  background-color: transparentize($selected_fg_color, 1);
+  border-color: transparentize($selected_fg_color, 0.5);
+  background-image: none;
+  box-shadow: none;
+
+  &.flat {
+    @include button(undecorated);
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 1);
+    background-image: none;
+    box-shadow: none;
+  }
+
+  &.flat:disabled {
+    &, label { color: transparentize($selected_fg_color, 0.6); }
+  }
+
+  &:hover {
+    box-shadow: none;
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 0.8);
+    border-color: transparentize($selected_fg_color, 0.5);
+  }
+
+  &:active, &:active:hover, &:checked {
+    box-shadow: none;
+    color: $selected_fg_color;
+    background-color: transparentize($selected_fg_color, 0.6);
+    border-color: transparentize($selected_fg_color, 0.5);
+  }
+
+  &:disabled {
+    &, label { color: transparentize($selected_fg_color, 0.5); }
+    background-color: transparentize($selected_fg_color, 1);
+    border-color: transparentize($selected_fg_color, 0.6);
+    box-shadow: none;
+  }
+
+  &:disabled:active, &:disabled:checked {
+    color: $selected_bg_color;
+    background-color: transparentize($selected_fg_color, 0.5);
+    border-color: transparentize($selected_fg_color, 0.6);
+  }
+}
+
+%normal_selected_button {
+  color: $selected_fg_color;
+  background-color: transparentize($selected_fg_color, 1);
+  border-color: transparentize($selected_fg_color, 0.5);
+  background-image: none;
+}
+
 button {
-  min-height: 20px;
+  min-height: 24px;
   min-width: 16px;
   transition: $button_transition;
   border: 1px solid;
@@ -487,10 +641,6 @@ button {
   @include button(normal);
 
   separator { margin: 4px 1px; }
-
-  // &.flat, &.osd, &.sidebar-button, &.circular {
-  //   @extend %outline_dashed;
-  // }
 
   @at-root %flat_button, &.flat {
     min-height: if($variant =='light', 24px, 24px);
@@ -524,7 +674,7 @@ button {
   }
 
   &:active, &:checked {
-    @include button(active);
+    background-color: if($variant=='light', darken($button_bg, 8%), lighten($button_bg, 8%));
 
     background-clip: if($variant=='light', border-box, padding-box);
     transition-duration: 200ms;
@@ -534,16 +684,23 @@ button {
 
   &:checked:hover { background-image: $button_active_hover_image; }
 
-  //Webkitgtk workaround start
-  &:active { color: $fg_color; }
-  &:active:hover, &:checked { color: $selected_fg_color; }
-  //Webkitgtk workaround end
-
   &:disabled {
     @include button(insensitive);
 
     &:active, &:checked {
       @include button(insensitive-active);
+    }
+  }
+
+  .background & {
+    &:active, &:checked {
+      @include button(active);
+    }
+
+    &:disabled {
+      &, &:active, &:checked {
+        @include button(insensitive);
+      }
     }
   }
 
@@ -554,7 +711,7 @@ button {
   }
 
   &.text-button {
-    min-height: 20px;
+    min-height: 24px;
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -833,27 +990,6 @@ toolbar.inline-toolbar toolbutton {
     $_uncolored_button: 'button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action)';
 
     > button + button { border-#{$_border}-style: none; }
-
-    // > #{$_uncolored_button}:hover:not(:only-child),
-    // > #{$_uncolored_button}:hover + #{$_uncolored_button} { }
-    //
-    // > #{$_uncolored_button}:disabled:not(:only-child),
-    // > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) { }
-    //
-    // > button:active + #{$_uncolored_button}:hover,
-    // > button:checked + #{$_uncolored_button}:hover,
-    // > button.suggested-action + #{$_uncolored_button}:hover,
-    // > button.destructive-action + #{$_uncolored_button}:hover,
-    // > entry + #{$_uncolored_button}:hover:not(:only-child),
-    //
-    // > #{$_uncolored_button}:first-child:disabled,
-    // > #{$_uncolored_button}:disabled + #{$_uncolored_button}:disabled,
-    // > #{$_uncolored_button}:first-child:hover,
-    // > button:active + #{$_uncolored_button}:disabled,
-    // > button:checked + #{$_uncolored_button}:disabled,
-    // > button.suggested-action + #{$_uncolored_button}:disabled,
-    // > button.destructive-action + #{$_uncolored_button}:disabled,
-    // > entry + #{$_uncolored_button}:disabled:not(:only-child), { }
   }
 }
 
@@ -898,74 +1034,6 @@ headerbar.titlebar {
 
 .linked.vertical { @include linking_rules($vert:'true'); }
 
-%linked_middle {
-  border-radius: 0;
-  border-right-style: none;
-}
-
-%linked {
-  @extend %linked_middle;
-  &:first-child {
-    border-top-left-radius: $bt_radius;
-    border-bottom-left-radius: $bt_radius;
-  }
-  &:last-child {
-    border-top-right-radius: $bt_radius;
-    border-bottom-right-radius: $bt_radius;
-    border-right-style: solid;
-  }
-  &:only-child {
-    border-radius: $bt_radius;
-    border-style: solid;
-  }
-}
-
-%linked-flat {
-  @extend %linked_middle;
-  &:first-child {
-    border-top-left-radius: $bt_radius;
-    border-bottom-left-radius: 0;
-  }
-  &:last-child {
-    border-top-right-radius: $bt_radius;
-    border-bottom-right-radius: 0;
-    border-right-style: solid;
-  }
-  &:only-child {
-    border-radius: $bt_radius $bt_radius 0 0;
-    border-style: solid;
-  }
-}
-
-%linked_vertical_middle {
-  border-radius: 0;
-  border-bottom-style: none;
-}
-
-%linked_vertical{
-  @extend %linked_vertical_middle;
-  &:first-child {
-    border-top-left-radius: $bt_radius;
-    border-top-right-radius: $bt_radius;
-  }
-  &:last-child {
-    border-bottom-left-radius: $bt_radius;
-    border-bottom-right-radius: $bt_radius;
-    border-bottom-style: solid;
-  }
-  &:only-child {
-    border-radius: $bt_radius;
-    border-style: solid;
-  }
-}
-
-%undecorated_button {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-}
-
 // menu buttons
 menuitem.button.flat,
 modelbutton.flat {
@@ -983,15 +1051,15 @@ modelbutton.flat {
     transition-duration: 50ms;
   }
 
-  &:active, &:selected {
+  &:active, &:selected, &:checked {
     &, arrow {
-      @extend %selected_items;
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
       transition: none;
       animation: none;
     }
   }
 
-  &:checked { color: $fg_color; }
   &:disabled { color: $disabled_fg_color; }
 
   // FIXME: temporary workaround
@@ -1045,7 +1113,6 @@ button:link, button:visited {
 // Spinbuttons
 //
 spinbutton {
-
   &:drop(active) { box-shadow: none; }
 
   button:active { color: $selected_fg_color; }
@@ -1357,6 +1424,139 @@ actionbar > revealer > box {
 //
 // Headerbars
 //
+
+// Linking stuff
+%linked_header {
+  border-radius: 0;
+  border-left-style: none;
+  border-right-style: solid;
+
+  &:first-child {
+    border-top-left-radius: $bt_radius;
+    border-bottom-left-radius: $bt_radius;
+    border-left-style: solid;
+  }
+
+  &:last-child {
+    border-top-right-radius: $bt_radius;
+    border-bottom-right-radius: $bt_radius;
+  }
+
+  &:only-child {
+    border-radius: $bt_radius;
+    border-style: solid;
+  }
+}
+
+%header_separator {
+  min-width: 0;
+  min-height: 0;
+  background: none;
+  border: none;
+}
+
+// Headerbar Entries
+%headerbar_entrys {
+  @include entry(header-normal);
+  border-radius: 7px;
+  border: 3px solid transparent;
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  background-clip: padding-box;
+  border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
+
+  &:backdrop { opacity: 0.65; background-image: none; }
+
+  &:focus {
+    @include entry(header-focus);
+    box-shadow: none;
+    border-radius: 7px;
+    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
+  }
+
+  &:disabled {
+    @include entry(header-insensitive);
+    border-radius: 7px;
+    border: 3px solid transparent;
+    border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
+  }
+
+  selection:focus {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+  }
+
+  progress {
+    border-color: $progress_color;
+    background-image: none;
+    background-color: transparent;
+  }
+
+  @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $light_fg_color),
+                                          (error, $error_color, $light_fg_color) {
+    &.#{$e_type} {
+      color: $e_fg_color;
+      border-color: if($variant=='light', $e_color, $entry_border);
+      background-color: mix($e_color, $header_bg, 60%);
+
+      &:focus {
+        color: $e_fg_color;
+        background-color: $e_color;
+      }
+
+      selection, selection:focus {
+        background-color: $e_fg_color;
+        color: $e_color;
+      }
+    }
+  }
+}
+
+// Headerbar Buttons
+%headerbar_buttons {
+  @include button(header-normal);
+  @extend %outline_solid;
+
+  @if $variant == 'light' {
+    box-shadow: none;
+  }
+
+  // &.circular { @extend %circular_button; }
+
+  &:backdrop { opacity: 0.65; background-image: none; }
+
+  &:hover {
+    @include button(header-hover);
+    transition: $button_transition;
+  }
+
+  &:active {
+    @include button(header-active);
+    transition: $button_transition;
+    transition-duration: 300ms;
+    background-clip: if($variant=='light', border-box, padding-box);
+  }
+
+  &:active:hover { background-image: none; }
+
+  &:checked {
+    @include button(header-checked);
+    background-clip: if($variant=='light', border-box, padding-box);
+    transition: $button_transition;
+    transition-duration: 300ms;
+  }
+
+  &:checked:hover { background-image: none; }
+
+  &:disabled { @include button(header-insensitive); }
+  &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+  // &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
+
+  &.flat {
+    @include button(undecorated);
+  }
+}
 
 headerbar,
 %titlebar {
@@ -1776,138 +1976,6 @@ headerbar, .titlebar {
   }
 }
 
-// Linking stuff
-%linked_header {
-  border-radius: 0;
-  border-left-style: none;
-  border-right-style: solid;
-
-  &:first-child {
-    border-top-left-radius: $bt_radius;
-    border-bottom-left-radius: $bt_radius;
-    border-left-style: solid;
-  }
-
-  &:last-child {
-    border-top-right-radius: $bt_radius;
-    border-bottom-right-radius: $bt_radius;
-  }
-
-  &:only-child {
-    border-radius: $bt_radius;
-    border-style: solid;
-  }
-}
-
-%header_separator {
-  min-width: 0;
-  min-height: 0;
-  background: none;
-  border: none;
-}
-
-// Headerbar Entries
-%headerbar_entrys {
-  @include entry(header-normal);
-  border-radius: 7px;
-  border: 3px solid transparent;
-  border-image-width: 6px 6px 6px 6px;
-  border-image-slice: 6 6 6 6;
-  border-image-repeat: stretch;
-  background-clip: padding-box;
-  border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
-
-  &:backdrop { opacity: 0.65; background-image: none; }
-
-  &:focus {
-    @include entry(header-focus);
-    box-shadow: none;
-    border-radius: 7px;
-    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
-  }
-
-  &:disabled {
-    @include entry(header-insensitive);
-    border-radius: 7px;
-    border: 3px solid transparent;
-    border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
-  }
-
-  selection:focus {
-    background-color: $selected_bg_color;
-    color: $selected_fg_color;
-  }
-
-  progress {
-    border-color: $progress_color;
-    background-image: none;
-    background-color: transparent;
-  }
-
-  @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $light_fg_color),
-                                          (error, $error_color, $light_fg_color) {
-    &.#{$e_type} {
-      color: $e_fg_color;
-      border-color: if($variant=='light', $e_color, $entry_border);
-      background-color: mix($e_color, $header_bg, 60%);
-
-      &:focus {
-        color: $e_fg_color;
-        background-color: $e_color;
-      }
-
-      selection, selection:focus {
-        background-color: $e_fg_color;
-        color: $e_color;
-      }
-    }
-  }
-}
-
-// Headerbar Buttons
-%headerbar_buttons {
-  @include button(header-normal);
-  @extend %outline_solid;
-
-  @if $variant == 'light' {
-    box-shadow: none;
-  }
-
-  // &.circular { @extend %circular_button; }
-
-  &:backdrop { opacity: 0.65; background-image: none; }
-
-  &:hover {
-    @include button(header-hover);
-    transition: $button_transition;
-  }
-
-  &:active {
-    @include button(header-active);
-    transition: $button_transition;
-    transition-duration: 300ms;
-    background-clip: if($variant=='light', border-box, padding-box);
-  }
-
-  &:active:hover { background-image: none; }
-
-  &:checked {
-    @include button(header-checked);
-    background-clip: if($variant=='light', border-box, padding-box);
-    transition: $button_transition;
-    transition-duration: 300ms;
-  }
-
-  &:checked:hover { background-image: none; }
-
-  &:disabled { @include button(header-insensitive); }
-  &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
-  // &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
-
-  &.flat {
-    @include button(undecorated);
-  }
-}
 
 //
 // Pathbars
@@ -2335,8 +2403,6 @@ notebook {
   // margin-top: -1px;
 
   &.frame {
-    border: 1px solid $solid_borders_color;
-
     > header {
       &.top,
       &.bottom {
@@ -2356,6 +2422,8 @@ notebook {
     }
   }
 
+  .background &.frame { border: 1px solid $solid_borders_color; }
+
   > stack:not(:only-child) { // the :not(:only-child) is for "hidden" notebooks
     background-color: $base_color;
   }
@@ -2364,14 +2432,13 @@ notebook {
     border-radius: 0 0 $wm_radius $wm_radius;
   }
 
-  > header {
-    padding: 0;
+  .background.csd & > header {
     background-color: darken($header_bg, 10%);
 
-    // Set box-shadow to make the header frame color more easy to see
-    // Set margin to hide the ugly borders around the header
     &.top {
       box-shadow: inset 0 1px $solid_borders_color, inset 0 -1px $borders_color;
+      border-bottom: none;
+
       @if $variant=='light' {
           box-shadow: inset 0 1px $borders_color,
                       inset 0 -1px $borders_color,
@@ -2379,6 +2446,23 @@ notebook {
                             -1px 0 $borders_color;
       }
       margin-top: -1px;
+
+      tabs > tab { margin: 0 0 0 0; }
+      tabs > tab + tab { margin: 0 0 0 -1px; }
+    }
+
+    tabs > tab:checked { background-color: $header_bg; }
+  }
+
+  > header {
+    padding: 0;
+    background-color: $header_bg;
+
+    &.top {
+      box-shadow: none;
+      border-bottom: 1px solid $borders_color;
+
+      tabs > tab { margin: -2px -1px 0 -1px; }
     }
 
     &.bottom {
@@ -2425,6 +2509,7 @@ notebook {
       &:active, &:checked {
         color: $fg_color;
         background-color: if($variant=='light', rgba(black, 0.20), rgba(white, 0.15));
+        background-image: none;
       }
     }
 
@@ -2505,7 +2590,7 @@ notebook {
       border: 1px solid transparent;
       transition: all 150ms ease-out;
 
-      &:hover:not(:checked) {
+      &:hover {
         color: mix($fg_color, $disabled_fg_color, 50%);
         background-color: if($variant == 'light', rgba(white, 0.2), rgba(white, 0.05));
         border-color: if($variant == 'light', darken($header_bg, 15%), lighten($header_bg, 5%));
@@ -2513,7 +2598,7 @@ notebook {
 
       &:checked {
         color: $fg_color;
-        background-color: $header_bg;
+        background-color: if($variant == 'light', rgba(white, 0.35), rgba(white, 0.15));
         border-color: if($variant == 'light', darken($header_bg, 15%), lighten($header_bg, 5%));
       }
 
@@ -3761,64 +3846,6 @@ infobar {
 }
 
 //
-// Buttons on selected backgrounds
-//
-
-%selected-button {
-  color: $selected_fg_color;
-  background-color: transparentize($selected_fg_color, 1);
-  border-color: transparentize($selected_fg_color, 0.5);
-  background-image: none;
-  box-shadow: none;
-
-  &.flat {
-    @include button(undecorated);
-    color: $selected_fg_color;
-    background-color: transparentize($selected_fg_color, 1);
-    background-image: none;
-    box-shadow: none;
-  }
-
-  &.flat:disabled {
-    &, label { color: transparentize($selected_fg_color, 0.6); }
-  }
-
-  &:hover {
-    box-shadow: none;
-    color: $selected_fg_color;
-    background-color: transparentize($selected_fg_color, 0.8);
-    border-color: transparentize($selected_fg_color, 0.5);
-  }
-
-  &:active, &:active:hover, &:checked {
-    box-shadow: none;
-    color: $selected_fg_color;
-    background-color: transparentize($selected_fg_color, 0.6);
-    border-color: transparentize($selected_fg_color, 0.5);
-  }
-
-  &:disabled {
-    &, label { color: transparentize($selected_fg_color, 0.5); }
-    background-color: transparentize($selected_fg_color, 1);
-    border-color: transparentize($selected_fg_color, 0.6);
-    box-shadow: none;
-  }
-
-  &:disabled:active, &:disabled:checked {
-    color: $selected_bg_color;
-    background-color: transparentize($selected_fg_color, 0.5);
-    border-color: transparentize($selected_fg_color, 0.6);
-  }
-}
-
-%normal_selected_button {
-  color: $selected_fg_color;
-  background-color: transparentize($selected_fg_color, 1);
-  border-color: transparentize($selected_fg_color, 0.5);
-  background-image: none;
-}
-
-//
 // Tooltips
 //
 tooltip {
@@ -3971,22 +3998,8 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 //
 // Shortcuts Help
 //
-%circular_button,
 button.circular {
-  border-radius: 100px;
-  -gtk-outline-radius: 100px;
-  padding: 0 0 0 0;
-  min-height: 28px;
-  min-width: 28px;
-
-  &:active, &:checked {
-    @if $variant=='light' {
-      @include button(flat-active);
-      border-color: rgba(black, 0.2);
-    }
-  }
-
-  // label { padding: 0; }
+  @extend %circular_button;
 }
 
 .keycap {
@@ -4166,20 +4179,6 @@ headerbar,
       }
     }
   }
-}
-
-// catch all extend
-%selected_items {
-  background-color: $selected_bg_color;
-  color: $selected_fg_color;
-
-  &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
-}
-
-%nobg_selected_items {
-  color: $selected_fg_color;
-
-  &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
 }
 
 /*********

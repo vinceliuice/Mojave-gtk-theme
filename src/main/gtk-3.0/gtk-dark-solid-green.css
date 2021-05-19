@@ -52,6 +52,27 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not
   -gtk-outline-radius: 6px;
 }
 
+.budgie-menu button:checked, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
+#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected,
+calendar:selected, row:selected, treeview.view:selected, treeview.view:selected:focus, entry selection:focus, entry selection, flowbox flowboxchild:selected, textview text selection:focus, textview text selection, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, iconview:selected:focus, .view:selected:focus {
+  background-color: #79B757;
+  color: white;
+}
+
+.budgie-menu button:disabled:checked, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
+#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled, .nemo-window .nemo-window-pane widget.entry:disabled:selected,
+calendar:disabled:selected, row:disabled:selected, treeview.view:disabled:selected, entry selection:disabled, flowbox flowboxchild:disabled:selected, textview text selection:disabled, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:disabled:selected:focus, iconview:disabled:selected:focus, .view:disabled:selected:focus {
+  color: #bcdbab;
+}
+
+row:selected label, label:selected {
+  color: white;
+}
+
+row:selected label:disabled, label:disabled:selected {
+  color: #bcdbab;
+}
+
 .background {
   color: #dedede;
   background-color: #333333;
@@ -69,7 +90,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not
   background-color: transparent;
 }
 
-*:disabled, label:disabled selection {
+*:disabled {
   -gtk-icon-effect: dim;
 }
 
@@ -88,7 +109,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not
   color: #dedede;
 }
 
-.gtkstyle-fallback:disabled, label:disabled selection.gtkstyle-fallback {
+.gtkstyle-fallback:disabled {
   background-color: #383838;
   color: rgba(222, 222, 222, 0.35);
 }
@@ -163,6 +184,10 @@ label:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
+label:disabled selection {
+  color: #bcdbab;
+}
+
 .budgie-switcher .notification-body,
 .budgie-notification .notification-body, popover label.separator,
 popover.background label.separator, headerbar .subtitle, label.separator, .dim-label {
@@ -214,8 +239,50 @@ spinner:checked {
   animation: spin 1s linear infinite;
 }
 
-spinner:checked:disabled, label:disabled selection:checked {
+spinner:checked:disabled {
   opacity: 0.5;
+}
+
+.linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl), spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, toolbar.inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button, .linked:not(.vertical) > button, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > entry, .linked:not(.vertical) > entry:focus {
+  border-radius: 0;
+  border-right-style: none;
+}
+
+spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, toolbar.inline-toolbar toolbutton > button.flat:first-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:first-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > entry:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, toolbar.inline-toolbar toolbutton > button.flat:last-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:last-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > entry:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right-style: solid;
+}
+
+spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, toolbar.inline-toolbar toolbutton > button.flat:only-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:only-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > entry:only-child {
+  border-radius: 5px;
+  border-style: solid;
+}
+
+spinbutton.vertical button, spinbutton.vertical entry, .linked.vertical > button, .linked.vertical > entry, .linked.vertical > entry:focus {
+  border-radius: 0;
+  border-bottom-style: none;
+}
+
+spinbutton.vertical button:first-child, spinbutton.vertical entry:first-child, .linked.vertical > button:first-child, .linked.vertical > entry:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+spinbutton.vertical button:last-child, spinbutton.vertical entry:last-child, .linked.vertical > button:last-child, .linked.vertical > entry:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-style: solid;
+}
+
+spinbutton.vertical button:only-child, spinbutton.vertical entry:only-child, .linked.vertical > button:only-child, .linked.vertical > entry:only-child {
+  border-radius: 5px;
+  border-style: solid;
 }
 
 spinbutton entry, .linked > entry:not(:only-child) {
@@ -299,7 +366,7 @@ row entry notebook entry, row entry notebook entry:focus, notebook .linked entry
   background-color: #1f1f1f;
 }
 
-row entry notebook entry:disabled, notebook .linked entry:disabled, notebook spinbutton > entry:disabled, notebook spinbutton > entry:not(.vertical):disabled, notebook label:disabled spinbutton > selection:not(.vertical), label:disabled notebook spinbutton > selection:not(.vertical) {
+row entry notebook entry:disabled, notebook .linked entry:disabled, notebook spinbutton > entry:disabled, notebook spinbutton > entry:not(.vertical):disabled {
   background-color: rgba(31, 31, 31, 0.55);
 }
 
@@ -490,8 +557,79 @@ treeview entry.flat:focus, treeview entry:focus {
   }
 }
 
+.raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button, .raven button.image-button, button.nautilus-circular-button.image-button, stackswitcher button.circular,
+stackswitcher button.text-button.circular, button.circular, .app-notification button.image-button:not(.text-button), row button.circular, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, button.close {
+  border-radius: 100px;
+  -gtk-outline-radius: 100px;
+  padding: 0 0 0 0;
+  min-height: 28px;
+  min-width: 28px;
+}
+
+calendar.raven-calendar.button, .nemo-window .floating-bar button,
+calendar.button, .app-notification button, notebook > header tabs > tab button.flat:active, notebook > header tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header tabs > tab button:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header tabs > tab button:hover, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, button:link, button:visited, menuitem.button.flat, .raven .raven-header:not(.top) button.button,
+modelbutton.flat {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .nemo-window .floating-bar button, .nautilus-window .floating-bar button, infobar.info > revealer > box button, infobar.question > revealer > box button, infobar.warning > revealer > box button, infobar.error > revealer > box button, row:selected button, .selection-mode headerbar button, headerbar.selection-mode button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0.5);
+  background-image: none;
+  box-shadow: none;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button.flat, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris .raven-header:not(.top) button.image-button, .nemo-window .floating-bar button.flat, .nemo-window .floating-bar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nemo-window .floating-bar button, .nautilus-window .floating-bar button.flat, .nautilus-window .floating-bar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nautilus-window .floating-bar button, infobar.info > revealer > box button.flat, infobar.info > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.info > revealer > box button, infobar.question > revealer > box button.flat, infobar.question > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.question > revealer > box button, infobar.warning > revealer > box button.flat, infobar.warning > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.warning > revealer > box button, infobar.error > revealer > box button.flat, infobar.error > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.error > revealer > box button, row:selected button.flat, row:selected .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) row:selected button, .selection-mode headerbar button.flat, .selection-mode headerbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .selection-mode headerbar button, headerbar.selection-mode button.flat, headerbar.selection-mode .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) headerbar.selection-mode button {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  background-image: none;
+  box-shadow: none;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled, .nemo-window .floating-bar button.flat:disabled, .nemo-window .floating-bar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .nemo-window .floating-bar button:disabled, .nautilus-window .floating-bar button.flat:disabled, .nautilus-window .floating-bar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .nautilus-window .floating-bar button:disabled, infobar.info > revealer > box button.flat:disabled, infobar.info > revealer > box .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) infobar.info > revealer > box button:disabled, infobar.question > revealer > box button.flat:disabled, infobar.question > revealer > box .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) infobar.question > revealer > box button:disabled, infobar.warning > revealer > box button.flat:disabled, infobar.warning > revealer > box .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) infobar.warning > revealer > box button:disabled, infobar.error > revealer > box button.flat:disabled, infobar.error > revealer > box .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) infobar.error > revealer > box button:disabled, row:selected button.flat:disabled, row:selected .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) row:selected button:disabled, .selection-mode headerbar button.flat:disabled, .selection-mode headerbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .selection-mode headerbar button:disabled, headerbar.selection-mode button.flat:disabled, headerbar.selection-mode .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) headerbar.selection-mode button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled label, .nemo-window .floating-bar button.flat:disabled label, .nemo-window .floating-bar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) .nemo-window .floating-bar button:disabled label, .nautilus-window .floating-bar button.flat:disabled label, .nautilus-window .floating-bar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) .nautilus-window .floating-bar button:disabled label, infobar.info > revealer > box button.flat:disabled label, infobar.info > revealer > box .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) infobar.info > revealer > box button:disabled label, infobar.question > revealer > box button.flat:disabled label, infobar.question > revealer > box .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) infobar.question > revealer > box button:disabled label, infobar.warning > revealer > box button.flat:disabled label, infobar.warning > revealer > box .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) infobar.warning > revealer > box button:disabled label, infobar.error > revealer > box button.flat:disabled label, infobar.error > revealer > box .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) infobar.error > revealer > box button:disabled label, row:selected button.flat:disabled label, row:selected .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) row:selected button:disabled label, .selection-mode headerbar button.flat:disabled label, .selection-mode headerbar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) .selection-mode headerbar button:disabled label, headerbar.selection-mode button.flat:disabled label, headerbar.selection-mode .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) headerbar.selection-mode button:disabled label {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:hover, .nemo-window .floating-bar button:hover, .nautilus-window .floating-bar button:hover, infobar.info > revealer > box button:hover, infobar.question > revealer > box button:hover, infobar.warning > revealer > box button:hover, infobar.error > revealer > box button:hover, row:selected button:hover, .selection-mode headerbar button:hover, headerbar.selection-mode button:hover {
+  box-shadow: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:active, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active, .nemo-window .floating-bar button:active, .nautilus-window .floating-bar button:active, infobar.info > revealer > box button:active, infobar.question > revealer > box button:active, infobar.warning > revealer > box button:active, infobar.error > revealer > box button:active, row:selected button:active, .selection-mode headerbar button:active, headerbar.selection-mode button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:checked, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:checked, .nemo-window .floating-bar button:checked, .nautilus-window .floating-bar button:checked, infobar.info > revealer > box button:checked, infobar.question > revealer > box button:checked, infobar.warning > revealer > box button:checked, infobar.error > revealer > box button:checked, row:selected button:checked, .selection-mode headerbar button:checked, headerbar.selection-mode button:checked {
+  box-shadow: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled, .nemo-window .floating-bar button:disabled, .nautilus-window .floating-bar button:disabled, infobar.info > revealer > box button:disabled, infobar.question > revealer > box button:disabled, infobar.warning > revealer > box button:disabled, infobar.error > revealer > box button:disabled, row:selected button:disabled, .selection-mode headerbar button:disabled, headerbar.selection-mode button:disabled {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled, .nemo-window .floating-bar button:disabled, .nautilus-window .floating-bar button:disabled, infobar.info > revealer > box button:disabled, infobar.question > revealer > box button:disabled, infobar.warning > revealer > box button:disabled, infobar.error > revealer > box button:disabled, row:selected button:disabled, .selection-mode headerbar button:disabled, headerbar.selection-mode button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled label, .nemo-window .floating-bar button:disabled label, .nautilus-window .floating-bar button:disabled label, infobar.info > revealer > box button:disabled label, infobar.question > revealer > box button:disabled label, infobar.warning > revealer > box button:disabled label, infobar.error > revealer > box button:disabled label, row:selected button:disabled label, .selection-mode headerbar button:disabled label, headerbar.selection-mode button:disabled label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled:active, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:active, .nemo-window .floating-bar button:disabled:active, .nautilus-window .floating-bar button:disabled:active, infobar.info > revealer > box button:disabled:active, infobar.question > revealer > box button:disabled:active, infobar.warning > revealer > box button:disabled:active, infobar.error > revealer > box button:disabled:active, row:selected button:disabled:active, .selection-mode headerbar button:disabled:active, headerbar.selection-mode button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled:checked, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:checked, .nemo-window .floating-bar button:disabled:checked, .nautilus-window .floating-bar button:disabled:checked, infobar.info > revealer > box button:disabled:checked, infobar.question > revealer > box button:disabled:checked, infobar.warning > revealer > box button:disabled:checked, infobar.error > revealer > box button:disabled:checked, row:selected button:disabled:checked, .selection-mode headerbar button:disabled:checked, headerbar.selection-mode button:disabled:checked {
+  color: #79B757;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 button {
-  min-height: 20px;
+  min-height: 24px;
   min-width: 16px;
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border: 1px solid;
@@ -540,7 +678,7 @@ button.budgie-menu-launcher:checked:hover, button.flat:checked:hover, .raven .ra
   background-image: none;
 }
 
-.budgie-panel button.flat.launcher:disabled, button.budgie-menu-launcher:disabled, button.flat:disabled, .raven .raven-header:not(.top) button:disabled, label:disabled selection.flat {
+.budgie-panel button.flat.launcher:disabled, button.budgie-menu-launcher:disabled, button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -562,12 +700,7 @@ button:hover {
 }
 
 button:active, button:checked {
-  color: white;
-  background-color: #79B757;
-  border-color: rgba(0, 0, 0, 0.15);
-  border-top-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
-  background-image: linear-gradient(0deg, #70b24c 0%, #90c374 100%);
+  background-color: #797979;
   background-clip: padding-box;
   transition-duration: 200ms;
 }
@@ -579,14 +712,6 @@ button:active:not(:disabled) label:disabled, button:checked:not(:disabled) label
 
 button:checked:hover {
   background-image: linear-gradient(0deg, #7fba5e 0%, #9bc982 100%);
-}
-
-button:active {
-  color: #dedede;
-}
-
-button:active:hover, button:checked {
-  color: white;
 }
 
 button:disabled {
@@ -608,6 +733,24 @@ button:disabled:active label, button:disabled:active, button:disabled:checked la
   color: rgba(255, 255, 255, 0.55);
 }
 
+.background button:active, .background button:checked {
+  color: white;
+  background-color: #79B757;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  background-image: linear-gradient(0deg, #70b24c 0%, #90c374 100%);
+}
+
+.background button:disabled, .background button:disabled:active, .background button:disabled:checked {
+  border-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(101, 101, 101, 0.55);
+}
+
+.background button:disabled label, .background button:disabled, .background button:disabled:active label, .background button:disabled:active, .background button:disabled:checked label, .background button:disabled:checked {
+  color: rgba(222, 222, 222, 0.35);
+}
+
 button.image-button {
   min-height: 24px;
   padding-left: 5px;
@@ -615,7 +758,7 @@ button.image-button {
 }
 
 button.text-button {
-  min-height: 20px;
+  min-height: 24px;
   padding-left: 12px;
   padding-right: 12px;
 }
@@ -676,7 +819,7 @@ button.osd:active, button.osd:checked {
   box-shadow: none;
 }
 
-button.osd:disabled, label:disabled selection.osd {
+button.osd:disabled {
   color: #5f5f5f;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(98, 98, 98, 0.81);
@@ -727,7 +870,7 @@ button.osd:disabled, label:disabled selection.osd {
   box-shadow: none;
 }
 
-.osd button.flat:disabled, .osd .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .osd button:disabled, .osd label:disabled selection.flat, label:disabled .osd selection.flat {
+.osd button.flat:disabled, .osd .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .osd button:disabled {
   color: #5f5f5f;
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(98, 98, 98, 0.81);
@@ -780,7 +923,7 @@ button.suggested-action:active, button.suggested-action:checked {
   box-shadow: none;
 }
 
-button.suggested-action.flat:disabled, .raven .raven-header:not(.top) button.suggested-action:disabled, label:disabled selection.flat {
+button.suggested-action.flat:disabled, .raven .raven-header:not(.top) button.suggested-action:disabled {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -788,12 +931,12 @@ button.suggested-action.flat:disabled, .raven .raven-header:not(.top) button.sug
   color: rgba(222, 222, 222, 0.35);
 }
 
-button.suggested-action:disabled, label:disabled selection.suggested-action {
+button.suggested-action:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
 }
 
-button.suggested-action:disabled label, label:disabled selection.suggested-action label, button.suggested-action:disabled, label:disabled selection.suggested-action {
+button.suggested-action:disabled label, button.suggested-action:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -830,7 +973,7 @@ button.destructive-action:active, button.destructive-action:checked {
   box-shadow: none;
 }
 
-button.destructive-action.flat:disabled, .raven .raven-header:not(.top) button.destructive-action:disabled, label:disabled selection.flat {
+button.destructive-action.flat:disabled, .raven .raven-header:not(.top) button.destructive-action:disabled {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -838,12 +981,12 @@ button.destructive-action.flat:disabled, .raven .raven-header:not(.top) button.d
   color: rgba(222, 222, 222, 0.35);
 }
 
-button.destructive-action:disabled, label:disabled selection.destructive-action {
+button.destructive-action:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
 }
 
-button.destructive-action:disabled label, label:disabled selection.destructive-action label, button.destructive-action:disabled, label:disabled selection.destructive-action {
+button.destructive-action:disabled label, button.destructive-action:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -1154,57 +1297,6 @@ headerbar.titlebar .linked:not(.vertical) > button + button {
   border-top-style: none;
 }
 
-.linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl), spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, .linked:not(.vertical) > entry, .linked:not(.vertical) > entry:focus, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > button, toolbar.inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button {
-  border-radius: 0;
-  border-right-style: none;
-}
-
-spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, .linked:not(.vertical) > entry:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > button:first-child, toolbar.inline-toolbar toolbutton > button.flat:first-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:first-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, .linked:not(.vertical) > entry:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > button:last-child, toolbar.inline-toolbar toolbutton > button.flat:last-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:last-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-right-style: solid;
-}
-
-spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, .linked:not(.vertical) > entry:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > button:only-child, toolbar.inline-toolbar toolbutton > button.flat:only-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:only-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:only-child {
-  border-radius: 5px;
-  border-style: solid;
-}
-
-spinbutton.vertical button, spinbutton.vertical entry, .linked.vertical > entry, .linked.vertical > entry:focus, .linked.vertical > button {
-  border-radius: 0;
-  border-bottom-style: none;
-}
-
-spinbutton.vertical button:first-child, spinbutton.vertical entry:first-child, .linked.vertical > entry:first-child, .linked.vertical > button:first-child {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-spinbutton.vertical button:last-child, spinbutton.vertical entry:last-child, .linked.vertical > entry:last-child, .linked.vertical > button:last-child {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-style: solid;
-}
-
-spinbutton.vertical button:only-child, spinbutton.vertical entry:only-child, .linked.vertical > entry:only-child, .linked.vertical > button:only-child {
-  border-radius: 5px;
-  border-style: solid;
-}
-
-calendar.raven-calendar.button, .nemo-window .floating-bar button,
-calendar.button, .app-notification button, notebook > header tabs > tab button.flat:active, notebook > header tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header tabs > tab button:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header tabs > tab button:hover, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, button:link, button:visited, menuitem.button.flat, .raven .raven-header:not(.top) button.button,
-modelbutton.flat {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-}
-
 menuitem.button.flat, .raven .raven-header:not(.top) button.button,
 modelbutton.flat {
   transition: all 100ms cubic-bezier(0, 0, 0.2, 1);
@@ -1221,21 +1313,20 @@ modelbutton.flat:hover {
   transition-duration: 50ms;
 }
 
-menuitem.button.flat:active, .raven .raven-header:not(.top) button.button:active, menuitem.button.flat:active arrow, .raven .raven-header:not(.top) button.button:active arrow, menuitem.button.flat:selected, .raven .raven-header:not(.top) button.button:selected, menuitem.button.flat:selected arrow, .raven .raven-header:not(.top) button.button:selected arrow,
+menuitem.button.flat:active, .raven .raven-header:not(.top) button.button:active, menuitem.button.flat:active arrow, .raven .raven-header:not(.top) button.button:active arrow, menuitem.button.flat:selected, .raven .raven-header:not(.top) button.button:selected, menuitem.button.flat:selected arrow, .raven .raven-header:not(.top) button.button:selected arrow, menuitem.button.flat:checked, .raven .raven-header:not(.top) button.button:checked, menuitem.button.flat:checked arrow, .raven .raven-header:not(.top) button.button:checked arrow,
 modelbutton.flat:active,
 modelbutton.flat:active arrow,
 modelbutton.flat:selected,
-modelbutton.flat:selected arrow {
+modelbutton.flat:selected arrow,
+modelbutton.flat:checked,
+modelbutton.flat:checked arrow {
+  background-color: #79B757;
+  color: white;
   transition: none;
   animation: none;
 }
 
-menuitem.button.flat:checked, .raven .raven-header:not(.top) button.button:checked,
-modelbutton.flat:checked {
-  color: #dedede;
-}
-
-menuitem.button.flat:disabled, .raven .raven-header:not(.top) button.button:disabled, label:disabled selection.flat,
+menuitem.button.flat:disabled, .raven .raven-header:not(.top) button.button:disabled,
 modelbutton.flat:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
@@ -1614,6 +1705,192 @@ actionbar > revealer > box {
 
 .background.csd actionbar > revealer > box {
   border-radius: 0 0 6px 6px;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button:hover, .nemo-window .primary-toolbar .linked.path-bar > button:active, .nemo-window .primary-toolbar .linked.path-bar > button:checked, .nemo-window .primary-toolbar .linked.path-bar > button:disabled, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar .linked.raised > button, headerbar .linked:not(.vertical) > entry, headerbar .linked:not(.vertical) > entry:focus, headerbar .linked:not(.vertical) > entry:disabled, headerbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled {
+  border-radius: 0;
+  border-left-style: none;
+  border-right-style: solid;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button:first-child, .nemo-window .primary-toolbar .linked.raised > button:first-child, headerbar .linked:not(.vertical) > entry:first-child, headerbar .linked:not(.vertical) > button:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-left-style: solid;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button:last-child, .nemo-window .primary-toolbar .linked.raised > button:last-child, headerbar .linked:not(.vertical) > entry:last-child, headerbar .linked:not(.vertical) > button:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.nemo-window .primary-toolbar .linked.path-bar > button:only-child, .nemo-window .primary-toolbar .linked.raised > button:only-child, headerbar .linked:not(.vertical) > entry:only-child, headerbar .linked:not(.vertical) > button:only-child {
+  border-radius: 5px;
+  border-style: solid;
+}
+
+headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) separator {
+  min-width: 0;
+  min-height: 0;
+  background: none;
+  border: none;
+}
+
+.nemo-window .primary-toolbar entry, headerbar entry {
+  color: #FDFDFD;
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  box-shadow: inset 0 1px #767676;
+  border-radius: 7px;
+  border: 3px solid transparent;
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  background-clip: padding-box;
+  border-image-source: -gtk-scaled(url("assets/header-entry.png"), url("assets/header-entry@2.png"));
+}
+
+.nemo-window .primary-toolbar entry image, headerbar entry image, headerbar entry image:hover {
+  color: inherit;
+}
+
+.nemo-window .primary-toolbar entry:backdrop, headerbar entry:backdrop {
+  opacity: 0.65;
+  background-image: none;
+}
+
+.nemo-window .primary-toolbar entry:focus, headerbar entry:focus {
+  background-image: none;
+  background-color: #242424;
+  box-shadow: inset 0 1px transparent;
+  box-shadow: none;
+  border-radius: 7px;
+  border-image-source: -gtk-scaled(url("assets/entry-focus-dark.png"), url("assets/entry-focus-dark@2.png"));
+}
+
+.nemo-window .primary-toolbar entry:disabled, headerbar entry:disabled {
+  color: rgba(253, 253, 253, 0.35);
+  background-color: #5d5d5d;
+  box-shadow: inset 0 1px #767676;
+  border-radius: 7px;
+  border: 3px solid transparent;
+  border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"), url("assets/header-entry-disabled@2.png"));
+}
+
+.nemo-window .primary-toolbar entry selection:focus, headerbar entry selection:focus {
+  background-color: #79B757;
+  color: white;
+}
+
+.nemo-window .primary-toolbar entry progress, headerbar entry progress {
+  border-color: #79B757;
+  background-image: none;
+  background-color: transparent;
+}
+
+.nemo-window .primary-toolbar entry.warning, headerbar entry.warning {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: #a75e36;
+}
+
+.nemo-window .primary-toolbar entry.warning:focus, headerbar entry.warning:focus {
+  color: white;
+  background-color: #F27835;
+}
+
+.nemo-window .primary-toolbar entry.warning selection, headerbar entry.warning selection {
+  background-color: white;
+  color: #F27835;
+}
+
+.nemo-window .primary-toolbar entry.error, headerbar entry.error {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.12);
+  background-color: #ad3d38;
+}
+
+.nemo-window .primary-toolbar entry.error:focus, headerbar entry.error:focus {
+  color: white;
+  background-color: #FC4138;
+}
+
+.nemo-window .primary-toolbar entry.error selection, headerbar entry.error selection {
+  background-color: white;
+  color: #FC4138;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button, headerbar button {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #FDFDFD;
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  border: none;
+  box-shadow: inset 0 1px #767676;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:backdrop:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:backdrop:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:backdrop:not(.image-button), .nemo-window .primary-toolbar button:backdrop, headerbar button:backdrop {
+  opacity: 0.65;
+  background-image: none;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:hover:not(.image-button), .nemo-window .primary-toolbar button:hover, headerbar button:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f8f8f8;
+  background-color: #777777;
+  background-image: linear-gradient(0deg, #707070 0%, #767676 100%);
+  box-shadow: inset 0 1px #868686;
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window .primary-toolbar button:active, headerbar button:active {
+  color: white;
+  background-color: #909090;
+  background-image: none;
+  border-color: rgba(255, 255, 255, 0.12);
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 300ms;
+  background-clip: padding-box;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover, headerbar button:active:hover {
+  background-image: none;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked, headerbar button:checked {
+  color: #333333;
+  background-color: #aaaaaa;
+  background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px #cecece;
+  background-clip: padding-box;
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 300ms;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover, headerbar button:checked:hover {
+  background-image: none;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled, headerbar button:disabled {
+  background-color: #5d5d5d;
+  box-shadow: inset 0 1px #767676;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:disabled label, headerbar button:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled, headerbar button:disabled {
+  color: rgba(253, 253, 253, 0.35);
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:active:not(.image-button), .nemo-window .primary-toolbar button:disabled:active, headerbar button:disabled:active, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:checked:not(.image-button), .nemo-window .primary-toolbar button:disabled:checked, headerbar button:disabled:checked {
+  color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(144, 144, 144, 0.55);
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button.flat, .nemo-window .primary-toolbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nemo-window .primary-toolbar button, headerbar button.flat, headerbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) headerbar button {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
 }
 
 headerbar {
@@ -2026,192 +2303,6 @@ headerbar entry, .titlebar entry {
   border-radius: 7px;
 }
 
-.nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button:hover, .nemo-window .primary-toolbar .linked.path-bar > button:active, .nemo-window .primary-toolbar .linked.path-bar > button:checked, .nemo-window .primary-toolbar .linked.path-bar > button:disabled, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar label:disabled .linked.path-bar > selection.image-button, label:disabled .nemo-window .primary-toolbar .linked.path-bar > selection.image-button, .nemo-window .primary-toolbar .linked.raised > button, headerbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled, headerbar .linked:not(.vertical) > entry, headerbar .linked:not(.vertical) > entry:focus, headerbar .linked:not(.vertical) > entry:disabled {
-  border-radius: 0;
-  border-left-style: none;
-  border-right-style: solid;
-}
-
-.nemo-window .primary-toolbar .linked.path-bar > button:first-child, .nemo-window .primary-toolbar label:disabled .linked.path-bar > selection.image-button:first-child, label:disabled .nemo-window .primary-toolbar .linked.path-bar > selection.image-button:first-child, .nemo-window .primary-toolbar .linked.raised > button:first-child, headerbar .linked:not(.vertical) > button:first-child, headerbar .linked:not(.vertical) > entry:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-left-style: solid;
-}
-
-.nemo-window .primary-toolbar .linked.path-bar > button:last-child, .nemo-window .primary-toolbar label:disabled .linked.path-bar > selection.image-button:last-child, label:disabled .nemo-window .primary-toolbar .linked.path-bar > selection.image-button:last-child, .nemo-window .primary-toolbar .linked.raised > button:last-child, headerbar .linked:not(.vertical) > button:last-child, headerbar .linked:not(.vertical) > entry:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.nemo-window .primary-toolbar .linked.path-bar > button:only-child, .nemo-window .primary-toolbar label:disabled .linked.path-bar > selection.image-button:only-child, label:disabled .nemo-window .primary-toolbar .linked.path-bar > selection.image-button:only-child, .nemo-window .primary-toolbar .linked.raised > button:only-child, headerbar .linked:not(.vertical) > button:only-child, headerbar .linked:not(.vertical) > entry:only-child {
-  border-radius: 5px;
-  border-style: solid;
-}
-
-.primary-toolbar:not(.libreoffice-toolbar) separator, headerbar separator.titlebutton {
-  min-width: 0;
-  min-height: 0;
-  background: none;
-  border: none;
-}
-
-.nemo-window .primary-toolbar entry, headerbar entry {
-  color: #FDFDFD;
-  background-color: #5d5d5d;
-  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
-  box-shadow: inset 0 1px #767676;
-  border-radius: 7px;
-  border: 3px solid transparent;
-  border-image-width: 6px 6px 6px 6px;
-  border-image-slice: 6 6 6 6;
-  border-image-repeat: stretch;
-  background-clip: padding-box;
-  border-image-source: -gtk-scaled(url("assets/header-entry.png"), url("assets/header-entry@2.png"));
-}
-
-.nemo-window .primary-toolbar entry image, headerbar entry image, headerbar entry image:hover {
-  color: inherit;
-}
-
-.nemo-window .primary-toolbar entry:backdrop, headerbar entry:backdrop {
-  opacity: 0.65;
-  background-image: none;
-}
-
-.nemo-window .primary-toolbar entry:focus, headerbar entry:focus {
-  background-image: none;
-  background-color: #242424;
-  box-shadow: inset 0 1px transparent;
-  box-shadow: none;
-  border-radius: 7px;
-  border-image-source: -gtk-scaled(url("assets/entry-focus-dark.png"), url("assets/entry-focus-dark@2.png"));
-}
-
-.nemo-window .primary-toolbar entry:disabled {
-  color: rgba(253, 253, 253, 0.35);
-  background-color: #5d5d5d;
-  box-shadow: inset 0 1px #767676;
-  border-radius: 7px;
-  border: 3px solid transparent;
-  border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"), url("assets/header-entry-disabled@2.png"));
-}
-
-.nemo-window .primary-toolbar entry selection:focus, headerbar entry selection:focus {
-  background-color: #79B757;
-  color: white;
-}
-
-.nemo-window .primary-toolbar entry progress, headerbar entry progress {
-  border-color: #79B757;
-  background-image: none;
-  background-color: transparent;
-}
-
-.nemo-window .primary-toolbar entry.warning, headerbar entry.warning {
-  color: white;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: #a75e36;
-}
-
-.nemo-window .primary-toolbar entry.warning:focus, headerbar entry.warning:focus {
-  color: white;
-  background-color: #F27835;
-}
-
-.nemo-window .primary-toolbar entry.warning selection, headerbar entry.warning selection {
-  background-color: white;
-  color: #F27835;
-}
-
-.nemo-window .primary-toolbar entry.error, headerbar entry.error {
-  color: white;
-  border-color: rgba(255, 255, 255, 0.12);
-  background-color: #ad3d38;
-}
-
-.nemo-window .primary-toolbar entry.error:focus, headerbar entry.error:focus {
-  color: white;
-  background-color: #FC4138;
-}
-
-.nemo-window .primary-toolbar entry.error selection, headerbar entry.error selection {
-  background-color: white;
-  color: #FC4138;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button, headerbar button {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #FDFDFD;
-  background-color: #5d5d5d;
-  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
-  border: none;
-  box-shadow: inset 0 1px #767676;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:backdrop:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:backdrop:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:backdrop:not(.image-button), .nemo-window .primary-toolbar button:backdrop, headerbar button:backdrop {
-  opacity: 0.65;
-  background-image: none;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:hover:not(.image-button), .nemo-window .primary-toolbar button:hover, headerbar button:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #f8f8f8;
-  background-color: #777777;
-  background-image: linear-gradient(0deg, #707070 0%, #767676 100%);
-  box-shadow: inset 0 1px #868686;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window .primary-toolbar button:active, headerbar button:active {
-  color: white;
-  background-color: #909090;
-  background-image: none;
-  border-color: rgba(255, 255, 255, 0.12);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-duration: 300ms;
-  background-clip: padding-box;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover, headerbar button:active:hover {
-  background-image: none;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked, headerbar button:checked {
-  color: #333333;
-  background-color: #aaaaaa;
-  background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px #cecece;
-  background-clip: padding-box;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition-duration: 300ms;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover, headerbar button:checked:hover {
-  background-image: none;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
-  background-color: #5d5d5d;
-  box-shadow: inset 0 1px #767676;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
-  color: rgba(253, 253, 253, 0.35);
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:active:not(.image-button), .nemo-window .primary-toolbar button:disabled:active, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:checked:not(.image-button), .nemo-window .primary-toolbar button:disabled:checked {
-  color: rgba(255, 255, 255, 0.35);
-  background-color: rgba(144, 144, 144, 0.55);
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button.flat, .nemo-window .primary-toolbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nemo-window .primary-toolbar button, headerbar button.flat, headerbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) headerbar button {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-}
-
 .path-bar button {
   min-width: 12px;
   min-height: 22px;
@@ -2286,11 +2377,11 @@ treeview.view:selected, treeview.view:selected:focus {
   border-top-color: rgba(222, 222, 222, 0.15);
 }
 
-treeview.view:disabled, label:disabled selection.view {
+treeview.view:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
-treeview.view:disabled:selected, label:disabled selection.view:selected {
+treeview.view:disabled:selected {
   color: #afd49a;
 }
 
@@ -2692,10 +2783,6 @@ notebook {
   padding: 0;
 }
 
-notebook.frame {
-  border: 1px solid #474747;
-}
-
 notebook.frame > header.top tabs > tab:first-child, notebook.frame > header.bottom tabs > tab:first-child {
   border-left-style: none;
 }
@@ -2712,6 +2799,10 @@ notebook.frame > header.left tabs > tab:last-child, notebook.frame > header.righ
   border-bottom-style: solid;
 }
 
+.background notebook.frame {
+  border: 1px solid #474747;
+}
+
 notebook > stack:not(:only-child) {
   background-color: #242424;
 }
@@ -2720,14 +2811,40 @@ notebook:not(.frame), notebook:not(.frame) > stack {
   border-radius: 0 0 6px 6px;
 }
 
-notebook > header {
-  padding: 0;
+.background.csd notebook > header {
   background-color: #1e1e1e;
 }
 
-notebook > header.top {
+.background.csd notebook > header.top {
   box-shadow: inset 0 1px #474747, inset 0 -1px rgba(255, 255, 255, 0.12);
+  border-bottom: none;
   margin-top: -1px;
+}
+
+.background.csd notebook > header.top tabs > tab {
+  margin: 0 0 0 0;
+}
+
+.background.csd notebook > header.top tabs > tab + tab {
+  margin: 0 0 0 -1px;
+}
+
+.background.csd notebook > header tabs > tab:checked {
+  background-color: #373737;
+}
+
+notebook > header {
+  padding: 0;
+  background-color: #373737;
+}
+
+notebook > header.top {
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+notebook > header.top tabs > tab {
+  margin: -2px -1px 0 -1px;
 }
 
 notebook > header.bottom {
@@ -2757,6 +2874,7 @@ notebook > header button.flat.toggle.popup, notebook > header .raven .raven-head
 notebook > header button.flat.toggle.popup:active, notebook > header .raven .raven-header:not(.top) button.toggle.popup:active, .raven .raven-header:not(.top) notebook > header button.toggle.popup:active, notebook > header button.flat.toggle.popup:checked, notebook > header .raven .raven-header:not(.top) button.toggle.popup:checked, .raven .raven-header:not(.top) notebook > header button.toggle.popup:checked {
   color: #dedede;
   background-color: rgba(255, 255, 255, 0.15);
+  background-image: none;
 }
 
 notebook > header.top {
@@ -2894,7 +3012,7 @@ notebook > header tabs > tab {
   transition: all 150ms ease-out;
 }
 
-notebook > header tabs > tab:hover:not(:checked) {
+notebook > header tabs > tab:hover {
   color: rgba(222, 222, 222, 0.675);
   background-color: rgba(255, 255, 255, 0.05);
   border-color: #444444;
@@ -2902,7 +3020,7 @@ notebook > header tabs > tab:hover:not(:checked) {
 
 notebook > header tabs > tab:checked {
   color: #dedede;
-  background-color: #373737;
+  background-color: rgba(255, 255, 255, 0.15);
   border-color: #444444;
 }
 
@@ -3056,7 +3174,7 @@ switch:checked {
   background-image: linear-gradient(0deg, #95c67b 0%, #79B757 100%), radial-gradient(circle farthest-corner at center, rgba(121, 183, 87, 0.75) 100%, transparent 0%);
 }
 
-switch:checked:disabled, label:disabled selection:checked {
+switch:checked:disabled {
   background-color: transparent;
   background-image: linear-gradient(0deg, #ddedd4 0%, #c0ddb0 100%);
   color: transparent;
@@ -3082,7 +3200,7 @@ switch:checked slider {
   background-color: white;
 }
 
-switch:checked:disabled slider, label:disabled selection:checked slider {
+switch:checked:disabled slider {
   animation: none;
 }
 
@@ -3100,7 +3218,7 @@ infobar check {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-selected.png"), url("assets/checkbox-unchecked-selected@2.png"));
 }
 
-.check:disabled, label:disabled selection.check,
+.check:disabled,
 check:disabled,
 treeview.check:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive-dark.png"), url("assets/checkbox-unchecked-insensitive-dark@2.png"));
@@ -3128,17 +3246,17 @@ infobar check:indeterminate {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-selected.png"), url("assets/checkbox-mixed-selected@2.png"));
 }
 
-.check:indeterminate:disabled, label:disabled selection:indeterminate,
+.check:indeterminate:disabled,
 check:indeterminate:disabled,
 treeview.check:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png"));
 }
 
-.osd check:indeterminate:disabled, .osd label:disabled selection:indeterminate, label:disabled .osd selection:indeterminate {
+.osd check:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-dark.png"), url("assets/checkbox-mixed-insensitive-dark@2.png"));
 }
 
-infobar check:indeterminate:disabled, infobar label:disabled selection:indeterminate, label:disabled infobar selection:indeterminate {
+infobar check:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive-selected.png"), url("assets/checkbox-mixed-insensitive-selected@2.png"));
 }
 
@@ -3156,17 +3274,17 @@ infobar check:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-selected.png"), url("assets/checkbox-checked-selected@2.png"));
 }
 
-.check:checked:disabled, label:disabled selection:checked,
+.check:checked:disabled,
 check:checked:disabled,
 treeview.check:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png"));
 }
 
-.osd check:checked:disabled, .osd label:disabled selection:checked, label:disabled .osd selection:checked {
+.osd check:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-dark.png"), url("assets/checkbox-checked-insensitive-dark@2.png"));
 }
 
-infobar check:checked:disabled, infobar label:disabled selection:checked, label:disabled infobar selection:checked {
+infobar check:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive-selected.png"), url("assets/checkbox-checked-insensitive-selected@2.png"));
 }
 
@@ -3184,7 +3302,7 @@ infobar radio {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-selected.png"), url("assets/radio-unchecked-selected@2.png"));
 }
 
-.radio:disabled, label:disabled selection.radio,
+.radio:disabled,
 radio:disabled,
 treeview.radio:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-unchecked-insensitive-dark.png"), url("assets/radio-unchecked-insensitive-dark@2.png"));
@@ -3212,17 +3330,17 @@ infobar radio:indeterminate {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-selected.png"), url("assets/radio-mixed-selected@2.png"));
 }
 
-.radio:indeterminate:disabled, label:disabled selection:indeterminate,
+.radio:indeterminate:disabled,
 radio:indeterminate:disabled,
 treeview.radio:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png"));
 }
 
-.osd radio:indeterminate:disabled, .osd label:disabled selection:indeterminate, label:disabled .osd selection:indeterminate {
+.osd radio:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-dark.png"), url("assets/radio-mixed-insensitive-dark@2.png"));
 }
 
-infobar radio:indeterminate:disabled, infobar label:disabled selection:indeterminate, label:disabled infobar selection:indeterminate {
+infobar radio:indeterminate:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive-selected.png"), url("assets/radio-mixed-insensitive-selected@2.png"));
 }
 
@@ -3240,17 +3358,17 @@ infobar radio:checked {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-selected.png"), url("assets/radio-checked-selected@2.png"));
 }
 
-.radio:checked:disabled, label:disabled selection:checked,
+.radio:checked:disabled,
 radio:checked:disabled,
 treeview.radio:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png"));
 }
 
-.osd radio:checked:disabled, .osd label:disabled selection:checked, label:disabled .osd selection:checked {
+.osd radio:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-dark.png"), url("assets/radio-checked-insensitive-dark@2.png"));
 }
 
-infobar radio:checked:disabled, infobar label:disabled selection:checked, label:disabled infobar selection:checked {
+infobar radio:checked:disabled {
   -gtk-icon-source: -gtk-scaled(url("assets/radio-checked-insensitive-selected.png"), url("assets/radio-checked-insensitive-selected@2.png"));
 }
 
@@ -3273,7 +3391,7 @@ checkbutton.text-button:hover, radiobutton.text-button:hover {
   color: #b8b8b8;
 }
 
-checkbutton.text-button:disabled, label:disabled selection.text-button, radiobutton.text-button:disabled {
+checkbutton.text-button:disabled, radiobutton.text-button:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -4173,7 +4291,7 @@ calendar.button:hover {
   color: #dedede;
 }
 
-label:disabled selection.button,
+
 calendar.button:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
@@ -4269,7 +4387,7 @@ filechooser box#pathbarbox.view stack entry.search, filechooser box#pathbarbox.v
   background-color: #1f1f1f;
 }
 
-filechooser box#pathbarbox.view stack entry.search:disabled, filechooser box#pathbarbox.view stack label:disabled selection.search, label:disabled filechooser box#pathbarbox.view stack selection.search {
+filechooser box#pathbarbox.view stack entry.search:disabled {
   background-color: rgba(31, 31, 31, 0.55);
 }
 
@@ -4563,59 +4681,6 @@ infobar.info > revealer > box selection, infobar.question > revealer > box selec
   background-color: white;
 }
 
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .nemo-window .floating-bar button, .nautilus-window .floating-bar button, .selection-mode headerbar button, headerbar.selection-mode button, row:selected button, infobar.info > revealer > box button, infobar.question > revealer > box button, infobar.warning > revealer > box button, infobar.error > revealer > box button {
-  color: white;
-  background-color: rgba(255, 255, 255, 0);
-  border-color: rgba(255, 255, 255, 0.5);
-  background-image: none;
-  box-shadow: none;
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button.flat, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris .raven-header:not(.top) button.image-button, .nemo-window .floating-bar button.flat, .nemo-window .floating-bar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nemo-window .floating-bar button, .nautilus-window .floating-bar button.flat, .nautilus-window .floating-bar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nautilus-window .floating-bar button, .selection-mode headerbar button.flat, .selection-mode headerbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .selection-mode headerbar button, headerbar.selection-mode button.flat, headerbar.selection-mode .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) headerbar.selection-mode button, row:selected button.flat, row:selected .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) row:selected button, infobar.info > revealer > box button.flat, infobar.info > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.info > revealer > box button, infobar.question > revealer > box button.flat, infobar.question > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.question > revealer > box button, infobar.warning > revealer > box button.flat, infobar.warning > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.warning > revealer > box button, infobar.error > revealer > box button.flat, infobar.error > revealer > box .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) infobar.error > revealer > box button {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0);
-  background-image: none;
-  box-shadow: none;
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled, .nemo-window .floating-bar button.flat:disabled, .nemo-window .floating-bar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .nemo-window .floating-bar button:disabled, .nautilus-window .floating-bar button.flat:disabled, .nautilus-window .floating-bar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) .nautilus-window .floating-bar button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.flat.image-button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled label, .nemo-window .floating-bar button.flat:disabled label, .nemo-window .floating-bar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) .nemo-window .floating-bar button:disabled label, .nautilus-window .floating-bar button.flat:disabled label, .nautilus-window .floating-bar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) .nautilus-window .floating-bar button:disabled label {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:hover, .nemo-window .floating-bar button:hover, .nautilus-window .floating-bar button:hover, .selection-mode headerbar button:hover, headerbar.selection-mode button:hover, row:selected button:hover, infobar.info > revealer > box button:hover, infobar.question > revealer > box button:hover, infobar.warning > revealer > box button:hover, infobar.error > revealer > box button:hover {
-  box-shadow: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:active, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:active, .nemo-window .floating-bar button:active, .nautilus-window .floating-bar button:active, .selection-mode headerbar button:active, headerbar.selection-mode button:active, row:selected button:active, infobar.info > revealer > box button:active, infobar.question > revealer > box button:active, infobar.warning > revealer > box button:active, infobar.error > revealer > box button:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:active:hover, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:checked, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:checked, .nemo-window .floating-bar button:checked, .nautilus-window .floating-bar button:checked, .selection-mode headerbar button:checked, headerbar.selection-mode button:checked, row:selected button:checked, infobar.info > revealer > box button:checked, infobar.question > revealer > box button:checked, infobar.warning > revealer > box button:checked, infobar.error > revealer > box button:checked {
-  box-shadow: none;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.4);
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled, .nemo-window .floating-bar button:disabled, .nautilus-window .floating-bar button:disabled {
-  background-color: rgba(255, 255, 255, 0);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: none;
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled, .nemo-window .floating-bar button:disabled, .nautilus-window .floating-bar button:disabled, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled label, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled label, .nemo-window .floating-bar button:disabled label, .nautilus-window .floating-bar button:disabled label {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled:active, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:active, .nemo-window .floating-bar button:disabled:active, .nautilus-window .floating-bar button:disabled:active, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button:disabled:checked, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button:disabled:checked, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button:disabled:checked, .nemo-window .floating-bar button:disabled:checked, .nautilus-window .floating-bar button:disabled:checked {
-  color: #79B757;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
 tooltip {
   border-radius: 5px;
   box-shadow: none;
@@ -4780,16 +4845,6 @@ colorchooser .popover.osd {
 
 .monospace {
   font-family: Monospace;
-}
-
-.raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button, .raven button.image-button, button.nautilus-circular-button.image-button, stackswitcher button.circular,
-stackswitcher button.text-button.circular, button.close, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, row button.circular, .app-notification button.image-button:not(.text-button),
-button.circular {
-  border-radius: 100px;
-  -gtk-outline-radius: 100px;
-  padding: 0 0 0 0;
-  min-height: 28px;
-  min-width: 28px;
 }
 
 .keycap {
@@ -5047,26 +5102,6 @@ headerbar button.titlebutton.restore:active,
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active-dark.png"), url("windows-assets/titlebutton-restore-active-dark@2.png"));
 }
 
-.budgie-menu button:checked, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:selected:focus,
-#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection, .nemo-window .nemo-window-pane widget.entry:selected:focus, .nemo-window .nemo-window-pane widget.entry:selected, window.background.csd > paned.horizontal > scrolledwindow > viewport.frame > box.vertical treeview.view:selected:focus, .view:selected:focus, textview text selection:focus, textview text selection, iconview:selected:focus, flowbox flowboxchild:selected, label:disabled selection, entry selection:focus, entry selection, menuitem.button.flat:active, .raven .raven-header:not(.top) button.button:active, menuitem.button.flat:active arrow, .raven .raven-header:not(.top) button.button:active arrow, menuitem.button.flat:selected, .raven .raven-header:not(.top) button.button:selected, menuitem.button.flat:selected arrow, .raven .raven-header:not(.top) button.button:selected arrow,
-modelbutton.flat:active,
-modelbutton.flat:active arrow,
-modelbutton.flat:selected,
-modelbutton.flat:selected arrow, treeview.view:selected, treeview.view:selected:focus, row:selected,
-calendar:selected {
-  background-color: #79B757;
-  color: white;
-}
-
-.budgie-menu button:disabled:checked, #MozillaGtkWidget.background > widget > scrolledwindow > textview text:disabled:selected,
-#MozillaGtkWidget.background > widget > scrolledwindow > textview text selection:disabled, .nemo-window .nemo-window-pane widget.entry:disabled:selected {
-  color: #bcdbab;
-}
-
-row:selected label, label:selected {
-  color: white;
-}
-
 /*********
  * Emoji *
  *********/
@@ -5202,7 +5237,7 @@ window.background.csd > box.vertical > box.horizontal > stack > widget > noteboo
   background-image: none;
 }
 
-.nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:hover, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:active, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:checked, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:disabled, .nautilus-window headerbar label:disabled .linked.raised:not(.path-bar) > selection.image-button, label:disabled .nautilus-window headerbar .linked.raised:not(.path-bar) > selection.image-button {
+.nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:hover, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:active, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:checked, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button:disabled {
   border-radius: 5px;
   margin-right: 1px;
   border-right: none;
@@ -5527,26 +5562,14 @@ filechooser placessidebar.sidebar row.sidebar-row.has-open-popup,
 filechooser placessidebar.sidebar row.sidebar-row.has-open-popup label,
 filechooser placessidebar.sidebar row.sidebar-row.has-open-popup image,
 filechooser placessidebar.sidebar row.sidebar-row:disabled,
-filechooser placessidebar.sidebar label:disabled selection.sidebar-row,
-label:disabled filechooser placessidebar.sidebar selection.sidebar-row,
 filechooser placessidebar.sidebar row.sidebar-row:disabled label,
-filechooser placessidebar.sidebar label:disabled selection.sidebar-row label,
-label:disabled filechooser placessidebar.sidebar selection.sidebar-row label,
 filechooser placessidebar.sidebar row.sidebar-row:disabled image,
-filechooser placessidebar.sidebar label:disabled selection.sidebar-row image,
-label:disabled filechooser placessidebar.sidebar selection.sidebar-row image,
 .nautilus-window placessidebar.sidebar row.sidebar-row.has-open-popup,
 .nautilus-window placessidebar.sidebar row.sidebar-row.has-open-popup label,
 .nautilus-window placessidebar.sidebar row.sidebar-row.has-open-popup image,
 .nautilus-window placessidebar.sidebar row.sidebar-row:disabled,
-.nautilus-window placessidebar.sidebar label:disabled selection.sidebar-row,
-label:disabled .nautilus-window placessidebar.sidebar selection.sidebar-row,
 .nautilus-window placessidebar.sidebar row.sidebar-row:disabled label,
-.nautilus-window placessidebar.sidebar label:disabled selection.sidebar-row label,
-label:disabled .nautilus-window placessidebar.sidebar selection.sidebar-row label,
-.nautilus-window placessidebar.sidebar row.sidebar-row:disabled image,
-.nautilus-window placessidebar.sidebar label:disabled selection.sidebar-row image,
-label:disabled .nautilus-window placessidebar.sidebar selection.sidebar-row image {
+.nautilus-window placessidebar.sidebar row.sidebar-row:disabled image {
   color: rgba(218, 218, 218, 0.4);
 }
 
@@ -6936,7 +6959,7 @@ notebook > box > stack > box.vertical > paned.vertical > overlay > .floating-bar
   box-shadow: inset 0 1px transparent;
 }
 
-.background headerbar entry.starred:disabled, .background headerbar label:disabled selection.starred, label:disabled .background headerbar selection.starred, .background headerbar entry.non-starred:disabled, .background headerbar label:disabled selection.non-starred, label:disabled .background headerbar selection.non-starred {
+.background headerbar entry.starred:disabled, .background headerbar entry.non-starred:disabled {
   color: rgba(253, 253, 253, 0.35);
   background-color: #5d5d5d;
   box-shadow: inset 0 1px #767676;
@@ -7591,38 +7614,38 @@ window.thunar toolbar#location-toolbar button.flat:active:hover, window.thunar t
   background-image: none;
 }
 
-window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled, window.thunar toolbar#location-toolbar label:disabled selection.flat, label:disabled window.thunar toolbar#location-toolbar selection.flat {
+window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled {
   background-color: #5d5d5d;
   box-shadow: inset 0 1px #767676;
 }
 
-window.thunar toolbar#location-toolbar button.flat:disabled label, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled label, window.thunar toolbar#location-toolbar label:disabled selection.flat label, label:disabled window.thunar toolbar#location-toolbar selection.flat label, window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled, window.thunar toolbar#location-toolbar label:disabled selection.flat, label:disabled window.thunar toolbar#location-toolbar selection.flat {
+window.thunar toolbar#location-toolbar button.flat:disabled label, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled label, window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled {
   color: rgba(253, 253, 253, 0.35);
 }
 
-window.thunar toolbar#location-toolbar button.flat:disabled:active, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:active, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:active, window.thunar toolbar#location-toolbar label:disabled selection.flat:active, label:disabled window.thunar toolbar#location-toolbar selection.flat:active, window.thunar toolbar#location-toolbar button.flat:disabled:checked, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:checked, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:checked, window.thunar toolbar#location-toolbar label:disabled selection.flat:checked, label:disabled window.thunar toolbar#location-toolbar selection.flat:checked {
+window.thunar toolbar#location-toolbar button.flat:disabled:active, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:active, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:active, window.thunar toolbar#location-toolbar button.flat:disabled:checked, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:checked, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:checked {
   color: rgba(255, 255, 255, 0.35);
   background-color: rgba(144, 144, 144, 0.55);
 }
 
-window.thunar toolbar#location-toolbar button.flat, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button, window.thunar toolbar#location-toolbar button.flat:hover, window.thunar toolbar#location-toolbar button.flat:active, window.thunar toolbar#location-toolbar button.flat:checked, window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar label:disabled selection.flat, label:disabled window.thunar toolbar#location-toolbar selection.flat {
+window.thunar toolbar#location-toolbar button.flat, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button, window.thunar toolbar#location-toolbar button.flat:hover, window.thunar toolbar#location-toolbar button.flat:active, window.thunar toolbar#location-toolbar button.flat:checked, window.thunar toolbar#location-toolbar button.flat:disabled {
   border-radius: 0;
   border-left-style: none;
   border-right-style: solid;
 }
 
-window.thunar toolbar#location-toolbar button.flat:first-child, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:first-child, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:first-child, window.thunar toolbar#location-toolbar button.flat:hover:first-child, window.thunar toolbar#location-toolbar button.flat:active:first-child, window.thunar toolbar#location-toolbar button.flat:checked:first-child, window.thunar toolbar#location-toolbar button.flat:disabled:first-child, window.thunar toolbar#location-toolbar label:disabled selection.flat:first-child, label:disabled window.thunar toolbar#location-toolbar selection.flat:first-child {
+window.thunar toolbar#location-toolbar button.flat:first-child, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:first-child, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:first-child, window.thunar toolbar#location-toolbar button.flat:hover:first-child, window.thunar toolbar#location-toolbar button.flat:active:first-child, window.thunar toolbar#location-toolbar button.flat:checked:first-child, window.thunar toolbar#location-toolbar button.flat:disabled:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-left-style: solid;
 }
 
-window.thunar toolbar#location-toolbar button.flat:last-child, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:last-child, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:last-child, window.thunar toolbar#location-toolbar button.flat:hover:last-child, window.thunar toolbar#location-toolbar button.flat:active:last-child, window.thunar toolbar#location-toolbar button.flat:checked:last-child, window.thunar toolbar#location-toolbar button.flat:disabled:last-child, window.thunar toolbar#location-toolbar label:disabled selection.flat:last-child, label:disabled window.thunar toolbar#location-toolbar selection.flat:last-child {
+window.thunar toolbar#location-toolbar button.flat:last-child, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:last-child, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:last-child, window.thunar toolbar#location-toolbar button.flat:hover:last-child, window.thunar toolbar#location-toolbar button.flat:active:last-child, window.thunar toolbar#location-toolbar button.flat:checked:last-child, window.thunar toolbar#location-toolbar button.flat:disabled:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-window.thunar toolbar#location-toolbar button.flat:only-child, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:only-child, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:only-child, window.thunar toolbar#location-toolbar button.flat:hover:only-child, window.thunar toolbar#location-toolbar button.flat:active:only-child, window.thunar toolbar#location-toolbar button.flat:checked:only-child, window.thunar toolbar#location-toolbar button.flat:disabled:only-child, window.thunar toolbar#location-toolbar label:disabled selection.flat:only-child, label:disabled window.thunar toolbar#location-toolbar selection.flat:only-child {
+window.thunar toolbar#location-toolbar button.flat:only-child, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:only-child, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:only-child, window.thunar toolbar#location-toolbar button.flat:hover:only-child, window.thunar toolbar#location-toolbar button.flat:active:only-child, window.thunar toolbar#location-toolbar button.flat:checked:only-child, window.thunar toolbar#location-toolbar button.flat:disabled:only-child {
   border-radius: 5px;
   border-style: solid;
 }
@@ -7691,6 +7714,27 @@ window#GearyMainWindow.background.csd stack#conversation_viewer scrolledwindow.g
 .geary-accounts-editor-pane frame:not(.geary-signature) > border,
 .geary-accounts-editor-pane scrolledwindow.frame {
   border: none;
+}
+
+.geary-main-window.background.csd.unified headerbar components-conversation-actions button {
+  border: none;
+  background: none;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.geary-main-window.background.csd.unified headerbar components-conversation-actions button:hover {
+  background-color: rgba(253, 253, 253, 0.15);
+  color: #FDFDFD;
+  box-shadow: none;
+}
+
+.geary-main-window.background.csd.unified headerbar components-conversation-actions button:active, .geary-main-window.background.csd.unified headerbar components-conversation-actions button:active:hover, .geary-main-window.background.csd.unified headerbar components-conversation-actions button:checked {
+  color: white;
+  background-color: #909090;
+  background-image: none;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
 }
 
 window.background:not(.csd) > widget > separator {
@@ -7908,7 +7952,7 @@ window.background:not(.solid-csd) > grid.horizontal > grid.horizontal > button.f
   color: white;
 }
 
-window.background:not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled, .raven .raven-header:not(.top) window.background:not(.solid-csd) > grid.horizontal > grid.horizontal > button.small-button:disabled, label:disabled window.background:not(.solid-csd) > grid.horizontal > grid.horizontal > selection.small-button {
+window.background:not(.solid-csd) > grid.horizontal > grid.horizontal > button.flat.small-button:disabled, .raven .raven-header:not(.top) window.background:not(.solid-csd) > grid.horizontal > grid.horizontal > button.small-button:disabled {
   color: rgba(253, 253, 253, 0.6);
 }
 
@@ -8292,7 +8336,7 @@ MarlinViewWindow FMListView, MarlinViewWindow FMColumnView {
   box-shadow: inset 0 1px transparent;
 }
 
-.marlin-pathbar.pathbar:disabled, label:disabled selection.pathbar {
+.marlin-pathbar.pathbar:disabled {
   color: rgba(253, 253, 253, 0.35);
   background-color: #5d5d5d;
   box-shadow: inset 0 1px #767676;
@@ -8422,7 +8466,7 @@ headerbar.titlebar > button.flat.image-button.toggle:checked, .raven .raven-head
   box-shadow: inset 0 1px #cecece;
 }
 
-headerbar.titlebar > button.flat.image-button.toggle:disabled, .raven .raven-header:not(.top) headerbar.titlebar > button.image-button.toggle:disabled, label:disabled headerbar.titlebar > selection.toggle {
+headerbar.titlebar > button.flat.image-button.toggle:disabled, .raven .raven-header:not(.top) headerbar.titlebar > button.image-button.toggle:disabled {
   color: rgba(253, 253, 253, 0.6);
 }
 
@@ -9111,11 +9155,11 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-.drop-shadow button:disabled, .workspace-switcher .workspace-add-button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:disabled, label:disabled .workspace-switcher selection.workspace-add-button, .workspace-switcher label:disabled selection.workspace-add-button {
+.drop-shadow button:disabled, .workspace-switcher .workspace-add-button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:disabled {
   background-color: transparent;
 }
 
-.drop-shadow button:disabled label, .workspace-switcher .workspace-add-button:disabled label, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button) label, .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button) label, .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button) label, .budgie-settings-window buttonbox.inline-toolbar button:disabled label, label:disabled .workspace-switcher selection.workspace-add-button label, .workspace-switcher label:disabled selection.workspace-add-button label, .drop-shadow button:disabled, .workspace-switcher .workspace-add-button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:disabled, label:disabled .workspace-switcher selection.workspace-add-button, .workspace-switcher label:disabled selection.workspace-add-button {
+.drop-shadow button:disabled label, .workspace-switcher .workspace-add-button:disabled label, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button) label, .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button) label, .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button) label, .budgie-settings-window buttonbox.inline-toolbar button:disabled label, .drop-shadow button:disabled, .workspace-switcher .workspace-add-button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -9185,11 +9229,11 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-.raven button.flat:disabled, .raven .raven-header:not(.top) button:disabled, label:disabled selection.flat {
+.raven button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
   background-color: transparent;
 }
 
-.raven button.flat:disabled label, .raven .raven-header:not(.top) button:disabled label, label:disabled selection.flat label, .raven button.flat:disabled, .raven .raven-header:not(.top) button:disabled, label:disabled selection.flat {
+.raven button.flat:disabled label, .raven .raven-header:not(.top) button:disabled label, .raven button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -9210,11 +9254,11 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   background-color: #79B757;
 }
 
-.raven button.linked:disabled, label:disabled selection.linked {
+.raven button.linked:disabled {
   background-color: transparent;
 }
 
-.raven button.linked:disabled label, label:disabled selection.linked label, .raven button.linked:disabled, label:disabled selection.linked {
+.raven button.linked:disabled label, .raven button.linked:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -9286,7 +9330,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   font-weight: normal;
 }
 
-.budgie-popover:not(.budgie-menu) button.flat:not(.image-button):disabled, .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:not(.image-button):disabled, .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:not(.image-button):disabled, .budgie-popover:not(.budgie-menu) label:disabled selection:not(.image-button), label:disabled .budgie-popover:not(.budgie-menu) selection:not(.image-button) {
+.budgie-popover:not(.budgie-menu) button.flat:not(.image-button):disabled, .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:not(.image-button):disabled, .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:not(.image-button):disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -9529,7 +9573,7 @@ window.budgie-popover:not(.csd) > frame.container > border {
   background-color: #87bf69;
 }
 
-.budgie-menu button:checked:disabled, .budgie-menu label:disabled selection:checked, label:disabled .budgie-menu selection:checked {
+.budgie-menu button:checked:disabled {
   background-color: rgba(121, 183, 87, 0.5);
 }
 
@@ -9757,7 +9801,7 @@ popover.background.places-menu row {
   color: rgba(222, 222, 222, 0.8);
 }
 
-.budgie-panel button.flat.launcher:not(:checked):disabled, .budgie-panel .raven .raven-header:not(.top) button.launcher:not(:checked):disabled, .raven .raven-header:not(.top) .budgie-panel button.launcher:not(:checked):disabled, .budgie-panel label:disabled selection:not(:checked), label:disabled .budgie-panel selection:not(:checked) {
+.budgie-panel button.flat.launcher:not(:checked):disabled, .budgie-panel .raven .raven-header:not(.top) button.launcher:not(:checked):disabled, .raven .raven-header:not(.top) .budgie-panel button.launcher:not(:checked):disabled {
   color: rgba(222, 222, 222, 0.5);
 }
 
@@ -10160,11 +10204,11 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, .raven .raven
   background-color: #79B757;
 }
 
-.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled, .raven scrolledwindow > .frame box.audio-widget label:disabled stackswitcher.linked > selection.radio, label:disabled .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > selection.radio {
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled {
   background-color: transparent;
 }
 
-.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled label, .raven scrolledwindow > .frame box.audio-widget label:disabled stackswitcher.linked > selection.radio label, label:disabled .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > selection.radio label, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled, .raven scrolledwindow > .frame box.audio-widget label:disabled stackswitcher.linked > selection.radio, label:disabled .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > selection.radio {
+.raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled label, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled {
   color: rgba(222, 222, 222, 0.35);
 }
 
@@ -10185,7 +10229,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, .raven .raven
   color: #b4b4b4;
 }
 
-.raven .raven-background checkbutton.text-button:disabled, .raven .raven-background label:disabled selection.text-button, label:disabled .raven .raven-background selection.text-button, .raven .raven-background radiobutton.text-button:disabled {
+.raven .raven-background checkbutton.text-button:disabled, .raven .raven-background radiobutton.text-button:disabled {
   color: rgba(218, 218, 218, 0.45);
 }
 
@@ -10403,7 +10447,7 @@ calendar.raven-calendar.button:hover {
   color: #dadada;
 }
 
-calendar.raven-calendar.button:disabled, label:disabled selection.button {
+calendar.raven-calendar.button:disabled {
   color: rgba(218, 218, 218, 0.25);
 }
 

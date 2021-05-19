@@ -2854,6 +2854,26 @@ preferencesgroup, .geary-accounts-editor-pane {
   scrolledwindow.frame { border: none; }
 }
 
+.geary-main-window.background.csd.unified {
+  headerbar components-conversation-actions button {
+    border: none;
+    background: none;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover {
+      background-color: rgba($header_fg, 0.15);
+      color: $header_fg;
+      box-shadow: none;
+    }
+
+    &:active, &:active:hover, &:checked {
+      @include button(header-active);
+      box-shadow: none;
+    }
+  }
+}
+
 
 //
 // Firefox and Thunderbird
