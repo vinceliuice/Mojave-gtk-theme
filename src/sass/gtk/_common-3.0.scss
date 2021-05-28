@@ -558,8 +558,9 @@ $_dot_color: $selected_bg_color;
   padding: 0 0 0 0;
   min-height: 28px;
   min-width: 28px;
+  border-bottom-color: if($variant=='light', $borders_color, $dark_borders_color);
 
-  &:active, &:checked {
+  &:active, &:active:hover {
     @if $variant=='light' {
       @include button(flat-active);
       border-color: rgba(black, 0.2);
@@ -1025,10 +1026,9 @@ toolbar.inline-toolbar toolbutton {
   &.path-bar { @include pathbar_linking_rules(); }
 }
 
-headerbar,
-headerbar.titlebar {
+headerbar {
   .linked:not(.vertical) {
-    @include linking_rules($entry_rules:'header', $button_rules:'true', $e_border: $entry_border, $b_border: transparent);
+    @include linking_rules($entry_rules:'header', $button_rules:'true');
   }
 }
 
@@ -1481,48 +1481,15 @@ actionbar > revealer > box {
     border: 3px solid transparent;
     border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
   }
-
-  selection:focus {
-    background-color: $selected_bg_color;
-    color: $selected_fg_color;
-  }
-
-  progress {
-    border-color: $progress_color;
-    background-image: none;
-    background-color: transparent;
-  }
-
-  @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $light_fg_color),
-                                          (error, $error_color, $light_fg_color) {
-    &.#{$e_type} {
-      color: $e_fg_color;
-      border-color: if($variant=='light', $e_color, $entry_border);
-      background-color: mix($e_color, $header_bg, 60%);
-
-      &:focus {
-        color: $e_fg_color;
-        background-color: $e_color;
-      }
-
-      selection, selection:focus {
-        background-color: $e_fg_color;
-        color: $e_color;
-      }
-    }
-  }
 }
 
 // Headerbar Buttons
 %headerbar_buttons {
   @include button(header-normal);
-  @extend %outline_solid;
 
   @if $variant == 'light' {
     box-shadow: none;
   }
-
-  // &.circular { @extend %circular_button; }
 
   &:backdrop { opacity: 0.65; background-image: none; }
 
@@ -1551,15 +1518,10 @@ actionbar > revealer > box {
 
   &:disabled { @include button(header-insensitive); }
   &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
-  // &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
-
-  &.flat {
-    @include button(undecorated);
-  }
 }
 
 headerbar,
-%titlebar {
+.background headerbar {
   min-height: 34px;
   padding: 0 8px;
   background-image: $headerbar_bg_image;
@@ -1599,16 +1561,109 @@ headerbar,
     @extend %dim-label;
   }
 
-  entry { @extend %headerbar_entrys; }
+  entry {
+    @include entry(header-normal);
+    border-radius: 7px;
+    border: 3px solid transparent;
+    border-image-width: 6px 6px 6px 6px;
+    border-image-slice: 6 6 6 6;
+    border-image-repeat: stretch;
+    background-clip: padding-box;
+    border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
 
-  button { @extend %headerbar_buttons; }
+    &:backdrop { opacity: 0.65; background-image: none; }
+
+    &:focus {
+      @include entry(header-focus);
+      box-shadow: none;
+      border-radius: 7px;
+      border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
+    }
+
+    &:disabled {
+      @include entry(header-insensitive);
+      border-radius: 7px;
+      border: 3px solid transparent;
+      border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
+    }
+
+    selection:focus {
+      background-color: $selected_bg_color;
+      color: $selected_fg_color;
+    }
+
+    progress {
+      border-color: $progress_color;
+      background-image: none;
+      background-color: transparent;
+    }
+
+    @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $light_fg_color),
+                                            (error, $error_color, $light_fg_color) {
+      &.#{$e_type} {
+        color: $e_fg_color;
+        border-color: if($variant=='light', $e_color, $entry_border);
+        background-color: mix($e_color, $header_bg, 60%);
+
+        &:focus {
+          color: $e_fg_color;
+          background-color: $e_color;
+        }
+
+        selection, selection:focus {
+          background-color: $e_fg_color;
+          color: $e_color;
+        }
+      }
+    }
+  }
+
+  button:not(.suggested-action):not(.destructive-action) {
+    @include button(header-normal);
+    @extend %outline_solid;
+
+    @if $variant == 'light' {
+      box-shadow: none;
+    }
+
+    &:backdrop { opacity: 0.65; background-image: none; }
+
+    &:hover {
+      @include button(header-hover);
+      transition: $button_transition;
+    }
+
+    &:active {
+      @include button(header-active);
+      transition: $button_transition;
+      transition-duration: 300ms;
+      background-clip: if($variant=='light', border-box, padding-box);
+    }
+
+    &:active:hover { background-image: none; }
+
+    &:checked {
+      @include button(header-checked);
+      background-clip: if($variant=='light', border-box, padding-box);
+      transition: $button_transition;
+      transition-duration: 300ms;
+    }
+
+    &:checked:hover { background-image: none; }
+
+    &:disabled { @include button(header-insensitive); }
+    &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+    // &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
+
+    &.flat {
+      @include button(undecorated);
+    }
+  }
 
   button, spinbutton {
     margin-top: 6px;
     margin-bottom: 6px;
   }
-
-  // button.toggle.popup { margin-right: 3px; } // Nautilus 3.30 popup button
 
   // Reset linked buttons
   .linked:not(.vertical) > button {
@@ -1640,7 +1695,6 @@ headerbar,
     margin-top: 6px;
     margin-bottom: 6px;
     padding: 0 8px;
-    border-radius: $bt_radius;
 
     @if $variant == 'light' {
       border-width: 1px;
@@ -1659,8 +1713,6 @@ headerbar,
     &:backdrop { opacity: 0.65; background-image: none; }
 
     &, &:focus, &:disabled {
-      @extend %linked_header;
-
       @if $variant == 'dark' {
         border: none;
         border-right: 1px solid $borders_color;
@@ -2382,6 +2434,16 @@ popover.background {
     &.touch-selection { font: initial; }
 
     &.osd { @extend %osd; }
+  }
+
+  button.circular {
+    @extend %circular_button;
+    &:active, &:active:hover {
+      @if $variant=='light' {
+        @include button(flat-active);
+        border-color: rgba(black, 0.2);
+      }
+    }
   }
 }
 
@@ -3387,7 +3449,7 @@ row {
 
   border { border: none; }
 
-  button {
+  button:not(.suggested-action):not(.destructive-action) {
     @extend %undecorated_button;
 
     &:not(.text-button).image-button {
@@ -4107,7 +4169,9 @@ decoration {
 // Titlebuttons
 //
 headerbar,
-.titlebar {
+.titlebar,
+.background headerbar,
+.background .titlebar {
   > .left { margin-left: 3px; }
   > .right { margin-right: 3px; }
 
@@ -4141,25 +4205,27 @@ headerbar,
       }
     }
 
-    &.close, &.maximize, &.minimize, &.restore {
-      min-width: 16px;
-      min-height: 16px;
-      margin: 0;
-      padding: 0;
-      color: transparent;
-      background-color: transparent;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: auto;
-      border-width: 0;
-      box-shadow: none;
+    &.close, &.maximize, &.minimize {
+      &, &:hover, &:active, &:active:hover, &:disabled {
+        min-width: 16px;
+        min-height: 16px;
+        margin: 0;
+        padding: 0;
+        color: transparent;
+        background-color: transparent;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        border-width: 0;
+        box-shadow: none;
+      }
 
       &:backdrop { opacity: 1; }
     }
 
     // Load png assets for each button, Fix the Chrome window restore button bug
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active'), (':active:hover','-active') {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}.png'),
                                         url('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png'));
@@ -4171,7 +4237,7 @@ headerbar,
   .fullscreen &,
   .maximized & {
     button.titlebutton {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
+      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active'), (':active:hover','-active') {
         &.maximize#{$l} {
           background-image: -gtk-scaled(url('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}.png'),
                                         url('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}@2.png'));

@@ -3250,7 +3250,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   width: 30px;
   box-shadow: -1px 1px 5px 0px rgba(0, 0, 0, 0.5);
   transition-duration: 300ms;
-  background-image: url("assets/window-close-24-symbolic.svg");
 }
 
 .window-close StIcon {

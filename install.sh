@@ -281,32 +281,13 @@ install_gdm() {
     prompt -i "Installing Ubuntu GDM theme..."
     cp -an "$UBUNTU_YARU_THEME_FILE" "$UBUNTU_YARU_THEME_FILE.bak"
     rm -rf "$UBUNTU_YARU_THEME_FILE"
-    rm -rf "$YARU_GDM_THEME_DIR" && mkdir -p "$YARU_GDM_THEME_DIR"
 
-    mkdir -p                                                                              "$YARU_GDM_THEME_DIR"/gnome-shell
-    mkdir -p                                                                              "$YARU_GDM_THEME_DIR"/gnome-shell/{Yaru,Yaru-dark}
-    cp -r "$SRC_DIR"/assets/gnome-shell/icons                                             "$YARU_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR"/main/gnome-shell/pad-osd.css                                         "$YARU_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$YARU_GDM_THEME_DIR"/gnome-shell/gdm3.css
-    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru/gnome-shell.css
-    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell-dark.css                                "$YARU_GDM_THEME_DIR"/gnome-shell/Yaru-dark/gnome-shell.css
-    sed -i "s|assets|../assets|"                                                          "$YARU_GDM_THEME_DIR"/gnome-shell/{Yaru,Yaru-dark}/gnome-shell.css
-    cp -r "$SRC_DIR"/assets/gnome-shell/common-assets                                     "$YARU_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/*.svg                              "$YARU_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/background.png                     "$YARU_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/activities${color}/activities.svg                 "$YARU_GDM_THEME_DIR"/gnome-shell/assets
-
-    cd "$YARU_GDM_THEME_DIR"/gnome-shell
-    mv -f assets/no-events.svg no-events.svg
-    mv -f assets/process-working.svg process-working.svg
-    mv -f assets/no-notifications.svg no-notifications.svg
+    sed -i "s|assets|resource:///org/gnome/shell/theme/assets|" "$GDM_THEME_DIR"/gnome-shell/gnome-shell.css
 
     glib-compile-resources \
-      --sourcedir="$YARU_GDM_THEME_DIR"/gnome-shell \
+      --sourcedir="$GDM_THEME_DIR"/gnome-shell \
       --target="$UBUNTU_YARU_THEME_FILE" \
-      "$SRC_DIR"/main/gnome-shell/gnome-shell-yaru-theme.gresource.xml
-
-    rm -rf "$YARU_GDM_THEME_DIR"
+      "$SRC_DIR"/main/gnome-shell/gnome-shell-theme.gresource.xml
   fi
 
   # > Pop_OS 20.04
@@ -314,29 +295,11 @@ install_gdm() {
     prompt -i "Installing Pop_OS GDM theme..."
     cp -an "$POP_OS_THEME_FILE" "$POP_OS_THEME_FILE.bak"
     rm -rf "$POP_OS_THEME_FILE"
-    rm -rf "$POP_GDM_THEME_DIR" && mkdir -p "$POP_GDM_THEME_DIR"
-
-    mkdir -p                                                                              "$POP_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR"/assets/gnome-shell/icons                                             "$POP_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR"/main/gnome-shell/pad-osd.css                                         "$POP_GDM_THEME_DIR"/gnome-shell
-    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell${color}.css                             "$POP_GDM_THEME_DIR"/gnome-shell/gdm3.css
-    cp -r "$SRC_DIR"/main/gnome-shell/gnome-shell-light.css                               "$POP_GDM_THEME_DIR"/gnome-shell/gnome-shell.css
-    cp -r "$SRC_DIR"/assets/gnome-shell/common-assets                                     "$POP_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/*.svg                              "$POP_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/assets${color}/background.png                     "$POP_GDM_THEME_DIR"/gnome-shell/assets
-    cp -r "$SRC_DIR"/assets/gnome-shell/activities${color}/activities.svg                 "$POP_GDM_THEME_DIR"/gnome-shell/assets
-
-    cd "$POP_GDM_THEME_DIR"/gnome-shell
-    mv -f assets/no-events.svg no-events.svg
-    mv -f assets/process-working.svg process-working.svg
-    mv -f assets/no-notifications.svg no-notifications.svg
 
     glib-compile-resources \
       --sourcedir="$POP_GDM_THEME_DIR"/gnome-shell \
       --target="$POP_OS_THEME_FILE" \
-      "$SRC_DIR"/main/gnome-shell/gnome-shell-pop-theme.gresource.xml
-
-    rm -rf "$POP_GDM_THEME_DIR"
+      "$SRC_DIR"/main/gnome-shell/gnome-shell-theme.gresource.xml
   fi
 }
 

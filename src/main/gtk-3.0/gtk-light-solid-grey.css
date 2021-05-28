@@ -36,7 +36,8 @@
 }
 
 .nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar .linked.raised > button, .nautilus-window headerbar .linked.raised:not(.path-bar) > button.image-button, headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button,
-headerbar .linked.path-bar:not(.vertical) > button, headerbar .linked:not(.vertical) > button {
+headerbar .linked.path-bar:not(.vertical) > button,
+.background headerbar .linked.path-bar:not(.vertical) > button, headerbar .linked:not(.vertical) > button {
   outline-color: alpha(currentColor,0.3);
   outline-style: dashed;
   outline-offset: -3px;
@@ -44,7 +45,7 @@ headerbar .linked.path-bar:not(.vertical) > button, headerbar .linked:not(.verti
   -gtk-outline-radius: 5px;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button, headerbar button {
+headerbar button:not(.suggested-action):not(.destructive-action) {
   outline-color: #b2b2b2;
   outline-style: solid;
   outline-offset: -1px;
@@ -190,7 +191,8 @@ label:disabled selection {
 
 .budgie-switcher .notification-body,
 .budgie-notification .notification-body, popover label.separator,
-popover.background label.separator, headerbar .subtitle, label.separator, .dim-label {
+popover.background label.separator, headerbar .subtitle,
+.background headerbar .subtitle, label.separator, .dim-label {
   opacity: 0.55;
 }
 
@@ -558,15 +560,17 @@ treeview entry.flat:focus, treeview entry:focus {
 }
 
 .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button, .raven button.image-button, button.nautilus-circular-button.image-button, stackswitcher button.circular,
-stackswitcher button.text-button.circular, button.circular, .app-notification button.image-button:not(.text-button), row button.circular, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, button.close {
+stackswitcher button.text-button.circular, button.circular, .app-notification button.image-button:not(.suggested-action):not(.destructive-action):not(.text-button), row button.circular, popover button.circular,
+popover.background button.circular, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, button.close {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
   padding: 0 0 0 0;
   min-height: 28px;
   min-width: 28px;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
-.raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:active, .raven button.image-button:active, button.nautilus-circular-button.image-button:active, button.circular:active, .app-notification button.image-button:active:not(.text-button), searchbar button.flat:active, searchbar .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) searchbar button:active, button.close:active, .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:checked, .raven button.image-button:checked, button.nautilus-circular-button.image-button:checked, button.circular:checked, .app-notification button.image-button:checked:not(.text-button), searchbar button.flat:checked, searchbar .raven .raven-header:not(.top) button:checked, .raven .raven-header:not(.top) searchbar button:checked, button.close:checked {
+.raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button:active, .raven button.image-button:active, button.nautilus-circular-button.image-button:active, button.circular:active, .app-notification button.image-button:active:not(.suggested-action):not(.destructive-action):not(.text-button), searchbar button.flat:active, searchbar .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) searchbar button:active, button.close:active {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
@@ -574,7 +578,7 @@ stackswitcher button.text-button.circular, button.circular, .app-notification bu
 }
 
 calendar.raven-calendar.button, .nemo-window .floating-bar button,
-calendar.button, .app-notification button, notebook > header tabs > tab button.flat:active, notebook > header tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header tabs > tab button:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header tabs > tab button:hover, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, button:link, button:visited, menuitem.button.flat, .raven .raven-header:not(.top) button.button,
+calendar.button, .app-notification button:not(.suggested-action):not(.destructive-action), notebook > header tabs > tab button.flat:active, notebook > header tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header tabs > tab button:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header tabs > tab button:hover, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, button:link, button:visited, menuitem.button.flat, .raven .raven-header:not(.top) button.button,
 modelbutton.flat {
   border-color: transparent;
   background-color: transparent;
@@ -582,7 +586,8 @@ modelbutton.flat {
   box-shadow: none;
 }
 
-.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .nemo-window .floating-bar button, .nautilus-window .floating-bar button, infobar.info > revealer > box button, infobar.question > revealer > box button, infobar.warning > revealer > box button, infobar.error > revealer > box button, row:selected button, .selection-mode headerbar button, headerbar.selection-mode button {
+.raven scrolledwindow > .frame > box.vertical > box.vertical:last-child button.flat, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-header:not(.top) button, .raven .raven-header:not(.top) scrolledwindow > .frame > box.vertical > box.vertical:last-child button, .raven scrolledwindow > .frame > box.vertical > box.vertical:last-child .raven-background .raven-mpris button.image-button, .nemo-window .floating-bar button, .nautilus-window .floating-bar button, infobar.info > revealer > box button, infobar.question > revealer > box button, infobar.warning > revealer > box button, infobar.error > revealer > box button, row:selected button, .selection-mode headerbar button, headerbar.selection-mode button, .selection-mode .background headerbar button,
+.background headerbar.selection-mode button {
   color: white;
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.5);
@@ -1203,8 +1208,7 @@ toolbar.inline-toolbar toolbutton:only-child > button.flat, toolbar.inline-toolb
   border-left-style: none;
 }
 
-headerbar .linked:not(.vertical) > button + button,
-headerbar.titlebar .linked:not(.vertical) > button + button {
+headerbar .linked:not(.vertical) > button + button {
   border-left-style: none;
 }
 
@@ -1707,36 +1711,37 @@ actionbar > revealer > box {
   border-radius: 0 0 6px 6px;
 }
 
-.nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button:hover, .nemo-window .primary-toolbar .linked.path-bar > button:active, .nemo-window .primary-toolbar .linked.path-bar > button:checked, .nemo-window .primary-toolbar .linked.path-bar > button:disabled, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar .linked.raised > button, headerbar .linked:not(.vertical) > entry, headerbar .linked:not(.vertical) > entry:focus, headerbar .linked:not(.vertical) > entry:disabled, headerbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled {
+.nemo-window .primary-toolbar .linked.path-bar > button, .nemo-window .primary-toolbar .linked.path-bar > button:hover, .nemo-window .primary-toolbar .linked.path-bar > button:active, .nemo-window .primary-toolbar .linked.path-bar > button:checked, .nemo-window .primary-toolbar .linked.path-bar > button:disabled, .nemo-window .primary-toolbar .linked.path-bar > button.image-button, .nemo-window .primary-toolbar .linked.raised > button, headerbar .linked:not(.vertical) > button, headerbar .linked:not(.vertical) > button:hover, headerbar .linked:not(.vertical) > button:active, headerbar .linked:not(.vertical) > button:checked, headerbar .linked:not(.vertical) > button:disabled {
   border-radius: 0;
   border-left-style: none;
   border-right-style: solid;
 }
 
-.nemo-window .primary-toolbar .linked.path-bar > button:first-child, .nemo-window .primary-toolbar .linked.raised > button:first-child, headerbar .linked:not(.vertical) > entry:first-child, headerbar .linked:not(.vertical) > button:first-child {
+.nemo-window .primary-toolbar .linked.path-bar > button:first-child, .nemo-window .primary-toolbar .linked.raised > button:first-child, headerbar .linked:not(.vertical) > button:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-left-style: solid;
 }
 
-.nemo-window .primary-toolbar .linked.path-bar > button:last-child, .nemo-window .primary-toolbar .linked.raised > button:last-child, headerbar .linked:not(.vertical) > entry:last-child, headerbar .linked:not(.vertical) > button:last-child {
+.nemo-window .primary-toolbar .linked.path-bar > button:last-child, .nemo-window .primary-toolbar .linked.raised > button:last-child, headerbar .linked:not(.vertical) > button:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.nemo-window .primary-toolbar .linked.path-bar > button:only-child, .nemo-window .primary-toolbar .linked.raised > button:only-child, headerbar .linked:not(.vertical) > entry:only-child, headerbar .linked:not(.vertical) > button:only-child {
+.nemo-window .primary-toolbar .linked.path-bar > button:only-child, .nemo-window .primary-toolbar .linked.raised > button:only-child, headerbar .linked:not(.vertical) > button:only-child {
   border-radius: 5px;
   border-style: solid;
 }
 
-headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) separator {
+headerbar separator.titlebutton,
+.background headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) separator {
   min-width: 0;
   min-height: 0;
   background: none;
   border: none;
 }
 
-.nemo-window .primary-toolbar entry, headerbar entry {
+.nemo-window .primary-toolbar entry {
   color: #575757;
   background-color: white;
   background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
@@ -1749,16 +1754,16 @@ headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) sepa
   border-image-source: -gtk-scaled(url("assets/header-entry.png"), url("assets/header-entry@2.png"));
 }
 
-.nemo-window .primary-toolbar entry image, headerbar entry image, headerbar entry image:hover {
+.nemo-window .primary-toolbar entry image, .nemo-window .primary-toolbar entry image:hover {
   color: inherit;
 }
 
-.nemo-window .primary-toolbar entry:backdrop, headerbar entry:backdrop {
+.nemo-window .primary-toolbar entry:backdrop {
   opacity: 0.65;
   background-image: none;
 }
 
-.nemo-window .primary-toolbar entry:focus, headerbar entry:focus {
+.nemo-window .primary-toolbar entry:focus {
   background-image: none;
   background-color: #ffffff;
   box-shadow: none;
@@ -1766,7 +1771,7 @@ headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) sepa
   border-image-source: -gtk-scaled(url("assets/entry-focus.png"), url("assets/entry-focus@2.png"));
 }
 
-.nemo-window .primary-toolbar entry:disabled, headerbar entry:disabled {
+.nemo-window .primary-toolbar entry:disabled {
   color: rgba(87, 87, 87, 0.35);
   background-color: white;
   border-radius: 7px;
@@ -1774,50 +1779,7 @@ headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) sepa
   border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"), url("assets/header-entry-disabled@2.png"));
 }
 
-.nemo-window .primary-toolbar entry selection:focus, headerbar entry selection:focus {
-  background-color: #8C8C8C;
-  color: white;
-}
-
-.nemo-window .primary-toolbar entry progress, headerbar entry progress {
-  border-color: #8C8C8C;
-  background-image: none;
-  background-color: transparent;
-}
-
-.nemo-window .primary-toolbar entry.warning, headerbar entry.warning {
-  color: white;
-  border-color: #F27835;
-  background-color: #eda47b;
-}
-
-.nemo-window .primary-toolbar entry.warning:focus, headerbar entry.warning:focus {
-  color: white;
-  background-color: #F27835;
-}
-
-.nemo-window .primary-toolbar entry.warning selection, headerbar entry.warning selection {
-  background-color: white;
-  color: #F27835;
-}
-
-.nemo-window .primary-toolbar entry.error, headerbar entry.error {
-  color: white;
-  border-color: #FC4138;
-  background-color: #f3837d;
-}
-
-.nemo-window .primary-toolbar entry.error:focus, headerbar entry.error:focus {
-  color: white;
-  background-color: #FC4138;
-}
-
-.nemo-window .primary-toolbar entry.error selection, headerbar entry.error selection {
-  background-color: white;
-  color: #FC4138;
-}
-
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button, headerbar button {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button {
   border-color: rgba(0, 0, 0, 0.15);
   color: #575757;
   background-color: white;
@@ -1825,12 +1787,12 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not
   box-shadow: none;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:backdrop:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:backdrop:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:backdrop:not(.image-button), .nemo-window .primary-toolbar button:backdrop, headerbar button:backdrop {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:backdrop:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:backdrop:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:backdrop:not(.image-button), .nemo-window .primary-toolbar button:backdrop {
   opacity: 0.65;
   background-image: none;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:hover:not(.image-button), .nemo-window .primary-toolbar button:hover, headerbar button:hover {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:hover:not(.image-button), .nemo-window .primary-toolbar button:hover {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
@@ -1838,7 +1800,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hov
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window .primary-toolbar button:active, headerbar button:active {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window .primary-toolbar button:active {
   color: white;
   background-color: #888888;
   background-image: none;
@@ -1848,11 +1810,11 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:act
   background-clip: border-box;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover, headerbar button:active:hover {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover {
   background-image: none;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked, headerbar button:checked {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked {
   color: white;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
@@ -1862,31 +1824,25 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:che
   transition-duration: 300ms;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover, headerbar button:checked:hover {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover {
   background-image: none;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled, headerbar button:disabled {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
   background-color: white;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:disabled label, headerbar button:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled, headerbar button:disabled {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
   color: rgba(87, 87, 87, 0.35);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:active:not(.image-button), .nemo-window .primary-toolbar button:disabled:active, headerbar button:disabled:active, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:checked:not(.image-button), .nemo-window .primary-toolbar button:disabled:checked, headerbar button:disabled:checked {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:active:not(.image-button), .nemo-window .primary-toolbar button:disabled:active, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:checked:not(.image-button), .nemo-window .primary-toolbar button:disabled:checked {
   color: rgba(255, 255, 255, 0.35);
   background-color: rgba(136, 136, 136, 0.55);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button.flat, .nemo-window .primary-toolbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) .nemo-window .primary-toolbar button, headerbar button.flat, headerbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) headerbar button {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: none;
-}
-
-headerbar {
+headerbar,
+.background headerbar {
   min-height: 34px;
   padding: 0 8px;
   background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 50%, #e9e9e9 100%);
@@ -1895,13 +1851,14 @@ headerbar {
   border-bottom: 1px solid #a1a1a1;
 }
 
-.csd headerbar {
+.csd headerbar, .csd .background headerbar {
   background-image: linear-gradient(0deg, #d2d2d2 0%, #e2e2e2 50%, #e9e9e9 100%);
   background-color: #e5e5e5;
   border-bottom: 1px solid #a1a1a1;
 }
 
-headerbar:backdrop {
+headerbar:backdrop,
+.background headerbar:backdrop {
   transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   color: rgba(87, 87, 87, 0.7);
   background-image: linear-gradient(0deg, #F6F6F6 0%, #F6F6F6 100%);
@@ -1909,75 +1866,268 @@ headerbar:backdrop {
   border-color: #c7c7c7;
 }
 
-.csd headerbar:backdrop {
+.csd headerbar:backdrop, .csd .background headerbar:backdrop {
   background-color: #F6F6F6;
   border-color: #c7c7c7;
 }
 
-headerbar .title {
+headerbar .title,
+.background headerbar .title {
   padding-left: 12px;
   padding-right: 12px;
 }
 
-headerbar .subtitle {
+headerbar .subtitle,
+.background headerbar .subtitle {
   font-size: smaller;
   padding-left: 12px;
   padding-right: 12px;
   margin-top: -3px;
 }
 
-headerbar button, headerbar spinbutton {
+headerbar entry,
+.background headerbar entry {
+  color: #575757;
+  background-color: white;
+  background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
+  border-radius: 7px;
+  border: 3px solid transparent;
+  border-image-width: 6px 6px 6px 6px;
+  border-image-slice: 6 6 6 6;
+  border-image-repeat: stretch;
+  background-clip: padding-box;
+  border-image-source: -gtk-scaled(url("assets/header-entry.png"), url("assets/header-entry@2.png"));
+}
+
+headerbar entry image, headerbar entry image:hover,
+.background headerbar entry image,
+.background headerbar entry image:hover {
+  color: inherit;
+}
+
+headerbar entry:backdrop,
+.background headerbar entry:backdrop {
+  opacity: 0.65;
+  background-image: none;
+}
+
+headerbar entry:focus,
+.background headerbar entry:focus {
+  background-image: none;
+  background-color: #ffffff;
+  box-shadow: none;
+  border-radius: 7px;
+  border-image-source: -gtk-scaled(url("assets/entry-focus.png"), url("assets/entry-focus@2.png"));
+}
+
+headerbar entry:disabled,
+.background headerbar entry:disabled {
+  color: rgba(87, 87, 87, 0.35);
+  background-color: white;
+  border-radius: 7px;
+  border: 3px solid transparent;
+  border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"), url("assets/header-entry-disabled@2.png"));
+}
+
+headerbar entry selection:focus,
+.background headerbar entry selection:focus {
+  background-color: #8C8C8C;
+  color: white;
+}
+
+headerbar entry progress,
+.background headerbar entry progress {
+  border-color: #8C8C8C;
+  background-image: none;
+  background-color: transparent;
+}
+
+headerbar entry.warning,
+.background headerbar entry.warning {
+  color: white;
+  border-color: #F27835;
+  background-color: #eda47b;
+}
+
+headerbar entry.warning:focus,
+.background headerbar entry.warning:focus {
+  color: white;
+  background-color: #F27835;
+}
+
+headerbar entry.warning selection, headerbar entry.warning selection:focus,
+.background headerbar entry.warning selection,
+.background headerbar entry.warning selection:focus {
+  background-color: white;
+  color: #F27835;
+}
+
+headerbar entry.error,
+.background headerbar entry.error {
+  color: white;
+  border-color: #FC4138;
+  background-color: #f3837d;
+}
+
+headerbar entry.error:focus,
+.background headerbar entry.error:focus {
+  color: white;
+  background-color: #FC4138;
+}
+
+headerbar entry.error selection, headerbar entry.error selection:focus,
+.background headerbar entry.error selection,
+.background headerbar entry.error selection:focus {
+  background-color: white;
+  color: #FC4138;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action),
+.background headerbar button:not(.suggested-action):not(.destructive-action) {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #575757;
+  background-color: white;
+  background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
+  box-shadow: none;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):backdrop,
+.background headerbar button:not(.suggested-action):not(.destructive-action):backdrop {
+  opacity: 0.65;
+  background-image: none;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):hover,
+.background headerbar button:not(.suggested-action):not(.destructive-action):hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #525252;
+  background-color: #fafafa;
+  background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):active,
+.background headerbar button:not(.suggested-action):not(.destructive-action):active {
+  color: white;
+  background-color: #888888;
+  background-image: none;
+  border-color: rgba(0, 0, 0, 0.15);
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 300ms;
+  background-clip: border-box;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):active:hover,
+.background headerbar button:not(.suggested-action):not(.destructive-action):active:hover {
+  background-image: none;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):checked,
+.background headerbar button:not(.suggested-action):not(.destructive-action):checked {
+  color: white;
+  background-color: #686868;
+  background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
+  border-color: rgba(0, 0, 0, 0.15);
+  background-clip: border-box;
+  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-duration: 300ms;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):checked:hover,
+.background headerbar button:not(.suggested-action):not(.destructive-action):checked:hover {
+  background-image: none;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):disabled,
+.background headerbar button:not(.suggested-action):not(.destructive-action):disabled {
+  background-color: white;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):disabled label, headerbar button:not(.suggested-action):not(.destructive-action):disabled,
+.background headerbar button:not(.suggested-action):not(.destructive-action):disabled label,
+.background headerbar button:not(.suggested-action):not(.destructive-action):disabled {
+  color: rgba(87, 87, 87, 0.35);
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):disabled:active, headerbar button:not(.suggested-action):not(.destructive-action):disabled:checked,
+.background headerbar button:not(.suggested-action):not(.destructive-action):disabled:active,
+.background headerbar button:not(.suggested-action):not(.destructive-action):disabled:checked {
+  color: rgba(255, 255, 255, 0.35);
+  background-color: rgba(136, 136, 136, 0.55);
+}
+
+headerbar button.flat:not(.suggested-action):not(.destructive-action), headerbar .raven .raven-header:not(.top) button:not(.destructive-action), .raven .raven-header:not(.top) headerbar button:not(.destructive-action),
+.background headerbar button.flat:not(.suggested-action):not(.destructive-action) {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+headerbar button, headerbar spinbutton,
+.background headerbar button,
+.background headerbar spinbutton {
   margin-top: 6px;
   margin-bottom: 6px;
 }
 
-headerbar .linked:not(.vertical) > button {
+headerbar .linked:not(.vertical) > button,
+.background headerbar .linked:not(.vertical) > button {
   min-width: 20px;
   border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-headerbar .linked:not(.vertical) > button:not(:first-child):active {
+headerbar .linked:not(.vertical) > button:not(:first-child):active,
+.background headerbar .linked:not(.vertical) > button:not(:first-child):active {
   box-shadow: -1px 0 #747474;
 }
 
-headerbar .linked:not(.vertical) > button:not(:first-child):checked {
+headerbar .linked:not(.vertical) > button:not(:first-child):checked,
+.background headerbar .linked:not(.vertical) > button:not(:first-child):checked {
   box-shadow: -1px 0 #585858;
 }
 
-headerbar .linked:not(.vertical) > entry {
+headerbar .linked:not(.vertical) > entry,
+.background headerbar .linked:not(.vertical) > entry {
   color: #575757;
   background-color: white;
   background-image: linear-gradient(0deg, #f1f1f1 0%, #fdfdfd 95%, #fefefe 100%);
   margin-top: 6px;
   margin-bottom: 6px;
   padding: 0 8px;
-  border-radius: 5px;
   border-width: 1px;
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-headerbar .linked:not(.vertical) > entry image, headerbar .linked:not(.vertical) > entry image:hover {
+headerbar .linked:not(.vertical) > entry image, headerbar .linked:not(.vertical) > entry image:hover,
+.background headerbar .linked:not(.vertical) > entry image,
+.background headerbar .linked:not(.vertical) > entry image:hover {
   color: inherit;
 }
 
-headerbar .linked:not(.vertical) > entry:focus {
+headerbar .linked:not(.vertical) > entry:focus,
+.background headerbar .linked:not(.vertical) > entry:focus {
   background-image: none;
   background-color: #ffffff;
   border-color: #b2b2b2;
 }
 
-headerbar .linked:not(.vertical) > entry:disabled {
+headerbar .linked:not(.vertical) > entry:disabled,
+.background headerbar .linked:not(.vertical) > entry:disabled {
   color: rgba(87, 87, 87, 0.35);
   background-color: white;
 }
 
-headerbar .linked:not(.vertical) > entry:backdrop {
+headerbar .linked:not(.vertical) > entry:backdrop,
+.background headerbar .linked:not(.vertical) > entry:backdrop {
   opacity: 0.65;
   background-image: none;
 }
 
 headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button,
-headerbar .linked.path-bar:not(.vertical) > button {
+headerbar .linked.path-bar:not(.vertical) > button,
+.background headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button,
+.background headerbar .linked.path-bar:not(.vertical) > button {
   min-height: 24px;
   border-color: rgba(0, 0, 0, 0.15);
   color: #575757;
@@ -1986,7 +2136,9 @@ headerbar .linked.path-bar:not(.vertical) > button {
 }
 
 headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:hover,
-headerbar .linked.path-bar:not(.vertical) > button:hover {
+headerbar .linked.path-bar:not(.vertical) > button:hover,
+.background headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:hover,
+.background headerbar .linked.path-bar:not(.vertical) > button:hover {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
@@ -1994,7 +2146,9 @@ headerbar .linked.path-bar:not(.vertical) > button:hover {
 }
 
 headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:active,
-headerbar .linked.path-bar:not(.vertical) > button:active {
+headerbar .linked.path-bar:not(.vertical) > button:active,
+.background headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:active,
+.background headerbar .linked.path-bar:not(.vertical) > button:active {
   color: white;
   background-color: #888888;
   background-image: none;
@@ -2002,7 +2156,9 @@ headerbar .linked.path-bar:not(.vertical) > button:active {
 }
 
 headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked,
-headerbar .linked.path-bar:not(.vertical) > button:checked {
+headerbar .linked.path-bar:not(.vertical) > button:checked,
+.background headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:checked,
+.background headerbar .linked.path-bar:not(.vertical) > button:checked {
   color: white;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
@@ -2010,17 +2166,22 @@ headerbar .linked.path-bar:not(.vertical) > button:checked {
 }
 
 headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:disabled,
-headerbar .linked.path-bar:not(.vertical) > button:disabled {
+headerbar .linked.path-bar:not(.vertical) > button:disabled,
+.background headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:disabled,
+.background headerbar .linked.path-bar:not(.vertical) > button:disabled {
   color: rgba(87, 87, 87, 0.45);
 }
 
 headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:backdrop,
-headerbar .linked.path-bar:not(.vertical) > button:backdrop {
+headerbar .linked.path-bar:not(.vertical) > button:backdrop,
+.background headerbar .linked.stack-switcher:not(.vertical):not(.path-bar) > button:backdrop,
+.background headerbar .linked.path-bar:not(.vertical) > button:backdrop {
   opacity: 0.65;
   background-image: none;
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action),
+.background headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) {
   border-radius: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -2028,68 +2189,79 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
   border: none;
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked),
+.background headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
   background: none;
   box-shadow: none;
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):hover {
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):hover,
+.background headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):hover {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
   background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):active {
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):active,
+.background headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):active {
   color: white;
   background-color: #888888;
   background-image: none;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked {
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked,
+.background headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked {
   color: white;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar.windowhandle > button.popup:hover {
+headerbar.windowhandle > button.popup:hover,
+.background headerbar.windowhandle > button.popup:hover {
   border-color: rgba(0, 0, 0, 0.15);
   color: #525252;
   background-color: #fafafa;
   background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
 }
 
-headerbar.windowhandle > button.popup:active {
+headerbar.windowhandle > button.popup:active,
+.background headerbar.windowhandle > button.popup:active {
   color: white;
   background-color: #888888;
   background-image: none;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar.windowhandle > button.popup:checked {
+headerbar.windowhandle > button.popup:checked,
+.background headerbar.windowhandle > button.popup:checked {
   color: white;
   background-color: #686868;
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-headerbar switch {
+headerbar switch,
+.background headerbar switch {
   margin-top: 8px;
   margin-bottom: 8px;
 }
 
-headerbar switch:backdrop {
+headerbar switch:backdrop,
+.background headerbar switch:backdrop {
   opacity: 0.75;
 }
 
-headerbar.titlebar headerbar:not(.titlebar) {
+headerbar.titlebar headerbar:not(.titlebar),
+.background headerbar.titlebar headerbar:not(.titlebar) {
   background: none;
   box-shadow: none;
 }
 
-.selection-mode headerbar, headerbar.selection-mode {
+.selection-mode headerbar, headerbar.selection-mode, .selection-mode .background headerbar,
+.background headerbar.selection-mode {
   color: white;
   background-color: #6887cd;
   border-color: #597bc8;
@@ -2098,65 +2270,72 @@ headerbar.titlebar headerbar:not(.titlebar) {
   text-shadow: none;
 }
 
-.selection-mode headerbar:backdrop, headerbar.selection-mode:backdrop {
+.selection-mode headerbar:backdrop, headerbar.selection-mode:backdrop, .selection-mode .background headerbar:backdrop,
+.background headerbar.selection-mode:backdrop {
   background-color: #6887cd;
   color: rgba(255, 255, 255, 0.6);
   border-color: #597bc8;
 }
 
-.selection-mode headerbar button, headerbar.selection-mode button {
+.selection-mode headerbar button, headerbar.selection-mode button, .selection-mode .background headerbar button,
+.background headerbar.selection-mode button {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
 }
 
-.selection-mode headerbar .selection-menu, headerbar.selection-mode .selection-menu {
+.selection-mode headerbar .selection-menu, headerbar.selection-mode .selection-menu, .selection-mode .background headerbar .selection-menu,
+.background headerbar.selection-mode .selection-menu {
   box-shadow: none;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.selection-mode headerbar .selection-menu GtkArrow, headerbar.selection-mode .selection-menu GtkArrow {
+.selection-mode headerbar .selection-menu GtkArrow, headerbar.selection-mode .selection-menu GtkArrow, .selection-mode .background headerbar .selection-menu GtkArrow,
+.background headerbar.selection-mode .selection-menu GtkArrow {
   -GtkArrow-arrow-scaling: 1;
 }
 
-.selection-mode headerbar .selection-menu .arrow, headerbar.selection-mode .selection-menu .arrow {
+.selection-mode headerbar .selection-menu .arrow, headerbar.selection-mode .selection-menu .arrow, .selection-mode .background headerbar .selection-menu .arrow,
+.background headerbar.selection-mode .selection-menu .arrow {
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
 
-.maximized .selection-mode headerbar, .maximized headerbar.selection-mode {
+.maximized .selection-mode headerbar, .maximized headerbar.selection-mode, .maximized .selection-mode .background headerbar, .maximized .background headerbar.selection-mode {
   background-color: #6887cd;
 }
 
-.tiled headerbar, .tiled headerbar:backdrop, .maximized headerbar, .maximized headerbar:backdrop {
+.tiled headerbar, .tiled headerbar:backdrop, .maximized headerbar, .maximized headerbar:backdrop, .tiled .background headerbar, .tiled .background headerbar:backdrop, .maximized .background headerbar, .maximized .background headerbar:backdrop {
   border-radius: 0;
   box-shadow: none;
 }
 
-.maximized headerbar {
+.maximized headerbar, .maximized .background headerbar {
   background-color: #e5e5e5;
   border-color: #a1a1a1;
   box-shadow: none;
 }
 
-.maximized headerbar:backdrop {
+.maximized headerbar:backdrop, .maximized .background headerbar:backdrop {
   background-color: #F6F6F6;
   border-color: #c7c7c7;
 }
 
-headerbar.default-decoration {
+headerbar.default-decoration,
+.background headerbar.default-decoration {
   min-height: 26px;
   padding: 0 6px;
   background-color: #e5e5e5;
   background-image: linear-gradient(0deg, #e2e2e2 0%, #e9e9e9 100%);
 }
 
-.tiled headerbar.default-decoration, .maximized headerbar.default-decoration, .fullscreen headerbar.default-decoration {
+.tiled headerbar.default-decoration, .maximized headerbar.default-decoration, .fullscreen headerbar.default-decoration, .tiled .background headerbar.default-decoration, .maximized .background headerbar.default-decoration, .fullscreen .background headerbar.default-decoration {
   box-shadow: none;
 }
 
-headerbar.default-decoration button.titlebutton {
+headerbar.default-decoration button.titlebutton,
+.background headerbar.default-decoration button.titlebutton {
   border: none;
   min-width: 16px;
   min-height: 16px;
@@ -2164,51 +2343,60 @@ headerbar.default-decoration button.titlebutton {
   padding: 0;
 }
 
-headerbar.default-decoration button.titlebutton.appmenu, headerbar.default-decoration button.titlebutton.appmenu:active, headerbar.default-decoration button.titlebutton.appmenu:checked {
+headerbar.default-decoration button.titlebutton.appmenu, headerbar.default-decoration button.titlebutton.appmenu:active, headerbar.default-decoration button.titlebutton.appmenu:checked,
+.background headerbar.default-decoration button.titlebutton.appmenu,
+.background headerbar.default-decoration button.titlebutton.appmenu:active,
+.background headerbar.default-decoration button.titlebutton.appmenu:checked {
   background-color: transparent;
   box-shadow: none;
   background-image: -gtk-scaled(url("assets/setting-icon-dark.png"), url("assets/setting-icon-dark@2.png"));
 }
 
-headerbar.default-decoration, .csd headerbar.default-decoration, headerbar.default-decoration:backdrop, .csd headerbar.default-decoration:backdrop {
+headerbar.default-decoration, .csd headerbar.default-decoration, headerbar.default-decoration:backdrop, .csd headerbar.default-decoration:backdrop,
+.background headerbar.default-decoration, .csd .background headerbar.default-decoration,
+.background headerbar.default-decoration:backdrop, .csd .background headerbar.default-decoration:backdrop {
   border: none;
 }
 
-separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
+separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop, separator:first-child + .background headerbar, separator:first-child + .background headerbar:backdrop,
+.background headerbar:first-child,
+.background headerbar:first-child:backdrop {
   border-top-left-radius: 6px;
 }
 
-.maximized separator:first-child + headerbar, .tiled separator:first-child + headerbar, .maximized separator:first-child + headerbar:backdrop, .tiled separator:first-child + headerbar:backdrop, .maximized headerbar:first-child, .tiled headerbar:first-child, .maximized headerbar:first-child:backdrop, .tiled headerbar:first-child:backdrop {
+.maximized separator:first-child + headerbar, .tiled separator:first-child + headerbar, .maximized separator:first-child + headerbar:backdrop, .tiled separator:first-child + headerbar:backdrop, .maximized headerbar:first-child, .tiled headerbar:first-child, .maximized headerbar:first-child:backdrop, .tiled headerbar:first-child:backdrop, .maximized separator:first-child + .background headerbar, .tiled separator:first-child + .background headerbar, .maximized separator:first-child + .background headerbar:backdrop, .tiled separator:first-child + .background headerbar:backdrop, .maximized .background headerbar:first-child, .tiled .background headerbar:first-child, .maximized .background headerbar:first-child:backdrop, .tiled .background headerbar:first-child:backdrop {
   border-radius: 0;
 }
 
-headerbar:last-child, headerbar:last-child:backdrop {
+headerbar:last-child, headerbar:last-child:backdrop,
+.background headerbar:last-child,
+.background headerbar:last-child:backdrop {
   border-top-right-radius: 6px;
 }
 
-.maximized headerbar:last-child, .tiled headerbar:last-child, .maximized headerbar:last-child:backdrop, .tiled headerbar:last-child:backdrop {
+.maximized headerbar:last-child, .tiled headerbar:last-child, .maximized headerbar:last-child:backdrop, .tiled headerbar:last-child:backdrop, .maximized .background headerbar:last-child, .tiled .background headerbar:last-child, .maximized .background headerbar:last-child:backdrop, .tiled .background headerbar:last-child:backdrop {
   border-radius: 0;
 }
 
-stack headerbar:first-child, stack headerbar:last-child {
+stack headerbar:first-child, stack headerbar:last-child, stack .background headerbar:first-child, stack .background headerbar:last-child {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
 
-window separator:first-child + headerbar:backdrop, window separator:first-child + headerbar, window headerbar:first-child:backdrop, window headerbar:first-child {
+window separator:first-child + headerbar:backdrop, window separator:first-child + headerbar, window headerbar:first-child:backdrop, window headerbar:first-child, window separator:first-child + .background headerbar:backdrop, window separator:first-child + .background headerbar, window .background headerbar:first-child:backdrop, window .background headerbar:first-child {
   border-top-left-radius: 6px;
 }
 
-window headerbar:last-child:backdrop, window headerbar:last-child {
+window headerbar:last-child:backdrop, window headerbar:last-child, window .background headerbar:last-child:backdrop, window .background headerbar:last-child {
   border-top-right-radius: 6px;
 }
 
-window stack headerbar:first-child:backdrop, window stack headerbar:first-child, window stack headerbar:last-child:backdrop, window stack headerbar:last-child {
+window stack headerbar:first-child:backdrop, window stack headerbar:first-child, window stack headerbar:last-child:backdrop, window stack headerbar:last-child, window stack .background headerbar:first-child:backdrop, window stack .background headerbar:first-child, window stack .background headerbar:last-child:backdrop, window stack .background headerbar:last-child {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
 
-window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child, window.tiled-top headerbar, window.tiled-top headerbar:first-child, window.tiled-top headerbar:last-child, window.tiled-top headerbar:only-child, window.tiled-right headerbar, window.tiled-right headerbar:first-child, window.tiled-right headerbar:last-child, window.tiled-right headerbar:only-child, window.tiled-bottom headerbar, window.tiled-bottom headerbar:first-child, window.tiled-bottom headerbar:last-child, window.tiled-bottom headerbar:only-child, window.tiled-left headerbar, window.tiled-left headerbar:first-child, window.tiled-left headerbar:last-child, window.tiled-left headerbar:only-child, window.maximized headerbar, window.maximized headerbar:first-child, window.maximized headerbar:last-child, window.maximized headerbar:only-child, window.fullscreen headerbar, window.fullscreen headerbar:first-child, window.fullscreen headerbar:last-child, window.fullscreen headerbar:only-child, .solid-csd headerbar, .solid-csd headerbar:first-child, .solid-csd headerbar:last-child, .solid-csd headerbar:only-child {
+window.tiled headerbar, window.tiled headerbar:first-child, window.tiled headerbar:last-child, window.tiled headerbar:only-child, window.tiled-top headerbar, window.tiled-top headerbar:first-child, window.tiled-top headerbar:last-child, window.tiled-top headerbar:only-child, window.tiled-right headerbar, window.tiled-right headerbar:first-child, window.tiled-right headerbar:last-child, window.tiled-right headerbar:only-child, window.tiled-bottom headerbar, window.tiled-bottom headerbar:first-child, window.tiled-bottom headerbar:last-child, window.tiled-bottom headerbar:only-child, window.tiled-left headerbar, window.tiled-left headerbar:first-child, window.tiled-left headerbar:last-child, window.tiled-left headerbar:only-child, window.maximized headerbar, window.maximized headerbar:first-child, window.maximized headerbar:last-child, window.maximized headerbar:only-child, window.fullscreen headerbar, window.fullscreen headerbar:first-child, window.fullscreen headerbar:last-child, window.fullscreen headerbar:only-child, .solid-csd headerbar, .solid-csd headerbar:first-child, .solid-csd headerbar:last-child, .solid-csd headerbar:only-child, window.tiled .background headerbar, window.tiled .background headerbar:first-child, window.tiled .background headerbar:last-child, window.tiled .background headerbar:only-child, window.tiled-top .background headerbar, window.tiled-top .background headerbar:first-child, window.tiled-top .background headerbar:last-child, window.tiled-top .background headerbar:only-child, window.tiled-right .background headerbar, window.tiled-right .background headerbar:first-child, window.tiled-right .background headerbar:last-child, window.tiled-right .background headerbar:only-child, window.tiled-bottom .background headerbar, window.tiled-bottom .background headerbar:first-child, window.tiled-bottom .background headerbar:last-child, window.tiled-bottom .background headerbar:only-child, window.tiled-left .background headerbar, window.tiled-left .background headerbar:first-child, window.tiled-left .background headerbar:last-child, window.tiled-left .background headerbar:only-child, window.maximized .background headerbar, window.maximized .background headerbar:first-child, window.maximized .background headerbar:last-child, window.maximized .background headerbar:only-child, window.fullscreen .background headerbar, window.fullscreen .background headerbar:first-child, window.fullscreen .background headerbar:last-child, window.fullscreen .background headerbar:only-child, .solid-csd .background headerbar, .solid-csd .background headerbar:first-child, .solid-csd .background headerbar:last-child, .solid-csd .background headerbar:only-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -2735,6 +2923,15 @@ popover.background > toolbar {
 popover.touch-selection, .csd popover.touch-selection,
 popover.background.touch-selection, .csd popover.background.touch-selection {
   font: initial;
+}
+
+popover button.circular:active, popover button.circular:active:hover,
+popover.background button.circular:active,
+popover.background button.circular:active:hover {
+  background-image: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 cursor-handle {
@@ -4195,23 +4392,23 @@ row:not(:hover) {
   border: none;
 }
 
-.app-notification button:hover {
+.app-notification button:not(.suggested-action):not(.destructive-action):hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
 }
 
-.app-notification button:active, .app-notification button:checked {
+.app-notification button:not(.suggested-action):not(.destructive-action):active, .app-notification button:not(.suggested-action):not(.destructive-action):checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.app-notification button:disabled {
+.app-notification button:not(.suggested-action):not(.destructive-action):disabled {
   background-color: transparent;
 }
 
-.app-notification button:disabled label, .app-notification button:disabled {
+.app-notification button:not(.suggested-action):not(.destructive-action):disabled label, .app-notification button:not(.suggested-action):not(.destructive-action):disabled {
   color: rgba(36, 36, 36, 0.45);
 }
 
@@ -4895,17 +5092,23 @@ messagedialog.csd decoration {
 }
 
 headerbar > .left,
-.titlebar > .left {
+.titlebar > .left,
+.background headerbar > .left,
+.background .titlebar > .left {
   margin-left: 3px;
 }
 
 headerbar > .right,
-.titlebar > .right {
+.titlebar > .right,
+.background headerbar > .right,
+.background .titlebar > .right {
   margin-right: 3px;
 }
 
 headerbar button.titlebutton.appmenu,
-.titlebar button.titlebutton.appmenu {
+.titlebar button.titlebutton.appmenu,
+.background headerbar button.titlebutton.appmenu,
+.background .titlebar button.titlebutton.appmenu {
   transition: background-color 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-image 0, background-size 0;
   color: transparent;
   background-image: -gtk-scaled(url("assets/setting.png"), url("assets/setting@2.png"));
@@ -4914,27 +5117,76 @@ headerbar button.titlebutton.appmenu,
 }
 
 headerbar button.titlebutton.appmenu image,
-.titlebar button.titlebutton.appmenu image {
+.titlebar button.titlebutton.appmenu image,
+.background headerbar button.titlebutton.appmenu image,
+.background .titlebar button.titlebutton.appmenu image {
   opacity: 0;
 }
 
 headerbar button.titlebutton.appmenu:active, headerbar button.titlebutton.appmenu:checked,
 .titlebar button.titlebutton.appmenu:active,
-.titlebar button.titlebutton.appmenu:checked {
+.titlebar button.titlebutton.appmenu:checked,
+.background headerbar button.titlebutton.appmenu:active,
+.background headerbar button.titlebutton.appmenu:checked,
+.background .titlebar button.titlebutton.appmenu:active,
+.background .titlebar button.titlebutton.appmenu:checked {
   transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-image 0, background-size 0;
   background-image: -gtk-scaled(url("assets/setting-icon.png"), url("assets/setting-icon@2.png"));
 }
 
 headerbar button.titlebutton.appmenu:backdrop,
-.titlebar button.titlebutton.appmenu:backdrop {
+.titlebar button.titlebutton.appmenu:backdrop,
+.background headerbar button.titlebutton.appmenu:backdrop,
+.background .titlebar button.titlebutton.appmenu:backdrop {
   background-image: -gtk-scaled(url("assets/setting-icon-dark.png"), url("assets/setting-icon-dark@2.png"));
 }
 
-headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize, headerbar button.titlebutton.restore,
+headerbar button.titlebutton.close, headerbar button.titlebutton.close:hover, headerbar button.titlebutton.close:active, headerbar button.titlebutton.close:active:hover, headerbar button.titlebutton.close:disabled, headerbar button.titlebutton.maximize, headerbar button.titlebutton.maximize:hover, headerbar button.titlebutton.maximize:active, headerbar button.titlebutton.maximize:active:hover, headerbar button.titlebutton.maximize:disabled, headerbar button.titlebutton.minimize, headerbar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:active, headerbar button.titlebutton.minimize:active:hover, headerbar button.titlebutton.minimize:disabled,
 .titlebar button.titlebutton.close,
+.titlebar button.titlebutton.close:hover,
+.titlebar button.titlebutton.close:active,
+.titlebar button.titlebutton.close:active:hover,
+.titlebar button.titlebutton.close:disabled,
 .titlebar button.titlebutton.maximize,
+.titlebar button.titlebutton.maximize:hover,
+.titlebar button.titlebutton.maximize:active,
+.titlebar button.titlebutton.maximize:active:hover,
+.titlebar button.titlebutton.maximize:disabled,
 .titlebar button.titlebutton.minimize,
-.titlebar button.titlebutton.restore {
+.titlebar button.titlebutton.minimize:hover,
+.titlebar button.titlebutton.minimize:active,
+.titlebar button.titlebutton.minimize:active:hover,
+.titlebar button.titlebutton.minimize:disabled,
+.background headerbar button.titlebutton.close,
+.background headerbar button.titlebutton.close:hover,
+.background headerbar button.titlebutton.close:active,
+.background headerbar button.titlebutton.close:active:hover,
+.background headerbar button.titlebutton.close:disabled,
+.background headerbar button.titlebutton.maximize,
+.background headerbar button.titlebutton.maximize:hover,
+.background headerbar button.titlebutton.maximize:active,
+.background headerbar button.titlebutton.maximize:active:hover,
+.background headerbar button.titlebutton.maximize:disabled,
+.background headerbar button.titlebutton.minimize,
+.background headerbar button.titlebutton.minimize:hover,
+.background headerbar button.titlebutton.minimize:active,
+.background headerbar button.titlebutton.minimize:active:hover,
+.background headerbar button.titlebutton.minimize:disabled,
+.background .titlebar button.titlebutton.close,
+.background .titlebar button.titlebutton.close:hover,
+.background .titlebar button.titlebutton.close:active,
+.background .titlebar button.titlebutton.close:active:hover,
+.background .titlebar button.titlebutton.close:disabled,
+.background .titlebar button.titlebutton.maximize,
+.background .titlebar button.titlebutton.maximize:hover,
+.background .titlebar button.titlebutton.maximize:active,
+.background .titlebar button.titlebutton.maximize:active:hover,
+.background .titlebar button.titlebutton.maximize:disabled,
+.background .titlebar button.titlebutton.minimize,
+.background .titlebar button.titlebutton.minimize:hover,
+.background .titlebar button.titlebutton.minimize:active,
+.background .titlebar button.titlebutton.minimize:active:hover,
+.background .titlebar button.titlebutton.minimize:disabled {
   min-width: 16px;
   min-height: 16px;
   margin: 0;
@@ -4948,131 +5200,208 @@ headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, heade
   box-shadow: none;
 }
 
-headerbar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop, headerbar button.titlebutton.restore:backdrop,
+headerbar button.titlebutton.close:backdrop, headerbar button.titlebutton.maximize:backdrop, headerbar button.titlebutton.minimize:backdrop,
 .titlebar button.titlebutton.close:backdrop,
 .titlebar button.titlebutton.maximize:backdrop,
 .titlebar button.titlebutton.minimize:backdrop,
-.titlebar button.titlebutton.restore:backdrop {
+.background headerbar button.titlebutton.close:backdrop,
+.background headerbar button.titlebutton.maximize:backdrop,
+.background headerbar button.titlebutton.minimize:backdrop,
+.background .titlebar button.titlebutton.close:backdrop,
+.background .titlebar button.titlebutton.maximize:backdrop,
+.background .titlebar button.titlebutton.minimize:backdrop {
   opacity: 1;
 }
 
 headerbar button.titlebutton.close,
-.titlebar button.titlebutton.close {
+.titlebar button.titlebutton.close,
+.background headerbar button.titlebutton.close,
+.background .titlebar button.titlebutton.close {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-close.png"), url("windows-assets/titlebutton-close@2.png"));
 }
 
 headerbar button.titlebutton.close:backdrop,
-.titlebar button.titlebutton.close:backdrop {
+.titlebar button.titlebutton.close:backdrop,
+.background headerbar button.titlebutton.close:backdrop,
+.background .titlebar button.titlebutton.close:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-close-backdrop.png"), url("windows-assets/titlebutton-close-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.close:backdrop:hover,
-.titlebar button.titlebutton.close:backdrop:hover {
+.titlebar button.titlebutton.close:backdrop:hover,
+.background headerbar button.titlebutton.close:backdrop:hover,
+.background .titlebar button.titlebutton.close:backdrop:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-close-backdrop-hover.png"), url("windows-assets/titlebutton-close-backdrop-hover@2.png"));
 }
 
 headerbar button.titlebutton.close:hover,
-.titlebar button.titlebutton.close:hover {
+.titlebar button.titlebutton.close:hover,
+.background headerbar button.titlebutton.close:hover,
+.background .titlebar button.titlebutton.close:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-close-hover.png"), url("windows-assets/titlebutton-close-hover@2.png"));
 }
 
 headerbar button.titlebutton.close:active,
-.titlebar button.titlebutton.close:active {
+.titlebar button.titlebutton.close:active,
+.background headerbar button.titlebutton.close:active,
+.background .titlebar button.titlebutton.close:active {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-close-active.png"), url("windows-assets/titlebutton-close-active@2.png"));
+}
+
+headerbar button.titlebutton.close:active:hover,
+.titlebar button.titlebutton.close:active:hover,
+.background headerbar button.titlebutton.close:active:hover,
+.background .titlebar button.titlebutton.close:active:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-close-active.png"), url("windows-assets/titlebutton-close-active@2.png"));
 }
 
 headerbar button.titlebutton.maximize,
-.titlebar button.titlebutton.maximize {
+.titlebar button.titlebutton.maximize,
+.background headerbar button.titlebutton.maximize,
+.background .titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize.png"), url("windows-assets/titlebutton-maximize@2.png"));
 }
 
 headerbar button.titlebutton.maximize:backdrop,
-.titlebar button.titlebutton.maximize:backdrop {
+.titlebar button.titlebutton.maximize:backdrop,
+.background headerbar button.titlebutton.maximize:backdrop,
+.background .titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-backdrop.png"), url("windows-assets/titlebutton-maximize-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.maximize:backdrop:hover,
-.titlebar button.titlebutton.maximize:backdrop:hover {
+.titlebar button.titlebutton.maximize:backdrop:hover,
+.background headerbar button.titlebutton.maximize:backdrop:hover,
+.background .titlebar button.titlebutton.maximize:backdrop:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-backdrop-hover.png"), url("windows-assets/titlebutton-maximize-backdrop-hover@2.png"));
 }
 
 headerbar button.titlebutton.maximize:hover,
-.titlebar button.titlebutton.maximize:hover {
+.titlebar button.titlebutton.maximize:hover,
+.background headerbar button.titlebutton.maximize:hover,
+.background .titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-hover.png"), url("windows-assets/titlebutton-maximize-hover@2.png"));
 }
 
 headerbar button.titlebutton.maximize:active,
-.titlebar button.titlebutton.maximize:active {
+.titlebar button.titlebutton.maximize:active,
+.background headerbar button.titlebutton.maximize:active,
+.background .titlebar button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-active.png"), url("windows-assets/titlebutton-maximize-active@2.png"));
+}
+
+headerbar button.titlebutton.maximize:active:hover,
+.titlebar button.titlebutton.maximize:active:hover,
+.background headerbar button.titlebutton.maximize:active:hover,
+.background .titlebar button.titlebutton.maximize:active:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-maximize-active.png"), url("windows-assets/titlebutton-maximize-active@2.png"));
 }
 
 headerbar button.titlebutton.minimize,
-.titlebar button.titlebutton.minimize {
+.titlebar button.titlebutton.minimize,
+.background headerbar button.titlebutton.minimize,
+.background .titlebar button.titlebutton.minimize {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize.png"), url("windows-assets/titlebutton-minimize@2.png"));
 }
 
 headerbar button.titlebutton.minimize:backdrop,
-.titlebar button.titlebutton.minimize:backdrop {
+.titlebar button.titlebutton.minimize:backdrop,
+.background headerbar button.titlebutton.minimize:backdrop,
+.background .titlebar button.titlebutton.minimize:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-backdrop.png"), url("windows-assets/titlebutton-minimize-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.minimize:backdrop:hover,
-.titlebar button.titlebutton.minimize:backdrop:hover {
+.titlebar button.titlebutton.minimize:backdrop:hover,
+.background headerbar button.titlebutton.minimize:backdrop:hover,
+.background .titlebar button.titlebutton.minimize:backdrop:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-backdrop-hover.png"), url("windows-assets/titlebutton-minimize-backdrop-hover@2.png"));
 }
 
 headerbar button.titlebutton.minimize:hover,
-.titlebar button.titlebutton.minimize:hover {
+.titlebar button.titlebutton.minimize:hover,
+.background headerbar button.titlebutton.minimize:hover,
+.background .titlebar button.titlebutton.minimize:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-hover.png"), url("windows-assets/titlebutton-minimize-hover@2.png"));
 }
 
 headerbar button.titlebutton.minimize:active,
-.titlebar button.titlebutton.minimize:active {
+.titlebar button.titlebutton.minimize:active,
+.background headerbar button.titlebutton.minimize:active,
+.background .titlebar button.titlebutton.minimize:active {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-active.png"), url("windows-assets/titlebutton-minimize-active@2.png"));
+}
+
+headerbar button.titlebutton.minimize:active:hover,
+.titlebar button.titlebutton.minimize:active:hover,
+.background headerbar button.titlebutton.minimize:active:hover,
+.background .titlebar button.titlebutton.minimize:active:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-minimize-active.png"), url("windows-assets/titlebutton-minimize-active@2.png"));
 }
 
 headerbar button.titlebutton.restore,
-.titlebar button.titlebutton.restore {
+.titlebar button.titlebutton.restore,
+.background headerbar button.titlebutton.restore,
+.background .titlebar button.titlebutton.restore {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore.png"), url("windows-assets/titlebutton-restore@2.png"));
 }
 
 headerbar button.titlebutton.restore:backdrop,
-.titlebar button.titlebutton.restore:backdrop {
+.titlebar button.titlebutton.restore:backdrop,
+.background headerbar button.titlebutton.restore:backdrop,
+.background .titlebar button.titlebutton.restore:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop.png"), url("windows-assets/titlebutton-restore-backdrop@2.png"));
 }
 
 headerbar button.titlebutton.restore:backdrop:hover,
-.titlebar button.titlebutton.restore:backdrop:hover {
+.titlebar button.titlebutton.restore:backdrop:hover,
+.background headerbar button.titlebutton.restore:backdrop:hover,
+.background .titlebar button.titlebutton.restore:backdrop:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop-hover.png"), url("windows-assets/titlebutton-restore-backdrop-hover@2.png"));
 }
 
 headerbar button.titlebutton.restore:hover,
-.titlebar button.titlebutton.restore:hover {
+.titlebar button.titlebutton.restore:hover,
+.background headerbar button.titlebutton.restore:hover,
+.background .titlebar button.titlebutton.restore:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-hover.png"), url("windows-assets/titlebutton-restore-hover@2.png"));
 }
 
 headerbar button.titlebutton.restore:active,
-.titlebar button.titlebutton.restore:active {
+.titlebar button.titlebutton.restore:active,
+.background headerbar button.titlebutton.restore:active,
+.background .titlebar button.titlebutton.restore:active {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize, .maximized headerbar button.titlebutton.maximize, .fullscreen .titlebar button.titlebutton.maximize, .maximized .titlebar button.titlebutton.maximize {
+headerbar button.titlebutton.restore:active:hover,
+.titlebar button.titlebutton.restore:active:hover,
+.background headerbar button.titlebutton.restore:active:hover,
+.background .titlebar button.titlebutton.restore:active:hover {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize, .maximized headerbar button.titlebutton.maximize, .fullscreen .titlebar button.titlebutton.maximize, .maximized .titlebar button.titlebutton.maximize, .fullscreen .background headerbar button.titlebutton.maximize, .maximized .background headerbar button.titlebutton.maximize, .fullscreen .background .titlebar button.titlebutton.maximize, .maximized .background .titlebar button.titlebutton.maximize {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore.png"), url("windows-assets/titlebutton-restore@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:backdrop, .maximized headerbar button.titlebutton.maximize:backdrop, .fullscreen .titlebar button.titlebutton.maximize:backdrop, .maximized .titlebar button.titlebutton.maximize:backdrop {
+.fullscreen headerbar button.titlebutton.maximize:backdrop, .maximized headerbar button.titlebutton.maximize:backdrop, .fullscreen .titlebar button.titlebutton.maximize:backdrop, .maximized .titlebar button.titlebutton.maximize:backdrop, .fullscreen .background headerbar button.titlebutton.maximize:backdrop, .maximized .background headerbar button.titlebutton.maximize:backdrop, .fullscreen .background .titlebar button.titlebutton.maximize:backdrop, .maximized .background .titlebar button.titlebutton.maximize:backdrop {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop.png"), url("windows-assets/titlebutton-restore-backdrop@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:backdrop:hover, .maximized headerbar button.titlebutton.maximize:backdrop:hover, .fullscreen .titlebar button.titlebutton.maximize:backdrop:hover, .maximized .titlebar button.titlebutton.maximize:backdrop:hover {
+.fullscreen headerbar button.titlebutton.maximize:backdrop:hover, .maximized headerbar button.titlebutton.maximize:backdrop:hover, .fullscreen .titlebar button.titlebutton.maximize:backdrop:hover, .maximized .titlebar button.titlebutton.maximize:backdrop:hover, .fullscreen .background headerbar button.titlebutton.maximize:backdrop:hover, .maximized .background headerbar button.titlebutton.maximize:backdrop:hover, .fullscreen .background .titlebar button.titlebutton.maximize:backdrop:hover, .maximized .background .titlebar button.titlebutton.maximize:backdrop:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-backdrop-hover.png"), url("windows-assets/titlebutton-restore-backdrop-hover@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:hover, .maximized headerbar button.titlebutton.maximize:hover, .fullscreen .titlebar button.titlebutton.maximize:hover, .maximized .titlebar button.titlebutton.maximize:hover {
+.fullscreen headerbar button.titlebutton.maximize:hover, .maximized headerbar button.titlebutton.maximize:hover, .fullscreen .titlebar button.titlebutton.maximize:hover, .maximized .titlebar button.titlebutton.maximize:hover, .fullscreen .background headerbar button.titlebutton.maximize:hover, .maximized .background headerbar button.titlebutton.maximize:hover, .fullscreen .background .titlebar button.titlebutton.maximize:hover, .maximized .background .titlebar button.titlebutton.maximize:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-hover.png"), url("windows-assets/titlebutton-restore-hover@2.png"));
 }
 
-.fullscreen headerbar button.titlebutton.maximize:active, .maximized headerbar button.titlebutton.maximize:active, .fullscreen .titlebar button.titlebutton.maximize:active, .maximized .titlebar button.titlebutton.maximize:active {
+.fullscreen headerbar button.titlebutton.maximize:active, .maximized headerbar button.titlebutton.maximize:active, .fullscreen .titlebar button.titlebutton.maximize:active, .maximized .titlebar button.titlebutton.maximize:active, .fullscreen .background headerbar button.titlebutton.maximize:active, .maximized .background headerbar button.titlebutton.maximize:active, .fullscreen .background .titlebar button.titlebutton.maximize:active, .maximized .background .titlebar button.titlebutton.maximize:active {
+  background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
+}
+
+.fullscreen headerbar button.titlebutton.maximize:active:hover, .maximized headerbar button.titlebutton.maximize:active:hover, .fullscreen .titlebar button.titlebutton.maximize:active:hover, .maximized .titlebar button.titlebutton.maximize:active:hover, .fullscreen .background headerbar button.titlebutton.maximize:active:hover, .maximized .background headerbar button.titlebutton.maximize:active:hover, .fullscreen .background .titlebar button.titlebutton.maximize:active:hover, .maximized .background .titlebar button.titlebutton.maximize:active:hover {
   background-image: -gtk-scaled(url("windows-assets/titlebutton-restore-active.png"), url("windows-assets/titlebutton-restore-active@2.png"));
 }
 
