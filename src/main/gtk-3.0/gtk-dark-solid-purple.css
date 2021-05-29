@@ -296,10 +296,6 @@ spinbutton entry, .linked > entry:not(:only-child) {
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
-spinbutton entry:not(:last-child), .linked > entry:not(:last-child):not(:only-child) {
-  border-right-width: 0;
-}
-
 spinbutton entry:focus, .linked > entry:focus:not(:only-child) {
   color: #dadada;
   background-color: #242424;
@@ -315,7 +311,7 @@ spinbutton entry:disabled, .linked > entry:disabled:not(:only-child) {
 }
 
 entry {
-  min-height: 16px;
+  min-height: 20px;
   border: 3px solid transparent;
   padding: 2px 8px;
   border-radius: 7px;
@@ -496,6 +492,14 @@ entry progress {
   box-shadow: none;
 }
 
+.linked:not(.vertical) > entry:not(:only-child):not(:last-child) {
+  border-right-width: 0;
+}
+
+.linked.vertical > entry:not(:only-child):not(:last-child) {
+  border-bottom-width: 0;
+}
+
 treeview entry.flat, treeview entry {
   border-radius: 0;
   background-image: none;
@@ -560,7 +564,7 @@ stackswitcher button.text-button.circular, button.circular, .app-notification bu
 popover.background button.circular, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, button.close {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
-  padding: 0 0 0 0;
+  padding: 0 0;
   min-height: 28px;
   min-width: 28px;
   border-bottom-color: rgba(0, 0, 0, 0.15);
@@ -718,20 +722,11 @@ button:checked:hover {
 button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 button:disabled label, button:disabled {
   color: rgba(222, 222, 222, 0.35);
-}
-
-button:disabled:active, button:disabled:checked {
-  border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(154, 87, 163, 0.55);
-  opacity: 0.6;
-}
-
-button:disabled:active label, button:disabled:active, button:disabled:checked label, button:disabled:checked {
-  color: rgba(255, 255, 255, 0.55);
 }
 
 .background button:active, .background button:checked {
@@ -743,13 +738,15 @@ button:disabled:active label, button:disabled:active, button:disabled:checked la
   background-image: linear-gradient(0deg, #915299 0%, #ab70b3 100%);
 }
 
-.background button:disabled, .background button:disabled:active, .background button:disabled:checked {
+.background button:disabled:active, .background button:disabled:checked {
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: rgba(101, 101, 101, 0.55);
+  background-color: rgba(154, 87, 163, 0.55);
+  background-image: none;
+  opacity: 0.6;
 }
 
-.background button:disabled label, .background button:disabled, .background button:disabled:active label, .background button:disabled:active, .background button:disabled:checked label, .background button:disabled:checked {
-  color: rgba(222, 222, 222, 0.35);
+.background button:disabled:active label, .background button:disabled:active, .background button:disabled:checked label, .background button:disabled:checked {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 button.image-button {
@@ -935,6 +932,7 @@ button.suggested-action.flat:disabled, .raven .raven-header:not(.top) button.sug
 button.suggested-action:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 button.suggested-action:disabled label, button.suggested-action:disabled {
@@ -985,6 +983,7 @@ button.destructive-action.flat:disabled, .raven .raven-header:not(.top) button.d
 button.destructive-action:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 button.destructive-action:disabled label, button.destructive-action:disabled {
@@ -1487,7 +1486,8 @@ spinbutton.vertical > entry:drop(active) + button {
   border-top-color: #F08437;
 }
 
-combobox button.combo {
+combobox button.combo,
+combobox entry.combo {
   min-width: 0;
   min-height: 0;
   padding-left: 12px;
@@ -1534,6 +1534,14 @@ combobox:drop(active) button.combo {
   background: none;
   box-shadow: none;
   -gtk-icon-source: -gtk-scaled(url("assets/combobox-arrow-dark.png"), url("assets/combobox-arrow-dark@2.png"));
+}
+
+combobox .linked:not(.vertical) > entry + button.combo {
+  padding-left: 0;
+}
+
+combobox .linked.vertical > entry + button.combo {
+  padding: 0;
 }
 
 combobox .linked:not(.vertical) > entry + button.combo:checked arrow, .linked:not(.vertical) > combobox > box > button.combo:checked arrow {
@@ -5041,6 +5049,12 @@ colorchooser .popover.osd {
   font-family: Monospace;
 }
 
+button.circular {
+  padding: 0 0;
+  min-height: 28px;
+  min-width: 28px;
+}
+
 .keycap {
   min-width: 16px;
   min-height: 20px;
@@ -8544,6 +8558,7 @@ button.flat.-panel-icon-button:checked,
 .menubar.panel popover .linked > button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 .menubar.panel popover .linked > button:disabled label, .menubar.panel popover .linked > button:disabled {
@@ -9314,6 +9329,7 @@ GtkListBox .h4 {
 #content_frame button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 #content_frame button:disabled label, #content_frame button:disabled {

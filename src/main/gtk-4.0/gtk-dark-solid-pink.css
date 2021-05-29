@@ -632,6 +632,7 @@ button:checked:hover {
 button:disabled {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 button:disabled label, button:disabled {
@@ -641,6 +642,7 @@ button:disabled label, button:disabled {
 button:disabled:active, button:disabled:checked {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(229, 94, 156, 0.55);
+  background-image: none;
   opacity: 0.6;
 }
 
@@ -831,6 +833,7 @@ button.suggested-action.flat:disabled, label:disabled selection.flat {
 button.suggested-action:disabled, label:disabled selection.suggested-action {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 button.suggested-action:disabled label, label:disabled selection.suggested-action label, button.suggested-action:disabled, label:disabled selection.suggested-action {
@@ -881,6 +884,7 @@ button.destructive-action.flat:disabled, label:disabled selection.flat {
 button.destructive-action:disabled, label:disabled selection.destructive-action {
   border-color: rgba(0, 0, 0, 0.15);
   background-color: rgba(101, 101, 101, 0.55);
+  background-image: none;
 }
 
 button.destructive-action:disabled label, label:disabled selection.destructive-action label, button.destructive-action:disabled, label:disabled selection.destructive-action {

@@ -308,8 +308,6 @@ spinner {
   border-color: $entry_border;
   border-bottom-color: $entry_bottom_border;
 
-  &:not(:last-child) { border-right-width: 0; }
-
   &:focus {
     @include entry(focus);
     border-image: none;
@@ -324,7 +322,7 @@ spinner {
 }
 
 entry {
-  min-height: if($variant =='light', 16px, 16px);
+  min-height: if($variant =='light', 20px, 20px);
   border: 3px solid transparent;
   padding: 2px 8px;
   border-radius: 7px;
@@ -467,6 +465,14 @@ entry {
   .linked > &:not(:only-child) {
     @extend %Linked_entrys;
   }
+
+  .linked:not(.vertical) > &:not(:only-child) {
+    &:not(:last-child) { border-right-width: 0; }
+  }
+
+  .linked.vertical > &:not(:only-child) {
+    &:not(:last-child) { border-bottom-width: 0; }
+  }
 }
 
 treeview entry {
@@ -550,7 +556,7 @@ $_dot_color: $selected_bg_color;
 %circular_button {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
-  padding: 0 0 0 0;
+  padding: 0 0;
   min-height: 28px;
   min-width: 28px;
   border-bottom-color: if($variant=='light', $borders_color, $dark_borders_color);
@@ -680,13 +686,7 @@ button {
 
   &:checked:hover { background-image: $button_active_hover_image; }
 
-  &:disabled {
-    @include button(insensitive);
-
-    &:active, &:checked {
-      @include button(insensitive-active);
-    }
-  }
+  &:disabled { @include button(insensitive); }
 
   .background & {
     &:active, &:checked {
@@ -694,8 +694,8 @@ button {
     }
 
     &:disabled {
-      &, &:active, &:checked {
-        @include button(insensitive);
+      &:active, &:checked {
+        @include button(insensitive-active);
       }
     }
   }
@@ -1189,7 +1189,8 @@ spinbutton {
 // Comboboxes
 //
 combobox {
-  button.combo {
+  button.combo,
+  entry.combo {
     min-width: 0;       // otherwise the arrow placement is unsymmetric
     min-height: 0;
     // margin: 0;
@@ -1241,6 +1242,9 @@ combobox {
     &:dir(ltr),
     &:dir(rtl) { @extend %linked_middle; } // specificity bump
   }
+
+  .linked:not(.vertical) > entry + button.combo { padding-left: 0; }
+  .linked.vertical > entry + button.combo { padding: 0; }
 
   .linked:not(.vertical) > entry + button.combo:checked,
   .linked:not(.vertical) > & > box > button.combo:checked {
@@ -4057,6 +4061,9 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 //
 button.circular {
   @extend %circular_button;
+  padding: 0 0;
+  min-height: 28px;
+  min-width: 28px;
 }
 
 .keycap {
