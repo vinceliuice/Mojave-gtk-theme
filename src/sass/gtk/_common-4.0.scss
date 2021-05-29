@@ -381,10 +381,6 @@ entry {
     }
   }
 
-  // row & {
-  //   min-height: 24px;
-  // }
-
   > text > selection { &:focus, & { @extend %selected_items; }}
 
   // error and warning style

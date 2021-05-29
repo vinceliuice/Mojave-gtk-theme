@@ -308,6 +308,8 @@ spinner {
   border-color: $entry_border;
   border-bottom-color: $entry_bottom_border;
 
+  &:not(:last-child) { border-right-width: 0; }
+
   &:focus {
     @include entry(focus);
     border-image: none;
@@ -391,10 +393,6 @@ entry {
     }
   }
 
-  // row & {
-  //   min-height: 24px;
-  // }
-
   selection { &:focus, & { @extend %selected_items; }}
 
   // error and warning style
@@ -469,9 +467,6 @@ entry {
   .linked > &:not(:only-child) {
     @extend %Linked_entrys;
   }
-
-  .linked:not(.vertical) > & + button.combo { padding-left: 0; }
-  .linked.vertical > & + button.combo { padding: 0; }
 }
 
 treeview entry {

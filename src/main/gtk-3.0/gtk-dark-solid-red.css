@@ -296,6 +296,10 @@ spinbutton entry, .linked > entry:not(:only-child) {
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
+spinbutton entry:not(:last-child), .linked > entry:not(:last-child):not(:only-child) {
+  border-right-width: 0;
+}
+
 spinbutton entry:focus, .linked > entry:focus:not(:only-child) {
   color: #dadada;
   background-color: #242424;
@@ -490,14 +494,6 @@ entry progress {
   background-image: none;
   background-color: transparent;
   box-shadow: none;
-}
-
-.linked:not(.vertical) > entry + button.combo {
-  padding-left: 0;
-}
-
-.linked.vertical > entry + button.combo {
-  padding: 0;
 }
 
 treeview entry.flat, treeview entry {
