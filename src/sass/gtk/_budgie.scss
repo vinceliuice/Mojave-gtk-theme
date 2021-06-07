@@ -146,7 +146,7 @@ $raven_padding: 8px;
     &:disabled { color: $disabled_fg_color; }
   }
 
-  treeview.view.sidebar { //AppMenu (budgie)
+  treeview.view.sidebar { //AppMenu (budgie) old
     // min-height: 36px;
     background: none;
     border-right: none;
@@ -155,6 +155,19 @@ $raven_padding: 8px;
     label { padding: $container_padding / 2 $container_padding;  }
 
     &:hover { background-color: $visit_color; }
+  }
+
+  scrolledwindow:not(.sidebar) > viewport.frame {
+    background-color: $base_color;
+    border-bottom-right-radius: $wm_radius;
+
+    > list { background: none; }
+  }
+
+  scrolledwindow.sidebar.categories { //AppMenu (budgie) new
+    button.flat.category-button {
+      @extend %flat_button;
+    }
   }
 
   scrolledwindow.sidebar:not(.categories) { //AppMenu (Elementary)
@@ -205,7 +218,7 @@ $raven_padding: 8px;
   }
 
   &.user-menu {
-    .container { padding: 8px; }
+    .container { padding: $container_padding; }
     separator { margin: 4px 0; }
 
     list, row { // reset styling
@@ -220,16 +233,26 @@ $raven_padding: 8px;
   }
 
   &.night-light-indicator {
-    .container { padding: 8px; }
+    .container { padding: $container_padding; }
+  }
+
+  &.caffeine-popover {
+    .container { padding: $container_padding; }
   }
 
   &.places-menu {
-    .container { padding: 8px; }
+    .container { padding: $container_padding; }
 
     .places-list:not(.always-expand) {
       margin-top: 4px;
       padding-top: 4px;
       border-top: 1px solid $borders_color;
+    }
+
+    list, row { // reset styling
+      border: none;
+      background: none;
+      box-shadow: none;
     }
 
     // I guess this really should be hard-coded as well as other dim-labels.
@@ -496,7 +519,7 @@ popover.background.places-menu {
     }
   }
 
-  button {
+  button, button.flat {
     min-height: 16px;
     min-width: 16px;
     padding: 0;
@@ -514,7 +537,7 @@ popover.background.places-menu {
       background-image: none;
     }
 
-    &:active {
+    &:active, &:active:hover {
       background-color: rgba($panel_fg, 0.15);
       color: $panel_fg;
       background-image: none;
@@ -523,6 +546,7 @@ popover.background.places-menu {
     &:checked {
       background-color: rgba($panel_fg, 0.12);
       color: $panel_fg;
+      background-image: none;
     }
   }
 

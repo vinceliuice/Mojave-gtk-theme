@@ -262,20 +262,23 @@ spinner {
   }
 }
 
-%linked-flat {
-  @extend %linked_middle;
+%linked_solid {
+  border-radius: 0;
+  border: 1px solid;
+
   &:first-child {
     border-top-left-radius: $bt_radius;
-    border-bottom-left-radius: 0;
+    border-bottom-left-radius: $bt_radius;
+    border-right: 1px solid;
   }
   &:last-child {
     border-top-right-radius: $bt_radius;
-    border-bottom-right-radius: 0;
-    border-right-style: solid;
+    border-bottom-right-radius: $bt_radius;
+    border-left: none;
+    border-left: 1px solid;
   }
   &:only-child {
     border-radius: $bt_radius $bt_radius 0 0;
-    border-style: solid;
   }
 }
 
@@ -464,14 +467,6 @@ entry {
 
   .linked > &:not(:only-child) {
     @extend %Linked_entrys;
-  }
-
-  .linked:not(.vertical) > &:not(:only-child) {
-    &:not(:last-child) { border-right-width: 0; }
-  }
-
-  .linked.vertical > &:not(:only-child) {
-    &:not(:last-child) { border-bottom-width: 0; }
   }
 }
 
@@ -1023,7 +1018,7 @@ toolbar.inline-toolbar toolbutton {
 
 headerbar {
   .linked:not(.vertical) {
-    @include linking_rules($entry_rules:'header', $button_rules:'true');
+    @include linking_rules($entry_rules:'header');
   }
 }
 
@@ -1519,8 +1514,7 @@ actionbar > revealer > box {
   &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
 }
 
-headerbar,
-.background headerbar {
+headerbar {
   min-height: 34px;
   padding: 0 8px;
   background-image: $headerbar_bg_image;
@@ -1696,8 +1690,11 @@ headerbar,
     padding: 0 8px;
 
     @if $variant == 'light' {
-      border-width: 1px;
       border: 1px solid $borders_color;
+
+      &:focus, &:disabled {
+        border: 1px solid;
+      }
     }
 
     &:focus {
@@ -2187,10 +2184,10 @@ treeview.view {
                                     $base_color 80%) 0 1 0 0 / 0 1px 0 0 stretch;
 
       &:hover { color: $selected_bg_color; }
-      &:active { color: $fg_color; }
+      &:active { color: $fg_color; background-image: none; }
 
       &:active, &:hover { background-color: $base_color; }
-      &:active:hover { color: $fg_color; }
+      &:active:hover { color: $fg_color; background-image: none; }
 
       &:disabled {
         border-color: $bg_color;
