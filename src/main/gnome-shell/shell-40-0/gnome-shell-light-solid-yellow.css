@@ -3477,3 +3477,95 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-right-width: 1px;
   margin: 32px 0;
 }
+
+.openweather-button, .openweather-button-action, .openweather-menu-button-container, .openweather-button-box {
+  border: 1px solid transparent !important;
+}
+
+.openweather-provider {
+  padding: 0 16px;
+  font-weight: 500;
+  color: #424242;
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+  text-shadow: none;
+  icon-shadow: none;
+  border: 1px solid transparent !important;
+}
+
+.openweather-provider:hover {
+  color: #242424;
+  background-color: rgba(0, 0, 0, 0.12);
+  border-color: transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+  text-shadow: none;
+  icon-shadow: none;
+}
+
+.openweather-provider:focus {
+  color: #242424;
+  text-shadow: none;
+  icon-shadow: none;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.openweather-provider:active {
+  color: #242424;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+  text-shadow: none;
+  icon-shadow: none;
+}
+
+.openweather-current-icon, .openweather-current-summary, .openweather-current-summarybox {
+  background: none;
+  color: #242424;
+}
+
+.openweather-current-databox-values {
+  background: none;
+  color: #565656;
+}
+
+.openweather-current-databox-captions {
+  background: none;
+  color: #565656;
+}
+
+.openweather-forecast-icon, .openweather-forecast-summary {
+  background: none;
+  color: #424242;
+}
+
+.openweather-forecast-day, .openweather-forecast-temperature {
+  background: none;
+  color: #565656;
+}
+
+.openweather-sunrise-icon, .openweather-sunset-icon, .openweather-build-icon {
+  color: #424242;
+}
+
+.gsconnect-device-name {
+  font-size: 0.9em;
+}
+
+.gsconnect-device-menu .popup-separator-menu-item {
+  min-height: 16px !important;
+}
+
+.gsconnect-device-menu .popup-menu-item {
+  min-width: 6px !important;
+}
+
+.gsconnect-device-menu .popup-menu-item > :first-child:ltr {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.gsconnect-device-menu .popup-menu-item > :first-child:rtl {
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+}

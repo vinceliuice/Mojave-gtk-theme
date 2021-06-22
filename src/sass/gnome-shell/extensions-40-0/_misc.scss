@@ -1,15 +1,13 @@
-// Simple Dock
-#dash:desktop {
-  background-color: $dash_panel_bg;
-}
 
-//  OpenWeather Extension
+//
+// OpenWeather Extension
+//
 .openweather {
   &-button,
   &-button-action,
   &-menu-button-container,
   &-button-box {
-    border: 1px solid transparent;
+    border: 1px solid transparent !important;
   }
 
   &-provider {
@@ -21,7 +19,7 @@
     &:focus { @include button(flat-focus); }
     &:active { @include button(flat-active); }
     &:insensitive { @include button(flat-disabled); }
-    border: 1px solid transparent;
+    border: 1px solid transparent !important;
   }
 
   &-current {
@@ -60,4 +58,32 @@
   &-sunrise-icon,
   &-sunset-icon,
   &-build-icon { color: $alt_fg_color; }
+}
+
+//
+// Gsconnect
+//
+.gsconnect-device-name {
+  font-size: 0.9em;
+}
+
+.gsconnect-device-menu {
+  .popup-separator-menu-item {
+    min-height: 16px !important;
+  }
+
+  .popup-menu-item {
+    min-width: 6px !important;
+
+    > :first-child {
+      &:ltr {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+      }
+      &:rtl {
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+      }
+    }
+  }
 }

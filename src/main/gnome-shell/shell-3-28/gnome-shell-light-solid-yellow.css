@@ -3951,29 +3951,3 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .openweather-sunrise-icon, .openweather-sunset-icon, .openweather-build-icon {
   color: #424242;
 }
-
-.popup-menu .search-entry {
-  color: #242424;
-  selection-background-color: #F3BA4B;
-  selected-color: white;
-  color: #242424;
-  background-color: #fafafa;
-  border-radius: 8px;
-  border: 2px solid transparent;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
-}
-
-.popup-menu .search-entry:focus {
-  color: #242424;
-  border: 2px solid #f8d593;
-  box-shadow: none;
-  color: #242424;
-}
-
-.popup-menu .search-entry .search-entry-icon {
-  color: #565656;
-}
-
-.popup-menu .search-entry:hover .search-entry-icon, .popup-menu .search-entry:focus .search-entry-icon {
-  color: #242424;
-}
