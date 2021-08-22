@@ -237,7 +237,7 @@
     color: if($tc != $light_fg_color, $fg_color, $light_fg_color);
     background-color: if($tc != $light_fg_color, $track_color, $light_track_color);
     border-color: transparent;
-    box-shadow: $shadow_0;
+    box-shadow: none;
     text-shadow: none;
     icon-shadow: none;
   }

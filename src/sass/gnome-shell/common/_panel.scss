@@ -19,6 +19,7 @@
   &.lock-screen {
     box-shadow: none;
     background-color: if($trans == 'false' and $variant == 'light', transparent, transparent);
+    box-shadow: none;
 
     StLabel, StIcon { color: $light_alt_fg_color; }
 

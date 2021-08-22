@@ -1750,6 +1750,11 @@ headerbar {
       margin-bottom: 0;
       background: none;
       border: none;
+      min-width: 120px;
+      padding: 0;
+
+      label { margin-right: 12px; }
+      image { margin-left: 12px; }
 
       &:not(:hover):not(:active):not(:checked) {
         background: none;
