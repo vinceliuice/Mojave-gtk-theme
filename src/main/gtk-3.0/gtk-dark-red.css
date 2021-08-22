@@ -7955,27 +7955,6 @@ window#GearyMainWindow.background.csd stack#conversation_viewer scrolledwindow.g
   border: none;
 }
 
-.geary-main-window.background.csd.unified headerbar components-conversation-actions button {
-  border: none;
-  background: none;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.geary-main-window.background.csd.unified headerbar components-conversation-actions button:hover {
-  background-color: rgba(253, 253, 253, 0.15);
-  color: #FDFDFD;
-  box-shadow: none;
-}
-
-.geary-main-window.background.csd.unified headerbar components-conversation-actions button:active, .geary-main-window.background.csd.unified headerbar components-conversation-actions button:active:hover, .geary-main-window.background.csd.unified headerbar components-conversation-actions button:checked {
-  color: white;
-  background-color: #909090;
-  background-image: none;
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: none;
-}
-
 window.background:not(.csd) > widget > separator {
   padding-top: 1px;
   margin-top: 1px;

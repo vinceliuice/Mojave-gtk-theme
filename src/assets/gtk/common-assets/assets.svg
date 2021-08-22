@@ -18,7 +18,7 @@
    <stop stop-color="#ffffff" offset="0"/>
   </linearGradient>
   <linearGradient id="selected_bg_color" osb:paint="solid">
-   <stop stop-color="#017AFF" offset="0"/>
+   <stop stop-color="#315bef" offset="0"/>
   </linearGradient>
   <linearGradient id="p" x1="66.312" x2="66.312" y1="126.56" y2="155.48" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>
   <linearGradient id="r" x1="25" x2="25" y1="31.362" y2="45.362" gradientUnits="userSpaceOnUse" xlink:href="#selected_fg_color"/>

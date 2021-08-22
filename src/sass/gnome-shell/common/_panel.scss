@@ -5,7 +5,7 @@
   background-color: $panel_bg;
   font-weight: normal;
   height: $menuitem_size;
-  box-shadow: $shadow_6;
+  box-shadow: 0 0 8px rgba(black, 0.2);
   color: $panel_fg;
   // font-feature-settings: "tnum";
   transition-duration: 250ms;
@@ -17,6 +17,7 @@
   &.unlock-screen,
   &.login-screen,
   &.lock-screen {
+    box-shadow: none;
     background-color: if($trans == 'false' and $variant == 'light', transparent, transparent);
 
     StLabel, StIcon { color: $light_alt_fg_color; }
@@ -173,9 +174,10 @@
   > * {
     background-image: url("assets/activities.svg");
     background-position: center top;
-    // background-size: 18px 18px;
-    width: 24px;
-    height: 24px;
+    background-size: auto;
+    width: 16px;
+    padding: 0 !important;
+    margin: 0 !important;
     background-color: transparent !important;
     background-gradient-direction: none !important;
     border: none;

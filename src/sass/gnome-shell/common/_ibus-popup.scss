@@ -5,19 +5,21 @@
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 64px;
-  -arrow-rise: 12px;
+  -arrow-rise: 0;
   background-color: transparent;
   color: $hint_fg_color;
+
+  @if $trans == 'true' {
+    border-image: url("assets/menu.svg") 24 32 28 28;
+  }
+
+  @else {
+    border-image: url("assets/menu-solid.svg") 24 32 28 28;
+  }
 }
 
 .candidate-popup-content {
-  @extend %theme_dialogs;
-  color: $hint_fg_color;
-  box-shadow: 0 8px 16px 0 rgba(black, 0.25);
-  border: 1px solid if($variant=='light', rgba(black, 0), rgba(black, 0.75));
-  margin: ($container_padding / 2) 8px;
-  padding: $container_padding + 2px;
-  spacing: $container_padding;
+  padding: 10px 12px 14px;
 }
 
 .candidate-index {

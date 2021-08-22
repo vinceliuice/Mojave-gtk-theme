@@ -4,6 +4,7 @@
   min-height: $medium_size;
   padding: 0 16px;
   border-radius: $bt_radius;
+  box-shadow: none;
 
   &, .popup-menu & {
     @include button(flat-normal);

@@ -7899,27 +7899,6 @@ window#GearyMainWindow.background.csd stack#conversation_viewer scrolledwindow.g
   border: none;
 }
 
-.geary-main-window.background.csd.unified headerbar components-conversation-actions button {
-  border: none;
-  background: none;
-  background-color: transparent;
-  box-shadow: none;
-}
-
-.geary-main-window.background.csd.unified headerbar components-conversation-actions button:hover {
-  background-color: rgba(87, 87, 87, 0.15);
-  color: #575757;
-  box-shadow: none;
-}
-
-.geary-main-window.background.csd.unified headerbar components-conversation-actions button:active, .geary-main-window.background.csd.unified headerbar components-conversation-actions button:active:hover, .geary-main-window.background.csd.unified headerbar components-conversation-actions button:checked {
-  color: white;
-  background-color: #888888;
-  background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: none;
-}
-
 window.background:not(.csd) > widget > separator {
   padding-top: 1px;
   margin-top: 1px;

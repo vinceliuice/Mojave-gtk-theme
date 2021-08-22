@@ -2854,26 +2854,118 @@ preferencesgroup, .geary-accounts-editor-pane {
   scrolledwindow.frame { border: none; }
 }
 
-.geary-main-window.background.csd.unified {
-  headerbar components-conversation-actions button {
-    border: none;
-    background: none;
-    background-color: transparent;
-    box-shadow: none;
+// >= 40.0
+.geary-main-window {
+  &.background.csd.unified {
+    .geary-main-layout { // >= 40.0 reset
+      > leaflet > leaflet > headerbar { // left and center headerbar
+        &:first-child { box-shadow: none; }
+        &:last-child { box-shadow: none; }
+      }
 
-    &:hover {
-      background-color: rgba($header_fg, 0.15);
-      color: $header_fg;
-      box-shadow: none;
+      > leaflet > headerbar { // right headerbar
+        box-shadow: none;
+      }
     }
 
-    &:active, &:active:hover, &:checked {
-      @include button(header-active);
-      box-shadow: none;
+    separator.sidebar {
+      background-color: transparent;
+      border-right-color: if($variant == 'light', $solid_borders_color, $header_border);
+    }
+  }
+
+  frame.geary-folder-frame { // left side
+    > border { border: none; }
+  }
+
+  frame.geary-conversation-frame { // center part
+    background-color: $base_color;
+
+    > border { border: none; }
+
+    scrolledwindow {
+      margin: -1px 0;
+    }
+  }
+
+  separator.geary-sidebar-pane-separator { background-color: if($variant == 'light', $solid_borders_color, $header_border); }
+
+  geary-conversation-viewer#conversation_viewer { // right side
+    background-color: $base_color;
+
+    list.background.conversation-listbox.content {
+      background-color: $base_color;
+
+      > row.activatable {
+        border: 1px solid $borders_color;
+        border-bottom-width: 0;
+
+        &:first-child {
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+      }
+
+      .geary-attachment-pane {
+        border-radius: 0 0 8px 8px;
+
+        actionbar.background {
+          background-color: transparent;
+
+          > revealer > box {
+            border-radius: 0 0 7px 7px;
+          }
+        }
+      }
+
+      geary-composer-editor {
+        > box.background {
+          background-color: transparent;
+
+          > actionbar > revealer > box {
+            border-radius: 0 0 7px 7px;
+          }
+        }
+      }
+    }
+
+    searchbar {
+      > revealer > box {
+        background-color: $base_color;
+        border-color: $dark_sidebar_border;
+      }
     }
   }
 }
 
+geary-composer-box.background.csd {
+  geary-composer-editor {
+    > box.background {
+      background-color: transparent;
+
+      > actionbar > revealer > box {
+        border-radius: 0 0 $wm_radius $wm_radius;
+      }
+    }
+  }
+}
+
+// Accounts setting dialog
+.geary-accounts-editor-pane-content {
+  frame:not(.geary-signature) {
+    > border { border: none; }
+
+    > list {
+      @extend %circular_list;
+
+      > row.activatable {
+        @extend %circular_row;
+
+        > grid > entry { background-color: $divider_color; }
+      }
+    }
+  }
+}
 
 //
 // Firefox and Thunderbird
