@@ -1012,7 +1012,7 @@ button.font separator, button.file separator {
   border-left-style: none;
 }
 
-.linked.path-bar:not(.vertical) > button + button {
+.linked:not(.vertical).path-bar > button + button {
   border-left-style: none;
 }
 
@@ -1257,7 +1257,7 @@ list > row button.image-button:not(.flat):checked {
 }
 
 popover.menu box.circular-buttons button.suggested-action.circular.image-button.model,
-list > row button.image-button.suggested-action:not(.flat) {
+list > row button.image-button:not(.flat).suggested-action {
   color: white;
   background-color: #E55E9C;
   border-color: rgba(0, 0, 0, 0.15);
@@ -1266,7 +1266,7 @@ list > row button.image-button.suggested-action:not(.flat) {
 }
 
 popover.menu box.circular-buttons button.destructive-action.circular.image-button.model,
-list > row button.image-button.destructive-action:not(.flat) {
+list > row button.image-button:not(.flat).destructive-action {
   color: white;
   background-color: #f8464c;
   border-color: rgba(0, 0, 0, 0.15);
@@ -2264,13 +2264,13 @@ treeview.view > dndtarget:drop(active) {
   border-color: #e29ebd;
 }
 
-columnview.view > dndtarget.after:drop(active),
-treeview.view > dndtarget.after:drop(active) {
+columnview.view > dndtarget:drop(active).after,
+treeview.view > dndtarget:drop(active).after {
   border-top-style: none;
 }
 
-columnview.view > dndtarget.before:drop(active),
-treeview.view > dndtarget.before:drop(active) {
+columnview.view > dndtarget:drop(active).before,
+treeview.view > dndtarget:drop(active).before {
   border-bottom-style: none;
 }
 
@@ -2950,12 +2950,12 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) > range > trough > sli
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) > range > trough > slider {
+scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal > range > trough > slider {
   margin: 0 3px;
   min-width: 40px;
 }
 
-scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) > range > trough > slider {
+scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical > range > trough > slider {
   margin: 3px 0;
   min-height: 40px;
 }
@@ -3460,7 +3460,7 @@ scale.horizontal.marks-before:not(.marks-after) slider {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3479,7 +3479,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:hover {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3498,7 +3498,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:active {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3517,7 +3517,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:disabled {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3536,7 +3536,7 @@ scale.horizontal.marks-after:not(.marks-before) slider {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3555,7 +3555,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:hover {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3574,7 +3574,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:active {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3593,7 +3593,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:disabled {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3612,7 +3612,7 @@ scale.vertical.marks-before:not(.marks-after) slider {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3631,7 +3631,7 @@ scale.vertical.marks-before:not(.marks-after) slider:hover {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3650,7 +3650,7 @@ scale.vertical.marks-before:not(.marks-after) slider:active {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3669,7 +3669,7 @@ scale.vertical.marks-before:not(.marks-after) slider:disabled {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3688,7 +3688,7 @@ scale.vertical.marks-after:not(.marks-before) slider {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -3707,7 +3707,7 @@ scale.vertical.marks-after:not(.marks-before) slider:hover {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -3726,7 +3726,7 @@ scale.vertical.marks-after:not(.marks-before) slider:active {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -3745,7 +3745,7 @@ scale.vertical.marks-after:not(.marks-before) slider:disabled {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4049,7 +4049,7 @@ row.activatable:selected:active {
   color: white;
 }
 
-row.activatable.has-open-popup:selected, row.activatable:selected:hover {
+row.activatable:selected.has-open-popup, row.activatable:selected:hover {
   background-color: #ce558c;
 }
 
