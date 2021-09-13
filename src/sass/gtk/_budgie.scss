@@ -470,6 +470,7 @@ popover.background.places-menu {
   font-weight: 500;
   box-shadow: none;
   background-clip: padding-box;
+  border: solid if($variant == 'light', $panel_border_color, $header_border);
 
   &.transparent {
     background-color: rgba($panel_bg, 0.65);
@@ -477,7 +478,6 @@ popover.background.places-menu {
   }
 
   .top & {
-    border-bottom: 1px solid if($variant == 'light', $panel_border_color, $header_border);
     background-image: linear-gradient(0deg, $panel_bottom_color 0%, $panel_top_color 100%);
   }
 
@@ -486,36 +486,17 @@ popover.background.places-menu {
     background-image: linear-gradient(0deg, rgba($panel_bottom_color, 0.85) 0%, rgba($panel_top_color, 0.85) 100%);
   }
 
-  .bottom & {
-    border: solid $panel_border_color;
-    border-width: 1px 1px 0 1px;
-    border-radius: $wm_radius $wm_radius 0 0;
+  @each $pos, $panel_border_width, $dock_border_width, $dock_border_radius in (top,    0 0 1px 0, 0 1px 1px 1px, 0 0 $wm_radius $wm_radius),
+                                                                              (right,  0 0 0 1px, 1px 0 1px 1px, $wm_radius 0 0 $wm_radius),
+                                                                              (bottom, 1px 0 0 0, 1px 1px 0 1px, $wm_radius $wm_radius 0 0),
+                                                                              (left,   0 1px 0 0, 1px 1px 1px 0, 0 $wm_radius $wm_radius 0) {
+    .#{$pos} & {
+      border-width: $panel_border_width;
 
-    &.dock-mode {
-      border-radius: 0 0 0 0;
-      border-width: 1px 0 0 0;
-    }
-  }
-
-  .left & {
-    border: solid $panel_border_color;
-    border-width: 1px 1px 1px 0;
-    border-radius: 0 $wm_radius $wm_radius 0;
-
-    &.dock-mode {
-      border-radius: 0 0 0 0;
-      border-width: 0 1px 0 0;
-    }
-  }
-
-  .right & {
-    border: solid $panel_border_color;
-    border-width: 1px 0 1px 1px;
-    border-radius: $wm_radius 0 0 $wm_radius;
-
-    &.dock-mode {
-      border-radius: 0 0 0 0;
-      border-width: 0 0 0 1px;
+      &.dock-mode {
+        border-width: $dock_border_width;
+        border-radius: $dock_border_radius;
+      }
     }
   }
 
@@ -569,7 +550,19 @@ popover.background.places-menu {
       font-weight: normal;
 
       > window.background.popup > decoration,
-      > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
+      > window.background.popup > menu { border-radius: $wm_radius; }
+
+      @at-root {
+        .top .budgie-panel menubar,
+        .top .budgie-panel .menubar {
+          
+          > menuitem {
+    
+            > window.background.popup > decoration,
+            > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
+          }
+        }
+      }
 
       &:hover { background-color: $selected_bg_color; }
       &:disabled { color: transparentize($panel_fg, 0.6); }
