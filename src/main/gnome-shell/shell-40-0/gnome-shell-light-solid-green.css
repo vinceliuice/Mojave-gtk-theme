@@ -3262,10 +3262,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   transition-duration: 300ms;
 }
 
-.window-close StIcon {
-  icon-size: 1px;
-}
-
 .window-close:hover {
   color: white;
   background-color: #f96369;
