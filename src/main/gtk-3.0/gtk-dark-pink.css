@@ -243,23 +243,23 @@ spinner:checked:disabled {
   opacity: 0.5;
 }
 
-.linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl), spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, toolbar.inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button, .linked:not(.vertical) > button, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > entry, .linked:not(.vertical) > entry:focus {
+.linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl), .background viewswitcher button:not(.suggested-action):not(.destructive-action), spinbutton:not(.vertical) button, spinbutton:not(.vertical) entry, toolbar.inline-toolbar toolbutton > button.flat, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button, .linked:not(.vertical) > button, .inline-toolbar button, .inline-toolbar button:backdrop, .linked:not(.vertical) > entry, .linked:not(.vertical) > entry:focus {
   border-radius: 0;
   border-right-style: none;
 }
 
-spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, toolbar.inline-toolbar toolbutton > button.flat:first-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:first-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > entry:first-child {
+.background viewswitcher button:first-child:not(.suggested-action):not(.destructive-action), spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) entry:first-child, toolbar.inline-toolbar toolbutton > button.flat:first-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:first-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:first-child, .linked:not(.vertical) > button:first-child, .inline-toolbar button:first-child, .linked:not(.vertical) > entry:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, toolbar.inline-toolbar toolbutton > button.flat:last-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:last-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > entry:last-child {
+.background viewswitcher button:last-child:not(.suggested-action):not(.destructive-action), spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) entry:last-child, toolbar.inline-toolbar toolbutton > button.flat:last-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:last-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:last-child, .linked:not(.vertical) > button:last-child, .inline-toolbar button:last-child, .linked:not(.vertical) > entry:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   border-right-style: solid;
 }
 
-spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, toolbar.inline-toolbar toolbutton > button.flat:only-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:only-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > entry:only-child {
+.background viewswitcher button:only-child:not(.suggested-action):not(.destructive-action), spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) entry:only-child, toolbar.inline-toolbar toolbutton > button.flat:only-child, toolbar.inline-toolbar .raven .raven-header:not(.top) toolbutton > button:only-child, .raven .raven-header:not(.top) toolbar.inline-toolbar toolbutton > button:only-child, .linked:not(.vertical) > button:only-child, .inline-toolbar button:only-child, .linked:not(.vertical) > entry:only-child {
   border-radius: 5px;
   border-style: solid;
 }
@@ -1722,7 +1722,7 @@ actionbar > revealer > box {
   border-style: solid;
 }
 
-headerbar separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) separator {
+headerbar separator.titlebutton, headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) > box > separator.titlebutton, .primary-toolbar:not(.libreoffice-toolbar) separator {
   min-width: 0;
   min-height: 0;
   background: none;
@@ -1803,10 +1803,6 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:act
   background-clip: padding-box;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover {
-  background-image: none;
-}
-
 window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked {
   color: #333333;
   background-color: #aaaaaa;
@@ -1818,8 +1814,9 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:che
   transition-duration: 300ms;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover {
   background-image: none;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
 }
 
 window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
@@ -1969,9 +1966,10 @@ headerbar button:not(.suggested-action):not(.destructive-action) {
   box-shadow: inset 0 1px #767676;
 }
 
-headerbar button:not(.suggested-action):not(.destructive-action):backdrop {
+headerbar button:not(.suggested-action):not(.destructive-action):backdrop, headerbar button:not(.suggested-action):not(.destructive-action):disabled:backdrop {
   opacity: 0.65;
   background-image: none;
+  box-shadow: none;
 }
 
 headerbar button:not(.suggested-action):not(.destructive-action):hover {
@@ -1993,10 +1991,6 @@ headerbar button:not(.suggested-action):not(.destructive-action):active {
   background-clip: padding-box;
 }
 
-headerbar button:not(.suggested-action):not(.destructive-action):active:hover {
-  background-image: none;
-}
-
 headerbar button:not(.suggested-action):not(.destructive-action):checked {
   color: #333333;
   background-color: #aaaaaa;
@@ -2008,8 +2002,9 @@ headerbar button:not(.suggested-action):not(.destructive-action):checked {
   transition-duration: 300ms;
 }
 
-headerbar button:not(.suggested-action):not(.destructive-action):checked:hover {
+headerbar button:not(.suggested-action):not(.destructive-action):active:hover, headerbar button:not(.suggested-action):not(.destructive-action):checked:hover {
   background-image: none;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
 }
 
 headerbar button:not(.suggested-action):not(.destructive-action):disabled {
@@ -2151,12 +2146,16 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
   padding: 0;
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) label {
-  margin-right: 12px;
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) > stack > box {
+  padding: 0 12px;
 }
 
-headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) image {
-  margin-left: 12px;
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) > stack > box.narrow {
+  font-size: 10px;
+}
+
+headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action) > stack > box.narrow image {
+  margin-top: 3px;
 }
 
 headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):not(:hover):not(:active):not(:checked) {
@@ -2165,11 +2164,10 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
 }
 
 headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #f8f8f8;
-  background-color: #777777;
-  background-image: linear-gradient(0deg, #707070 0%, #767676 100%);
-  box-shadow: inset 0 1px #868686;
+  color: #c5c5c5;
+  background-color: rgba(255, 255, 255, 0.15);
+  background-image: none;
+  box-shadow: none;
 }
 
 headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-action):not(.destructive-action):active {
@@ -2188,11 +2186,10 @@ headerbar.windowhandle viewswitcher button:not(.titlebutton):not(.suggested-acti
 }
 
 headerbar.windowhandle > button.popup:hover {
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #f8f8f8;
-  background-color: #777777;
-  background-image: linear-gradient(0deg, #707070 0%, #767676 100%);
-  box-shadow: inset 0 1px #868686;
+  color: #c5c5c5;
+  background-color: rgba(255, 255, 255, 0.15);
+  background-image: none;
+  box-shadow: none;
 }
 
 headerbar.windowhandle > button.popup:active {
@@ -4979,6 +4976,38 @@ stackswitcher button.text-button {
   min-width: 80px;
 }
 
+.background viewswitcher button:not(.suggested-action):not(.destructive-action) {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  background-image: none;
+}
+
+.background viewswitcher button:not(.suggested-action):not(.destructive-action) > stack > box {
+  padding: 6px 12px;
+}
+
+.background viewswitcher button:not(.suggested-action):not(.destructive-action) > stack > box.narrow {
+  font-size: 10px;
+}
+
+.background viewswitcher button:not(.suggested-action):not(.destructive-action):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #dedede;
+}
+
+.background viewswitcher button:not(.suggested-action):not(.destructive-action):active, .background viewswitcher button:not(.suggested-action):not(.destructive-action):checked {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #dedede;
+  border-color: rgba(0, 0, 0, 0.15);
+  background-clip: padding-box;
+}
+
+.background viewswitcher button:not(.suggested-action):not(.destructive-action):active + button, .background viewswitcher button:not(.suggested-action):not(.destructive-action):checked + button {
+  border-left-color: rgba(0, 0, 0, 0.15);
+}
+
 *:drop(active):focus,
 *:drop(active) {
   box-shadow: inset 0 0 0 1px #F08437;
@@ -5006,7 +5035,7 @@ decoration:backdrop {
 }
 
 .ssd decoration {
-  margin: -5px;
+  margin: -8px;
   border-radius: 6px 6px 0 0;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
@@ -8098,7 +8127,7 @@ geary-composer-box.background.csd geary-composer-editor > box.background > actio
 }
 
 .geary-accounts-editor-pane-content frame:not(.geary-signature) > list > row.activatable > grid > entry {
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 window.background:not(.csd) > widget > separator {
@@ -9676,7 +9705,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 }
 
 .budgie-popover row:selected, .budgie-popover row:selected:hover, .budgie-popover row:selected:focus {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   color: #dadada;
 }
 
@@ -9711,7 +9740,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 }
 
 .budgie-popover treeview.view.sidebar:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .budgie-popover scrolledwindow:not(.sidebar) > viewport.frame {
@@ -9744,17 +9773,17 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 }
 
 .budgie-popover scrolledwindow.sidebar:not(.categories):hover, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.12);
   color: #dadada;
 }
 
 .budgie-popover scrolledwindow.sidebar:not(.categories):active, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:active {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   color: #dadada;
 }
 
 .budgie-popover scrolledwindow.sidebar:not(.categories):selected, .budgie-popover scrolledwindow.sidebar:not(.categories):selected:hover, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:selected, .budgie-popover scrolledwindow.sidebar:not(.categories) row.activatable:selected:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.15);
   color: #dadada;
 }
 
