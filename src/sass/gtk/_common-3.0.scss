@@ -53,6 +53,35 @@
   &:disabled { color: mix($selected_fg_color, $selected_bg_color, 50%); }
 }
 
+$list_shadow: if($variant == 'light',
+                (inset 0 0 8px rgba(black, 0.02), inset 0 0 3px rgba(black, 0.01), inset 0 0 0 1px rgba(black, 0.04), inset 0 1px rgba(black, 0.05)),
+                (inset 0 0 8px rgba(white, 0.03), inset 0 0 3px rgba(white, 0.02), inset 0 0 0 1px rgba(white, 0.04), inset 0 1px rgba(white, 0.06)));
+
+%circular_list {
+  border-radius: $wm_radius;
+  box-shadow: $list_shadow;
+  background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
+  border: none;
+
+  > separator { background: none; min-height: 0; }
+}
+
+%circular_row {
+  &:first-child {
+    border-top-left-radius: $wm_radius;
+    border-top-right-radius: $wm_radius;
+  }
+
+  &:last-child { // Not use ?
+    border-bottom-left-radius: $wm_radius;
+    border-bottom-right-radius: $wm_radius;
+  }
+
+  &:only-child {
+    border-radius: $wm_radius;
+  }
+}
+
 //
 // Base States
 //
@@ -3372,7 +3401,47 @@ frame > border.flat,
 
 scrolledwindow {
   viewport.frame { // avoid double borders when viewport inside scrolled window
-    border-style: none;
+    border: none;
+
+    .frame {
+      border: none;
+
+      > textview {
+        border-radius: $bt_radius;
+        background: none;
+
+        > text {
+          border-radius: $bt_radius;
+          border: 1px solid $borders_color;
+        }
+      }
+    }
+
+    > box.vertical list.content.view {
+      border-top-left-radius: $wm_radius;
+      border-top-right-radius: $wm_radius;
+    }
+
+    > box.vertical list.frame {
+      @extend %circular_list;
+      padding: 0;
+
+      > row.activatable { @extend %circular_row; }
+
+      list {
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        margin: 0;
+        background: none;
+
+        > row.activatable {
+          &, &:first-child, &:last-child {
+            border-radius: 0;
+          }
+        }
+      }
+    }
   }
 
   // This is used by GtkScrolledWindow, when content is touch-dragged past boundaries.
@@ -3419,9 +3488,16 @@ separator {
 list {
   background-color: $base_color;
   border-color: $borders_color;
-  // border-radius: $wm_radius;
 
-  row { padding: 2px; }
+  row { padding: $container_padding / 3; }
+
+  &.content:not(.conversation-listbox) {
+    @extend %circular_list;
+
+    > row {
+      @extend %circular_row;
+    }
+  }
 }
 
 %row_activatable {
