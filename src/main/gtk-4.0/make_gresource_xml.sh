@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env/ bash
 
 INDEX="../../assets/gtk/common-assets/assets.txt"
 WINDEX="../../assets/gtk/windows-assets/assets.txt"
