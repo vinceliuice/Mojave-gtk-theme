@@ -2063,7 +2063,7 @@ window.background.csd {
 }
 
 //
-// Archive Manager
+// Archive Manager (File roller)
 //
 .background.csd {
   > grid.horizontal > paned.horizontal {
@@ -2072,7 +2072,11 @@ window.background.csd {
       background-color: $base_color;
 
       treeview.view:not(:hover):not(:selected) {
-        background-color: transparent;
+        background: none;
+      }
+
+      > treeview.view:not(:hover):not(:selected) {
+        background-color: $base_color;
       }
     }
 
@@ -2082,7 +2086,7 @@ window.background.csd {
         background-color: $bg_color;
 
         treeview.view:not(:hover):not(:selected) {
-          background-color: transparent;
+          background: none;
         }
       }
     }
