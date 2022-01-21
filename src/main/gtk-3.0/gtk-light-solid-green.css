@@ -1861,9 +1861,13 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:dis
   color: rgba(87, 87, 87, 0.35);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:active:not(.image-button), .nemo-window .primary-toolbar button:disabled:active, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:checked:not(.image-button), .nemo-window .primary-toolbar button:disabled:checked {
-  color: rgba(255, 255, 255, 0.35);
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button), .nemo-window .primary-toolbar button:active:disabled, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button), .nemo-window .primary-toolbar button:checked:disabled {
   background-color: rgba(136, 136, 136, 0.55);
+  box-shadow: none;
+}
+
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:active:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button), .nemo-window .primary-toolbar button:active:disabled, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:checked:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button), .nemo-window .primary-toolbar button:checked:disabled {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 headerbar {
@@ -2041,9 +2045,13 @@ headerbar button:not(.suggested-action):not(.destructive-action):disabled label,
   color: rgba(87, 87, 87, 0.35);
 }
 
-headerbar button:not(.suggested-action):not(.destructive-action):disabled:active, headerbar button:not(.suggested-action):not(.destructive-action):disabled:checked {
-  color: rgba(255, 255, 255, 0.35);
+headerbar button:not(.suggested-action):not(.destructive-action):active:disabled, headerbar button:not(.suggested-action):not(.destructive-action):checked:disabled {
   background-color: rgba(136, 136, 136, 0.55);
+  box-shadow: none;
+}
+
+headerbar button:not(.suggested-action):not(.destructive-action):active:disabled label, headerbar button:not(.suggested-action):not(.destructive-action):active:disabled, headerbar button:not(.suggested-action):not(.destructive-action):checked:disabled label, headerbar button:not(.suggested-action):not(.destructive-action):checked:disabled {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 headerbar button:not(.suggested-action):not(.destructive-action).flat, headerbar .raven .raven-header:not(.top) button:not(.destructive-action), .raven .raven-header:not(.top) headerbar button:not(.destructive-action) {
@@ -2141,6 +2149,18 @@ headerbar .linked:not(.vertical).path-bar > button:checked {
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
 headerbar .linked:not(.vertical).path-bar > button:disabled {
   color: rgba(87, 87, 87, 0.45);
+}
+
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:disabled,
+headerbar .linked:not(.vertical).path-bar > button:checked:disabled {
+  background-color: rgba(136, 136, 136, 0.55);
+  box-shadow: none;
+}
+
+headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:disabled label, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked:disabled,
+headerbar .linked:not(.vertical).path-bar > button:checked:disabled label,
+headerbar .linked:not(.vertical).path-bar > button:checked:disabled {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:backdrop,
@@ -7882,8 +7902,12 @@ window.thunar toolbar#location-toolbar button.flat:disabled label, window.thunar
 }
 
 window.thunar toolbar#location-toolbar button.flat:disabled:active, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:active, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:active, window.thunar toolbar#location-toolbar button.flat:disabled:checked, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:checked, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:checked {
-  color: rgba(255, 255, 255, 0.35);
   background-color: rgba(136, 136, 136, 0.55);
+  box-shadow: none;
+}
+
+window.thunar toolbar#location-toolbar button.flat:disabled:active label, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:active label, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:active label, window.thunar toolbar#location-toolbar button.flat:disabled:active, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:active, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:active, window.thunar toolbar#location-toolbar button.flat:disabled:checked label, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:checked label, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:checked label, window.thunar toolbar#location-toolbar button.flat:disabled:checked, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled:checked, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled:checked {
+  color: rgba(255, 255, 255, 0.45);
 }
 
 window.thunar toolbar#location-toolbar button.flat, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button, window.thunar toolbar#location-toolbar button.flat:hover, window.thunar toolbar#location-toolbar button.flat:active, window.thunar toolbar#location-toolbar button.flat:checked, window.thunar toolbar#location-toolbar button.flat:disabled {

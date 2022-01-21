@@ -2698,7 +2698,7 @@ window.thunar {
 
       &:disabled { @include button(header-insensitive); }
 
-      &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+      &:disabled:active, &:disabled:checked { @include button(header-insensitive-checked); }
 
       &, &:hover, &:active, &:checked, &:disabled {
         border-radius: 0;

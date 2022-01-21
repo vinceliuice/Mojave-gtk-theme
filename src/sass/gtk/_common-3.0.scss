@@ -1544,7 +1544,7 @@ actionbar > revealer > box {
   }
 
   &:disabled { @include button(header-insensitive); }
-  &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+  &:active:disabled, &:checked:disabled { @include button(header-insensitive-checked); }
 }
 
 headerbar {
@@ -1686,7 +1686,7 @@ headerbar {
     }
 
     &:disabled { @include button(header-insensitive); }
-    &:disabled:active, &:disabled:checked { @include button(header-insensitive-active); }
+    &:active:disabled, &:checked:disabled { @include button(header-insensitive-checked); }
     // &.text-button.image-button label { padding-left: 6px; padding-right: 6px; }
 
     &.flat {
@@ -1772,6 +1772,7 @@ headerbar {
       &:active { @include button(header-active); }
       &:checked { @include button(header-checked); }
       &:disabled { color: rgba($header_fg, 0.45); }
+      &:checked:disabled { @include button(header-insensitive-checked); }
       &:backdrop { opacity: 0.65; background-image: none; }
 
       @if $variant=='dark' {
