@@ -2447,12 +2447,14 @@ menu,
 //
 // Popovers
 //
-popover,
-popover.background {
+popover {
   padding: 0;
-  border-radius: $wm_radius;
-  background-clip: border-box;
-  background-color: $menu_bg;
+
+  &, &.background {
+    border-radius: $wm_radius;
+    background-clip: border-box;
+    background-color: $menu_bg;
+  }
 
   box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
               0 0 0 1px if($variant=='light', rgba($borders_color, 0.03), rgba($dark_borders_color, 0.55));
@@ -2496,6 +2498,19 @@ popover.background {
       @if $variant=='light' {
         @include button(flat-active);
         border-color: rgba(black, 0.2);
+      }
+    }
+  }
+
+  &.combo {
+    list {
+      background: none;
+      padding: 3px;
+
+      > row {
+        border-radius: 3px;
+        margin: 1px 0;
+        padding: 6px 12px;
       }
     }
   }

@@ -227,8 +227,7 @@ label:disabled selection {
 }
 
 .budgie-switcher .notification-body,
-.budgie-notification .notification-body, popover label.separator,
-popover.background label.separator, headerbar .subtitle, label.separator, .dim-label {
+.budgie-notification .notification-body, popover label.separator, headerbar .subtitle, label.separator, .dim-label {
   opacity: 0.55;
 }
 
@@ -250,9 +249,7 @@ assistant .sidebar label.highlight {
   color: white;
 }
 
-.osd .scale-popup, popover.osd, popover.magnifier, .csd popover.osd, .csd popover.magnifier,
-popover.background.osd,
-popover.background.magnifier, .csd popover.background.osd, .csd popover.background.magnifier, .osd {
+.osd .scale-popup, popover.osd, popover.magnifier, .csd popover.osd, .csd popover.magnifier, .osd {
   color: #dadada;
   border: none;
   background-color: #2a2a2a;
@@ -588,8 +585,7 @@ treeview entry.flat:focus, treeview entry:focus {
 }
 
 .raven box.vertical > stack > box.vertical > .raven-background > viewport.frame > list > row.activatable button.image-button, .raven button.image-button, button.nautilus-circular-button.image-button, stackswitcher button.circular,
-stackswitcher button.text-button.circular, button.circular, .app-notification button.image-button:not(.suggested-action):not(.destructive-action):not(.text-button), row button.circular, popover button.circular,
-popover.background button.circular, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, button.close {
+stackswitcher button.text-button.circular, button.circular, .app-notification button.image-button:not(.suggested-action):not(.destructive-action):not(.text-button), row button.circular, popover button.circular, searchbar button.flat, searchbar .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) searchbar button, button.close {
   border-radius: 100px;
   -gtk-outline-radius: 100px;
   padding: 0 0;
@@ -2888,46 +2884,51 @@ menu > arrow:disabled,
   border-color: transparent;
 }
 
-popover,
-popover.background {
+popover {
   padding: 0;
-  border-radius: 6px;
-  background-clip: border-box;
-  background-color: #333333;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.55);
 }
 
-.csd popover, popover, .csd popover.background,
-popover.background {
+popover, popover.background {
+  border-radius: 6px;
+  background-clip: border-box;
+  background-color: #333333;
+}
+
+.csd popover, popover {
   border-radius: 6px;
   border: 1px solid #424242;
 }
 
-popover separator, popover separator, .csd popover separator,
-popover.background separator,
-popover.background separator, .csd popover.background separator {
+popover separator, popover separator, .csd popover separator {
   border: none;
   background-color: transparent;
 }
 
-popover label.separator,
-popover.background label.separator {
+popover label.separator {
   color: #dedede;
 }
 
 popover > list,
 popover > .view,
-popover > toolbar,
-popover.background > list,
-popover.background > .view,
-popover.background > toolbar {
+popover > toolbar {
   border-style: none;
   background-color: transparent;
 }
 
-popover.touch-selection, .csd popover.touch-selection,
-popover.background.touch-selection, .csd popover.background.touch-selection {
+popover.touch-selection, .csd popover.touch-selection {
   font: initial;
+}
+
+popover.combo list {
+  background: none;
+  padding: 3px;
+}
+
+popover.combo list > row {
+  border-radius: 3px;
+  margin: 1px 0;
+  padding: 6px 12px;
 }
 
 cursor-handle {
