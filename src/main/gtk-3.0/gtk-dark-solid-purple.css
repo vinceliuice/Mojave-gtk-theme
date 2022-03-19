@@ -675,7 +675,7 @@ button separator {
   margin: 4px 1px;
 }
 
-.budgie-panel button.flat.launcher, button.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button, button.flat, .raven .raven-header:not(.top) button {
+.budgie-panel button.flat.launcher, button.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button, .background grid#CanvasGrid > button:not(.flat), button.flat, .raven .raven-header:not(.top) button {
   min-height: 24px;
   border: none;
   background-color: transparent;
@@ -684,7 +684,7 @@ button separator {
   transition: none;
 }
 
-.budgie-panel button.flat.launcher:hover, button.budgie-menu-launcher:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover, button.flat:hover, .raven .raven-header:not(.top) button:hover {
+.budgie-panel button.flat.launcher:hover, button.budgie-menu-launcher:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover, .background grid#CanvasGrid > button:hover:not(.flat), button.flat:hover, .raven .raven-header:not(.top) button:hover {
   color: #c5c5c5;
   background-color: rgba(255, 255, 255, 0.15);
   background-image: none;
@@ -692,28 +692,29 @@ button separator {
   transition-duration: 350ms;
 }
 
-button.budgie-menu-launcher:hover:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover:active, button.flat:hover:active, .raven .raven-header:not(.top) button:hover:active {
+button.budgie-menu-launcher:hover:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover:active, .background grid#CanvasGrid > button:hover:active:not(.flat), button.flat:hover:active, .raven .raven-header:not(.top) button:hover:active {
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.budgie-panel button.flat.launcher:active, button.budgie-menu-launcher:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:active, .budgie-panel button.flat.launcher:checked, button.budgie-menu-launcher:checked, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked, button.flat:active, .raven .raven-header:not(.top) button:active, button.flat:checked, .raven .raven-header:not(.top) button:checked {
+.budgie-panel button.flat.launcher:active, button.budgie-menu-launcher:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:active, .background grid#CanvasGrid > button:active:not(.flat), .budgie-panel button.flat.launcher:checked, button.budgie-menu-launcher:checked, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked, .background grid#CanvasGrid > button:checked:not(.flat), button.flat:active, .raven .raven-header:not(.top) button:active, button.flat:checked, .raven .raven-header:not(.top) button:checked {
   background-image: none;
   color: white;
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-button.budgie-menu-launcher:checked:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked:hover, button.flat:checked:hover, .raven .raven-header:not(.top) button:checked:hover {
+button.budgie-menu-launcher:checked:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked:hover, .background grid#CanvasGrid > button:checked:hover:not(.flat), button.flat:checked:hover, .raven .raven-header:not(.top) button:checked:hover {
   background-image: none;
+  box-shadow: none;
 }
 
-.budgie-panel button.flat.launcher:disabled, button.budgie-menu-launcher:disabled, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:disabled, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:disabled, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:disabled, button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
+.budgie-panel button.flat.launcher:disabled, button.budgie-menu-launcher:disabled, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:disabled, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:disabled, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:disabled, .background grid#CanvasGrid > button:disabled:not(.flat), button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
 }
 
-button.toggle.popup.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.toggle.popup.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.popup.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.popup.category-button, button.flat.toggle.popup, .raven .raven-header:not(.top) button.toggle.popup {
+button.toggle.popup.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.toggle.popup.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.popup.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.popup.category-button, .background grid#CanvasGrid > button.toggle.popup:not(.flat), button.flat.toggle.popup, .raven .raven-header:not(.top) button.toggle.popup {
   min-width: 20px;
 }
 
@@ -770,6 +771,12 @@ button:disabled label, button:disabled {
 
 .background button:disabled:active label, .background button:disabled:active, .background button:disabled:checked label, .background button:disabled:checked {
   color: rgba(255, 255, 255, 0.55);
+}
+
+.background button.flat:active, .background .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) .background button:active, .background button.flat:checked, .background .raven .raven-header:not(.top) button:checked, .raven .raven-header:not(.top) .background button:checked {
+  background-image: none;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 button.image-button {
@@ -7563,6 +7570,103 @@ window.background.csd > stack > grid > scrolledwindow > viewport > box > frame >
 window.background.csd > stack > box > box > list,
 window.background.csd > stack > box > stack > scrolledwindow > viewport > list {
   border-bottom-left-radius: 6px;
+}
+
+toolbar#SubToolBox {
+  min-height: 36px;
+}
+
+toolbar#SubToolBox entry, toolbar#SubToolBox button {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+toolbar#SubToolBox > toolbutton > button.flat, .raven .raven-header:not(.top) toolbar#SubToolBox > toolbutton > button {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+box#SubToolbox {
+  background-color: #242424;
+}
+
+widget#ToolboxCommon {
+  background-color: #242424;
+}
+
+widget#ToolboxCommon button.flat:active, widget#ToolboxCommon .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) widget#ToolboxCommon button:active {
+  color: #dedede;
+  background-color: rgba(222, 222, 222, 0.25);
+}
+
+widget#ToolboxCommon button.flat:checked, widget#ToolboxCommon .raven .raven-header:not(.top) button:checked, .raven .raven-header:not(.top) widget#ToolboxCommon button:checked {
+  color: #dedede;
+  background-color: rgba(222, 222, 222, 0.15);
+}
+
+widget#ToolboxCommon > toolbar#ToolToolbar {
+  background-color: #333333;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+widget#ToolboxCommon > toolbar > toolbutton > button.flat, .raven .raven-header:not(.top) widget#ToolboxCommon > toolbar > toolbutton > button {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+box#SnapToolbox {
+  background-color: #333333;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+box#SnapToolbox > toolbar {
+  background-color: transparent;
+}
+
+box#SnapToolbox > toolbar > toolbutton > button.flat, .raven .raven-header:not(.top) box#SnapToolbox > toolbar > toolbutton > button {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+box#DesktopStatusBar spinbutton, box#DesktopStatusBar button.combo {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+scrolledwindow#DialogNotebook > viewport.frame > notebook.frame {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+scrolledwindow#DialogNotebook > viewport.frame > notebook.frame button.close-button {
+  margin: 4px 0;
+  border-radius: 9999px;
+}
+
+scrolledwindow#DialogNotebook > viewport.frame > notebook.frame button.close-button, scrolledwindow#DialogNotebook > viewport.frame > notebook.frame button.close-button:hover, scrolledwindow#DialogNotebook > viewport.frame > notebook.frame button.close-button:active {
+  background-color: transparent;
+}
+
+scrolledwindow#DialogNotebook > viewport.frame > notebook.frame notebook.frame {
+  margin-top: -1px;
+}
+
+.background grid#CanvasGrid > button:not(.flat) {
+  border-radius: 3px;
+}
+
+.background grid#CanvasGrid > button:not(.flat):active {
+  background-color: rgba(222, 222, 222, 0.25);
+  color: #dedede;
+}
+
+.background grid#CanvasGrid > button:not(.flat):checked {
+  background-color: rgba(222, 222, 222, 0.15);
+  color: #dedede;
+}
+
+dialog.background > box.dialog-vbox > filechooser > actionbar > revealer > box > box > box > combobox {
+  margin-top: 26px;
+  margin-bottom: 26px;
 }
 
 MsdOsdWindow.background.osd {

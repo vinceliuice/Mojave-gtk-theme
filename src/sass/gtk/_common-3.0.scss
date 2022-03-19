@@ -683,10 +683,10 @@ button {
       transition-duration: 350ms;
 
       &:active { transition: $button_transition; }
-     }
+    }
 
     &:active, &:checked { @include button(flat-active); }
-    &:checked:hover { background-image: none; }
+    &:checked:hover { background-image: none; box-shadow: none; }
     &:disabled { @include button(undecorated); }
 
     &.toggle.popup {
@@ -721,6 +721,10 @@ button {
       &:active, &:checked {
         @include button(insensitive-active);
       }
+    }
+
+    &.flat {
+      &:active, &:checked { @include button(flat-active); }
     }
   }
 

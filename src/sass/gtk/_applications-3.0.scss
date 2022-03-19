@@ -2290,6 +2290,117 @@ window.background.csd {
 }
 
 //
+// Inkscape
+//
+toolbar#SubToolBox {
+  min-height: 36px;
+
+  entry, button {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  > toolbutton > button.flat {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+
+box#SubToolbox {
+  background-color: $base_color;
+}
+
+widget#ToolboxCommon {
+  background-color: $base_color;
+
+  button.flat {
+    &:active {
+      color: $fg_color;
+      background-color: rgba($fg_color, 0.25);
+    }
+
+    &:checked {
+      color: $fg_color;
+      background-color: rgba($fg_color, 0.15);
+    }
+  }
+
+  > toolbar#ToolToolbar { // Left side toolbar
+    background-color: $bg_color;
+    border-right: 1px solid $borders_color;
+  }
+
+  // > toolbar > toolitem > button.flat, // Left side
+  > toolbar > toolbutton > button.flat { // Right side
+    margin-top: 2px;
+    margin-bottom: 2px;
+  }
+}
+
+// Right side toolbar
+box#SnapToolbox {
+  background-color: $bg_color;
+  border-left: 1px solid $borders_color;
+
+  > toolbar {
+    background-color: transparent;
+
+    > toolbutton > button.flat { // Right side
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+box#DesktopStatusBar {
+  spinbutton, button.combo {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+scrolledwindow#DialogNotebook {
+  > viewport.frame > notebook.frame {
+    border: 1px solid $borders_color;
+
+    button.close-button {
+      margin: 4px 0;
+      border-radius: $circular_radius;
+
+      &, &:hover, &:active { background-color: transparent; }
+    }
+
+    notebook.frame { margin-top: -1px; }
+  }
+}
+
+grid#CanvasGrid {
+  .background & > button:not(.flat) {
+    @extend %flat_button;
+    border-radius: 3px;
+
+    &:active {
+      background-color: rgba($fg_color, 0.25);
+      color: $fg_color;
+    }
+
+    &:checked {
+      background-color: rgba($fg_color, 0.15);
+      color: $fg_color;
+    }
+  }
+}
+
+dialog.background {
+  > box.dialog-vbox > filechooser {
+    > actionbar > revealer > box > box > box > combobox {
+      margin-top: 26px;
+      margin-bottom: 26px;
+    }
+  }
+}
+
+//
 // Mate OSD Window
 //
 MsdOsdWindow.background.osd {
