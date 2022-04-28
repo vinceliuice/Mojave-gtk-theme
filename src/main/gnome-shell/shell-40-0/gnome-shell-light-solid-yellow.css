@@ -2531,6 +2531,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .popup-menu .popup-menu-content {
   padding: 10px 0;
   font-weight: normal;
+  background-color: #f1f1f1;
 }
 
 .popup-menu .popup-menu-item {
