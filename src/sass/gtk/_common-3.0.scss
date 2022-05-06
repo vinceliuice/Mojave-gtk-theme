@@ -629,6 +629,7 @@ $_dot_color: $selected_bg_color;
     color: $selected_fg_color;
     background-color: transparentize($selected_fg_color, 0.8);
     border-color: transparentize($selected_fg_color, 0.5);
+    background-image: none;
   }
 
   &:active, &:active:hover, &:checked {
@@ -636,6 +637,7 @@ $_dot_color: $selected_bg_color;
     color: $selected_fg_color;
     background-color: transparentize($selected_fg_color, 0.6);
     border-color: transparentize($selected_fg_color, 0.5);
+    background-image: none;
   }
 
   &:disabled {
@@ -860,21 +862,23 @@ button {
       padding-left: 6px;  // label padding
       padding-right: 6px; //
     }
+
     > image {
       padding-left: 6px;
       padding-right: 6px;
     }
+
     &.text-button {
       padding-left: 10px;
       padding-right: 10px;
     }
+
     &.image-button {
       padding-left: 2px;
       padding-right: 2px;
     }
 
     &.needs-attention {
-
       > label, > image { @extend %needs_attention; }
 
       &:active, &:checked {
@@ -920,8 +924,7 @@ button {
   .linked.vertical > & { @extend %linked_vertical; }
 
   // reset some linked buttons outline style
-  // .linked:not(.vertical) > &,
-  // .linked.vertical > & { @extend %outline_dashed; }
+  .linked > & { @extend %outline_dashed; }
 }
 
 // all the following is for the +|- buttons on inline toolbars, that way
@@ -1016,6 +1019,16 @@ toolbar.inline-toolbar toolbutton {
     > button:not(.suggested-action):not(.destructive-action):checked + button,
     > button:not(.suggested-action):not(.destructive-action):active + button { border-#{$_border}-color: $button_borders_active; }
   }
+
+  @if $button_rules=='header' {
+    > button:not(.suggested-action):not(.destructive-action):active + button {
+      border-left-color: mix(black, $header_button_active_bg, 15%);
+    }
+
+    > button:not(.suggested-action):not(.destructive-action):checked + button {
+      border-left-color: mix(black, $header_button_checked_bg, 15%);
+    }
+  }
 }
 
 // special case, because path-bars are bugged
@@ -1055,8 +1068,8 @@ toolbar.inline-toolbar toolbutton {
 }
 
 headerbar {
-  .linked:not(.vertical) {
-    @include linking_rules($entry_rules:'header');
+  .linked:not(.vertical):not(.path-bar) {
+    @include linking_rules($entry_rules:'header', $button_rules:'header');
   }
 }
 
@@ -1460,18 +1473,18 @@ actionbar > revealer > box {
 // Linking stuff
 %linked_header {
   border-radius: 0;
-  border-left-style: none;
-  border-right-style: solid;
+  border-left-style: solid;
+  border-right-style: none;
 
   &:first-child {
     border-top-left-radius: $bt_radius;
     border-bottom-left-radius: $bt_radius;
-    border-left-style: solid;
   }
 
   &:last-child {
     border-top-right-radius: $bt_radius;
     border-bottom-right-radius: $bt_radius;
+    border-right-style: solid;
   }
 
   &:only-child {
@@ -1498,7 +1511,11 @@ actionbar > revealer > box {
   background-clip: padding-box;
   border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
 
-  &:backdrop { opacity: 0.65; background-image: none; }
+  &:backdrop {
+    opacity: 0.65;
+    background-image: none;
+    box-shadow: none;
+  }
 
   &:focus {
     @include entry(header-focus);
@@ -1711,24 +1728,22 @@ headerbar {
   // Reset linked buttons
   .linked:not(.vertical) > button {
     min-width: 20px;
-    @extend %outline_dashed;
-    border-right: 1px solid $borders_color;
 
-    &, &:hover, &:active, &:checked, &:disabled {
-      @extend %linked_header;
-    }
+    &:not(.suggested-action):not(.destructive-action) { @extend %outline_dashed; }
 
     @if $variant == 'light' {
-      &:not(:first-child) {
-        &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
-        &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
+      &:not(:last-child) {
+        &:active { box-shadow: 1px 0 mix(black, $header_button_active_bg, 15%); }
+        &:checked { box-shadow: 1px 0 mix(black, $header_button_checked_bg, 15%); }
       }
     }
 
     @if $variant=='dark' {
-      &:last-child {
-        border-right: none;
+      &:first-child {
+        border-left: none;
       }
+
+      &:not(:first-child) { margin-left: 1px; }
     }
   }
 
@@ -1750,41 +1765,22 @@ headerbar {
     &:focus {
       @include entry(header-focus);
       @if $variant == 'light' { border-color: $entry_highlight; }
+      @else { box-shadow: inset 0 0 0 2px $entry_highlight; }
     }
 
     &:disabled {
       @include entry(header-insensitive);
     }
 
-    &:backdrop { opacity: 0.65; background-image: none; }
+    &:backdrop {
+      opacity: 0.65;
+      background-image: none;
+      box-shadow: none;
+    }
 
     &, &:focus, &:disabled {
       @if $variant == 'dark' {
         border: none;
-        border-right: 1px solid $borders_color;
-
-        &:last-child {
-          border-right: none;
-        }
-      }
-    }
-  }
-
-  // special case for path-bars and stack-switchers
-  .linked:not(.vertical):not(.path-bar).stack-switcher,
-  .linked:not(.vertical).path-bar {
-    > button {
-      min-height: if($variant == 'light', 24px, 26px);
-      @extend %outline_dashed;
-      @include button(header-normal);
-      &:hover { @include button(header-hover); }
-      &:active { @include button(header-active); }
-      &:checked { @include button(header-checked); }
-      &:disabled { color: rgba($header_fg, 0.45); }
-      &:checked:disabled { @include button(header-insensitive-checked); }
-      &:backdrop { opacity: 0.65; background-image: none; }
-
-      @if $variant=='dark' {
         border-right: 1px solid $borders_color;
 
         &:last-child {

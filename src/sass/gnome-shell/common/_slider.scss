@@ -27,6 +27,8 @@ $selected_slider_color: white;
   -barlevel-overdrive-separator-width: 2px;
   -barlevel-border-width: 0;
 
+  .popup-menu-item & { margin-right: $base_padding * 2; }
+
   .popup-menu-item.selected & {
     color: $selected_slider_color;
     -slider-background-color: $track_color;

@@ -47,6 +47,7 @@ $popop_menuitem_radius: $wm_radius - 4px;
     text-shadow: none;
     border-radius: $popop_menuitem_radius;
     font-weight: normal;
+    transition: none !important;
 
     &:checked {
       font-weight: normal;
@@ -59,8 +60,6 @@ $popop_menuitem_radius: $wm_radius - 4px;
         background: none;
         background-color: transparent !important;
         border-image: url("assets/menu-hover.svg") 28 28 2 2;
-        transition-duration: 0ms;
-        animation: none;
         box-shadow: none;
       }
 
@@ -69,8 +68,6 @@ $popop_menuitem_radius: $wm_radius - 4px;
         background: none;
         background-color: transparent !important;
         border-image: url("assets/menu-active.svg") 28 28 2 2;
-        transition-duration: 100ms;
-        animation: none;
         box-shadow: none;
       }
 
@@ -82,8 +79,6 @@ $popop_menuitem_radius: $wm_radius - 4px;
       background: none;
       background-color: transparent !important;
       border-image: url("assets/menu-hover.svg") 28 28 2 2;
-      transition-duration: 0ms;
-      animation: none;
       box-shadow: none;
     }
 
@@ -92,8 +87,6 @@ $popop_menuitem_radius: $wm_radius - 4px;
       background: none;
       background-color: transparent !important;
       border-image: url("assets/menu-active.svg") 28 28 2 2;
-      transition-duration: 100ms;
-      animation: none;
       box-shadow: none;
     }
 

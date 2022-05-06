@@ -34,7 +34,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 
 // overall menu
 #calendarArea {
-  padding: 6px 0 0 0;
+  padding: 6px 0;
 }
 
 // Calendar menu side column
@@ -107,7 +107,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   border: 1px solid if($variant == 'light', rgba(black, 0.12), rgba(black, 0.5));
   color: $alt_fg_color;
   background-color: $message_bg;
-  box-shadow: if($variant == 'light', $shadow_2, inset 0 1px rgba(white, 0.06));
+  box-shadow: if($variant == 'light', $shadow_2, inset 0 1px rgba(white, 0.06)) !important;
   text-shadow: none;
 
   // month

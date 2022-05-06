@@ -48,7 +48,7 @@ $dialog_bg_color: if($variant == 'light', $bg_color, $base_color);
   &-linked-button {
     min-height: 40px;
     padding: 0 16px;
-    margin: 3px 3px;
+    margin: 3px 3px !important;
     border: none !important;
     border-radius: $bt_radius;
 

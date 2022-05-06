@@ -351,7 +351,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 #calendarArea {
-  padding: 6px 0 0 0;
+  padding: 6px 0;
 }
 
 .datemenu-calendar-column {
@@ -432,7 +432,7 @@ StWidget.focused .app-well-app-running-dot {
   border: 1px solid rgba(0, 0, 0, 0.12);
   color: #424242;
   background-color: #ffffff;
-  box-shadow: 0 1px 1px 0 rgba(16, 16, 16, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px 0 rgba(16, 16, 16, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
   text-shadow: none;
 }
 
@@ -819,7 +819,7 @@ StWidget.focused .app-well-app-running-dot {
 .modal-dialog-linked-button {
   min-height: 40px;
   padding: 0 16px;
-  margin: 3px 3px;
+  margin: 3px 3px !important;
   border: none !important;
   border-radius: 5px;
   font-size: 9.75pt;
@@ -1850,16 +1850,23 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 /* Message List */
 .message-list {
   width: 31.5em;
-  padding: 0 12px;
+  padding: 6px 0 0 6px;
   text-shadow: none;
+  border: none;
 }
 
 .message-list .message-list-placeholder {
   spacing: 12px;
 }
 
+.message-list .message-list-placeholder > StIcon {
+  icon-size: 48px;
+  margin-bottom: 12px;
+  -st-icon-style: symbolic;
+}
+
 .message-list-sections {
-  margin: 0 16px;
+  margin: 0 0 0 16px;
 }
 
 .message-list-section,
@@ -1912,15 +1919,14 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .message .message-title {
   min-height: 18px;
-  padding-top: 2px;
+  padding-top: 6px;
   color: #242424;
   font-weight: bold;
   font-size: 1em;
 }
 
 .message .message-content {
-  min-height: 40px;
-  padding: 8px;
+  padding: 6px;
   color: #565656;
   font-size: 1em;
 }
@@ -2560,6 +2566,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   text-shadow: none;
   border-radius: 2px;
   font-weight: normal;
+  transition: none !important;
 }
 
 .popup-menu .popup-menu-item:checked {
@@ -2574,8 +2581,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   background: none;
   background-color: transparent !important;
   border-image: url("assets/menu-hover.svg") 28 28 2 2;
-  transition-duration: 0ms;
-  animation: none;
   box-shadow: none;
 }
 
@@ -2584,8 +2589,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   background: none;
   background-color: transparent !important;
   border-image: url("assets/menu-active.svg") 28 28 2 2;
-  transition-duration: 100ms;
-  animation: none;
   box-shadow: none;
 }
 
@@ -2598,8 +2601,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   background: none;
   background-color: transparent !important;
   border-image: url("assets/menu-hover.svg") 28 28 2 2;
-  transition-duration: 0ms;
-  animation: none;
   box-shadow: none;
 }
 
@@ -2608,8 +2609,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   background: none;
   background-color: transparent !important;
   border-image: url("assets/menu-active.svg") 28 28 2 2;
-  transition-duration: 100ms;
-  animation: none;
   box-shadow: none;
 }
 
@@ -2878,20 +2877,20 @@ StScrollBar {
 }
 
 StScrollView StScrollBar {
-  min-width: 16px;
-  min-height: 16px;
+  min-width: 6px;
+  min-height: 6px;
 }
 
 StScrollBar StBin#trough {
-  margin: 6px;
-  border-radius: 100px;
+  border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.12);
 }
 
 StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
-  border-radius: 100px;
+  border-radius: 6px;
   background-color: #565656;
-  margin: 6px;
+  border: 4px solid transparent;
+  transition: 500ms all ease;
 }
 
 StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {
@@ -2967,6 +2966,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   -barlevel-overdrive-border-color: transparent;
   -barlevel-overdrive-separator-width: 2px;
   -barlevel-border-width: 0;
+}
+
+.popup-menu-item .slider {
+  margin-right: 12px;
 }
 
 .popup-menu-item.selected .slider {

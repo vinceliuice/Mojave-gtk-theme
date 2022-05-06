@@ -104,8 +104,6 @@ window.background.csd { // gnome-terminal 3.32 setting
 
     &, &:hover, &:active, &:checked, &:disabled {
       border-radius: $bt_radius;
-      margin-right: if($variant=='light', 0, 1px);
-      border-right: none;
 
       @if $variant == 'light' { border: 1px solid $borders_color; }
     }
