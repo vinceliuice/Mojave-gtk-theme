@@ -370,7 +370,7 @@ entry {
   border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"),url("assets/entry#{$asset_suffix}@2.png"));
 
   image { // icons inside the entry
-    color: mix($fg_color,$base_color,80%);
+    color: mix($fg_color, $base_color, 80%);
 
     &.left { padding-left: 0; padding-right: 5px; }
     &.right { padding-right: 0; padding-left: 5px; }
@@ -487,6 +487,8 @@ entry {
   .linked:not(.vertical) > &,
   .linked:not(.vertical) > &:focus {
     @extend %linked;
+
+    &:not(:only-child):not(:last-child) { border-right: none; }
   }
 
   .linked.vertical > &,
@@ -1011,9 +1013,8 @@ toolbar.inline-toolbar toolbutton {
   }
 
   @if $button_rules=='true' {
-    $_uncolored_button: 'button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action)';
-
-    > button + button { border-#{$_border}-style: none; }
+    > button:not(.suggested-action):not(.destructive-action):checked + button,
+    > button:not(.suggested-action):not(.destructive-action):active + button { border-#{$_border}-color: $button_borders_active; }
   }
 }
 
@@ -1021,8 +1022,12 @@ toolbar.inline-toolbar toolbutton {
 @mixin pathbar_linking_rules ($sep_color: $button_border, $button_rules: 'true') {
 
   @if $button_rules == 'true' {
-    > button + button {
-      border-left-style: none;
+    > button:active + button {
+      border-left-color: mix(black, $header_button_active_bg, 15%);
+    }
+
+    > button:checked + button {
+      border-left-color: mix(black, $header_button_checked_bg, 15%);
     }
   }
 
@@ -2324,8 +2329,8 @@ menubar,
 menu,
 .menu {
   // margin: 4px;
-  padding: 6px 0;
-  border-radius: $wm_radius;
+  padding: $container_padding * 1.5 0;
+  border-radius: $mn_radius;
   background-color: opacify($menu_bg, 1);
   border: 1px solid $solid_borders_color;
   color: $fg_color;
@@ -2339,9 +2344,9 @@ menu,
   separator,
   .csd & separator {
     margin: 2px 0;
-    min-height: 0;
-    border-bottom: 2px solid $menu_bd;
-    background-color: transparent;
+    min-height: 2px;
+    border: none;
+    background-color: $menu_bd;
   }
 
   > menuitem {
@@ -2452,28 +2457,21 @@ menu,
 // Popovers
 //
 popover {
-  padding: 0;
-
-  &, &.background {
-    border-radius: $wm_radius;
-    background-clip: border-box;
+  &, &.background.menu {
+    border-radius: $bt_radius + $container_padding;
+    background-clip: if($variant=='light', padding-box, border-box);
     background-color: $menu_bg;
-  }
-
-  box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
-              0 0 0 1px if($variant=='light', rgba($borders_color, 0.03), rgba($dark_borders_color, 0.55));
-
-  .csd &, & {
-    border-radius: $wm_radius;
-    border: 1px solid if($variant=='light', rgba($borders_color, 0.2), lighten($menu_bg, 6%));
+    border: 1px solid if($variant=='light', rgba(black, 0.2), lighten($menu_bg, 6%));
+    padding: 0;
+    box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
+                0 0 0 1px if($variant=='light', rgba(black, 0.01), rgba($dark_borders_color, 0.75));
   }
 
   separator,
-  & separator,
-  .csd & separator {
-    // margin: 4px -9px;
-    // min-height: 2px;
+  &.menu separator,
+  .csd &.menu separator {
     border: none;
+    min-height: 0;
     background-color: transparent;
   }
 
@@ -2509,12 +2507,12 @@ popover {
   &.combo {
     list {
       background: none;
-      padding: 3px;
+      padding: $container_padding;
 
       > row {
-        border-radius: 3px;
+        border-radius: $bt_radius;
         margin: 1px 0;
-        padding: 6px 12px;
+        padding: $container_padding $container_padding * 2;
       }
     }
   }
@@ -2533,6 +2531,7 @@ cursor-handle {
 //
 // Notebooks and Tabs
 //
+
 notebook {
   padding: 0;
   // margin-top: -1px;

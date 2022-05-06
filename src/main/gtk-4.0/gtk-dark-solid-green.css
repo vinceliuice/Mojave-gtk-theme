@@ -2436,7 +2436,7 @@ menubar > item:disabled {
 
 menubar > item popover.menu.background > contents {
   padding: 5px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 menubar > item popover.menu popover.menu {
@@ -2445,7 +2445,7 @@ menubar > item popover.menu popover.menu {
 
 menubar > item popover.menu.background popover.menu.background > contents {
   margin: 0;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 popover.background {
@@ -2468,7 +2468,7 @@ popover.background, popover.background:backdrop {
 
 popover.background > contents {
   padding: 6px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 popover.background > contents > list,
@@ -2619,7 +2619,7 @@ popover.menu modelbutton {
   min-height: 26px;
   min-width: 38px;
   padding: 0 6px;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 popover.menu modelbutton:selected {
@@ -4874,7 +4874,7 @@ window.csd:backdrop {
 }
 
 window.csd.popup {
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 8px 15px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
 

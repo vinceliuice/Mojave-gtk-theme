@@ -17,15 +17,17 @@ THEME_NAME=Mojave
 COLOR_VARIANTS=('-light' '-dark')
 
 if [[ "$(command -v gnome-shell)" ]]; then
+  gnome-shell --version
   SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
-    GS_VERSION="new"
+  if [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
+    GS_VERSION="42-0"
+  elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
+    GS_VERSION="40-0"
   else
-    GS_VERSION="old"
+    GS_VERSION="3-28"
   fi
   else
     echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-    GS_VERSION="new"
 fi
 
 usage() {
@@ -70,13 +72,7 @@ install() {
   echo "ButtonLayout=close,minimize,maximize:menu" >>                                        "${THEME_DIR}/index.theme"
 
   mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
-
-  if [[ "${GS_VERSION:-}" == 'new' ]]; then
-    cp -r "${SRC_DIR}/main/gnome-shell/shell-40-0/gnome-shell${color}.css"                   "${THEME_DIR}/gnome-shell/gnome-shell.css"
-  else
-    cp -r "${SRC_DIR}/main/gnome-shell/shell-3-28/gnome-shell${color}.css"                   "${THEME_DIR}/gnome-shell/gnome-shell.css"
-  fi
-
+  cp -r "${SRC_DIR}/main/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}.css"            "${THEME_DIR}/gnome-shell/gnome-shell.css"
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                               "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                        "${THEME_DIR}/gnome-shell/assets"
@@ -274,16 +270,18 @@ done
 
 # Parse scss to css
 for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    sassc $SASSC_OPT src/main/gtk-3.0/gtk${color}.{scss,css}
-    echo "==> Generating the 3.0 gtk${color}.css..."
-    sassc $SASSC_OPT src/main/gtk-4.0/gtk${color}.{scss,css}
-    echo "==> Generating the 4.0 gtk${color}.css..."
-    sassc $SASSC_OPT src/main/cinnamon/cinnamon${color}.{scss,css}
-    echo "==> Generating the cinnamon${color}.css..."
-    sassc $SASSC_OPT src/main/gnome-shell/shell-3-28/gnome-shell${color}.{scss,css}
-    echo "==> Generating the 3.28 gnome-shell${color}.css..."
-    sassc $SASSC_OPT src/main/gnome-shell/shell-40-0/gnome-shell${color}.{scss,css}
-    echo "==> Generating the 40.0 gnome-shell${color}.css..."
+  sassc $SASSC_OPT src/main/gtk-3.0/gtk${color}.{scss,css}
+  echo "==> Generating the 3.0 gtk${color}.css..."
+  sassc $SASSC_OPT src/main/gtk-4.0/gtk${color}.{scss,css}
+  echo "==> Generating the 4.0 gtk${color}.css..."
+  sassc $SASSC_OPT src/main/cinnamon/cinnamon${color}.{scss,css}
+  echo "==> Generating the cinnamon${color}.css..."
+  sassc $SASSC_OPT src/main/gnome-shell/shell-3-28/gnome-shell${color}.{scss,css}
+  echo "==> Generating the 3.28 gnome-shell${color}.css..."
+  sassc $SASSC_OPT src/main/gnome-shell/shell-40-0/gnome-shell${color}.{scss,css}
+  echo "==> Generating the 40.0 gnome-shell${color}.css..."
+  sassc $SASSC_OPT src/main/gnome-shell/shell-42-0/gnome-shell${color}.{scss,css}
+  echo "==> Generating the 42.0 gnome-shell${color}.css..."
 done
 
 sassc $SASSC_OPT src/other/dash-to-dock/stylesheet.{scss,css}

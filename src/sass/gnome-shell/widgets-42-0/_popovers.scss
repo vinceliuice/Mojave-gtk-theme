@@ -1,0 +1,23 @@
+
+.popup-menu-item {
+  &:ltr { padding-right: $base_padding * 3 !important; padding-left: 0 !important; }
+  &:rtl { padding-left: $base_padding * 3 !important; padding-right: 0 !important; }
+}
+
+// separator
+.popup-separator-menu-item {
+  margin: 6px;
+}
+
+// system status popover menu
+.aggregate-menu {
+  .popup-menu-item > :first-child {
+    &:ltr { padding-left: $base_padding * 2 !important; margin-left: 0 !important; }
+    &:rtl { padding-right: $base_padding * 2 !important; margin-right: 0 !important; }
+  }
+
+  .popup-sub-menu .popup-menu-item > :first-child {
+    &:ltr { padding-left: $base_padding * 4 !important; margin-left: 0 !important; }
+    &:rtl { padding-right: $base_padding * 4 !important; margin-right: 0 !important; }
+  }
+}

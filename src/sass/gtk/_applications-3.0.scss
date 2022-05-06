@@ -86,7 +86,6 @@ window.background.csd { // gnome-terminal 3.32 setting
     color: if($variant=='light', $selected_fg_color, $bg_color);
     background-color: $header_button_checked_bg;
     background-image: $header_button_checked_image;
-    border-radius: 0 $bt_radius $bt_radius 0;
     border-right-style: solid;
   }
 
@@ -126,6 +125,8 @@ window.background.csd { // gnome-terminal 3.32 setting
         padding-bottom: 0;
         margin: 0 0 0 -5px;
         @extend %pathbar_box_button;
+
+        &:checked { border-radius: 0 $bt_radius $bt_radius 0; }
 
         @if $variant == 'light' {
           &:active { box-shadow: 1px 0 darken($header_button_active_bg, 12%); }
@@ -199,6 +200,69 @@ window.background.csd { // gnome-terminal 3.32 setting
       border: none;
       background-color: transparent;
     }
+  }
+
+  // >= 42.0
+  &.windowhandle .linked.nautilus-path-bar {
+    .path-buttons-box {
+      border-radius: $bt_radius 0 0 $bt_radius;
+      margin: $container_padding 0;
+      border: 1px solid $borders_color;
+      padding: 0 2px;
+      @include button(header-normal);
+
+      &:backdrop {
+        opacity: 0.65;
+        background-image: none;
+        box-shadow: none;
+      }
+
+      > box > button {
+        margin-top: 2px;
+        margin-bottom: 2px;
+        border: none;
+        box-shadow: none;
+        border-radius: $bt_radius - 2px;
+        padding: 0 $container_padding;
+        min-height: 20px;
+
+        .dim-label {
+          opacity: 0.75;
+        }
+
+        &:not(:hover):not(:active) {
+          background: none;
+        }
+
+        &:hover:not(:active) {
+          background-color: rgba($header_fg, 0.15);
+          background-image: none;
+        }
+
+        &.current-dir {
+          color: $header_fg;
+
+          &:hover, &:active {
+            background: none;
+            box-shadow: none;
+          }
+        }
+      }
+
+      & > box > .dim-label {
+        opacity: 0.65;
+        @include button(header-normal);
+
+        &:backdrop {
+          opacity: 0.35;
+          background-image: none;
+          box-shadow: none;
+        }
+      }
+    }
+
+    // > button.popup.toggle {
+    // }
   }
 }
 
@@ -575,12 +639,13 @@ filechooser,
     box-shadow: inset 0 -1px $borders_color;
 
     button {
-      @extend %headerbar_buttons;
       min-width: 22px;
       padding-top: 0;
       padding-bottom: 0;
-      margin-top: 6px;
-      margin-bottom: 6px;
+      margin-top: $container_padding;
+      margin-bottom: $container_padding;
+
+      &:not(.flat) { @extend %headerbar_buttons; }
     }
 
     entry {

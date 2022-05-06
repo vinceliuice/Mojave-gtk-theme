@@ -34,7 +34,7 @@
 .app-well-app .overview-icon,
 .grid-search-result .overview-icon {
   color: rgba(255, 255, 255, 0.85);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 8px;
   border: none;
   transition-duration: 100ms;
@@ -68,7 +68,7 @@
 
 .app-folder .overview-icon {
   background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  border-radius: 16px;
 }
 
 .app-folder:hover .overview-icon {
@@ -78,7 +78,7 @@
 .app-folder-dialog {
   border-radius: 32px;
   border: 0 solid rgba(255, 255, 255, 0.15);
-  padding: 12px;
+  padding: 6px;
   background-color: rgba(51, 51, 51, 0.9);
 }
 
@@ -377,7 +377,7 @@ StWidget.focused .app-well-app-running-dot {
   margin: 0 12px;
   text-shadow: none;
   color: #424242;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .datemenu-today-button:hover, .datemenu-today-button:focus {
@@ -1276,7 +1276,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   font-weight: bold;
   min-height: 1.2em;
   min-width: 1.2em;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   color: #424242;
   background-color: #FAFAFA;
@@ -1600,7 +1600,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .login-dialog-user-list-item {
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 6px;
   color: rgba(255, 255, 255, 0.85);
 }
@@ -2281,14 +2281,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .osd-window {
   text-align: center;
   font-weight: bold;
-  spacing: 1em;
-  margin: 32px;
-  min-width: 64px;
-  min-height: 64px;
-}
-
-.osd-window StIcon {
-  icon-size: 96px;
 }
 
 .osd-window .osd-monitor-label {
@@ -2522,47 +2514,42 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   min-width: 12em;
   color: #242424;
   font-weight: normal;
-  padding: 3px 0;
+  padding: 3px 0 !important;
+  margin: 0 !important;
   font-size: 9.75pt;
   font-weight: 400;
   border-image: url("assets/menu.svg") 24 32 28 28;
 }
 
 .popup-menu .popup-menu-content {
-  padding: 10px 0;
+  padding: 10px 0 !important;
   font-weight: normal;
+  border: none;
+  box-shadow: none !important;
+  margin: 0 !important;
+  background: none !important;
 }
 
 .popup-menu .popup-menu-item {
   spacing: 12px;
   padding: 6px;
-  color: #424242;
+  color: #424242 !important;
   text-shadow: none;
   border-radius: 2px;
   font-weight: normal;
 }
 
-.popup-menu .popup-menu-item:ltr {
-  padding-right: 1.5em;
-  padding-left: 0;
-}
-
-.popup-menu .popup-menu-item:rtl {
-  padding-right: 0;
-  padding-left: 1.5em;
-}
-
 .popup-menu .popup-menu-item:checked {
   font-weight: normal;
-  background: none;
+  background: none !important;
   box-shadow: none;
   border-image: url("assets/submenu-open.svg") 28 28 2 2;
 }
 
-.popup-menu .popup-menu-item:checked.selected {
-  color: rgba(255, 255, 255, 0.85);
+.popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item:checked.selected {
+  color: rgba(255, 255, 255, 0.85) !important;
   background: none;
-  background-color: transparent;
+  background-color: transparent !important;
   border-image: url("assets/menu-hover.svg") 28 28 2 2;
   transition-duration: 0ms;
   animation: none;
@@ -2570,9 +2557,9 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .popup-menu .popup-menu-item:checked:active {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85) !important;
   background: none;
-  background-color: transparent;
+  background-color: transparent !important;
   border-image: url("assets/menu-active.svg") 28 28 2 2;
   transition-duration: 100ms;
   animation: none;
@@ -2580,13 +2567,13 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .popup-menu .popup-menu-item:checked:insensitive {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.45) !important;
 }
 
-.popup-menu .popup-menu-item.selected {
-  color: rgba(255, 255, 255, 0.85);
+.popup-menu .popup-menu-item:hover, .popup-menu .popup-menu-item:focus, .popup-menu .popup-menu-item.selected {
+  color: rgba(255, 255, 255, 0.85) !important;
   background: none;
-  background-color: transparent;
+  background-color: transparent !important;
   border-image: url("assets/menu-hover.svg") 28 28 2 2;
   transition-duration: 0ms;
   animation: none;
@@ -2594,9 +2581,9 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .popup-menu .popup-menu-item:active, .popup-menu .popup-menu-item.selected:active {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.85) !important;
   background: none;
-  background-color: transparent;
+  background-color: transparent !important;
   border-image: url("assets/menu-active.svg") 28 28 2 2;
   transition-duration: 100ms;
   animation: none;
@@ -2604,21 +2591,21 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .popup-menu .popup-menu-item:insensitive {
-  color: rgba(36, 36, 36, 0.45);
+  color: rgba(36, 36, 36, 0.45) !important;
 }
 
 .popup-menu .popup-sub-menu {
-  background: none;
+  background: none !important;
   box-shadow: none;
   border-image: url("assets/submenu.svg") 28 28 2 2;
 }
 
 .popup-menu .popup-inactive-menu-item {
-  color: #424242;
+  color: #424242 !important;
 }
 
 .popup-menu .popup-inactive-menu-item:insensitive {
-  color: rgba(36, 36, 36, 0.45);
+  color: rgba(36, 36, 36, 0.45) !important;
 }
 
 .popup-menu.panel-menu {
@@ -2660,8 +2647,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .popup-separator-menu-item {
-  margin: 0;
-  padding: 0 0;
+  padding: 0;
   background: none;
   border: none;
   height: 1px;
@@ -2692,18 +2678,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   padding: 0;
   margin: 0 0;
   -st-icon-style: symbolic;
-}
-
-.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:ltr {
-  /* 12px spacing + 2*4px padding */
-  padding-left: 16px;
-  margin-left: 1em;
-}
-
-.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
-  /* 12px spacing + 2*4px padding */
-  padding-right: 16px;
-  margin-right: 1em;
 }
 
 /* Screen Shield */
@@ -3552,6 +3526,17 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   spacing: 24px;
 }
 
+.osd-window {
+  spacing: 1em;
+  min-width: 64px;
+  min-height: 64px;
+  margin: 32px;
+}
+
+.osd-window StIcon {
+  icon-size: 96px;
+}
+
 #panel #panelLeft, #panel #panelCenter {
   spacing: 0;
 }
@@ -3585,6 +3570,26 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 #appMenu .label-shadow {
   color: transparent;
+}
+
+.popup-menu-item:ltr {
+  padding-right: 1.5em;
+  padding-left: 0;
+}
+
+.popup-menu-item:rtl {
+  padding-right: 0;
+  padding-left: 1.5em;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:ltr {
+  padding-left: 16px;
+  margin-left: 1em;
+}
+
+.aggregate-menu .popup-sub-menu .popup-menu-item > :first-child:rtl {
+  padding-right: 16px;
+  margin-right: 1em;
 }
 
 .window-picker {

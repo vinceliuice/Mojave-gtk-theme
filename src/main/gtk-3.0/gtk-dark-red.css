@@ -525,6 +525,10 @@ entry progress {
   box-shadow: none;
 }
 
+.linked:not(.vertical) > entry:not(:only-child):not(:last-child), .linked:not(.vertical) > entry:focus:not(:only-child):not(:last-child) {
+  border-right: none;
+}
+
 treeview entry.flat, treeview entry {
   border-radius: 0;
   background-image: none;
@@ -1206,12 +1210,17 @@ toolbar.inline-toolbar toolbutton:only-child > button.flat, toolbar.inline-toolb
   border-left-color: #eb514f;
 }
 
-.linked:not(.vertical):not(.path-bar) > button + button {
-  border-left-style: none;
+.linked:not(.vertical):not(.path-bar) > button:not(.suggested-action):not(.destructive-action):checked + button,
+.linked:not(.vertical):not(.path-bar) > button:not(.suggested-action):not(.destructive-action):active + button {
+  border-left-color: rgba(0, 0, 0, 0.15);
 }
 
-.linked:not(.vertical).path-bar > button + button {
-  border-left-style: none;
+.linked:not(.vertical).path-bar > button:active + button {
+  border-left-color: #7b7b7b;
+}
+
+.linked:not(.vertical).path-bar > button:checked + button {
+  border-left-color: #909090;
 }
 
 headerbar .linked:not(.vertical) > entry:focus:not(:only-child) {
@@ -1230,8 +1239,9 @@ headerbar .linked:not(.vertical) > entry.error:focus:not(:only-child) {
   box-shadow: inset 0 0 0 2px #FC4138;
 }
 
-headerbar .linked:not(.vertical) > button + button {
-  border-left-style: none;
+headerbar .linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action):checked + button,
+headerbar .linked:not(.vertical) > button:not(.suggested-action):not(.destructive-action):active + button {
+  border-left-color: rgba(0, 0, 0, 0.15);
 }
 
 .linked.vertical > entry + entry {
@@ -1318,8 +1328,9 @@ headerbar .linked:not(.vertical) > button + button {
   border-top-color: #eb514f;
 }
 
-.linked.vertical > button + button {
-  border-top-style: none;
+.linked.vertical > button:not(.suggested-action):not(.destructive-action):checked + button,
+.linked.vertical > button:not(.suggested-action):not(.destructive-action):active + button {
+  border-top-color: rgba(0, 0, 0, 0.15);
 }
 
 menuitem.button.flat, .raven .raven-header:not(.top) button.button,
@@ -1811,7 +1822,7 @@ headerbar separator.titlebutton, headerbar.windowhandle viewswitcher button:not(
   border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"), url("assets/header-entry-disabled@2.png"));
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:not(.image-button), .nemo-window .primary-toolbar button:not(.flat) {
   border-color: rgba(255, 255, 255, 0.12);
   color: #FDFDFD;
   background-color: #5d5d5d;
@@ -1820,12 +1831,12 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:not
   box-shadow: inset 0 1px #767676;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:backdrop:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:backdrop:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:backdrop:not(.image-button), .nemo-window .primary-toolbar button:backdrop {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:backdrop:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:backdrop:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:backdrop:not(.image-button), .nemo-window .primary-toolbar button:backdrop:not(.flat) {
   opacity: 0.65;
   background-image: none;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:hover:not(.image-button), .nemo-window .primary-toolbar button:hover {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:hover:not(.image-button), .nemo-window .primary-toolbar button:hover:not(.flat) {
   border-color: rgba(255, 255, 255, 0.12);
   color: #f8f8f8;
   background-color: #777777;
@@ -1834,7 +1845,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hov
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window .primary-toolbar button:active {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window .primary-toolbar button:active:not(.flat) {
   color: white;
   background-color: #909090;
   background-image: none;
@@ -1844,7 +1855,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:act
   background-clip: padding-box;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:not(.image-button), .nemo-window .primary-toolbar button:checked:not(.flat) {
   color: #333333;
   background-color: #aaaaaa;
   background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
@@ -1855,26 +1866,26 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:che
   transition-duration: 300ms;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:hover:not(.image-button), .nemo-window .primary-toolbar button:active:hover:not(.flat), window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:hover:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:hover:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:hover:not(.image-button), .nemo-window .primary-toolbar button:checked:hover:not(.flat) {
   background-image: none;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.06);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled:not(.flat) {
   background-color: #5d5d5d;
   box-shadow: inset 0 1px #767676;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:disabled:not(.flat) label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window .primary-toolbar button:disabled:not(.flat) {
   color: rgba(253, 253, 253, 0.35);
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button), .nemo-window .primary-toolbar button:active:disabled, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button), .nemo-window .primary-toolbar button:checked:disabled {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button), .nemo-window .primary-toolbar button:active:disabled:not(.flat), window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button), .nemo-window .primary-toolbar button:checked:disabled:not(.flat) {
   background-color: rgba(144, 144, 144, 0.55);
   box-shadow: none;
 }
 
-window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:active:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button), .nemo-window .primary-toolbar button:active:disabled, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:checked:disabled label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button), .nemo-window .primary-toolbar button:checked:disabled {
+window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:active:disabled:not(.flat) label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:disabled:not(.image-button), .nemo-window .primary-toolbar button:active:disabled:not(.flat), window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button) label, .nemo-window .primary-toolbar button:checked:disabled:not(.flat) label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:checked:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:checked:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:checked:disabled:not(.image-button), .nemo-window .primary-toolbar button:checked:disabled:not(.flat) {
   color: rgba(51, 51, 51, 0.45);
 }
 
@@ -2729,8 +2740,8 @@ menubar > menuitem:disabled,
 .context-menu,
 menu,
 .menu {
-  padding: 6px 0;
-  border-radius: 6px;
+  padding: 9px 0;
+  border-radius: 8px;
   background-color: #333333;
   border: 1px solid #474747;
   color: #dedede;
@@ -2745,9 +2756,9 @@ menu,
 menu separator, .csd menu separator,
 .menu separator, .csd .menu separator {
   margin: 2px 0;
-  min-height: 0;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
-  background-color: transparent;
+  min-height: 2px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .context-menu > menuitem,
@@ -2891,24 +2902,18 @@ menu > arrow:disabled,
   border-color: transparent;
 }
 
-popover {
-  padding: 0;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.55);
-}
-
-popover, popover.background {
-  border-radius: 6px;
+popover, popover.background.menu {
+  border-radius: 11px;
   background-clip: border-box;
   background-color: rgba(51, 51, 51, 0.95);
-}
-
-.csd popover, popover {
-  border-radius: 6px;
   border: 1px solid rgba(66, 66, 66, 0.95);
+  padding: 0;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.75);
 }
 
-popover separator, popover separator, .csd popover separator {
+popover separator, popover.menu separator, .csd popover.menu separator {
   border: none;
+  min-height: 0;
   background-color: transparent;
 }
 
@@ -2929,11 +2934,11 @@ popover.touch-selection, .csd popover.touch-selection {
 
 popover.combo list {
   background: none;
-  padding: 3px;
+  padding: 6px;
 }
 
 popover.combo list > row {
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 1px 0;
   padding: 6px 12px;
 }
@@ -5595,7 +5600,6 @@ window.background.csd > box.vertical > box.horizontal > stack > widget > noteboo
   color: #333333;
   background-color: #aaaaaa;
   background-image: linear-gradient(0deg, #c1c1c1 0%, #c6c6c6 100%);
-  border-radius: 0 5px 5px 0;
   border-right-style: solid;
 }
 
@@ -5636,6 +5640,11 @@ window.background.csd > box.vertical > box.horizontal > stack > widget > noteboo
   border: none;
   margin: 0 0 0 -4px;
   box-shadow: inset 0 1px #767676;
+}
+
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:checked, .nautilus-window headerbar .path-bar-box .path-bar .raven .raven-header:not(.top) button.text-button.toggle:checked, .raven .raven-header:not(.top) .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle:checked,
+.nautilus-window headerbar .path-bar-box .path-bar button.flat.image-button.text-button.toggle:checked {
+  border-radius: 0 5px 5px 0;
 }
 
 .nautilus-window headerbar .path-bar-box .path-bar button.flat.text-button.toggle:hover, .nautilus-window headerbar .path-bar-box .path-bar .raven .raven-header:not(.top) button.text-button.toggle:hover, .raven .raven-header:not(.top) .nautilus-window headerbar .path-bar-box .path-bar button.text-button.toggle:hover,
@@ -5699,6 +5708,73 @@ window.background.csd > box.vertical > box.horizontal > stack > widget > noteboo
 .nautilus-window headerbar .path-bar-box.background.frame {
   border: none;
   background-color: transparent;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box {
+  border-radius: 5px 0 0 5px;
+  margin: 6px 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0 2px;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #FDFDFD;
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  border: none;
+  box-shadow: inset 0 1px #767676;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box:backdrop {
+  opacity: 0.65;
+  background-image: none;
+  box-shadow: none;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: none;
+  box-shadow: none;
+  border-radius: 3px;
+  padding: 0 6px;
+  min-height: 20px;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button .dim-label {
+  opacity: 0.75;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button:not(:hover):not(:active) {
+  background: none;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button:hover:not(:active) {
+  background-color: rgba(253, 253, 253, 0.15);
+  background-image: none;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button.current-dir {
+  color: #FDFDFD;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button.current-dir:hover, .nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > button.current-dir:active {
+  background: none;
+  box-shadow: none;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > .dim-label {
+  opacity: 0.65;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #FDFDFD;
+  background-color: #5d5d5d;
+  background-image: linear-gradient(0deg, #636363 0%, #696969 100%);
+  border: none;
+  box-shadow: inset 0 1px #767676;
+}
+
+.nautilus-window headerbar.windowhandle .linked.nautilus-path-bar .path-buttons-box > box > .dim-label:backdrop {
+  opacity: 0.35;
+  background-image: none;
+  box-shadow: none;
 }
 
 .nautilus-canvas-item {

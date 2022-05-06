@@ -8,7 +8,7 @@
 
   & .overview-icon {
     color: $light_alt_fg_color;
-    border-radius: $bd_radius * 1.5;
+    border-radius: $modal_radius;
     padding: 8px;
     border: none;
     transition-duration: 100ms;
@@ -37,7 +37,7 @@
   .overview-icon {
     background-color: $light_divider_color;
     // padding: 16px;
-    border-radius: $bt_radius * 2;
+    border-radius: $modal_radius;
   }
 
   &:hover .overview-icon  {
@@ -49,7 +49,7 @@
 .app-folder-dialog {
   border-radius: $bd_radius * 4;
   border: 0 solid rgba(white, 0.15);
-  padding: 12px;
+  padding: 6px;
   background-color: rgba(#333, 0.9);
 
   & .folder-name-container {

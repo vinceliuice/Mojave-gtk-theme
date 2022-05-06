@@ -2,7 +2,6 @@
 
 $dash_panel_bg: if($variant == 'light', rgba(#f1f1f1, 0.65), rgba(#222222, 0.75));
 $dash_panel_fg: if($variant == 'light', black, white);
-$dash_radius: 18px;
 
 // Scrollview style
 .bottom #dashtodockDashScrollview,
@@ -76,17 +75,25 @@ $dash_radius: 18px;
   #dash { // default-mode
     background: none;
 
+    .app-well-app-running-dot {
+      margin-bottom: 0 !important;
+    }
+
     StWidget.focused .app-well-app-running-dot {
       background-color: $primary_color;
     }
 
     .app-well-app,
     .show-apps {
+      &:ltr:first-child { margin-left: 0 !important; }
+      &:rtl:first-child { margin-right: 0 !important; }
+
       &:hover .overview-icon,
       &:focus .overview-icon,
       &:selected .overview-icon {
         background-color: rgba($fg_color, 0.15);
       }
+
       &:active .overview-icon,
       &:checked .overview-icon {
         background-color: rgba($fg_color, 0.25);
@@ -104,7 +111,6 @@ $dash_radius: 18px;
     box-shadow: inset 0 0 0 1px rgba(white, 0.05);
   }
 
-
   &:overview #dash { // overview-mode #1
     background: none;
 
@@ -115,6 +121,7 @@ $dash_radius: 18px;
       &:selected .overview-icon {
         background-color: $light_divider_color;
       }
+
       &:active .overview-icon,
       &:checked .overview-icon {
         background-color: $light_track_color;
@@ -171,15 +178,7 @@ $dash_radius: 18px;
   &.shrink,
   &.dashtodock {
     .dash-item-container > StButton {
-       padding: 1px 2px;
-    }
-  }
-
-  .app-well-app,
-  .show-apps {
-    .overview-icon {
-      padding: 8px;
-      background-size: contain;
+      padding: 1px 2px;
     }
   }
 
