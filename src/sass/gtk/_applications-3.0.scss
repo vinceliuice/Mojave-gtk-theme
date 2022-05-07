@@ -206,6 +206,7 @@ window.background.csd { // gnome-terminal 3.32 setting
       border-radius: $bt_radius 0 0 $bt_radius;
       margin: $container_padding 0;
       border: 1px solid $borders_color;
+      border-right: none;
       padding: 0 2px;
       @include button(header-normal);
 
@@ -564,7 +565,7 @@ filechooser,
   @extend %nautilus-desktop-canvas-item;
 }
 
-.nemo-window {
+.nemo-window.background {
   .nemo-places-sidebar {
     &.frame { border-width: 0; }
 
@@ -655,57 +656,9 @@ filechooser,
       padding: 2px 10px;
     }
 
-    .linked.raised > button {
-      @extend %linked_header;
-      @extend %outline_dashed;
-      min-height: 0;
-      border-right: 1px solid $borders_color;
-
-      @if $variant == 'light' {
-        &:not(:first-child) {
-          &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
-          &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
-        }
-      }
-
-      &, &:hover, &:active, &:checked, &:disabled {
-        margin-right: if($variant=='light', 0, 0);
-
-        @if $variant=='dark' {
-          &:last-child {
-            border-right: none;
-          }
-        }
-      }
-    }
-
     // Pathbar
     .linked.path-bar {
-      > button, > button.image-button {
-        min-height: 0;
-        min-width: 20px;
-        padding-top: 0;
-        padding-bottom: 0;
-        @extend %outline_dashed;
-        border-right: 1px solid $borders_color;
-
-        &, &:hover, &:active, &:checked, &:disabled {
-          @extend %linked_header;
-        }
-
-        @if $variant == 'light' {
-          &:not(:first-child) {
-            &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
-            &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
-          }
-        }
-
-        @if $variant=='dark' {
-          &:last-child {
-            border-right: none;
-          }
-        }
-      }
+      @include pathbar_linking_rules();
     }
   }
 

@@ -1723,6 +1723,8 @@ headerbar {
   button, spinbutton {
     margin-top: 6px;
     margin-bottom: 6px;
+
+    @if $variant == 'dark' { border: none; }
   }
 
   // Reset linked buttons
@@ -2562,7 +2564,7 @@ notebook {
     border-radius: 0 0 $wm_radius $wm_radius;
   }
 
-  .background.csd & > header {
+  .background & > header {
     background-color: darken($header_bg, 10%);
 
     &.top {
