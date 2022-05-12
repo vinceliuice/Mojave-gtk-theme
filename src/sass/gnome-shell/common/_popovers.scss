@@ -130,7 +130,10 @@ $popop_menuitem_radius: $wm_radius - 4px;
 }
 // symbolic icons in popover
 .popup-menu-arrow,
-.popup-menu-icon { icon-size: $base_icon_size; }
+.popup-menu-icon {
+  icon-size: $base_icon_size;
+  margin: 0 !important;
+}
 
 // container for radio and check boxes
 .popup-menu-ornament {
@@ -173,7 +176,7 @@ $popop_menuitem_radius: $wm_radius - 4px;
   // lock screen, shutdown, etc. buttons
   .popup-menu-icon {
     padding: 0;
-    margin: 0 0;
+    margin: 0;
     -st-icon-style: symbolic;
   }
 }

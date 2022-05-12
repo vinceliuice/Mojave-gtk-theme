@@ -1,30 +1,46 @@
 /* Scrollbars */
 
 StScrollView {
-  &.vfade { -st-vfade-offset: 32px; }
-  &.hfade { -st-hfade-offset: 32px; }
+  &.vfade { -st-vfade-offset: 64px; }
+  &.hfade { -st-hfade-offset: 64px; }
 }
 
 StScrollBar {
-  padding: 0;
+  .popup-menu & {
+    margin: 0 $base_padding * 2;
+  }
 
   StScrollView & {
-    min-width: 6px;
-    min-height: 6px;
+    min-width: 8px;
+    min-height: 8px;
   }
 
   StBin#trough {
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: $divider_color;
   }
 
   StButton#vhandle, StButton#hhandle {
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: $hint_fg_color;
-    border: 4px solid transparent; //would be nice to margin or at least to transparent
     transition: 500ms all ease;
 
     &:hover { background-color: $alt_fg_color; }
     &:active { background-color: $fg_color; }
+  }
+}
+
+.controls-manager StScrollBar {
+  margin: 64px $base_padding * 2;
+
+  StBin#trough {
+    background-color: $light_divider_color !important;
+  }
+
+  StButton#vhandle, StButton#hhandle {
+    background-color: $light_disabled_fg_color !important;
+
+    &:hover { background-color: $light_alt_fg_color !important; }
+    &:active { background-color: $light_fg_color !important; }
   }
 }

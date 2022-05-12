@@ -22,7 +22,7 @@ fi
 
 SASSC_OPT="-M -t expanded"
 
-_COLOR_VARIANTS=('-light' '-dark')
+_COLOR_VARIANTS=('-Light' '-Dark')
 if [ ! -z "${COLOR_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _COLOR_VARIANTS <<< "${COLOR_VARIANTS:-}"
 fi
@@ -58,5 +58,5 @@ done
 
 sassc $SASSC_OPT src/other/dash-to-dock/stylesheet.{scss,css}
 echo "==> Generating dash-to-dock stylesheet.css..."
-sassc $SASSC_OPT src/other/dash-to-dock/stylesheet-dark.{scss,css}
-echo "==> Generating dash-to-dock stylesheet-dark.css..."
+sassc $SASSC_OPT src/other/dash-to-dock/stylesheet-Dark.{scss,css}
+echo "==> Generating dash-to-dock stylesheet-Dark.css..."

@@ -14,7 +14,7 @@ else
 fi
 
 THEME_NAME=Mojave
-COLOR_VARIANTS=('-light' '-dark')
+COLOR_VARIANTS=('-Light' '-Dark')
 OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
 SMALL_VARIANTS=('' '-small')
@@ -129,7 +129,7 @@ install() {
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                               "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/activities${color}/activities${icon}.svg"             "${THEME_DIR}/gnome-shell/assets/activities.svg"
-  cp -r "${SRC_DIR}/assets/gnome-shell/activities-dark/activities${icon}.svg"                "${THEME_DIR}/gnome-shell/assets/activities-white.svg"
+  cp -r "${SRC_DIR}/assets/gnome-shell/activities-Dark/activities${icon}.svg"                "${THEME_DIR}/gnome-shell/assets/activities-white.svg"
   cd "${THEME_DIR}/gnome-shell"
   mv -f assets/no-events.svg no-events.svg
   mv -f assets/process-working.svg process-working.svg
@@ -154,13 +154,8 @@ install() {
 
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "${THEME_DIR}/gtk-3.0/windows-assets"
   cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}${theme}.png"                     "${THEME_DIR}/gtk-3.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-3.0/gtk-dark.css"
-
-  if [[ "${color}" == '-light' ]]; then
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light${opacity}${theme}.css"                          "${THEME_DIR}/gtk-3.0/gtk.css"
-  else
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark${opacity}${theme}.css"                           "${THEME_DIR}/gtk-3.0/gtk.css"
-  fi
+  cp -r "${SRC_DIR}/main/gtk-3.0/gtk${color}${opacity}${theme}.css"                          "${THEME_DIR}/gtk-3.0/gtk.css"
+  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-Dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-3.0" --target="${THEME_DIR}/gtk-3.0/gtk.gresource" "${SRC_DIR}/main/gtk-3.0/gtk.gresource.xml"
   rm -rf "${THEME_DIR}/gtk-3.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
@@ -176,13 +171,8 @@ install() {
 
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "${THEME_DIR}/gtk-4.0/windows-assets"
   cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}${theme}.png"                     "${THEME_DIR}/gtk-4.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-4.0/gtk-dark.css"
-
-  if [[ "${color}" == '-light' ]]; then
-    cp -r "${SRC_DIR}/main/gtk-4.0/gtk-light${opacity}${theme}.css"                          "${THEME_DIR}/gtk-4.0/gtk.css"
-  else
-    cp -r "${SRC_DIR}/main/gtk-4.0/gtk-dark${opacity}${theme}.css"                           "${THEME_DIR}/gtk-4.0/gtk.css"
-  fi
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "${THEME_DIR}/gtk-4.0/gtk.css"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-4.0/gtk-dark.css"
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-4.0" --target="${THEME_DIR}/gtk-4.0/gtk.gresource" "${SRC_DIR}/main/gtk-4.0/gtk.gresource.xml"
   rm -rf "${THEME_DIR}/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
@@ -213,6 +203,20 @@ install() {
 
   mkdir -p                                                                                   "${THEME_DIR}/plank"
   cp -r "${SRC_DIR}/other/plank/${name}${color}/"*'.theme'                                   "${THEME_DIR}/plank"
+}
+
+clean() {
+  local dest="${1}"
+  local name="${2}"
+  local color="${3}"
+  local opacity="${4}"
+  local alt="${5}"
+  local small="${6}"
+  local theme="${7}"
+
+  local THEME_DIR="${1}/${2}${3}${4}${5}${6}${7}"
+
+  [[ -d "${THEME_DIR}" ]] && rm -rf "${THEME_DIR}"
 }
 
 # Backup and install files related to GDM theme
@@ -590,6 +594,22 @@ install_theme() {
     done
   done
 }
+
+clean_theme() {
+  for color in '-light' '-dark'; do
+    for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
+      for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
+        for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
+          for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+            clean "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
+          done
+        done
+      done
+    done
+  done
+}
+
+clean_theme
 
 cd "${SRC_DIR}/main/gtk-3.0" && ./make_gresource_xml.sh
 cd "${SRC_DIR}/main/gtk-4.0" && ./make_gresource_xml.sh

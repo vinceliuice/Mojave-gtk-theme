@@ -14,7 +14,7 @@ else
 fi
 
 THEME_NAME=Mojave
-COLOR_VARIANTS=('-light' '-dark')
+COLOR_VARIANTS=('-Light' '-Dark')
 
 if [[ "$(command -v gnome-shell)" ]]; then
   gnome-shell --version
@@ -46,8 +46,8 @@ install() {
   local name="${2}"
   local color="${3}"
 
-  [[ "${color}" == '-light' ]] && local ELSE_LIGHT="${color}"
-  [[ "${color}" == '-dark' ]] && local ELSE_DARK="${color}"
+  [[ "${color}" == '-Light' ]] && local ELSE_LIGHT="${color}"
+  [[ "${color}" == '-Dark' ]] && local ELSE_DARK="${color}"
 
   local THEME_DIR="${1}/${2}${3}"
 
@@ -77,7 +77,7 @@ install() {
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/"*'.svg'                               "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/assets${color}/background.png"                        "${THEME_DIR}/gnome-shell/assets"
   cp -r "${SRC_DIR}/assets/gnome-shell/activities${color}/activities.svg"                    "${THEME_DIR}/gnome-shell/assets/activities.svg"
-  cp -r "${SRC_DIR}/assets/gnome-shell/activities-dark/activities${icon}.svg"                "${THEME_DIR}/gnome-shell/assets/activities-white.svg"
+  cp -r "${SRC_DIR}/assets/gnome-shell/activities-Dark/activities${icon}.svg"                "${THEME_DIR}/gnome-shell/assets/activities-white.svg"
   cd "${THEME_DIR}/gnome-shell"
   mv -f assets/no-events.svg no-events.svg
   mv -f assets/process-working.svg process-working.svg
@@ -93,25 +93,15 @@ install() {
   cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "${THEME_DIR}/gtk-3.0"
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton"                                   "${THEME_DIR}/gtk-3.0/windows-assets"
   cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}.png"                             "${THEME_DIR}/gtk-3.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark.css"                                               "${THEME_DIR}/gtk-3.0/gtk-dark.css"
-
-  if [[ "${color}" == '-light' ]]; then
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-light.css"                                            "${THEME_DIR}/gtk-3.0/gtk.css"
-  else
-    cp -r "${SRC_DIR}/main/gtk-3.0/gtk-dark.css"                                             "${THEME_DIR}/gtk-3.0/gtk.css"
-  fi
+  cp -r "${SRC_DIR}/main/gtk-3.0/gtk${color}.css"                                            "${THEME_DIR}/gtk-3.0/gtk.css"
+  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-Dark.css"                                               "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/gtk-4.0"
   cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "${THEME_DIR}/gtk-4.0"
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton"                                   "${THEME_DIR}/gtk-4.0/windows-assets"
   cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}.png"                             "${THEME_DIR}/gtk-4.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-dark.css"                                               "${THEME_DIR}/gtk-4.0/gtk-dark.css"
-
-  if [[ "${color}" == '-light' ]]; then
-    cp -r "${SRC_DIR}/main/gtk-4.0/gtk-light.css"                                            "${THEME_DIR}/gtk-4.0/gtk.css"
-  else
-    cp -r "${SRC_DIR}/main/gtk-4.0/gtk-dark.css"                                             "${THEME_DIR}/gtk-4.0/gtk.css"
-  fi
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}.css"                                            "${THEME_DIR}/gtk-4.0/gtk.css"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark.css"                                               "${THEME_DIR}/gtk-4.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/metacity-1"
   cp -r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                              "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
@@ -286,8 +276,8 @@ done
 
 sassc $SASSC_OPT src/other/dash-to-dock/stylesheet.{scss,css}
 echo "==> Generating dash-to-dock stylesheet.css..."
-sassc $SASSC_OPT src/other/dash-to-dock/stylesheet-dark.{scss,css}
-echo "==> Generating dash-to-dock stylesheet-dark.css..."
+sassc $SASSC_OPT src/other/dash-to-dock/stylesheet-Dark.{scss,css}
+echo "==> Generating dash-to-dock stylesheet-Dark.css..."
 
 install_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
