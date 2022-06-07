@@ -33,7 +33,7 @@ if [[ "$(command -v gnome-shell)" ]]; then
   fi
   else
     echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-    GS_VERSION="40-0"
+    GS_VERSION="42-0"
 fi
 
 # COLORS
