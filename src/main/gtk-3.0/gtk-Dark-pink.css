@@ -8283,7 +8283,7 @@ window.background:not(.csd) > menu > menuitem > label:disabled {
 
 window.background:not(.csd) > menu > menuitem > radio,
 window.background:not(.csd) > menu > menuitem > check {
-  padding: 0 2px 0 4px;
+  padding: 1px;
 }
 
 window.background:not(.csd) > window > menu menuitem {
