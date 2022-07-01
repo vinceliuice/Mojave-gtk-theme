@@ -598,7 +598,12 @@ stackswitcher button.text-button.circular, button.circular, .app-notification bu
 }
 
 calendar.raven-calendar.button, .nemo-window.background .floating-bar button,
-calendar.button, .app-notification button:not(.suggested-action):not(.destructive-action), notebook > header tabs > tab button.flat:active, notebook > header tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header tabs > tab button:active, notebook > header tabs > tab button.flat:active:hover, notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header tabs > tab button:hover, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, button:link, button:visited, menuitem.button.flat, .raven .raven-header:not(.top) button.button,
+calendar.button, .app-notification button:not(.suggested-action):not(.destructive-action), notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header > tabs > tab button:active, notebook > header > tabs > tab button.flat:active:hover,
+notebook > header > tabs > tab button.close-button:active,
+notebook > header > tabs > tab button.close-button:active:hover,
+notebook > header > tabs > tab button.image-button.flat:active, notebook > header > tabs > tab button.flat:hover, notebook > header > tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header > tabs > tab button:hover,
+notebook > header > tabs > tab button.close-button:hover,
+notebook > header > tabs > tab button.image-button.flat:hover, button:link:hover, button:link:active, button:link:checked, button:visited:hover, button:visited:active, button:visited:checked, button:link, button:visited, menuitem.button.flat, .raven .raven-header:not(.top) button.button,
 modelbutton.flat {
   border-color: transparent;
   background-color: transparent;
@@ -680,7 +685,7 @@ button separator {
   margin: 4px 1px;
 }
 
-.budgie-panel button.flat.launcher, button.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button, .background grid#CanvasGrid > button:not(.flat), button.flat, .raven .raven-header:not(.top) button {
+.budgie-panel button.flat.launcher, button.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button, .background grid#CanvasGrid > button:not(.flat), .background tabbox > tab button, button.flat, .raven .raven-header:not(.top) button {
   min-height: 24px;
   border: none;
   background-color: transparent;
@@ -689,7 +694,7 @@ button separator {
   transition: none;
 }
 
-.budgie-panel button.flat.launcher:hover, button.budgie-menu-launcher:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover, .background grid#CanvasGrid > button:hover:not(.flat), button.flat:hover, .raven .raven-header:not(.top) button:hover {
+.budgie-panel button.flat.launcher:hover, button.budgie-menu-launcher:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover, .background grid#CanvasGrid > button:hover:not(.flat), .background tabbox > tab button:hover, button.flat:hover, .raven .raven-header:not(.top) button:hover {
   color: #c5c5c5;
   background-color: rgba(255, 255, 255, 0.15);
   background-image: none;
@@ -697,29 +702,29 @@ button separator {
   transition-duration: 350ms;
 }
 
-button.budgie-menu-launcher:hover:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover:active, .background grid#CanvasGrid > button:hover:active:not(.flat), button.flat:hover:active, .raven .raven-header:not(.top) button:hover:active {
+button.budgie-menu-launcher:hover:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover:active, .background grid#CanvasGrid > button:hover:active:not(.flat), .background tabbox > tab button:hover:active, button.flat:hover:active, .raven .raven-header:not(.top) button:hover:active {
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.budgie-panel button.flat.launcher:active, button.budgie-menu-launcher:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:active, .background grid#CanvasGrid > button:active:not(.flat), .budgie-panel button.flat.launcher:checked, button.budgie-menu-launcher:checked, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked, .background grid#CanvasGrid > button:checked:not(.flat), button.flat:active, .raven .raven-header:not(.top) button:active, button.flat:checked, .raven .raven-header:not(.top) button:checked {
+.budgie-panel button.flat.launcher:active, button.budgie-menu-launcher:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:active, .background grid#CanvasGrid > button:active:not(.flat), .background tabbox > tab button:active, .budgie-panel button.flat.launcher:checked, button.budgie-menu-launcher:checked, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked, .background grid#CanvasGrid > button:checked:not(.flat), .background tabbox > tab button:checked, button.flat:active, .raven .raven-header:not(.top) button:active, button.flat:checked, .raven .raven-header:not(.top) button:checked {
   background-image: none;
   color: white;
   background-color: rgba(255, 255, 255, 0.25);
 }
 
-button.budgie-menu-launcher:checked:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked:hover, .background grid#CanvasGrid > button:checked:hover:not(.flat), button.flat:checked:hover, .raven .raven-header:not(.top) button:checked:hover {
+button.budgie-menu-launcher:checked:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked:hover, .background grid#CanvasGrid > button:checked:hover:not(.flat), .background tabbox > tab button:checked:hover, button.flat:checked:hover, .raven .raven-header:not(.top) button:checked:hover {
   background-image: none;
   box-shadow: none;
 }
 
-.budgie-panel button.flat.launcher:disabled, button.budgie-menu-launcher:disabled, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:disabled, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:disabled, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:disabled, .background grid#CanvasGrid > button:disabled:not(.flat), button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
+.budgie-panel button.flat.launcher:disabled, button.budgie-menu-launcher:disabled, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:disabled, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:disabled, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:disabled, .background grid#CanvasGrid > button:disabled:not(.flat), .background tabbox > tab button:disabled, button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
   box-shadow: none;
 }
 
-button.toggle.popup.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.toggle.popup.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.popup.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.popup.category-button, .background grid#CanvasGrid > button.toggle.popup:not(.flat), button.flat.toggle.popup, .raven .raven-header:not(.top) button.toggle.popup {
+button.toggle.popup.budgie-menu-launcher, .budgie-popover scrolledwindow.sidebar.categories button.toggle.popup.flat.category-button, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.popup.category-button, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.popup.category-button, .background grid#CanvasGrid > button.toggle.popup:not(.flat), .background tabbox > tab button.toggle.popup, button.flat.toggle.popup, .raven .raven-header:not(.top) button.toggle.popup {
   min-width: 20px;
 }
 
@@ -2860,6 +2865,25 @@ cursor-handle.bottom {
   -gtk-icon-source: -gtk-icontheme("selection-end-symbolic");
 }
 
+.background tabbox > tab, notebook > header > tabs > tab {
+  color: rgba(222, 222, 222, 0.35);
+  background-color: rgba(36, 36, 36, 0);
+  border: 1px solid transparent;
+  transition: all 150ms ease-out;
+}
+
+.background tabbox > tab:hover, notebook > header > tabs > tab:hover {
+  color: rgba(222, 222, 222, 0.675);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: #444444;
+}
+
+.background tabbox > tab:checked, notebook > header > tabs > tab:checked {
+  color: #dedede;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #444444;
+}
+
 notebook {
   padding: 0;
 }
@@ -3086,26 +3110,9 @@ notebook > header.left tabs > tab:last-child, notebook > header.right tabs > tab
   border-bottom-style: none;
 }
 
-notebook > header tabs > tab {
-  color: rgba(222, 222, 222, 0.35);
-  background-color: rgba(36, 36, 36, 0);
-  border: 1px solid transparent;
-  transition: all 150ms ease-out;
-}
-
-notebook > header tabs > tab:hover {
-  color: rgba(222, 222, 222, 0.675);
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: #444444;
-}
-
-notebook > header tabs > tab:checked {
-  color: #dedede;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-color: #444444;
-}
-
-notebook > header tabs > tab button.flat, notebook > header tabs > tab .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) notebook > header tabs > tab button {
+notebook > header > tabs > tab button.flat, notebook > header > tabs > tab .raven .raven-header:not(.top) button, .raven .raven-header:not(.top) notebook > header > tabs > tab button,
+notebook > header > tabs > tab button.close-button,
+notebook > header > tabs > tab button.image-button.flat {
   min-height: 16px;
   min-width: 16px;
   border-radius: 3px;
@@ -3115,12 +3122,18 @@ notebook > header tabs > tab button.flat, notebook > header tabs > tab .raven .r
   color: #a2a2a2;
 }
 
-notebook > header tabs > tab button.flat:hover, notebook > header tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header tabs > tab button:hover {
+notebook > header > tabs > tab button.flat:hover, notebook > header > tabs > tab .raven .raven-header:not(.top) button:hover, .raven .raven-header:not(.top) notebook > header > tabs > tab button:hover,
+notebook > header > tabs > tab button.close-button:hover,
+notebook > header > tabs > tab button.image-button.flat:hover {
   color: #dedede;
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-notebook > header tabs > tab button.flat:active, notebook > header tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header tabs > tab button:active, notebook > header tabs > tab button.flat:active:hover {
+notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab .raven .raven-header:not(.top) button:active, .raven .raven-header:not(.top) notebook > header > tabs > tab button:active, notebook > header > tabs > tab button.flat:active:hover,
+notebook > header > tabs > tab button.close-button:active,
+notebook > header > tabs > tab button.close-button:active:hover,
+notebook > header > tabs > tab button.image-button.flat:active,
+notebook > header > tabs > tab button.image-button.flat:active:hover {
   color: #f8f8f8;
   background-color: rgba(255, 255, 255, 0.2);
 }
@@ -7338,6 +7351,41 @@ flowboxchild.bookmark-tag-widget label {
 
 flowboxchild.bookmark-tag-widget-selected {
   color: white;
+}
+
+.background tabbox {
+  background-color: #1e1e1e;
+  box-shadow: inset 0 -1px rgba(255, 255, 255, 0.12);
+  margin-top: -1px;
+}
+
+.background tabbox > tab {
+  padding: 2px 10px;
+}
+
+.background tabbox > tab button {
+  border-radius: 3px;
+  border: none;
+  padding: 0;
+  min-height: 24px;
+  min-width: 24px;
+}
+
+.background tabbox > tab button:hover {
+  color: #dedede;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.background tabbox > tab button:active, .background tabbox > tab button:active:hover {
+  color: #f8f8f8;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.background tabbox > tab button.tab-close-button {
+  min-height: 24px;
+  min-width: 24px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 #weather-page,
