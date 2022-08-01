@@ -4,12 +4,12 @@ $popop_menuitem_radius: $wm_radius - 4px;
 
 //.the popover itself
 .popup-menu-boxpointer {
-  -arrow-border-radius: 2px;
+  -arrow-border-radius: $mn_radius;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 64px;
-  -arrow-rise: 0;
+  -arrow-rise: 6px;
   -arrow-box-shadow: none; //dreaming. bug #689995
   background: transparent; // needs to reset?
 }
@@ -19,55 +19,48 @@ $popop_menuitem_radius: $wm_radius - 4px;
   min-width: 12em;
   color: $fg_color;
   font-weight: normal;
-  padding: 3px 0 !important;
-  margin: 0 !important;
+  padding: 0 !important;
+  margin: 0;
+  background: none !important;
+  border: none !important;
+  box-shadow: 0 3px 6px rgba(black, 0.15);
   @include font(body-1);
 
-  @if $trans == 'true' {
-    border-image: url("assets/menu.svg") 24 32 28 28;
-  }
-
-  @else {
-    border-image: url("assets/menu-solid.svg") 24 32 28 28;
-  }
-
   .popup-menu-content {
-    padding: 10px 0 !important;
     font-weight: normal;
-    border: none;
-    box-shadow: none !important;
+    border: 1px solid if($variant == 'light', $borders_color, black);
+    box-shadow: inset 0 0 0 1px rgba(white, 0.1);
+    padding: 9px 0 !important;
     margin: 0 !important;
-    background: none !important;
+    border-radius: $mn_radius;
+    background-color: $menu_bg;
   }
 
   .popup-menu-item {
-    spacing: 12px;
-    padding: 6px;
+    spacing: 12px !important;
+    padding: 6px !important;
+    border-radius: 0 !important;
     color: $alt_fg_color !important;
     text-shadow: none;
     border-radius: $popop_menuitem_radius;
     font-weight: normal;
-    transition: none !important;
+    transition-duration: 0 !important;
 
     &:checked {
       font-weight: normal;
-      background: none !important;
+      background-color: $selected_bg_color !important;
+      color: $light_fg_color !important;
       box-shadow: none;
-      border-image: url("assets/submenu-open.svg") 28 28 2 2;
 
       &:hover, &:focus, &.selected {
-        color: $light_alt_fg_color !important;
-        background: none;
-        background-color: transparent !important;
-        border-image: url("assets/menu-hover.svg") 28 28 2 2;
+        color: $light_fg_color !important;
+        background-color: lighten($selected_bg_color, 5%) !important;
         box-shadow: none;
       }
 
       &:active {
-        color: $light_alt_fg_color !important;
-        background: none;
-        background-color: transparent !important;
-        border-image: url("assets/menu-active.svg") 28 28 2 2;
+        color: $light_fg_color !important;
+        background-color: darken($selected_bg_color, 5%) !important;
         box-shadow: none;
       }
 
@@ -76,17 +69,14 @@ $popop_menuitem_radius: $wm_radius - 4px;
 
     &:hover, &:focus, &.selected {
       color: $light_alt_fg_color !important;
-      background: none;
-      background-color: transparent !important;
-      border-image: url("assets/menu-hover.svg") 28 28 2 2;
+      background-color: $selected_bg_color !important;
       box-shadow: none;
+      transition-duration: 0 !important;
     }
 
     &:active, &.selected:active {
-      color: $light_alt_fg_color !important;
-      background: none;
-      background-color: transparent !important;
-      border-image: url("assets/menu-active.svg") 28 28 2 2;
+      color: $light_fg_color !important;
+      background-color: darken($selected_bg_color, 5%) !important;
       box-shadow: none;
     }
 
@@ -94,9 +84,11 @@ $popop_menuitem_radius: $wm_radius - 4px;
   }
 
   .popup-sub-menu {
-    background: none !important;
+    background-color: rgba(black, if($variant == 'light', 0.08, 0.15)) !important;
     box-shadow: none;
-    border-image: url("assets/submenu.svg") 28 28 2 2;
+    border-radius: 0 !important;
+    border-top: 1px solid rgba(black, if($variant == 'light', 0.15, 0.75));
+    border-bottom: 1px solid rgba(black, if($variant == 'light', 0.15, 0.75));
   }
 
   .popup-inactive-menu-item { //all icons and other graphical elements

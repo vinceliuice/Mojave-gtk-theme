@@ -328,7 +328,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 #calendarArea {
-  padding: 6px 0;
+  padding: 8px 0;
 }
 
 .datemenu-calendar-column {
@@ -756,8 +756,8 @@ StWidget.focused .app-well-app-running-dot {
 /* Modal Dialogs */
 .modal-dialog {
   background-color: rgba(245, 245, 245, 0.95);
-  border-radius: 6px;
-  border: solid rgba(0, 0, 0, 0.75);
+  border-radius: 12px;
+  border: solid black;
   border-width: 0;
   box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.65);
 }
@@ -2506,12 +2506,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 /* Popovers/Menus */
 .popup-menu-boxpointer {
-  -arrow-border-radius: 2px;
+  -arrow-border-radius: 8px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 64px;
-  -arrow-rise: 0;
+  -arrow-rise: 6px;
   -arrow-box-shadow: none;
   background: transparent;
 }
@@ -2520,52 +2520,52 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   min-width: 12em;
   color: #242424;
   font-weight: normal;
-  padding: 3px 0 !important;
-  margin: 0 !important;
+  padding: 0 !important;
+  margin: 0;
+  background: none !important;
+  border: none !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
   font-size: 9.75pt;
   font-weight: 400;
-  border-image: url("assets/menu.svg") 24 32 28 28;
 }
 
 .popup-menu .popup-menu-content {
-  padding: 10px 0 !important;
   font-weight: normal;
-  border: none;
-  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  padding: 9px 0 !important;
   margin: 0 !important;
-  background: none !important;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .popup-menu .popup-menu-item {
-  spacing: 12px;
-  padding: 6px;
+  spacing: 12px !important;
+  padding: 6px !important;
+  border-radius: 0 !important;
   color: #424242 !important;
   text-shadow: none;
   border-radius: 2px;
   font-weight: normal;
-  transition: none !important;
+  transition-duration: 0 !important;
 }
 
 .popup-menu .popup-menu-item:checked {
   font-weight: normal;
-  background: none !important;
+  background-color: #315bef !important;
+  color: white !important;
   box-shadow: none;
-  border-image: url("assets/submenu-open.svg") 28 28 2 2;
 }
 
 .popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item:checked.selected {
-  color: rgba(255, 255, 255, 0.85) !important;
-  background: none;
-  background-color: transparent !important;
-  border-image: url("assets/menu-hover.svg") 28 28 2 2;
+  color: white !important;
+  background-color: #496ef1 !important;
   box-shadow: none;
 }
 
 .popup-menu .popup-menu-item:checked:active {
-  color: rgba(255, 255, 255, 0.85) !important;
-  background: none;
-  background-color: transparent !important;
-  border-image: url("assets/menu-active.svg") 28 28 2 2;
+  color: white !important;
+  background-color: #1948ed !important;
   box-shadow: none;
 }
 
@@ -2575,17 +2575,14 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .popup-menu .popup-menu-item:hover, .popup-menu .popup-menu-item:focus, .popup-menu .popup-menu-item.selected {
   color: rgba(255, 255, 255, 0.85) !important;
-  background: none;
-  background-color: transparent !important;
-  border-image: url("assets/menu-hover.svg") 28 28 2 2;
+  background-color: #315bef !important;
   box-shadow: none;
+  transition-duration: 0 !important;
 }
 
 .popup-menu .popup-menu-item:active, .popup-menu .popup-menu-item.selected:active {
-  color: rgba(255, 255, 255, 0.85) !important;
-  background: none;
-  background-color: transparent !important;
-  border-image: url("assets/menu-active.svg") 28 28 2 2;
+  color: white !important;
+  background-color: #1948ed !important;
   box-shadow: none;
 }
 
@@ -2594,9 +2591,11 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .popup-menu .popup-sub-menu {
-  background: none !important;
+  background-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: none;
-  border-image: url("assets/submenu.svg") 28 28 2 2;
+  border-radius: 0 !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .popup-menu .popup-inactive-menu-item {

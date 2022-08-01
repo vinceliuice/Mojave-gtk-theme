@@ -1,7 +1,11 @@
 
-.popup-menu-item {
-  &:ltr { padding-right: $base_padding * 4 !important; padding-left: $base_padding * 2 !important; }
-  &:rtl { padding-left: $base_padding * 4 !important; padding-right: $base_padding * 2 !important; }
+.popup-menu {
+  .popup-menu-item {
+    padding: $base_padding $base_padding * 2;
+
+    &:ltr { padding-right: $base_padding * 2.5 !important; padding-left: $base_padding !important; }
+    &:rtl { padding-right: $base_padding !important; padding-left: $base_padding * 2.5 !important; }
+  }
 }
 
 // separator
