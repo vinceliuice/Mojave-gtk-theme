@@ -5,16 +5,21 @@
 
 /* Style menus */
 menupopup {
-	-moz-appearance: none !important;
-	background: var(--gnome-menu-background) !important;
-	border: 1px solid var(--gnome-menu-border-color) !important;
-	border-radius: 5px !important;
-	padding: 4px 0 !important;
-	color: var(--gnome-toolbar-color) !important;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+	--panel-background: var(--gnome-menu-background) !important;
+	--panel-border-color: var(--gnome-menu-border-color) !important;
+	--arrowpanel-border-radius: 6px !important;
+	--arrowpanel-background: var(--gnome-menu-background) !important;
+	--arrowpanel-border-color: var(--gnome-menu-border-color) !important;
+	--panel-border-radius: 5px !important;
+	--panel-padding: 8px 0 !important;
 }
-menupopup menupopup {
-	margin: -5px 0 0 -4px;
+
+#PlacesToolbar menupopup[placespopup="true"]::part(content), #PlacesToolbar menupopup[placespopup="true"]::part(arrowscrollbox), #PlacesToolbar menupopup {
+	background: none !important;
+	padding: 3px 4px 6px !important;
+	margin: 0 0 0 -12px !important;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 menubar > menu > menupopup {
@@ -25,6 +30,8 @@ menubar > menu > menupopup {
 menuitem, menupopup menu {
 	-moz-appearance: none !important;
 	padding: 4px 8px !important;
+	border: none !important;
+	box-shadow: none !important;
 }
 
 menuitem[type="checkbox"] image, menuitem[type="radio"] image {
@@ -35,10 +42,26 @@ menuitem[disabled="true"]:hover, menupopup menu[disabled="true"]:hover {
 	background: transparent !important;
 }
 
+panel {
+	--panel-background: var(--gnome-menu-background) !important;
+	--panel-border-color: var(--gnome-menu-border-color) !important;
+}
+
+:is(menupopup, panel)[type="arrow"] {
+	--panel-border-radius: 6px !important;
+	--panel-padding: 5px !important;
+}
+
+:is(panel, menupopup)::part(content) {
+	border: none !important;
+}
+
 /* Adjust popovers position */
-panel[type=arrow] {
-	margin-top: 9px !important;
-	max-height: 80vh !important;
+panel[type="arrow"] {
+	appearance: none !important;
+	border: none !important;
+	background-color: transparent !important;
+	margin-top: 8px !important;
 }
 
 /* Style popovers */
@@ -46,22 +69,36 @@ panel[type=arrow] {
 .panel-header, .PanelUI-subView,
 .panel-subview-body, #widget-overflow-mainView, #protections-popup-footer,
 panelview {
-	border: 0 !important;
-	background: transparent !important;
+	border: none !important;
+	background: none !important;
+}
+
+panelview {
+	padding: 8px !important;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06) !important;
+	border-radius: 6px !important;
 }
 
 .panel-arrowcontent {
 	background: var(--gnome-popover-background) !important;
-	border: 1px solid !important;
-	border-color: var(--gnome-popover-border-color) !important;
-	border-radius: 9px !important;
-	padding: 12px !important;
+	border: 1px solid var(--gnome-popover-border-color) !important;
+	border-radius: 6px !important;
 	color: var(--gnome-toolbar-color) !important;
 }
 
-.panel-arrow {
-	fill: var(--gnome-popover-background) !important;
-	stroke: var(--gnome-popover-border-color) !important;
+#BMB_bookmarksPopup {
+	margin-top: 4px !important;
+	padding: 0 !important;
+	box-shadow: none !important;
+	--panel-padding: 0 !important;
+}
+
+#BMB_bookmarksPopup menupopup {
+	padding: 6px !important;
+}
+
+panel:not([remote]), #BMB_bookmarksPopup {
+	--arrowpanel-background: var(--gnome-popover-background) !important;
 }
 
 .PanelUI-subView toolbarseparator:not([orient="vertical"]) {
@@ -71,16 +108,28 @@ panelview {
 .panel-header {
 	padding: 0 0 10px 0 !important;
 }
+.panel-header + toolbarseparator,
+#identity-popup-mainView-panel-header + toolbarseparator,
+#permission-popup-mainView-panel-header + toolbarseparator,
+#protections-popup-mainView-panel-header-section + toolbarseparator {
+	display: none !important;
+}
 .panel-footer {
 	background-color: transparent !important;
 	display: flex;
 	justify-content: flex-end;
 	padding-top: 0px !important;
 }
+.panel-footer.panel-footer-menulike {
+	border-top: 0 !important;
+	margin-top: 8px !important;
+}
 .panel-footer toolbarseparator {
 	display: none !important;
 }
-
+.proton-zap {
+	border-image: unset !important;
+}
 .panel-subview-body {
 	padding: 0 !important;
 }
@@ -100,6 +149,7 @@ panelview {
 .protections-popup-category,
 .identity-popup-content-blocking-category {
 	padding: 5px !important;
+	margin: 0 !important;
 }
 
 .subviewbutton[disabled], .toolbarbutton-1[disabled],
@@ -116,7 +166,7 @@ panelview {
 
 .subviewbutton:not([disabled]):hover, .toolbarbutton-1:not([disabled]):hover, .protections-popup-category:not([disabled]):hover,
 .identity-popup-content-blocking-category:not([disabled]):hover {
-	background: var(--gnome-popover-button-hover-background) !important;
+	background-color: var(--gnome-popover-button-hover-background) !important;
 }
 
 /* Style popover separators */
@@ -156,62 +206,4 @@ panel[type="autocomplete-richlistbox"] {
 }
 .autocomplete-richlistitem:not([type="loginsFooter"]):hover .ac-site-icon {
 	fill: #fff !important;
-}
-
-/* Browser dialog prompts center */
-.content-prompt {
-	display: flex !important;
-	align-items: center;
-	justify-content: center;
-}
-
-/* Browser dialog prompts */
-tabmodalprompt[role="dialog"] .tabmodalprompt-mainContainer {
-	background: var(--gnome-popover-background) !important;
-	border: 0 !important;
-	border-radius: 9px !important;
-	box-shadow: var(--gnome-popover-shadow) !important;
-	padding-top: 0 !important;
-}
-tabmodalprompt[role="dialog"] .tabmodalprompt-buttonContainer {
-	background: transparent !important;
-	border: 0 !important;
-	padding: 0 !important;
-	display: flex !important;
-}
-tabmodalprompt[role="dialog"] .tabmodalprompt-buttonSpacer {
-	display: none !important;
-}
-
-tabmodalprompt[role="dialog"] button[class*='tabmodalprompt-button']:not(#hack) {
-	height: auto !important;
-	max-height: unset !important;
-	padding: 10px 14px !important;
-	margin: 0 !important;
-	border-radius: 0 !important;
-	flex: 1;
-	border-bottom: 0 !important;
-}
-
-/* Buttons border-radius - only suppor for cancel/ok */
-tabmodalprompt[role="dialog"] button.tabmodalprompt-button0:not(#hack) {
-	border-radius: 0 0 9px 9px !important;
-	border-right: 0 !important;
-	border-left: 0 !important;
-}
-tabmodalprompt[role="dialog"] button.tabmodalprompt-button1:not([hidden]) ~ button.tabmodalprompt-button0:not(#hack) {
-	border-radius: 0 0 9px 0 !important;
-}
-tabmodalprompt[role="dialog"] button.tabmodalprompt-button1:not(#hack) {
-	border-left: 0 !important;
-	border-radius: 0 0 0 9px !important;
-}
-
-/* Main menu fxa */
-#appMenu-fxa-status[fxastatus="signedin"] > #appMenu-fxa-label {
-	padding-left: 22px !important;
-	margin-inline-start: -22px !important;
-}
-#appMenu-fxa-status[fxastatus="signedin"] > #appMenu-fxa-avatar {
-	margin-inline-start: 5px !important;
 }

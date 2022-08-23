@@ -2,15 +2,21 @@
 
 @namespace xul "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
 
+:root {
+	--space-above-tabbar: 0 !important;
+}
+
+#TabsToolbar:not([inFullscreen]) > .toolbar-items {
+	margin-bottom: -1px !important;
+}
+
 /* Tabs bar height */
 #tabbrowser-tabs,
 #tabbrowser-tabs arrowscrollbox {
 	height: initial !important;
 	min-height: initial !important;
 }
-tab > stack {
-	height: 28px !important;
-}
+
 /* Extra margin for the first and last tabs */
 .tabbrowser-tab[first-tab]:not([pinned=true]) {
 	margin-left: 8px !important;
@@ -32,6 +38,7 @@ tab > stack {
 	--toolbarbutton-active-background: transparent !important;
 	--toolbarbutton-hover-background: transparent !important;
 	padding: 0 0 !important;
+	box-shadow: none !important;
 }
 
 /* New hover effect */
@@ -64,10 +71,8 @@ tab > stack {
 /* Tab labels */
 tab {
 	color: var(--gnome-tabbar-tab-color) !important;
-	font-family: Cantarell, inherit;
-	font-weight: bold;
-	font-size: 1em;
 }
+
 tab:hover {
 	color: var(--gnome-tabbar-tab-hover-color) !important;
 }
@@ -84,6 +89,7 @@ tab[selected]:-moz-window-inactive {
 /* Center all inside tab */
 .tab-content {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	margin-top: -1px;
@@ -106,9 +112,9 @@ tab[selected]:-moz-window-inactive {
 .tab-icon-sound[activemedia-blocked="true"] {
 	margin-left: auto !important;
 }
-.tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button {
-	margin-left: auto !important;
-}
+/*.tabbrowser-tab:not([soundplaying]):not([muted]):not([activemedia-blocked]) .tab-close-button {*/
+/*	margin-left: auto !important;*/
+/*}*/
 .tab-icon-sound {
 	margin-right: 6px;
 }
@@ -120,18 +126,49 @@ tab[selected]:-moz-window-inactive {
 	margin-left: auto !important;
 }
 
-/* If tab favicon is not present, force tab label to the center */
-.tabbrowser-tab:not([image]):not([busy]):not([progress]):not([class*="identity-color-"]) .tab-label-container {
+/* separate class for multi-tab alignment*/
+.tabbrowser-tab[class*="identity-color-"]>.tab-stack>.tab-content>.tab-icon-stack {
 	margin-left: auto !important;
 }
 
-/* If tab close button is not present, don't force favicon to the center */
-#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:not([selected="true"]) .tab-throbber,
-#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:not([selected="true"]) .tab-throbber-fallback,
-#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:not([selected="true"]):not([busy]) .tab-icon-image,
-#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:not([selected="true"]):not([image]) .tab-label-container,
-#tabbrowser-tabs[closebuttons="activetab"] .tabbrowser-tab:not([selected="true"]) .tab-icon-stackr {
+/* If tab favicon is not present, force tab label to the center */
+.tabbrowser-tab .tab-label-container {
 	margin-left: 0 !important;
+	margin-right: auto !important;
+}
+
+.tabbrowser-tab:not([image]):not([busy]):not([progress]) .tab-label-container {
+	margin-left: auto !important;
+}
+
+/* Fix website with no favicon centred text */
+.tabbrowser-tab:not([image]) .tab-icon-overlay:not([pinned], [sharing], [crashed]) .tab-icon-stack {
+	margin-left: 0 !important
+}
+
+.tabbrowser-tab:not([image], [busy]) .tab-icon-stack {
+	margin-left: 0 !important
+}
+
+/*Align personal bookmarks v89 */
+#personal-bookmarks {
+	-moz-box-align: center !important;
+}
+
+/* fix misc spacing between tabs */
+.tabbrowser-tab {
+	padding-inline: 0px !important;
+}
+
+.tabbrowser-tab[selected="true"]>.tab-stack>.tab-background {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+/* centre text when audio is playing */
+.tabbrowser-tab:is([soundplaying]) .tab-label-container {
+	margin-left: 0 !important;
+	margin-right: auto !important
 }
 
 /* Remove tab icons */
@@ -140,10 +177,6 @@ tab[selected]:-moz-window-inactive {
 } */
 
 /* Close tab button */
-:root {
-	--gnome-fill-icon: red !important;
-}
-
 .close-icon {
 	height: 16px !important;
 	padding: 0 !important;
@@ -152,20 +185,31 @@ tab[selected]:-moz-window-inactive {
 
 .tab-close-button {
 	-moz-appearance: none !important;
+	margin-inline-end: 0 !important;
 	border: none !important;
 	box-sizing: content-box; /* Avoid deformation on flexbox */
-	border-radius: 2px;
+	border-radius: 3px !important;
 	list-style-image: url("../icons/window-close-symbolic.svg") !important;
 	height: 16px;
 	opacity: .3;
 	padding: 0;
 	width: 16px;
 }
+
+.tabbrowser-tab > .tab-stack > .tab-content > .tab-close-button {
+	visibility: hidden;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-content > .tab-close-button {
+	visibility: visible;
+}
+
 @media (prefers-color-scheme: dark) {
 	.tab-close-button {
 		list-style-image: url("../icons/window-close-symbolic-light.svg") !important;
 	}
 }
+
 :root:-moz-window-inactive .tab-close-button:not(#hack) {
 	opacity: .18 !important;
 }
@@ -193,47 +237,49 @@ tab[selected]:-moz-window-inactive {
 	display: none;
 }
 
-/* Move container lines to the top */
-.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background {
-	border-top: 3px solid var(--identity-tab-color) !important;
-}
-
-.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-bottom-line {
+/* Remove alt colours references for multi tabs*/
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
 	display: none;
 }
 
-/*.tab-background {*/
-/*	background-color: var(--gnome-tabbar-tab-background) !important;*/
-/*}*/
+.tabbrowser-tab[class*="identity-color-"][pinned] {
+	display: flex;
+}
+
+.tab-background {
+	background-color: transparent !important;
+	transition: all 200ms;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+	margin-block: 0 !important;
+	padding: 0 !important;
+}
 
 /* Active tab */
 .tab-background[selected=true] {
 	background-color: var(--gnome-tabbar-tab-active-background) !important;
 	background-image: none !important;
-	border: 1px solid var(--gnome-headerbar-border-color) !important;
+	border: none !important;
 	border-image: none !important;
-	border-top: none !important;
 	margin-left: -1px !important;
-	margin-right: -1px !important
+	margin-right: -1px !important;
+	border-radius: 0 !important;
+	box-shadow: 1px 0 var(--gnome-toolbar-border-color), 1px 0 3px rgba(0, 0, 0, 0.08),
+	            -1px 0 var(--gnome-toolbar-border-color), -1px 0 3px rgba(0, 0, 0, 0.08),
+	            inset 0 -1px var(--gnome-toolbar-border-color) !important;
 }
+
 .tab-background[selected=true]:-moz-window-inactive {
 	background-color: var(--gnome-inactive-tabbar-tab-active-background) !important;
-	border: 1px solid var(--gnome-inactive-headerbar-border-color) !important;
 	border-image: none !important;
-	border-top: none !important;
 }
 
 /* Tab hover */
-.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]),
-#TabsToolbar[brighttext] > #tabbrowser-tabs > .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]),
-#TabsToolbar[brighttext] > #tabbrowser-tabs > .tabbrowser-tab:hover > .tab-stack > .tab-background > .tab-line:not([selected=true]) {
+#TabsToolbar .tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected=true]) {
 	background-color: var(--gnome-tabbar-tab-active-hover-background) !important;
-	border: 1px solid var(--gnome-headerbar-border-color) !important;
 	border-image: none !important;
-	border-top: none !important;
-	border-left: none !important;
-	border-right: none !important;
-	box-shadow: 1px 0 var(--gnome-headerbar-border-color), -1px 0 var(--gnome-headerbar-border-color) !important;
+	box-shadow: 1px 0 var(--gnome-toolbar-border-color), -1px 0 var(--gnome-toolbar-border-color), inset 0 -1px var(--gnome-toolbar-border-color) !important;
 }
 
 /* Tabs scroll buttons hover */
@@ -257,9 +303,10 @@ tab[selected]:-moz-window-inactive {
 	display: none !important;
 }
 
-/* Remove container bottom line indicator */
-.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-bottom-line {
-	display: none;
+#TabsToolbar .toolbarbutton-1 {
+	margin: 0 !important;
+	border-radius: 0 !important;
+	min-width: 34px !important;
 }
 
 /* Create new container tab indicator */
@@ -288,4 +335,26 @@ tab[selected]:-moz-window-inactive {
 	top: -8px;
 	position: relative;
 	margin-right: -10px;
+}
+
+/* fix pip on small displays */
+.tab-icon-overlay[pictureinpicture] {
+	top: 3px !important;
+	inset-inline-end: 13px !important;
+	z-index: 1 !important;
+	max-width: 10px;
+	max-height: 10px;
+}
+
+/* fix spacing on too many tabs */
+.tab-icon-overlay:not([pinned], [sharing]),
+[pictureinpicture] {
+	margin-inline-end: 4px !important;
+	margin-inline-start: 4px !important;
+}
+
+/* Fix too many tabs text align */
+.tab-close-button[pinned],
+#tabbrowser-tabs[closebuttons="activetab"]>#tabbrowser-arrowscrollbox>.tabbrowser-tab>.tab-stack>.tab-content>.tab-icon-stack[selected="true"] {
+	margin-left: auto !important;
 }
