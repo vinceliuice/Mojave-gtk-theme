@@ -2413,15 +2413,16 @@ menu,
     color: $fg_color;
 
     &.top {
-      margin-top: -6px;
+      margin-top: -8px;
+      margin-bottom: 6px;
       border-radius: $wm_radius $wm_radius 0 0;
       border-bottom: 1px solid $borders_color;
       -gtk-icon-source: -gtk-icontheme('pan-up-symbolic');
     }
 
     &.bottom {
-      margin-top: 12px;
-      margin-bottom: -16px;
+      margin-top: 18px;
+      margin-bottom: -26px;
       border-radius: 0 0 $wm_radius $wm_radius;
       border-top: 1px solid $borders_color;
       -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');

@@ -2753,7 +2753,8 @@ menu > arrow,
 .context-menu > arrow.top,
 menu > arrow.top,
 .menu > arrow.top {
-  margin-top: -6px;
+  margin-top: -8px;
+  margin-bottom: 6px;
   border-radius: 6px 6px 0 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
@@ -2763,8 +2764,8 @@ menu > arrow.top,
 .context-menu > arrow.bottom,
 menu > arrow.bottom,
 .menu > arrow.bottom {
-  margin-top: 12px;
-  margin-bottom: -16px;
+  margin-top: 18px;
+  margin-bottom: -26px;
   border-radius: 0 0 6px 6px;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
