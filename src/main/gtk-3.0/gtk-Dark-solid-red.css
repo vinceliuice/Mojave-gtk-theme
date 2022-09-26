@@ -2656,7 +2656,8 @@ menu,
 
 .csd .context-menu, .csd menu, .csd .menu {
   background-color: #333333;
-  border: 1px solid #424242;
+  border: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
 .context-menu separator, .csd .context-menu separator,
