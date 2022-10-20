@@ -678,6 +678,8 @@ button {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #656565;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -734,6 +736,8 @@ button:hover {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #6d6d6d;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
   -gtk-icon-effect: highlight;
 }
@@ -1221,11 +1225,11 @@ toolbar.inline-toolbar toolbutton:only-child > button.flat, toolbar.inline-toolb
   border-left-color: rgba(0, 0, 0, 0.15);
 }
 
-.linked:not(.vertical).path-bar > button:active + button {
+.linked.path-bar:not(.vertical) > button:active + button {
   border-left-color: #7b7b7b;
 }
 
-.linked:not(.vertical).path-bar > button:checked + button {
+.linked.path-bar:not(.vertical) > button:checked + button {
   border-left-color: #909090;
 }
 
@@ -1861,7 +1865,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:act
 
 window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window.background .primary-toolbar button:disabled:not(.flat) {
   background-color: #5d5d5d;
-  box-shadow: inset 0 1px #767676;
+  box-shadow: none;
 }
 
 window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button) label, window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button) label, .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button) label, .nemo-window.background .primary-toolbar button:disabled:not(.flat) label, window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window.background .primary-toolbar button:disabled:not(.flat) {
@@ -2053,7 +2057,7 @@ headerbar button:not(.suggested-action):not(.destructive-action):active:hover, h
 
 headerbar button:not(.suggested-action):not(.destructive-action):disabled {
   background-color: #5d5d5d;
-  box-shadow: inset 0 1px #767676;
+  box-shadow: none;
 }
 
 headerbar button:not(.suggested-action):not(.destructive-action):disabled label, headerbar button:not(.suggested-action):not(.destructive-action):disabled {
@@ -2069,7 +2073,7 @@ headerbar button:not(.suggested-action):not(.destructive-action):active:disabled
   color: rgba(51, 51, 51, 0.45);
 }
 
-headerbar button:not(.suggested-action):not(.destructive-action).flat, headerbar .raven .raven-header:not(.top) button:not(.destructive-action), .raven .raven-header:not(.top) headerbar button:not(.destructive-action) {
+headerbar button.flat:not(.suggested-action):not(.destructive-action), headerbar .raven .raven-header:not(.top) button:not(.destructive-action), .raven .raven-header:not(.top) headerbar button:not(.destructive-action) {
   border-color: transparent;
   background-color: transparent;
   background-image: none;
@@ -2481,11 +2485,11 @@ treeview.view:drop(active) {
   border-color: #86adeb;
 }
 
-treeview.view:drop(active).after {
+treeview.view.after:drop(active) {
   border-top-style: none;
 }
 
-treeview.view:drop(active).before {
+treeview.view.before:drop(active) {
   border-bottom-style: none;
 }
 
@@ -3220,12 +3224,12 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) slider {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal slider {
+scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) slider {
   margin: 0 3px;
   min-width: 40px;
 }
 
-scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical slider {
+scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) slider {
   margin: 3px 0;
   min-height: 40px;
 }
@@ -3749,7 +3753,7 @@ scale.horizontal.marks-before:not(.marks-after) slider {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
+scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3768,7 +3772,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:hover {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
+scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3787,7 +3791,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:active {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
+scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3806,7 +3810,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:disabled {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
+scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3825,7 +3829,7 @@ scale.horizontal.marks-after:not(.marks-before) slider {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
+scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3844,7 +3848,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:hover {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
+scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3863,7 +3867,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:active {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
+scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3882,7 +3886,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:disabled {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
+scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3901,7 +3905,7 @@ scale.vertical.marks-before:not(.marks-after) slider {
   box-shadow: none;
 }
 
-scale.vertical.marks-before:not(.marks-after).fine-tune slider {
+scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3920,7 +3924,7 @@ scale.vertical.marks-before:not(.marks-after) slider:hover {
   box-shadow: none;
 }
 
-scale.vertical.marks-before:not(.marks-after).fine-tune slider {
+scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3939,7 +3943,7 @@ scale.vertical.marks-before:not(.marks-after) slider:active {
   box-shadow: none;
 }
 
-scale.vertical.marks-before:not(.marks-after).fine-tune slider {
+scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3958,7 +3962,7 @@ scale.vertical.marks-before:not(.marks-after) slider:disabled {
   box-shadow: none;
 }
 
-scale.vertical.marks-before:not(.marks-after).fine-tune slider {
+scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3977,7 +3981,7 @@ scale.vertical.marks-after:not(.marks-before) slider {
   box-shadow: none;
 }
 
-scale.vertical.marks-after:not(.marks-before).fine-tune slider {
+scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -3996,7 +4000,7 @@ scale.vertical.marks-after:not(.marks-before) slider:hover {
   box-shadow: none;
 }
 
-scale.vertical.marks-after:not(.marks-before).fine-tune slider {
+scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4015,7 +4019,7 @@ scale.vertical.marks-after:not(.marks-before) slider:active {
   box-shadow: none;
 }
 
-scale.vertical.marks-after:not(.marks-before).fine-tune slider {
+scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4034,7 +4038,7 @@ scale.vertical.marks-after:not(.marks-before) slider:disabled {
   box-shadow: none;
 }
 
-scale.vertical.marks-after:not(.marks-before).fine-tune slider {
+scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4283,7 +4287,7 @@ list row {
   color: white;
 }
 
-.budgie-menu button:selected.has-open-popup, window.org-gnome-gedit > overlay > box.vertical > paned.gedit-side-panel-paned > box.vertical > stack > grid.horizontal > scrolledwindow treeview.view:selected.has-open-popup, .nemo-window.background .sidebar .view:selected.has-open-popup, .nemo-window.background .sidebar row:selected.has-open-popup, row.activatable:selected.has-open-popup, .budgie-menu button:selected:hover, window.org-gnome-gedit > overlay > box.vertical > paned.gedit-side-panel-paned > box.vertical > stack > grid.horizontal > scrolledwindow treeview.view:selected:hover, .nemo-window.background .sidebar .view:selected:hover, .nemo-window.background .sidebar row:selected:hover, row.activatable:selected:hover {
+.budgie-menu button.has-open-popup:selected, window.org-gnome-gedit > overlay > box.vertical > paned.gedit-side-panel-paned > box.vertical > stack > grid.horizontal > scrolledwindow treeview.view.has-open-popup:selected, .nemo-window.background .sidebar .view.has-open-popup:selected, .nemo-window.background .sidebar row.has-open-popup:selected, row.activatable.has-open-popup:selected, .budgie-menu button:selected:hover, window.org-gnome-gedit > overlay > box.vertical > paned.gedit-side-panel-paned > box.vertical > stack > grid.horizontal > scrolledwindow treeview.view:selected:hover, .nemo-window.background .sidebar .view:selected:hover, .nemo-window.background .sidebar row:selected:hover, row.activatable:selected:hover {
   background-color: #2970de;
 }
 
@@ -4622,6 +4626,8 @@ placessidebar row:selected button.sidebar-button {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #656565;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -4877,6 +4883,8 @@ colorswatch#add-color-button {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #656565;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -4886,6 +4894,8 @@ colorswatch#add-color-button:hover {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #6d6d6d;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -4923,6 +4933,8 @@ colorchooser .popover.osd {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #6d6d6d;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -5947,11 +5959,11 @@ filechooser placessidebar.sidebar row.sidebar-row:backdrop,
 }
 
 
-filechooser placessidebar.sidebar row.sidebar-row:selected.has-open-popup,
+filechooser placessidebar.sidebar row.sidebar-row.has-open-popup:selected,
 filechooser placessidebar.sidebar row.sidebar-row:selected,
 filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
 filechooser placessidebar.sidebar row.sidebar-row:active:hover,
-.nautilus-window placessidebar.sidebar row.sidebar-row:selected.has-open-popup,
+.nautilus-window placessidebar.sidebar row.sidebar-row.has-open-popup:selected,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected:hover,
 .nautilus-window placessidebar.sidebar row.sidebar-row:active:hover {
@@ -5960,16 +5972,16 @@ filechooser placessidebar.sidebar row.sidebar-row:active:hover,
 }
 
 
-filechooser placessidebar.sidebar row.sidebar-row:selected.has-open-popup,
-filechooser placessidebar.sidebar row.sidebar-row:selected.has-open-popup label,
+filechooser placessidebar.sidebar row.sidebar-row.has-open-popup:selected,
+filechooser placessidebar.sidebar row.sidebar-row.has-open-popup:selected label,
 filechooser placessidebar.sidebar row.sidebar-row:selected,
 filechooser placessidebar.sidebar row.sidebar-row:selected label,
 filechooser placessidebar.sidebar row.sidebar-row:selected:hover,
 filechooser placessidebar.sidebar row.sidebar-row:selected:hover label,
 filechooser placessidebar.sidebar row.sidebar-row:active:hover,
 filechooser placessidebar.sidebar row.sidebar-row:active:hover label,
-.nautilus-window placessidebar.sidebar row.sidebar-row:selected.has-open-popup,
-.nautilus-window placessidebar.sidebar row.sidebar-row:selected.has-open-popup label,
+.nautilus-window placessidebar.sidebar row.sidebar-row.has-open-popup:selected,
+.nautilus-window placessidebar.sidebar row.sidebar-row.has-open-popup:selected label,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected label,
 .nautilus-window placessidebar.sidebar row.sidebar-row:selected:hover,
@@ -6868,7 +6880,7 @@ window.background.csd > stack {
   border-radius: 0 0 6px 6px;
 }
 
-window.background.csd > box:not(.titlebar).horizontal > separator.vertical {
+window.background.csd > box.horizontal:not(.titlebar) > separator.vertical {
   background-color: #101010;
 }
 
@@ -7011,7 +7023,7 @@ stack.view.polari-entry-area button.popup.flat.toggle.polari-nick-button:active,
   background-image: none;
 }
 
-stack:disabled.view.polari-entry-area {
+stack.view.polari-entry-area:disabled {
   background-image: image(#333333);
 }
 
@@ -7309,6 +7321,8 @@ popover.background:not(.emoji-picker) > box.vertical > scrolledwindow > viewport
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #6d6d6d;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -7876,11 +7890,11 @@ panel-toplevel.background button:active:not(#tasklist-button) {
   border: none;
 }
 
-.xfce4-panel#XfcePanelWindow {
+#XfcePanelWindow.xfce4-panel {
   border: none;
 }
 
-.xfce4-panel#XfcePanelWindow, .xfce4-panel#XfcePanelWindow.marching-ants {
+#XfcePanelWindow.xfce4-panel, #XfcePanelWindow.xfce4-panel.marching-ants {
   transition: none;
 }
 
@@ -8014,6 +8028,8 @@ window.thunar toolbar#location-toolbar button.flat, window.thunar toolbar#locati
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #656565;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
   border-color: rgba(255, 255, 255, 0.12);
   color: #FDFDFD;
@@ -8064,7 +8080,7 @@ window.thunar toolbar#location-toolbar button.flat:active:hover, window.thunar t
 
 window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled {
   background-color: #5d5d5d;
-  box-shadow: inset 0 1px #767676;
+  box-shadow: none;
 }
 
 window.thunar toolbar#location-toolbar button.flat:disabled label, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled label, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled label, window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled {
@@ -8721,6 +8737,8 @@ button.flat.-panel-icon-button:checked,
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #656565;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -8730,6 +8748,8 @@ button.flat.-panel-icon-button:checked,
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #6d6d6d;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -9492,6 +9512,8 @@ GtkListBox .h4 {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #656565;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -9501,6 +9523,8 @@ GtkListBox .h4 {
   border-top-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.15);
   background-color: #6d6d6d;
+  background-clip: padding-box;
+  background-origin: padding-box;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
@@ -9726,7 +9750,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 
 .raven .raven-header:not(.top) button:disabled, .raven stackswitcher.linked > button:disabled, .raven button:disabled {
   background-color: #5d5d5d;
-  box-shadow: inset 0 1px #767676;
+  box-shadow: none;
 }
 
 .raven .raven-header:not(.top) button:disabled label, .raven button:disabled label, .raven .raven-header:not(.top) button:disabled, .raven stackswitcher.linked > button:disabled, .raven button:disabled {

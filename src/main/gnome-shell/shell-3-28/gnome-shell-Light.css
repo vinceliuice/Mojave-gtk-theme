@@ -554,7 +554,7 @@
 /* Modal Dialogs */
 .modal-dialog {
   background-color: rgba(245, 245, 245, 0.95);
-  border-radius: 12px;
+  border-radius: 14px;
   border: solid black;
   border-width: 0;
   box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.65); }
@@ -1851,7 +1851,7 @@ StEntry, .popup-menu .search-entry {
     border-radius: 0 !important;
     color: #424242 !important;
     text-shadow: none;
-    border-radius: 2px;
+    border-radius: 4px;
     font-weight: normal;
     transition-duration: 0 !important; }
     .popup-menu .popup-menu-item:checked {

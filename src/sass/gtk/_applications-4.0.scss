@@ -89,10 +89,15 @@
 }
 
 #NautilusQueryEditor { // search entry
-  padding: 0 $container_padding;
-  margin-top: $container_padding;
-  margin-bottom: $container_padding;
-  border-radius: 7px;
+  padding: 1px $container_padding;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  border-radius: $bt_radius;
+  border: none;
+
+  &:focus-within {
+    outline-color: $entry_highlight;
+  }
 
   > box { margin: 0; }
 

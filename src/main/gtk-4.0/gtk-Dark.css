@@ -13,7 +13,7 @@
 .card, listview.boxed-list,
 list.boxed-list, listview.content:not(.conversation-listbox),
 list.content:not(.conversation-listbox) {
-  border-radius: 9px;
+  border-radius: 8px;
   box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.03), inset 0 0 3px rgba(255, 255, 255, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.05);
   border: none; }
@@ -32,25 +32,25 @@ list.content:not(.conversation-listbox) > row {
   list.boxed-list > row.expander list > row:first-child, listview.boxed-list > row:first-child,
   list.boxed-list > row:first-child, listview.content:not(.conversation-listbox) > row:first-child,
   list.content:not(.conversation-listbox) > row:first-child {
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px; }
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px; }
   listview.boxed-list > row.expander list > row:last-child,
   list.boxed-list > row.expander list > row:last-child, listview.boxed-list > row:last-child,
   list.boxed-list > row:last-child, listview.content:not(.conversation-listbox) > row:last-child,
   list.content:not(.conversation-listbox) > row:last-child {
-    border-bottom-left-radius: 9px;
-    border-bottom-right-radius: 9px; }
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px; }
   listview.boxed-list > row.expander list > row:only-child,
   list.boxed-list > row.expander list > row:only-child, listview.boxed-list > row:only-child,
   list.boxed-list > row:only-child, listview.content:not(.conversation-listbox) > row:only-child,
   list.content:not(.conversation-listbox) > row:only-child {
-    border-radius: 9px; }
+    border-radius: 8px; }
 
 .background {
   color: #dedede;
   background-color: #333333; }
   .background.csd {
-    border-radius: 6px; }
+    border-radius: 8px; }
   .background.maximized, .background.solid-csd {
     border-radius: 0; }
 
@@ -231,8 +231,8 @@ spinbutton > text, .linked > entry:not(:only-child) {
 
 entry {
   min-height: 20px;
-  border: none;
-  padding: 0 8px;
+  border: 3px solid transparent;
+  padding: 2px 8px;
   border-radius: 7px;
   caret-color: currentColor;
   color: #dadada;
@@ -1733,7 +1733,7 @@ popover.background {
     background-color: rgba(51, 51, 51, 0.95);
     color: #dadada;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.75);
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     outline-color: rgba(255, 255, 255, 0.1);
     outline-style: solid;
@@ -1896,7 +1896,7 @@ notebook {
   notebook > stack:not(:only-child) {
     background-color: #242424; }
   notebook:not(.frame), notebook:not(.frame) > stack {
-    border-radius: 0 0 6px 6px; }
+    border-radius: 0 0 8px 8px; }
   notebook > header {
     padding: 0;
     background-color: #1e1e1e; }
@@ -2755,7 +2755,7 @@ frame,
     border: none; }
 
 frame {
-  border-radius: 6px; }
+  border-radius: 8px; }
   frame > label {
     margin: 4px; }
 
@@ -3018,15 +3018,15 @@ window.dialog.message.csd .dialog-action-area > button {
   border-right-style: none; }
 
 window.dialog.message.csd .dialog-action-area > button:last-child {
-  border-radius: 0 0 6px 0;
+  border-radius: 0 0 8px 0;
   border-right-style: none; }
 
 window.dialog.message.csd .dialog-action-area > button:first-child {
-  border-radius: 0 0 0 6px;
+  border-radius: 0 0 0 8px;
   border-left-style: none; }
 
 window.dialog.message.csd .dialog-action-area > button:only-child {
-  border-radius: 0 0 6px 6px;
+  border-radius: 0 0 8px 8px;
   border-left-style: none;
   border-right-style: none; }
 
@@ -3066,8 +3066,8 @@ window.dialog.message .dialog-action-area {
       border-color: rgba(0, 0, 0, 0.15); }
 
 window.dialog.message.csd.background {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   border: none; }
 
 window.dialog.message.csd .dialog-action-area {
@@ -3091,7 +3091,7 @@ filechooser stack.view {
   background-color: transparent; }
   filechooser stack.view scrolledwindow {
     background-color: #242424;
-    border-radius: 0 0 6px 6px; }
+    border-radius: 0 0 8px 8px; }
     filechooser stack.view scrolledwindow list {
       background-color: transparent; }
     filechooser stack.view scrolledwindow treeview.view {
@@ -3500,7 +3500,7 @@ window {
   border-width: 0; }
   window.csd {
     transition: box-shadow 150ms cubic-bezier(0, 0, 0.2, 1);
-    border-radius: 6px;
+    border-radius: 8px;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.35), 0 8px 8px 0 rgba(0, 0, 0, 0.35), 0 16px 16px 0 rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75);
     margin: 6px; }
     window.csd:backdrop {
@@ -3509,7 +3509,7 @@ window {
       border-radius: 8px;
       box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 8px 15px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.75); }
     window.csd.dialog.message {
-      border-radius: 6px; }
+      border-radius: 8px; }
     .solid-csd window.csd {
       border: 1px solid #101010;
       border-radius: 0;
@@ -3610,7 +3610,7 @@ row:selected label, label:selected {
  *********/
 popover.emoji-picker {
   padding: 0;
-  border-radius: 6px; }
+  border-radius: 8px; }
   popover.emoji-picker > contents {
     padding: 0; }
 
@@ -3959,7 +3959,7 @@ window.background > contents > toastoverlay > leaflet > box + separator {
   padding: 2px;
   background-color: #315bef;
   color: white;
-  border-radius: 0px;
+  border-radius: 2px;
   margin: 6px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.1); }
   .nautilus-window .floating-bar > button.circular.flat {
@@ -3974,10 +3974,13 @@ window.background > contents > toastoverlay > leaflet > box + separator {
   border-spacing: 0; }
 
 #NautilusQueryEditor {
-  padding: 0 6px;
+  padding: 1px 6px;
   margin-top: 6px;
   margin-bottom: 6px;
-  border-radius: 7px; }
+  border-radius: 5px;
+  border: none; }
+  #NautilusQueryEditor:focus-within {
+    outline-color: #6081f3; }
   #NautilusQueryEditor > box {
     margin: 0; }
   #NautilusQueryEditor #NautilusQueryEditorTag > button {

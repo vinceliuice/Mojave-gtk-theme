@@ -4,7 +4,7 @@ $list_shadow: if($variant == 'light',
                 (inset 0 0 8px rgba(white, 0.03), inset 0 0 3px rgba(white, 0.02), 0 0 0 1px rgba(black, 0.1)));
 
 %circular_list {
-  border-radius: $wm_radius * 1.5;
+  border-radius: $bd_radius;
   box-shadow: $list_shadow;
   background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
   border: none;
@@ -16,17 +16,17 @@ $list_shadow: if($variant == 'light',
   border: none;
 
   &:first-child {
-    border-top-left-radius: $wm_radius * 1.5;
-    border-top-right-radius: $wm_radius * 1.5;
+    border-top-left-radius: $bd_radius;
+    border-top-right-radius: $bd_radius;
   }
 
   &:last-child { // Not use ?
-    border-bottom-left-radius: $wm_radius * 1.5;
-    border-bottom-right-radius: $wm_radius * 1.5;
+    border-bottom-left-radius: $bd_radius;
+    border-bottom-right-radius: $bd_radius;
   }
 
   &:only-child {
-    border-radius: $wm_radius * 1.5;
+    border-radius: $bd_radius;
   }
 }
 
@@ -300,8 +300,8 @@ spinner {
 
 entry {
   min-height: 20px;
-  border: none;
-  padding: 0 8px;
+  border: 3px solid transparent;
+  padding: 2px 8px;
   border-radius: 7px;
   caret-color: currentColor;
 

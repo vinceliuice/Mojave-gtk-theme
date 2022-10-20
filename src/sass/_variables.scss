@@ -35,19 +35,13 @@ $circular_radius: 9999px;
 $bt_radius: 5px;
 $bd_radius: 8px;
 $mn_radius: 8px;
-$wm_radius: 6px;
+$wm_radius: 8px;
+$modal_radius: $bd_radius * 2;
 
 // padding, margin and spacing
 $base_padding: 6px;
 $base_margin: 4px;
 $base_spacing: 6px;
-
-// radiuses
-$circular_radius: 9999px;
-$bt_radius: 5px;
-$bd_radius: 8px;
-$wm_radius: 6px;
-$modal_radius: $bd_radius * 2;
 
 // icons
 $base_icon_size: 16px;

@@ -50,8 +50,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // normal entry
   //
     color: $text_color;
-    // border-color: $entry_border;
-    // border-bottom-color: $entry_bottom_border;
     background-color: $entry_bg;
   }
 
@@ -60,7 +58,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // focused entry
   //
     color: $text_color;
-    // border-color: $entry_highlight;
     background-color: $entry_bg;
   }
 
@@ -69,7 +66,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // insensitive entry
   //
     color: $disabled_fg_color;
-    // border-color: $entry_border;
     background-color: rgba($entry_bg, 0.55);
   }
 
@@ -78,7 +74,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   // normal header-bar entry
   //
     color: $header_fg;
-    // border-bottom-color: $entry_border;
     background-color: $header_button_bg;
     background-image: $header_button_image;
 
@@ -93,7 +88,6 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
   // focused header-bar entry
   //
-    // border-color: $selection_mode_bg;
     background-image: none;
     background-color: $entry_bg;
 
