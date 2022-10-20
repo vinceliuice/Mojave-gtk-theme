@@ -161,6 +161,9 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-top-color: $button_borders_top;
     border-bottom-color: $button_borders_bottom;
     background-color: $button_bg;
+    background-clip: padding-box;
+    background-origin: padding-box;
+
     @if $variant=='light' { box-shadow: $shadow_3; }
     @if $variant=='dark' {
       box-shadow: inset 0 1px $button_highlight, $shadow_3;
@@ -176,6 +179,9 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-top-color: $button_borders_hover_top;
     border-bottom-color: $button_borders_hover_bottom;
     background-color: if($variant=='light', darken($button_bg, 3%), lighten($button_bg, 3%));
+    background-clip: padding-box;
+    background-origin: padding-box;
+
     @if $variant=='light' { box-shadow: none; }
     @if $variant=='dark' {
       box-shadow: inset 0 1px rgba($button_highlight, 0.12), $shadow_3;
@@ -192,6 +198,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-top-color: $button_borders_active_top;
     border-bottom-color: $button_borders_active_bottom;
     background-image: $button_active_image;
+
     @if $variant=='light' { box-shadow: none; }
   }
 
@@ -204,6 +211,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     border-color: if($variant == 'light', $button_border, $dark_borders_color);
     background-color: rgba($button_bg, 0.55);
     background-image: none;
+
     @if $variant=='light' { box-shadow: $shadow_3; }
   }
 
@@ -332,8 +340,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   //
     label, & { color: rgba($header_fg, 0.35); }
     background-color: $header_button_bg;
-
-    @if $variant == 'dark' { box-shadow: inset 0 1px $header_button_highlight; }
+    box-shadow: none;
   }
 
   @else if $t==header-insensitive-checked {

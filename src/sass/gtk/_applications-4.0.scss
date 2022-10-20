@@ -1,4 +1,326 @@
 
+@import 'libadwaita';
+
+%side_headerbar_left {
+  &, &:backdrop {
+    background-image: none;
+    background-color: rgba($dark_sidebar_bg, 1);
+    border-color: rgba($dark_sidebar_bg, 1);
+  }
+}
+
+%side_headerbar_right {
+  &, &:backdrop {
+    background-image: none;
+    background-color: rgba($base_color, 1);
+  }
+}
+
+%side_searchbar {
+  > revealer > box {
+    background-color: rgba($dark_sidebar_bg, 1);
+    border-color: $header_border;
+  }
+}
+
+%side_separator {
+  &, &:backdrop {
+    background-image: if($variant == 'light', image($solid_borders_color), image($header_border));
+    background-color: transparent;
+    border-right: none;
+  }
+}
+
+/************
+ * Nautilus *
+ ************/
+
+.nautilus-window {
+  headerbar * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  flap.unfolded {
+    > placessidebar.background {
+      background: none;
+
+      list.navigation-sidebar {
+        background-color: $dark_sidebar_bg;
+      }
+    }
+
+    > separator.horizontal {
+      background-color: $header_border;
+    }
+  }
+
+  flap.folded {
+    > placessidebar {
+      border-right: 1px solid $header_border;
+    }
+  }
+
+  // Floating Bar
+  .floating-bar {
+    padding: 2px;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: $wm_radius - $container_padding;
+    margin: $container_padding;
+    box-shadow: $shadow_5;
+
+    > button.circular.flat {
+      border-radius: $circular_radius;
+      min-height: 24px;
+      min-width: 24px;
+      padding: 0;
+      -gtk-icon-shadow: none;
+      @extend %selected-button;
+    }
+  }
+}
+
+#NautilusViewCell {
+  clamp box {
+    margin: 0;
+    border-spacing: 0;
+  }
+}
+
+#NautilusQueryEditor { // search entry
+  padding: 0 $container_padding;
+  margin-top: $container_padding;
+  margin-bottom: $container_padding;
+  border-radius: 7px;
+
+  > box { margin: 0; }
+
+  #NautilusQueryEditorTag {
+    @extend .entry-tag;
+
+    > button {
+      margin: 0;
+    }
+  }
+
+  > menubutton > button {
+    min-width: 16px;
+    min-height: 16px;
+    margin: 0;
+    -gtk-icon-size: 12px;
+    padding: 0 4px;
+  }
+
+  > text, > image { margin: 0; }
+}
+
+#NautilusPathBar {
+  background-color: $fill_color;
+  border-radius: $bt_radius;
+  margin: $container_padding 0 $container_padding $container_padding;
+
+  #NautilusPathButton {
+    margin: 0 $container_padding / 2;
+    border-radius: $bt_radius;
+
+    &.current-dir {
+      color: $header_fg;
+
+      &:hover, &:active {
+        background: none;
+        box-shadow: none;
+      }
+    }
+
+    &:first-child { margin-left: 0; }
+  }
+
+  > menubutton {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Extensions
+window.nightthemeswitcher headerbar {
+  background: $header_bg;
+  color: $header_fg;
+}
+
 //
-// Gnome
+// Gnome Control Center
 //
+
+window.background.csd {
+  > contents {
+    > leaflet.unfolded > box {
+      > headerbar {
+        @extend %side_headerbar_left;
+      }
+
+      > searchbar {
+        @extend %side_searchbar;
+      }
+
+      > stack > widget > box > widget > headerbar,
+      > stack > widget > overlay > leaflet.folded > box > headerbar {
+        @extend %side_headerbar_right;
+      }
+
+      > scrolledwindow > viewport > widget > stack {
+        > list.navigation-sidebar {
+          background-color: rgba($dark_sidebar_bg, 1);
+
+          > separator {
+            background-color: transparent;
+            margin: 0;
+            min-height: 0;
+          }
+        }
+
+        > box > list.navigation-sidebar { background-color: rgba($dark_sidebar_bg, 1); }
+      }
+
+      > stack.background { background-color: $base_color; }
+    }
+  }
+}
+
+
+//
+// Gnome Calendar / Gnome Contacts
+//
+
+window.background {
+  > contents > toastoverlay > leaflet {
+    > box {
+      background-color: $base_color;
+
+      > headerbar {
+        &, &:backdrop {
+          background: none;
+          border: none;
+        }
+      }
+
+      + separator {
+        @extend %side_separator;
+
+        + box {
+          background-color: $dark_sidebar_bg;
+        }
+      }
+
+      > .view, list:not(.boxed-list) {
+        background-color: transparent;
+      }
+
+      list > row textview {
+        padding: $container_padding;
+        border-left: 1px solid $borders_color;
+
+        &, & > text {
+          background: none;
+        }
+      }
+    }
+
+    .current-week {
+      background-color: $fill_color;
+    }
+
+    button.circular.day {
+      border: none;
+      box-shadow: none;
+      @extend %flat_button;
+    }
+
+    datechooser navigator > button.flat.pill {
+      padding: 0 $container_padding * 2;
+      min-height: $menuitem_size;
+      min-width: $menuitem_size;
+    }
+  }
+
+  &.maximized, &.tiled {
+    > contents > toastoverlay > leaflet {
+      > box {
+        > headerbar {
+          &, &:backdrop {
+            background: none;
+            border: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+menubutton.flat.popup.sources-button {
+  margin: 0;
+
+  > button {
+    margin: 0;
+    border-radius: 0;
+    padding: 0 $container_padding * 2;
+
+    .title {
+      font-size: small;
+      font-weight: normal;
+    }
+
+    .title, .subtitle {
+      padding: 2px 0 2px $container_padding;
+    }
+
+    image.calendar-color-image {
+      -gtk-icon-size: 8px;
+    }
+  }
+}
+
+// Contacts
+.contacts-editor-address {
+  > entry.flat {
+    &:not(:last-child) {
+      box-shadow: inset 0 -1px $borders_color;
+    }
+
+    &:first-child {
+      border-radius: $bt_radius $bt_radius 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $bt_radius $bt_radius;
+    }
+  }
+}
+
+//
+// Calculator
+//
+
+.history-view { background-color: $base_color; }
+
+.card {
+  &.display-container {
+    border: 1px solid $borders_color;
+  }
+
+  #displayitem {
+    border-top: 1px solid $borders_color;
+  }
+
+  .small & {
+    border-radius: 0;
+
+    &.forecast-card {
+      border-width: 1px 0;
+    }
+
+    &.display-container {
+      border-width: 0 0 1px 0;
+    }
+  }
+}
