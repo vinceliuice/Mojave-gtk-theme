@@ -5,26 +5,25 @@
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 64px;
-  -arrow-rise: 0;
+  -arrow-rise: 6px;
   background-color: transparent;
   color: $hint_fg_color;
-
-  @if $trans == 'true' {
-    border-image: url("assets/menu.svg") 24 32 28 28;
-  }
-
-  @else {
-    border-image: url("assets/menu-solid.svg") 24 32 28 28;
-  }
+  box-shadow: 0 3px 6px rgba(black, 0.15);
 }
 
 .candidate-popup-content {
-  padding: 10px 12px 14px;
+  padding: 6px !important;
+  border: 1px solid if($variant == 'light', $borders_color, black);
+  box-shadow: inset 0 0 0 1px rgba(white, 0.1);
+  margin: 0;
+  border-radius: $mn_radius;
+  background-color: $menu_bg;
 }
 
 .candidate-index {
   padding: 0 0.5em 0 0;
   color: $hint_fg_color;
+
   .candidate-box:selected & { color: $light_hint_fg_color; }
 }
 
@@ -46,7 +45,7 @@
 }
 
 .candidate-page-button {
-  padding: 4px;
+  padding: 4px 8px;
 }
 
 .candidate-page-button-previous,

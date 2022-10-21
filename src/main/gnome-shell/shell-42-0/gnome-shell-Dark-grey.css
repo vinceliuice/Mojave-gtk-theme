@@ -1250,14 +1250,19 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
   -arrow-base: 64px;
-  -arrow-rise: 0;
+  -arrow-rise: 6px;
   background-color: transparent;
   color: #999999;
-  border-image: url("assets/menu.svg") 24 32 28 28;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .candidate-popup-content {
-  padding: 10px 12px 14px;
+  padding: 6px !important;
+  border: 1px solid black;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  margin: 0;
+  border-radius: 8px;
+  background-color: rgba(51, 51, 51, 0.95);
 }
 
 .candidate-index {
@@ -1308,7 +1313,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .candidate-page-button {
-  padding: 4px;
+  padding: 4px 8px;
 }
 
 .candidate-page-button-previous,
