@@ -287,8 +287,8 @@ spinner {
   @include entry(normal);
   border-image: none;
   border: 1px solid;
-  border-color: if($variant == 'light', $entry_border, $dark_borders_color);
-  border-bottom-color: if($variant == 'light', $entry_bottom_border, $dark_borders_color);
+  border-color: if($variant == 'light', $entry_border, $entry_border);
+  border-bottom-color: if($variant == 'light', $entry_bottom_border, $entry_bottom_border);
   background-clip: border-box;
   background-origin: border-box;
 
@@ -301,7 +301,8 @@ spinner {
   &:disabled {
     @include entry(insensitive);
     border-image: none;
-    border-color: if($variant == 'light', $entry_border, $dark_borders_color);
+    border-color: $entry_border;
+    transition: none;
   }
 }
 
@@ -1053,7 +1054,7 @@ $_linked_widgets: ("button",           ""),
 %list_button,
 list > row button.image-button:not(.flat) {
   @extend %undecorated_button;
-  border: 1px solid transparentize($borders_color, .5);
+
   &:hover { @include button(hover); }
   &:active,
   &:checked { @include button(active); }
@@ -2039,19 +2040,9 @@ menubar {
     }
   }
 
-  & > item popover.menu.background > contents {
-    padding: 5px;
-    border-radius: $mn_radius;
-  }
-
   //nested submenus
   & > item popover.menu popover.menu {
-    padding: 0 0 4px 0;
-  }
-
-  & > item popover.menu.background popover.menu.background > contents {
-    margin: 0;
-    border-radius: $mn_radius; //including top
+    margin-left: 3px;
   }
 }
 
@@ -2064,7 +2055,8 @@ popover.background {
   font: initial; // Decouple the font of popovers from their entry/textview
   background-color: transparent;
 
-  > arrow,
+  > arrow { background-color: transparent; }
+
   > contents {
     background-clip: border-box;
     background-color: $menu_bg;
@@ -2108,7 +2100,7 @@ popover.background {
       padding: 0;
     }
 
-    stack scrolledwindow:not(.view) > viewport {
+    stack > scrolledwindow:not(.view) > viewport > list {
       border: 1px solid $borders_color;
       border-radius: $bt_radius;
       background-color: $base_color;
@@ -2157,13 +2149,15 @@ popover.background {
   }
 
   .popup > &,
+  scalebutton > &,
   dropdown > &,
   .dropdown-arrow + & {
     > arrow,
     > contents { // reset for popover menu
       padding: $container_padding;
+      background-color: $menu_bg;
 
-      modelbutton, {
+      modelbutton {
         border-radius: $mn_radius - $container_padding / 2;
         padding: 0 $container_padding;
 
@@ -2258,18 +2252,11 @@ popover.background {
     padding: $container_padding;
 
     button.circular.image-button.model {
-      @extend %list_button;
-      padding: 10px;
+      @extend %flat_button;
+      padding: 6px;
+      min-height: 24px;
+      min-width: 24px;
       border: none;
-
-      &:focus {
-        background-color: $borders_color;
-      }
-
-      &:active:focus {
-        color: $selected_fg_color;
-        background-color: $selected_bg_color;
-      }
     }
   }
 
@@ -2811,11 +2798,7 @@ scale {
 
       highlight {
         background-color: $selected_bg_color;
-
-        &:disabled {  }
       }
-
-      &:disabled {  }
     }
 
     // Troughs in selected list-rows and infobars
@@ -2920,8 +2903,6 @@ scale {
         border-color: $_slider_border;
         box-shadow: $shadow_3;
       }
-
-      &:disabled {  }
     }
   }
 
@@ -3836,10 +3817,6 @@ placessidebar {
 
   list > separator {
     background-color: transparent;
-  }
-
-  row.sidebar-row {
-
   }
 
   .navigation-sidebar > row {

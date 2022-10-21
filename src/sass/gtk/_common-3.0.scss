@@ -3044,11 +3044,7 @@ scale {
 
       highlight {
         background-color: $selected_bg_color;
-
-        &:disabled {  }
       }
-
-      &:disabled {  }
     }
 
     // Troughs in selected list-rows and infobars
@@ -3152,8 +3148,6 @@ scale {
         border-color: $_slider_border;
         box-shadow: $shadow_3;
       }
-
-      &:disabled {  }
     }
   }
 

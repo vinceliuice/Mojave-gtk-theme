@@ -293,8 +293,8 @@ spinbutton > text, .linked > entry:not(:only-child) {
   outline: none;
   border-image: none;
   border: 1px solid;
-  border-color: rgba(0, 0, 0, 0.15);
-  border-bottom-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: rgba(255, 255, 255, 0.12);
   background-clip: border-box;
   background-origin: border-box;
 }
@@ -311,7 +311,8 @@ spinbutton > text:disabled, .linked > entry:disabled:not(:only-child) {
   color: rgba(222, 222, 222, 0.35);
   background-color: rgba(36, 36, 36, 0.55);
   border-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.12);
+  transition: none;
 }
 
 entry {
@@ -611,7 +612,7 @@ button separator {
   margin: 4px 1px;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button, tabbar tabbox > tab button.tab-close-button, headerbar.flat button, .toolbar button, button.flat {
+window.background > contents > toastoverlay > leaflet button.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button, tabbar tabbox > tab button.tab-close-button, popover.background box.circular-buttons button.circular.image-button.model, headerbar.flat button, .toolbar button, button.flat {
   min-height: 24px;
   border: none;
   background-color: transparent;
@@ -621,7 +622,7 @@ window.background > contents > toastoverlay > leaflet button.circular.day, windo
   transition: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover, tabbar tabbox > tab button.tab-close-button:hover, headerbar.flat button:hover, .toolbar button:hover, button.flat:hover {
+window.background > contents > toastoverlay > leaflet button.circular.day:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover, tabbar tabbox > tab button.tab-close-button:hover, popover.background box.circular-buttons button.circular.image-button.model:hover, headerbar.flat button:hover, .toolbar button:hover, button.flat:hover {
   color: #c5c5c5;
   background-color: rgba(255, 255, 255, 0.15);
   background-image: none;
@@ -630,32 +631,32 @@ window.background > contents > toastoverlay > leaflet button.circular.day:hover,
   transition-duration: 350ms;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:hover:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover:active, tabbar tabbox > tab button.tab-close-button:hover:active, headerbar.flat button:hover:active, .toolbar button:hover:active, button.flat:hover:active {
+window.background > contents > toastoverlay > leaflet button.circular.day:hover:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover:active, tabbar tabbox > tab button.tab-close-button:hover:active, popover.background box.circular-buttons button.circular.image-button.model:hover:active, headerbar.flat button:hover:active, .toolbar button:hover:active, button.flat:hover:active {
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:active, tabbar tabbox > tab button.tab-close-button:active, headerbar.flat button:active, .toolbar button:active, window.background > contents > toastoverlay > leaflet button.circular.day:checked, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked, tabbar tabbox > tab button.tab-close-button:checked, headerbar.flat button:checked, .toolbar button:checked, button.flat:active, button.flat:checked {
+window.background > contents > toastoverlay > leaflet button.circular.day:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:active, tabbar tabbox > tab button.tab-close-button:active, popover.background box.circular-buttons button.circular.image-button.model:active, headerbar.flat button:active, .toolbar button:active, window.background > contents > toastoverlay > leaflet button.circular.day:checked, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked, tabbar tabbox > tab button.tab-close-button:checked, popover.background box.circular-buttons button.circular.image-button.model:checked, headerbar.flat button:checked, .toolbar button:checked, button.flat:active, button.flat:checked {
   background-image: none;
   color: white;
   background-color: rgba(255, 255, 255, 0.25);
   box-shadow: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:checked:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked:hover, tabbar tabbox > tab button.tab-close-button:checked:hover, headerbar.flat button:checked:hover, .toolbar button:checked:hover, button.flat:checked:hover {
+window.background > contents > toastoverlay > leaflet button.circular.day:checked:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked:hover, tabbar tabbox > tab button.tab-close-button:checked:hover, popover.background box.circular-buttons button.circular.image-button.model:checked:hover, headerbar.flat button:checked:hover, .toolbar button:checked:hover, button.flat:checked:hover {
   background-image: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled, label:disabled > selection.flat {
+window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, popover.background box.circular-buttons button.circular.image-button.model:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled, label:disabled > selection.flat {
   background-color: transparent;
   box-shadow: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:disabled label, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled label, tabbar tabbox > tab button.tab-close-button:disabled label, headerbar.flat button:disabled label, .toolbar button:disabled label, window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled label, label:disabled > selection.flat label, button.flat:disabled, label:disabled > selection.flat {
+window.background > contents > toastoverlay > leaflet button.circular.day:disabled label, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled label, tabbar tabbox > tab button.tab-close-button:disabled label, popover.background box.circular-buttons button.circular.image-button.model:disabled label, headerbar.flat button:disabled label, .toolbar button:disabled label, window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, popover.background box.circular-buttons button.circular.image-button.model:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled label, label:disabled > selection.flat label, button.flat:disabled, label:disabled > selection.flat {
   color: rgba(222, 222, 222, 0.35);
   opacity: 1;
 }
 
-window.background > contents > toastoverlay > leaflet button.toggle.popup.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button.toggle.popup, tabbar tabbox > tab button.toggle.popup.tab-close-button, headerbar.flat button.toggle.popup, .toolbar button.toggle.popup, button.flat.toggle.popup {
+window.background > contents > toastoverlay > leaflet button.toggle.popup.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button.toggle.popup, tabbar tabbox > tab button.toggle.popup.tab-close-button, popover.background box.circular-buttons button.toggle.popup.circular.image-button.model, headerbar.flat button.toggle.popup, .toolbar button.toggle.popup, button.flat.toggle.popup {
   min-width: 20px;
 }
 
@@ -1474,7 +1475,7 @@ spinbutton.vertical > button:only-child, spinbutton.vertical > text:only-child, 
   border-style: solid;
 }
 
-.app-notification button, notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.flat:hover, button.link:hover, button.link:active, button.link:checked, button.link, popover.background box.circular-buttons button.circular.image-button.model,
+.app-notification button, notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.flat:hover, button.link:hover, button.link:active, button.link:checked, button.link,
 list > row button.image-button:not(.flat) {
   border-color: transparent;
   background-color: transparent;
@@ -1482,12 +1483,7 @@ list > row button.image-button:not(.flat) {
   box-shadow: none;
 }
 
-popover.background box.circular-buttons button.circular.image-button.model,
-list > row button.image-button:not(.flat) {
-  border: 1px solid rgba(255, 255, 255, 0);
-}
 
-popover.background box.circular-buttons button.circular.image-button.model:hover,
 list > row button.image-button:not(.flat):hover {
   color: #f8f8f8;
   border-color: rgba(0, 0, 0, 0.15);
@@ -1499,7 +1495,7 @@ list > row button.image-button:not(.flat):hover {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
 }
 
-popover.background box.circular-buttons button.circular.image-button.model:active, popover.background box.circular-buttons button.circular.image-button.model:checked,
+
 list > row button.image-button:not(.flat):active,
 list > row button.image-button:not(.flat):checked {
   color: white;
@@ -1510,7 +1506,7 @@ list > row button.image-button:not(.flat):checked {
   background-image: linear-gradient(0deg, #e77f2c 0%, #ed9d5f 100%);
 }
 
-popover.background box.circular-buttons button.suggested-action.circular.image-button.model,
+
 list > row button.image-button.suggested-action:not(.flat) {
   color: white;
   background-color: #E9873A;
@@ -1519,7 +1515,7 @@ list > row button.image-button.suggested-action:not(.flat) {
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.15), inset 0 -1px rgba(255, 255, 255, 0.03);
 }
 
-popover.background box.circular-buttons button.destructive-action.circular.image-button.model,
+
 list > row button.image-button.destructive-action:not(.flat) {
   color: white;
   background-color: #f8464c;
@@ -2614,18 +2610,8 @@ menubar > item:disabled {
   border-color: transparent;
 }
 
-menubar > item popover.menu.background > contents {
-  padding: 5px;
-  border-radius: 8px;
-}
-
 menubar > item popover.menu popover.menu {
-  padding: 0 0 4px 0;
-}
-
-menubar > item popover.menu.background popover.menu.background > contents {
-  margin: 0;
-  border-radius: 8px;
+  margin-left: 3px;
 }
 
 popover.background {
@@ -2635,7 +2621,10 @@ popover.background {
   background-color: transparent;
 }
 
-popover.background > arrow,
+popover.background > arrow {
+  background-color: transparent;
+}
+
 popover.background > contents {
   background-clip: border-box;
   background-color: #333333;
@@ -2678,7 +2667,7 @@ popover.background > contents > scrolledwindow > viewport > stack > box {
   padding: 0;
 }
 
-popover.background > contents stack scrolledwindow:not(.view) > viewport {
+popover.background > contents stack > scrolledwindow:not(.view) > viewport > list {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 5px;
   background-color: #242424;
@@ -2732,16 +2721,19 @@ popover.background modelbutton arrow.right {
 }
 
 .popup > popover.background > arrow,
-.popup > popover.background > contents, dropdown > popover.background > arrow,
+.popup > popover.background > contents, scalebutton > popover.background > arrow,
+scalebutton > popover.background > contents, dropdown > popover.background > arrow,
 dropdown > popover.background > contents, .dropdown-arrow + popover.background > arrow,
 .dropdown-arrow + popover.background > contents {
   padding: 6px;
+  background-color: #333333;
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .popup > popover.background > arrow modelbutton,
-.popup > popover.background > contents modelbutton, dropdown > popover.background > arrow modelbutton,
+.popup > popover.background > contents modelbutton, scalebutton > popover.background > arrow modelbutton,
+scalebutton > popover.background > contents modelbutton, dropdown > popover.background > arrow modelbutton,
 dropdown > popover.background > contents modelbutton, .dropdown-arrow + popover.background > arrow modelbutton,
 .dropdown-arrow + popover.background > contents modelbutton {
   border-radius: 5px;
@@ -2749,7 +2741,8 @@ dropdown > popover.background > contents modelbutton, .dropdown-arrow + popover.
 }
 
 .popup > popover.background > arrow modelbutton:focus,
-.popup > popover.background > contents modelbutton:focus, dropdown > popover.background > arrow modelbutton:focus,
+.popup > popover.background > contents modelbutton:focus, scalebutton > popover.background > arrow modelbutton:focus,
+scalebutton > popover.background > contents modelbutton:focus, dropdown > popover.background > arrow modelbutton:focus,
 dropdown > popover.background > contents modelbutton:focus, .dropdown-arrow + popover.background > arrow modelbutton:focus,
 .dropdown-arrow + popover.background > contents modelbutton:focus {
   background-color: transparent;
@@ -2760,7 +2753,11 @@ dropdown > popover.background > contents modelbutton:focus, .dropdown-arrow + po
 .popup > popover.background > contents modelbutton:hover,
 .popup > popover.background > contents modelbutton:hover:focus,
 .popup > popover.background > contents modelbutton:selected,
-.popup > popover.background > contents modelbutton:selected:focus, dropdown > popover.background > arrow modelbutton:hover, dropdown > popover.background > arrow modelbutton:hover:focus, dropdown > popover.background > arrow modelbutton:selected, dropdown > popover.background > arrow modelbutton:selected:focus,
+.popup > popover.background > contents modelbutton:selected:focus, scalebutton > popover.background > arrow modelbutton:hover, scalebutton > popover.background > arrow modelbutton:hover:focus, scalebutton > popover.background > arrow modelbutton:selected, scalebutton > popover.background > arrow modelbutton:selected:focus,
+scalebutton > popover.background > contents modelbutton:hover,
+scalebutton > popover.background > contents modelbutton:hover:focus,
+scalebutton > popover.background > contents modelbutton:selected,
+scalebutton > popover.background > contents modelbutton:selected:focus, dropdown > popover.background > arrow modelbutton:hover, dropdown > popover.background > arrow modelbutton:hover:focus, dropdown > popover.background > arrow modelbutton:selected, dropdown > popover.background > arrow modelbutton:selected:focus,
 dropdown > popover.background > contents modelbutton:hover,
 dropdown > popover.background > contents modelbutton:hover:focus,
 dropdown > popover.background > contents modelbutton:selected,
@@ -2774,7 +2771,8 @@ dropdown > popover.background > contents modelbutton:selected:focus, .dropdown-a
 }
 
 .popup > popover.background > arrow modelbutton:selected:active,
-.popup > popover.background > contents modelbutton:selected:active, dropdown > popover.background > arrow modelbutton:selected:active,
+.popup > popover.background > contents modelbutton:selected:active, scalebutton > popover.background > arrow modelbutton:selected:active,
+scalebutton > popover.background > contents modelbutton:selected:active, dropdown > popover.background > arrow modelbutton:selected:active,
 dropdown > popover.background > contents modelbutton:selected:active, .dropdown-arrow + popover.background > arrow modelbutton:selected:active,
 .dropdown-arrow + popover.background > contents modelbutton:selected:active {
   background-color: #E9873A;
@@ -2783,7 +2781,9 @@ dropdown > popover.background > contents modelbutton:selected:active, .dropdown-
 
 .popup > popover.background > arrow row.activatable:hover, .popup > popover.background > arrow row.activatable:selected,
 .popup > popover.background > contents row.activatable:hover,
-.popup > popover.background > contents row.activatable:selected, dropdown > popover.background > arrow row.activatable:hover, dropdown > popover.background > arrow row.activatable:selected,
+.popup > popover.background > contents row.activatable:selected, scalebutton > popover.background > arrow row.activatable:hover, scalebutton > popover.background > arrow row.activatable:selected,
+scalebutton > popover.background > contents row.activatable:hover,
+scalebutton > popover.background > contents row.activatable:selected, dropdown > popover.background > arrow row.activatable:hover, dropdown > popover.background > arrow row.activatable:selected,
 dropdown > popover.background > contents row.activatable:hover,
 dropdown > popover.background > contents row.activatable:selected, .dropdown-arrow + popover.background > arrow row.activatable:hover, .dropdown-arrow + popover.background > arrow row.activatable:selected,
 .dropdown-arrow + popover.background > contents row.activatable:hover,
@@ -2795,7 +2795,11 @@ dropdown > popover.background > contents row.activatable:selected, .dropdown-arr
 .popup > popover.background > contents row.activatable:hover,
 .popup > popover.background > contents row.activatable:hover label,
 .popup > popover.background > contents row.activatable:selected,
-.popup > popover.background > contents row.activatable:selected label, dropdown > popover.background > arrow row.activatable:hover, dropdown > popover.background > arrow row.activatable:hover label, dropdown > popover.background > arrow row.activatable:selected, dropdown > popover.background > arrow row.activatable:selected label,
+.popup > popover.background > contents row.activatable:selected label, scalebutton > popover.background > arrow row.activatable:hover, scalebutton > popover.background > arrow row.activatable:hover label, scalebutton > popover.background > arrow row.activatable:selected, scalebutton > popover.background > arrow row.activatable:selected label,
+scalebutton > popover.background > contents row.activatable:hover,
+scalebutton > popover.background > contents row.activatable:hover label,
+scalebutton > popover.background > contents row.activatable:selected,
+scalebutton > popover.background > contents row.activatable:selected label, dropdown > popover.background > arrow row.activatable:hover, dropdown > popover.background > arrow row.activatable:hover label, dropdown > popover.background > arrow row.activatable:selected, dropdown > popover.background > arrow row.activatable:selected label,
 dropdown > popover.background > contents row.activatable:hover,
 dropdown > popover.background > contents row.activatable:hover label,
 dropdown > popover.background > contents row.activatable:selected,
@@ -2860,17 +2864,10 @@ popover.background box.circular-buttons {
 }
 
 popover.background box.circular-buttons button.circular.image-button.model {
-  padding: 10px;
+  padding: 6px;
+  min-height: 24px;
+  min-width: 24px;
   border: none;
-}
-
-popover.background box.circular-buttons button.circular.image-button.model:focus {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
-popover.background box.circular-buttons button.circular.image-button.model:active:focus {
-  color: white;
-  background-color: #E9873A;
 }
 
 popover.background accelerator {
