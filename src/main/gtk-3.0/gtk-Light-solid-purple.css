@@ -606,6 +606,7 @@ stackswitcher button.text-button.circular, button.circular, .app-notification bu
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -713,6 +714,7 @@ button separator {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-duration: 350ms;
 }
@@ -725,6 +727,7 @@ button.budgie-menu-launcher:hover:active, .budgie-popover scrolledwindow.sidebar
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 button.budgie-menu-launcher:checked:hover, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked:hover, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked:hover, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked:hover, .background grid#CanvasGrid > button:checked:hover:not(.flat), .background tabbox > tab button:checked:hover, button.flat:checked:hover, .raven .raven-header:not(.top) button:checked:hover {
@@ -807,6 +810,7 @@ button:disabled label, button:disabled {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 button.image-button {
@@ -1125,16 +1129,19 @@ button.font separator, button.file separator {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 .inline-toolbar toolbutton > button:active, .inline-toolbar toolbutton > button:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .inline-toolbar toolbutton > button:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .inline-toolbar toolbutton > button:disabled label, .inline-toolbar toolbutton > button:disabled {
@@ -2178,6 +2185,7 @@ headerbar.windowhandle viewswitcher > box > button:not(.titlebutton):not(.sugges
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
   box-shadow: none;
+  box-shadow: none;
 }
 
 headerbar.windowhandle viewswitcher > box > button:not(.titlebutton):not(.suggested-action):not(.destructive-action):active {
@@ -2852,6 +2860,7 @@ popover button.circular:active, popover button.circular:active:hover {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -4327,16 +4336,19 @@ row:not(:hover) {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 .app-notification button:not(.suggested-action):not(.destructive-action):active, .app-notification button:not(.suggested-action):not(.destructive-action):checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .app-notification button:not(.suggested-action):not(.destructive-action):disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .app-notification button:not(.suggested-action):not(.destructive-action):disabled label, .app-notification button:not(.suggested-action):not(.destructive-action):disabled {
@@ -4458,6 +4470,7 @@ messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -4625,6 +4638,7 @@ button.sidebar-button:active, button.sidebar-button:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -4647,6 +4661,7 @@ placessidebar row:selected button.sidebar-button:active, placessidebar row:selec
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -7204,6 +7219,7 @@ window.background > grid.vertical > box.vertical grid.math-buttons button:not(.s
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -7213,6 +7229,7 @@ window.background > grid.vertical > box.vertical grid.math-buttons button:not(.s
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
@@ -7278,6 +7295,7 @@ popover.background:not(.emoji-picker) > box.vertical button:not(.destructive-act
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 popover.background:not(.emoji-picker) > box.vertical > scrolledwindow > viewport.frame > list.background {
@@ -7308,6 +7326,7 @@ popover.background:not(.emoji-picker) > box.vertical > scrolledwindow > viewport
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 popover.background:not(.emoji-picker) > box.vertical > stack > box.vertical scrolledwindow > viewport.frame {
@@ -8414,12 +8433,14 @@ window.background.chromium headerbar.titlebar button.toggle:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 window.background.chromium headerbar.titlebar button.toggle:checked, window.background.chromium headerbar.titlebar button.toggle:active {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 window.background.chromium headerbar.titlebar button.titlebutton {
@@ -8680,12 +8701,14 @@ button.flat.-panel-icon-button:checked,
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 .menubar.panel popover button:active {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .menubar.panel popover button:active label {
@@ -8696,6 +8719,7 @@ button.flat.-panel-icon-button:checked,
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
 }
 
 .menubar.panel popover button:checked label {
@@ -8704,6 +8728,7 @@ button.flat.-panel-icon-button:checked,
 
 .menubar.panel popover button:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .menubar.panel popover button:disabled label, .menubar.panel popover button:disabled {
@@ -9691,22 +9716,26 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 .drop-shadow button:checked, .workspace-switcher .workspace-add-button:checked, .budgie-popover:not(.budgie-menu) button.flat:checked:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:checked:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:checked:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
 }
 
 .drop-shadow button:active, .workspace-switcher .workspace-add-button:active, .budgie-popover:not(.budgie-menu) button.flat:active:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:active:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:active:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:active {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .drop-shadow button:disabled, .workspace-switcher .workspace-add-button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .drop-shadow button:disabled label, .workspace-switcher .workspace-add-button:disabled label, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button) label, .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button) label, .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button) label, .budgie-settings-window buttonbox.inline-toolbar button:disabled label, .drop-shadow button:disabled, .workspace-switcher .workspace-add-button:disabled, .budgie-popover:not(.budgie-menu) button.flat:disabled:not(.image-button), .budgie-popover:not(.budgie-menu) .raven .raven-header:not(.top) button:disabled:not(.image-button), .raven .raven-header:not(.top) .budgie-popover:not(.budgie-menu) button:disabled:not(.image-button), .budgie-settings-window buttonbox.inline-toolbar button:disabled {
@@ -9763,22 +9792,26 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 .raven button.flat:checked, .raven .raven-header:not(.top) button:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
 }
 
 .raven button.flat:active, .raven .raven-header:not(.top) button:active {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .raven button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .raven button.flat:disabled label, .raven .raven-header:not(.top) button:disabled label, .raven button.flat:disabled, .raven .raven-header:not(.top) button:disabled {
@@ -9805,6 +9838,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 
 .raven button.linked:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .raven button.linked:disabled label, .raven button.linked:disabled {
@@ -10786,6 +10820,7 @@ box:not(.unpinned):not(.pinned) > revealer > button.flat.launcher, .raven .raven
 
 .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled label, .raven scrolledwindow > .frame box.audio-widget stackswitcher.linked > button.text-button.radio:disabled {
@@ -11148,6 +11183,7 @@ window.budgie-switcher-window .drop-shadow, .drop-shadow {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -11158,6 +11194,7 @@ window.budgie-switcher-window .drop-shadow, .drop-shadow {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.26), 0 1px 2px rgba(0, 0, 0, 0.32), 0 2px 3px rgba(0, 0, 0, 0.12);
 }

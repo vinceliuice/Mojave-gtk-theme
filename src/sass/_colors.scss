@@ -38,8 +38,9 @@ $light_alt_fg_color:                rgba(white, 0.85);
 $light_hint_fg_color:               rgba(white, 0.50);
 $light_disabled_fg_color:           rgba(white, 0.45);
 $light_alt_disabled_fg_color:       rgba(white, 0.35);
-$light_track_color:                 rgba(white, 0.30);
-$light_divider_color:               rgba(white, 0.15);
+$light_track_color:                 rgba(white, 0.26);
+$light_divider_color:               rgba(white, 0.16);
+$light_fill_color:                  rgba(white, 0.08);
 
 $selected_fg_color:                 $light_fg_color;
 $selected_bg_color:                 theme(color);

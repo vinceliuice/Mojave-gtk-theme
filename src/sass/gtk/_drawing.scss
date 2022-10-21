@@ -248,7 +248,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: darken($fg_color, 10%);
     background-color: if($variant=='light', rgba(black, 0.15), rgba(white, 0.15));
     background-image: none;
-    // border-color: if($variant=='light', rgba(black, 0.15), rgba(white, 0.15));
+    box-shadow: none;
   }
 
   @else if $t==flat-active {
@@ -258,6 +258,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-image: none;
     color: $selected_fg_color;
     background-color: if($variant=='light', rgba(black, 0.5), rgba(white, 0.25));
+    box-shadow: none;
   }
 
   @else if $t==flat-checked {
@@ -267,6 +268,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     background-image: none;
     color: $selected_fg_color;
     background-color: if($variant=='light', rgba(black, 0.65), rgba(white, 0.35));
+    box-shadow: none;
   }
 
   @else if $t==flat-insensitive {
@@ -279,6 +281,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     }
 
     background-color: transparent;
+    box-shadow: none;
   }
 
   @else if $t==flat-insensitive-active {

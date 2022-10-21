@@ -21,21 +21,6 @@ SMALL_VARIANTS=('' '-small')
 THEME_VARIANTS=('' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey')
 ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
 
-if [[ "$(command -v gnome-shell)" ]]; then
-  gnome-shell --version
-  SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
-    GS_VERSION="42-0"
-  elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
-    GS_VERSION="40-0"
-  else
-    GS_VERSION="3-28"
-  fi
-  else
-    echo "'gnome-shell' not found, using styles for last gnome-shell version available."
-    GS_VERSION="42-0"
-fi
-
 # COLORS
 CDEF=" \033[0m"                                     # default color
 CCIN=" \033[0;36m"                                  # info color
@@ -179,18 +164,6 @@ install() {
   rm -rf "${THEME_DIR}/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
   echo '@import url("resource:///org/gnome/theme/gtk.css");' >>                              "${THEME_DIR}/gtk-4.0/gtk.css"
   echo '@import url("resource:///org/gnome/theme/gtk-dark.css");' >>                         "${THEME_DIR}/gtk-4.0/gtk-dark.css"
-
-  # For libadwaita
-  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
-  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "$HOME/.config/gtk-4.0"
-
-  if [[ ${theme} != '-default' ]]; then
-    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "$HOME/.config/gtk-4.0/assets"
-  fi
-
-  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "$HOME/.config/gtk-4.0/gtk.css"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "$HOME/.config/gtk-4.0/gtk-dark.css"
 
   mkdir -p                                                                                   "${THEME_DIR}/metacity-1"
   cp -r "${SRC_DIR}/main/metacity-1/metacity-theme${color}.xml"                              "${THEME_DIR}/metacity-1/metacity-theme-1.xml"
@@ -373,6 +346,10 @@ while [[ $# -gt 0 ]]; do
     -n|--name)
       name="${2}"
       shift 2
+      ;;
+    -l|--libadwaita)
+      libadwaita='true'
+      shift 1
       ;;
     -g|--gdm)
       gdm='true'
@@ -592,7 +569,44 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+gtk4_config() {
+  local color="${1}"
+  local opacity="${2}"
+  local alt="${3}"
+  local theme="${4}"
+  local small="${5}"
+
+  # For libadwaita
+  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
+  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "$HOME/.config/gtk-4.0"
+
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "$HOME/.config/gtk-4.0/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "$HOME/.config/gtk-4.0/gtk.css"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "$HOME/.config/gtk-4.0/gtk-dark.css"
+
+  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0/windows-assets"
+}
+
+install_libadwaita() {
+  for color in "${colors[@]-${COLOR_VARIANTS[0]}}"; do
+    for opacity in "${opacities[@]-${OPACITY_VARIANTS[0]}}"; do
+      for alt in "${alts[@]-${ALT_VARIANTS[0]}}"; do
+        for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
+          for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+            gtk4_config "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
+          done
+        done
+      done
+    done
+  done
+}
+
 install_theme() {
+  echo
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
       for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
@@ -631,8 +645,27 @@ if [[ "${small:-}" == 'small' ]]; then
   cd ${SRC_DIR}/assets/gtk/windows-assets && ./render-small-assets.sh && ./render-alt-small-assets.sh
 fi
 
+if [[ "$(command -v gnome-shell)" ]]; then
+  echo; prompt -w "Desktop version: '$(gnome-shell --version)'";
+  SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
+  if [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
+    GS_VERSION="42-0"
+  elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
+    GS_VERSION="40-0"
+  else
+    GS_VERSION="3-28"
+  fi
+  else
+    prompt -e "'gnome-shell' not found, using styles for last gnome-shell version available."
+    GS_VERSION="42-0"
+fi
+
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
-  install_theme "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
+  if [[ "${libadwaita:-}" != 'true' ]]; then
+    install_theme "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
+  else
+    install_libadwaita "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
+  fi
 fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
@@ -643,4 +676,4 @@ if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" 
   revert_gdm
 fi
 
-prompt -s "\n Done!"
+echo; prompt -s "Done!"

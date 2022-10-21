@@ -289,6 +289,8 @@ spinner {
   border: 1px solid;
   border-color: if($variant == 'light', $entry_border, $dark_borders_color);
   border-bottom-color: if($variant == 'light', $entry_bottom_border, $dark_borders_color);
+  background-clip: border-box;
+  background-origin: border-box;
 
   &:focus-within {
     @include entry(focus);
@@ -309,15 +311,15 @@ entry {
   padding: 2px 8px;
   border-radius: 7px;
   caret-color: currentColor;
-
-  &.search { border-radius: $bt_radius; }
-
-  @include entry(normal);
-
+  background-clip: padding-box;
+  background-origin: padding-box;
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
   border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"),url("assets/entry#{$asset_suffix}@2.png"));
+  @include entry(normal);
+
+  &.search { border-radius: $bt_radius; }
 
   > image { // icons inside the entry
     color: mix($fg_color,$base_color,80%);
@@ -1124,6 +1126,11 @@ spinbutton {
     }
   }
 
+  > button {
+    border: 1px solid $borders_color;
+    @include button(normal);
+  }
+
   &:not(.vertical) {
     > text {
       padding: 2px 8px;
@@ -1194,8 +1201,8 @@ combobox {
   min-height: 24px;
 
   button.combo {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 0 12px;
+    min-height: 24px;
   }
 
   // align menu labels with the button label
@@ -2317,14 +2324,14 @@ cursor-handle {
   border: 1px solid transparent;
   transition: all 150ms ease-out;
 
-  &:hover:not(:checked) {
+  &:hover:not(:checked):not(:selected) {
     color: mix($fg_color, $disabled_fg_color, 50%);
     background-color: if($variant == 'light', rgba(white, 0.2), rgba(white, 0.05));
     border-color: if($variant == 'light', darken($header_bg, 15%), lighten($header_bg, 5%));
     box-shadow: none;
   }
 
-  &:checked {
+  &:checked, &:selected {
     color: $fg_color;
     background-color: $header_bg;
     border-color: if($variant == 'light', darken($header_bg, 15%), lighten($header_bg, 5%));

@@ -295,6 +295,8 @@ spinbutton > text, .linked > entry:not(:only-child) {
   border: 1px solid;
   border-color: rgba(0, 0, 0, 0.15);
   border-bottom-color: rgba(0, 0, 0, 0.27);
+  background-clip: border-box;
+  background-origin: border-box;
 }
 
 spinbutton > text:focus-within, .linked > entry:focus-within:not(:only-child) {
@@ -318,13 +320,15 @@ entry {
   padding: 2px 8px;
   border-radius: 7px;
   caret-color: currentColor;
-  color: #363636;
-  background-color: #ffffff;
-  outline: none;
+  background-clip: padding-box;
+  background-origin: padding-box;
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
   border-image-source: -gtk-scaled(url("assets/entry.png"), url("assets/entry@2.png"));
+  color: #363636;
+  background-color: #ffffff;
+  outline: none;
 }
 
 entry.search {
@@ -607,7 +611,7 @@ button separator {
   margin: 4px 1px;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button, headerbar.flat button, .toolbar button, button.flat {
+window.background > contents > toastoverlay > leaflet button.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button, tabbar tabbox > tab button.tab-close-button, headerbar.flat button, .toolbar button, button.flat {
   min-height: 24px;
   border: none;
   background-color: transparent;
@@ -617,38 +621,41 @@ window.background > contents > toastoverlay > leaflet button.circular.day, windo
   transition: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover, headerbar.flat button:hover, .toolbar button:hover, button.flat:hover {
+window.background > contents > toastoverlay > leaflet button.circular.day:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover, tabbar tabbox > tab button.tab-close-button:hover, headerbar.flat button:hover, .toolbar button:hover, button.flat:hover {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition-duration: 350ms;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:hover:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover:active, headerbar.flat button:hover:active, .toolbar button:hover:active, button.flat:hover:active {
+window.background > contents > toastoverlay > leaflet button.circular.day:hover:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:hover:active, tabbar tabbox > tab button.tab-close-button:hover:active, headerbar.flat button:hover:active, .toolbar button:hover:active, button.flat:hover:active {
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:active, headerbar.flat button:active, .toolbar button:active, window.background > contents > toastoverlay > leaflet button.circular.day:checked, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked, headerbar.flat button:checked, .toolbar button:checked, button.flat:active, button.flat:checked {
+window.background > contents > toastoverlay > leaflet button.circular.day:active, window.background.csd > contents > leaflet.unfolded > box > headerbar button:active, tabbar tabbox > tab button.tab-close-button:active, headerbar.flat button:active, .toolbar button:active, window.background > contents > toastoverlay > leaflet button.circular.day:checked, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked, tabbar tabbox > tab button.tab-close-button:checked, headerbar.flat button:checked, .toolbar button:checked, button.flat:active, button.flat:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:checked:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked:hover, headerbar.flat button:checked:hover, .toolbar button:checked:hover, button.flat:checked:hover {
+window.background > contents > toastoverlay > leaflet button.circular.day:checked:hover, window.background.csd > contents > leaflet.unfolded > box > headerbar button:checked:hover, tabbar tabbox > tab button.tab-close-button:checked:hover, headerbar.flat button:checked:hover, .toolbar button:checked:hover, button.flat:checked:hover {
   background-image: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled, label:disabled > selection.flat {
+window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled, label:disabled > selection.flat {
   background-color: transparent;
+  box-shadow: none;
 }
 
-window.background > contents > toastoverlay > leaflet button.circular.day:disabled label, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled label, headerbar.flat button:disabled label, .toolbar button:disabled label, window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled label, label:disabled > selection.flat label, button.flat:disabled, label:disabled > selection.flat {
+window.background > contents > toastoverlay > leaflet button.circular.day:disabled label, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled label, tabbar tabbox > tab button.tab-close-button:disabled label, headerbar.flat button:disabled label, .toolbar button:disabled label, window.background > contents > toastoverlay > leaflet button.circular.day:disabled, window.background.csd > contents > leaflet.unfolded > box > headerbar button:disabled, tabbar tabbox > tab button.tab-close-button:disabled, headerbar.flat button:disabled, .toolbar button:disabled, button.flat:disabled label, label:disabled > selection.flat label, button.flat:disabled, label:disabled > selection.flat {
   color: rgba(36, 36, 36, 0.45);
   opacity: 1;
 }
 
-window.background > contents > toastoverlay > leaflet button.toggle.popup.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button.toggle.popup, headerbar.flat button.toggle.popup, .toolbar button.toggle.popup, button.flat.toggle.popup {
+window.background > contents > toastoverlay > leaflet button.toggle.popup.circular.day, window.background.csd > contents > leaflet.unfolded > box > headerbar button.toggle.popup, tabbar tabbox > tab button.toggle.popup.tab-close-button, headerbar.flat button.toggle.popup, .toolbar button.toggle.popup, button.flat.toggle.popup {
   min-width: 20px;
 }
 
@@ -1548,6 +1555,18 @@ spinbutton > text:drop(active) {
   box-shadow: 0 1px 1px 0 transparent, inset 0 0 0 1px #F08437;
 }
 
+spinbutton > button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #242424;
+  border-color: rgba(0, 0, 0, 0.15);
+  border-top-color: rgba(0, 0, 0, 0.15);
+  border-bottom-color: rgba(0, 0, 0, 0.27);
+  background-color: white;
+  background-clip: padding-box;
+  background-origin: padding-box;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.03), 0 1px 2px 0 rgba(0, 0, 0, 0.01);
+}
+
 spinbutton:not(.vertical) > text {
   padding: 2px 8px;
   min-width: 28px;
@@ -1635,8 +1654,8 @@ combobox {
 
 dropdown button.combo,
 combobox button.combo {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 0 12px;
+  min-height: 24px;
 }
 
 dropdown > popover.menu > contents modelbutton,
@@ -2848,15 +2867,16 @@ cursor-handle.bottom {
 }
 
 tabbar tab,
-dnd tab, notebook > header > tabs > tab {
+dnd tab, tabbar tabbox > tab,
+tabbar tabbox > tabboxchild > tab, notebook > header > tabs > tab {
   color: rgba(36, 36, 36, 0.45);
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid transparent;
   transition: all 150ms ease-out;
 }
 
-tabbar tab:hover:not(:checked),
-dnd tab:hover:not(:checked), notebook > header > tabs > tab:hover:not(:checked) {
+tabbar tab:hover:not(:checked):not(:selected),
+dnd tab:hover:not(:checked):not(:selected), notebook > header > tabs > tab:hover:not(:checked):not(:selected) {
   color: rgba(36, 36, 36, 0.725);
   background-color: rgba(255, 255, 255, 0.2);
   border-color: #bfbfbf;
@@ -2864,7 +2884,8 @@ dnd tab:hover:not(:checked), notebook > header > tabs > tab:hover:not(:checked) 
 }
 
 tabbar tab:checked,
-dnd tab:checked, notebook > header > tabs > tab:checked {
+dnd tab:checked, notebook > header > tabs > tab:checked, tabbar tab:selected,
+dnd tab:selected, notebook > header > tabs > tab:selected {
   color: #242424;
   background-color: #e5e5e5;
   border-color: #bfbfbf;
@@ -4444,16 +4465,19 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
 }
 
 .app-notification button:active, .app-notification button:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
 }
 
 .app-notification button:disabled {
   background-color: transparent;
+  box-shadow: none;
 }
 
 .app-notification button:disabled label, .app-notification button:disabled {
@@ -4611,6 +4635,7 @@ window.dialog.message .dialog-action-area > button:not(.suggested-action):not(.d
   color: #0b0b0b;
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
   transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -4642,6 +4667,7 @@ window.dialog.message.csd .dialog-action-area > button:active, window.dialog.mes
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
   background-image: none;
 }
 
@@ -4869,6 +4895,7 @@ placessidebar .navigation-sidebar > row button.sidebar-button:active, placesside
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.62);
 }
 
@@ -4880,6 +4907,7 @@ placessidebar .navigation-sidebar > row:selected button.sidebar-button {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.62);
 }
 
@@ -4891,6 +4919,7 @@ placessidebar .navigation-sidebar > row:selected button.sidebar-button:active, p
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.75);
 }
 
@@ -5266,6 +5295,7 @@ button.circular:checked {
   background-image: none;
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: none;
   border-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -5842,7 +5872,54 @@ indicatorbin.needs-attention > indicator > label {
 }
 
 tabbar .box {
-  min-height: 32px;
+  min-height: 28px;
+}
+
+tabbar tabbox {
+  background-color: #cccccc;
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.15);
+}
+
+tabbar tabbox > tabboxchild {
+  margin: 0 -3px;
+  border-radius: 0;
+}
+
+tabbar tabbox > tab,
+tabbar tabbox > tabboxchild > tab {
+  border-top: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0;
+  padding: 0 8px;
+}
+
+tabbar tabbox > tab:checked,
+tabbar tabbox > tabboxchild > tab:checked {
+  border-top-color: #e5e5e5;
+}
+
+tabbar tabbox > tab button.tab-close-button,
+tabbar tabbox > tabboxchild > tab button.tab-close-button {
+  border-radius: 3px;
+  border: none;
+  padding: 0;
+  min-height: 20px;
+  min-width: 20px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+tabbar tabbox > tab button.tab-close-button:hover,
+tabbar tabbox > tabboxchild > tab button.tab-close-button:hover {
+  color: #242424;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+tabbar tabbox > tab button.tab-close-button:active, tabbar tabbox > tab button.tab-close-button:active:hover,
+tabbar tabbox > tabboxchild > tab button.tab-close-button:active,
+tabbar tabbox > tabboxchild > tab button.tab-close-button:active:hover {
+  color: #0b0b0b;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 tabbar tabbox > separator.hidden {

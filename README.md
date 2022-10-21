@@ -50,6 +50,7 @@ Usage:  `./install.sh`  **[OPTIONS...]**
 |-s, --small          | Specify titlebutton size variant(s) **[standard/small]** (Default: standard variants)|
 |-t, --theme          | Specify primary theme color variant(s) **[default/blue/purple/pink/red/orange/yellow/green/grey/all]** (Default: MacOS blue)|
 |-i, --icon           | activities icon variant(s) **[standard/normal/gnome/ubuntu/arch/manjaro/fedora/debian/void]** (Default: standard variant)|
+|-l, --libadwaita     | Install gtk4.0 theme in $HOME/.config/gtk-4.0 for libadwaita apps|
 |-g, --gdm            | Install GDM theme, you should run this with sudo!|
 |-r, --revert         | revert GDM theme, you should run this with sudo!|
 |-h, --help           | Show this help|
