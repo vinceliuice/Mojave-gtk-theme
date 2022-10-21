@@ -111,8 +111,8 @@ $dark_sidebar_bg: white;
 }
 
 $dark_sidebar_fg:                   $text_color;
-$dark_sidebar_border:               if($variant == 'light', darken(opacify($dark_sidebar_bg, 1), 5%), lighten(opacify($dark_sidebar_bg, 1), 5%));
-$sidebar_theme_color:               if($variant == 'light', rgba(#000000, 0.15), rgba(#C7C7C7, 0.25));
+$dark_sidebar_border:               if($variant == 'light', $borders_color, rgba(black, 0.75));
+$sidebar_theme_color:               if($variant == 'light', rgba(black, 0.15), rgba(#C7C7C7, 0.25));
 
 //OSD colors
 $osd_fg_color:                      #dadada;

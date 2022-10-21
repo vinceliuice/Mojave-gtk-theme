@@ -136,6 +136,7 @@ statuspage {
 .card {
   @at-root %card, & {
     @extend %circular_list;
+    color: $text_color;
 
     .osd &, &.osd {
       background-color: gtkalpha(currentColor, .1);

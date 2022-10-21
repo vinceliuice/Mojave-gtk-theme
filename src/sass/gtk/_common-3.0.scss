@@ -333,7 +333,7 @@ spinner {
   }
 }
 
-%Linked_entrys {
+%Linked_entries {
   @include entry(normal);
   border-image: none;
   border: 1px solid;
@@ -497,7 +497,7 @@ entry {
   }
 
   .linked > &:not(:only-child) {
-    @extend %Linked_entrys;
+    @extend %Linked_entries;
   }
 }
 
@@ -1162,7 +1162,7 @@ spinbutton {
   entry {
     padding-top: 2px;
     padding-bottom: 2px;
-    @extend %Linked_entrys;
+    @extend %Linked_entries;
 
     &:focus {
       @if $variant == 'dark' { box-shadow: inset 0 0 0 1px $entry_highlight; }
@@ -1501,7 +1501,7 @@ actionbar > revealer > box {
 }
 
 // Headerbar Entries
-%headerbar_entrys {
+%headerbar_entries {
   @include entry(header-normal);
   border-radius: 7px;
   border: 3px solid transparent;
@@ -1749,7 +1749,7 @@ headerbar {
     }
   }
 
-  // Reset linking entrys
+  // Reset linking entries
   .linked:not(.vertical) > entry {
     @include entry(header-normal);
     margin-top: 6px;
@@ -2064,7 +2064,7 @@ headerbar, .titlebar {
     min-width: 22px;
   }
 
-  entry { // Reset entrys
+  entry { // Reset entries
     min-height: if($variant == 'light', 19px, 21px);
     margin-top: if($variant == 'light', 4px, 3px);
     margin-bottom: if($variant == 'light', 4px, 3px);
@@ -4023,17 +4023,17 @@ infobar {
 tooltip {
   &.background {
     &, &.csd {
-    // background-color needs to be set this way otherwise it gets drawn twice
-    // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
-    background-color: lighten($osd_bg_color, 10%);
-    background-clip: padding-box;
-    border-radius: $bt_radius;
+      // background-color needs to be set this way otherwise it gets drawn twice
+      // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
+      background-color: lighten($osd_bg_color, 10%);
+      background-clip: padding-box;
+      border-radius: $wm_radius;
 
-    label { padding: 4px; }
+      label { padding: 4px; }
     }
   }
 
-  border-radius: $bt_radius;
+  border-radius: $wm_radius;
   box-shadow: none;
 
   decoration { background-color: transparent; }
@@ -4275,7 +4275,7 @@ decoration {
 
   .popup & {
     box-shadow: none;
-    border-radius: $wm_radius;
+    border-radius: $mn_radius;
   }
 
   // server-side decorations as used by mutter
@@ -4287,7 +4287,7 @@ decoration {
   }
 
   .csd.popup & {
-    border-radius: $wm_radius;
+    border-radius: $mn_radius;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 8px 15px rgba(0, 0, 0, 0.08), $wm_border;
   }
 

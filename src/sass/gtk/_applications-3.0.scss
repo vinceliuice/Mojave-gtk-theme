@@ -648,7 +648,7 @@ filechooser,
     }
 
     entry {
-      @extend %headerbar_entrys;
+      @extend %headerbar_entries;
       margin-top: if($variant=='light', 2px, 1px);
       margin-bottom: if($variant=='light', 2px, 1px);
       margin-left: 0;
@@ -3127,7 +3127,7 @@ window.background:not(.csd) {
     > frame > border { border-color: $borders_color; }
 
     > entry,
-    .entry { // Set for linked entrys
+    .entry { // Set for linked entries
       // min-height: 26px;
       border-radius: $bt_radius;
       background-image: image($base_color);

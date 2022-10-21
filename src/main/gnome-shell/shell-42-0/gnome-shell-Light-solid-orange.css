@@ -779,7 +779,7 @@ StWidget.focused .app-well-app-running-dot {
 /* Modal Dialogs */
 .modal-dialog {
   background-color: #f5f5f5;
-  border-radius: 12px;
+  border-radius: 14px;
   border: solid black;
   border-width: 0;
   box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.65);
@@ -2568,7 +2568,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   border-radius: 0 !important;
   color: #424242 !important;
   text-shadow: none;
-  border-radius: 2px;
+  border-radius: 4px;
   font-weight: normal;
   transition-duration: 0 !important;
 }

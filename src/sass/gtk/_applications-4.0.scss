@@ -7,19 +7,22 @@
     background-color: rgba($dark_sidebar_bg, 1);
     border-color: rgba($dark_sidebar_bg, 1);
   }
+
+  button { @extend %flat_button; }
 }
 
 %side_headerbar_right {
   &, &:backdrop {
     background-image: none;
     background-color: rgba($base_color, 1);
+    border-color: $dark_sidebar_border;
   }
 }
 
 %side_searchbar {
   > revealer > box {
     background-color: rgba($dark_sidebar_bg, 1);
-    border-color: $header_border;
+    border-color: $dark_sidebar_border;
   }
 }
 
@@ -35,10 +38,29 @@
  * Nautilus *
  ************/
 
+%nautilus_pathbar_button {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  border-radius: $bt_radius - 2px;
+  padding: 0 $container_padding;
+  min-height: if($variant == 'light', 20px, 22px);
+
+  &:not(:hover):not(:active):not(:checked) {
+    background: none;
+  }
+
+  &:hover:not(:active):not(:checked) {
+    background-color: rgba($header_fg, 0.15);
+    background-image: none;
+  }
+}
+
 .nautilus-window {
-  headerbar * {
-    margin-top: 0;
-    margin-bottom: 0;
+  headerbar revealer > box > widget > box {
+    > button:last-child {
+      margin-left: -6px;
+    }
   }
 
   flap.unfolded {
@@ -51,13 +73,13 @@
     }
 
     > separator.horizontal {
-      background-color: $header_border;
+      background-color: $dark_sidebar_border;
     }
   }
 
   flap.folded {
     > placessidebar {
-      border-right: 1px solid $header_border;
+      border-right: 1px solid $dark_sidebar_border;
     }
   }
 
@@ -81,6 +103,34 @@
   }
 }
 
+child.activatable {
+  border-radius: $bt_radius * 1.5;
+
+  &:hover {
+    background-color: rgba($fg_color, 0.1);
+    color: $fg_color;
+  }
+
+  &:active {
+    background-color: rgba($fg_color, 0.2);
+    color: $fg_color;
+    transition: $shorter_transition;
+  }
+
+  &:selected {
+    background-color: rgba($fg_color, 0.12);
+    color: $fg_color;
+
+    &:hover {
+      background-color: rgba($fg_color, 0.16);
+    }
+
+    &:active {
+      background-color: rgba($fg_color, 0.22);
+    }
+  }
+}
+
 #NautilusViewCell {
   clamp box {
     margin: 0;
@@ -89,14 +139,32 @@
 }
 
 #NautilusQueryEditor { // search entry
-  padding: 1px $container_padding;
-  margin-top: 6px;
-  margin-bottom: 6px;
+  padding: 2px $container_padding;
   border-radius: $bt_radius;
-  border: none;
+  background-clip: padding-box;
+  border-image: none;
+  outline: 0 solid transparent;
+  outline-offset: -2px;
+  min-height: if($variant == 'light', 19px, 22px);
+
+  @if $variant == 'light' {
+    border: 1px solid $borders_color;
+    margin-top: 7px;
+  } @else {
+    border: none;
+    margin-top: 6px;
+  }
+
+  transition: outline-color 300ms $ease-out-quad,
+              outline-width 300ms $ease-out-quad,
+              outline-offset 300ms $ease-out-quad,
+              background-color 150ms $deceleration_curve;
 
   &:focus-within {
+    border-image: none;
     outline-color: $entry_highlight;
+    outline-width: 2px;
+    border-color: $selected_bg_color;
   }
 
   > box { margin: 0; }
@@ -114,20 +182,29 @@
     min-height: 16px;
     margin: 0;
     -gtk-icon-size: 12px;
-    padding: 0 4px;
+    padding: 0 2px;
+    border: none;
+    border-radius: 100px;
+    @extend %nautilus_pathbar_button;
   }
 
   > text, > image { margin: 0; }
 }
 
 #NautilusPathBar {
-  background-color: $fill_color;
   border-radius: $bt_radius;
-  margin: $container_padding 0 $container_padding $container_padding;
+  margin: $container_padding 0;
+  border: 1px solid $borders_color;
+  padding: 2px;
+  background-clip: padding-box;
+  @include button(header-normal);
 
   #NautilusPathButton {
-    margin: 0 $container_padding / 2;
-    border-radius: $bt_radius;
+    @extend %nautilus_pathbar_button;
+
+    .dim-label {
+      opacity: 0.75;
+    }
 
     &.current-dir {
       color: $header_fg;
@@ -137,13 +214,14 @@
         box-shadow: none;
       }
     }
-
-    &:first-child { margin-left: 0; }
   }
 
   > menubutton {
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
+
+    > button {
+      @extend %nautilus_pathbar_button;
+    }
   }
 }
 
