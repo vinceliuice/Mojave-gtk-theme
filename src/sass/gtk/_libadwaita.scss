@@ -134,18 +134,14 @@ statuspage {
 //
 
 .card {
-  @at-root %card, & {
-    @extend %circular_list;
-    color: $text_color;
-
-    .osd &, &.osd {
-      background-color: gtkalpha(currentColor, .1);
-      color: inherit;
-      box-shadow: none;
-    }
-  }
+  @extend %circular_list;
+  color: $text_color;
 
   .osd &, &.osd {
+    background-color: gtkalpha(currentColor, .1);
+    color: inherit;
+    box-shadow: none;
+
     &:focus:focus-visible {
       outline-color: $fill_color;
     }
@@ -164,6 +160,25 @@ statuspage {
   }
 }
 
+button.card {
+  @if $variant == 'light' {
+    border: 1px solid $dark_borders_color;
+    background-clip: padding-box;
+    @include button(normal);
+  } @else {
+    border: none;
+  }
+
+  &:hover {
+    @include button(flat-hover);
+  }
+
+  &:active {
+    @include button(flat-active);
+    border-color: if($variant == 'light', rgba(black, 0.6), $borders_color);
+  }
+}
+
 //
 // Toasts
 //
@@ -172,15 +187,32 @@ toast {
   @extend %osd;
   margin: $container_padding * 2;
   margin-bottom: $container_padding * 3;
-  border-radius: $mn_radius;
+  border-radius: $circular_radius;
   border-spacing: $container_padding;
   padding: $container_padding;
-  box-shadow: 0 3px 8px rgba(black, 0.35);
+  outline: 1px solid rgba(white, 0.1);
+  outline-offset: -1px;
+  box-shadow: 0 3px 8px rgba(black, 0.15),
+              0 0 0 1px rgba(black, if($variant == 'light', 0.15, 0.75));
 
   &:dir(ltr) { padding-left: $container_padding * 2; }
   &:dir(rtl) { padding-right: $container_padding * 2; }
 
-  button { @extend %osd_button; }
+  button {
+    @extend %osd_button;
+
+    &.circular {
+      // &:hover {
+      //   background-color: $destructive_color;
+      //   color: white;
+      // }
+
+      &:active {
+        // background-color: darken($destructive_color, 8%);
+        background-color: $destructive_color;
+      }
+    }
+  }
 
   > widget {
     margin: 0 $container_padding;
@@ -301,7 +333,8 @@ tabbar {
 
   tabbox {
     background-color: darken($header_bg, 10%);
-    box-shadow: inset 0 -1px $borders_color;
+    box-shadow: none;
+    border-bottom: 1px solid $solid_borders_color;
 
     > tabboxchild {
       margin: 0 -3px;
@@ -311,10 +344,10 @@ tabbar {
     > tab,
     > tabboxchild > tab {
       @extend %tabs_tab;
-      border-top: none;
-      border-top: 1px solid $borders_color;
       border-radius: 0;
-      padding: 0 8px;
+      padding: 3px 6px;
+      border: solid $solid_borders_color;
+      border-width: 0 1px;
 
       &:checked { border-top-color: $header_bg; }
 
@@ -324,8 +357,8 @@ tabbar {
         padding: 0;
         min-height: 20px;
         min-width: 20px;
-        margin-top: 2px;
-        margin-bottom: 2px;
+        // margin-top: 2px;
+        // margin-bottom: 2px;
         @extend %flat_button;
 
         &:hover {
@@ -341,6 +374,9 @@ tabbar {
     }
 
     > separator {
+      margin: 0;
+      background-color: darken($header_bg, 10%);
+
       &.hidden {
         opacity: 0;
       }

@@ -1,6 +1,6 @@
 $dash_background_color: if($variant == 'light', rgba(#f1f1f1, 0.35), rgba(#222222, 0.75));
 $dash_placeholder_size: 32px;
-$dash_padding: $base_padding * 2; // 12px
+$dash_padding: $base_padding * 1.5;
 $dash_border_radius: $modal_radius + $dash_padding;
 
 #dash {
@@ -30,13 +30,17 @@ $dash_border_radius: $modal_radius + $dash_padding;
 
 .dash-background {
   background-color: $dash_background_color;
-  margin-bottom: $dash_padding;
+  margin-bottom: $base_padding * 2;
   padding: $dash_padding;
   spacing: $base_padding;
   border-radius: $dash_border_radius;
 }
 
 // Dash Items
+.dash-item-container .app-well-app, .show-apps {
+  padding: $dash_padding 2px $dash_padding + $base_padding * 2;
+}
+
 .dash-item-container {
   > * { margin: 0 2px; }
 
@@ -46,10 +50,6 @@ $dash_border_radius: $modal_radius + $dash_padding;
   // each app item on the dash
   .app-well-app .overview-icon {
     padding: $base_padding;
-  }
-
-  .show-apps, .app-well-app {
-    padding-bottom: $dash_padding;
   }
 }
 

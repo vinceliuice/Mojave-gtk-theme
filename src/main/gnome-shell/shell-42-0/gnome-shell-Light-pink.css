@@ -3493,20 +3493,24 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 }
 
 #dash .overview-icon {
-  padding: 6px;
+  padding: 4.5px;
 }
 
 #dash .app-well-app-running-dot {
   background-color: rgba(0, 0, 0, 0.75);
-  margin-bottom: 14px;
+  margin-bottom: 11px;
 }
 
 .dash-background {
   background-color: rgba(241, 241, 241, 0.35);
   margin-bottom: 12px;
-  padding: 12px;
+  padding: 9px;
   spacing: 6px;
-  border-radius: 28px;
+  border-radius: 25px;
+}
+
+.dash-item-container .app-well-app, .show-apps {
+  padding: 9px 2px 21px;
 }
 
 .dash-item-container > * {
@@ -3525,13 +3529,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 6px;
 }
 
-.dash-item-container .show-apps, .dash-item-container .app-well-app {
-  padding-bottom: 12px;
-}
-
 .dash-separator {
   width: 1px;
-  margin: 0 4px 12px;
+  margin: 0 4px 9px;
   background-color: rgba(255, 255, 255, 0.25);
 }
 

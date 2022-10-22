@@ -34,9 +34,9 @@
   }
 }
 
-/************
- * Nautilus *
- ************/
+//
+// Nautilus
+//
 
 %nautilus_pathbar_button {
   margin: 0;
@@ -285,6 +285,16 @@ window.background {
           background: none;
           border: none;
         }
+
+        > windowhandle > box {
+          padding: 0 10px;
+        }
+
+        button:not(.destructive-action):not(.suggested-action):not(.close):not(.maximize):not(.minimize) {
+          @extend %flat_button;
+          margin-top: 8px;
+          margin-bottom: 8px;
+        }
       }
 
       + separator {
@@ -316,7 +326,23 @@ window.background {
     button.circular.day {
       border: none;
       box-shadow: none;
-      @extend %flat_button;
+      min-height: $menuitem_size;
+      min-width: $menuitem_size;
+      background-color: transparent;
+      background-image: none;
+
+      &:hover {
+        @include button(flat-hover);
+      }
+
+      &:active {
+        @include button(flat-active);
+      }
+
+      &:selected {
+        background-color: $selected_bg_color;
+        color: $selected_fg_color;
+      }
     }
 
     datechooser navigator > button.flat.pill {
@@ -377,6 +403,193 @@ menubutton.flat.popup.sources-button {
     &:last-child {
       border-radius: 0 0 $bt_radius $bt_radius;
     }
+  }
+}
+
+//
+// Gnome Software
+//
+
+flowboxchild > button.card {
+  &.category-tile {
+    padding: $container_padding * 3.5;
+    background-clip: border-box;
+    box-shadow: 0 3px 6px rgba(black, 0.08);
+    border-radius: $mn_radius * 1.5;
+    border-width: 0;
+  }
+
+  &.category-tile-iconless {
+    padding: $container_padding * 1.5 $container_padding * 2.5;
+    box-shadow: none;
+    border-width: 1px;
+    border-radius: $bt_radius;
+  }
+}
+
+app-context-bar {
+  button.context-tile {
+    padding: 6px;
+  }
+
+  > box:not(:first-child) > button.flat {
+    border-radius: 0;
+
+    &:last-child {
+      border-radius: 0 $bt_radius $bt_radius 0;
+    }
+  }
+
+  > box:first-child > button.flat {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: $bt_radius 0 0 $bt_radius;
+    }
+  }
+
+  > box > button.flat {
+    border-left-color: $borders_color;
+  }
+}
+
+.context-tile-lozenge {
+  min-height: 28px;
+  min-width: 28px;
+  padding: $container_padding;
+
+  &.grey {
+    color: $text_color;
+    background-color: $divider_color;
+  }
+
+  &.green, &.details-rating-0 {
+    color: darken($success_color, 15%);
+    background-color: rgba($success_color, 0.15);
+  }
+
+  &.blue,
+  &.details-rating-5 {
+    color: $theme_color_blue;
+    background-color: rgba($theme_color_blue, 0.15);
+  }
+
+  &.yellow, &.details-rating-12 {
+    color: darken($warning_color, 15%);
+    background-color: rgba($warning_color, 0.15);
+  }
+
+  &.details-rating-15 {
+    color: $theme_color_orange;
+    background-color: rgba($theme_color_orange, .15);
+  }
+
+  &.red, &.details-rating-18 {
+    color: darken($error_color, 15%);
+    background-color: rgba($error_color, 0.15);
+  }
+}
+
+screenshot-carousel box.frame.view {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+// Styling for specific category buttons.
+.category-tile.category-create {
+  background: linear-gradient(180deg, #ce8cd7 0%, #2861c6 100%);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(180deg, shade(#ce8cd7, 1.07) 0%, shade(#2861c6, 1.1) 100%);
+    color: white;
+  }
+
+  &:active {
+    background: linear-gradient(180deg, shade(#ce8cd7, .95) 0%, shade(#2861c6, .95) 100%);
+    color: white;
+  }
+}
+
+.category-tile.category-develop {
+  background: #5e5c64;
+  color: white;
+
+  &:hover {
+    background: shade(#5e5c64, 1.2);
+    color: white;
+  }
+
+  &:active {
+    background-color: shade(#5e5c64, .95);
+    color: white;
+  }
+}
+
+.category-tile.category-learn {
+  background: linear-gradient(180deg, #2ec27e 30%, #27a66c 100%);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(180deg, shade(#2ec27e, 1.06) 30%, shade(#27a66c, 1.06) 100%);
+    color: white;
+  }
+
+  &:active {
+    background: linear-gradient(180deg, shade(#2ec27e, .95) 30%, shade(#27a66c, .95) 100%);
+    color: white;
+  }
+}
+
+.category-tile.category-play {
+  background: linear-gradient(75deg, #f9e2a7 0%, #eb5ec3 50%, #6d53e0 100%);
+  color: #393484;
+
+  &:hover {
+    background: linear-gradient(75deg, shade(#f9e2a7, 1.07) 0%, shade(#eb5ec3, 1.07) 50%, shade(#6d53e0, 1.07) 100%);
+    color: #393484;
+  }
+
+  &:active {
+    background: linear-gradient(75deg, shade(#f9e2a7, .97) 0%, shade(#eb5ec3, .95) 50%, shade(#6d53e0, 1.07) 100%);
+    color: #393484;
+  }
+}
+
+.category-tile.category-socialize {
+  background: linear-gradient(90deg, #ef4e9b 0%, #f77466 100%);
+  color: white;
+
+  &:hover {
+    background: linear-gradient(90deg, shade(#ef4e9b, 1.08) 0%, shade(#f77466, 1.08) 100%);
+    color: white;
+  }
+
+  &:active {
+    background: linear-gradient(90deg, shade(#ef4e9b, .95) 0%, shade(#f77466, .95) 100%);
+    color: white;
+  }
+}
+
+.category-tile.category-work {
+  padding: 1px; /* FIXME: work around https://gitlab.gnome.org/GNOME/gtk/-/issues/4324 */
+  color: #1c71d8;
+  background-color:#fdf8d7;
+  background-image: linear-gradient($borders_color 1px, transparent 1px),
+                    linear-gradient(90deg, $borders_color 1px, transparent 1px);
+  background-size: 10px 10px, 10px 10px;
+  background-position: -1px -4px, center -1px;
+
+  &:hover {
+    background-color: lighten(#fdf8d7, 5%);
+    background-image: linear-gradient($borders_color 1px, transparent 1px),
+                      linear-gradient(90deg, $borders_color 1px, transparent 1px);
+  }
+
+  &:active {
+    background-color: darken(#fdf8d7, 5%);
+    background-image: linear-gradient($borders_color 1px, transparent 1px),
+                      linear-gradient(90deg, $borders_color 1px, transparent 1px);
   }
 }
 

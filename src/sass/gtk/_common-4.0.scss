@@ -197,14 +197,17 @@ window.assistant {
   border: none;
   background-color: $osd_bg_color;
   background-clip: padding-box;
-  border-radius: $bt_radius;
+  border-radius: $wm_radius;
 }
 
 .osd {
   @extend %osd;
   padding: $container_padding;
   margin: 5px 8px 11px 8px;
-  box-shadow: 0 3px 8px rgba(black, 0.35);
+  outline: 1px solid rgba(white, 0.1);
+  outline-offset: -1px;
+  box-shadow: 0 3px 8px rgba(black, 0.15),
+              0 0 0 1px rgba(black, if($variant == 'light', 0.15, 0.75));
 
   &.circular { border-radius: 100%; }
 }
@@ -311,6 +314,7 @@ entry {
   border: 3px solid transparent;
   padding: 2px 8px;
   border-radius: 7px;
+  border-spacing: $container_padding;
   caret-color: currentColor;
   background-clip: padding-box;
   background-origin: padding-box;
@@ -323,10 +327,10 @@ entry {
   &.search { border-radius: $bt_radius; }
 
   > image { // icons inside the entry
-    color: mix($fg_color,$base_color,80%);
+    color: mix($fg_color, $base_color, 80%);
 
-    &.left { padding-left: 0; padding-right: 5px; }
-    &.right { padding-right: 0; padding-left: 5px; }
+    &.left { padding-left: 0; padding-right: 6px; }
+    &.right { padding-right: 0; padding-left: 6px; }
   }
 
   > text > placeholder {
@@ -1363,7 +1367,14 @@ combobox {
 
   button {
     margin: 0;
+    min-height: $small_size;
+    min-width: $small_size;
+    padding: 3px 6px;
     @extend %flat_button;
+
+    &.image-button {
+      padding: 3px;
+    }
   }
 
   .osd & { background-color: transparent; }
@@ -1602,6 +1613,7 @@ headerbar {
 
     windowcontrols {
       padding: 0 3px;
+      border-spacing: 3px;
     }
   }
 
@@ -1633,6 +1645,26 @@ headerbar {
     &, &.image-button {
       min-height: if($variant == 'light', 24px, 26px);
       min-width: 22px;
+    }
+
+    &.destructive-action {
+      &:hover {
+        @include button(suggested_destructive, lighten($destructive_color, 5%), white);
+      }
+
+      &:active, &:checked {
+        @include button(suggested_destructive, lighten($destructive_color, 10%), white);
+      }
+    }
+
+    &.suggested-action {
+      &:hover {
+        @include button(suggested_destructive, lighten($suggested_color, 5%), white);
+      }
+
+      &:active, &:checked {
+        @include button(suggested_destructive, lighten($suggested_color, 10%), white);
+      }
     }
   }
 
@@ -2055,22 +2087,41 @@ popover.background {
   font: initial; // Decouple the font of popovers from their entry/textview
   background-color: transparent;
 
-  > arrow { background-color: transparent; }
-
+  > arrow,
   > contents {
     background-clip: border-box;
     background-color: $menu_bg;
     color: $text_color;
-    box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
-                0 0 0 1px if($variant=='light', $borders_color, rgba(black, 0.75));
+    box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85));
     border-radius: $mn_radius;
-    border: none;
+    border: 1px solid if($variant=='light', rgba(black, 0.2), mix(white, $menu_bg, 10%));
 
     @if $variant == 'dark' {
-      outline-color: rgba(white, 0.1);
-      outline-style: solid;
-      outline-width: 1px;
-      outline-offset: -1px;
+      box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
+                  0 0 0 1px rgba(black, 0.75);
+    }
+  }
+
+  &.menu {
+    > arrow {
+      background-color: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    > contents {
+      background-clip: border-box;
+      background-color: $menu_bg;
+      color: $text_color;
+      box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
+                  0 0 0 1px if($variant=='light', $borders_color, rgba(black, 0.75));
+      border-radius: $mn_radius;
+      border: none;
+
+      @if $variant == 'dark' {
+        outline: 1px solid rgba(white, 0.1);
+        outline-offset: -1px;
+      }
     }
   }
 
@@ -2155,7 +2206,18 @@ popover.background {
     > arrow,
     > contents { // reset for popover menu
       padding: $container_padding;
+      background-clip: border-box;
       background-color: $menu_bg;
+      color: $text_color;
+      box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85));
+      border-radius: $mn_radius;
+      border: 1px solid if($variant=='light', rgba(black, 0.2), mix(white, $menu_bg, 10%));
+
+      @if $variant == 'dark' {
+        outline: none;
+        box-shadow: 0 3px 6px 0 if($variant=='light', transparentize(black, 0.85), transparentize(black, 0.85)),
+                    0 0 0 1px rgba(black, 0.75);
+      }
 
       modelbutton {
         border-radius: $mn_radius - $container_padding / 2;
@@ -2185,11 +2247,6 @@ popover.background {
             color: $fg_color;
           }
         }
-      }
-
-      @if $variant == 'dark' {
-        outline: none;
-        border: 1px solid rgba(white, 0.1);
       }
     }
   }
@@ -2328,7 +2385,6 @@ cursor-handle {
 
 notebook {
   padding: 0;
-  // margin-top: -1px;
 
   &.frame {
     border: 1px solid $solid_borders_color;
@@ -2356,59 +2412,27 @@ notebook {
     background-color: $base_color;
   }
 
-  &:not(.frame), &:not(.frame) > stack {
-    border-radius: 0 0 $wm_radius $wm_radius;
-  }
-
   > header {
     padding: 0;
     background-color: darken($header_bg, 10%);
-    border: none;
+    border: 1px solid $solid_borders_color;
 
     // Set box-shadow to make the header frame color more easy to see
     // Set margin to hide the ugly borders around the header
     &.top {
-      box-shadow: inset 0 1px $solid_borders_color, inset 0 -1px $borders_color;
-      @if $variant=='light' {
-          box-shadow: inset 0 1px $borders_color,
-                      inset 0 -1px $borders_color,
-                            1px 0 $borders_color,
-                            -1px 0 $borders_color;
-      }
-      margin-top: -1px;
+      border-width: 0 0 1px 0;
     }
 
     &.bottom {
-      box-shadow: inset 0 1px $borders_color, inset 0 -1px $solid_borders_color;
-      @if $variant=='light' {
-          box-shadow: inset 0 1px $borders_color,
-                      inset 0 -1px $borders_color,
-                      1px 0 $borders_color,
-                      -1px 0 $borders_color;
-      }
-      margin-bottom: -1px;
+      border-width: 1px 0 0 0;
     }
 
     &.right {
-      box-shadow: inset 1px 0 $borders_color, inset -1px 0 $solid_borders_color;
-      @if $variant=='light' {
-          box-shadow: inset 1px 0 $borders_color,
-                      inset -1px 0 $borders_color,
-                      0 1px $borders_color,
-                      0 -1px $borders_color;
-      }
-      margin-right: -1px;
+      border-width: 0 0 0 1px;
     }
 
     &.left {
-      box-shadow: inset 1px 0 $solid_borders_color, inset -1px 0 $borders_color;
-      @if $variant=='light' {
-          box-shadow: inset 1px 0 $borders_color,
-                      inset -1px 0 $borders_color,
-                      0 1px $borders_color,
-                      0 -1px $borders_color;
-      }
-      margin-left: -1px;
+      border-width: 0 1px 0 0;
     }
 
     button.flat.toggle.popup {
@@ -2431,7 +2455,7 @@ notebook {
         padding: 0;
 
         tab {
-          padding: 2px 10px;
+          padding: 3px 6px;
           min-width: 20px;
           min-height: 20px;
           border-radius: 0;
@@ -2482,43 +2506,61 @@ notebook {
 
     &.top,
     &.bottom {
-      tabs > tab {
-        &:first-child { border-left-style: none; }
-        &:last-child { border-right-style: none; }
+      > tabs > tab {
+        border-width: 0 1px;
+
+        &:last-child { border-right-width: 1px; }
+      }
+
+      > tabs > arrow + tab {
+        border-left-width: 0;
       }
     }
 
     &.left,
     &.right {
-      tabs > tab {
-        &:first-child { border-top-style: none; }
-        &:last-child { border-bottom-style: none; }
+      > tabs > tab {
+        border-width: 1px 0;
+
+        &:last-child { border-bottom-width: 1px; }
+      }
+
+      > tabs > arrow + tab {
+        border-top-width: 0;
       }
     }
 
-    > tabs > tab {
-      @extend %tabs_tab;
+    > tabs {
+      margin: 0;
+      padding: 0;
 
-      // close button
-      button.flat {
-        min-height: 16px;
-        min-width: 16px;
-        border-radius: 3px;
-        padding: 0;
-        margin-top: 2px;
-        margin-bottom: 2px;
-        color: mix($bg_color, $fg_color, 35%);
+      > tab {
+        @extend %tabs_tab;
+        margin: 0;
 
-        &:hover {
-          @extend %undecorated_button;
-          color: $fg_color;
-          background-color: rgba($borders_color, 0.1);
-        }
+        label { margin: 0 6px; }
 
-        &:active {
-          @extend %undecorated_button;
-          color: if($variant == 'light', darken($fg_color, 10%), lighten($fg_color, 10%));
-          background-color: rgba($borders_color, 0.2);
+        // close button
+        button.flat {
+          min-height: 16px;
+          min-width: 16px;
+          border-radius: 3px;
+          padding: 0;
+          margin-top: 2px;
+          margin-bottom: 2px;
+          color: mix($bg_color, $fg_color, 35%);
+
+          &:hover {
+            @extend %undecorated_button;
+            color: $fg_color;
+            background-color: rgba($borders_color, 0.1);
+          }
+
+          &:active {
+            @extend %undecorated_button;
+            color: if($variant == 'light', darken($fg_color, 10%), lighten($fg_color, 10%));
+            background-color: rgba($borders_color, 0.2);
+          }
         }
       }
     }
@@ -3455,14 +3497,16 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
 // App Notifications
 //
 .app-notification {
-  padding: 16px;
-  margin: 0 8px 8px 8px;
+  padding: $container_padding;
+  margin: $container_padding;
   color: $fg_color;
   background-color: rgba($bg_color, 0.95);
   // background-image: linear-gradient(0deg, $bg_color 0%, $bg_color 85%, darken($bg_color, 5%) 95%, darken($bg_color, 15%) 100%);
-  border-radius: 0 0 2px 2px;
+  border-radius: $wm_radius;
   border: none;
-  box-shadow: $shadow_5, 0 0 0 1px if($variant=='light', rgba(black, 0.15), rgba(black, 0.65));
+  box-shadow: $shadow_5,
+              inset 0 0 0 1px rgba(white, 0.12),
+              0 0 0 1px if($variant=='light', rgba(black, 0.15), rgba(black, 0.65));
 
   border { border: none; }
 
@@ -3570,7 +3614,7 @@ calendar {
 %middle_button {
   border-radius: 0;
   border-width: 0;
-  border-left-width: 1px;
+  border-width: 1px 0 0 1px;
 }
 
 %last_button {
@@ -3590,7 +3634,7 @@ calendar {
 
 window.dialog.message { // Message Dialog styling
   .titlebar {
-    min-height: 20px;
+    min-height: 0;
     background-color: transparent;
     border-bottom: none;
     box-shadow: none;
@@ -3600,7 +3644,7 @@ window.dialog.message { // Message Dialog styling
     border-spacing: 10px;
   }
 
-  & label.title {
+  label.title {
     font-weight: 800;
     font-size: 15pt;
   }
@@ -3649,22 +3693,36 @@ window.dialog.message { // Message Dialog styling
 
     .dialog-action-area {
       padding: 0;
+      border: none;
 
       > button {
         min-height: 16px;
         padding: 6px 12px;
         background-image: none;
+        border-color: $dark_sidebar_border;
         @extend %middle_button;
-
-        &:active, &:checked {
-          @include button(flat-checked);
-          background-image: none;
-        }
 
         &:first-child { @extend %first_button; }
         &:last-child { @extend %last_button; }
         &:only-child { @extend %single_button; }
+
+        &:not(.destructive-action):not(.suggested-action) {
+          &:active, &:checked, &:active:hover, &:checked:hover {
+            @include button(flat-active);
+            background-image: none;
+          }
+        }
       }
+    }
+  }
+}
+
+window.messagedialog {
+  .response-area {
+    > box > button {
+      border-radius: 0;
+      min-height: 24px;
+      padding: 6px 12px;
     }
   }
 }
@@ -4149,6 +4207,7 @@ colorswatch {
       border-top-right-radius: $_colorswatch-radius;
     }
   }
+
   &.bottom {
     border-bottom-left-radius: $_colorswatch-radius + 0.5px;
     border-bottom-right-radius: $_colorswatch-radius + 0.5;
@@ -4158,6 +4217,7 @@ colorswatch {
       border-bottom-right-radius: $_colorswatch-radius;
     }
   }
+
   &.left, &:first-child:not(.top) {
     border-top-left-radius: $_colorswatch_radius + 0.5px;
     border-bottom-left-radius: $_colorswatch_radius + 0.5px;
@@ -4166,6 +4226,7 @@ colorswatch {
       border-bottom-left-radius: $_colorswatch_radius;
     }
   }
+
   &.right, &:last-child:not(.bottom) {
     border-top-right-radius: $_colorswatch_radius + 0.5px;
     border-bottom-right-radius: $_colorswatch_radius + 0.5px;
@@ -4177,12 +4238,15 @@ colorswatch {
 
   &.dark overlay {
     color: transparentize(white, 0.3);
+
     &:hover {
       border-color: if($variant == 'light', transparentize(black, 0.5), $borders_color);
     }
   }
+
   &.light overlay {
     color: transparentize(black, 0.3);
+
     &:hover {
       border-color: if($variant == 'light', transparentize(black, 0.7), $borders_color);
     }
@@ -4190,11 +4254,17 @@ colorswatch {
 
   overlay {
     border: 1px solid if($variant == 'light', transparentize(black, 0.85), $borders_color);
+
     &:hover { background-color: transparentize(white, 0.8) }
+  }
+
+  button & overlay {
+    border: none;
   }
 
   &:disabled {
     opacity: 0.5;
+
     overlay {
       border-color: transparentize(black, 0.4);
       box-shadow: none;
@@ -4211,12 +4281,12 @@ colorswatch {
 }
 
 button.color {
-  padding: 0;
+  padding: 3px;
 
   colorswatch:first-child:last-child {
     &, overlay {
-      margin: 4px;
-      border-radius: 0;
+      margin: 0;
+      border-radius: $bt_radius;
     }
   }
 }
@@ -4254,15 +4324,15 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 //
 %circular_button,
 button.circular {
-  border-radius: 100px;
-  padding: 0 0 0 0;
-  min-height: 28px;
-  min-width: 28px;
+  border-radius: $circular_radius;
+  padding: 0;
+  min-height: $menuitem_size;
+  min-width: $menuitem_size;
 
   &:active, &:checked {
     @if $variant=='light' {
       @include button(flat-active);
-      border-color: rgba(black, 0.2);
+      border-color: rgba(black, 0.6);
     }
   }
 
@@ -4309,6 +4379,7 @@ window {
   outline-color: rgba(white, 0.12);
   outline-style: solid;
   outline-offset: -1px;
+  margin: 0;
 
   &.csd {
     transition: $shadow_transition;
@@ -4317,9 +4388,6 @@ window {
                 0 8px 8px 0 $wm_shadow,
                 0 16px 16px 0 $wm_shadow,
                 $wm_border;
-
-    // this is used for the resize cursor area
-    margin: 6px;
 
     &:backdrop {
       // the transparent shadow here is to enforce that the shadow extents don't
@@ -4360,9 +4428,13 @@ window {
 // Titlebuttons
 //
 windowcontrols {
-  border-spacing: 6px;
-  margin-right: 6px;
-  margin-left: 6px;
+  border-spacing: 3px;
+  margin: 0;
+  padding: 0 3px;
+
+  .titlebar & {
+    border-spacing: 6px;
+  }
 
   button {
     margin: 0;
@@ -4388,7 +4460,12 @@ windowcontrols {
 
     // Load png assets for each button, Fix the Chrome window restore button bug
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
+      @each $l, $m in ('',''),
+                      (':backdrop','-backdrop'),
+                      (':backdrop:hover','-backdrop-hover'),
+                      (':hover','-hover'),
+                      (':active','-active'),
+                      (':active:hover','-active') {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}.png'),
                                         url('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png'));

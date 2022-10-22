@@ -682,7 +682,7 @@ modelbutton.flat {
 button {
   min-height: 24px;
   min-width: 16px;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   border: 1px solid;
   border-radius: 5px;
   padding: 0 6px;
@@ -715,12 +715,12 @@ button separator {
   background-color: rgba(0, 0, 0, 0.15);
   background-image: none;
   box-shadow: none;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-duration: 350ms;
 }
 
 button.budgie-menu-launcher:hover:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:hover:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:hover:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:hover:active, .background grid#CanvasGrid > button:hover:active:not(.flat), .background tabbox > tab button:hover:active, button.flat:hover:active, .raven .raven-header:not(.top) button:hover:active {
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
 }
 
 .budgie-panel button.flat.launcher:active, button.budgie-menu-launcher:active, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:active, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:active, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:active, .background grid#CanvasGrid > button:active:not(.flat), .background tabbox > tab button:active, .budgie-panel button.flat.launcher:checked, button.budgie-menu-launcher:checked, .budgie-popover scrolledwindow.sidebar.categories button.flat.category-button:checked, .budgie-popover scrolledwindow.sidebar.categories .raven .raven-header:not(.top) button.category-button:checked, .raven .raven-header:not(.top) .budgie-popover scrolledwindow.sidebar.categories button.category-button:checked, .background grid#CanvasGrid > button:checked:not(.flat), .background tabbox > tab button:checked, button.flat:active, .raven .raven-header:not(.top) button:active, button.flat:checked, .raven .raven-header:not(.top) button:checked {
@@ -1855,15 +1855,15 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:hov
   color: #525252;
   background-color: #fafafa;
   background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
 }
 
 window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:active:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:active:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:active:not(.image-button), .nemo-window.background .primary-toolbar button:active:not(.flat) {
   color: white;
   background-color: #888888;
   background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-color: #797979;
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-duration: 300ms;
   background-clip: border-box;
 }
@@ -1874,7 +1874,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:che
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
   background-clip: border-box;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-duration: 300ms;
 }
 
@@ -1883,7 +1883,7 @@ window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:act
 }
 
 window.org-gnome-gedit > paned.titlebar > headerbar button.flat.toggle.popup:disabled:not(.image-button), window.org-gnome-gedit > paned.titlebar > headerbar .raven .raven-header:not(.top) button.toggle.popup:disabled:not(.image-button), .raven .raven-header:not(.top) window.org-gnome-gedit > paned.titlebar > headerbar button.toggle.popup:disabled:not(.image-button), .nemo-window.background .primary-toolbar button:disabled:not(.flat) {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.45);
   box-shadow: none;
 }
 
@@ -2044,15 +2044,15 @@ headerbar button:not(.suggested-action):not(.destructive-action):hover {
   color: #525252;
   background-color: #fafafa;
   background-image: linear-gradient(0deg, #f8f8f8 0%, #ffffff 100%);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
 }
 
 headerbar button:not(.suggested-action):not(.destructive-action):active {
   color: white;
   background-color: #888888;
   background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-color: #797979;
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-duration: 300ms;
   background-clip: border-box;
 }
@@ -2063,7 +2063,7 @@ headerbar button:not(.suggested-action):not(.destructive-action):checked {
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
   background-clip: border-box;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-duration: 300ms;
 }
 
@@ -2072,7 +2072,7 @@ headerbar button:not(.suggested-action):not(.destructive-action):active:hover, h
 }
 
 headerbar button:not(.suggested-action):not(.destructive-action):disabled {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.45);
   box-shadow: none;
 }
 
@@ -2192,7 +2192,7 @@ headerbar.windowhandle viewswitcher > box > button:not(.titlebutton):not(.sugges
   color: white;
   background-color: #888888;
   background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: #797979;
 }
 
 headerbar.windowhandle viewswitcher > box > button:not(.titlebutton):not(.suggested-action):not(.destructive-action):checked {
@@ -3635,7 +3635,7 @@ scale slider {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 100%;
   box-shadow: 0 1px 1px 0 rgba(16, 16, 16, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-property: background, border;
 }
 
@@ -4323,7 +4323,7 @@ row:not(:hover) {
   margin: 0 8px 8px 8px;
   color: #242424;
   background-color: rgba(245, 245, 245, 0.95);
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 5px 5px;
   border: none;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15), 0 2px 3px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.15);
 }
@@ -4472,7 +4472,7 @@ messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive
   background-image: none;
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
 }
 
 messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):active, messagedialog .dialog-action-area button:not(.suggested-action):not(.destructive-action):checked {
@@ -5626,7 +5626,7 @@ window.background.csd > box.vertical > box.horizontal > stack > widget > noteboo
   background-image: linear-gradient(0deg, #656565 0%, #707070 100%);
   border-color: rgba(0, 0, 0, 0.15);
   background-clip: border-box;
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
   transition-duration: 300ms;
   box-shadow: -1px 0 #5e5e5e;
 }
@@ -5849,7 +5849,7 @@ window.background.csd > box.vertical > box.horizontal > stack > widget > noteboo
     color: white;
     background-color: #888888;
     background-image: none;
-    border-color: rgba(0, 0, 0, 0.15);
+    border-color: #797979;
   }
 }
 
@@ -8061,7 +8061,7 @@ window.thunar toolbar#location-toolbar button.flat:active, window.thunar toolbar
   color: white;
   background-color: #888888;
   background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: #797979;
   background-clip: border-box;
 }
 
@@ -8070,7 +8070,7 @@ window.thunar toolbar#location-toolbar button.flat:active:hover, window.thunar t
 }
 
 window.thunar toolbar#location-toolbar button.flat:disabled, window.thunar toolbar#location-toolbar .raven .raven-header:not(.top) button:disabled, .raven .raven-header:not(.top) window.thunar toolbar#location-toolbar button:disabled {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.45);
   box-shadow: none;
 }
 
@@ -9015,7 +9015,7 @@ headerbar.titlebar > button.flat.image-button.toggle:active, .raven .raven-heade
   color: white;
   background-color: #888888;
   background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: #797979;
 }
 
 headerbar.titlebar > button.flat.image-button.toggle:checked, .raven .raven-header:not(.top) headerbar.titlebar > button.image-button.toggle:checked {
@@ -9761,7 +9761,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
   color: white;
   background-color: #888888;
   background-image: none;
-  border-color: rgba(0, 0, 0, 0.15);
+  border-color: #797979;
 }
 
 .raven .raven-header:not(.top) button:checked, .raven stackswitcher.linked > button:checked, .raven button:checked {
@@ -9772,7 +9772,7 @@ window.budgie-switcher-window .drop-shadow button, .drop-shadow button, .workspa
 }
 
 .raven .raven-header:not(.top) button:disabled, .raven stackswitcher.linked > button:disabled, .raven button:disabled {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.45);
   box-shadow: none;
 }
 
@@ -11185,7 +11185,7 @@ window.budgie-switcher-window .drop-shadow, .drop-shadow {
   background-image: none;
   box-shadow: none;
   border-color: rgba(0, 0, 0, 0.15);
-  transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: background-color 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), border 0;
 }
 
 .budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):active, .budgie-session-dialog buttonbox.linked.horizontal > button:not(.suggested-action):not(.destructive-action):checked,

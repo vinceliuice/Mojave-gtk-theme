@@ -1764,6 +1764,14 @@ headerbar {
       }
     }
 
+    @if $variant=='dark' {
+      &:not(:first-child) { margin-left: 1px; }
+
+      &, &:focus, &:disabled {
+        border: none;
+      }
+    }
+
     &:focus {
       @include entry(header-focus);
       @if $variant == 'light' { border-color: $entry_highlight; }
@@ -1778,17 +1786,6 @@ headerbar {
       opacity: 0.65;
       background-image: none;
       box-shadow: none;
-    }
-
-    &, &:focus, &:disabled {
-      @if $variant == 'dark' {
-        border: none;
-        border-right: 1px solid $borders_color;
-
-        &:last-child {
-          border-right: none;
-        }
-      }
     }
   }
 
@@ -3547,7 +3544,7 @@ row {
   color: $fg_color;
   background-color: rgba($bg_color, 0.95);
   // background-image: linear-gradient(0deg, $bg_color 0%, $bg_color 85%, darken($bg_color, 5%) 95%, darken($bg_color, 15%) 100%);
-  border-radius: 0 0 2px 2px;
+  border-radius: 0 0 $bt_radius $bt_radius;
   border: none;
   box-shadow: $shadow_5, 0 0 0 1px if($variant=='light', rgba(black, 0.15), rgba(black, 0.65));
 

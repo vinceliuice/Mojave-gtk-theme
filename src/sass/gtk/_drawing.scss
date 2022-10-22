@@ -328,7 +328,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
     color: $selected_fg_color;
     background-color: $header_button_active_bg;
     background-image: none;
-    border-color: $borders_color;
+    border-color: mix($fg_color, $header_button_active_bg, 15%);
   }
 
   @else if $t==header-checked {
@@ -352,7 +352,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
       opacity: 1;
     }
 
-    background-color: $header_button_bg;
+    background-color: rgba($header_button_bg, 0.45);
     box-shadow: none;
   }
 
