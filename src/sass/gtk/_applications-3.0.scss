@@ -3171,7 +3171,7 @@ window.background:not(.csd) {
   > menu > menuitem {
     padding: 4px 6px;
 
-    > label:disabled { color: $disabled_fg_color; }
+    label:disabled { color: $disabled_fg_color; }
 
     > radio,
     > check {

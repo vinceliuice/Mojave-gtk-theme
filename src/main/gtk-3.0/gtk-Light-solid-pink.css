@@ -8345,7 +8345,7 @@ window.background:not(.csd) > menu > menuitem {
   padding: 4px 6px;
 }
 
-window.background:not(.csd) > menu > menuitem > label:disabled {
+window.background:not(.csd) > menu > menuitem label:disabled {
   color: rgba(36, 36, 36, 0.45);
 }
 

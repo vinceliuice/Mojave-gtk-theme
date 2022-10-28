@@ -588,7 +588,7 @@ gtk4_config() {
   cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "$HOME/.config/gtk-4.0/gtk.css"
   cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "$HOME/.config/gtk-4.0/gtk-dark.css"
 
-  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0/windows-assets"
+  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0"
 }
 
 install_libadwaita() {
