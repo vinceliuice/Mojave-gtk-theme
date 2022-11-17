@@ -145,14 +145,14 @@ child.activatable {
   border-image: none;
   outline: 0 solid transparent;
   outline-offset: -2px;
-  min-height: if($variant == 'light', 19px, 22px);
+  min-height: if($variant == 'light', 21px, 22px);
 
   @if $variant == 'light' {
     border: 1px solid $borders_color;
     margin-top: 7px;
   } @else {
     border: none;
-    margin-top: 6px;
+    margin-top: 7px;
   }
 
   transition: outline-color 300ms $ease-out-quad,
@@ -266,6 +266,53 @@ window.background.csd {
       }
 
       > stack.background { background-color: $base_color; }
+    }
+
+    preferencesgroup > box {
+      button.background-preview-button {
+        padding: $container_padding / 2;
+        outline: 2px solid transparent;
+        outline-offset: 0;
+        border-radius: $bt_radius + $container_padding / 2;
+
+        &, &:hover, &:active, &:checked {
+          background: none;
+          border: none;
+          box-shadow: none;
+        }
+
+        &:hover {
+          outline-color: $alt_disabled_fg_color;
+        }
+
+        &:active {
+          outline-color: $alt_fg_color;
+        }
+
+        &:checked {
+          outline-color: $selected_bg_color;
+        }
+      }
+
+      flowbox.background-flowbox > flowboxchild {
+        outline: 2px solid transparent;
+        outline-offset: 0;
+        border-radius: $bt_radius + 3px;
+        padding: 3px;
+
+        &:hover {
+          outline-color: $alt_disabled_fg_color;
+        }
+
+        &:active {
+          outline-color: $alt_fg_color;
+        }
+
+        &:selected {
+          outline-color: $selected_bg_color;
+          background-color: transparent;
+        }
+      }
     }
   }
 }

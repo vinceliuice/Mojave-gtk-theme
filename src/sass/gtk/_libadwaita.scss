@@ -63,21 +63,6 @@ preferencesgroup > box {
   > box.single-line {
     min-height: 34px;
   }
-
-  button.background-preview-button {
-    &, &:hover, &:active, &:checked {
-      background: none;
-      border: none;
-      box-shadow: none;
-      padding: $container_padding / 2;
-      border: 2px solid transparent;
-      border-radius: $bt_radius + $container_padding / 2;
-    }
-
-    &:checked {
-      border: 2px solid $selected_bg_color;
-    }
-  }
 }
 
 //

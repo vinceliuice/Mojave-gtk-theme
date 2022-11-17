@@ -13,7 +13,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   &:hover, &:focus {
     color: $fg_color;
     background-color: if($variant == 'light', rgba(white, 1), rgba(lighten($base_color, 15%), 0.75));
-    box-shadow: if($variant == 'light', 0 2px 3px rgba(black, 0.1), inset 0 1px rgba(white, 0.06));
+    box-shadow: if($variant == 'light', 0 2px 3px rgba(black, 0.06), inset 0 1px rgba(white, 0.06));
   }
 
   &:active {

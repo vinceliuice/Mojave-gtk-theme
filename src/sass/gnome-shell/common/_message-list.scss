@@ -43,7 +43,7 @@
 
 // message bubbles
 .message {
-  margin: 0 4px 6px;
+  margin: 2px 4px 4px;
 
   .popup-menu & {
     @extend %popover_bubble;

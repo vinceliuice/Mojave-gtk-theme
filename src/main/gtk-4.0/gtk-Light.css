@@ -559,13 +559,13 @@ treeview entry.flat:focus-within, treeview entry:focus-within {
   padding-right: 8px;
 }
 
-.entry-tag.button, #NautilusQueryEditor #NautilusQueryEditorTag.button {
+.entry-tag.button, #NautilusQueryEditor .button#NautilusQueryEditorTag {
   box-shadow: none;
   border: none;
   background-color: transparent;
 }
 
-.entry-tag.button:not(:hover):not(:active), #NautilusQueryEditor #NautilusQueryEditorTag.button:not(:hover):not(:active) {
+.entry-tag.button:not(:hover):not(:active), #NautilusQueryEditor .button#NautilusQueryEditorTag:not(:hover):not(:active) {
   color: rgba(36, 36, 36, 0.45);
 }
 
@@ -1125,7 +1125,7 @@ splitbutton:disabled {
   border-left-style: none;
 }
 
-.linked.path-bar:not(.vertical) > button + button {
+.linked:not(.vertical).path-bar > button + button {
   border-left-style: none;
 }
 
@@ -1474,7 +1474,7 @@ list > row button.image-button:not(.flat):checked {
 }
 
 
-list > row button.image-button.suggested-action:not(.flat) {
+list > row button.image-button:not(.flat).suggested-action {
   background-clip: border-box;
   color: white;
   background-color: #315bef;
@@ -1484,7 +1484,7 @@ list > row button.image-button.suggested-action:not(.flat) {
 }
 
 
-list > row button.image-button.destructive-action:not(.flat) {
+list > row button.image-button:not(.flat).destructive-action {
   background-clip: border-box;
   color: white;
   background-color: #f8464c;
@@ -2436,13 +2436,13 @@ treeview.view > dndtarget:drop(active) {
   border-color: #2b408a;
 }
 
-columnview.view > dndtarget.after:drop(active),
-treeview.view > dndtarget.after:drop(active) {
+columnview.view > dndtarget:drop(active).after,
+treeview.view > dndtarget:drop(active).after {
   border-top-style: none;
 }
 
-columnview.view > dndtarget.before:drop(active),
-treeview.view > dndtarget.before:drop(active) {
+columnview.view > dndtarget:drop(active).before,
+treeview.view > dndtarget:drop(active).before {
   border-bottom-style: none;
 }
 
@@ -3265,12 +3265,12 @@ scrollbar.overlay-indicator:not(.dragging):not(.hovering) > range > trough > sli
   border: none;
 }
 
-scrollbar.overlay-indicator.horizontal:not(.dragging):not(.hovering) > range > trough > slider {
+scrollbar.overlay-indicator:not(.dragging):not(.hovering).horizontal > range > trough > slider {
   margin: 0 3px;
   min-width: 40px;
 }
 
-scrollbar.overlay-indicator.vertical:not(.dragging):not(.hovering) > range > trough > slider {
+scrollbar.overlay-indicator:not(.dragging):not(.hovering).vertical > range > trough > slider {
   margin: 3px 0;
   min-height: 40px;
 }
@@ -3769,7 +3769,7 @@ scale.horizontal.marks-before:not(.marks-after) slider {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3792,7 +3792,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:hover {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3815,7 +3815,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:active {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3838,7 +3838,7 @@ scale.horizontal.marks-before:not(.marks-after) slider:disabled {
   box-shadow: none;
 }
 
-scale.horizontal.marks-before.fine-tune:not(.marks-after) slider {
+scale.horizontal.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-top: -11px;
 }
@@ -3861,7 +3861,7 @@ scale.horizontal.marks-after:not(.marks-before) slider {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3884,7 +3884,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:hover {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3907,7 +3907,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:active {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3930,7 +3930,7 @@ scale.horizontal.marks-after:not(.marks-before) slider:disabled {
   box-shadow: none;
 }
 
-scale.horizontal.marks-after.fine-tune:not(.marks-before) slider {
+scale.horizontal.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-bottom: -11px;
 }
@@ -3953,7 +3953,7 @@ scale.vertical.marks-before:not(.marks-after) slider {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3976,7 +3976,7 @@ scale.vertical.marks-before:not(.marks-after) slider:hover {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -3999,7 +3999,7 @@ scale.vertical.marks-before:not(.marks-after) slider:active {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -4022,7 +4022,7 @@ scale.vertical.marks-before:not(.marks-after) slider:disabled {
   box-shadow: none;
 }
 
-scale.vertical.marks-before.fine-tune:not(.marks-after) slider {
+scale.vertical.marks-before:not(.marks-after).fine-tune slider {
   margin: -7px;
   margin-left: -11px;
 }
@@ -4045,7 +4045,7 @@ scale.vertical.marks-after:not(.marks-before) slider {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4068,7 +4068,7 @@ scale.vertical.marks-after:not(.marks-before) slider:hover {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4091,7 +4091,7 @@ scale.vertical.marks-after:not(.marks-before) slider:active {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4114,7 +4114,7 @@ scale.vertical.marks-after:not(.marks-before) slider:disabled {
   box-shadow: none;
 }
 
-scale.vertical.marks-after.fine-tune:not(.marks-before) slider {
+scale.vertical.marks-after:not(.marks-before).fine-tune slider {
   margin: -7px;
   margin-right: -11px;
 }
@@ -4404,7 +4404,7 @@ row.activatable:selected:active {
   color: white;
 }
 
-row.activatable.has-open-popup:selected, row.activatable:selected:hover {
+row.activatable:selected.has-open-popup, row.activatable:selected:hover {
   background-color: #2c52d7;
 }
 
@@ -4907,12 +4907,12 @@ placessidebar .navigation-sidebar > row:backdrop {
   opacity: 0.85;
 }
 
-placessidebar .navigation-sidebar > row.has-open-popup:selected, placessidebar .navigation-sidebar > row:selected, placessidebar .navigation-sidebar > row:selected:hover, placessidebar .navigation-sidebar > row:active:hover {
+placessidebar .navigation-sidebar > row:selected.has-open-popup, placessidebar .navigation-sidebar > row:selected, placessidebar .navigation-sidebar > row:selected:hover, placessidebar .navigation-sidebar > row:active:hover {
   color: #242424;
   background-color: rgba(0, 0, 0, 0.15);
 }
 
-placessidebar .navigation-sidebar > row.has-open-popup:selected, placessidebar .navigation-sidebar > row.has-open-popup:selected label, placessidebar .navigation-sidebar > row:selected, placessidebar .navigation-sidebar > row:selected label, placessidebar .navigation-sidebar > row:selected:hover, placessidebar .navigation-sidebar > row:selected:hover label, placessidebar .navigation-sidebar > row:active:hover, placessidebar .navigation-sidebar > row:active:hover label {
+placessidebar .navigation-sidebar > row:selected.has-open-popup, placessidebar .navigation-sidebar > row:selected.has-open-popup label, placessidebar .navigation-sidebar > row:selected, placessidebar .navigation-sidebar > row:selected label, placessidebar .navigation-sidebar > row:selected:hover, placessidebar .navigation-sidebar > row:selected:hover label, placessidebar .navigation-sidebar > row:active:hover, placessidebar .navigation-sidebar > row:active:hover label {
   color: #242424;
 }
 
@@ -5784,19 +5784,6 @@ preferencesgroup > box > box.single-line {
   min-height: 34px;
 }
 
-preferencesgroup > box button.background-preview-button, preferencesgroup > box button.background-preview-button:hover, preferencesgroup > box button.background-preview-button:active, preferencesgroup > box button.background-preview-button:checked {
-  background: none;
-  border: none;
-  box-shadow: none;
-  padding: 3px;
-  border: 2px solid transparent;
-  border-radius: 8px;
-}
-
-preferencesgroup > box button.background-preview-button:checked {
-  border: 2px solid #315bef;
-}
-
 statuspage > scrolledwindow > viewport > box {
   margin: 36px 12px;
   border-spacing: 36px;
@@ -6263,7 +6250,7 @@ child.activatable:selected:active {
   border-image: none;
   outline: 0 solid transparent;
   outline-offset: -2px;
-  min-height: 19px;
+  min-height: 21px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   margin-top: 7px;
   transition: outline-color 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-width 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-offset 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 150ms cubic-bezier(0, 0, 0.2, 1);
@@ -6348,6 +6335,51 @@ window.background.csd > contents > leaflet.unfolded > box > scrolledwindow > vie
 
 window.background.csd > contents > leaflet.unfolded > box > stack.background {
   background-color: #ffffff;
+}
+
+window.background.csd > contents preferencesgroup > box button.background-preview-button {
+  padding: 3px;
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  border-radius: 8px;
+}
+
+window.background.csd > contents preferencesgroup > box button.background-preview-button, window.background.csd > contents preferencesgroup > box button.background-preview-button:hover, window.background.csd > contents preferencesgroup > box button.background-preview-button:active, window.background.csd > contents preferencesgroup > box button.background-preview-button:checked {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+window.background.csd > contents preferencesgroup > box button.background-preview-button:hover {
+  outline-color: rgba(66, 66, 66, 0.45);
+}
+
+window.background.csd > contents preferencesgroup > box button.background-preview-button:active {
+  outline-color: #424242;
+}
+
+window.background.csd > contents preferencesgroup > box button.background-preview-button:checked {
+  outline-color: #315bef;
+}
+
+window.background.csd > contents preferencesgroup > box flowbox.background-flowbox > flowboxchild {
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  border-radius: 8px;
+  padding: 3px;
+}
+
+window.background.csd > contents preferencesgroup > box flowbox.background-flowbox > flowboxchild:hover {
+  outline-color: rgba(66, 66, 66, 0.45);
+}
+
+window.background.csd > contents preferencesgroup > box flowbox.background-flowbox > flowboxchild:active {
+  outline-color: #424242;
+}
+
+window.background.csd > contents preferencesgroup > box flowbox.background-flowbox > flowboxchild:selected {
+  outline-color: #315bef;
+  background-color: transparent;
 }
 
 window.background > contents > toastoverlay > leaflet > box {
