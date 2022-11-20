@@ -332,6 +332,28 @@ revert_gdm() {
   fi
 }
 
+gtk4_config() {
+  local color="${1}"
+  local opacity="${2}"
+  local alt="${3}"
+  local small="${4}"
+  local theme="${5}"
+
+  # For libadwaita
+  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
+  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "$HOME/.config/gtk-4.0"
+
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "$HOME/.config/gtk-4.0/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "$HOME/.config/gtk-4.0/gtk.css"
+  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "$HOME/.config/gtk-4.0/gtk-dark.css"
+
+  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0"
+}
+
 while [[ $# -gt 0 ]]; do
   case "${1}" in
     -d|--dest)
@@ -375,7 +397,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            prompt -e "ERROR: Unrecognized opacity variant '$1'."
+            prompt -e "ERROR: Unrecognized alt variant '$1'."
             prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -398,7 +420,7 @@ while [[ $# -gt 0 ]]; do
             break
             ;;
           *)
-            prompt -e "ERROR: Unrecognized opacity variant '$1'."
+            prompt -e "ERROR: Unrecognized small variant '$1'."
             prompt -i "Try '$0 --help' for more information."
             exit 1
             ;;
@@ -569,34 +591,12 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-gtk4_config() {
-  local color="${1}"
-  local opacity="${2}"
-  local alt="${3}"
-  local theme="${4}"
-  local small="${5}"
-
-  # For libadwaita
-  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
-  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "$HOME/.config/gtk-4.0"
-
-  if [[ ${theme} != '-default' ]]; then
-    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "$HOME/.config/gtk-4.0/assets"
-  fi
-
-  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "$HOME/.config/gtk-4.0/gtk.css"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "$HOME/.config/gtk-4.0/gtk-dark.css"
-
-  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0"
-}
-
 install_libadwaita() {
   for color in "${colors[@]-${COLOR_VARIANTS[0]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[0]}}"; do
       for alt in "${alts[@]-${ALT_VARIANTS[0]}}"; do
-        for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
-          for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+        for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+          for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
             gtk4_config "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
           done
         done
@@ -610,8 +610,8 @@ install_theme() {
   for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
       for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
-        for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
-          for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+        for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+          for theme in "${themes[@]-${THEME_VARIANTS[0]}}"; do
             for icon in "${icons[@]-${ICON_VARIANTS[0]}}"; do
               install "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
             done
@@ -626,8 +626,8 @@ clean_theme() {
   for color in '-light' '-dark'; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
       for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
-        for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
-          for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+        for small in "${smalls[@]-${SMALL_VARIANTS[0]}}"; do
+          for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
             clean "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
           done
         done
@@ -662,9 +662,9 @@ fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   if [[ "${libadwaita:-}" != 'true' ]]; then
-    install_theme "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
+    install_theme
   else
-    install_libadwaita "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
+    install_libadwaita
   fi
 fi
 
