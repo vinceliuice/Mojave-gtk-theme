@@ -87,6 +87,10 @@ dnd {
   -gtk-icon-size: 32px;
 }
 
+.aboutdialog .large-icons {
+  -gtk-icon-size: 128px;
+}
+
 spinner:disabled,
 arrow:disabled,
 scrollbar:disabled,
@@ -1871,7 +1875,13 @@ actionbar > revealer > box {
   color: #363636;
 }
 
-actionbar > revealer > box entry, actionbar > revealer > box button, actionbar > revealer > box menubutton, actionbar > revealer > box menubutton > button {
+actionbar > revealer > box entry,
+actionbar > revealer > box button,
+actionbar > revealer > box menubutton,
+actionbar > revealer > box splitbutton,
+actionbar > revealer > box splitbutton > button,
+actionbar > revealer > box splitbutton > menubutton,
+actionbar > revealer > box menubutton > button {
   margin: 0;
 }
 
@@ -4518,7 +4528,8 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
 }
 
 .app-notification {
-  padding: 6px;
+  padding: 0;
+  border-spacing: 0;
   margin: 6px;
   color: #242424;
   background-color: rgba(245, 245, 245, 0.95);
@@ -6173,6 +6184,10 @@ window.background > contents > toastoverlay > leaflet > box + separator, window.
   background-image: none;
 }
 
+.nautilus-window headerbar > * {
+  margin: 0;
+}
+
 .nautilus-window headerbar revealer > box > widget > box > button:last-child {
   margin-left: -6px;
 }
@@ -6253,7 +6268,6 @@ child.activatable:selected:active {
   min-height: 21px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   margin-top: 7px;
-  transition: outline-color 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-width 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-offset 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 150ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 #NautilusQueryEditor:focus-within {

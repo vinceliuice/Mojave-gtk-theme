@@ -51,6 +51,10 @@ dnd {
 
 .large-icons {
   -gtk-icon-size: 32px;
+
+  .aboutdialog & {
+    -gtk-icon-size: 128px;
+  }
 }
 
 spinner:disabled,
@@ -1430,7 +1434,15 @@ actionbar > revealer > box {
   background-color: darken($bg_color, 3%);
   color: $text_color;
 
-  entry, button, menubutton, menubutton > button { margin: 0; }
+  entry,
+  button,
+  menubutton,
+  splitbutton,
+  splitbutton > button,
+  splitbutton > menubutton,
+  menubutton > button {
+    margin: 0;
+  }
 }
 
 //
@@ -3497,11 +3509,11 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
 // App Notifications
 //
 .app-notification {
-  padding: $container_padding;
+  padding: 0;
+  border-spacing: 0;
   margin: $container_padding;
   color: $fg_color;
   background-color: rgba($bg_color, 0.95);
-  // background-image: linear-gradient(0deg, $bg_color 0%, $bg_color 85%, darken($bg_color, 5%) 95%, darken($bg_color, 15%) 100%);
   border-radius: $wm_radius;
   border: none;
   box-shadow: $shadow_5,

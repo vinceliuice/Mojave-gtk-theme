@@ -57,9 +57,15 @@
 }
 
 .nautilus-window {
-  headerbar revealer > box > widget > box {
-    > button:last-child {
-      margin-left: -6px;
+  headerbar {
+    > * {
+      margin: 0;
+    }
+
+    revealer > box > widget > box {
+      > button:last-child {
+        margin-left: -6px;
+      }
     }
   }
 
@@ -154,11 +160,6 @@ child.activatable {
     border: none;
     margin-top: 7px;
   }
-
-  transition: outline-color 300ms $ease-out-quad,
-              outline-width 300ms $ease-out-quad,
-              outline-offset 300ms $ease-out-quad,
-              background-color 150ms $deceleration_curve;
 
   &:focus-within {
     border-image: none;

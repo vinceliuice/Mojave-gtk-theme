@@ -2577,12 +2577,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 /* Popovers/Menus */
 .popup-menu-boxpointer {
-  -arrow-border-radius: 8px;
+  -arrow-border-radius: 6px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 64px;
-  -arrow-rise: 6px;
+  -arrow-base: 22px;
+  -arrow-rise: 0;
   -arrow-box-shadow: none;
   background: transparent;
 }
@@ -2592,10 +2592,10 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   color: #dedede;
   font-weight: normal;
   padding: 0 !important;
-  margin: 0;
+  margin: 6px;
   background: none !important;
   border: none !important;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 9.75pt;
   font-weight: 400;
 }
@@ -2752,6 +2752,8 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .quick-settings {
   padding: 12px !important;
+  border-radius: 20px !important;
+  margin: 6px 0 0 !important;
 }
 
 .quick-settings .icon-button, .quick-settings .button {

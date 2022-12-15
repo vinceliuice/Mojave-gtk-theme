@@ -1,5 +1,7 @@
 .quick-settings {
   padding: $base_padding * 2 !important;
+  border-radius: $mn_radius + $base_padding * 2 !important;
+  margin: 6px 0 0 !important;
 
   .icon-button, .button {
     padding: $container_padding;

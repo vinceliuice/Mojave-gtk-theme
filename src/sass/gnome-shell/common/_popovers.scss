@@ -4,12 +4,12 @@ $popop_menuitem_radius: $wm_radius - 4px;
 
 //.the popover itself
 .popup-menu-boxpointer {
-  -arrow-border-radius: $mn_radius;
+  -arrow-border-radius: 6px;
   -arrow-background-color: transparent;
   -arrow-border-width: 0;
   -arrow-border-color: transparent;
-  -arrow-base: 64px;
-  -arrow-rise: 6px;
+  -arrow-base: 22px;
+  -arrow-rise: 0;
   -arrow-box-shadow: none; //dreaming. bug #689995
   background: transparent; // needs to reset?
 }
@@ -20,10 +20,10 @@ $popop_menuitem_radius: $wm_radius - 4px;
   color: $fg_color;
   font-weight: normal;
   padding: 0 !important;
-  margin: 0;
+  margin: 6px;
   background: none !important;
   border: none !important;
-  box-shadow: 0 3px 6px rgba(black, 0.15);
+  box-shadow: 0 2px 5px rgba(black, 0.1);
   @include font(body-1);
 
   .popup-menu-content {
