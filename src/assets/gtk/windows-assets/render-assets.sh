@@ -20,24 +20,18 @@ for i in `cat $INDEX` ; do
 
 ## Normal titlebutton
 
-echo
-echo Rendering $ASSETS_DIR/$i$d.png
+for scale in 1 2; do
+    file="$ASSETS_DIR/$i$d$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
+    echo
+    echo Rendering "$file"
 
-  $INKSCAPE --export-id=$i$d \
-            --export-id-only \
-            --export-filename=$ASSETS_DIR/$i$d.png $SRC_FILE >/dev/null
+      $INKSCAPE --export-id=$i$d \
+                --export-dpi=$((96 * scale)) \
+                --export-id-only \
+                --export-filename="$file" $SRC_FILE >/dev/null
 
-$OPTIPNG -o7 --quiet $ASSETS_DIR/$i$d.png
-
-echo
-echo Rendering $ASSETS_DIR/$i$d@2.png
-
-  $INKSCAPE --export-id=$i$d \
-            --export-dpi=180 \
-            --export-id-only \
-            --export-filename=$ASSETS_DIR/$i$d@2.png $SRC_FILE >/dev/null
-
-$OPTIPNG -o7 --quiet $ASSETS_DIR/$i$d@2.png
+    $OPTIPNG -o7 --quiet "$file"
+done
 
   done
 done

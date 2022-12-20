@@ -20,20 +20,16 @@ for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-
   fi
 
   for i in `cat $INDEX_FILE`; do
-    echo
-    echo Rendering $ASSETS_DIR/$i.png
-    $INKSCAPE --export-id=$i \
-              --export-id-only \
-              --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
-
-    echo
-    echo Rendering $ASSETS_DIR/$i@2.png
-    $INKSCAPE --export-id=$i \
-              --export-dpi=192 \
-              --export-id-only \
-              --export-filename=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null
-    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i@2.png
+    for scale in 1 2; do
+      file="$ASSETS_DIR/$i$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
+      echo
+      echo Rendering "$file"
+      $INKSCAPE --export-id=$i \
+                --export-dpi=$((96 * scale)) \
+                --export-id-only \
+                --export-filename="$file" $SRC_FILE >/dev/null
+      $OPTIPNG -o7 --quiet "$file"
+    done
   done
 done
 
