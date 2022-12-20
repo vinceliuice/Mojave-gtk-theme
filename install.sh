@@ -175,6 +175,9 @@ install() {
   mkdir -p                                                                                   "${THEME_DIR}/xfwm4"
   cp -r "${SRC_DIR}/assets/xfwm4/assets${color}/"*'.png'                                     "${THEME_DIR}/xfwm4"
   cp -r "${SRC_DIR}/main/xfwm4/themerc${color}"                                              "${THEME_DIR}/xfwm4/themerc"
+  
+  mkdir -p                                                                                   "${THEME_DIR}/unity"
+  cp -r "${SRC_DIR}/assets/unity/assets/"*'.png'                                             "${THEME_DIR}/unity"
 
   mkdir -p                                                                                   "${THEME_DIR}/cinnamon"
   cp -r "${SRC_DIR}/main/cinnamon/cinnamon${color}${opacity}${theme}.css"                    "${THEME_DIR}/cinnamon/cinnamon.css"

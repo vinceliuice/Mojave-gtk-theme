@@ -167,6 +167,10 @@ echo Rendering metacity-1 assets
 cd "$ASRC_DIR/metacity-1" && ./render-assets.sh
 
 echo
+echo Rendering unity assets
+cd "$ASRC_DIR/unity" && ./render-assets.sh
+
+echo
 echo Rendering xfwm4 assets
 cd "$ASRC_DIR/xfwm4" && ./render-assets.sh
 cd "${REPO_DIR}/src/main/xfwm4" && {
