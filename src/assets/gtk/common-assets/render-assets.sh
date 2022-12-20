@@ -20,7 +20,7 @@ for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-
   fi
 
   for i in `cat $INDEX_FILE`; do
-    for scale in 1 2; do
+    for scale in $SCALE_FACTORS; do
       file="$ASSETS_DIR/$i$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
 
       if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi

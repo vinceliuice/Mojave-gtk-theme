@@ -65,10 +65,14 @@ render_thumbnail() {
 }
 
 from_env BUILD_THREADS 1
+from_env SCALE_FACTORS "1 2"
 
 BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
 
+echo "Render configuration:"
+echo
 echo "BUILD_THREADS = ${BUILD_THREADS}"
+echo "SCALE_FACTORS = ${SCALE_FACTORS}"
 
 echo
 for color in '-Light' '-Dark' ; do

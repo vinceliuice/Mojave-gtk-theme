@@ -20,7 +20,7 @@ for i in `cat $INDEX` ; do
 
 ## Normal titlebutton
 
-for scale in 1 2; do
+for scale in $SCALE_FACTORS; do
     file="$ASSETS_DIR/$i$d$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
 
     if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
