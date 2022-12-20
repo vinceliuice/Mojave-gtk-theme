@@ -13,8 +13,14 @@ has_command() {
   command -v "${1}" > /dev/null 2>&1
 }
 
-if [ ! "$(which inkscape 2> /dev/null)" ]; then
-  echo inkscape and optipng needs to be installed to generate the assets.
+missing=
+for cmd in inkscape optipng; do
+  if ! has_command $cmd; then
+    missing="${missing} $cmd"
+  fi
+done
+if [ "${missing}" ]; then
+  echo "Missing required dependencies: ${missing}"
   if has_command zypper; then
     sudo zypper in inkscape optipng
   elif has_command apt; then
