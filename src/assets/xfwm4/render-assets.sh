@@ -24,6 +24,7 @@ do
     echo Rendering $ASSETS_DIR/$i.png
 
       $INKSCAPE --export-id=$i \
+                --export-dpi=$(( 96 * XFWM4_SCALE_FACTOR )) \
                 --export-id-only \
                 --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null 2>&1 &&
     $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png &
@@ -32,6 +33,7 @@ do
     echo Rendering $DARK_ASSETS_DIR/$i.png
 
       $INKSCAPE --export-id=$i \
+                --export-dpi=$(( 96 * XFWM4_SCALE_FACTOR )) \
                 --export-id-only \
                 --export-filename=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null 2>&1 &&
     $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png &

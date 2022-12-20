@@ -66,13 +66,16 @@ render_thumbnail() {
 
 from_env BUILD_THREADS 1
 from_env SCALE_FACTORS "1 2"
+from_env XFWM4_SCALE_FACTOR 1
 
 BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
+XFWM4_SCALE_FACTOR=$(( XFWM4_SCALE_FACTOR >= 1 ? XFWM4_SCALE_FACTOR : 1 ))
 
 echo "Render configuration:"
 echo
 echo "BUILD_THREADS = ${BUILD_THREADS}"
 echo "SCALE_FACTORS = ${SCALE_FACTORS}"
+echo "XFWM4_SCALE_FACTOR = ${XFWM4_SCALE_FACTOR}"
 
 echo
 for color in '-Light' '-Dark' ; do
@@ -103,6 +106,17 @@ cd "$ASRC_DIR/metacity-1" && ./render-assets.sh
 echo
 echo Rendering xfwm4 assets
 cd "$ASRC_DIR/xfwm4" && ./render-assets.sh
+cd "${REPO_DIR}/src/main/xfwm4" && {
+  for suf in 'Light' 'Dark'; do
+    [ -f themerc-${suf}.orig ] || cp themerc-${suf}{,.orig}
+    awk -F= -vscale=${XFWM4_SCALE_FACTOR} '
+    /^(button_(offset|spacing)|title_horizontal_offset|shadow_(delta_(height|width|x|y)|opacity))/ {
+      print $1 "=" $2 * scale
+      next }
+    { print }
+    ' themerc-${suf}.orig > themerc-${suf}
+  done
+}
 
 wait
 exit 0
