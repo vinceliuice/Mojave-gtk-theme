@@ -22,12 +22,11 @@ for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-
   for i in `cat $INDEX_FILE`; do
     for scale in 1 2; do
       file="$ASSETS_DIR/$i$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
-      echo
       echo Rendering "$file"
       $INKSCAPE --export-id=$i \
                 --export-dpi=$((96 * scale)) \
                 --export-id-only \
-                --export-filename="$file" $SRC_FILE >/dev/null
+                --export-filename="$file" $SRC_FILE >/dev/null 2>&1 &&
       $OPTIPNG -o7 --quiet "$file"
     done
   done

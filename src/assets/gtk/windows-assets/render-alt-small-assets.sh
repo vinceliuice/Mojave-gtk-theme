@@ -22,13 +22,12 @@ for i in `cat $INDEX` ; do
 
 for scale in 1 2; do
     file="$ASSETS_DIR/$i$d$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
-    echo
     echo Rendering "$file"
 
       $INKSCAPE --export-id=$i-alt-small$d \
                 --export-dpi=$((96 * scale)) \
                 --export-id-only \
-                --export-filename="$file" $SRC_FILE >/dev/null
+                --export-filename="$file" $SRC_FILE >/dev/null 2>&1 &&
 
     $OPTIPNG -o7 --quiet "$file"
 done
