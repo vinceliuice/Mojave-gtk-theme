@@ -8,6 +8,15 @@ OPTIPNG="/usr/bin/optipng"
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ASRC_DIR="${REPO_DIR}/src/assets"
 
+# import environment variables with care
+from_env() {
+  eval "
+  if ! [ -v $1 ]; then
+    $1='$2'
+  fi
+  export $1"
+}
+
 # check command avalibility
 has_command() {
   command -v "${1}" > /dev/null 2>&1
@@ -45,14 +54,21 @@ render_thumbnail() {
   local in="$ASRC_DIR/${dest}/thumbnail.svg"
   local out="$ASRC_DIR/${dest}/thumbnail${color}.png"
 
+  if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
   echo "Rendering $out"
   rm -rf "$out"
 
     "$INKSCAPE" --export-id="thumbnail${color@L}" \
                 --export-id-only \
                 --export-filename="$out" "$in" >/dev/null 2>&1 &&
-  "$OPTIPNG" -o7 --quiet "$out"
+  "$OPTIPNG" -o7 --quiet "$out" &
 }
+
+from_env BUILD_THREADS 1
+
+BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
+
+echo "BUILD_THREADS = ${BUILD_THREADS}"
 
 echo
 for color in '-Light' '-Dark' ; do
@@ -84,4 +100,5 @@ echo
 echo Rendering xfwm4 assets
 cd "$ASRC_DIR/xfwm4" && ./render-assets.sh
 
+wait
 exit 0

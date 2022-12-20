@@ -21,14 +21,16 @@ for color in '-Light' '-Dark'; do
     fi
 
     for i in `cat $INDEX_FILE`; do
+      if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
       echo Rendering $ASSETS_DIR/$i.png
 
       $INKSCAPE --export-id=$i \
                 --export-id-only \
                 --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null 2>&1 &&
-      $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
+      $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png &
     done
   done
 done
 
+wait
 exit 0

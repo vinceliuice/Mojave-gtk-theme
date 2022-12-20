@@ -20,18 +20,22 @@ mkdir -p $ASSETS_DIR && mkdir -p $DARK_ASSETS_DIR
 
 for i in `cat $INDEX`
 do
+    if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
     echo Rendering $ASSETS_DIR/$i.png
 
       $INKSCAPE --export-id=$i \
                 --export-id-only \
                 --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null 2>&1 &&
-    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
+    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png &
 
+    if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
     echo Rendering $DARK_ASSETS_DIR/$i.png
 
       $INKSCAPE --export-id=$i \
                 --export-id-only \
                 --export-filename=$DARK_ASSETS_DIR/$i.png $DARK_SRC_FILE >/dev/null 2>&1 &&
-    $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png
+    $OPTIPNG -o7 --quiet $DARK_ASSETS_DIR/$i.png &
 done
+
+wait
 exit 0
