@@ -15,6 +15,7 @@ has_command() {
   "$1" -v $1 > /dev/null 2>&1
 }
 
+rm -rf "$ASSETS_DIR" "$DARK_ASSETS_DIR"
 mkdir -p $ASSETS_DIR && mkdir -p $DARK_ASSETS_DIR
 
 for i in `cat $INDEX`
