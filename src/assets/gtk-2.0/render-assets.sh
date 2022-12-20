@@ -6,7 +6,7 @@ OPTIPNG="/usr/bin/optipng"
 INDEX="assets.txt"
 INDEX_T="theme_assets.txt"
 
-for color in '-light' '-dark'; do
+for color in '-Light' '-Dark'; do
   for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey'; do
     ASSETS_DIR="assets${color}${theme}"
     SRC_FILE="assets${color}${theme}.svg"

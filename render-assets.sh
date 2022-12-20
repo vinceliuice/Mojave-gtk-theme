@@ -50,9 +50,9 @@ render_thumbnail() {
   fi
 }
 
-for color in '-light' '-dark' ; do
-  render_thumbnail "${dest:-cinnamon}" "${color}"
-  render_thumbnail "${dest:-gtk-3.0}" "${color}"
+cd "$ASRC_DIR/cinnamon/thumbnails" && ./render-thumbnails.sh
+cd "$ASRC_DIR/gtk/thumbnails"      && ./render-thumbnails.sh
+for color in '-Light' '-Dark' ; do
   render_thumbnail "${dest:-metacity-1}" "${color}"
 done
 
@@ -60,8 +60,8 @@ echo Rendering gtk-2.0 assets
 cd "$ASRC_DIR/gtk-2.0" && ./render-assets.sh
 
 echo Rendering gtk-3.0 / gtk-4.0 assets
-cd "$ASRC_DIR/gtk-3.0/common-assets" && ./render-assets.sh
-cd "$ASRC_DIR/gtk-3.0/windows-assets" && ./render-assets.sh && ./render-alt-assets.sh
+cd "$ASRC_DIR/gtk/common-assets" && ./render-assets.sh
+cd "$ASRC_DIR/gtk/windows-assets" && ./render-assets.sh && ./render-alt-assets.sh
 
 echo Rendering metacity-1 assets
 cd "$ASRC_DIR/metacity-1" && ./render-assets.sh

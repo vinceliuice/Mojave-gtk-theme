@@ -3,10 +3,10 @@
 INKSCAPE="/usr/bin/inkscape"
 OPTIPNG="/usr/bin/optipng"
 
-SRC_FILE="assets-light.svg"
-DARK_SRC_FILE="assets-dark.svg"
-ASSETS_DIR="assets-light"
-DARK_ASSETS_DIR="assets-dark"
+SRC_FILE="assets-Light.svg"
+DARK_SRC_FILE="assets-Dark.svg"
+ASSETS_DIR="assets-Light"
+DARK_ASSETS_DIR="assets-Dark"
 
 INDEX="assets.txt"
 
