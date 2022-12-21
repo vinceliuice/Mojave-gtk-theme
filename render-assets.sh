@@ -65,11 +65,32 @@ render_thumbnail() {
 }
 
 from_env BUILD_THREADS 1
-from_env SCALE_FACTORS "1 2"
+from_env SCALE_FACTORS "2" # Space separated list
 from_env XFWM4_SCALE_FACTOR 1
 
 BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
 XFWM4_SCALE_FACTOR=$(( XFWM4_SCALE_FACTOR >= 1 ? XFWM4_SCALE_FACTOR : 1 ))
+
+# Sort scales list, discard essential scale 1 and duplicates, but require at least one (default to 2)
+export SCALE_FACTORS=$( awk '
+  function cmp( i1, v1, i2, v2) { return i1-i2 }
+  { a[""]=""; delete a[""]
+    for (i=1; i <= NF; i++)
+    {
+      n = int( $(i) )
+      if (n > 1 && !( n in a))
+        a[ n]=""
+    }
+    if (length( a) == 0)
+    {
+      print 2
+      exit
+    }
+    asorti( a, a, "cmp")
+    printf a[1]
+    for (i=2; i <= length(a); i++)
+      printf " "a[i]
+  }' <<< "$SCALE_FACTORS" )
 
 echo "Render configuration:"
 echo
