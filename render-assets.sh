@@ -59,7 +59,7 @@ done
 echo Rendering gtk-2.0 assets
 cd "$ASRC_DIR/gtk-2.0" && ./render-assets.sh
 
-echo Rendering gtk-3.0 assets
+echo Rendering gtk-3.0 / gtk-4.0 assets
 cd "$ASRC_DIR/gtk-3.0/common-assets" && ./render-assets.sh
 cd "$ASRC_DIR/gtk-3.0/windows-assets" && ./render-assets.sh && ./render-alt-assets.sh
 

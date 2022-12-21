@@ -17,9 +17,6 @@ mkdir -p $ASSETS_DIR
 
 for i in `cat $INDEX`
 do
-if [ -f $ASSETS_DIR/$i.png ]; then
-    echo $ASSETS_DIR/$i.png exists.
-else
     echo
     echo Rendering $ASSETS_DIR/$i.png
 
@@ -28,7 +25,6 @@ else
               --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
 
     $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png
-fi
 done
 
 # links

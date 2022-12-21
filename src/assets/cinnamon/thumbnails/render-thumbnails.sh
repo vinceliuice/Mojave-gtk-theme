@@ -5,16 +5,16 @@ OPTIPNG="/usr/bin/optipng"
 
 SRC_FILE="thumbnail.svg"
 
-rm -rf thumbnail-{Light,Dark}*.png
+rm -rf thumbnail-{light,dark}*.png
 
 for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey'; do
-  echo Rendering thumbnail-light${theme}.png
-  $INKSCAPE --export-id=thumbnail-light${theme} --export-id-only --export-filename=thumbnail-light${theme}.png $SRC_FILE >/dev/null
-  $OPTIPNG -o7 --quiet thumbnail-light${theme}.png 
+  for light in 'light' 'dark'; do
+    obj="thumbnail-${light}${theme}"
 
-  echo Rendering thumbnail-dark${theme}.png
-  $INKSCAPE --export-id=thumbnail-dark${theme} --export-id-only --export-filename=thumbnail-dark${theme}.png $SRC_FILE >/dev/null
-  $OPTIPNG -o7 --quiet thumbnail-dark${theme}.png 
+    echo Rendering "$obj.png"
+    $INKSCAPE --export-id=$obj --export-id-only --export-filename=$obj.png $SRC_FILE >/dev/null
+    $OPTIPNG -o7 --quiet $obj.png
+  done
 done
 
 exit 0
