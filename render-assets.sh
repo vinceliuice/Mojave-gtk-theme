@@ -120,6 +120,48 @@ echo Rendering gtk-3.0 / gtk-4.0 assets
 cd "$ASRC_DIR/gtk/common-assets" && ./render-assets.sh
 cd "$ASRC_DIR/gtk/windows-assets" && ./render-assets.sh && ./render-alt-assets.sh
 
+for f in '_common-3.0.scss' '_common-4.0.scss'
+do
+  [ "$SCALE_FACTORS" = 2 ] && break # Do nothing for default 2x only factor
+
+  cd "${REPO_DIR}/src/sass/gtk"
+  [ -f "$f.orig" ] || cp "$f"{,.orig} || {
+    echo "error: Can't backup '$f', skiping"
+    continue
+  }
+  pcregrep -o -e 'url\("((?!url).)*@2.png\"\)' "$f.orig" | sort -u |
+  awk -v_scales="$SCALE_FACTORS" '
+    BEGIN { working = 0; split(_scales, scales, " "); }
+
+    working == 0 {
+      acc = ""
+      for (i in scales)
+      {
+        s = $0
+        sub( /@2.png")$/, "@"( scales[ i])".png\")", s )
+        if (i>1)
+          acc = acc ", "
+        acc = acc s
+      }
+      _table[ $0] = acc
+    }
+    working == 1 {
+      line = $0
+      for (k in _table)
+        if (( p = index( line, k) ))
+        {
+          l = length( k)
+          printf substr( line, 1, p-1)
+          printf _table[ k]
+          printf substr( line, p+l)
+          next
+        }
+      print line
+    }
+
+    ENDFILE { working = 1 }' - "$f.orig" > "$f"
+done
+
 echo
 echo Rendering metacity-1 assets
 cd "$ASRC_DIR/metacity-1" && ./render-assets.sh
