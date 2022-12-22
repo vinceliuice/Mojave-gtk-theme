@@ -97,6 +97,8 @@ echo
 echo "BUILD_THREADS = ${BUILD_THREADS}"
 echo "SCALE_FACTORS = ${SCALE_FACTORS}"
 echo "XFWM4_SCALE_FACTOR = ${XFWM4_SCALE_FACTOR}"
+echo
+echo 'Waiting 3 seconds...' && sleep 3
 
 echo
 for color in '-Light' '-Dark' ; do
