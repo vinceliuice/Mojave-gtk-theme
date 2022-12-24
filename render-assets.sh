@@ -9,12 +9,12 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 ASRC_DIR="${REPO_DIR}/src/assets"
 
 # import environment variables with care
-from_env() {
-  eval "
-  if ! [ -v $1 ]; then
-    $1='$2'
-  fi
-  export $1"
+empty_if_unset() {
+  for name in "$@"; do
+    eval "if ! [ -v $name ]; then
+            export $name=
+          fi"
+  done
 }
 
 # check command avalibility
@@ -64,9 +64,28 @@ render_thumbnail() {
   "$OPTIPNG" -o7 --quiet "$out" &
 }
 
-from_env BUILD_THREADS 1
-from_env SCALE_FACTORS "2" # Space separated list
-from_env XFWM4_SCALE_FACTOR 1
+# Configuration loading
+# Prefer existing values if defined (not empty)
+
+empty_if_unset BUILD_THREADS SCALE_FACTORS XFWM4_SCALE_FACTOR
+
+eval $( awk -F= '
+  BEGIN { stage=0; arr[0]=0; delete arr[0] }
+  stage == 0 {
+    if ($2 != "")
+      arr[ $1]=$2
+  }
+  stage == 1 {
+    name = substr( $1, length( "export ") + 1)
+    print $1 "=" (arr[ name] != "" ? "\"" arr[ name] "\"" : $2);
+  }
+  ENDFILE { stage=1 }
+' - config.sh <<- eof
+BUILD_THREADS=$BUILD_THREADS
+SCALE_FACTORS=$SCALE_FACTORS
+XFWM4_SCALE_FACTOR=$XFWM4_SCALE_FACTOR
+eof
+)
 
 BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
 XFWM4_SCALE_FACTOR=$(( XFWM4_SCALE_FACTOR >= 1 ? XFWM4_SCALE_FACTOR : 1 ))
@@ -92,13 +111,19 @@ export SCALE_FACTORS=$( awk '
       printf " "a[i]
   }' <<< "$SCALE_FACTORS" )
 
-echo "Render configuration:"
+echo "Assets configuration environment variables:"
 echo
 echo "BUILD_THREADS = ${BUILD_THREADS}"
-echo "SCALE_FACTORS = ${SCALE_FACTORS}"
+echo "SCALE_FACTORS = '${SCALE_FACTORS}'"
 echo "XFWM4_SCALE_FACTOR = ${XFWM4_SCALE_FACTOR}"
 echo
 echo 'Waiting 3 seconds...' && sleep 3
+
+cat > config.sh <<- eof
+export BUILD_THREADS="${BUILD_THREADS}"
+export SCALE_FACTORS="${SCALE_FACTORS}"
+export XFWM4_SCALE_FACTOR="${XFWM4_SCALE_FACTOR}"
+eof
 
 echo
 for color in '-Light' '-Dark' ; do
@@ -121,48 +146,6 @@ echo
 echo Rendering gtk-3.0 / gtk-4.0 assets
 cd "$ASRC_DIR/gtk/common-assets" && ./render-assets.sh
 cd "$ASRC_DIR/gtk/windows-assets" && ./render-assets.sh && ./render-alt-assets.sh
-
-for f in '_common-3.0.scss' '_common-4.0.scss'
-do
-  [ "$SCALE_FACTORS" = 2 ] && break # Do nothing for default 2x only factor
-
-  cd "${REPO_DIR}/src/sass/gtk"
-  [ -f "$f.orig" ] || cp "$f"{,.orig} || {
-    echo "error: Can't backup '$f', skiping"
-    continue
-  }
-  pcregrep -o -e 'url\("((?!url).)*@2.png\"\)' "$f.orig" | sort -u |
-  awk -v_scales="$SCALE_FACTORS" '
-    BEGIN { working = 0; split(_scales, scales, " "); }
-
-    working == 0 {
-      acc = ""
-      for (i in scales)
-      {
-        s = $0
-        sub( /@2.png")$/, "@"( scales[ i])".png\")", s )
-        if (i>1)
-          acc = acc ", "
-        acc = acc s
-      }
-      _table[ $0] = acc
-    }
-    working == 1 {
-      line = $0
-      for (k in _table)
-        if (( p = index( line, k) ))
-        {
-          l = length( k)
-          printf substr( line, 1, p-1)
-          printf _table[ k]
-          printf substr( line, p+l)
-          next
-        }
-      print line
-    }
-
-    ENDFILE { working = 1 }' - "$f.orig" > "$f"
-done
 
 echo
 echo Rendering metacity-1 assets
