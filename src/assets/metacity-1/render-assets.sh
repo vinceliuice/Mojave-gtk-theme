@@ -26,6 +26,8 @@ do
     $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png &
 done
 
+wait
+
 # links
 cd $ASSETS_DIR
 ln -s close.png close_focused.png

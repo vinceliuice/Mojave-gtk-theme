@@ -28,6 +28,8 @@ do
     $OPTIPNG -o7 --quiet "$file" &
 done
 
+wait
+
 # links
 cd $ASSETS_DIR
 ln -s close.png close_focused_normal.png
@@ -43,5 +45,4 @@ ln -s unmaximize.png unmaximize_focused_normal.png
 ln -s unmaximize_focused_prelight.png unmaximize_unfocused_prelight.png
 ln -s unmaximize_focused_pressed.png unmaximize_unfocused_pressed.png
 
-wait
 exit 0
