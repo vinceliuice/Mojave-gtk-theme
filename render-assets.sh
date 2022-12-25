@@ -67,7 +67,7 @@ render_thumbnail() {
 # Configuration loading
 # Prefer existing values if defined (not empty)
 
-empty_if_unset BUILD_THREADS SCALE_FACTORS XFWM4_SCALE_FACTOR
+empty_if_unset BUILD_THREADS MAX_SCALE_FACTOR XFWM4_SCALE_FACTOR
 
 eval $( awk -F= '
   BEGIN { stage=0; arr[0]=0; delete arr[0] }
@@ -82,48 +82,32 @@ eval $( awk -F= '
   ENDFILE { stage=1 }
 ' - config.sh <<- eof
 BUILD_THREADS=$BUILD_THREADS
-SCALE_FACTORS=$SCALE_FACTORS
+MAX_SCALE_FACTOR=$MAX_SCALE_FACTOR
 XFWM4_SCALE_FACTOR=$XFWM4_SCALE_FACTOR
 eof
 )
 
-BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
-XFWM4_SCALE_FACTOR=$(( XFWM4_SCALE_FACTOR >= 1 ? XFWM4_SCALE_FACTOR : 1 ))
-
-# Sort scales list, discard essential scale 1 and duplicates, but require at least one (default to 2)
-export SCALE_FACTORS=$( awk '
-  function cmp( i1, v1, i2, v2) { return i1-i2 }
-  { a[""]=""; delete a[""]
-    for (i=1; i <= NF; i++)
-    {
-      n = int( $(i) )
-      if (n > 1 && !( n in a))
-        a[ n]=""
-    }
-    if (length( a) == 0)
-    {
-      print 2
-      exit
-    }
-    asorti( a, a, "cmp")
-    printf a[1]
-    for (i=2; i <= length(a); i++)
-      printf " "a[i]
-  }' <<< "$SCALE_FACTORS" )
+export BUILD_THREADS=$(( BUILD_THREADS >= 1 ? BUILD_THREADS : 1 ))
+export MAX_SCALE_FACTOR=$(( MAX_SCALE_FACTOR > 2 ? MAX_SCALE_FACTOR : 2 ))
+export XFWM4_SCALE_FACTOR=$(( XFWM4_SCALE_FACTOR >= 1 ? XFWM4_SCALE_FACTOR : 1 ))
 
 echo "Assets configuration environment variables:"
 echo
 echo "BUILD_THREADS = ${BUILD_THREADS}"
-echo "SCALE_FACTORS = '${SCALE_FACTORS}'"
+echo "MAX_SCALE_FACTOR = '${MAX_SCALE_FACTOR}'"
 echo "XFWM4_SCALE_FACTOR = ${XFWM4_SCALE_FACTOR}"
 echo
 echo 'Waiting 3 seconds...' && sleep 3
 
 cat > config.sh <<- eof
 export BUILD_THREADS="${BUILD_THREADS}"
-export SCALE_FACTORS="${SCALE_FACTORS}"
+export MAX_SCALE_FACTOR="${MAX_SCALE_FACTOR}"
 export XFWM4_SCALE_FACTOR="${XFWM4_SCALE_FACTOR}"
 eof
+
+# Can't skip lower factors if MAX_SCALE_FACTOR > 2
+# -gtk-scaled seems to get it from positional information instead of image size.
+export SCALE_FACTORS=$( seq -s' ' 2 $MAX_SCALE_FACTOR )
 
 echo
 for color in '-Light' '-Dark' ; do

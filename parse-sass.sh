@@ -23,12 +23,7 @@ if [ ! "$(which sassc 2> /dev/null)" ]; then
 fi
 
 # Pass configuration to scss
-awk '{
-  printf "$SCALE_FACTORS: " $1
-  for (i=2; i<=NF; i++)
-    printf ", " $(i)
-  print ";"
-}' <<< "$SCALE_FACTORS" > './src/sass/_config.scss'
+echo '$MAX_SCALE_FACTOR: '"$MAX_SCALE_FACTOR;" > './src/sass/_config.scss'
 
 SASSC_OPT="-M -t expanded"
 
