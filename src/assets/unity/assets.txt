@@ -1,0 +1,16 @@
+minimize
+minimize_unfocused
+minimize_focused_prelight
+minimize_focused_pressed
+maximize
+maximize_unfocused
+maximize_focused_prelight
+maximize_focused_pressed
+unmaximize
+unmaximize_unfocused
+unmaximize_focused_prelight
+unmaximize_focused_pressed
+close
+close_unfocused
+close_focused_prelight
+close_focused_pressed

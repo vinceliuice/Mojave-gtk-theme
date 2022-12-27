@@ -14,15 +14,19 @@ echo '  <gresource prefix="/org/gnome/theme">' >> gtk.gresource.xml
 for i in `cat $INDEX`
 do
   echo "    <file>assets/$i.png</file>" >> gtk.gresource.xml
-  echo "    <file>assets/$i@2.png</file>" >> gtk.gresource.xml
+  for scale in $SCALE_FACTORS; do
+    echo "    <file>assets/$i@${scale}.png</file>" >> gtk.gresource.xml
+  done
 done
 
 for i in `cat $WINDEX`
 do
   echo "    <file>windows-assets/$i.png</file>" >> gtk.gresource.xml
-  echo "    <file>windows-assets/$i@2.png</file>" >> gtk.gresource.xml
   echo "    <file>windows-assets/$i-dark.png</file>" >> gtk.gresource.xml
-  echo "    <file>windows-assets/$i-dark@2.png</file>" >> gtk.gresource.xml
+  for scale in $SCALE_FACTORS; do
+    echo "    <file>windows-assets/$i@${scale}.png</file>" >> gtk.gresource.xml
+    echo "    <file>windows-assets/$i-dark@${scale}.png</file>" >> gtk.gresource.xml
+  done
 done
 
 echo "    <file>gtk.css</file>" >> gtk.gresource.xml

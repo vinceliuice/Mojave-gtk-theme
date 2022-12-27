@@ -1,0 +1,9 @@
+@import 'config.scss';
+
+@function -gtk-scaled-with-factors( $base, $ext: "png") {
+  $args: 'url("#{$base}.#{$ext}")';
+  @for $scale from 2 through $MAX_SCALE_FACTOR {
+    $args: $args + ', url("#{$base}@#{$scale}.#{$ext}")';
+  }
+  @return unquote( '-gtk-scaled(#{$args})');
+}
