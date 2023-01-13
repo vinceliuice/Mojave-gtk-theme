@@ -22,7 +22,7 @@ OPACITY_VARIANTS=('' '-solid')
 ALT_VARIANTS=('' '-alt')
 SMALL_VARIANTS=('' '-small')
 THEME_VARIANTS=('' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey')
-ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void')
+ICON_VARIANTS=('' '-normal' '-gnome' '-ubuntu' '-arch' '-manjaro' '-fedora' '-debian' '-void' '-nixos')
 
 # COLORS
 CDEF=" \033[0m"                                     # default color
@@ -63,7 +63,7 @@ usage() {
   printf "  %-25s%s\n" "-a, --alt VARIANTS" "Specify theme titilebutton variant(s) [standard|alt] (Default: All variants)"
   printf "  %-25s%s\n" "-s, --small VARIANTS" "Specify theme titilebutton size variant(s) [standard|small] (Default: All variants)"
   printf "  %-25s%s\n" "-t, --theme VARIANTS" "Specify primary theme color [blue|purple|pink|red|orange|yellow|green|grey|all] (Default: MacOS blue)"
-  printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian|void] (Default: standard variant)"
+  printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian|void|nixos] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-r, --revert" "revert GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
@@ -572,6 +572,10 @@ while [[ $# -gt 0 ]]; do
             ;;
           void)
             icons+=("${ICON_VARIANTS[8]}")
+            shift
+            ;;
+          nixos)
+            icons+=("${ICON_VARIANTS[9]}")
             shift
             ;;
           -*|--*)
