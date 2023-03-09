@@ -14,56 +14,25 @@ for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-
   mkdir -p $ASSETS_DIR
 
   if [[ ${theme} == '' ]]; then
-    for i in `cat $INDEX`; do
-      if [ -f $ASSETS_DIR/$i.png ]; then
-        echo $ASSETS_DIR/$i.png exists.
-      else
-        echo
-        echo Rendering $ASSETS_DIR/$i.png
-        $INKSCAPE --export-id=$i \
-                  --export-id-only \
-                  --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-        $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
-    fi
-
-    if [ -f $ASSETS_DIR/$i@2.png ]; then
-      echo $ASSETS_DIR/$i@2.png exists.
-    else
-      echo
-      echo Rendering $ASSETS_DIR/$i@2.png
-      $INKSCAPE --export-id=$i \
-                --export-dpi=192 \
-                --export-id-only \
-                --export-filename=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null
-      $OPTIPNG -o7 --quiet $ASSETS_DIR/$i@2.png 
-    fi
-    done
+    INDEX_FILE="$INDEX"
   else
-    for i in `cat $INDEX_T`; do
-      if [ -f $ASSETS_DIR/$i.png ]; then
-        echo $ASSETS_DIR/$i.png exists.
-      else
-        echo
-        echo Rendering $ASSETS_DIR/$i.png
-        $INKSCAPE --export-id=$i \
-                  --export-id-only \
-                  --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-        $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
-      fi
-
-      if [ -f $ASSETS_DIR/$i@2.png ]; then
-        echo $ASSETS_DIR/$i@2.png exists.
-      else
-        echo
-        echo Rendering $ASSETS_DIR/$i@2.png
-        $INKSCAPE --export-id=$i \
-                  --export-dpi=192 \
-                  --export-id-only \
-                  --export-filename=$ASSETS_DIR/$i@2.png $SRC_FILE >/dev/null
-        $OPTIPNG -o7 --quiet $ASSETS_DIR/$i@2.png 
-      fi
-    done
+    INDEX_FILE="$INDEX_T"
   fi
+
+  for i in `cat $INDEX_FILE`; do
+    for scale in 1 $SCALE_FACTORS; do
+      file="$ASSETS_DIR/$i$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
+
+      if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
+      echo Rendering "$file"
+      $INKSCAPE --export-id=$i \
+                --export-dpi=$((96 * scale)) \
+                --export-id-only \
+                --export-filename="$file" $SRC_FILE >/dev/null 2>&1 &&
+      $OPTIPNG -o7 --quiet "$file" &
+    done
+  done
 done
 
+wait
 exit 0

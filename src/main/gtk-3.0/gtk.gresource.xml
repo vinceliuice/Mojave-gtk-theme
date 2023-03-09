@@ -134,84 +134,84 @@
     <file>assets/header-entry-disabled.png</file>
     <file>assets/header-entry-disabled@2.png</file>
     <file>windows-assets/titlebutton-close.png</file>
-    <file>windows-assets/titlebutton-close@2.png</file>
     <file>windows-assets/titlebutton-close-dark.png</file>
+    <file>windows-assets/titlebutton-close@2.png</file>
     <file>windows-assets/titlebutton-close-dark@2.png</file>
     <file>windows-assets/titlebutton-close-backdrop.png</file>
-    <file>windows-assets/titlebutton-close-backdrop@2.png</file>
     <file>windows-assets/titlebutton-close-backdrop-dark.png</file>
+    <file>windows-assets/titlebutton-close-backdrop@2.png</file>
     <file>windows-assets/titlebutton-close-backdrop-dark@2.png</file>
     <file>windows-assets/titlebutton-close-backdrop-hover.png</file>
-    <file>windows-assets/titlebutton-close-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-close-backdrop-hover-dark.png</file>
+    <file>windows-assets/titlebutton-close-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-close-backdrop-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-close-hover.png</file>
-    <file>windows-assets/titlebutton-close-hover@2.png</file>
     <file>windows-assets/titlebutton-close-hover-dark.png</file>
+    <file>windows-assets/titlebutton-close-hover@2.png</file>
     <file>windows-assets/titlebutton-close-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-close-active.png</file>
-    <file>windows-assets/titlebutton-close-active@2.png</file>
     <file>windows-assets/titlebutton-close-active-dark.png</file>
+    <file>windows-assets/titlebutton-close-active@2.png</file>
     <file>windows-assets/titlebutton-close-active-dark@2.png</file>
     <file>windows-assets/titlebutton-maximize.png</file>
-    <file>windows-assets/titlebutton-maximize@2.png</file>
     <file>windows-assets/titlebutton-maximize-dark.png</file>
+    <file>windows-assets/titlebutton-maximize@2.png</file>
     <file>windows-assets/titlebutton-maximize-dark@2.png</file>
     <file>windows-assets/titlebutton-maximize-backdrop.png</file>
-    <file>windows-assets/titlebutton-maximize-backdrop@2.png</file>
     <file>windows-assets/titlebutton-maximize-backdrop-dark.png</file>
+    <file>windows-assets/titlebutton-maximize-backdrop@2.png</file>
     <file>windows-assets/titlebutton-maximize-backdrop-dark@2.png</file>
     <file>windows-assets/titlebutton-maximize-backdrop-hover.png</file>
-    <file>windows-assets/titlebutton-maximize-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-maximize-backdrop-hover-dark.png</file>
+    <file>windows-assets/titlebutton-maximize-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-maximize-backdrop-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-maximize-hover.png</file>
-    <file>windows-assets/titlebutton-maximize-hover@2.png</file>
     <file>windows-assets/titlebutton-maximize-hover-dark.png</file>
+    <file>windows-assets/titlebutton-maximize-hover@2.png</file>
     <file>windows-assets/titlebutton-maximize-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-maximize-active.png</file>
-    <file>windows-assets/titlebutton-maximize-active@2.png</file>
     <file>windows-assets/titlebutton-maximize-active-dark.png</file>
+    <file>windows-assets/titlebutton-maximize-active@2.png</file>
     <file>windows-assets/titlebutton-maximize-active-dark@2.png</file>
     <file>windows-assets/titlebutton-minimize.png</file>
-    <file>windows-assets/titlebutton-minimize@2.png</file>
     <file>windows-assets/titlebutton-minimize-dark.png</file>
+    <file>windows-assets/titlebutton-minimize@2.png</file>
     <file>windows-assets/titlebutton-minimize-dark@2.png</file>
     <file>windows-assets/titlebutton-minimize-backdrop.png</file>
-    <file>windows-assets/titlebutton-minimize-backdrop@2.png</file>
     <file>windows-assets/titlebutton-minimize-backdrop-dark.png</file>
+    <file>windows-assets/titlebutton-minimize-backdrop@2.png</file>
     <file>windows-assets/titlebutton-minimize-backdrop-dark@2.png</file>
     <file>windows-assets/titlebutton-minimize-backdrop-hover.png</file>
-    <file>windows-assets/titlebutton-minimize-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-minimize-backdrop-hover-dark.png</file>
+    <file>windows-assets/titlebutton-minimize-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-minimize-backdrop-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-minimize-hover.png</file>
-    <file>windows-assets/titlebutton-minimize-hover@2.png</file>
     <file>windows-assets/titlebutton-minimize-hover-dark.png</file>
+    <file>windows-assets/titlebutton-minimize-hover@2.png</file>
     <file>windows-assets/titlebutton-minimize-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-minimize-active.png</file>
-    <file>windows-assets/titlebutton-minimize-active@2.png</file>
     <file>windows-assets/titlebutton-minimize-active-dark.png</file>
+    <file>windows-assets/titlebutton-minimize-active@2.png</file>
     <file>windows-assets/titlebutton-minimize-active-dark@2.png</file>
     <file>windows-assets/titlebutton-restore.png</file>
-    <file>windows-assets/titlebutton-restore@2.png</file>
     <file>windows-assets/titlebutton-restore-dark.png</file>
+    <file>windows-assets/titlebutton-restore@2.png</file>
     <file>windows-assets/titlebutton-restore-dark@2.png</file>
     <file>windows-assets/titlebutton-restore-backdrop.png</file>
-    <file>windows-assets/titlebutton-restore-backdrop@2.png</file>
     <file>windows-assets/titlebutton-restore-backdrop-dark.png</file>
+    <file>windows-assets/titlebutton-restore-backdrop@2.png</file>
     <file>windows-assets/titlebutton-restore-backdrop-dark@2.png</file>
     <file>windows-assets/titlebutton-restore-backdrop-hover.png</file>
-    <file>windows-assets/titlebutton-restore-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-restore-backdrop-hover-dark.png</file>
+    <file>windows-assets/titlebutton-restore-backdrop-hover@2.png</file>
     <file>windows-assets/titlebutton-restore-backdrop-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-restore-hover.png</file>
-    <file>windows-assets/titlebutton-restore-hover@2.png</file>
     <file>windows-assets/titlebutton-restore-hover-dark.png</file>
+    <file>windows-assets/titlebutton-restore-hover@2.png</file>
     <file>windows-assets/titlebutton-restore-hover-dark@2.png</file>
     <file>windows-assets/titlebutton-restore-active.png</file>
-    <file>windows-assets/titlebutton-restore-active@2.png</file>
     <file>windows-assets/titlebutton-restore-active-dark.png</file>
+    <file>windows-assets/titlebutton-restore-active@2.png</file>
     <file>windows-assets/titlebutton-restore-active-dark@2.png</file>
     <file>gtk.css</file>
     <file>gtk-dark.css</file>

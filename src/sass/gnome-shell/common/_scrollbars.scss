@@ -6,9 +6,7 @@ StScrollView {
 }
 
 StScrollBar {
-  .popup-menu & {
-    margin: 0 $base_padding * 2;
-  }
+  margin: $base_padding;
 
   StScrollView & {
     min-width: 8px;
@@ -24,6 +22,7 @@ StScrollBar {
     border-radius: 8px;
     background-color: $hint_fg_color;
     transition: 500ms all ease;
+    border: 4px solid transparent; //would be nice to margin or at least to transparent
 
     &:hover { background-color: $alt_fg_color; }
     &:active { background-color: $fg_color; }

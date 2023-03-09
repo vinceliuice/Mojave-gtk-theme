@@ -2897,8 +2897,8 @@ StScrollView.hfade {
   -st-hfade-offset: 64px;
 }
 
-.popup-menu StScrollBar {
-  margin: 0 12px;
+StScrollBar {
+  margin: 6px;
 }
 
 StScrollView StScrollBar {
@@ -2915,6 +2915,7 @@ StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
   border-radius: 8px;
   background-color: #999999;
   transition: 500ms all ease;
+  border: 4px solid transparent;
 }
 
 StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {

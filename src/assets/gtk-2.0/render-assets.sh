@@ -6,7 +6,7 @@ OPTIPNG="/usr/bin/optipng"
 INDEX="assets.txt"
 INDEX_T="theme_assets.txt"
 
-for color in '-light' '-dark'; do
+for color in '-Light' '-Dark'; do
   for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey'; do
     ASSETS_DIR="assets${color}${theme}"
     SRC_FILE="assets${color}${theme}.svg"
@@ -15,33 +15,22 @@ for color in '-light' '-dark'; do
     mkdir -p $ASSETS_DIR
 
     if [[ ${theme} == '' ]]; then
-      for i in `cat $INDEX`; do
-        if [ -f $ASSETS_DIR/$i.png ]; then
-          echo $ASSETS_DIR/$i.png exists.
-        else
-          echo
-          echo Rendering $ASSETS_DIR/$i.png
-          $INKSCAPE --export-id=$i \
-                    --export-id-only \
-                    --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-          $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
-      fi
-      done
+      INDEX_FILE="$INDEX"
     else
-      for i in `cat $INDEX_T`; do
-        if [ -f $ASSETS_DIR/$i.png ]; then
-          echo $ASSETS_DIR/$i.png exists.
-        else
-          echo
-          echo Rendering $ASSETS_DIR/$i.png
-          $INKSCAPE --export-id=$i \
-                    --export-id-only \
-                    --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null
-          $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png 
-        fi
-      done
+      INDEX_FILE="$INDEX_T"
     fi
+
+    for i in `cat $INDEX_FILE`; do
+      if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
+      echo Rendering $ASSETS_DIR/$i.png
+
+      $INKSCAPE --export-id=$i \
+                --export-id-only \
+                --export-filename=$ASSETS_DIR/$i.png $SRC_FILE >/dev/null 2>&1 &&
+      $OPTIPNG -o7 --quiet $ASSETS_DIR/$i.png &
+    done
   done
 done
 
+wait
 exit 0

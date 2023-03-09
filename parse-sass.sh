@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+. config.sh
+
 # Check command availability
 function has_command() {
   command -v $1 > /dev/null
@@ -19,6 +21,9 @@ if [ ! "$(which sassc 2> /dev/null)" ]; then
     sudo pacman -S --noconfirm sassc
   fi
 fi
+
+# Pass configuration to scss
+echo '$MAX_SCALE_FACTOR: '"$MAX_SCALE_FACTOR;" > './src/sass/_config.scss'
 
 SASSC_OPT="-M -t expanded"
 

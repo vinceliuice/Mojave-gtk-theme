@@ -1,0 +1,3 @@
+export BUILD_THREADS="2"
+export MAX_SCALE_FACTOR="2"
+export XFWM4_SCALE_FACTOR="1"

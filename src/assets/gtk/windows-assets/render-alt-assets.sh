@@ -12,39 +12,29 @@ has_command() {
   "$1" -v $1 > /dev/null 2>&1
 }
 
+rm -rf "$ASSETS_DIR"
 mkdir -p $ASSETS_DIR
 
 for i in `cat $INDEX` ; do
-for d in '' '-dark' ; do
+  for d in '' '-dark' ; do
 
 ## alt titlebutton
-if [ -f $ASSETS_DIR/$i$d.png ]; then
-    echo $ASSETS_DIR/$i$d.png exists.
-else
-    echo
-    echo Rendering $ASSETS_DIR/$i$d.png
 
-    $INKSCAPE --export-id=$i-alt$d \
-              --export-id-only \
-              --export-filename=$ASSETS_DIR/$i$d.png $SRC_FILE  >/dev/null
+for scale in 1 $SCALE_FACTORS; do
+    file="$ASSETS_DIR/$i$d$( [ $scale -gt 1 ] && echo "@${scale}" ).png"
 
-    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i$d.png
-fi
+    if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
+    echo Rendering "$file"
 
-if [ -f $ASSETS_DIR/$i$d@2.png ]; then
-    echo $ASSETS_DIR/$i$d@2.png exists.
-else
-    echo
-    echo Rendering $ASSETS_DIR/$i$d@2.png
-
-    $INKSCAPE --export-id=$i-alt$d \
-              --export-dpi=180 \
-              --export-id-only \
-              --export-filename=$ASSETS_DIR/$i$d@2.png $SRC_FILE >/dev/null
-
-    $OPTIPNG -o7 --quiet $ASSETS_DIR/$i$d@2.png
-fi
-
+      $INKSCAPE --export-id=$i-alt$d \
+                --export-dpi=$((96 * scale)) \
+                --export-id-only \
+                --export-filename="$file" $SRC_FILE >/dev/null 2>&1 &&
+    $OPTIPNG -o7 --quiet "$file" &
 done
+
+  done
 done
+
+wait
 exit 0

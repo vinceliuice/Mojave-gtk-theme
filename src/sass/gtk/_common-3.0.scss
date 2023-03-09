@@ -1,3 +1,4 @@
+@import "../config-helpers";
 
 * {
   padding: 0;
@@ -367,7 +368,7 @@ entry {
   border-image-width: 6px 6px 6px 6px;
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
-  border-image-source: -gtk-scaled(url("assets/entry#{$asset_suffix}.png"),url("assets/entry#{$asset_suffix}@2.png"));
+  border-image-source: -gtk-scaled-with-factors("assets/entry#{$asset_suffix}");
 
   image { // icons inside the entry
     color: mix($fg_color, $base_color, 80%);
@@ -389,13 +390,13 @@ entry {
     @include entry(focus);
     border-radius: 7px;
     transition: border-image 200ms ease-out, box-shadow 200ms ease-out;
-    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
+    border-image-source: -gtk-scaled-with-factors("assets/entry-focus#{$asset_suffix}");
   }
 
   &:disabled {
     @include entry(insensitive);
     border-radius: 7px;
-    border-image-source: -gtk-scaled(url("assets/entry-disabled#{$asset_suffix}.png"),url("assets/entry-disabled#{$asset_suffix}@2.png"));
+    border-image-source: -gtk-scaled-with-factors("assets/entry-disabled#{$asset_suffix}");
   }
 
   row &
@@ -1252,9 +1253,7 @@ combobox {
 
   .background & button.combo arrow {
     @include button(active);
-    -gtk-icon-source: -gtk-scaled(
-                       url("assets/combobox-arrow-dark.png"),
-                       url("assets/combobox-arrow-dark@2.png"));
+    -gtk-icon-source: -gtk-scaled-with-factors("assets/combobox-arrow-dark");
     min-height: 16px;
     min-width: 16px;
     padding: 0;
@@ -1280,9 +1279,7 @@ combobox {
       border: none;
       background: none;
       box-shadow: none;
-      -gtk-icon-source: -gtk-scaled(
-                         url("assets/combobox-arrow#{$asset_suffix}.png"),
-                         url("assets/combobox-arrow#{$asset_suffix}@2.png"));
+      -gtk-icon-source: -gtk-scaled-with-factors("assets/combobox-arrow#{$asset_suffix}");
     }
 
     &:dir(ltr),
@@ -1296,9 +1293,7 @@ combobox {
   .linked:not(.vertical) > & > box > button.combo:checked {
     arrow {
       background-color: transparent;
-      -gtk-icon-source: -gtk-scaled(
-                         url("assets/combobox-arrow-dark.png"),
-                         url("assets/combobox-arrow-dark@2.png"));
+      -gtk-icon-source: -gtk-scaled-with-factors("assets/combobox-arrow-dark");
     }
   }
 
@@ -1509,7 +1504,7 @@ actionbar > revealer > box {
   border-image-slice: 6 6 6 6;
   border-image-repeat: stretch;
   background-clip: padding-box;
-  border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
+  border-image-source: -gtk-scaled-with-factors("assets/header-entry");
 
   &:backdrop {
     opacity: 0.65;
@@ -1521,14 +1516,14 @@ actionbar > revealer > box {
     @include entry(header-focus);
     box-shadow: none;
     border-radius: 7px;
-    border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
+    border-image-source: -gtk-scaled-with-factors("assets/entry-focus#{$asset_suffix}");
   }
 
   &:disabled {
     @include entry(header-insensitive);
     border-radius: 7px;
     border: 3px solid transparent;
-    border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
+    border-image-source: -gtk-scaled-with-factors("assets/header-entry-disabled");
   }
 }
 
@@ -1621,7 +1616,7 @@ headerbar {
     border-image-slice: 6 6 6 6;
     border-image-repeat: stretch;
     background-clip: padding-box;
-    border-image-source: -gtk-scaled(url("assets/header-entry.png"),url("assets/header-entry@2.png"));
+    border-image-source: -gtk-scaled-with-factors("assets/header-entry");
 
     &:backdrop { opacity: 0.65; background-image: none; }
 
@@ -1629,14 +1624,14 @@ headerbar {
       @include entry(header-focus);
       box-shadow: none;
       border-radius: 7px;
-      border-image-source: -gtk-scaled(url("assets/entry-focus#{$asset_suffix}.png"),url("assets/entry-focus#{$asset_suffix}@2.png"));
+      border-image-source: -gtk-scaled-with-factors("assets/entry-focus#{$asset_suffix}");
     }
 
     &:disabled {
       @include entry(header-insensitive);
       border-radius: 7px;
       border: 3px solid transparent;
-      border-image-source: -gtk-scaled(url("assets/header-entry-disabled.png"),url("assets/header-entry-disabled@2.png"));
+      border-image-source: -gtk-scaled-with-factors("assets/header-entry-disabled");
     }
 
     selection:focus {
@@ -1920,8 +1915,7 @@ headerbar {
         &, &:active, &:checked {
           background-color: transparent;
           box-shadow: none;
-          background-image: -gtk-scaled(url("assets/setting-icon#{$con_asset_suffix}.png"),
-                                        url("assets/setting-icon#{$con_asset_suffix}@2.png"));
+          background-image: -gtk-scaled-with-factors("assets/setting-icon#{$con_asset_suffix}");
         }
       }
     }
@@ -2920,15 +2914,13 @@ switch {
     .#{$w}#{$s},
     #{$w}#{$s},
     treeview.#{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}#{$asset_suffix}.png"),
-                                    url("assets/#{$a}#{$as}#{$asset_suffix}@2.png"));
+      -gtk-icon-source: -gtk-scaled-with-factors("assets/#{$a}#{$as}#{$asset_suffix}");
     }
 
     .osd,
     %osd_check_radio {
       #{$w}#{$s} {
-        -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-dark.png"),
-                                      url("assets/#{$a}#{$as}-dark@2.png"));
+        -gtk-icon-source: -gtk-scaled-with-factors("assets/#{$a}#{$as}-dark");
       }
     }
 
@@ -2941,8 +2933,7 @@ switch {
     // treeview.#{$w}#{$s}:selected,
     // row:selected #{$w}#{$s},
     infobar #{$w}#{$s} {
-      -gtk-icon-source: -gtk-scaled(url("assets/#{$a}#{$as}-selected.png"),
-                                    url("assets/#{$a}#{$as}-selected@2.png"));
+      -gtk-icon-source: -gtk-scaled-with-factors("assets/#{$a}#{$as}-selected");
     }
   }
 }
@@ -2951,8 +2942,7 @@ switch {
 @each $s,$as in ('','-selectionmode'),
                   (':checked', '-checked-selectionmode') {
   .view.content-view.check#{$s}:not(list) {
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox#{$as}#{$asset_suffix}.png"),
-                                  url("assets/checkbox#{$as}#{$asset_suffix}@2.png"));
+    -gtk-icon-source: -gtk-scaled-with-factors("assets/checkbox#{$as}#{$asset_suffix}");
     background-color: transparent;
   }
 }
@@ -3217,7 +3207,7 @@ scale {
               border-radius: 0;
 
               background-color: transparent;
-              background-image: -gtk-scaled(url('#{$_scale_asset}.png'), url('#{$_scale_asset}@2.png'));
+              background-image: -gtk-scaled-with-factors('#{$_scale_asset}');
 
               $_scale_slider_bg_pos: bottom;
 
@@ -4318,8 +4308,7 @@ headerbar,
                   background-size 0;
 
       color: transparent;
-      background-image: -gtk-scaled(url("assets/setting#{$asset_suffix}.png"),
-                                    url("assets/setting#{$asset_suffix}@2.png"));
+      background-image: -gtk-scaled-with-factors("assets/setting#{$asset_suffix}");
       background-repeat: no-repeat;
       background-position: center;
 
@@ -4330,13 +4319,11 @@ headerbar,
                     box-shadow 0.3s $ease-out-quad,
                     background-image 0,
                     background-size 0;
-        background-image: -gtk-scaled(url("assets/setting-icon#{$asset_suffix}.png"),
-                                      url("assets/setting-icon#{$asset_suffix}@2.png"));
+        background-image: -gtk-scaled-with-factors("assets/setting-icon#{$asset_suffix}");
       }
 
       &:backdrop {
-        background-image: -gtk-scaled(url("assets/setting-icon#{$con_asset_suffix}.png"),
-                                      url("assets/setting-icon#{$con_asset_suffix}@2.png"));
+        background-image: -gtk-scaled-with-factors("assets/setting-icon#{$con_asset_suffix}");
       }
     }
 
@@ -4362,8 +4349,7 @@ headerbar,
     @each $k in ('close', 'maximize', 'minimize', 'restore') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active'), (':active:hover','-active') {
         &.#{$k}#{$l} {
-          background-image: -gtk-scaled(url('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}.png'),
-                                        url('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}@2.png'));
+          background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}');
         }
       }
     }
@@ -4374,8 +4360,7 @@ headerbar,
     button.titlebutton {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active'), (':active:hover','-active') {
         &.maximize#{$l} {
-          background-image: -gtk-scaled(url('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}.png'),
-                                        url('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}@2.png'));
+          background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}');
         }
       }
     }

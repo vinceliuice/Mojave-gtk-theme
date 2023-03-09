@@ -5,17 +5,18 @@ OPTIPNG="/usr/bin/optipng"
 
 SRC_FILE="thumbnail.svg"
 
+rm -rf thumbnail-{Light,Dark}*.png
+
 for theme in '' '-blue' '-purple' '-pink' '-red' '-orange' '-yellow' '-green' '-grey'; do
-  [[ -f thumbnail-light${theme}.png ]] && rm -rf thumbnail-light${theme}.png
-  echo Rendering thumbnail-light${theme}.png
+  for light in 'Light' 'Dark'; do
+    obj="thumbnail-${light}${theme}"
 
-  $INKSCAPE --export-id=thumbnail-light${theme} --export-id-only --export-filename=thumbnail-light${theme}.png $SRC_FILE >/dev/null
-  $OPTIPNG -o7 --quiet thumbnail-light${theme}.png 
-
-  [[ -f thumbnail-dark${theme}.png ]] && rm -rf thumbnail-dark${theme}.png
-  echo Rendering thumbnail-dark${theme}.png
-  $INKSCAPE --export-id=thumbnail-dark${theme} --export-id-only --export-filename=thumbnail-dark${theme}.png $SRC_FILE >/dev/null
-  $OPTIPNG -o7 --quiet thumbnail-dark${theme}.png 
+    if [ $(jobs -p | wc -l) -ge ${BUILD_THREADS} ]; then wait; fi
+    echo Rendering "$obj.png"
+    $INKSCAPE --export-id=${obj@L} --export-id-only --export-filename=$obj.png $SRC_FILE >/dev/null 2>&1 &&
+    $OPTIPNG -o7 --quiet $obj.png &
+  done
 done
 
+wait
 exit 0
