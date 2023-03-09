@@ -8513,6 +8513,10 @@ window.background:not(.solid-csd) > notebook:not(.frame) > stack {
   box-shadow: none;
 }
 
+#combobox {
+  border-radius: 5px;
+}
+
 widget > box.terminal-titlebar {
   padding: 0 6px;
 }

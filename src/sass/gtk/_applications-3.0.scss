@@ -3316,7 +3316,7 @@ window.background.chromium {
 //
 // Libre-Office
 //
-window.background:not(.solid-csd) {
+window.background:not(.solid-csd):not(.csd) {
   // reserved area at the most-right side of GtkMenuBar
   > grid.horizontal > grid.horizontal {
     background-image: $menubar_bg_image;
@@ -3348,7 +3348,7 @@ window.background:not(.solid-csd) {
   }
 }
 
-window.background:not(.solid-csd) {
+window.background:not(.solid-csd):not(.csd) {
     // for 'Notebookbar' toolbar
   > notebook:not(.frame) {
     border: 0 none transparent; // unset borders
@@ -3359,6 +3359,10 @@ window.background:not(.solid-csd) {
       box-shadow: none;
     }
   }
+}
+
+#combobox {
+  border-radius: $bt_radius;
 }
 
 //
