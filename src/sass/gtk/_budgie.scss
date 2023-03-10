@@ -58,30 +58,6 @@ $raven_padding: 8px;
   &:active { @include button(header-active); }
   &:checked { @include button(header-checked); }
   &:disabled { @include button(header-insensitive); }
-
-  &.flat {
-    @include button(undecorated);
-    &:hover { @include button(flat-hover); }
-    &:checked { @include button(flat-checked); }
-    &:active { @include button(flat-active); }
-    &:disabled { @include button(flat-insensitive); }
-  }
-
-  &.linked {
-    @include button(undecorated);
-    background-color: $menu_bg;
-
-    &:hover {
-      background-color: if($variant =='light', darken($menu_bg, 5%), lighten($menu_bg, 5%));
-    }
-
-    &:active, &:checked {
-      color: $selected_fg_color;
-      background-color: $selected_bg_color;
-    }
-
-    &:disabled { @include button(flat-insensitive); }
-  }
 }
 
 .budgie-container { background-color: transparent; }
@@ -836,31 +812,27 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
   // > stack > box:last-child > stack { margin-top: -6px; }
 
   button {
-    @extend %raven_button;
+    @extend %headerbar_buttons;
     &.image-button { @extend %circular_button; }
   }
 
   stackswitcher { padding: 0 8px 12px 8px; }
-
-  stackswitcher.linked > button { @extend %raven_button; }
 
   .raven-header {
     min-height: 36px;
     padding: 2px;
 
     &:not(.top) {
-      margin-top: -6px; // remove extra spaces, but not perfect :(
-
       button {
-        @extend %raven_button;
-        min-height: 32px;
-        min-width: 32px;
-        margin: 0;
-        padding: 0;
+        @extend %budgie_button;
 
         &.image-button {
           border-radius: $circular_radius;
           -gtk-outline-radius: $circular_radius;
+          min-height: 32px;
+          min-width: 32px;
+          margin: 0;
+          padding: 0;
         }
       }
     }
@@ -910,7 +882,6 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
 
     > box.vertical > box.vertical,
     > box.vertical > widget > box.vertical { // > = 10.7
-      margin: $raven_padding 0; // do not set L/R margins
       border-radius: $raven_radius;
       background-color: $raven_header_bg_color;
       // draw side edges via opaque box-shadows
@@ -919,14 +890,24 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
     }
 
     .raven-header {
-      margin-top: -$raven_padding * 2; // unset parent margin
       border-radius: $raven_radius $raven_radius 0 0;
     }
 
     .raven-background {
-      margin-bottom: -$raven_padding * 2; // unset parent margin
       border-radius: 0 0 $raven_radius $raven_radius;
       background-color: $raven_base_color;
+    }
+
+    > box.vertical > box.vertical {
+      margin: $raven_padding 0; // do not set L/R margins
+
+      .raven-header {
+        margin-top: -$raven_padding * 2; // unset parent margin
+      }
+
+      .raven-background {
+        margin-bottom: -$raven_padding * 2; // unset parent margin
+      }
     }
 
     > box.vertical > box.vertical:last-child,
@@ -1008,8 +989,6 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
       }
     }
   }
-
-  viewport.frame .raven-header { margin-top: -$raven_padding; }
 
   .expander-button {
     border-radius: $circular_radius;

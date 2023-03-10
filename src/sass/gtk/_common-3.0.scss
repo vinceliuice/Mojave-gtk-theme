@@ -3656,16 +3656,7 @@ messagedialog { // Message Dialog styling
       }
 
       &:active, &:checked {
-
-        @if $variant == 'light' {
-          background-image: none;
-          background-color: $selected_bg_color;
-          color: $selected_fg_color;
-        }
-
-        @else {
-          @include button(active);
-        }
+        @include button(header-active);
 
         border-color: $button_borders;
       }
