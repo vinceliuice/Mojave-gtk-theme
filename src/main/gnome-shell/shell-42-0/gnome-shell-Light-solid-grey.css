@@ -831,24 +831,24 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .modal-dialog-linked-button:last-child {
-  color: white;
-  background-color: #8C8C8C;
+  color: white !important;
+  background-color: #8C8C8C !important;
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .modal-dialog-linked-button:hover:last-child {
-  color: white;
-  background-color: #a3a3a3;
+  color: white !important;
+  background-color: #a3a3a3 !important;
 }
 
 .modal-dialog-linked-button:active:last-child {
-  color: white;
-  background-color: #7f7f7f;
+  color: white !important;
+  background-color: #7f7f7f !important;
 }
 
 .modal-dialog-linked-button:insensitive:last-child {
-  background-color: rgba(140, 140, 140, 0.05);
-  color: rgba(140, 140, 140, 0.35);
+  background-color: rgba(140, 140, 140, 0.05) !important;
+  color: rgba(140, 140, 140, 0.35) !important;
 }
 
 .headline {
