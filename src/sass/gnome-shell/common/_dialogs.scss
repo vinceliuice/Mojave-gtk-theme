@@ -11,7 +11,7 @@ $dialog_bg_color: if($variant == 'light', $bg_color, $base_color);
   border-radius: $wm_radius + $base_padding;
   border: solid black;
   border-width: if($variant=='light', 0, 1px);
-  box-shadow: 3px 3px 8px -3px rgba(black, 0.65);
+  box-shadow: 3px 3px 5px -3px rgba(black, 0.25);
 }
 
 %last_dialog_button {
