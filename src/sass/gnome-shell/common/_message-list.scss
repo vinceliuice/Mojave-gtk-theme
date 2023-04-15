@@ -3,7 +3,8 @@
 
 .message-list {
   width: 31.5em;
-  padding: $base_padding 0 0 $base_padding;
+  padding: 0 !important;
+  margin: 0 !important;
   text-shadow: none;
   border: none;
 
@@ -20,7 +21,8 @@
 }
 
 .message-list-sections {
-  margin: 0 0 0 $base_margin * 4; // to account for scrollbar
+  margin: 0 0 0 $base_margin * 2 !important; // to account for scrollbar
+  padding: 2px !important;
 }
 
 .message-list-section,
@@ -51,9 +53,11 @@
 
   // icon container
   .message-icon-bin {
-    margin: 8px 0;
-    padding: 8px 0px 8px 8px;
-    &:rtl { padding: 8px 8px 8px 0px; }
+    padding: $base_padding * 3;
+    margin: 0;
+
+    &:ltr { padding-right: $base_padding; }
+    &:rtl { padding-left: $base_padding; }
 
     // icon size and color
     > StIcon {
@@ -120,10 +124,11 @@
 }
 
 .message-media-control {
-  margin: 16px 4px;
+  margin: 20px $base_margin;
   padding: 8px;
-  border-radius: 100px;
+  border-radius: 1000px;
   color: $alt_fg_color;
+
   &:hover, &:focus { color: $fg_color; background-color: $divider_color; }
   &:active { color: $fg_color; background-color: $track_color; }
   &:insensitive { color: $disabled_fg_color; }
@@ -135,8 +140,10 @@
 // album-art
 .media-message-cover-icon {
   icon-size: 32px !important;
-  margin: 0 0px 0 4px !important;
-  &:rtl { margin: 0 4px 0 0px !important; }
+  margin: 0 !important;
+
+  &:rtl { margin: 0 !important; }
+
   &.fallback {
     icon-size: 16px !important;
     padding: 8px;

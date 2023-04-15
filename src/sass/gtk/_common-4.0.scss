@@ -4521,24 +4521,25 @@ popover.emoji-picker {
 }
 
 .emoji-toolbar {
-  padding: 6px;
-  border-spacing: 6px;
+  padding: 6px 3px;
+  border-spacing: 0;
   border-top: 1px solid $borders_color;
+
+  > flowboxchild {
+    padding: 0;
+  }
 }
 
 // mimic tab style
 button.emoji-section {
-  margin: 3px 1px;
-  padding: 1px 12px;
+  margin: 0 3px;
+  padding: 0 $container_padding * 2;
   border-radius: $bt_radius;
   border: none;
   outline-offset: -2px;
   box-shadow: none;
   transition: none;
   animation: none;
-
-  &:first-child { margin-left: 6px; }
-  &:last-child { margin-right: 6px; }
 }
 
 popover.emoji-picker emoji {
@@ -4573,5 +4574,5 @@ popover.entry-completion > contents {
 }
 
 statusbar {
-  padding: 6px 10px 6px 10px;
+  padding: 6px 10px;
 }

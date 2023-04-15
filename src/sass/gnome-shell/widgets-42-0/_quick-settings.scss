@@ -108,8 +108,8 @@
   background-color: $menu_bg !important;
   color: $text_color !important;
   border-radius: $mn_radius;
-  padding: $base_padding * 2;
-  margin: $base_padding * 2 $base_padding * 2 0;
+  padding: $base_padding * 2 !important;
+  margin: $base_padding * 2 $base_padding * 2 + 2px 0 !important;
 
   .popup-menu-item {
     border-radius: $bt_radius !important;

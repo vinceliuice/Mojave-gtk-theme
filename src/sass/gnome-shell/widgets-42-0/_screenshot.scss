@@ -10,7 +10,6 @@ $screenshot_ui_panel_padding: $base_padding * 3;
 $screenshot_ui_shot_cast_margin: $base_padding * 3;
 $screenshot_ui_panel_border_radius: $base_padding * 5;
 $screenshot_ui_shot_cast_spacing: $base_padding / 2;
-
 $screenshot_ui_button_red: $error_color;
 
 .screenshot-ui-panel {
@@ -21,7 +20,7 @@ $screenshot_ui_button_red: $error_color;
   spacing: $base_padding * 2;
   color: $osd_fg_color;
   background-color: $osd_bg_color;
-  border: 1px solid rgba(black, 0.75);
+  border: 1px solid black;
   box-shadow: 0 3px 8px 0 rgba(black, 0.25);
 }
 

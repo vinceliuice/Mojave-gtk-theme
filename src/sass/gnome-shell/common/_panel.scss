@@ -117,14 +117,26 @@
     // status area icons
     .system-status-icon {
       icon-size: $base_icon_size;
-      padding: $base_padding - 1px;
-      margin: 0 $base_margin;
-    }
-
-    .panel-status-indicators-box .system-status-icon,
-    .panel-status-menu-box .system-status-icon {
+      padding: $base_padding;
       margin: 0;
     }
+
+    .appindicator-trayicons-box { margin: 0 $base_padding; }
+
+    // .panel-status-indicators-box .system-status-icon,
+    // .panel-status-menu-box .system-status-icon {
+    //   margin: 0;
+    // }
+
+    // .panel-status-indicators-box,
+    // .panel-status-menu-box {
+    //   spacing: 0;
+    // }
+  
+    // spacing between power icon and (optional) percentage label
+    // .power-status.panel-status-indicators-box {
+    //   spacing: 0;
+    // }
 
     // app menu icon
     .app-menu-icon {
@@ -135,6 +147,13 @@
     &#panelActivities {
       -natural-hpadding: $base_padding * 3;
     }
+  }
+
+  // Input indicators
+  Gjs_status_keyboard_InputSourceIndicator.panel-button, // Ibus
+  Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button { // Fcitx
+    -natural-hpadding: 8px + $base_padding !important;
+    -minimum-hpadding: 8px + $base_padding !important;
   }
 
   &.unlock-screen,
@@ -153,16 +172,6 @@
         }
       }
     }
-  }
-
-  .panel-status-indicators-box,
-  .panel-status-menu-box {
-    spacing: 2px;
-  }
-
-  // spacing between power icon and (optional) percentage label
-  .power-status.panel-status-indicators-box {
-    spacing: 0;
   }
 
   // indicator for active

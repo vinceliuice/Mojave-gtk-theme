@@ -5641,28 +5641,24 @@ popover.emoji-picker > contents {
 }
 
 .emoji-toolbar {
-  padding: 6px;
-  border-spacing: 6px;
+  padding: 6px 3px;
+  border-spacing: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+.emoji-toolbar > flowboxchild {
+  padding: 0;
+}
+
 button.emoji-section {
-  margin: 3px 1px;
-  padding: 1px 12px;
+  margin: 0 3px;
+  padding: 0 12px;
   border-radius: 5px;
   border: none;
   outline-offset: -2px;
   box-shadow: none;
   transition: none;
   animation: none;
-}
-
-button.emoji-section:first-child {
-  margin-left: 6px;
-}
-
-button.emoji-section:last-child {
-  margin-right: 6px;
 }
 
 popover.emoji-picker emoji {
@@ -5692,7 +5688,7 @@ popover.entry-completion > contents {
 }
 
 statusbar {
-  padding: 6px 10px 6px 10px;
+  padding: 6px 10px;
 }
 
 avatar {

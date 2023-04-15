@@ -23,28 +23,20 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   }
 }
 
-.clock-display-box {
-  spacing: 2px;
-
-  .clock {
-    padding-left: $base_padding * 2;
-    padding-right: $base_padding * 2;
-  }
-}
-
 // overall menu
 #calendarArea {
-  padding: 8px 0;
+  padding: 0 !important;
+  margin: 0;
 }
 
 // Calendar menu side column
 .datemenu-calendar-column {
   spacing: $base_spacing;
   border: 0 solid $borders_color;
-  padding: 0 $base_padding * 2;
+  padding: 0;
 
-  &:ltr {margin-right: $base_margin * 2; border-left-width: 0; }
-  &:rtl {margin-left: $base_margin * 2; border-right-width: 0; }
+  &:ltr { margin-right: $base_margin; border-left-width: 0; }
+  &:rtl { margin-left: $base_margin; border-right-width: 0; }
 
   .datemenu-displays-section { padding-bottom: 0; }
 
@@ -148,15 +140,18 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   .calendar-day-base {
     @include font(caption);
     text-align: center;
-    width: $menuitem_size;
-    height: $menuitem_size;
-    padding: 2px;
-    margin: 2px;
+    width: $menuitem_size !important;
+    height: $menuitem_size !important;
+    padding: 2px !important;
+    margin: 2px !important;
     border-radius: $circular_radius;
     color: $alt_fg_color;
     font-feature-settings: "tnum";
 
-    &:hover, &:focus { background-color: $divider_color; }
+    &:hover, &:focus {
+      background-color: $divider_color;
+      box-shadow: none;
+    }
 
     &:active {
       color: $alt_fg_color;

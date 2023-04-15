@@ -229,11 +229,11 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 .lowres-icon {
-  icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  icon-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .icon-dropshadow {
-  icon-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+  icon-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 }
 
 /* Buttons */
@@ -365,32 +365,24 @@ StWidget.focused .app-well-app-running-dot {
   box-shadow: none;
 }
 
-.clock-display-box {
-  spacing: 2px;
-}
-
-.clock-display-box .clock {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
 #calendarArea {
-  padding: 8px 0;
+  padding: 0 !important;
+  margin: 0;
 }
 
 .datemenu-calendar-column {
   spacing: 6px;
   border: 0 solid rgba(255, 255, 255, 0.12);
-  padding: 0 12px;
+  padding: 0;
 }
 
 .datemenu-calendar-column:ltr {
-  margin-right: 8px;
+  margin-right: 4px;
   border-left-width: 0;
 }
 
 .datemenu-calendar-column:rtl {
-  margin-left: 8px;
+  margin-left: 4px;
   border-right-width: 0;
 }
 
@@ -506,10 +498,10 @@ StWidget.focused .app-well-app-running-dot {
   font-size: 9pt;
   font-weight: 400;
   text-align: center;
-  width: 28px;
-  height: 28px;
-  padding: 2px;
-  margin: 2px;
+  width: 28px !important;
+  height: 28px !important;
+  padding: 2px !important;
+  margin: 2px !important;
   border-radius: 9999px;
   color: #afafaf;
   font-feature-settings: "tnum";
@@ -517,6 +509,7 @@ StWidget.focused .app-well-app-running-dot {
 
 .calendar .calendar-day-base:hover, .calendar .calendar-day-base:focus {
   background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 .calendar .calendar-day-base:active {
@@ -806,28 +799,28 @@ StWidget.focused .app-well-app-running-dot {
   border-radius: 14px;
   border: solid black;
   border-width: 1px;
-  box-shadow: 3px 3px 8px -3px rgba(0, 0, 0, 0.65);
+  box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, 0.25);
 }
 
 .modal-dialog-linked-button:last-child {
-  color: white;
-  background-color: #E55E9C;
+  color: white !important;
+  background-color: #E55E9C !important;
   box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .modal-dialog-linked-button:hover:last-child {
-  color: white;
-  background-color: #eb86b4;
+  color: white !important;
+  background-color: #eb86b4 !important;
 }
 
 .modal-dialog-linked-button:active:last-child {
-  color: white;
-  background-color: #e1488f;
+  color: white !important;
+  background-color: #e1488f !important;
 }
 
 .modal-dialog-linked-button:insensitive:last-child {
-  background-color: rgba(229, 94, 156, 0.05);
-  color: rgba(229, 94, 156, 0.35);
+  background-color: rgba(229, 94, 156, 0.05) !important;
+  color: rgba(229, 94, 156, 0.35) !important;
 }
 
 .headline {
@@ -1879,7 +1872,8 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 /* Message List */
 .message-list {
   width: 31.5em;
-  padding: 6px 0 0 6px;
+  padding: 0 !important;
+  margin: 0 !important;
   text-shadow: none;
   border: none;
 }
@@ -1895,7 +1889,8 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .message-list-sections {
-  margin: 0 0 0 16px;
+  margin: 0 0 0 8px !important;
+  padding: 2px !important;
 }
 
 .message-list-section,
@@ -1915,12 +1910,16 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .message .message-icon-bin {
-  margin: 8px 0;
-  padding: 8px 0px 8px 8px;
+  padding: 18px;
+  margin: 0;
+}
+
+.message .message-icon-bin:ltr {
+  padding-right: 6px;
 }
 
 .message .message-icon-bin:rtl {
-  padding: 8px 8px 8px 0px;
+  padding-left: 6px;
 }
 
 .message .message-icon-bin > StIcon {
@@ -1989,9 +1988,9 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .message-media-control {
-  margin: 16px 4px;
+  margin: 20px 4px;
   padding: 8px;
-  border-radius: 100px;
+  border-radius: 1000px;
   color: #afafaf;
 }
 
@@ -2021,11 +2020,11 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .media-message-cover-icon {
   icon-size: 32px !important;
-  margin: 0 0px 0 4px !important;
+  margin: 0 !important;
 }
 
 .media-message-cover-icon:rtl {
-  margin: 0 4px 0 0px !important;
+  margin: 0 !important;
 }
 
 .media-message-cover-icon.fallback {
@@ -2491,13 +2490,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 #panel .panel-button .system-status-icon {
   icon-size: 16px;
-  padding: 5px;
-  margin: 0 4px;
+  padding: 6px;
+  margin: 0;
 }
 
-#panel .panel-button .panel-status-indicators-box .system-status-icon,
-#panel .panel-button .panel-status-menu-box .system-status-icon {
-  margin: 0;
+#panel .panel-button .appindicator-trayicons-box {
+  margin: 0 6px;
 }
 
 #panel .panel-button .app-menu-icon {
@@ -2506,6 +2504,12 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 #panel .panel-button#panelActivities {
   -natural-hpadding: 18px;
+}
+
+#panel Gjs_status_keyboard_InputSourceIndicator.panel-button,
+#panel Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button {
+  -natural-hpadding: 14px !important;
+  -minimum-hpadding: 14px !important;
 }
 
 #panel.unlock-screen .panel-button:hover, #panel.unlock-screen .panel-button:active, #panel.unlock-screen .panel-button:overview, #panel.unlock-screen .panel-button:focus, #panel.unlock-screen .panel-button:checked, #panel.login-screen .panel-button:hover, #panel.login-screen .panel-button:active, #panel.login-screen .panel-button:overview, #panel.login-screen .panel-button:focus, #panel.login-screen .panel-button:checked, #panel:overview .panel-button:hover, #panel:overview .panel-button:active, #panel:overview .panel-button:overview, #panel:overview .panel-button:focus, #panel:overview .panel-button:checked {
@@ -2518,15 +2522,6 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 #panel.unlock-screen .panel-button:hover.clock-display .clock, #panel.unlock-screen .panel-button:active.clock-display .clock, #panel.unlock-screen .panel-button:overview.clock-display .clock, #panel.unlock-screen .panel-button:focus.clock-display .clock, #panel.unlock-screen .panel-button:checked.clock-display .clock, #panel.login-screen .panel-button:hover.clock-display .clock, #panel.login-screen .panel-button:active.clock-display .clock, #panel.login-screen .panel-button:overview.clock-display .clock, #panel.login-screen .panel-button:focus.clock-display .clock, #panel.login-screen .panel-button:checked.clock-display .clock, #panel:overview .panel-button:hover.clock-display .clock, #panel:overview .panel-button:active.clock-display .clock, #panel:overview .panel-button:overview.clock-display .clock, #panel:overview .panel-button:focus.clock-display .clock, #panel:overview .panel-button:checked.clock-display .clock {
   box-shadow: none;
-}
-
-#panel .panel-status-indicators-box,
-#panel .panel-status-menu-box {
-  spacing: 2px;
-}
-
-#panel .power-status.panel-status-indicators-box {
-  spacing: 0;
 }
 
 #panel .screencast-indicator,
@@ -2897,8 +2892,8 @@ StScrollView.hfade {
   -st-hfade-offset: 64px;
 }
 
-.popup-menu StScrollBar {
-  margin: 0 12px;
+StScrollBar {
+  margin: 6px;
 }
 
 StScrollView StScrollBar {
@@ -2915,6 +2910,7 @@ StScrollBar StButton#vhandle, StScrollBar StButton#hhandle {
   border-radius: 8px;
   background-color: #999999;
   transition: 500ms all ease;
+  border: 4px solid transparent;
 }
 
 StScrollBar StButton#vhandle:hover, StScrollBar StButton#hhandle:hover {

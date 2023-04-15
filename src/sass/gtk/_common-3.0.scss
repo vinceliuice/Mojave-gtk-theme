@@ -2319,7 +2319,7 @@ menu,
   separator,
   .csd & separator {
     margin: 2px 0;
-    min-height: 2px;
+    min-height: 1px;
     border: none;
     background-color: $menu_bd;
   }
@@ -3656,16 +3656,7 @@ messagedialog { // Message Dialog styling
       }
 
       &:active, &:checked {
-
-        @if $variant == 'light' {
-          background-image: none;
-          background-color: $selected_bg_color;
-          color: $selected_fg_color;
-        }
-
-        @else {
-          @include button(active);
-        }
+        @include button(header-active);
 
         border-color: $button_borders;
       }
