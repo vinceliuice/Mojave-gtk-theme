@@ -42,25 +42,23 @@ $app_icon_size: 96px;
 }
 
 .page-navigation-arrow {
-  & > StIcon {
-    margin: $base_padding;
-    padding: $base_padding * 3;
-    width: 24px;
-    height: 24px;
-    border-radius: $circular_radius;
-  }
+  margin: $base_padding;
+  padding: $base_padding * 3;
+  width: 24px;
+  height: 24px;
+  border-radius: $circular_radius;
 
-  &:insensitive > StIcon {
+  &:insensitive {
     backround-color: $light_fill_color;
     color: $light_fg_color;
   }
 
-  &:hover > StIcon {
+  &:hover {
    backround-color: $light_divider_color;
    color: $light_fg_color;
   }
 
-  &:active > StIcon {
+  &:active {
    backround-color: $light_track_color;
    color: $light_fg_color;
   }

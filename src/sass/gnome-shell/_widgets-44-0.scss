@@ -1,4 +1,3 @@
-@import 'common';
 @import 'common/a11y';
 @import 'common/app-grid';
 @import 'common/base';
@@ -20,6 +19,7 @@
 @import 'common/notifications';
 @import 'common/osd';
 @import 'common/overview';
+@import 'common';
 @import 'common/panel';
 @import 'common/popovers';
 @import 'common/screen-shield';
@@ -31,14 +31,16 @@
 @import 'common/switches';
 @import 'common/tiled-previews';
 @import 'common/workspace-switcher';
-@import 'widgets-40-0/app-grid';
+@import 'widgets-44-0/app-grid';
 @import 'widgets-40-0/dash';
 @import 'widgets-40-0/misc';
 @import 'widgets-40-0/overview';
-@import 'widgets-40-0/osd';
+@import 'widgets-42-0/osd';
 @import 'widgets-40-0/panel';
-@import 'widgets-40-0/popovers';
+@import 'widgets-42-0/popovers';
+@import 'widgets-44-0/quick-settings';
 @import 'widgets-40-0/screen-shield';
+@import 'widgets-42-0/screenshot';
 @import 'widgets-40-0/search-entry';
 @import 'widgets-40-0/window-picker';
 @import 'widgets-40-0/workspace-thumbnails';

@@ -1829,7 +1829,7 @@ headerbar {
 
   &.default-decoration {
     min-height: 26px;
-    padding: 0 6px;
+    padding: 0;
     background-color: $header_bg;
     background-image: $headerbar_top_image;
 
@@ -2227,7 +2227,7 @@ popover.background {
       }
 
       modelbutton {
-        border-radius: $mn_radius - $container_padding / 2;
+        border-radius: 3px;
         padding: 0 $container_padding;
 
         &:focus {
@@ -2247,6 +2247,8 @@ popover.background {
       }
 
       row.activatable {
+        border-radius: 3px;
+
         &:hover, &:selected {
           background-color: if($variant=='light', mix($fg_color,$bg_color,5%), mix($fg_color,$bg_color,10%));
 
@@ -3369,6 +3371,7 @@ listview.view {
 
 row {
   background-clip: padding-box;
+
   label.subtitle {
     font-size: smaller;
     @extend .dim-label;
@@ -4385,7 +4388,7 @@ window {
   margin: 0;
 
   &.csd {
-    transition: $shadow_transition;
+    transition: none;
     border-radius: $wm_radius;
     box-shadow: 0 3px 3px 0 $wm_shadow,
                 0 8px 8px 0 $wm_shadow,
@@ -4393,6 +4396,7 @@ window {
                 $wm_border;
 
     &:backdrop {
+      transition: $shadow_transition;
       // the transparent shadow here is to enforce that the shadow extents don't
       // change when we go to backdrop, to prevent jumping windows
       box-shadow: 0 3px 3px 0 $wm_shadow,

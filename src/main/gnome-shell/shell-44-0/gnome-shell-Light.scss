@@ -1,9 +1,10 @@
-$variant: 'dark';
+$variant: 'light';
 $laptop: 'true';
 $trans: 'true';
+$theme: 'default';
 
 @import '../../../sass/colors';
 @import '../../../sass/variables';
 @import '../../../sass/gnome-shell/drawing';
-@import '../../../sass/gnome-shell/widgets-3-28';
-@import '../../../sass/gnome-shell/extensions-3-28';
+@import '../../../sass/gnome-shell/widgets-44-0';
+@import '../../../sass/gnome-shell/extensions-40-0';

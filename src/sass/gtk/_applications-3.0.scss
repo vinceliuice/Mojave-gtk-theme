@@ -624,6 +624,7 @@ filechooser,
     > button {
       margin-top: 2px;
       margin-bottom: 2px;
+      @extend %flat_button;
     }
   }
 

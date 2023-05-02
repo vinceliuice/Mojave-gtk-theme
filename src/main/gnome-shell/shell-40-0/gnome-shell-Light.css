@@ -1,3 +1,29 @@
+/* This stylesheet is generated, DO NOT EDIT */
+/* Copyright 2009, 2015 Red Hat, Inc.
+ *
+ * Portions adapted from Mx's data/style/default.css
+ *   Copyright 2009 Intel Corporation
+ *
+ * This program is free software; you can redistribute it and/or modify it
+ * under the terms and conditions of the GNU Lesser General Public License,
+ * version 2.1, as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for
+ * more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program; if not, write to the Free Software Foundation,
+ * Inc., 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+stage {
+  font-size: 9.75pt;
+  font-weight: 400;
+  color: #242424;
+}
+
+/* General Typography */
 .ripple-pointer-location {
   width: 48px;
   height: 48px;
@@ -80,6 +106,7 @@
   border: 0 solid rgba(255, 255, 255, 0.15);
   padding: 6px;
   background-color: rgba(51, 51, 51, 0.9);
+  box-shadow: none;
 }
 
 .app-folder-dialog .folder-name-container {
@@ -366,7 +393,7 @@ StWidget.focused .app-well-app-running-dot {
 }
 
 #calendarArea {
-  padding: 0 !important;
+  padding: 0 4px !important;
   margin: 0;
 }
 
@@ -2480,11 +2507,11 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: none;
 }
 
-#panel .panel-button:hover.clock-display, #panel .panel-button:active.clock-display, #panel .panel-button:overview.clock-display, #panel .panel-button:focus.clock-display, #panel .panel-button:checked.clock-display {
+#panel .panel-button.clock-display:hover, #panel .panel-button.clock-display:active, #panel .panel-button.clock-display:overview, #panel .panel-button.clock-display:focus, #panel .panel-button.clock-display:checked {
   box-shadow: none;
 }
 
-#panel .panel-button:hover.clock-display .clock, #panel .panel-button:active.clock-display .clock, #panel .panel-button:overview.clock-display .clock, #panel .panel-button:focus.clock-display .clock, #panel .panel-button:checked.clock-display .clock {
+#panel .panel-button.clock-display:hover .clock, #panel .panel-button.clock-display:active .clock, #panel .panel-button.clock-display:overview .clock, #panel .panel-button.clock-display:focus .clock, #panel .panel-button.clock-display:checked .clock {
   box-shadow: none;
 }
 
@@ -2502,7 +2529,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   -st-icon-style: symbolic;
 }
 
-#panel .panel-button#panelActivities {
+#panel #panelActivities.panel-button {
   -natural-hpadding: 18px;
 }
 
@@ -2516,11 +2543,11 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: none;
 }
 
-#panel.unlock-screen .panel-button:hover.clock-display, #panel.unlock-screen .panel-button:active.clock-display, #panel.unlock-screen .panel-button:overview.clock-display, #panel.unlock-screen .panel-button:focus.clock-display, #panel.unlock-screen .panel-button:checked.clock-display, #panel.login-screen .panel-button:hover.clock-display, #panel.login-screen .panel-button:active.clock-display, #panel.login-screen .panel-button:overview.clock-display, #panel.login-screen .panel-button:focus.clock-display, #panel.login-screen .panel-button:checked.clock-display, #panel:overview .panel-button:hover.clock-display, #panel:overview .panel-button:active.clock-display, #panel:overview .panel-button:overview.clock-display, #panel:overview .panel-button:focus.clock-display, #panel:overview .panel-button:checked.clock-display {
+#panel.unlock-screen .panel-button.clock-display:hover, #panel.unlock-screen .panel-button.clock-display:active, #panel.unlock-screen .panel-button.clock-display:overview, #panel.unlock-screen .panel-button.clock-display:focus, #panel.unlock-screen .panel-button.clock-display:checked, #panel.login-screen .panel-button.clock-display:hover, #panel.login-screen .panel-button.clock-display:active, #panel.login-screen .panel-button.clock-display:overview, #panel.login-screen .panel-button.clock-display:focus, #panel.login-screen .panel-button.clock-display:checked, #panel:overview .panel-button.clock-display:hover, #panel:overview .panel-button.clock-display:active, #panel:overview .panel-button.clock-display:overview, #panel:overview .panel-button.clock-display:focus, #panel:overview .panel-button.clock-display:checked {
   box-shadow: none;
 }
 
-#panel.unlock-screen .panel-button:hover.clock-display .clock, #panel.unlock-screen .panel-button:active.clock-display .clock, #panel.unlock-screen .panel-button:overview.clock-display .clock, #panel.unlock-screen .panel-button:focus.clock-display .clock, #panel.unlock-screen .panel-button:checked.clock-display .clock, #panel.login-screen .panel-button:hover.clock-display .clock, #panel.login-screen .panel-button:active.clock-display .clock, #panel.login-screen .panel-button:overview.clock-display .clock, #panel.login-screen .panel-button:focus.clock-display .clock, #panel.login-screen .panel-button:checked.clock-display .clock, #panel:overview .panel-button:hover.clock-display .clock, #panel:overview .panel-button:active.clock-display .clock, #panel:overview .panel-button:overview.clock-display .clock, #panel:overview .panel-button:focus.clock-display .clock, #panel:overview .panel-button:checked.clock-display .clock {
+#panel.unlock-screen .panel-button.clock-display:hover .clock, #panel.unlock-screen .panel-button.clock-display:active .clock, #panel.unlock-screen .panel-button.clock-display:overview .clock, #panel.unlock-screen .panel-button.clock-display:focus .clock, #panel.unlock-screen .panel-button.clock-display:checked .clock, #panel.login-screen .panel-button.clock-display:hover .clock, #panel.login-screen .panel-button.clock-display:active .clock, #panel.login-screen .panel-button.clock-display:overview .clock, #panel.login-screen .panel-button.clock-display:focus .clock, #panel.login-screen .panel-button.clock-display:checked .clock, #panel:overview .panel-button.clock-display:hover .clock, #panel:overview .panel-button.clock-display:active .clock, #panel:overview .panel-button.clock-display:overview .clock, #panel:overview .panel-button.clock-display:focus .clock, #panel:overview .panel-button.clock-display:checked .clock {
   box-shadow: none;
 }
 
@@ -2580,9 +2607,9 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   font-weight: normal;
   border: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  padding: 9px 0;
+  padding: 12px 0;
   margin: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: rgba(255, 255, 255, 0.95);
 }
 
@@ -2592,9 +2619,9 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   border-radius: 0 !important;
   color: #424242 !important;
   text-shadow: none;
-  border-radius: 4px;
   font-weight: normal;
   transition-duration: 0 !important;
+  background-color: transparent !important;
 }
 
 .popup-menu .popup-menu-item:checked {
@@ -2604,7 +2631,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   box-shadow: none;
 }
 
-.popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item:checked.selected {
+.popup-menu .popup-menu-item:checked:hover, .popup-menu .popup-menu-item:checked:focus, .popup-menu .popup-menu-item.selected:checked {
   color: white !important;
   background-color: #496ef1 !important;
   box-shadow: none;
@@ -2643,6 +2670,42 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
   border-radius: 0 !important;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.popup-menu .popup-sub-menu .popup-menu-ornament {
+  min-width: 16px !important;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-item {
+  border-radius: 0;
+  border-top-width: 0;
+  color: #424242 !important;
+  text-shadow: none;
+  font-weight: normal;
+  background-color: transparent !important;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-item:hover, .popup-menu .popup-sub-menu .popup-menu-item:focus, .popup-menu .popup-sub-menu .popup-menu-item.selected {
+  color: rgba(255, 255, 255, 0.85) !important;
+  background-color: #315bef !important;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-item:active, .popup-menu .popup-sub-menu .popup-menu-item.selected:active {
+  color: white !important;
+  background-color: #1948ed !important;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-item:last-child {
+  border-radius: 0;
+  border-bottom-width: 0;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-section .popup-menu-item:last-child:hover, .popup-menu .popup-sub-menu .popup-menu-section .popup-menu-item:last-child:focus {
+  border-radius: 0;
+}
+
+.popup-menu .popup-sub-menu .popup-menu-section:last-child .popup-menu-item:last-child {
+  border-radius: 0;
 }
 
 .popup-menu .popup-inactive-menu-item {

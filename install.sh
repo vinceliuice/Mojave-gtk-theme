@@ -16,6 +16,8 @@ else
   DEST_DIR="$HOME/.themes"
 fi
 
+SASSC_OPT="-M -t expanded"
+
 THEME_NAME=Mojave
 COLOR_VARIANTS=('-Light' '-Dark')
 OPACITY_VARIANTS=('' '-solid')
@@ -88,6 +90,13 @@ install() {
 
   prompt -i "Installing '${THEME_DIR}'..."
 
+  rm -rf "${SRC_DIR}/sass/_theme-variant-temp.scss"
+  cp -rf "${SRC_DIR}/sass/_theme-variant.scss" "${SRC_DIR}/sass/_theme-variant-temp.scss"
+
+  if [[ "$accent" = "true" ]] ; then
+    theme_color
+  fi
+
   mkdir -p                                                                                   "${THEME_DIR}"
   cp -r "${REPO_DIR}/COPYING"                                                                "${THEME_DIR}"
 
@@ -107,7 +116,7 @@ install() {
   mkdir -p                                                                                   "${THEME_DIR}/gnome-shell"
   cp -r "${SRC_DIR}/assets/gnome-shell/icons"                                                "${THEME_DIR}/gnome-shell"
   cp -r "${SRC_DIR}/main/gnome-shell/pad-osd.css"                                            "${THEME_DIR}/gnome-shell"
-  cp -r "${SRC_DIR}/main/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}${opacity}${theme}.css" "${THEME_DIR}/gnome-shell/gnome-shell.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gnome-shell/shell-${GS_VERSION}/gnome-shell${color}${opacity}.scss" "${THEME_DIR}/gnome-shell/gnome-shell.css"
   cp -r "${THEME_DIR}/gnome-shell/gnome-shell.css"                                           "${THEME_DIR}/gnome-shell/gdm3.css"
   cp -r "${SRC_DIR}/assets/gnome-shell/common-assets"                                        "${THEME_DIR}/gnome-shell/assets"
 
@@ -143,8 +152,8 @@ install() {
 
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "${THEME_DIR}/gtk-3.0/windows-assets"
   cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}${theme}.png"                     "${THEME_DIR}/gtk-3.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-3.0/gtk${color}${opacity}${theme}.css"                          "${THEME_DIR}/gtk-3.0/gtk.css"
-  cp -r "${SRC_DIR}/main/gtk-3.0/gtk-Dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-3.0/gtk-dark.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-3.0/gtk${color}${opacity}.scss"                      "${THEME_DIR}/gtk-3.0/gtk.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-3.0/gtk-Dark${opacity}.scss"                         "${THEME_DIR}/gtk-3.0/gtk-dark.css"
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-3.0" --target="${THEME_DIR}/gtk-3.0/gtk.gresource" "${SRC_DIR}/main/gtk-3.0/gtk.gresource.xml"
   rm -rf "${THEME_DIR}/gtk-3.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
@@ -160,8 +169,8 @@ install() {
 
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "${THEME_DIR}/gtk-4.0/windows-assets"
   cp -r "${SRC_DIR}/assets/gtk/thumbnails/thumbnail${color}${theme}.png"                     "${THEME_DIR}/gtk-4.0/thumbnail.png"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "${THEME_DIR}/gtk-4.0/gtk.css"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "${THEME_DIR}/gtk-4.0/gtk-dark.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}.scss"                      "${THEME_DIR}/gtk-4.0/gtk.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}.scss"                         "${THEME_DIR}/gtk-4.0/gtk-dark.css"
 
   glib-compile-resources --sourcedir="${THEME_DIR}/gtk-4.0" --target="${THEME_DIR}/gtk-4.0/gtk.gresource" "${SRC_DIR}/main/gtk-4.0/gtk.gresource.xml"
   rm -rf "${THEME_DIR}/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
@@ -183,7 +192,7 @@ install() {
   cp -r "${SRC_DIR}/assets/unity/assets/"*'.png'                                             "${THEME_DIR}/unity"
 
   mkdir -p                                                                                   "${THEME_DIR}/cinnamon"
-  cp -r "${SRC_DIR}/main/cinnamon/cinnamon${color}${opacity}${theme}.css"                    "${THEME_DIR}/cinnamon/cinnamon.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/cinnamon/cinnamon${color}${opacity}.scss"                "${THEME_DIR}/cinnamon/cinnamon.css"
   cp -r "${SRC_DIR}/assets/cinnamon/common-assets"                                           "${THEME_DIR}/cinnamon/assets"
 
   if [[ ${theme} != '-default' ]]; then
@@ -354,8 +363,8 @@ gtk4_config() {
   fi
 
   cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}${theme}.css"                          "$HOME/.config/gtk-4.0/gtk.css"
-  cp -r "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}${theme}.css"                             "$HOME/.config/gtk-4.0/gtk-dark.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}.scss"                      "$HOME/.config/gtk-4.0/gtk.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}.scss"                         "$HOME/.config/gtk-4.0/gtk-dark.css"
 
   echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0"
 }
@@ -480,6 +489,7 @@ while [[ $# -gt 0 ]]; do
       done
       ;;
     -t|--theme)
+      accent='true'
       shift
       for theme in "${@}"; do
         case "${theme}" in
@@ -532,6 +542,7 @@ while [[ $# -gt 0 ]]; do
             exit 1
             ;;
         esac
+        prompt -w "\n  Install $theme color variants..."
       done
       ;;
     -i|--icon)
@@ -597,6 +608,61 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+#  Check command avalibility
+function has_command() {
+  command -v $1 > /dev/null
+}
+
+#  Install needed packages
+install_package() {
+  if [ ! "$(which sassc 2> /dev/null)" ]; then
+    echo sassc needs to be installed to generate the css.
+    if has_command zypper; then
+      sudo zypper in sassc
+    elif has_command apt-get; then
+      sudo apt-get install sassc
+    elif has_command dnf; then
+      sudo dnf install sassc
+    elif has_command dnf; then
+      sudo dnf install sassc
+    elif has_command pacman; then
+      sudo pacman -S --noconfirm sassc
+    fi
+  fi
+}
+
+theme_color() {
+  if [[ "$theme" != '' ]]; then
+    case "$theme" in
+      -blue)
+        theme_color='blue'
+        ;;
+      -purple)
+        theme_color='purple'
+        ;;
+      -pink)
+        theme_color='pink'
+        ;;
+      -red)
+        theme_color='red'
+        ;;
+      -orange)
+        theme_color='orange'
+        ;;
+      -yellow)
+        theme_color='yellow'
+        ;;
+      -green)
+        theme_color='green'
+        ;;
+      -grey)
+        theme_color='grey'
+        ;;
+    esac
+    sed -i "/\$theme:/s/default/${theme_color}/" "${SRC_DIR}/sass/_theme-variant-temp.scss"
+  fi
+}
+
 install_libadwaita() {
   for color in "${colors[@]-${COLOR_VARIANTS[0]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[0]}}"; do
@@ -654,7 +720,9 @@ fi
 if [[ "$(command -v gnome-shell)" ]]; then
   echo; prompt -w "Desktop version: '$(gnome-shell --version)'";
   SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
+  if [[ "${SHELL_VERSION:-}" -ge "44" ]]; then
+    GS_VERSION="44-0"
+  elif [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
     GS_VERSION="42-0"
   elif [[ "${SHELL_VERSION:-}" -ge "40" ]]; then
     GS_VERSION="40-0"
@@ -663,10 +731,11 @@ if [[ "$(command -v gnome-shell)" ]]; then
   fi
   else
     prompt -e "'gnome-shell' not found, using styles for last gnome-shell version available."
-    GS_VERSION="42-0"
+    GS_VERSION="44-0"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
+  install_package
   if [[ "${libadwaita:-}" != 'true' ]]; then
     install_theme
   else
@@ -675,7 +744,7 @@ if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
 fi
 
 if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
-  install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
+  install_package && install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then

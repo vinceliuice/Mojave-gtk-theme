@@ -2,6 +2,9 @@
 
 . config.sh
 
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+SRC_DIR="${REPO_DIR}/src"
+
 # Check command availability
 function has_command() {
   command -v $1 > /dev/null
@@ -42,9 +45,12 @@ if [ ! -z "${THEME_VARIANTS:-}" ]; then
   IFS=', ' read -r -a _THEME_VARIANTS <<< "${THEME_VARIANTS:-}"
 fi
 
+rm -rf "${SRC_DIR}/sass/_theme-variant-temp.scss"
+cp -rf "${SRC_DIR}/sass/_theme-variant.scss" "${SRC_DIR}/sass/_theme-variant-temp.scss"
+
 for color in "${_COLOR_VARIANTS[@]}"; do
   for trans in "${_TRANS_VARIANTS[@]}"; do
-    for theme in "${_THEME_VARIANTS[@]}"; do
+    for theme in "${_THEME_VARIANTS[0]}"; do
       sassc $SASSC_OPT src/main/gtk-3.0/gtk${color}${trans}${theme}.{scss,css}
       echo "==> Generating the 3.0 gtk${color}${trans}${theme}.css..."
       sassc $SASSC_OPT src/main/gtk-4.0/gtk${color}${trans}${theme}.{scss,css}
@@ -55,6 +61,8 @@ for color in "${_COLOR_VARIANTS[@]}"; do
       echo "==> Generating the 40.0 gnome-shell${color}${trans}${theme}.css..."
       sassc $SASSC_OPT src/main/gnome-shell/shell-42-0/gnome-shell${color}${trans}${theme}.{scss,css}
       echo "==> Generating the 42.0 gnome-shell${color}${trans}${theme}.css..."
+      sassc $SASSC_OPT src/main/gnome-shell/shell-44-0/gnome-shell${color}${trans}${theme}.{scss,css}
+      echo "==> Generating the 44.0 gnome-shell${color}${trans}${theme}.css..."
       sassc $SASSC_OPT src/main/cinnamon/cinnamon${color}${trans}${theme}.{scss,css}
       echo "==> Generating the cinnamon${color}${trans}${theme}.css..."
     done

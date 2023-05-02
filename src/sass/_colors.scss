@@ -5,6 +5,9 @@
   @return unquote("alpha(#{$c},#{$a})");
 }
 
+// theme color variant
+@import 'theme-variant-temp';
+
 // colors palette
 @import 'colors-palette';
 
