@@ -458,20 +458,29 @@ menubutton.flat.popup.sources-button {
 // Gnome Software
 //
 
-flowboxchild > button.card {
-  &.category-tile {
-    padding: $container_padding * 3.5;
-    background-clip: border-box;
-    box-shadow: 0 3px 6px rgba(black, 0.08);
-    border-radius: $mn_radius * 1.5;
-    border-width: 0;
+flowboxchild {
+  &.card {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
   }
 
-  &.category-tile-iconless {
-    padding: $container_padding * 1.5 $container_padding * 2.5;
-    box-shadow: none;
-    border-width: 1px;
-    border-radius: $bt_radius;
+  > button.card {
+    &.category-tile {
+      padding: $container_padding * 3.5;
+      background-clip: border-box;
+      box-shadow: 0 3px 6px rgba(black, 0.08);
+      border-radius: $mn_radius;
+      border-width: 0;
+    }
+
+    &.category-tile-iconless {
+      padding: $container_padding * 1.5 $container_padding * 2.5;
+      box-shadow: none;
+      border-width: 1px;
+      border-radius: $bt_radius;
+    }
   }
 }
 
