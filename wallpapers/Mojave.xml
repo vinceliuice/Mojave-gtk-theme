@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Mojave Backgrounds</name>
+    <filename>/usr/share/backgrounds/Mojave/Mojave_dynamic_6.jpeg</filename>
+    <filename-dark>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#3071AE</pcolor>
+    <scolor>#000000</scolor>
+  </wallpaper>
+
+  <wallpaper deleted="false">
+    <name>Mojave Time of Day</name>
+    <filename>/usr/share/backgrounds/Mojave/Mojave-timed.xml</filename>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#3071AE</pcolor>
+    <scolor>#282828</scolor>
+  </wallpaper>
+</wallpapers>

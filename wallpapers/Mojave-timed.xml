@@ -1,0 +1,183 @@
+<background>
+  <starttime>
+    <year>2011</year>
+    <month>11</month>
+    <day>24</day>
+    <hour>7</hour>
+    <minute>00</minute>
+    <second>00</second>
+  </starttime>
+
+<!-- This animation will start at 7 AM. -->
+
+<!-- We start with sunrise at 7 AM. It will remain up for 1 hour. -->
+<static>
+<duration>3600.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_1.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>5400.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_1.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_2.jpeg</to>
+</transition>
+
+<static>
+<duration>5400.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_2.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_2.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_3.jpeg</to>
+</transition>
+
+<static>
+<duration>7200.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_23.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>9000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_3.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_4.jpeg</to>
+</transition>
+
+<static>
+<duration>9000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_4.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>10800.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_4.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_5.jpeg</to>
+</transition>
+
+<static>
+<duration>10800.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_5.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>13600.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_5.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_6.jpeg</to>
+</transition>
+
+<static>
+<duration>13600.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_6.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>14400.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_6.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_7.jpeg</to>
+</transition>
+
+<static>
+<duration>14400.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_7.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>16200.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_7.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_8.jpeg</to>
+</transition>
+
+<static>
+<duration>16200.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_8.jpeg</file>
+</static>
+
+<!-- Sunrise starts to transition to day at 8 AM. The transition lasts for 5 hours, ending at 1 PM. -->
+<transition type="overlay">
+<duration>18000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_8.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_9.jpeg</to>
+</transition>
+
+<!-- It's 1 PM, we're showing the day image in full force now, for 5 hours ending at 6 PM. -->
+<static>
+<duration>18000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_9.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>19000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_9.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_10.jpeg</to>
+</transition>
+
+<static>
+<duration>19000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_10.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>20000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_10.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_11.jpeg</to>
+</transition>
+
+<static>
+<duration>20000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_11.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>21000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_11.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_12.jpeg</to>
+</transition>
+
+<static>
+<duration>21000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_13.jpeg</file>
+</static>
+
+<!-- It's 7 PM and it's going to start to get darker. This will transition for 6 hours up until midnight. -->
+<transition type="overlay">
+<duration>21600.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_13.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_14.jpeg</to>
+</transition>
+
+<static>
+<duration>20000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_14.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>20000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_14.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</to>
+</transition>
+
+<static>
+<duration>19000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</file>
+</static>
+
+<transition type="overlay">
+<duration>19000.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_16.jpeg</to>
+</transition>
+
+<!-- It's midnight. It'll stay dark for 5 hours up until 5 AM. -->
+<static>
+<duration>18000.0</duration>
+<file>/usr/share/backgrounds/Mojave/Mojave_dynamic_16.jpeg</file>
+</static>
+
+<!-- It's 5 AM. We'll start transitioning to sunrise for 2 hours up until 7 AM. -->
+<transition type="overlay">
+<duration>7200.0</duration>
+<from>/usr/share/backgrounds/Mojave/Mojave_dynamic_16.jpeg</from>
+<to>/usr/share/backgrounds/Mojave/Mojave_dynamic_1.jpeg</to>
+</transition>
+</background>
