@@ -4329,7 +4329,7 @@ colorchooser .popover.osd { border-radius: $bt_radius; }
 // Shortcuts Help
 //
 %circular_button,
-button.circular {
+button.circular:not(.button) {
   border-radius: $circular_radius;
   padding: 0;
   min-height: $menuitem_size;
