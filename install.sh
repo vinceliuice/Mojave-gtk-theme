@@ -347,28 +347,6 @@ revert_gdm() {
   fi
 }
 
-gtk4_config() {
-  local color="${1}"
-  local opacity="${2}"
-  local alt="${3}"
-  local small="${4}"
-  local theme="${5}"
-
-  # For libadwaita
-  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
-  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "$HOME/.config/gtk-4.0"
-
-  if [[ ${theme} != '-default' ]]; then
-    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "$HOME/.config/gtk-4.0/assets"
-  fi
-
-  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}.scss"                      "$HOME/.config/gtk-4.0/gtk.css"
-  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}.scss"                         "$HOME/.config/gtk-4.0/gtk-dark.css"
-
-  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0"
-}
-
 while [[ $# -gt 0 ]]; do
   case "${1}" in
     -d|--dest)
@@ -663,6 +641,33 @@ theme_color() {
   fi
 }
 
+gtk4_config() {
+  local color="${1}"
+  local opacity="${2}"
+  local alt="${3}"
+  local small="${4}"
+  local theme="${5}"
+
+  # For libadwaita
+  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
+  cp -r "${SRC_DIR}/assets/gtk/common-assets/assets"                                         "$HOME/.config/gtk-4.0"
+
+  if [[ ${theme} != '-default' ]]; then
+    cp -r "${SRC_DIR}/assets/gtk/common-assets/assets${theme}/"*'.png'                       "$HOME/.config/gtk-4.0/assets"
+  fi
+
+  cp -r "${SRC_DIR}/assets/gtk/windows-assets/titlebutton${alt}${small}"                     "$HOME/.config/gtk-4.0/windows-assets"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk${color}${opacity}.scss"                      "$HOME/.config/gtk-4.0/gtk.css"
+  sassc $SASSC_OPT "${SRC_DIR}/main/gtk-4.0/gtk-Dark${opacity}.scss"                         "$HOME/.config/gtk-4.0/gtk-dark.css"
+
+  echo; prompt -i "Installed ${THEME_NAME}${color}${opacity}${alt}${small}${theme} theme in $HOME/.config/gtk-4.0"
+}
+
+remove_gtk4_config() {
+  # For libadwaita
+  rm -rf "$HOME/.config/gtk-4.0/"{assets,windows-assets,gtk.css,gtk-dark.css}
+}
+
 install_libadwaita() {
   for color in "${colors[@]-${COLOR_VARIANTS[0]}}"; do
     for opacity in "${opacities[@]-${OPACITY_VARIANTS[0]}}"; do
@@ -747,8 +752,13 @@ if [[ "${gdm:-}" == 'true' && "${revert:-}" != 'true' && "$UID" -eq "$ROOT_UID" 
   install_package && install_theme && install_gdm "${dest:-${DEST_DIR}}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}" "${icon}"
 fi
 
-if [[ "${gdm:-}" != 'true' && "${revert:-}" == 'true' && "$UID" -eq "$ROOT_UID" ]]; then
-  revert_gdm
+if [[ "${revert:-}" == 'true' ]]; then
+  if [[ "${gdm:-}" != 'true' && "$UID" -eq "$ROOT_UID" ]]; then
+    revert_gdm
+  else
+    remove_gtk4_config
+    echo; prompt -i "Removed gtk4.0 configs!"
+  fi
 fi
 
 echo; prompt -s "Done!"
