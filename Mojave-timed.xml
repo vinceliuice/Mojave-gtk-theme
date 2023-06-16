@@ -3,81 +3,81 @@
     <year>2011</year>
     <month>11</month>
     <day>24</day>
-    <hour>3</hour>
+    <hour>6</hour>
     <minute>00</minute>
     <second>00</second>
   </starttime>
 
-<!-- This animation will start at 3 AM. -->
+<!-- This animation will start at 6:00 AM. -->
 
-<!-- We start with sunrise at 3 AM. It will remain up for 1 hour. -->
+<!-- We start with sunrise at 6:00 AM. It will remain up for 1 hour. -->
 <static>
-<duration>3600.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_1.jpeg</file>
 </static>
 
-<!-- 4:00 AM to 4:30 AM. -->
+<!-- 6:30 AM to 7:00 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_1.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_2.jpeg</to>
 </transition>
 
-<!-- 4:30 AM to 5:30 AM. -->
+<!-- 7:00 AM to 7:30 AM. -->
 <static>
-<duration>3600.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_2.jpeg</file>
 </static>
 
-<!-- 5:30 AM to 6:00 AM. -->
+<!-- 7:30 AM to 8:00 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_2.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_3.jpeg</to>
 </transition>
 
-<!-- 6:00 AM to 7:00 AM. -->
+<!-- 8:00 AM to 8:30 AM. -->
 <static>
-<duration>3600.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_3.jpeg</file>
 </static>
 
-<!-- 7:00 AM to 7:30 AM. -->
+<!-- 8:30 AM to 9:00 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_3.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_4.jpeg</to>
 </transition>
 
-<!-- 7:30 AM to 8:30 AM. -->
+<!-- 9:00 AM to 9:30 AM. -->
 <static>
-<duration>3600.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_4.jpeg</file>
 </static>
 
-<!-- 8:30 AM to 9:00 AM. -->
+<!-- 9:30 AM to 10:00 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_4.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_5.jpeg</to>
 </transition>
 
-<!-- 9:00 AM to 10:00 AM. -->
+<!-- 10:00 AM to 10:30 AM. -->
 <static>
-<duration>3600.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_5.jpeg</file>
 </static>
 
-<!-- 10:00 AM to 10:30 AM. -->
+<!-- 10:30 AM to 11:00 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_5.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_6.jpeg</to>
 </transition>
 
-<!-- 10:30 AM to 11:30 AM. -->
+<!-- 11:00 AM to 11:30 AM. -->
 <static>
-<duration>3600.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_6.jpeg</file>
 </static>
 
@@ -159,16 +159,16 @@
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_12.jpeg</file>
 </static>
 
-<!-- 7:00 PM to 7:30 PM. -->
+<!-- 7:00 PM to 7:15 PM. -->
 <transition type="overlay">
-<duration>1800.0</duration>
+<duration>900.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_12.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_13.jpeg</to>
 </transition>
 
-<!-- 7:30 PM to 7:45 PM. -->
+<!-- 7:15 PM to 7:45 PM. -->
 <static>
-<duration>900.0</duration>
+<duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_13.jpeg</file>
 </static>
 
@@ -192,26 +192,26 @@
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</to>
 </transition>
 
-<!-- 11:00 PM to 1:00 AM. -->
+<!-- 11:00 PM to 2:00 AM. -->
 <static>
-<duration>7200.0</duration>
+<duration>10800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</file>
 </static>
 
-<!-- 1:00 AM to 1:30 AM. -->
+<!-- 2:00 AM to 2:30 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_15.jpeg</from>
 <to>/usr/share/backgrounds/Mojave/Mojave_dynamic_16.jpeg</to>
 </transition>
 
-<!-- 1:30 AM to 2:30 AM. -->
+<!-- 2:30 AM to 5:30 AM. -->
 <static>
-<duration>3600.0</duration>
+<duration>10800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_16.jpeg</file>
 </static>
 
-<!-- 2:30 AM to 3:00 AM. -->
+<!-- 5:30 AM to 6:00 AM. -->
 <transition type="overlay">
 <duration>1800.0</duration>
 <from>/usr/share/backgrounds/Mojave/Mojave_dynamic_16.jpeg</from>
