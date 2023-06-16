@@ -10,7 +10,7 @@
 
 <!-- This animation will start at 6:00 AM. -->
 
-<!-- We start with sunrise at 6:00 AM. It will remain up for 1 hour. -->
+<!-- We start with sunrise at 6:00 AM. It will remain up for 0.5 hour. -->
 <static>
 <duration>1800.0</duration>
 <file>/usr/share/backgrounds/Mojave/Mojave_dynamic_1.jpeg</file>
