@@ -31,25 +31,19 @@ $dash_border_radius: $modal_radius + $dash_padding;
 .dash-background {
   background-color: $dash_background_color;
   margin-bottom: $base_padding * 2;
-  padding: $dash_padding;
+  padding: $dash_padding $dash_padding - 2px;
   spacing: $base_padding;
   border-radius: $dash_border_radius;
 }
 
 // Dash Items
-.dash-item-container .app-well-app, .show-apps {
-  padding: $dash_padding 2px $dash_padding + $base_padding * 2;
-}
-
 .dash-item-container {
-  > * { margin: 0 2px; }
+  margin: 0 2px;
 
-  &:ltr:first-child { margin-left: 0; }
-  &:rtl:first-child { margin-right: 0; }
+  > * { margin: 0; }
 
-  // each app item on the dash
-  .app-well-app .overview-icon {
-    padding: $base_padding;
+  .app-well-app, .show-apps {
+    padding: $dash_padding 0 $dash_padding + $base_padding * 2;
   }
 }
 
