@@ -173,20 +173,20 @@
 
 // separator
 .popup-separator-menu-item {
-  padding: 0;
+  padding: 0 !important;
   background: none;
   border: none;
-  height: 1px;
+  height: 0 !important;
 
   .popup-separator-menu-item-separator {
     height: 1px; //not really the whole box
-    margin: 0 40px;
+    margin: 0 40px !important;
     background-color: $borders_color;
-    padding: 0 0;
+    padding: 0 !important;
 
     .popup-sub-menu & { //submenu separators
-      padding: 0 0;
-      margin: 0 58px 0 24px;
+      padding: 0 !important;
+      margin: 0 58px 0 24px !important;
     }
   }
 }
