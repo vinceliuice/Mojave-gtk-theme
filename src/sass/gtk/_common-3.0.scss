@@ -1995,7 +1995,7 @@ headerbar {
     border-top-right-radius: $wm_radius;
   }
 
-  &, & headerbar {
+  &, headerbar {
     box-shadow: inset 0 1px $highlight_color;
 
     .tiled &,
@@ -2004,9 +2004,9 @@ headerbar {
   }
 }
 
-window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar style for not CSD window
+window.background > box.vertical:not(.titlebar) > headerbar:not(.titlebar) { // reset headerbar style for not CSD window
   &, &:backdrop { background-image: $menubar_bg_image; }
-  border-radius: 0 0 0 0;
+  border-radius: 0;
   box-shadow: none;
 
   // Fixes split headerbars
@@ -2026,8 +2026,7 @@ window.background > box.vertical > headerbar:not(.titlebar) { // reset headerbar
 
 // Fixes split headerbars too
 .titlebar:not(headerbar) {
-  window > &,
-  window.csd > & {
+  window > & {
     &, &:backdrop {
       padding: 0;
       background: none;

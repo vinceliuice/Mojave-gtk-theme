@@ -601,9 +601,7 @@ window.budgie-popover:not(.csd) {
       @at-root {
         .top .budgie-panel menubar,
         .top .budgie-panel .menubar {
-
           > menuitem {
-
             > window.background.popup > decoration,
             > window.background.popup > menu { border-radius: 0 0 $wm_radius $wm_radius; }
           }
@@ -639,7 +637,6 @@ window.budgie-popover:not(.csd) {
   button.flat.launcher {
     padding: 0;
     @extend %flat_button;
-    @extend %underscores;
 
     // for indicator colors
     &:not(:checked) {
@@ -746,7 +743,6 @@ window.budgie-popover:not(.csd) {
                           (left, 3px 6px),
                           (right, 3px 6px) {
   .#{$position} .budgie-panel {
-
     .unpinned button.flat.launcher,
     .pinned button.flat.launcher.running,
     .pinned button.launcher.running.sidebar-button {
@@ -813,10 +809,21 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
 
   button {
     @extend %headerbar_buttons;
+
     &.image-button { @extend %circular_button; }
   }
 
-  stackswitcher { padding: 0 8px 12px 8px; }
+  stackswitcher {
+    padding: 0 8px 12px 8px;
+
+    &.linked:not(.vertical):not(.path-bar) > button:not(.suggested-action):not(.destructive-action):active + button {
+      border-left-color: mix(black, $header_button_active_bg, 15%);
+    }
+
+    &.linked:not(.vertical):not(.path-bar) > button:not(.suggested-action):not(.destructive-action):checked + button {
+      border-left-color: mix(black, $header_button_checked_bg, 15%);
+    }
+  }
 
   .raven-header {
     min-height: 36px;
@@ -896,6 +903,7 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
     .raven-background {
       border-radius: 0 0 $raven_radius $raven_radius;
       background-color: $raven_base_color;
+      border-top: 1px solid $raven_border_color;
     }
 
     > box.vertical > box.vertical {
@@ -910,13 +918,13 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
       }
     }
 
-    > box.vertical > box.vertical:last-child,
-    > box.vertical > widget:last-child > box.vertical { // > = 10.7
+    > box.vertical > box.vertical .mpris-widget,
+    > box.vertical > widget > box.vertical > .mpris-widget { // > = 10.7
       // FIXME: we can't crop album-art images horizontally with any borders,
       // paddings, and margins. And parent GtkBox does not sync to the size
       // of album-art dynamically while transitioning images. so set specific
       // depth-0 OSD materials for MPRIS.
-      border-radius: $raven_radius;
+      border-radius: $raven_radius - 1px;
       border: none;
       background-color: if($variant =='light', rgba(black, 0.65), rgba(black, 0.35));
       color: rgba(white, 0.65);
