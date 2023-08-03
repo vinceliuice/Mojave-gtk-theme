@@ -924,19 +924,62 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
       // paddings, and margins. And parent GtkBox does not sync to the size
       // of album-art dynamically while transitioning images. so set specific
       // depth-0 OSD materials for MPRIS.
-      border-radius: $raven_radius - 1px;
+      border-radius: 0;
       border: none;
-      background-color: if($variant =='light', rgba(black, 0.65), rgba(black, 0.35));
+      background-color: if($variant =='light', rgba(black, 0.85), rgba(black, 0.25));
       color: rgba(white, 0.65);
+
+      &:only-child, &:first-child:last-child {
+        border-radius: $raven_radius - 1px;
+
+        // .raven-header {
+        //   border-radius: $raven_radius - 1px $raven_radius - 1px 0 0;
+        // }
+  
+        .raven-background {
+          border-radius: 0 0 $raven_radius - 1px $raven_radius - 1px;
+        }
+      }
+
+      &:first-child:not(:last-child) {
+        border-radius: $raven_radius - 1px $raven_radius - 1px 0 0;
+
+        // .raven-header {
+        //   border-radius: $raven_radius - 1px $raven_radius - 1px 0 0;
+        // }
+  
+        .raven-background {
+          border-radius: 0;
+        }
+      }
+
+      &:last-child:not(:first-child) {
+        border-radius: 0 0 $raven_radius - 1px $raven_radius - 1px;
+
+        // .raven-header {
+        //   border-radius: 0;
+        // }
+  
+        .raven-background {
+          border-radius: 0 0 $raven_radius - 1px $raven_radius - 1px;
+        }
+      }
+
+      &:not(:first-child):not(:only-child) {
+        margin-top: -$raven_padding;
+      }
 
       // .raven-header {
       //   background-color: rgba(black, 0.65);
       //   color: rgba(white, 0.75);
+      //   border-radius: 0;
       // }
 
       .raven-background {
-        background-color: rgba(black, 0.25);
+        background-color: if($variant =='light', rgba(white, 0.08), rgba(black, 0.35));
         margin-bottom: 0; // unset parent margin
+        border-radius: 0;
+        border: none;
 
         image { color: rgba(white, 0.15); }
 
@@ -960,6 +1003,10 @@ $raven_opacity: if($variant =='light', 0.85, 0.95);
             border: none;
             @extend %selected-button;
           }
+        }
+
+        image.raven-mpris {
+          border-radius: $raven_radius;
         }
       }
 
