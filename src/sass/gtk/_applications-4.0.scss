@@ -343,6 +343,11 @@ window.background {
           margin-top: 8px;
           margin-bottom: 8px;
         }
+
+        menubutton > button:not(.destructive-action):not(.suggested-action):not(.close):not(.maximize):not(.minimize) {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
       }
 
       + separator {
