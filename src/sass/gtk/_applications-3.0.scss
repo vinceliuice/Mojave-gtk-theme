@@ -1556,6 +1556,11 @@ window.background.csd {
         row.activatable:not(:hover):not(:active):not(:selected) {
           background-color: transparent;
         }
+
+        separator {
+          background: none;
+          border: none;
+        }
       }
     }
   }

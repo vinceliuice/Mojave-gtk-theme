@@ -8,7 +8,7 @@
     border-color: rgba($dark_sidebar_bg, 1);
   }
 
-  button { @extend %flat_button; }
+  button:not(.close):not(.minimize):not(.maximize) { @extend %flat_button; }
 }
 
 %side_headerbar_right {
