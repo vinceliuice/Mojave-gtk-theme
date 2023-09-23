@@ -4346,7 +4346,7 @@ headerbar,
     }
 
     // Load png assets for each button, Fix the Chrome window restore button bug
-    @each $k in ('close', 'maximize', 'minimize', 'restore') {
+    @each $k in ('close', 'maximize', 'minimize') {
       @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active'), (':active:hover','-active') {
         &.#{$k}#{$l} {
           background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}');

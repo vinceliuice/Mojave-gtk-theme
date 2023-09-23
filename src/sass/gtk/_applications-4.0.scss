@@ -9,6 +9,15 @@
   }
 
   button:not(.close):not(.minimize):not(.maximize) { @extend %flat_button; }
+
+  windowcontrols button {
+    &.close, &.maximize, &.minimize {
+      min-width: 16px;
+      min-height: 16px;
+      margin: 6px 0;
+      padding: 5px 0;
+    }
+  }
 }
 
 %side_headerbar_right {

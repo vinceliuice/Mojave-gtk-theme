@@ -4435,38 +4435,50 @@ window {
 // Titlebuttons
 //
 windowcontrols {
-  border-spacing: 3px;
+  border-spacing: 6px;
   margin: 0;
   padding: 0 3px;
 
-  .titlebar & {
-    border-spacing: 6px;
+  &:not(.empty) {
+    &.start:dir(ltr),
+    &.end:dir(rtl) {
+      margin-right: 8px;
+    }
+
+    &.start:dir(rtl),
+    &.end:dir(ltr) {
+      margin-left: 8px;
+    }
   }
 
   button {
-    margin: 0;
-    padding: 0;
+    > image {
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      background-image: none;
+    }
 
-    &.close, &.maximize, &.minimize, &.restore {
+    &.close, &.maximize, &.minimize {
+      min-width: 16px;
+      min-height: 16px;
+      margin: 6px 0;
+      padding: 5px 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: auto;
+
       &, &:hover, &:active, &:active:hover {
-        min-width: 16px;
-        min-height: 16px;
-        margin: 0;
-        padding: 0;
         color: transparent;
         background-color: transparent;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: auto;
-        border-width: 0;
+        border: none;
         box-shadow: none;
       }
 
       &:backdrop { opacity: 1; }
     }
 
-    // Load png assets for each button, Fix the Chrome window restore button bug
-    @each $k in ('close', 'maximize', 'minimize', 'restore') {
+    @each $k in ('close', 'maximize', 'minimize') {
       @each $l, $m in ('',''),
                       (':backdrop','-backdrop'),
                       (':backdrop:hover','-backdrop-hover'),
