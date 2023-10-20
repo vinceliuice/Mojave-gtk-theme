@@ -120,6 +120,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   .calendar-change-month-forward {
     padding: 2px !important;
     margin: 0 !important;
+    box-shadow: none !important;
 
     StIcon {
       icon-size: $base_icon_size !important;
@@ -137,6 +138,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
     &:active { background-color: $track_color; }
   }
 
+  .calendar-day,
   .calendar-day-base {
     @include font(caption);
     text-align: center;
@@ -150,7 +152,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 
     &:hover, &:focus {
       background-color: $divider_color;
-      box-shadow: none;
+      box-shadow: none !important;
     }
 
     &:active {
@@ -163,6 +165,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
       color: $fg_color;
       background-color: $track_color;
       border-color: transparent; //avoid jumparound due to today
+      box-shadow: none !important;
     }
 
     &.calendar-day-heading {  //day of week heading
@@ -217,6 +220,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
     &:selected {
       background-color: $primary_color;
       color: $light_fg_color !important;
+      box-shadow: none !important;
 
       &:hover, &:focus {
         background-color: lighten($primary_color, 8%);
@@ -235,9 +239,10 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
     }
   }
 
+  .calendar-other-month,
   .calendar-other-month-day {
-    color: $disabled_fg_color;
-    opacity: 0.5;
+    color: $disabled_fg_color !important;
+    opacity: 1;
   }
 
   .calendar-week-number {

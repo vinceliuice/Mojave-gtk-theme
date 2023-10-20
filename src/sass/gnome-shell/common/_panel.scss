@@ -194,16 +194,24 @@
     color: transparent;
   }
 
+  StBoxLayout {
+    spacing: 0;
+  }
+
+  .workspace-dot {
+    background-color: transparent;
+  }
+
   &:active, &:overview, &:focus, &:checked {
     background-color: transparent;
     border: none;
 
     // > * { background-image: url("assets/activities-active.svg"); }
   }
+}
 
-  @if $variant == 'light' {
-    &:overview {
-      > * { background-image: url("assets/activities-white.svg"); }
-    }
+@if $variant == 'light' {
+  #panel:overview {
+    #panelActivities.panel-button > * { background-image: url("assets/activities-white.svg"); }
   }
 }

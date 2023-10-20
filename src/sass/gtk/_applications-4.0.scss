@@ -67,7 +67,7 @@
 
 .nautilus-window {
   headerbar {
-    > * {
+    entry {
       margin: 0;
     }
 
@@ -177,8 +177,6 @@ child.activatable {
     border-color: $selected_bg_color;
   }
 
-  > box { margin: 0; }
-
   #NautilusQueryEditorTag {
     @extend .entry-tag;
 
@@ -198,7 +196,9 @@ child.activatable {
     @extend %nautilus_pathbar_button;
   }
 
-  > text, > image { margin: 0; }
+  > box,
+  > text,
+  > image { margin: 0; }
 }
 
 #NautilusPathBar {

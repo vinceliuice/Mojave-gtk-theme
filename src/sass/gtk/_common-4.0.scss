@@ -5,7 +5,7 @@ $list_shadow: if($variant == 'light',
                 (inset 0 0 8px rgba(white, 0.03), inset 0 0 3px rgba(white, 0.02), 0 0 0 1px rgba(black, 0.15)));
 
 %circular_list {
-  border-radius: $bd_radius;
+  border-radius: $bt_radius;
   box-shadow: $list_shadow;
   background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
   border: none;
@@ -1638,7 +1638,8 @@ headerbar {
   }
 
   > windowhandle > box {
-    padding: 0 7px;
+    padding: 0 8px;
+
     &,
     > box.start,
     > box.end {
@@ -3845,17 +3846,20 @@ stacksidebar {
 
 // Navigation Sidebar
 .navigation-sidebar {
-  padding: 0; //only vertical padding. horizontal row size would clip
+  padding: 6px; //only vertical padding. horizontal row size would clip
 
   > separator {
     margin: 4px 0;
+    background-color: transparent;
   }
 
   > row {
     min-height: 36px;
     padding: 0 8px;
-    border-radius: 0;
+    border-radius: $bt_radius;
     margin: 0;
+
+    + row { margin-top: 3px; }
 
     &:hover,
     &:focus-visible:focus-within {
@@ -3906,6 +3910,7 @@ placessidebar {
     &:selected, &:selected:hover, &:active:hover {
       color: $fg_color;
       background-color: $sidebar_theme_color;
+
       &, label { color: $fg_color; }
     }
 
