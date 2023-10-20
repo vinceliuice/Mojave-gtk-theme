@@ -276,6 +276,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   .events-list {
     spacing: 2 * $base_spacing;
     text-shadow: none;
+    color: $hint_fg_color;
   }
 
   .events-title {
