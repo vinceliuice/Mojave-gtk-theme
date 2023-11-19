@@ -344,11 +344,14 @@ tabbar {
   }
 
   tabbox {
+    padding: 0;
+    margin: 0;
     background-color: darken($header_bg, 10%);
     box-shadow: none;
     border-bottom: 1px solid $solid_borders_color;
 
     > tabboxchild {
+      padding: 0;
       margin: 0 -3px;
       border-radius: 0;
     }
@@ -657,6 +660,34 @@ toolbarview.undershoot-bottom scrolledwindow {
       background-color: transparent;
     }
   }
+
+  toolbarview.undershoot-top scrolledwindow {
+    @include undershoot(top, $style: 'compact');
+  }
+
+  toolbarview.undershoot-bottom scrolledwindow {
+    @include undershoot(bottom, $style: 'compact');
+  }
+
+  scrolledwindow {
+    &.undershoot-top {
+      @include undershoot(top, $style: 'compact');
+    }
+
+    &.undershoot-bottom {
+      @include undershoot(bottom, $style: 'compact');
+    }
+
+    &.undershoot-start {
+      &:dir(ltr) { @include undershoot(left, $style: 'compact'); }
+      &:dir(rtl) { @include undershoot(right, $style: 'compact'); }
+    }
+
+    &.undershoot-end {
+      &:dir(ltr) { @include undershoot(right, $style: 'compact'); }
+      &:dir(rtl) { @include undershoot(left, $style: 'compact'); }
+    }
+  }
 }
 
 // Gnome >= 45.0
@@ -675,6 +706,10 @@ toolbarview.undershoot-bottom scrolledwindow {
 }
 
 .top-bar {
+  box-shadow: none;
+  border: none;
+  background: none;
+
   .collapse-spacing {
     padding: 0;
   }
