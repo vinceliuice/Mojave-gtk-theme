@@ -235,6 +235,12 @@ child.activatable {
   }
 }
 
+navigation-view-page > toolbarview > scrolledwindow > viewport > clamp {
+  > box > box > stack > button {
+    margin-top: $container_padding * 2;
+  }
+}
+
 // Extensions
 window.nightthemeswitcher headerbar {
   background: $header_bg;

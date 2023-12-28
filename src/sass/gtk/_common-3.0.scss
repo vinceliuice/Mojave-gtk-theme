@@ -1034,7 +1034,6 @@ toolbar.inline-toolbar toolbutton {
 
 // special case, because path-bars are bugged
 @mixin pathbar_linking_rules ($sep_color: $button_border, $button_rules: 'true') {
-
   @if $button_rules == 'true' {
     > button:active + button {
       border-left-color: mix(black, $header_button_active_bg, 15%);
@@ -3645,7 +3644,7 @@ messagedialog { // Message Dialog styling
       box-shadow: none;
     }
 
-    button:not(.suggested-action):not(.destructive-action) {
+    &.linked:not(.vertical):not(.path-bar) > button:not(.suggested-action):not(.destructive-action) {
       background-color: lighten($bg_color, 5%);
 
       &:hover {
@@ -3656,8 +3655,10 @@ messagedialog { // Message Dialog styling
 
       &:active, &:checked {
         @include button(header-active);
+      }
 
-        border-color: $button_borders;
+      &:active + button {
+        border-left-color: mix(black, $header_button_active_bg, 15%);
       }
     }
   }
