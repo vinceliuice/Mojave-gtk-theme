@@ -2184,7 +2184,7 @@ popover.background {
     &:hover, &:selected {
       background-color: $selected_bg_color;
       color: $selected_fg_color;
-      transition: background-color 50ms $deceleration_curve;
+      transition: none;
     }
 
     &:selected:active {
