@@ -283,52 +283,52 @@ window.background.csd {
 
       > stack.background { background-color: $base_color; }
     }
+  }
+}
 
-    preferencesgroup > box {
-      button.background-preview-button {
-        padding: $container_padding / 2;
-        outline: 2px solid transparent;
-        outline-offset: 0;
-        border-radius: $bt_radius + $container_padding / 2;
+preferencesgroup > box {
+  button.background-preview-button {
+    padding: $container_padding / 2;
+    outline: 2px solid transparent;
+    outline-offset: 0;
+    border-radius: $bt_radius + $container_padding / 2;
 
-        &, &:hover, &:active, &:checked {
-          background: none;
-          border: none;
-          box-shadow: none;
-        }
+    &, &:hover, &:active, &:checked {
+      background: none;
+      border: none;
+      box-shadow: none;
+    }
 
-        &:hover {
-          outline-color: $alt_disabled_fg_color;
-        }
+    &:hover {
+      outline-color: $alt_disabled_fg_color;
+    }
 
-        &:active {
-          outline-color: $alt_fg_color;
-        }
+    &:active {
+      outline-color: $alt_fg_color;
+    }
 
-        &:checked {
-          outline-color: $selected_bg_color;
-        }
-      }
+    &:checked {
+      outline-color: $selected_bg_color;
+    }
+  }
 
-      flowbox.background-flowbox > flowboxchild {
-        outline: 2px solid transparent;
-        outline-offset: 0;
-        border-radius: $bt_radius + 3px;
-        padding: 3px;
+  flowbox.background-flowbox > flowboxchild {
+    outline: 2px solid transparent;
+    outline-offset: 0;
+    border-radius: $bt_radius + 3px;
+    padding: 3px;
 
-        &:hover {
-          outline-color: $alt_disabled_fg_color;
-        }
+    &:hover {
+      outline-color: $alt_disabled_fg_color;
+    }
 
-        &:active {
-          outline-color: $alt_fg_color;
-        }
+    &:active {
+      outline-color: $alt_fg_color;
+    }
 
-        &:selected {
-          outline-color: $selected_bg_color;
-          background-color: transparent;
-        }
-      }
+    &:selected {
+      outline-color: $selected_bg_color;
+      background-color: transparent;
     }
   }
 }
@@ -478,29 +478,85 @@ menubutton.flat.popup.sources-button {
 // Gnome Software
 //
 
-flowboxchild {
-  &.card {
-    background: none;
-    border: none;
+.details-page {
+  margin: $container_padding * 4 0px;
+}
+
+.installed-overlay-box {
+  font-size: smaller;
+  background-color: $primary_color;
+  border-radius: 0;
+  color: $light_fg_color;
+  text-shadow: 0 1px 0 rgba(black, 0.2);
+}
+
+screenshot-carousel box.frame {
+  border-width: 1px 0;
+  border-radius: 0;
+}
+
+screenshot-carousel button,
+.featured-carousel button {
+  margin: $container_padding * 2;
+}
+
+.screenshot-image-main .image1,
+.screenshot-image-main .image2 {
+  margin-top: $container_padding;
+  margin-bottom: $container_padding * 2;
+  margin-left: $container_padding;
+  margin-right: $container_padding;
+}
+
+.app-tile-label {
+  font-size: 105%;
+}
+
+.review-textbox {
+  padding: $container_padding;
+}
+
+.origin-rounded-box {
+  background-color: $divider_color;
+  border-radius: $circular_radius;
+  padding: $container_padding - 2px;
+}
+
+.origin-beta {
+  color: $warning_color;
+}
+
+.origin-button > button {
+  padding: $container_padding / 2 $container_padding * 1.5;
+}
+
+flowboxchild.card:not(.category-tile) {
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  background: none;
+}
+
+.category-tile.card {
+  padding: $container_padding * 3.5;
+  border: none;
+  border-radius: $bt_radius;
+  min-width: 140px;
+  font-weight: 900;
+  font-size: larger;
+  background-clip: border-box;
+  box-shadow: 0 3px 6px rgba(black, 0.08);
+  border-radius: $mn_radius;
+  border-width: 0;
+
+  &.category-tile-iconless {
+    padding: $container_padding * 1.5 $container_padding * 2.5;
     box-shadow: none;
-    padding: 0;
-  }
-
-  > button.card {
-    &.category-tile {
-      padding: $container_padding * 3.5;
-      background-clip: border-box;
-      box-shadow: 0 3px 6px rgba(black, 0.08);
-      border-radius: $mn_radius;
-      border-width: 0;
-    }
-
-    &.category-tile-iconless {
-      padding: $container_padding * 1.5 $container_padding * 2.5;
-      box-shadow: none;
-      border-width: 1px;
-      border-radius: $bt_radius;
-    }
+    border-width: 1px;
+    border-radius: $bt_radius;
+    min-width: 130px;
+    font-size: 105%;
+    font-weight: normal;
   }
 }
 
@@ -676,6 +732,392 @@ screenshot-carousel box.frame.view {
     background-image: linear-gradient($borders_color 1px, transparent 1px),
                       linear-gradient(90deg, $borders_color 1px, transparent 1px);
   }
+}
+
+clamp.medium .category-tile:not(.category-tile-iconless),
+clamp.large .category-tile:not(.category-tile-iconless) {
+  font-size: larger;
+}
+
+// The rest of the featured-tile CSS is loaded at runtime in gs-feature-tile.c
+.featured-tile {
+  padding: 0;
+  box-shadow: none;
+
+  label.title-1 {
+    margin-top: $container_padding;
+    margin-bottom: $container_padding;
+  }
+
+  &.narrow label.title-1 {
+    font-size: 16pt;
+  }
+}
+
+.application-details-infobar {
+  &, &.info {
+    background-color: $fill_color;
+    color: $fg_color;
+    border: 1px solid $borders_color;
+  }
+
+  &.warning {
+    background-color: $warning_color;
+    color: $light_fg_color;
+    border: 1px solid $divider_color;
+  }
+}
+
+@keyframes install-progress-unknown-move {
+  0% { background-position: 0%; }
+  50% { background-position: 100%; }
+  100% { background-position: 0%; }
+}
+
+.application-details-description .button {
+  padding-left: $container_padding * 4;
+  padding-right: $container_padding * 4;
+}
+
+.install-progress {
+  background-image: linear-gradient(to top, $primary_color 2px, gtkalpha($primary_color, 0) 2px);
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-size: 0;
+  transition: none;
+}
+
+.install-progress:dir(rtl) { background-position: 100% bottom; }
+
+.review-row > * {
+  margin: $container_padding * 2;
+}
+
+.review-row button { font-size: smaller; }
+
+.review-row .vote-buttons button {
+  margin-right: -1px;
+}
+
+// this is the separator between yes and no vote buttons, gtk+ 3.20 only
+.review-row .vote-buttons button:not(:first-child) {
+  border-image: linear-gradient(to top, $borders_color, $borders_color) 0 0 0 1 / 5px 0 5px 1px;
+}
+
+.review-row .vote-buttons button:hover,
+.review-row .vote-buttons button:active,
+.review-row .vote-buttons button:hover + button,
+.review-row .vote-buttons button:active + button {
+  border-image: none;
+}
+
+review-bar {
+  color: $disabled_fg_color;
+  background-image: none;
+  background-color: $track_color;
+}
+
+.review-histogram star-image {
+  color: $disabled_fg_color;
+}
+
+.version-arrow-label {
+  font-size: x-small;
+}
+
+.overview-more-button {
+  font-size: smaller;
+  padding: 0 $container_padding * 2 + 4px;
+}
+
+.app-row-origin-text {
+  font-size: smaller;
+}
+
+.app-listbox-header {
+  padding: $container_padding;
+  border-bottom: 1px solid $borders_color;
+}
+
+.image-list {
+  background-color: transparent;
+}
+
+box.star {
+  background-color: transparent;
+  background-image: none;
+}
+
+button.star {
+  outline-offset: 0;
+  background-color: transparent;
+  background-image: none;
+  border-image: none;
+  border-radius: 0;
+  border-width: 0;
+  padding: 0;
+  box-shadow: none;
+  outline-offset: -1px;
+}
+
+star-image {
+  color: $theme_color_yellow;
+}
+
+.dimmer-label {
+  opacity: 0.25;
+}
+
+.update-failed-details {
+  font-family: Monospace;
+  font-size: smaller;
+  padding: $container_padding * 2 + 4px;
+}
+
+.upgrade-banner {
+  padding: 0px;
+  border-radius: $bt_radius;
+  border: none;
+}
+
+.upgrade-banner-background {
+  background: linear-gradient(to bottom, $success_color, $suggested_color);
+  color: white;
+}
+
+.upgrade-buttons #button_upgrades_install {
+  padding-left: $container_padding * 2 + 4px;
+  padding-right: $container_padding * 2 + 4px;
+}
+
+scrolledwindow.list-page > viewport > clamp > box {
+  margin: $container_padding * 4 $container_padding * 2;
+  border-spacing: $container_padding * 4;
+}
+
+.update-preferences preferencesgroup > box > box {
+  margin-top: $container_padding * 3;
+}
+
+.section > label:not(:first-child) { margin-top: $container_padding; }
+
+.section > box:not(:first-child) { margin-top: $container_padding * 2; }
+
+clamp.status-page {
+	margin: $container_padding * 6 $container_padding * 2;
+}
+
+clamp.status-page .iconbox {
+  min-height: 128px;
+  min-width: 128px;
+}
+
+clamp.status-page .icon {
+  color: $disabled_fg_color;
+  min-height: 32px;
+  min-width: 32px;
+}
+
+clamp.status-page .icon:not(:last-child) {
+  margin-bottom: $container_padding * 6;
+}
+
+clamp.status-page .title:not(:last-child) {
+  margin-bottom: $container_padding * 2;
+}
+
+app-context-bar {
+  .context-tile {
+    border: 1px solid $borders_color;
+    background-color: transparent;
+    border-radius: 0;
+    padding: $container_padding * 4 $container_padding * 2 $container_padding * 3.5 $container_padding * 2;
+    outline-offset: 5px;
+    transition-property: outline, outline-offset, background-image;
+    border-bottom: none;
+    border-right: none;
+
+    &:hover {
+      background-image: none;
+      background-color: $divider_color;
+    }
+
+    &.keyboard-activating,
+    &:active {
+      background-color: $track_color;
+    }
+
+    &:focus:focus-visible {
+      outline-offset: -1px;
+    }
+  }
+
+  &.horizontal box:first-child .context-tile:first-child,
+  &.vertical .context-tile:first-child {
+    border-left: none;
+  }
+
+  &.horizontal .context-tile,
+  &.vertical box:first-child .context-tile {
+  	border-top: none;
+  }
+
+  > box:not(:first-child) > button.flat {
+    border-radius: 0;
+
+    &:last-child {
+      border-radius: 0 $bt_radius $bt_radius 0;
+    }
+  }
+
+  > box:first-child > button.flat {
+    border-radius: 0;
+
+    &:first-child {
+      border-radius: $bt_radius 0 0 $bt_radius;
+    }
+  }
+
+  > box > button.flat {
+    border-left-color: $borders_color;
+  }
+}
+
+carousel.card {
+  border: none;
+  background-color: $fill_color;
+}
+
+.context-tile-lozenge {
+  min-height: 28px;
+  min-width: 28px;
+  padding: $container_padding;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: $circular_radius;
+
+  &.large {
+    font-size: 24px;
+    padding: 16px;
+    min-width: 24px;  /* 60px minus the left and right padding */
+    min-height: 24px;  /* 60px minus the top and bottom padding */
+  }
+
+  &.wide-image image {
+    margin-top: -28px;
+    margin-bottom: -28px;
+  }
+
+  image { -gtk-icon-style: symbolic; }
+
+  &.grey {
+    color: $fg_color;
+    background-color: $divider_color;
+  }
+
+  &.green, &.details-rating-0 {
+    color: darken($theme_color_green, 15%);
+    background-color: rgba($theme_color_green, 0.15);
+  }
+
+  &.blue,
+  &.details-rating-5 {
+    color: $theme_color_blue;
+    background-color: rgba($theme_color_blue, 0.15);
+  }
+
+  &.yellow, &.details-rating-12 {
+    color: darken($theme_color_yellow, 15%);
+    background-color: rgba($theme_color_yellow, 0.15);
+  }
+
+  &.details-rating-15 {
+    color: $theme_color_orange;
+    background-color: rgba($theme_color_orange, .15);
+  }
+
+  &.red, &.details-rating-18 {
+    color: darken($theme_color_red, 15%);
+    background-color: rgba($theme_color_red, 0.15);
+  }
+}
+
+.eol-red {
+  font-weight: bold;
+  color: $error_color;
+}
+
+window.narrow .app-title {
+  font-size: 16pt;
+}
+
+window.narrow .app-developer {
+  font-size: small;
+}
+
+.install-progress-label {
+  font-size: smaller;
+  font-feature-settings: "tnum";
+}
+
+scrolledwindow.fake-adw-status-page > viewport > box { margin: $container_padding * 6 $container_padding * 2; }
+scrolledwindow.fake-adw-status-page > viewport > box > clamp:not(:last-child) > box { margin-bottom: $container_padding * 6; }
+scrolledwindow.fake-adw-status-page > viewport > box > clamp > box > .icon:not(:last-child) { margin-bottom: $container_padding * 6; }
+scrolledwindow.fake-adw-status-page > viewport > box > clamp > box > .title:not(:last-child) { margin-bottom: $container_padding * 2; }
+
+statuspage.icon-dropshadow image.icon {
+	-gtk-icon-shadow: 0 1px 12px rgba(0,0,0,0.05),
+	                  0 -1px rgba(0,0,0,0.05),
+	                  1px 0 rgba(0,0,0,0.1),
+	                  0 1px rgba(0,0,0,0.3),
+	                  -1px 0 rgba(0,0,0,0.1);
+}
+
+window.info scrollbar.vertical {
+  margin-top: 48px;
+  background: none;
+  box-shadow: none;
+}
+
+window.info scrollbar.vertical trough {
+  margin-top: 0;
+}
+
+// GsAppRow
+row.app > box.header {
+  margin-left: $container_padding * 2;
+  margin-right: $container_padding * 2;
+}
+
+row.app > box.header {
+  border-spacing: $container_padding * 2;
+}
+
+row.app > box.header > image {
+  margin-top: $container_padding * 2;
+  margin-bottom: $container_padding * 2;
+}
+
+row.app label.warning {
+  color: $warning_color;
+}
+
+// GtkSpinner
+
+// Ensure the spinner is hidden before the animation is triggered.
+@keyframes pre-delay {
+  from { opacity: 0; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { filter: opacity(0%); }
+}
+
+/* Give a fade-in animation to spinners. */
+spinner.fade-in:checked {
+  animation: pre-delay 0.5s linear 1, fade-in 1s linear 1, spin 1s linear infinite;
+  animation-delay: 0s, 0.5s, 0.5s;
 }
 
 //
