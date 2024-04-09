@@ -18,7 +18,7 @@
   &.login-screen,
   &.lock-screen {
     box-shadow: none;
-    background-color: if($trans == 'false' and $variant == 'light', transparent, transparent);
+    background-color: transparent;
     box-shadow: none;
 
     StLabel, StIcon { color: $light_alt_fg_color; }
@@ -70,14 +70,14 @@
 
     &:hover {
       color: $panel_fg;
-      background-color: $light_divider_color;
+      background-color: rgba($panel_fg, 0.15);
       text-shadow: none;
     }
 
     &:active, &:overview, &:focus, &:checked {
       &, &:hover {
         background-color: $primary_color;
-        color: $light_alt_fg_color;
+        color: $light_fg_color;
         text-shadow: none;
         box-shadow: none;
       }
@@ -91,6 +91,16 @@
     }
 
     &.clock-display {
+      &:hover {
+        color: $panel_fg;
+        background-color: rgba($panel_fg, 0.15) !important;
+      }
+
+      &:active, &:overview, &:focus, &:checked {
+        background-color: $primary_color !important;
+        color: $light_fg_color;
+      }
+
       .clock {
         // transition-duration: 150ms;
         border: none;
@@ -151,6 +161,7 @@
 
   // Input indicators
   Gjs_status_keyboard_InputSourceIndicator.panel-button, // Ibus
+  Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_IndicatorStatusIcon.panel-button,
   Gjs_appindicatorsupport_rgcjonas_gmail_com_indicatorStatusIcon_AppIndicatorsIndicatorStatusIcon.panel-button { // Fcitx
     -natural-hpadding: 8px + $base_padding !important;
     -minimum-hpadding: 8px + $base_padding !important;
@@ -162,13 +173,23 @@
     .panel-button {
       &:hover, &:active, &:overview, &:focus, &:checked {
         box-shadow: none;
+      }
 
-        &.clock-display {
+      &.clock-display {
+        box-shadow: none;
+
+        &:hover {
+          color: $panel_fg;
+          background-color: $light_divider_color !important;
+        }
+  
+        &:active, &:overview, &:focus, &:checked {
+          background-color: $light_track_color !important;
+          color: $light_fg_color;
+        }
+
+        .clock {
           box-shadow: none;
-
-          .clock {
-            box-shadow: none;
-          }
         }
       }
     }
@@ -179,20 +200,35 @@
   .remote-access-indicator { color: $warning_color; }
 }
 
-// Activities button
-#panel #panelActivities.panel-button {
-  > * {
-    background-image: url("assets/activities.svg");
-    background-position: center top;
-    background-size: auto;
-    width: 16px;
-    padding: 0 !important;
-    margin: 0 !important;
-    background-color: transparent !important;
-    background-gradient-direction: none !important;
-    border: none;
-    color: transparent;
+$activities: normal; // normal/apple
+
+%normal_activites {
+  -natural-hpadding: $base_padding * 3;
+
+  & StBoxLayout {
+    padding: 0 $scaled_padding * 0.5; // use em padding to keep proportion
+    spacing: $base_padding;
   }
+
+  & .workspace-dot {
+    border-radius: $circular_radius;
+    min-width: $scalable_icon_size * 0.5;
+    min-height: $scalable_icon_size * 0.5;
+    background-color: $panel_fg;
+  }
+}
+
+%apple_activites {
+  -natural-hpadding: $base_padding * 2;
+  background-image: url("assets/activities.svg");
+  background-position: center center;
+  background-size: 24px 24px;
+  width: 24px;
+  height: 24px;
+  color: transparent;
+  font-size: 0;
+
+  > * { width: $medium_size; }
 
   StBoxLayout {
     spacing: 0;
@@ -203,15 +239,32 @@
   }
 
   &:active, &:overview, &:focus, &:checked {
-    background-color: transparent;
     border: none;
+    color: transparent;
+  }
 
-    // > * { background-image: url("assets/activities-active.svg"); }
+  &:overview { background-color: transparent; }
+
+  @if $variant == 'light' {
+    &:overview {
+      background-image: url("assets/activities-white.svg");
+    }
   }
 }
 
-@if $variant == 'light' {
-  #panel:overview {
-    #panelActivities.panel-button > * { background-image: url("assets/activities-white.svg"); }
+// Activities button
+#panel #panelActivities.panel-button {
+  @if $activities == 'apple' {
+    @extend %apple_activites;
+  } @else {
+    @extend %normal_activites;
   }
+}
+
+#panel:overview #panelActivities.panel-button {
+  &:hover, &:active, &:overview, &:focus, &:checked {
+    background-color: transparent !important;
+  }
+
+  .workspace-dot { background-color: $light_fg_color; }
 }

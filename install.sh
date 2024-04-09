@@ -729,7 +729,9 @@ fi
 if [[ "$(command -v gnome-shell)" ]]; then
   echo; prompt -w "Desktop version: '$(gnome-shell --version)'";
   SHELL_VERSION="$(gnome-shell --version | cut -d ' ' -f 3 | cut -d . -f -1)"
-  if [[ "${SHELL_VERSION:-}" -ge "44" ]]; then
+  if [[ "${SHELL_VERSION:-}" -ge "46" ]]; then
+    GS_VERSION="46-0"
+  elif [[ "${SHELL_VERSION:-}" -ge "44" ]]; then
     GS_VERSION="44-0"
   elif [[ "${SHELL_VERSION:-}" -ge "42" ]]; then
     GS_VERSION="42-0"
@@ -740,7 +742,7 @@ if [[ "$(command -v gnome-shell)" ]]; then
   fi
   else
     prompt -e "'gnome-shell' not found, using styles for last gnome-shell version available."
-    GS_VERSION="44-0"
+    GS_VERSION="46-0"
 fi
 
 if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then

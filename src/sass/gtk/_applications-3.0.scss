@@ -1404,7 +1404,8 @@ list#AutostartListBoxTweakGroup {
 }
 
 // sidebar on gnome tweak
-.tweak-categories {
+.tweak-categories,
+window.background.csd > leaflet > box > scrolledwindow > viewport > list.navigation-sidebar {
   border-radius: 0 0 0 $wm_radius;
 
   > separator {

@@ -1,27 +1,15 @@
 /* Buttons */
 
-.button {
-  min-height: 20px;
-  padding: $base_padding $base_padding * 2;
-  border-radius: $bt_radius;
-  box-shadow: none;
-
-  &, .popup-menu & {
-    @include button(flat-normal);
-    &:hover { @include button(flat-hover); }
-    &:active { @include button(flat-active); }
-    &:insensitive { @include button(flat-insensitive); }
-    &:focus { @include button(flat-focus); }
-    border: none;
-  }
+%flat_button {
+  @include button(flat-normal);
+  &:hover { @include button(flat-hover); }
+  &:selected, &:active { @include button(flat-active); }
+  &:checked { @include button(flat-checked); }
+  &:insensitive { @include button(flat-insensitive); }
+  &:focus { @include button(flat-focus); }
 }
 
-.icon-button {
-  min-height: 24px;
-  min-width: 24px;
-  padding: $base_padding;
-  border-radius: $circular_radius;
-
+%default_button {
   @include button(flat-normal);
   &:hover { @include button(flat-hover); }
   &:active { @include button(flat-active); }
@@ -54,5 +42,58 @@
   &:insensitive {
     background-color: transparent;
     color: rgba(white, 0.35);
+  }
+}
+
+.button {
+  min-height: to_em(22px);
+  padding: $base_padding $base_padding * 2;
+  border-radius: $bt_radius;
+  box-shadow: none;
+
+  &, .popup-menu & {
+    @include button(flat-normal);
+    &:hover { @include button(flat-hover); }
+    &:active { @include button(flat-active); }
+    &:insensitive { @include button(flat-insensitive); }
+    &:focus { @include button(flat-focus); }
+    border: none;
+  }
+
+  // default style
+  &.default {
+    @extend %default_button;
+  }
+
+  // flat style
+  &.flat {
+    @extend %flat_button;
+  }
+}
+
+.icon-button {
+  padding: $scaled_padding * 2;
+  min-height: $scalable_icon_size;
+  border-radius: $circular_radius; // is circular
+
+  @include button(flat-normal);
+  &:hover { @include button(flat-hover); }
+  &:active { @include button(flat-active); }
+  &:insensitive { @include button(flat-insensitive); }
+  &:focus { @include button(flat-focus); }
+
+  StIcon {
+    icon-size: $scalable_icon_size;
+    -st-icon-style: symbolic;
+  }
+
+  // default style
+  &.default {
+    @extend %default_button;
+  }
+
+  // flat style
+  &.flat {
+    @extend %flat_button;
   }
 }

@@ -64,7 +64,7 @@
     }
 
     & .folder-name-entry {
-      @extend %search-entry !optional;
+      @extend %search_entry;
       width: 300px;
     }
 

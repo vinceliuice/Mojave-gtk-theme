@@ -21,7 +21,8 @@
   margin: 6px;
   background: none !important;
   border: none !important;
-  box-shadow: 0 2px 5px rgba(black, 0.1);
+  box-shadow: 0 3px 5px rgba(black, 0.06);
+  border-radius: $mn_radius + $base_padding * 2;
   @include font(body-1);
 
   .popup-menu-content {

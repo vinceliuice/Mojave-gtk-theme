@@ -1,0 +1,79 @@
+/* Notifications & Message Tray */
+
+$notification_banner_height: 64px;
+$notification_banner_width: 34em;
+
+// Banner notifications
+.notification-banner {
+  min-height: $notification_banner_height;
+  width: $notification_banner_width;
+  box-shadow: if($variant == 'light', 0 3px 5px rgba(black, 0.15), inset 0 0 0 1px rgba(white, 0.08));
+  border: 1px solid if($variant == 'light', transparent, rgba(black, 0.75));
+  border-radius: $wm_radius;
+  margin: $base_padding;
+  padding: 0;
+  background-clip: padding-box;
+}
+
+.notification-buttons-bin {
+  spacing: 0;
+}
+
+$card_button_radius: $bd_radius - 1px;
+
+.notification-button {
+  min-height: 40px;
+  padding: 0 16px;
+  background-color: $fill_color;
+  color: $alt_fg_color;
+  font-weight: 500;
+  border: none;
+  border-top: 1px solid $borders_color;
+  border-radius: 0;
+
+  &:focus {
+    background-color: $fill_color;
+    color: $fg_color;
+    box-shadow: inset 0 0 0 2px $divider_color !important;
+  }
+
+  &:hover {
+    background-color: $divider_color;
+    color: $fg_color;
+    box-shadow: none;
+  }
+
+  &:active, &:checked {
+    background-color: $track_color;
+    color: $fg_color;
+  }
+
+  &:insensitive {
+    background-color: transparent;
+    color: $alt_disabled_fg_color;
+  }
+
+  &:first-child:ltr {
+    border-radius: 0 0 0 $card_button_radius;
+  }
+
+  &:last-child:ltr {
+    border-radius: 0 0 $card_button_radius 0;
+    margin-right: 1px !important;
+  }
+
+  &:first-child:rtl {
+    border-radius: 0 0 $card_button_radius;
+  }
+
+  &:last-child:rtl {
+    border-radius: 0 0 0 $card_button_radius;
+    margin-left: 0 !important;
+  }
+
+  &:first-child:last-child {
+    border-radius: 0 0 $card_button_radius $card_button_radius;
+    margin-left: 0 !important;
+    margin-right: 1px !important;
+  }
+}

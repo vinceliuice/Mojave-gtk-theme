@@ -10,6 +10,13 @@
   @return ($size / $root-font-size) + em;
 }
 
+// Function to convert px values to em
+@function to_em($input, $base: 16px) {
+  // multiplied and divided by 1000 to make up for round() shortcoming
+  $em_value: ($input / $base) * 1.091 * 1000;
+  @return round($em_value) / 1000 * 1em;
+}
+
 // provide font size in rem, with px fallback
 @mixin fontsize($size: 24, $base: 16) {
   font-size: round($size) + pt;
@@ -104,19 +111,26 @@
     color: $c;
     background-color: if($variant == 'light', darken($base_color, 2%), darken($base_color, 1%));
     border-radius: $bd_radius;
-    border: 2px solid transparent;
-    box-shadow: inset 0 0 0 1px $borders_color;
+    border: 1px solid transparent !important;
+    box-shadow: inset 0 0 0 1px $borders_color !important;
+  }
+
+  @if $t == hover {
+    color: $c;
+    background-color: if($variant == 'light', darken($base_color, 2%), darken($base_color, 1%));
+    border: 1px solid $borders_color !important;
+    box-shadow: inset 0 0 0 1px $borders_color !important;
   }
 
   @if $t == focus {
     color: $c;
-    border: 2px solid lighten($fc, 15%);
-    box-shadow: none;
+    border: 1px solid lighten($fc, 15%) !important;
+    box-shadow: inset 0 0 0 1px lighten($fc, 15%) !important;
   }
 
   @if $t == insensitive {
     color: rgba($c, 0.35);
-    box-shadow: none;
+    box-shadow: none !important;
   }
 }
 
@@ -132,26 +146,29 @@
     color: $c;
     background-color: rgba($c, 0.12);
     border-radius: $bd_radius;
-    border-color: transparent;
-    box-shadow: none;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   @if $t == focus {
     color: $c;
-    border-color: transparent;
+    border: none !important;
+    box-shadow: none !important;
     background-color: rgba($c, 0.18);
   }
 
   @if $t == hover {
     color: $c;
     background-color: rgba($c, 0.2);
-    box-shadow: 1px 2px 3px rgba(black, 0.35);
+    box-shadow: none !important;
+    border: none !important;
   }
 
   @if $t == insensitive {
     color: rgba($c, 0.35);
     background-color: rgba($c, 0.05);
-    box-shadow: none;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 
@@ -198,6 +215,15 @@
     box-shadow: none;
   }
 
+  @if $t == checked {
+    color: $light_fg_color;
+    background-color: $primary_color;
+    border-color: $button_borders_active;
+    text-shadow: none;
+    icon-shadow: none;
+    box-shadow: none;
+  }
+
   @if $t == insensitive {
     color: if($tc == $fg_color, $disabled_fg_color, $tc);
     background-color: if($c == $base_color, $divider_color, $c);
@@ -234,6 +260,15 @@
   }
 
   @if $t == flat-active {
+    color: if($tc != $light_fg_color, $fg_color, $light_fg_color);
+    background-color: if($tc != $light_fg_color, $track_color, $light_track_color);
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    icon-shadow: none;
+  }
+
+  @if $t == flat-checked {
     color: if($tc != $light_fg_color, $fg_color, $light_fg_color);
     background-color: if($tc != $light_fg_color, $track_color, $light_track_color);
     border-color: transparent;
