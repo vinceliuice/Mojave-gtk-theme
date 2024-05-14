@@ -2704,6 +2704,10 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   padding: 0 4px !important;
 }
 
+.datemenu-popover {
+  border-radius: 20px !important;
+}
+
 .datemenu-calendar-column {
   spacing: 6px;
 }
@@ -2946,7 +2950,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .weather-button,
 .events-button {
   padding: 12px !important;
-  margin: 2px 4px !important;
+  margin: 2px !important;
 }
 
 .events-button .events-box {
@@ -3001,10 +3005,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .weather-grid {
   spacing-rows: 0.4em;
   spacing-columns: 0.8em;
-}
-
-.weather-button {
-  margin-bottom: 6px !important;
 }
 
 .weather-button .weather-box {

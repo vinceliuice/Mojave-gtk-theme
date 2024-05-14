@@ -1178,6 +1178,26 @@ spinbutton {
 
       > text:focus-within + button { border-left-color: $entry_highlight; }
     }
+
+    .suffixes & {
+      > text {
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      > button {
+        @extend %circular_button;
+        border: none;
+        box-shadow: none;
+      }
+
+      > button:hover:not(:active),
+      > button:hover + button,
+      > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
+      > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled { box-shadow: none; }
+  
+    }
   }
 
   &.vertical {

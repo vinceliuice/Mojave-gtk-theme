@@ -36,18 +36,20 @@
 }
 
 .message-list-sections {
-  spacing: $base_padding;
+  spacing: $base_padding / 2;
   padding: 0;
+  margin: 0;
 
   // to account for scrollbar
-  &:ltr { margin-right: $base_margin * 2; }
-  &:rtl { margin-left: $base_margin * 2; }
+  &:ltr { margin-right: $base_padding * 2; }
+  &:rtl { margin-left: $base_padding * 2; }
 }
 
 .message-list-section,
 .message-list-section-list {
   spacing: $base_padding;
   padding: 0;
+  margin: 0;
 }
 
 // do-not-disturb + clear button
@@ -85,7 +87,7 @@
 
   .popup-menu & {
     @extend %popover_bubble;
-    margin: 2px 6px 4px;
+    margin: 0 3px 6px;
   }
 
   // subtract side padding to accommodate the close button's border
@@ -144,7 +146,7 @@
     }
 
     .message-expand-button {
-      padding: 6px;
+      padding: 4px;
       &:ltr { margin-right: $base_padding; }
       &:rtl { margin-left: $base_padding; }
     }

@@ -31,31 +31,27 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 
 // overall menu
 #calendarArea {
-  padding: 0 4px !important;
+  padding: 0 $base_padding !important;
+}
+
+.datemenu-popover {
+  border-radius: $mn_radius + $base_padding + $base_margin !important;
 }
 
 // Calendar menu side column
 .datemenu-calendar-column {
   spacing: $base_spacing;
+  margin: 0;
+  padding: 0;
 
   &:ltr { margin-right: $base_margin; }
   &:rtl { margin-left: $base_margin; }
 
   .datemenu-displays-box {
     spacing: $base_spacing;
+    margin: 0;
+    padding: 0;
   }
-}
-
-.world-clocks-header,
-.weather-header,
-.events-section-title {
-  color: $alt_fg_color;
-  font-weight: bold;
-}
-
-.datemenu-today-button,
-.datemenu-displays-box {
-  margin: 4px 8px;
 }
 
 /* today button (the date) */
@@ -94,7 +90,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 /* Calendar */
 .calendar {
   padding: $base_padding !important;
-  margin: 0 $base_padding * 2 !important;
+  margin: 0 3px 3px !important;
   border-radius: $bd_radius;
   border: 1px solid if($variant == 'light', rgba(black, 0.12), rgba(black, 0.5)) !important;
   color: $alt_fg_color;
@@ -240,7 +236,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
     width: 22px;
     height: 16px;
     margin: 6px 6px 6px 4px;
-    padding: 0 0;
+    padding: 0;
     border-radius: $bt_radius;
     background-color: if($variant == 'light', rgba(black, 0.05), rgba(white, 0.05));
     color: $hint_fg_color;
@@ -268,7 +264,7 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 .events-button {
   @extend %popover_bubble;
   padding: $base_padding * 2 !important;
-  margin: 2px $base_margin !important;
+  margin: 3px !important;
 }
 
 // Events
@@ -298,6 +294,11 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
 
 // World Clock
 .world-clocks-button {
+  .world-clocks-grid {
+    spacing-rows: $base_padding;
+    spacing-columns: $base_padding * 2;
+  }
+
   .world-clocks-city {
     color: $hint_fg_color;
     font-weight: bold;
@@ -320,16 +321,8 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   }
 }
 
-.world-clocks-grid,
-.weather-grid {
-  spacing-rows: 0.4em;
-  spacing-columns: 0.8em;
-}
-
 // Weather
 .weather-button {
-  margin-bottom: 6px !important;
-
   .weather-box {
     spacing: $base_spacing + $base_margin;
   }
@@ -350,8 +343,8 @@ $message_bg: if($variant == 'light', #ffffff, #383838);
   }
 
   .weather-grid {
-    spacing-rows: 6px;
-    spacing-columns: 12px;
+    spacing-rows: $base_padding;
+    spacing-columns: $base_padding * 2;
   }
 
   .weather-forecast-time {

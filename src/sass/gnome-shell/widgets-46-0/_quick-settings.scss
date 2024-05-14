@@ -4,7 +4,7 @@
   margin: 6px 0 0 !important;
 
   .icon-button, .button {
-    padding: $container_padding;
+    padding: $container_padding * 1.5;
 
     > StIcon {
       icon-size: $base_icon_size;
@@ -122,6 +122,7 @@
   .icon-button {
     background-color: transparent;
     color: $text_color !important;
+    padding: $container_padding * 1.5;
 
     &:hover {
       background-color: $fill_color;

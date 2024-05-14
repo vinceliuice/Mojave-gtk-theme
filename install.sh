@@ -750,7 +750,7 @@ if [[ "${gdm:-}" != 'true' && "${revert:-}" != 'true' ]]; then
   if [[ "${libadwaita:-}" != 'true' ]]; then
     install_theme
   else
-    install_libadwaita
+    install_libadwaita && install_theme
   fi
 fi
 
