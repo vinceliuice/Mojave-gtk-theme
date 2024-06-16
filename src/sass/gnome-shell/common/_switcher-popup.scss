@@ -13,6 +13,8 @@
     padding: 8px;
     border-radius: $bt_radius;
     border: 1px solid transparent;
+    background-color: transparent;
+    color: $alt_fg_color;
 
     &:outlined {
       background-color: $divider_color;

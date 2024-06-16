@@ -19,6 +19,10 @@ src/main/gnome-shell/shell-44-0/gnome-shell-Dark-solid.css
 src/main/gnome-shell/shell-44-0/gnome-shell-Dark.css
 src/main/gnome-shell/shell-44-0/gnome-shell-Light-solid.css
 src/main/gnome-shell/shell-44-0/gnome-shell-Light.css
+src/main/gnome-shell/shell-46-0/gnome-shell-Dark-solid.css
+src/main/gnome-shell/shell-46-0/gnome-shell-Dark.css
+src/main/gnome-shell/shell-46-0/gnome-shell-Light-solid.css
+src/main/gnome-shell/shell-46-0/gnome-shell-Light.css
 src/main/gtk-3.0/gtk-Dark-solid.css
 src/main/gtk-3.0/gtk-Dark.css
 src/main/gtk-3.0/gtk-Light-solid.css
