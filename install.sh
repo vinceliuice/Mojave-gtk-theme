@@ -203,7 +203,7 @@ install() {
   cp -r "${SRC_DIR}/assets/cinnamon/thumbnails/thumbnail${color}${theme}.png"                "${THEME_DIR}/cinnamon/thumbnail.png"
 
   mkdir -p                                                                                   "${THEME_DIR}/plank"
-  cp -r "${SRC_DIR}/other/plank/${name}${color}/"*'.theme'                                   "${THEME_DIR}/plank"
+  cp -r "${SRC_DIR}/other/plank/Theme${color}/"*'.theme'                                     "${THEME_DIR}/plank"
 }
 
 clean() {
