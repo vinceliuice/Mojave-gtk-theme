@@ -141,7 +141,7 @@ cd "$ASRC_DIR/unity" && ./render-assets.sh
 
 echo
 echo Rendering xfwm4 assets
-cd "$ASRC_DIR/xfwm4" && ./render-assets.sh
+cd "$ASRC_DIR/xfwm4" && ./render-assets.sh && ./render-small-assets.sh
 cd "${REPO_DIR}/src/main/xfwm4" && {
   for suf in 'Light' 'Dark'; do
     [ -f themerc-${suf}.orig ] || cp themerc-${suf}{,.orig}
