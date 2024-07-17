@@ -606,7 +606,7 @@ $_dot_color: $selected_bg_color;
 }
 
 // Buttons on selected backgrounds
-%selected-button {
+%selected_button {
   color: $selected_fg_color;
   background-color: transparentize($selected_fg_color, 1);
   border-color: transparentize($selected_fg_color, 0.5);
@@ -619,10 +619,10 @@ $_dot_color: $selected_bg_color;
     background-color: transparentize($selected_fg_color, 1);
     background-image: none;
     box-shadow: none;
-  }
 
-  &.flat:disabled {
-    &, label { color: transparentize($selected_fg_color, 0.6); }
+    &:disabled {
+      &, label { color: transparentize($selected_fg_color, 0.6); }
+    }
   }
 
   &:hover {
@@ -646,12 +646,12 @@ $_dot_color: $selected_bg_color;
     background-color: transparentize($selected_fg_color, 1);
     border-color: transparentize($selected_fg_color, 0.6);
     box-shadow: none;
-  }
 
-  &:disabled:active, &:disabled:checked {
-    color: $selected_bg_color;
-    background-color: transparentize($selected_fg_color, 0.5);
-    border-color: transparentize($selected_fg_color, 0.6);
+    &:active, &:checked {
+      color: $selected_bg_color;
+      background-color: transparentize($selected_fg_color, 0.5);
+      border-color: transparentize($selected_fg_color, 0.6);
+    }
   }
 }
 
@@ -705,6 +705,7 @@ button {
   }
 
   &:active, &:checked {
+    @include button(active);
     background-color: if($variant=='light', darken($button_bg, 8%), lighten($button_bg, 8%));
 
     background-clip: if($variant=='light', border-box, padding-box);
@@ -715,21 +716,11 @@ button {
 
   &:checked:hover { background-image: $button_active_hover_image; }
 
-  &:disabled { @include button(insensitive); }
+  &:disabled {
+    @include button(insensitive);
 
-  .background & {
     &:active, &:checked {
-      @include button(active);
-    }
-
-    &:disabled {
-      &:active, &:checked {
-        @include button(insensitive-active);
-      }
-    }
-
-    &.flat {
-      &:active, &:checked { @include button(flat-active); }
+      @include button(insensitive-active);
     }
   }
 
@@ -1855,9 +1846,9 @@ headerbar {
       border-color: darken($selection_mode_bg, 4%);
     }
 
-    button {
+    button:not(.suggested-action):not(.destructive-action) {
       @include button(undecorated);
-      @extend %selected-button;
+      @extend %selected_button;
     }
 
     .subtitle:link { @extend %link_selected;  }
@@ -2453,6 +2444,10 @@ popover {
     @extend %dim-label;
     color: $fg_color;
   }
+
+  > stack { margin: -4px; } // remove extra padding from menu style popovers
+
+  > toolbar { margin: 0; }
 
   > list,
   > .view,
@@ -3515,11 +3510,46 @@ row {
   &:selected {
     @extend %selected_items;
 
-    button { @extend %selected-button; }
+    button { @extend %selected_button; }
   }
 
   &.activatable {
     @extend %row_activatable;
+  }
+}
+
+//
+// GtkInfoBar
+//
+
+infobar {
+  border-style: none;
+  background-color: $bg_color;
+  margin-bottom: 0;
+
+  &.info > revealer > box { background-color: $selected_bg_color; }
+  &.question > revealer > box { background-color: $suggested_color; }
+  &.warning > revealer > box { background-color: $warning_color; }
+  &.error > revealer > box { background-color: $error_color; }
+
+  &.info > revealer > box,
+  &.question > revealer > box,
+  &.warning > revealer > box,
+  &.error > revealer > box {
+    color: $selected_fg_color;
+    caret-color: currentColor;
+
+    button {
+      min-height: 28px;
+      @extend %selected_button;
+    }
+
+    selection {
+      color: $selected_bg_color;
+      background-color: $selected_fg_color;
+    }
+
+    *:link { @extend %link_selected; }
   }
 }
 
@@ -3955,41 +3985,6 @@ paned {
 }
 
 //
-// GtkInfoBar
-//
-
-infobar {
-  border-style: none;
-  background-color: $bg_color;
-  margin-bottom: 0;
-
-  &.info > revealer > box { background-color: $selected_bg_color; }
-  &.question > revealer > box { background-color: $suggested_color; }
-  &.warning > revealer > box { background-color: $warning_color; }
-  &.error > revealer > box { background-color: $error_color; }
-
-  &.info > revealer > box,
-  &.question > revealer > box,
-  &.warning > revealer > box,
-  &.error > revealer > box {
-    color: $selected_fg_color;
-    caret-color: currentColor;
-
-    button {
-      min-height: 28px;
-      @extend %selected-button;
-    }
-
-    selection {
-      color: $selected_bg_color;
-      background-color: $selected_fg_color;
-    }
-
-    *:link { @extend %link_selected; }
-  }
-}
-
-//
 // Tooltips
 //
 tooltip {
@@ -4401,14 +4396,18 @@ popover.emoji-picker {
 
 // mimic tab style
 button.emoji-section {
-  margin: 2px 1px;
-  padding: 1px 12px;
-  border-radius: $wm_radius;
+  margin: 3px;
+  padding: 0 12px;
+  border-radius: $bt_radius;
   border: none;
   outline-offset: -2px;
   box-shadow: none;
   // &:first-child { border-radius: 0 0 0 $wm_radius; }
   // &:last-child { border-radius: 0 0 $wm_radius 0; }
+
+  + button {
+    margin-left: 0;
+  }
 }
 
 .emoji {

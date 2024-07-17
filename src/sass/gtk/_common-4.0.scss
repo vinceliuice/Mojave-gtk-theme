@@ -1832,7 +1832,7 @@ headerbar {
 
     button {
       @include button(undecorated);
-      @extend %selected-button;
+      @extend %selected_button;
     }
 
     .subtitle:link { @extend %link_selected;  }
@@ -3421,7 +3421,7 @@ row {
   &:selected {
     @extend %selected_items;
 
-    button { @extend %selected-button; }
+    button { @extend %selected_button; }
   }
 
   &.activatable {
@@ -4123,7 +4123,7 @@ infobar {
 
     button {
       min-height: 28px;
-      @extend %selected-button;
+      @extend %selected_button;
     }
 
     selection {
@@ -4139,7 +4139,7 @@ infobar {
 // Buttons on selected backgrounds
 //
 
-%selected-button {
+%selected_button {
   color: $selected_fg_color;
   background-color: transparentize($selected_fg_color, 1);
   border-color: transparentize($selected_fg_color, 0.5);

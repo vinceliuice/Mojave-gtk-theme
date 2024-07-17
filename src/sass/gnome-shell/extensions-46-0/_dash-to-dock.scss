@@ -195,6 +195,10 @@ $dash_panel_fg: if($variant == 'light', black, white);
   }
 }
 
+.dash-label.bottom {
+  margin-bottom: $dash_padding + $base_padding !important;
+}
+
 .dashtodock-app-well-preview-menu-item {
   padding: 1em 1em 0.5em 1em;
 }

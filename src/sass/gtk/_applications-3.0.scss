@@ -350,7 +350,7 @@ $nautilus_radius: $wm_radius + 2px;
       padding: 0;
       margin-right: 6px;
       -gtk-icon-shadow: none;
-      @extend %selected-button;
+      @extend %selected_button;
     }
   }
 
@@ -686,7 +686,7 @@ filechooser,
       min-width: 16px;
       -gtk-icon-shadow: none;
       @extend %undecorated_button;
-      @extend %selected-button;
+      @extend %selected_button;
     }
   }
 }
