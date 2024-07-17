@@ -87,8 +87,8 @@ $dash_panel_fg: if($variant == 'light', black, white);
 
     .show-apps,
     .overview-tile {
-      &:ltr:first-child { margin-left: 0 !important; }
-      &:rtl:first-child { margin-right: 0 !important; }
+      // &:ltr:first-child { margin-left: 0 !important; }
+      // &:rtl:first-child { margin-right: 0 !important; }
 
       .overview-icon { color: $fg_color; }
 
