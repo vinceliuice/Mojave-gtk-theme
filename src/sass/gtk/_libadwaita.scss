@@ -690,6 +690,25 @@ toolbarview.undershoot-bottom scrolledwindow {
   }
 }
 
+%flat_header_button {
+  &, &.image-button {
+    min-height: 26px;
+  }
+
+  @include button(flat-normal);
+
+  &:hover { @include button(flat-hover); }
+  &:active, &:checked { @include button(flat-active); }
+  &:checked:hover { background-image: none; }
+  &:disabled { @include button(flat-insensitive); }
+
+  .linked:not(.vertical) > & {
+    &:not(:hover):not(:active):not(:checked):not(:disabled) {
+      background-color: if($variant=='light', rgba(black, 0.06), rgba(white, 0.06));
+    }
+  }
+}
+
 // Gnome >= 45.0
 .sidebar-pane,
 .content-pane {
@@ -701,7 +720,23 @@ toolbarview.undershoot-bottom scrolledwindow {
       border: none;
     }
 
-    button:not(.close):not(.minimize):not(.maximize) { @extend %flat_button; }
+    button:not(.close):not(.minimize):not(.maximize) { @extend %flat_header_button; }
+
+    box.start > button.image-button {
+      min-height: 20px;
+    }
+
+    .linked:not(.vertical) > entry {
+      min-height: 22px;
+      padding: 2px 8px;
+      border: none;
+      background-color: if($variant=='light', rgba(black, 0.06), rgba(white, 0.06));
+
+      &:focus-within {
+        background-color: if($variant=='light', rgba(black, 0.06), rgba(white, 0.06));
+        &:not(:only-child) { box-shadow: inset 0 0 0 2px $entry_highlight; }
+      }
+    }
   }
 }
 

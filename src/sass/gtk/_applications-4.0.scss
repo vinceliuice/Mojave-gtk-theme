@@ -67,10 +67,6 @@
 
 .nautilus-window {
   headerbar {
-    entry {
-      margin: 0;
-    }
-
     revealer > box > widget > box {
       > button:last-child {
         margin-left: -6px;
@@ -160,11 +156,11 @@ child.activatable {
   border-image: none;
   outline: 0 solid transparent;
   outline-offset: -2px;
-  min-height: if($variant == 'light', 21px, 22px);
+  min-height: if($variant == 'light', 20px, 22px);
 
   @if $variant == 'light' {
     border: 1px solid $borders_color;
-    margin-top: 7px;
+    margin-top: 8px;
   } @else {
     border: none;
     margin-top: 7px;

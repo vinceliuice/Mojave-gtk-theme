@@ -1669,11 +1669,8 @@ headerbar {
 
   button {
     @extend %headerbar_buttons;
-
-    &, &.image-button {
-      min-height: if($variant == 'light', 24px, 26px);
-      min-width: 22px;
-    }
+    min-height: if($variant == 'light', 24px, 26px);
+    min-width: 22px;
 
     &.destructive-action {
       &:hover {
@@ -1701,6 +1698,23 @@ headerbar {
     min-width: 22px;
   }
 
+  entry,
+  spinbutton,
+  button,
+  switch,
+  menubutton,
+  separator:not(.sidebar) {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  splitbutton,
+  menubutton > button,
+  entry > menubutton {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   entry { // Reset entries
     @extend %headerbar_entries;
     min-height: if($variant == 'light', 19px, 21px);
@@ -1712,26 +1726,6 @@ headerbar {
     border-radius: 7px;
   }
 
-  entry,
-  spinbutton,
-  button,
-  switch,
-  menubutton,
-  splitbutton,
-  separator:not(.sidebar) {
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
-
-  menubutton > button,
-  spinbutton > button,
-  splitbutton > button,
-  splitbutton > menubutton,
-  entry > menubutton {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
   // Headerbar Switches
   switch {
     &:backdrop { opacity: 0.75; }
@@ -1739,8 +1733,6 @@ headerbar {
 
   // Reset linked buttons
   .linked:not(.vertical) > button {
-    min-width: 20px;
-
     @if $variant == 'light' {
       border-right: 1px solid $borders_color;
 
@@ -3746,7 +3738,7 @@ window.dialog.message { // Message Dialog styling
 
 window.messagedialog {
   .response-area {
-    > box > button {
+    button {
       border-radius: 0;
       min-height: 24px;
       padding: 6px 12px;
