@@ -334,8 +334,8 @@ entry {
   > image { // icons inside the entry
     color: mix($fg_color, $base_color, 80%);
 
-    &.left { padding-left: 0; padding-right: 6px; }
-    &.right { padding-right: 0; padding-left: 6px; }
+    &:first-child { padding-left: 0; padding-right: 6px; }
+    &:last-child { padding-right: 0; padding-left: 6px; }
   }
 
   > text > placeholder {
@@ -565,7 +565,7 @@ $_dot_color: if($variant=='light', $selected_bg_color,
   }
 }
 
-button {
+%button_basic {
   min-height: 20px;
   min-width: 16px;
   transition: $button_transition;
@@ -573,34 +573,6 @@ button {
   border-radius: $bt_radius;
   padding: 0 6px;
   @include button(normal);
-
-  separator { margin: 4px 1px; }
-
-  @at-root %flat_button, &.flat {
-    min-height: if($variant =='light', 24px, 24px);
-    @include button(flat-normal);
-    // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
-    // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
-    // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
-    // in this case the duration is increased.
-    transition: none;
-
-    &:hover {
-      @include button(flat-hover);
-      transition: $button_transition;
-      transition-duration: 350ms;
-
-      &:active { transition: $button_transition; }
-     }
-
-    &:active, &:checked { @include button(flat-active); }
-    &:checked:hover { background-image: none; }
-    &:disabled { @include button(flat-insensitive); }
-
-    &.toggle.popup {
-      min-width: 20px;
-    }
-  }
 
   &:hover {
     @include button(hover);
@@ -628,6 +600,38 @@ button {
 
     &:active, &:checked {
       @include button(insensitive-active);
+    }
+  }
+}
+
+button {
+  @extend %button_basic;
+
+  separator { margin: 4px 1px; }
+
+  @at-root %flat_button, &.flat {
+    min-height: if($variant =='light', 24px, 24px);
+    @include button(flat-normal);
+    // to avoid adiacent buttons borders clashing when transitioning, the transition on the normal state is set
+    // to none, while it's added back in the hover state, so the button decoration will fade in on hover, but
+    // it won't fade out when the pointer leave the button allocation area. To make the transition more evident
+    // in this case the duration is increased.
+    transition: none;
+
+    &:hover {
+      @include button(flat-hover);
+      transition: $button_transition;
+      transition-duration: 350ms;
+
+      &:active { transition: $button_transition; }
+     }
+
+    &:active, &:checked { @include button(flat-active); }
+    &:checked:hover { background-image: none; }
+    &:disabled { @include button(flat-insensitive); }
+
+    &.toggle.popup {
+      min-width: 20px;
     }
   }
 
@@ -1782,6 +1786,26 @@ headerbar {
           border-right: none;
         }
       }
+    }
+  }
+
+  popover.background { // reset
+    entry,
+    spinbutton,
+    button,
+    switch,
+    menubutton {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    separator:not(.sidebar) {
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+
+    button {
+      @extend %button_basic;
     }
   }
 
