@@ -14,6 +14,8 @@ if [[ "$UID" -eq "$ROOT_UID" ]]; then
   DEST_DIR="/usr/share/themes"
 elif [[ -n "$XDG_DATA_HOME" ]]; then
   DEST_DIR="$XDG_DATA_HOME/themes"
+elif [[ -d "$HOME/.themes" ]]; then
+  DEST_DIR="$HOME/.themes"
 elif [[ -d "$HOME/.local/share/themes" ]]; then
   DEST_DIR="$HOME/.local/share/themes"
 else
@@ -720,19 +722,23 @@ clean_theme() {
     done
   done
 
-  local dest="$HOME/.themes"
+  if [[ "$UID" != "$ROOT_UID" ]]; then
+    if [[ "$DEST_DIR" == "$HOME/.themes" ]]; then
+      local dest="$HOME/.local/share/themes"
+    fi
 
-  for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
-    for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
-      for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
-        for small in "${smalls[@]-${SMALL_VARIANTS[@]}}"; do
-          for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
-            clean "${dest}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
+    for color in "${colors[@]-${COLOR_VARIANTS[@]}}"; do
+      for opacity in "${opacities[@]-${OPACITY_VARIANTS[@]}}"; do
+        for alt in "${alts[@]-${ALT_VARIANTS[@]}}"; do
+          for small in "${smalls[@]-${SMALL_VARIANTS[@]}}"; do
+            for theme in "${themes[@]-${THEME_VARIANTS[@]}}"; do
+              clean "${dest}" "${name:-${THEME_NAME}}" "${color}" "${opacity}" "${alt}" "${small}" "${theme}"
+            done
           done
         done
       done
     done
-  done
+  fi
 }
 
 clean_theme
