@@ -1746,7 +1746,7 @@ headerbar {
   }
 
   // Reset linked buttons
-  .linked > button {
+  .linked:not(.vertical) > button {
     @if $variant == 'light' {
       border-right: 1px solid $borders_color;
 
@@ -1757,6 +1757,42 @@ headerbar {
       &:not(:first-child) {
         &:active { box-shadow: -1px 0 mix(black, $header_button_active_bg, 15%); }
         &:checked { box-shadow: -1px 0 mix(black, $header_button_checked_bg, 15%); }
+      }
+    }
+  }
+
+  // Reset linking entries
+  .linked:not(.vertical) > entry {
+    @include entry(header-normal);
+    padding: 0 8px;
+    border-radius: $bt_radius;
+
+    @if $variant == 'light' {
+      border-width: 1px;
+      border: 1px solid $borders_color;
+    }
+
+    &:focus-within {
+      @include entry(header-focus);
+      @if $variant == 'light' { border-color: $entry_highlight; }
+    }
+
+    &:disabled {
+      @include entry(header-insensitive);
+    }
+
+    &:backdrop { opacity: 0.65; background-image: none; }
+
+    &, &:focus-within, &:disabled {
+      @extend %linked_header;
+
+      @if $variant == 'dark' {
+        border: none;
+        border-right: 1px solid $borders_color;
+
+        &:last-child {
+          border-right: none;
+        }
       }
     }
   }
