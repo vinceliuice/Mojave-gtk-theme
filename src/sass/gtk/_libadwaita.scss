@@ -725,8 +725,7 @@ toolbarview.undershoot-bottom scrolledwindow {
     }
 
     .linked:not(.vertical) > entry {
-      min-height: 22px;
-      padding: 2px 8px;
+      padding: 0 8px;
       border: none;
       background-color: if($variant=='light', rgba(black, 0.06), rgba(white, 0.06));
 

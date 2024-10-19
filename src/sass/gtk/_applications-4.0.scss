@@ -74,21 +74,6 @@
     }
   }
 
-  toolbarview {
-    > .top-bar {
-      .collapse-spacing {
-        headerbar {
-          min-height: 0;
-
-          > windowhandle > box {
-            margin-top: 3px;
-            margin-bottom: 3px;
-          }
-        }
-      }
-    }
-  }
-
   flap.unfolded {
     > placessidebar.background {
       background: none;
@@ -166,7 +151,7 @@ child.activatable {
 
 #NautilusQueryEditor { // search entry
   padding: 0 6px;
-  margin-top: 3px;
+  margin: 0;
   border-spacing: 0;
   border-radius: $bt_radius;
   background-clip: padding-box;
