@@ -1027,11 +1027,11 @@ toolbar.inline-toolbar toolbutton {
 @mixin pathbar_linking_rules ($sep_color: $button_border, $button_rules: 'true') {
   @if $button_rules == 'true' {
     > button:active + button {
-      border-left-color: mix(black, $header_button_active_bg, 15%);
+      border-left-color: if($variant == 'light', mix(black, $header_button_active_bg, 15%), $dark_borders_color);
     }
 
     > button:checked + button {
-      border-left-color: mix(black, $header_button_checked_bg, 15%);
+      border-left-color: if($variant == 'light', mix(black, $header_button_checked_bg, 15%), $dark_borders_color);
     }
   }
 

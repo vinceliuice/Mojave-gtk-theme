@@ -633,7 +633,6 @@ filechooser,
     padding-bottom: 0;
     border: none;
     color: $header_fg;
-    box-shadow: inset 0 -1px $borders_color;
     background-color: $header_bg;
     background-image: $menubar_bg_image;
     box-shadow: inset 0 -1px $borders_color;
@@ -2789,7 +2788,7 @@ window.background.csd.thunar {
 
 window.thunar {
   > grid.horizontal > paned.horizontal {
-    > scrolledwindow.frame.sidebar.shortcuts-pane {
+    scrolledwindow.frame.sidebar.shortcuts-pane {
       border-top: none;
       background-color: $dark_sidebar_bg;
 
@@ -2810,32 +2809,22 @@ window.thunar {
     }
   }
 
-  toolbar#location-toolbar {
+  toolbar:not(.inline-toolbar) {
+    color: $header_fg;
+    background-color: $header_bg;
     border-bottom: 1px solid $header_border;
+    padding: 3px;
 
-    button.path-bar-button {
+    .path-bar button {
+      margin: 0;
       min-height: if($variant == 'light', 24px, 26px);
-      border-right: 1px solid $borders_color;
-
-      @if $variant == 'light' {
-        &:active, &:checked { box-shadow: -1px 0 darken($header_button_active_bg, 12%); }
-      }
-
-      @if $variant=='dark' {
-        border-width: 0 1px 0 0;
-
-        &:last-child {
-          border-right-width: 0;
-        }
-      }
     }
 
     button.flat {
       @include button(normal);
       @include button(header-normal);
       border-width: 1px;
-      margin-left: 0;
-      margin-right: 0;
+      margin: 3px;
       min-height: if($variant == 'light', 24px, 26px);
       background-clip: padding-box;
 
@@ -2897,35 +2886,11 @@ window.thunar {
       }
     }
 
-    > toolbutton#open-parent > button.image-button.flat:not(.toggle) {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      border-right: none;
-      margin-left: 10px;
-    }
-
-    > toolbutton#open-home > button.image-button.flat:not(.toggle) {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      margin-right: 10px;
-
-      @if $variant=='dark' {
-        border-left: 1px solid $borders_color;
-      }
-    }
-
-    // > toolitem#back > button.flat.toggle,
-    > toolitem#forward > button.flat.toggle {
-      @if $variant=='dark' {
-        margin-left: 1px;
-      }
-    }
-
     // FIXME: need to unset for weird allocation height
     entry {
       // min-height: if($variant == 'light', 19px, 21px);
-      margin-top: -2px;
-      margin-bottom: -1px;
+      margin-top: 1px;
+      margin-bottom: 2px;
     }
   }
 
