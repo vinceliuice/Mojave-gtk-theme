@@ -9,8 +9,6 @@ $list_shadow: if($variant == 'light',
   box-shadow: $list_shadow;
   background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
   border: none;
-
-  > separator { background: none; min-height: 0; }
 }
 
 %circular_row {
@@ -1453,14 +1451,33 @@ actionbar > revealer > box {
   background-color: darken($bg_color, 3%);
   color: $text_color;
 
-  entry,
-  button,
-  menubutton,
-  splitbutton,
-  splitbutton > button,
-  splitbutton > menubutton,
-  menubutton > button {
-    margin: 0;
+  &, > box.start, > box.end {
+    border-spacing: 6px;
+  }
+
+  &:backdrop {
+    background-color: $bg_color;
+
+    > * {
+      filter: opacity(.5);
+    }
+  }
+}
+
+%actionbar-inline > revealer > box {
+  background-color: transparent;
+  color: inherit;
+  box-shadow: none;
+  padding-top: 6px;
+
+  &:backdrop {
+    background-color: transparent;
+    transition: none;
+
+    > * {
+      filter: none;
+      transition: none;
+    }
   }
 }
 
@@ -1663,11 +1680,24 @@ headerbar {
 
   > windowhandle > box {
     padding: 0 8px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 
-    &,
     > box.start,
     > box.end {
       border-spacing: 6px;
+    }
+
+    &, > widget {
+      > box.start:dir(ltr),
+      > box.end:dir(rtl) {
+        margin-right: 6px;
+      }
+
+      > box.start:dir(rtl),
+      > box.end:dir(ltr) {
+        margin-left: 6px;
+      }
     }
   }
 
@@ -1702,30 +1732,10 @@ headerbar {
     min-width: 22px;
   }
 
-  entry,
-  spinbutton,
-  button,
-  switch,
-  menubutton,
-  separator:not(.sidebar) {
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
-
-  splitbutton,
-  menubutton > button,
-  entry > menubutton {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
   entry { // Reset entries
     @extend %headerbar_entries;
     min-height: if($variant == 'light', 19px, 21px);
-    margin-top: if($variant == 'light', 4px, 3px);
-    margin-bottom: if($variant == 'light', 4px, 3px);
-    margin-left: 0;
-    margin-right: 0;
+    margin: -3px 0;
     padding: 2px 8px;
     border-radius: 7px;
   }
@@ -1754,8 +1764,6 @@ headerbar {
   // Reset linking entries
   .linked:not(.vertical) > entry {
     @include entry(header-normal);
-    margin-top: 6px;
-    margin-bottom: 6px;
     padding: 0 8px;
     border-radius: $bt_radius;
 
@@ -1790,15 +1798,6 @@ headerbar {
   }
 
   popover.background { // reset
-    entry,
-    spinbutton,
-    button,
-    switch,
-    menubutton {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
-
     separator:not(.sidebar) {
       margin-top: 3px;
       margin-bottom: 3px;
@@ -1864,11 +1863,88 @@ headerbar {
     }
   }
 
+
+  // Titlebuttons
+  windowcontrols {
+    border-spacing: 6px;
+    margin: 0;
+    padding: 0 3px;
+  
+    &:not(.empty) {
+      &.start:dir(ltr),
+      &.end:dir(rtl) {
+        margin-right: 8px;
+      }
+  
+      &.start:dir(rtl),
+      &.end:dir(ltr) {
+        margin-left: 8px;
+      }
+    }
+  
+    button {
+      > image {
+        padding: 0;
+        margin: 0;
+        background-color: transparent;
+        background-image: none;
+      }
+  
+      &.close, &.maximize, &.minimize {
+        min-width: 16px;
+        min-height: 16px;
+        margin: 0;
+        padding: 5px 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+  
+        &, &:hover, &:active, &:active:hover {
+          color: transparent;
+          background-color: transparent;
+          border: none;
+          box-shadow: none;
+        }
+  
+        &:backdrop { opacity: 1; }
+      }
+  
+      @each $k in ('close', 'maximize', 'minimize') {
+        @each $l, $m in ('',''),
+                        (':backdrop','-backdrop'),
+                        (':backdrop:hover','-backdrop-hover'),
+                        (':hover','-hover'),
+                        (':active','-active'),
+                        (':active:hover','-active') {
+          &.#{$k}#{$l} {
+            background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}');
+          }
+        }
+      }
+    }
+  
+    .fullscreen &,
+    .maximized & {
+      button {
+        @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
+          &.maximize#{$l} {
+            background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}');
+          }
+        }
+      }
+    }
+  }
+
   &.default-decoration {
     min-height: 26px;
     padding: 0;
     background-color: $header_bg;
     background-image: $headerbar_top_image;
+
+    > windowhandle > box {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
 
     windowcontrols {
       button,
@@ -2413,12 +2489,14 @@ cursor-handle {
   background-color: transparentize($base_color, 1);
   border: 1px solid transparent;
   transition: all 150ms ease-out;
+  background-clip: border-box;
 
   &:hover:not(:checked):not(:selected) {
     color: mix($fg_color, $disabled_fg_color, 50%);
     background-color: if($variant == 'light', rgba(white, 0.2), rgba(white, 0.05));
     border-color: if($variant == 'light', darken($header_bg, 15%), lighten($header_bg, 5%));
     box-shadow: none;
+    background-clip: border-box;
   }
 
   &:checked, &:selected {
@@ -2426,6 +2504,7 @@ cursor-handle {
     background-color: $header_bg;
     border-color: if($variant == 'light', darken($header_bg, 15%), lighten($header_bg, 5%));
     box-shadow: none;
+    background-clip: border-box;
   }
 }
 
@@ -3360,26 +3439,8 @@ list {
     > row {
       @extend %circular_row;
     }
-  }
 
-  &.boxed-list {
-    @extend %circular_list;
-
-    > row {
-      @extend %circular_row;
-
-      &.expander {
-        list {
-          background-color: transparent;
-          box-shadow: none;
-          border: none;
-
-          > row {
-            @extend %circular_row;
-          }
-        }
-      }
-    }
+    > separator { background: none; min-height: 0; }
   }
 }
 
@@ -3389,17 +3450,29 @@ listview.view {
 }
 
 %row_activatable {
-  &.has-open-popup,
-  &:hover { background-color: if($variant == 'light', transparentize(black, 0.95), transparentize(white, 0.97)); }
+  color: $alt_fg_color;
 
-  &:active { color: $fg_color; }
+  &.has-open-popup,
+  &:hover {
+    color: $fg_color;
+    background-color: if($variant == 'light', transparentize(black, 0.95), transparentize(white, 0.97));
+  }
+
+  &:active {
+    color: $fg_color;
+    background-color: if($variant == 'light', transparentize(black, 0.9), transparentize(white, 0.92));
+  }
+
   &:disabled {
     color: $disabled_fg_color;
     image { color: inherit; }
   }
 
   &:selected {
-    &:active { color: $selected_fg_color; }
+    &:active {
+      color: $selected_fg_color;
+      background-color: $selected_bg_color;
+    }
 
     &.has-open-popup,
     &:hover { background-color: mix(black, $selected_bg_color, 10%); }
@@ -3465,6 +3538,93 @@ row {
       min-width: 120px;
     }
   }
+
+  // AdwButtonRow
+  row.button {
+    border-radius: $bt_radius;
+    box-shadow: $list_shadow;
+    background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
+    border: none;
+
+    > box {
+      margin-left: 12px;
+      margin-right: 12px;
+      border-spacing: 6px;
+      min-height: 40px;
+  
+      > .icon:disabled {
+        filter: Opacity(0.45);
+      }
+    }
+  
+    .title {
+      @extend .heading;
+    }
+
+    &.suggested-action {
+      background-color: $suggested_color;
+      color: white;
+      border-bottom: none;  
+  
+      &:not(.expander):not(:selected).activatable {
+        &:hover {
+          background-color: $suggested_color;
+          background-image: image(color-mix(in srgb, currentColor 10%, transparent));
+        }
+  
+        &:active {
+          background-color: $suggested_color;
+          background-image: image(RGB(0 0 0 / 20%));
+        }
+  
+        &.has-open-popup {
+          background-color: $suggested_color;
+          background-image: image(color-mix(in srgb, currentColor 10%, transparent));
+        }
+      }
+
+      &:disabled {
+        opacity: 0.45;
+
+        > box > .icon:disabled,
+        > box > label:disabled {
+          filter: none;
+        }
+      }
+    }
+
+    &.destructive-action {
+      background-color: $destructive_color;
+      color: white;
+      border-bottom: none;  
+  
+      &:not(.expander):not(:selected).activatable {
+        &:hover {
+          background-color: $destructive_color;
+          background-image: image(color-mix(in srgb, currentColor 10%, transparent));
+        }
+  
+        &:active {
+          background-color: $destructive_color;
+          background-image: image(RGB(0 0 0 / 20%));
+        }
+  
+        &.has-open-popup {
+          background-color: $destructive_color;
+          background-image: image(color-mix(in srgb, currentColor 10%, transparent));
+        }
+      }
+
+      &:disabled {
+        opacity: 0.45;
+
+        > box > .icon:disabled,
+        > box > label:disabled {
+          filter: none;
+        }
+      }
+    }
+  }
 }
 
 button {
@@ -3478,6 +3638,60 @@ button {
   &:checked row.activatable,
   &:active row.activatable {
     color: $selected_fg_color;
+  }
+}
+
+list.boxed-list {
+  @extend %circular_list;
+
+  > row {
+    @extend %circular_row;
+
+    &.expander {
+      list {
+        background-color: transparent;
+        box-shadow: none;
+        border: none;
+
+        > row {
+          @extend %circular_row;
+        }
+      }
+    }
+  }
+}
+
+list.boxed-list-separate {
+  background: none;
+  color: $text_color;
+
+  > row {
+    @extend %circular_list;
+
+    &:selected {
+      background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
+    }
+
+    border: none;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:not(.expander) {
+      &:not(:selected).activatable {
+        @extend %row_activatable;
+      }
+    }
+
+    &.entry, &.spin {
+      &:not(:selected).activatable.focused:hover,
+      &:not(:selected).activatable.focused:active {
+        background-color: if($variant == 'light', rgba(black, 0.03), rgba(white, 0.05));
+        background-image: none;
+      }
+    }
   }
 }
 
@@ -4469,80 +4683,6 @@ window {
 
   // server-side decorations as used by mutter
   &.ssd { box-shadow: 0 0 0 1px $wm_shadow; } //just doing borders, wm draws actual shadows
-}
-
-
-//
-// Titlebuttons
-//
-windowcontrols {
-  border-spacing: 6px;
-  margin: 0;
-  padding: 0 3px;
-
-  &:not(.empty) {
-    &.start:dir(ltr),
-    &.end:dir(rtl) {
-      margin-right: 8px;
-    }
-
-    &.start:dir(rtl),
-    &.end:dir(ltr) {
-      margin-left: 8px;
-    }
-  }
-
-  button {
-    > image {
-      padding: 0;
-      margin: 0;
-      background-color: transparent;
-      background-image: none;
-    }
-
-    &.close, &.maximize, &.minimize {
-      min-width: 16px;
-      min-height: 16px;
-      margin: 6px 0;
-      padding: 5px 0;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: auto;
-
-      &, &:hover, &:active, &:active:hover {
-        color: transparent;
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-      }
-
-      &:backdrop { opacity: 1; }
-    }
-
-    @each $k in ('close', 'maximize', 'minimize') {
-      @each $l, $m in ('',''),
-                      (':backdrop','-backdrop'),
-                      (':backdrop:hover','-backdrop-hover'),
-                      (':hover','-hover'),
-                      (':active','-active'),
-                      (':active:hover','-active') {
-        &.#{$k}#{$l} {
-          background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-#{$k}#{$m}#{$asset_suffix}');
-        }
-      }
-    }
-  }
-
-  .fullscreen &,
-  .maximized & {
-    button {
-      @each $l, $m in ('',''), (':backdrop','-backdrop'), (':backdrop:hover','-backdrop-hover'), (':hover','-hover'), (':active','-active') {
-        &.maximize#{$l} {
-          background-image: -gtk-scaled-with-factors('windows-assets/titlebutton-restore#{$m}#{$asset_suffix}');
-        }
-      }
-    }
-  }
 }
 
 // catch all extend

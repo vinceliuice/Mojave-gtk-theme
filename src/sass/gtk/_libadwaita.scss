@@ -210,13 +210,10 @@ toast {
 
 viewswitcher {
   margin: 0;
+  min-height: 26px;
 
   &.wide {
     border-spacing: $container_padding / 2;
-
-    button.toggle {
-      margin: $container_padding 0;
-    }
   }
 
   &.narrow button.toggle {
@@ -346,6 +343,7 @@ tabbar {
   tabbox {
     padding: 0;
     margin: 0;
+    min-height: 28px;
     background-color: darken($header_bg, 10%);
     box-shadow: none;
     border-bottom: 1px solid $solid_borders_color;
@@ -360,7 +358,7 @@ tabbar {
     > tabboxchild > tab {
       @extend %tabs_tab;
       border-radius: 0;
-      padding: 3px 6px;
+      padding: 0 6px;
       border: solid $solid_borders_color;
       border-width: 0 1px;
 
@@ -740,13 +738,127 @@ toolbarview.undershoot-bottom scrolledwindow {
   }
 }
 
-.top-bar {
-  box-shadow: none;
-  border: none;
-  background: none;
+//
+// AdwBanner
+//
+banner > revealer > widget {
+  /* There are 2 more instances in _sidebars.css, keep in sync with that */
+  background-color: rgba($primary_color, 0.35);
+  color: $text_color;
+  padding: 6px;
 
-  .collapse-spacing {
+  &:backdrop {
+    background-color: rgba($primary_color, 0.15);
+
+    > label, > button {
+      filter: opacity(.5);
+    }
+  }
+}
+
+//
+// AdwToolbarView
+//
+toolbarview {
+  > .top-bar,
+  > .bottom-bar {
+    searchbar,
+    actionbar {
+      > revealer > box {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+      }
+    }
+
+    .toolbar  {
+      background-color: transparent;
+    }
+
+    .collapse-spacing {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      headerbar {
+        min-height: 38px;
+
+        > windowhandle > box {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        &.default-decoration {
+          min-height: 26px;
+
+          > windowhandle > box {
+            padding-top: 0;
+            padding-bottom: 0;
+          }
+        }
+      }
+
+      searchbar,
+      actionbar {
+        > revealer > box {
+          padding-top: 6px;
+          padding-bottom: 6px;
+        }
+      }
+
+      .toolbar  {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      tabbar {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &.raised {
+      background-color: transparent;
+      color: $header_fg;
+
+      &:backdrop {
+        background-color: transparent;
+      }
+    }
+
+    &:backdrop > windowhandle {
+      filter: none;
+    }
+  }
+
+  > .bottom-bar {
     padding: 0;
+    border-spacing: 0;
+    box-shadow: inset 0 1px $borders_color;
+    background-color: darken($bg_color, 3%);
+    color: $text_color;
+
+    &:backdrop {
+      background-color: $bg_color;
+      color: $disabled_fg_color;
+    }
+
+    actionbar { @extend %actionbar-inline; }
+  }
+
+  > .top-bar.raised {
+    box-shadow: none;
+
+    &.border {
+      box-shadow: none;
+    }
+  }
+
+  > .bottom-bar.raised {
+    box-shadow: none;
+
+    &.border {
+      box-shadow: none;
+    }
   }
 }
 

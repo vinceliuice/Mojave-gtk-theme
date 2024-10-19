@@ -86,8 +86,10 @@
     background-color: rgba(black, if($variant == 'light', 0.08, 0.15)) !important;
     box-shadow: none;
     border-radius: 0 !important;
-    border-top: 1px solid rgba(black, if($variant == 'light', 0.15, 0.75));
-    border-bottom: 1px solid rgba(black, if($variant == 'light', 0.15, 0.75));
+    border-top: 1px solid rgba(black, if($variant == 'light', 0.15, 0.75)) !important;
+    border-bottom: 1px solid rgba(black, if($variant == 'light', 0.15, 0.75)) !important;
+    border-left: none !important;
+    border-right: none !important;
 
     .popup-menu-ornament {
       min-width: $base_icon_size !important;
@@ -174,10 +176,10 @@
 
 // separator
 .popup-separator-menu-item {
-  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
   background: none;
   border: none;
-  height: 0 !important;
 
   .popup-separator-menu-item-separator {
     height: 1px; //not really the whole box
