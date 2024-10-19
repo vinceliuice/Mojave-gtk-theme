@@ -3676,19 +3676,17 @@ messagedialog { // Message Dialog styling
 
     &.linked:not(.vertical):not(.path-bar) > button:not(.suggested-action):not(.destructive-action) {
       background-color: lighten($bg_color, 5%);
+      border-color: $header_border;
+      transition: $button_transition, border 0;
 
       &:hover {
         @include button(flat-hover);
-        border-color: $button_borders;
-        transition: $button_transition;
+        border-color: $header_border;
       }
 
       &:active, &:checked {
         @include button(header-active);
-      }
-
-      &:active + button {
-        border-left-color: mix(black, $header_button_active_bg, 15%);
+        border-color: $header_border;
       }
     }
   }
