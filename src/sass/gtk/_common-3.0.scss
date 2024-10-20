@@ -1331,7 +1331,7 @@ combobox {
 %toolbar, toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
-  background-color: $header_bg;
+  background-color: $bg_color;
   // border-radius: $wm_radius;
 
   &.horizontal { border-bottom: 1px solid $borders_color; }
@@ -3380,7 +3380,7 @@ frame > border,
 frame.flat > border,
 frame > border.flat,
 .frame.flat {
-  border-style: none;
+  border: none;
 }
 
 scrolledwindow {
