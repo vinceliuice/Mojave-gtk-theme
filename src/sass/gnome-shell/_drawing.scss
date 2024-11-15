@@ -172,7 +172,7 @@
   }
 }
 
-@mixin button($t, $c: $base_color, $tc: $fg_color) {
+@mixin button($t, $c: $button_shell_bg, $tc: $fg_color) {
 //
 // button
 //
@@ -207,8 +207,8 @@
   }
 
   @if $t == active {
-    color: $light_fg_color;
-    background-color: $primary_color;
+    color: $tc;
+    background-color: mix($tc, $c, 12%);
     border-color: $button_borders_active;
     text-shadow: none;
     icon-shadow: none;

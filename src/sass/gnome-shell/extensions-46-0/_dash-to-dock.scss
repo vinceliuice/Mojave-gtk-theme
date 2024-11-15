@@ -27,9 +27,9 @@ $dash_panel_fg: if($variant == 'light', black, white);
     color: $light_fg_color;
     background-color: $primary_color;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
-    border-radius: 1000px;
+    border-radius: $circular_radius;
     margin: 2px;
-    padding: 0.2em 0.6em;
+    padding: 0.25em 0.6em;
     font-weight: bold;
     text-align: center;
   }

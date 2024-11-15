@@ -62,6 +62,8 @@ $dark_bg_color:                     rgba(black, 0.6);
 $alt_dark_bg_color:                 rgba(black, 0.3);
 $solid_bg_color:                    if($variant == 'light', #FAFAFA, #555555); // for gnome-shell keyboard
 $alt_solid_bg_color:                if($variant == 'light', #E0E0E0, #242424); // for gnome-shell keyboard
+$dialog_bg_color:                   if($variant == 'light', $bg_color, $base_color);
+$button_shell_bg:                   if($variant == 'light', mix(black, $dialog_bg_color, 6%), mix(white, $dialog_bg_color, 6%));
 
 // Link colors
 $link_color:                        #3484e2;

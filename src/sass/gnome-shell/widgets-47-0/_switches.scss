@@ -1,0 +1,49 @@
+/* Switches */
+
+.toggle-switch {
+  width: 40px;
+  height: 24px;
+  border-radius: $circular_radius;
+  background-gradient-direction: vertical;
+  background-gradient-start: rgba($fg_color, 0.25);
+  background-gradient-end: rgba($fg_color, 0.35);
+  background: rgba($fg_color, 0.25);
+
+  &:hover {
+    background-gradient-start: rgba($fg_color, 0.3);
+    background-gradient-end: rgba($fg_color, 0.4);
+    background: rgba($fg_color, 0.3);
+  }
+
+  StIcon {
+    icon-size: 0;
+  }
+
+  .handle {
+    margin: 1px;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: $circular_radius;
+    box-shadow: 0 2px 4px transparentize(black, .9);
+    transition-duration: 100ms;
+  }
+
+  &:checked {
+    background: $primary_color;
+    color: $primary_color;
+    background-gradient-start: $primary_color;
+    background-gradient-end: st-lighten($primary_color, 10%);
+
+    &:hover {
+      background: $primary_color;
+      color: $primary_color;
+      background-gradient-start: $primary_color;
+      background-gradient-end: st-lighten($primary_color, 10%);
+    }
+
+    .handle {
+      background: white;
+    }
+  }
+}
