@@ -840,16 +840,16 @@ toolbarview {
         min-height: 38px;
 
         > windowhandle > box {
-          padding-top: 0;
-          padding-bottom: 0;
+          padding-top: 6px;
+          padding-bottom: 6px;
         }
 
         &.default-decoration {
           min-height: 26px;
 
           > windowhandle > box {
-            padding-top: 0;
-            padding-bottom: 0;
+            padding-top: 6px;
+            padding-bottom: 6px;
           }
         }
       }
