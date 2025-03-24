@@ -423,7 +423,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .hotplug-notification-item {
   color: #242424;
-  background-color: #ffffff;
+  background-color: #e6e6e6;
   border: 1px solid rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -437,7 +437,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 
 .hotplug-notification-item:insensitive {
   color: rgba(36, 36, 36, 0.45);
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: #e6e6e6;
   border-color: rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -447,7 +447,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .hotplug-notification-item:hover {
   color: #242424;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: #f7f7f7;
+  background-color: #dedede;
   text-shadow: none;
   icon-shadow: none;
   box-shadow: none;
@@ -461,8 +461,8 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 }
 
 .hotplug-notification-item:active {
-  color: white;
-  background-color: #315bef;
+  color: #242424;
+  background-color: #cfcfcf;
   border-color: #2350ee;
   text-shadow: none;
   icon-shadow: none;
@@ -783,7 +783,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .login-dialog .modal-dialog-button:default,
 .unlock-dialog .modal-dialog-button:default {
   color: white;
-  background-color: #ffffff;
+  background-color: #e6e6e6;
   border: 1px solid rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -795,7 +795,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .unlock-dialog .modal-dialog-button:default:focus {
   color: white;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: #f7f7f7;
+  background-color: #dedede;
   text-shadow: none;
   icon-shadow: none;
   box-shadow: none;
@@ -804,7 +804,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .login-dialog .modal-dialog-button:default:active,
 .unlock-dialog .modal-dialog-button:default:active {
   color: white;
-  background-color: #315bef;
+  background-color: #e9e9e9;
   border-color: #2350ee;
   text-shadow: none;
   icon-shadow: none;
@@ -814,7 +814,7 @@ StEntry StLabel.hint-text, .popup-menu .search-entry StLabel.hint-text {
 .login-dialog .modal-dialog-button:default:insensitive,
 .unlock-dialog .modal-dialog-button:default:insensitive {
   color: rgba(255, 255, 255, 0.45);
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: #e6e6e6;
   border-color: rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -2816,7 +2816,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .modal-dialog .modal-dialog-button-box .modal-dialog-button:last-child {
   color: white !important;
   background-color: #315bef !important;
-  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0.5px rgba(255, 255, 255, 0.1);
 }
 
 .modal-dialog .modal-dialog-button-box .modal-dialog-button:hover:last-child {
@@ -2836,7 +2836,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .modal-dialog {
   color: #242424;
-  padding: 18px;
+  padding: 12px;
 }
 
 .modal-dialog .modal-dialog-content-box {
@@ -2858,7 +2858,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   border-radius: 4px;
   font-weight: bold;
   color: #242424;
-  background-color: #ffffff;
+  background-color: #e6e6e6;
   border: 1px solid rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -2868,15 +2868,15 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 .modal-dialog .modal-dialog-button-box .modal-dialog-button:hover {
   color: #242424;
   border-color: rgba(0, 0, 0, 0.15);
-  background-color: #f7f7f7;
+  background-color: #dedede;
   text-shadow: none;
   icon-shadow: none;
   box-shadow: none;
 }
 
 .modal-dialog .modal-dialog-button-box .modal-dialog-button:active {
-  color: white;
-  background-color: #315bef;
+  color: #242424;
+  background-color: #cfcfcf;
   border-color: #2350ee;
   text-shadow: none;
   icon-shadow: none;
@@ -2894,7 +2894,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .modal-dialog .modal-dialog-button-box .modal-dialog-button:insensitive {
   color: rgba(36, 36, 36, 0.45);
-  background-color: rgba(0, 0, 0, 0.12);
+  background-color: #e6e6e6;
   border-color: rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -3354,8 +3354,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: #424242;
   font-weight: 500;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+  border-radius: 5px;
 }
 
 .notification-button:focus {
@@ -3735,7 +3734,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 .quick-settings-system-item .power-item:insensitive {
   color: #242424;
-  background-color: #ffffff;
+  background-color: #e6e6e6;
   border: 1px solid rgba(0, 0, 0, 0.15);
   text-shadow: none;
   icon-shadow: none;
@@ -4100,19 +4099,19 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
 
 /* Slider */
 .slider {
-  height: 22px;
-  color: white;
+  height: 16px;
+  color: #315bef;
   border-radius: 16px;
-  -slider-handle-radius: 11px;
-  -barlevel-height: 22px;
-  -barlevel-background-color: rgba(0, 0, 0, 0.06);
-  -barlevel-active-background-color: rgba(0, 0, 0, 0.15);
+  -slider-handle-radius: 8px;
+  -barlevel-height: 2px;
+  -barlevel-background-color: rgba(0, 0, 0, 0.2);
+  -barlevel-active-background-color: #315bef;
   -barlevel-overdrive-color: #f8464c;
   -barlevel-overdrive-separator-width: 1px;
 }
 
 .slider:hover {
-  color: white;
+  color: #5275f2;
 }
 
 /* Switches */
@@ -4255,9 +4254,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active {
   color: white;
   background-color: #315bef;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
-  border-radius: 1000px;
+  border-radius: 9999px;
   margin: 2px;
-  padding: 0.2em 0.6em;
+  padding: 0.25em 0.6em;
   font-weight: bold;
   text-align: center;
 }

@@ -3306,46 +3306,95 @@ progressbar {
 //
 // Level Bar
 //
+
+$_levelbar_size: 6px;
+$_levelbar_border_radius: 999px;
+
 levelbar {
-  block {
-    min-width: 32px;
-    min-height: 1px;
-  }
-  &.vertical block {
-    min-width: 1px;
-    min-height: 32px;
+  &:disabled {
+    filter: Opacity(0.35);
   }
 
-  trough {
-    border: none;
-    padding: 3px;
-    border-radius: $bt_radius;
-    background-color: if($variant == 'light', $button_border, darken($bg_color, 5%));
+  &.horizontal {
+    trough > block {
+      min-height: $_levelbar_size;
+      border-radius: $_levelbar_border_radius;
+
+      &.empty,
+      &.full {
+        border-radius: $_levelbar_border_radius;
+      }
+    }
+
+    // segmented level bar
+    &.discrete > trough > block {
+      min-height: $_levelbar_size;
+      margin-right: 2px;
+      min-width: 26px;
+      border-radius: 0;
+
+      &:first-child {
+        border-radius: $_levelbar_border_radius 0 0 $_levelbar_border_radius;
+      }
+
+      &:last-child {
+        border-radius: 0 $_levelbar_border_radius $_levelbar_border_radius 0;
+        margin-right: 0;
+      }
+    }
   }
 
-  &.horizontal.discrete block { margin: 0 1px; }
-  &.vertical.discrete block { margin: 1px 0; }
+  &.vertical {
+    trough > block {
+      min-width: $_levelbar_size;
+      border-radius: $_levelbar_border_radius;
 
-  block:not(.empty) {
-    border: 1px solid $selected_bg_color;
-    background-color: $selected_bg_color;
-    border-radius: $bt_radius;
+      &.empty,
+      &.full {
+        border-radius: $_levelbar_border_radius;
+      }
+    }
+
+    // segmented level bar
+    &.discrete > trough > block {
+      min-width: $_levelbar_size;
+      margin-bottom: 2px;
+      min-height: 26px;
+      border-radius: 0;
+
+      &:first-child {
+        border-radius: $_levelbar_border_radius $_levelbar_border_radius 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 $_levelbar_border_radius $_levelbar_border_radius;
+        margin-bottom: 0;
+      }
+    }
   }
-  block.low {
-    border-color: $warning_color;
-    background-color: $warning_color;
-  }
-  block.high {
-    border-color: $selected_bg_color;
-    background-color: $selected_bg_color;
-  }
-  block.full {
-    border-color: $success_color;
-    background-color: $success_color;
-  }
-  block.empty {
-    background-color: if($variant=='light', transparentize($fg_color,0.8), $base_color);
-    border-color: if($variant=='light', transparentize($fg_color,0.8), $base_color);
+
+  > trough {
+    padding: 0;
+
+    // level bar colours
+    > block {
+      &.low {
+        background-color: $warning_color;
+      }
+
+      &.high,
+      &:not(.empty) {
+        background-color: $primary_color;
+      }
+
+      &.full {
+        background-color: $success_color;
+      }
+
+      &.empty {
+        background-color: if($variant == 'light', $button_border, darken($bg_color, 5%));
+      }
+    }
   }
 }
 
