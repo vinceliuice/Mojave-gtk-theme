@@ -197,8 +197,85 @@ label {
 }
 
 %dim-label, .dim-label {
-  opacity: 0.55;
+  opacity: 0.45;
   text-shadow: none;
+}
+
+.dimmed {
+  opacity: 0.35;
+}
+
+.accent {
+  color: $primary_color;
+}
+
+.error {
+  color: $error_color;
+}
+
+.warning {
+  color: $warning_color;
+}
+
+.success {
+  color: $success_color;
+}
+
+//
+// General Typography
+//
+
+ .title-1 {
+  font-weight: 800;
+  font-size: 181%;
+}
+
+.title-2 {
+  font-weight: 800;
+  font-size: 136%;
+}
+
+.title-3 {
+  font-weight: 700;
+  font-size: 136%;
+}
+
+.title-4 {
+  font-weight: 700;
+  font-size: 118%;
+}
+
+.heading {
+  font-weight: 700;
+}
+
+.body {
+  font-weight: 400;
+}
+
+.caption-heading {
+  font-weight: 700;
+  font-size: 82%;
+}
+
+.caption {
+  font-weight: 400;
+  font-size: 82%;
+}
+
+.monospace {
+  font-family: var(--monospace-font-family);
+  font-size: var(--monospace-font-size);
+}
+
+.numeric {
+  font-feature-settings: "tnum";
+}
+
+// Editable Labels
+ editablelabel > stack > text {
+  color: $text_color;
+  background-color: $base_color;
 }
 
 text > selection { @extend %selected_items; }
@@ -1689,19 +1766,6 @@ headerbar {
     }
   }
 
-  .title {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .subtitle {
-    font-size: smaller;
-    padding-left: 12px;
-    padding-right: 12px;
-    margin-top: -3px;
-    @extend %dim-label;
-  }
-
   > windowhandle > box {
     padding: 6px 8px;
     margin: 0;
@@ -2010,6 +2074,29 @@ headerbar {
   separator.titlebutton { @extend %header_separator; }
 }
 
+// AdwWindowTitle
+headerbar,
+windowtitle {
+  .title {
+    padding-left: 12px;
+    padding-right: 12px;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: smaller;
+    padding-left: 12px;
+    padding-right: 12px;
+    @extend .dimmed;
+  }
+}
+
+windowtitle {
+  margin-top: -6px;
+  margin-bottom: -6px;
+  min-height: 12px;
+}
+
 //
 // Pathbars
 //
@@ -2116,7 +2203,7 @@ treeview.view {
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
   }
 
-  &.progressbar, &.progressbar:focus { // progress bar in treeviews
+  &.progressbar { // progress bar in treeviews
     color: $selected_fg_color;
     border-radius: $bt_radius;
     background-color: $progress_color;
@@ -3267,37 +3354,14 @@ progressbar {
     }
   }
 
-//  &.horizontal > trough > progress { margin: 0 -1px; } // the progress node is positioned after the trough border
-//  &.vertical > trough > progress { margin: -1px 0; }   // this moves it over it.
-
-  &.osd {
-    min-width: 3px;
-    min-height: 3px;
-    background-color: transparent;
-
-    > trough {
-      border-style: none;
-      background-color: transparent;
-      box-shadow: none;
-    }
-
-    > progress {
-      border-style: none;
-      border-radius: 0;
-    }
+  > text {
+    @extend .dimmed;
+    @extend .numeric;
+    font-size: smaller;
   }
 
-  // Moving bit
-  > trough > progress {
-    min-height: 4px;
-    min-width: 4px;
-    background-color: $progress_color;
-    border: none;
-    border-radius: $bt_radius;
-    box-shadow: none; //needed for clipping
-
-    row:selected &,
-    infobar & { background-color: $selected_fg_color; }
+  &:disabled {
+    filter: Opacity(0.35);
   }
 
   // Trough
@@ -3310,7 +3374,52 @@ progressbar {
 
     row:selected &,
     infobar & { background-color: transparentize(black, 0.8); }
+
+    // Moving bit
+    > progress {
+      min-height: 4px;
+      min-width: 4px;
+      background-color: $progress_color;
+      border: none;
+      border-radius: $bt_radius;
+      box-shadow: none; //needed for clipping
+  
+      row:selected &,
+      infobar & { background-color: $selected_fg_color; }
+    }
   }
+
+  &.osd {
+    min-width: 2px;
+    min-height: 2px;
+    background-color: transparent;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    > trough {
+      border-style: none;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+
+      > progress {
+        border-style: none;
+        border-radius: 0;
+      }
+    }
+
+    &.horizontal {
+      > trough, > trough > progress { min-height: 2px; }
+    }
+
+    &.vertical {
+      > trough, > trough > progress { min-width: 2px; }
+    }
+  }
+
+  > trough.empty > progress { all: unset; } // makes the progress indicator disappear, when the fraction is 0
 }
 
 //
@@ -3980,8 +4089,11 @@ window.dialog.message { // Message Dialog styling
     box-shadow: none;
   }
 
-  box.dialog-vbox.vertical {
-    border-spacing: 10px;
+  box.dialog-vbox {
+    border-spacing: 6px;
+    padding: 0;
+
+    > box.vertical { padding: 12px; }
   }
 
   label.title {
@@ -3990,12 +4102,15 @@ window.dialog.message { // Message Dialog styling
   }
 
   .dialog-action-area {
-    padding: 6px;
+    padding: 12px;
+    border-top: 1px solid $borders_color;
+    background-color: $fill_color;
 
     > button {
       min-height: 16px;
       padding: 2px 8px;
       box-shadow: none;
+      margin: 0;
     }
 
     > button:not(.suggested-action):not(.destructive-action) {
@@ -4008,7 +4123,6 @@ window.dialog.message { // Message Dialog styling
       }
 
       &:active, &:checked {
-
         @if $variant == 'light' {
           background-image: none;
           background-color: $selected_bg_color;
@@ -4020,38 +4134,6 @@ window.dialog.message { // Message Dialog styling
         }
 
         border-color: $button_borders;
-      }
-    }
-  }
-
-  &.csd { // rounded bottom border styling for csd version
-    &.background {
-      border-bottom-left-radius: $wm_radius;
-      border-bottom-right-radius: $wm_radius;
-      border: none;
-    }
-
-    .dialog-action-area {
-      padding: 0;
-      border: none;
-
-      > button {
-        min-height: 16px;
-        padding: 6px 12px;
-        background-image: none;
-        border-color: $dark_sidebar_border;
-        @extend %middle_button;
-
-        &:first-child { @extend %first_button; }
-        &:last-child { @extend %last_button; }
-        &:only-child { @extend %single_button; }
-
-        &:not(.destructive-action):not(.suggested-action) {
-          &:active, &:checked, &:active:hover, &:checked:hover {
-            @include button(flat-active);
-            background-image: none;
-          }
-        }
       }
     }
   }
