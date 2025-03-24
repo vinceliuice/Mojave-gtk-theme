@@ -1703,9 +1703,8 @@ headerbar {
   }
 
   > windowhandle > box {
-    padding: 0 8px;
-    margin-top: 6px;
-    margin-bottom: 6px;
+    padding: 6px 8px;
+    margin: 0;
 
     > box.start,
     > box.end {
@@ -1723,6 +1722,13 @@ headerbar {
         margin-left: 6px;
       }
     }
+  }
+
+  splitbutton {
+    @include button(header-normal);
+
+    @if $variant=='light' { box-shadow: $shadow_3, inset 0 0 0 1px $button_borders; }
+    @else { box-shadow: $shadow_3, inset 0 1px $button_highlight; }
   }
 
   button {
@@ -1904,6 +1910,10 @@ headerbar {
       &.end:dir(ltr) {
         margin-left: 8px;
       }
+    }
+
+    > image.icon {
+      margin: 0;
     }
   
     button {
