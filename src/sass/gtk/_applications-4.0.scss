@@ -152,7 +152,7 @@ child.activatable {
 #NautilusQueryEditor { // search entry
   padding: 0 6px;
   margin: 0;
-  border-spacing: 0;
+  border-spacing: 4px;
   border-radius: $bt_radius;
   background-clip: padding-box;
   border-image: none;
@@ -174,8 +174,8 @@ child.activatable {
   }
 
   > * {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
 
   #NautilusQueryEditorTag {
@@ -187,11 +187,10 @@ child.activatable {
   }
 
   > menubutton > button {
-    min-width: 16px;
-    min-height: 16px;
+    min-width: 20px;
+    min-height: 20px;
     margin: 0;
-    -gtk-icon-size: 12px;
-    padding: 0 2px;
+    padding: 0;
     border: none;
     border-radius: 100px;
     @extend %nautilus_pathbar_button;

@@ -505,38 +505,37 @@ toolbarview.undershoot-bottom scrolledwindow {
 
   .sidebar,
   .toolbar,
-  .navigation-sidebar,
-  searchbar > revealer > box {
+  .navigation-sidebar {
     background-color: transparent;
     box-shadow: none;
     border: none;
   }
 
   toolbarview.undershoot-top scrolledwindow {
-    @include undershoot(top, $style: 'compact');
+    @include undershoot(top);
   }
 
   toolbarview.undershoot-bottom scrolledwindow {
-    @include undershoot(bottom, $style: 'compact');
+    @include undershoot(bottom);
   }
 
   scrolledwindow {
     &.undershoot-top {
-      @include undershoot(top, $style: 'compact');
+      @include undershoot(top);
     }
 
     &.undershoot-bottom {
-      @include undershoot(bottom, $style: 'compact');
+      @include undershoot(bottom);
     }
 
     &.undershoot-start {
-      &:dir(ltr) { @include undershoot(left, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(right, $style: 'compact'); }
+      &:dir(ltr) { @include undershoot(left); }
+      &:dir(rtl) { @include undershoot(right); }
     }
 
     &.undershoot-end {
-      &:dir(ltr) { @include undershoot(right, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(left, $style: 'compact'); }
+      &:dir(ltr) { @include undershoot(right); }
+      &:dir(rtl) { @include undershoot(left); }
     }
   }
 
@@ -559,6 +558,10 @@ toolbarview.undershoot-bottom scrolledwindow {
   &:dir(ltr), &.end:dir(rtl) {
     &, banner > revealer > widget {
       box-shadow: inset -1px 0 6px rgba(black, if($variant == 'light', 0.04, 0.08));
+      border-right: none;
+    }
+
+    .navigation-sidebar, searchbar > revealer > box {
       border-right: 1px solid $dark_sidebar_border;
     }
   }
@@ -566,6 +569,10 @@ toolbarview.undershoot-bottom scrolledwindow {
   &:dir(rtl), &.end:dir(ltr) {
     &, banner > revealer > widget {
       box-shadow: inset 1px 0 6px rgba(black, if($variant == 'light', 0.04, 0.08));
+      border-left: none;
+    }
+
+    .navigation-sidebar, searchbar > revealer > box {
       border-left: 1px solid $dark_sidebar_border;
     }
   }
@@ -583,30 +590,30 @@ toolbarview.undershoot-bottom scrolledwindow {
   }
 
   toolbarview.undershoot-top scrolledwindow {
-    @include undershoot(top, $style: 'compact');
+    @include undershoot(top);
   }
 
   toolbarview.undershoot-bottom scrolledwindow {
-    @include undershoot(bottom, $style: 'compact');
+    @include undershoot(bottom);
   }
 
   scrolledwindow {
     &.undershoot-top {
-      @include undershoot(top, $style: 'compact');
+      @include undershoot(top);
     }
 
     &.undershoot-bottom {
-      @include undershoot(bottom, $style: 'compact');
+      @include undershoot(bottom);
     }
 
     &.undershoot-start {
-      &:dir(ltr) { @include undershoot(left, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(right, $style: 'compact'); }
+      &:dir(ltr) { @include undershoot(left); }
+      &:dir(rtl) { @include undershoot(right); }
     }
 
     &.undershoot-end {
-      &:dir(ltr) { @include undershoot(right, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(left, $style: 'compact'); }
+      &:dir(ltr) { @include undershoot(right); }
+      &:dir(rtl) { @include undershoot(left); }
     }
   }
 
@@ -629,6 +636,10 @@ toolbarview.undershoot-bottom scrolledwindow {
   &:dir(ltr), &.end:dir(rtl) {
     &, banner > revealer > widget {
       box-shadow: inset -1px 0 6px rgba(black, if($variant == 'light', 0.04, 0.08));
+      border-right: none;
+    }
+
+    .navigation-sidebar, searchbar > revealer > box {
       border-right: 1px solid $dark_sidebar_border;
     }
   }
@@ -636,6 +647,10 @@ toolbarview.undershoot-bottom scrolledwindow {
   &:dir(rtl), &.end:dir(ltr) {
     &, banner > revealer > widget {
       box-shadow: inset 1px 0 6px rgba(black, if($variant == 'light', 0.04, 0.08));
+      border-left: none;
+    }
+
+    .navigation-sidebar, searchbar > revealer > box {
       border-left: 1px solid $dark_sidebar_border;
     }
   }
@@ -660,30 +675,30 @@ toolbarview.undershoot-bottom scrolledwindow {
   }
 
   toolbarview.undershoot-top scrolledwindow {
-    @include undershoot(top, $style: 'compact');
+    @include undershoot(top);
   }
 
   toolbarview.undershoot-bottom scrolledwindow {
-    @include undershoot(bottom, $style: 'compact');
+    @include undershoot(bottom);
   }
 
   scrolledwindow {
     &.undershoot-top {
-      @include undershoot(top, $style: 'compact');
+      @include undershoot(top);
     }
 
     &.undershoot-bottom {
-      @include undershoot(bottom, $style: 'compact');
+      @include undershoot(bottom);
     }
 
     &.undershoot-start {
-      &:dir(ltr) { @include undershoot(left, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(right, $style: 'compact'); }
+      &:dir(ltr) { @include undershoot(left); }
+      &:dir(rtl) { @include undershoot(right); }
     }
 
     &.undershoot-end {
-      &:dir(ltr) { @include undershoot(right, $style: 'compact'); }
-      &:dir(rtl) { @include undershoot(left, $style: 'compact'); }
+      &:dir(ltr) { @include undershoot(right); }
+      &:dir(rtl) { @include undershoot(left); }
     }
   }
 }
@@ -711,28 +726,17 @@ toolbarview.undershoot-bottom scrolledwindow {
 .sidebar-pane,
 .content-pane {
   headerbar {
-    &, &:backdrop {
-      background-color: transparent;
-      background-image: none;
-      box-shadow: none;
-      border: none;
-    }
+    // &, &:backdrop {
+    //   background-color: transparent;
+    //   background-image: none;
+    //   box-shadow: none;
+    //   border: none;
+    // }
 
-    button:not(.close):not(.minimize):not(.maximize) { @extend %flat_header_button; }
+    // button:not(.close):not(.minimize):not(.maximize) { @extend %flat_header_button; }
 
     box.start > button.image-button {
       min-height: 20px;
-    }
-
-    .linked:not(.vertical) > entry {
-      padding: 0 8px;
-      border: none;
-      background-color: if($variant=='light', rgba(black, 0.06), rgba(white, 0.06));
-
-      &:focus-within {
-        background-color: if($variant=='light', rgba(black, 0.06), rgba(white, 0.06));
-        &:not(:only-child) { box-shadow: inset 0 0 0 2px $entry_highlight; }
-      }
     }
   }
 }

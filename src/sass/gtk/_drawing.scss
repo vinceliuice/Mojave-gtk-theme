@@ -553,7 +553,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
   box-shadow: none;              //
 }
 
-@mixin undershoot($p, $c: $wm_shadow, $neighbor: false, $style: default) {
+@mixin undershoot($p, $c: $overlay_color, $neighbor: false, $style: default) {
 //
 // undershoot
 //
@@ -587,7 +587,7 @@ $switch_animation: switch_ripple_effect 0.3s cubic-bezier(0, 0, 0.2, 1);
 
   #{$_selector} undershoot.#{$p} {
     box-shadow: if($style == 'default', none, inset $_border_pos $borders_color);
-    background: linear-gradient(to $_direction, gtkalpha($c, .25), transparent 6px);
+    background: linear-gradient(to $_direction, gtkalpha($c, .75), transparent 8px);
   }
 }
 

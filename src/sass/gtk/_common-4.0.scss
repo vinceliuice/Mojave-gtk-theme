@@ -1788,13 +1788,6 @@ headerbar {
     }
   }
 
-  splitbutton {
-    @include button(header-normal);
-
-    @if $variant=='light' { box-shadow: $shadow_3, inset 0 0 0 1px $button_borders; }
-    @else { box-shadow: $shadow_3, inset 0 1px $button_highlight; }
-  }
-
   button {
     @extend %headerbar_buttons;
     min-height: if($variant == 'light', 24px, 26px);
@@ -1836,6 +1829,7 @@ headerbar {
 
   // Headerbar Switches
   switch {
+    margin: 0;
     &:backdrop { opacity: 0.75; }
   }
 
