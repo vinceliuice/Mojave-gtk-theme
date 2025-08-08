@@ -1987,43 +1987,6 @@ flowboxchild.bookmark-tag-widget {
   &-selected { color: $selected_fg_color; } // checked
 }
 
-.background tabbox {
-  background-color: darken($header_bg, 10%);
-  box-shadow: inset 0 -1px $borders_color;
-  margin-top: -1px;
-
-  > tab {
-    @extend %tabs_tab;
-    padding: 2px 10px;
-
-    button {
-      @extend %flat_button;
-      border-radius: 3px;
-      border: none;
-      padding: 0;
-      min-height: $small_size;
-      min-width: $small_size;
-
-      &:hover {
-        color: $fg_color;
-        background-color: rgba($borders_color, 0.1);
-      }
-
-      &:active, &:active:hover {
-        color: if($variant == 'light', darken($fg_color, 10%), lighten($fg_color, 10%));
-        background-color: rgba($borders_color, 0.2);
-      }
-
-      &.tab-close-button {
-        min-height: $small_size;
-        min-width: $small_size;
-        margin-top: 2px;
-        margin-bottom: 2px;
-      }
-    }
-  }
-}
-
 //
 // Gnome Weather
 //
@@ -3660,8 +3623,8 @@ MarlinViewWindow {
   padding-right: 4px;
 
   @include entry(header-normal);
-  &:focus { @include entry(header-focus) }
-  &:disabled { @include entry(header-insensitive) }
+  &:focus { @include entry(header-focus); }
+  &:disabled { @include entry(header-insensitive); }
 }
 
 window.background.csd {
@@ -3746,15 +3709,22 @@ window.background.csd {
 
 headerbar.titlebar {
   > box.horizontal > entry.pathbar {
-    min-height: 20px;
-    padding: 2px 16px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    min-height: 16px;
+    padding: 3px 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    @extend %Linked_entries;
+    background-clip: padding-box;
+    border-color: $dark_borders_color;
+    @include entry(header-normal);
+    &:focus { @include entry(header-focus); box-shadow: inset 0 0 0 1px $entry_highlight; }
+    &:disabled { @include entry(header-insensitive); }
   }
 
   > button.flat.image-button.toggle {
     margin-top: 5px;
     margin-bottom: 5px;
+    -gtk-icon-style: symbolic;
 
     &:not(:checked):not(:active) {
       background-clip: if($variant=='light', padding-box, padding-box);
@@ -3770,10 +3740,10 @@ headerbar.titlebar {
     &:hover { @include button(header-hover); }
     &:active { @include button(header-active); }
     &:checked { @include button(header-checked); }
-    &:disabled { color: transparentize($header_fg, 0.4); }
-    &:backdrop { opacity: 0.7; background-image: none;}
+    &:disabled { @include button(header-insensitive); }
+    &:backdrop { opacity: 0.7; background-image: none; }
 
-    + button.flat.image-button.toggle { margin-right: if($variant=='light', -6px, -5px); }
+    + box.linked { margin-left: 6px; }
   }
 
   // Hide Code header format-bar
@@ -3794,6 +3764,197 @@ headerbar.titlebar {
       background-color: $header_bg_backdrop;
     }
   }
+}
+
+tabbar {
+  > revealer > box {
+    background-color: darken($header_bg, 10%);
+    box-shadow: inset 0 -1px $borders_color;
+    margin-top: -1px;
+  }
+
+  tabbox {
+    background: none;
+    box-shadow: none;
+    margin: 0;
+
+    > tab {
+      @extend %tabs_tab;
+      padding: 2px 10px;
+  
+      button {
+        @extend %flat_button;
+        border-radius: 3px;
+        border: none;
+        padding: 0;
+        min-height: $small_size;
+        min-width: $small_size;
+  
+        &:hover {
+          color: $fg_color;
+          background-color: rgba($borders_color, 0.1);
+        }
+  
+        &:active, &:active:hover {
+          color: if($variant =='light', darken($fg_color, 10%), lighten($fg_color, 10%));
+          background-color: rgba($borders_color, 0.2);
+        }
+  
+        &.tab-close-button {
+          min-height: 16px;
+          min-width: 16px;
+          margin-top: 2px;
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
+
+  .start-action, .end-action {
+    button {
+      @extend %flat_button;
+      margin: 3px;
+    }
+  }
+}
+
+window.unified > popover.background {
+  padding: 6px;
+
+  menuitem, .menuitem, label.h4 {
+    margin: 4px 6px;
+  }
+
+  checkbutton.text-button {
+    > check { margin-right: 6px; }
+  }
+}
+
+label.keycap {
+  min-height: 16px;
+  padding: 2px 6px;
+}
+
+checkbutton.color-button {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 0;
+  border-radius: $circular_radius;
+  border: 1px solid $borders_color;
+  background-clip: border-box;
+
+  > check {
+    margin: 0;
+    padding: 3px;
+    background: none;
+    border-radius: $circular_radius;
+    min-height: 16px;
+    min-width: 16px;
+
+    &, &:indeterminate, &:disabled {
+      -gtk-icon-source: none;
+    }
+
+    &:checked {
+      -gtk-icon-size: 16px;
+      -gtk-icon-source: -gtk-icontheme('object-select-symbolic');
+    }
+  }
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px $borders_color;
+  }
+
+  &.none {
+    background-color: transparent;
+
+    > check {
+      padding: 4px;
+      background-color: transparent;
+    }
+  }
+
+  &.blue {
+    background-color: $theme_color_blue;
+  }
+
+  &.mint {
+    background-color: mix($theme_color_green, $theme_color_blue, 50%);
+  }
+
+  &.green {
+    background-color: $theme_color_green;
+  }
+
+  &.yellow {
+    background-color: $theme_color_yellow;
+  }
+
+  &.orange {
+    background-color: $theme_color_orange;
+  }
+
+  &.red {
+    background-color: $theme_color_red;
+  }
+
+  &.purple {
+    background-color: $theme_color_purple;
+  }
+
+  &.pink {
+    background-color: $theme_color_pink;
+  }
+
+  &.brown {
+    background-color: $theme_color_brown;
+  }
+
+  &.slate {
+    background-color: $theme_color_grey;
+  }
+}
+
+dialog, message-dialog {
+  > grid > buttonbox.dialog-action-area {
+    padding: 6px;
+  }
+}
+
+.sidebar {
+  list > row {
+    levelbar > trough {
+      padding: 0;
+
+      > block {
+        border-radius: $bt_radius;
+        border: none;
+      }
+    }
+
+    button.image-button {
+      min-height: 24px;
+      min-width: 24px;
+      padding: 0;
+      border-radius: $circular_radius;
+    }
+  }
+}
+
+window.unified {
+  > deck paned {
+    > separator {
+      &.wide {
+        background-image: _solid($header_border), _solid($header_border);
+      }
+    }
+  }
+}
+
+list.boxed-list {
+  @extend %circular_list;
+
+  > row { @extend %circular_row; }
 }
 
 // Gala

@@ -96,6 +96,7 @@ $list_shadow: if($variant == 'light',
   &:hover, &:active, &:selected {
     &, & + row {
       border-image: none;
+      border-color: transparent;
     }
   }
 }
@@ -2520,7 +2521,7 @@ cursor-handle {
 
 %tabs_tab {
   color: $disabled_fg_color;
-  background-color: transparentize($base_color, 1);
+  background-color: transparent;
   border: 1px solid transparent;
   transition: all 150ms ease-out;
 
@@ -2657,8 +2658,7 @@ notebook {
       &.#{$_pos} {
         padding: 0;
 
-        tab {
-          padding: 2px 10px;
+        > tabs > tab {
           min-width: 20px;
           min-height: 20px;
           border-radius: 0;
@@ -2676,6 +2676,7 @@ notebook {
 
     // overflow arrows
     &.top, &.bottom {
+      > tabs > tab { padding: 4px 10px; }
       > tabs > arrow.up {
         -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
         &:last-child { margin-left: 2px; }
@@ -2688,6 +2689,7 @@ notebook {
     }
 
     &.left, &.right {
+      > tabs > tab { padding: 10px 4px; }
       > tabs > arrow.up {
         -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
         &:last-child { margin-top: 2px; }
@@ -2958,13 +2960,13 @@ switch {
 }
 
 checkbutton, radiobutton {
-    // this is for a nice focus on check and radios text
-    &.text-button {
-      padding: 2px 0;
-      outline-offset: 0;
-      &:hover { color: darken($fg_color, 15%); }
-      &:disabled { color: $disabled_fg_color; }
-    }
+  // this is for a nice focus on check and radios text
+  &.text-button {
+    padding: 2px 0;
+    outline-offset: 0;
+    &:hover { color: darken($fg_color, 15%); }
+    &:disabled { color: $disabled_fg_color; }
+  }
 
   label:not(:only-child) {
     &:first-child { margin-left: 4px; }
@@ -3811,6 +3813,10 @@ filechooserbutton:drop(active) {
   list {
     background-color: transparent;
 
+    > row {
+      padding: 4px 8px;
+    }
+
     > separator {
       min-height: 0;
       background: none;
@@ -3832,12 +3838,13 @@ stacksidebar {
   }
 
   row {
-    padding: 4px 4px;
+    padding: 4px;
 
     > label {
       padding-left: 6px;
       padding-right: 6px;
     }
+
     &.needs-attention > label {
       @extend %needs_attention;
       background-size: 6px 6px, 0 0;
