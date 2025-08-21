@@ -1,10 +1,10 @@
 #! /usr/bin/env bash
 
-. config.sh
-export SCALE_FACTORS=$( seq -s' ' 2 $MAX_SCALE_FACTOR )
-
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 SRC_DIR="${REPO_DIR}/src"
+
+. ${REPO_DIR}/config.sh
+export SCALE_FACTORS=$( seq -s' ' 2 $MAX_SCALE_FACTOR )
 
 ROOT_UID=0
 DEST_DIR=
