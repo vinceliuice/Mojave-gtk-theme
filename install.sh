@@ -74,6 +74,7 @@ usage() {
   printf "  %-25s%s\n" "-i, --icon VARIANTS" "Specify activities icon variant(s) for gnome-shell [standard|normal|gnome|ubuntu|arch|manjaro|fedora|debian|void|nixos] (Default: standard variant)"
   printf "  %-25s%s\n" "-g, --gdm" "Install GDM theme, this option need root user authority! please run this with sudo"
   printf "  %-25s%s\n" "-r, --revert" "revert GDM theme, this option need root user authority! please run this with sudo"
+  printf "  %-25s%s\n" "--no-gtk2" "Skip the GTK2 theme (it needs gtk-engine-murrine)"
   printf "  %-25s%s\n" "-h, --help" "Show this help"
 }
 
@@ -139,11 +140,13 @@ install() {
   mv -f assets/process-working.svg process-working.svg
   mv -f assets/no-notifications.svg no-notifications.svg
 
-  mkdir -p                                                                                   "${THEME_DIR}/gtk-2.0"
-  cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${color}${theme}"                                      "${THEME_DIR}/gtk-2.0/gtkrc"
-  cp -r "${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc"                                 "${THEME_DIR}/gtk-2.0/menubar-toolbar.rc"
-  cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                              "${THEME_DIR}/gtk-2.0"
-  cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}"                                           "${THEME_DIR}/gtk-2.0/assets"
+  if [[ "${no_gtk2}" != 'true' ]]; then
+    mkdir -p                                                                                   "${THEME_DIR}/gtk-2.0"
+    cp -r "${SRC_DIR}/main/gtk-2.0/gtkrc${color}${theme}"                                      "${THEME_DIR}/gtk-2.0/gtkrc"
+    cp -r "${SRC_DIR}/main/gtk-2.0/menubar-toolbar${color}.rc"                                 "${THEME_DIR}/gtk-2.0/menubar-toolbar.rc"
+    cp -r "${SRC_DIR}/main/gtk-2.0/common/"*'.rc'                                              "${THEME_DIR}/gtk-2.0"
+    cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}"                                           "${THEME_DIR}/gtk-2.0/assets"
+  fi
 
   if [[ ${theme} != '-default' ]]; then
     cp -r "${SRC_DIR}/assets/gtk-2.0/assets${color}${theme}/"*'.png'                         "${THEME_DIR}/gtk-2.0/assets"
@@ -370,6 +373,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     -l|--libadwaita)
       libadwaita='true'
+      shift 1
+      ;;
+    --no-gtk2)
+      no_gtk2='true'
       shift 1
       ;;
     -g|--gdm)
